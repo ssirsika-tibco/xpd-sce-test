@@ -231,6 +231,7 @@ public class ConfigureReplyActivitySection extends
         String selectRequestTooltip =
                 Messages.ConfigureReplyActivitySection_IncomingRequestActivityLabel_tooltip;
 
+
         boolean isReplyActivity = ReplyActivityUtil.isReplyActivity(act);
         if (isReplyActivity) {
             // 
@@ -353,6 +354,15 @@ public class ConfigureReplyActivitySection extends
 
         wasReplyActOnLastRefresh = isReplyActivity;
 
+        /*
+         * Sid ACE-2388 Reply activities are not currently supported, disable until they are (don't hide because we want
+         * to user to see what used to be reply activity in migrated processes.
+         */
+        replyToUpstreamBtn.setEnabled(false);
+        selectRequestActivityLabel.setForeground(ColorConstants.lightGray);
+        selectRequestActivity.getControl().setForeground(ColorConstants.lightGray);
+        selectRequestActivity.getControl().setEnabled(false);
+        gotoBtn.setEnabled(false);
         return;
     }
 
@@ -386,6 +396,7 @@ public class ConfigureReplyActivitySection extends
      * The value in the request activity selection contentn assist field has
      * changed
      */
+    @Override
     public void fixedValueFieldChanged(Object newValue) {
 
         if (getActivity() != null) {
@@ -422,10 +433,12 @@ public class ConfigureReplyActivitySection extends
         return null;
     }
 
+    @Override
     public String getLocalId() {
         return "analyst.noneSection"; //$NON-NLS-1$
     }
 
+    @Override
     public String getPluginId() {
         return Xpdl2ProcessEditorPlugin.ID;
     }
@@ -513,6 +526,7 @@ public class ConfigureReplyActivitySection extends
         return gotoBtn;
     }
 
+    @Override
     public boolean delegateShouldRefresh(List<Notification> notifications) {
         return shouldRefresh(notifications);
     }

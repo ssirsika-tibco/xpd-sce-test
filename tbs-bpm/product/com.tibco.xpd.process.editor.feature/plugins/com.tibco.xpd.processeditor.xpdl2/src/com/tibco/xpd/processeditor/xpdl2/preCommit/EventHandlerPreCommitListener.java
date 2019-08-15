@@ -22,6 +22,8 @@ import com.tibco.xpd.xpdExtension.EventHandlerFlowStrategy;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.CatchThrow;
+import com.tibco.xpd.xpdl2.Event;
+import com.tibco.xpd.xpdl2.StartEvent;
 import com.tibco.xpd.xpdl2.TriggerResultMessage;
 import com.tibco.xpd.xpdl2.TriggerResultSignal;
 import com.tibco.xpd.xpdl2.resources.AbstractActivityPreCommitContributor;
@@ -125,14 +127,13 @@ public class EventHandlerPreCommitListener extends
                      * Make sure message event handler activities have flow
                      * strategy attribute.
                      */
-                    addMissingFlowStrategy(activity, editingDomain, cmd);
+                    addMissingFlowStrategy(activity, editingDomain, cmd, notifications);
 
                 } else {
                     /*
                      * Make sure non message event handler activities have flow
                      * strategy attribute removed.
                      */
-
                     removeFlowStrategy(activity, editingDomain, cmd);
                 }
 
@@ -154,6 +155,62 @@ public class EventHandlerPreCommitListener extends
                         removeSignalHandlerAsynchronousFlag(activity,
                                 editingDomain,
                                 cmd);
+                    }
+                }
+
+                /*
+                 * Sid ACE-2388 Remove the correlateImmeditely flag if event activity is not an incoming request
+                 */
+                Event event = activity.getEvent();
+
+                if (event != null && Xpdl2ModelUtil.getOtherAttributeAsBoolean(event,
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelateImmediately())) {
+
+                    /*
+                     * CorrelateImmedaitely is only valid on Type None and Type message events
+                     */
+                    if (!EventTriggerType.EVENT_NONE_LITERAL.equals(EventObjectUtil.getEventTriggerType(activity))
+                            && !EventTriggerType.EVENT_MESSAGE_CATCH_LITERAL
+                                    .equals(EventObjectUtil.getEventTriggerType(activity))) {
+
+                            cmd.append(Xpdl2ModelUtil.getSetOtherAttributeCommand(editingDomain,
+                                    event,
+                                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelateImmediately(),
+                                    null));
+                    } 
+                    /*
+                     * If it's a type none or message, but it's a start event outside of event sub-process then it isn't
+                     * a correlating activity and shouldn't have the flag set either.
+                     */
+                    else if (event instanceof StartEvent
+                            && !EventObjectUtil.isEventSubProcessStartRequestEvent(activity)) {
+                        cmd.append(Xpdl2ModelUtil.getSetOtherAttributeCommand(editingDomain,
+                                event,
+                                XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelateImmediately(),
+                                null));
+                    }
+
+                } else if (event != null
+                        && EventTriggerType.EVENT_NONE_LITERAL.equals(EventObjectUtil.getEventTriggerType(activity))) {
+                    /*
+                     * If CorrelateImmediately not set but we just chanegd from a message event to type none, then move
+                     * the flag from the TriggerResultMEssage.
+                     */
+                    for (ENotificationImpl notification2 : notifications) {
+                        if (notification2.getEventType() == ENotificationImpl.SET && notification2.getNewValue() == null
+                                && notification2.getOldValue() instanceof TriggerResultMessage) {
+
+                            Object previousCorrelateImmediately =
+                                    Xpdl2ModelUtil.getOtherAttribute((TriggerResultMessage) notification2.getOldValue(),
+                                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelateImmediately());
+
+                            if (previousCorrelateImmediately != null) {
+                                cmd.append(Xpdl2ModelUtil.getSetOtherAttributeCommand(editingDomain,
+                                        event,
+                                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelateImmediately(),
+                                        previousCorrelateImmediately));
+                            }
+                        }
                     }
                 }
             }
@@ -214,9 +271,10 @@ public class EventHandlerPreCommitListener extends
      * @param activity
      * @param editingDomain
      * @param cmd
+     * @param notifications
      */
     private void addMissingFlowStrategy(Activity activity,
-            EditingDomain editingDomain, CompoundCommand cmd) {
+            EditingDomain editingDomain, CompoundCommand cmd, Collection<ENotificationImpl> notifications) {
 
         if (activity.getEvent() != null) {
 
@@ -258,10 +316,29 @@ public class EventHandlerPreCommitListener extends
                  * If the flow strategy isn't there yet, then add it.
                  */
                 if (flowStrategy == null) {
+                    /*
+                     * Sid ACE-2388 check to see if there was a change from Message event, if so pull the properties off
+                     * of the old TriggerResultMessage
+                     */
+                    Object previousFlowStrategy = null;
+
+                    for (ENotificationImpl notification : notifications) {
+                        if (notification.getEventType() == ENotificationImpl.SET && notification.getNewValue() == null
+                                && notification.getOldValue() instanceof TriggerResultMessage) {
+
+                            previousFlowStrategy =
+                                    Xpdl2ModelUtil.getOtherAttribute((TriggerResultMessage) notification.getOldValue(),
+                                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy());
+                            break;
+                        }
+
+                    }
+
                     cmd.append(Xpdl2ModelUtil.getSetOtherAttributeCommand(editingDomain,
                             activity.getEvent(),
                             XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy(),
-                            EventHandlerFlowStrategy.SERIALIZE_CONCURRENT));
+                            previousFlowStrategy != null ? previousFlowStrategy
+                                    : EventHandlerFlowStrategy.SERIALIZE_CONCURRENT));
                 }
 
             }
@@ -304,4 +381,6 @@ public class EventHandlerPreCommitListener extends
             }
         }
     }
+
+
 }

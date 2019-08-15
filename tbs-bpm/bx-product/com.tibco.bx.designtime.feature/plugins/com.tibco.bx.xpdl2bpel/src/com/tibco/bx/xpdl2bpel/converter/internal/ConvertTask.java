@@ -166,6 +166,14 @@ public class ConvertTask {
                 // See: XPDLUtils.getMessageTimeout(xpdlActivity);
                 BPELUtils.addExtensionAttribute(receive, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
                 ////
+                
+                // Sid ACE-2388 - Correlate immediate
+                boolean correlateImmediate = XPDLUtils.getCorrelateImmediately(taskReceive);
+                if (correlateImmediate) {
+                    BPELUtils.addExtensionAttribute(receive, N2PEConstants.CORRELATE_IMMEDIATE, "yes"); //$NON-NLS-1$
+                }
+
+                
                 sequence.getActivities().add(receive);
     
                 org.eclipse.bpel.model.Activity theMappingActivity =

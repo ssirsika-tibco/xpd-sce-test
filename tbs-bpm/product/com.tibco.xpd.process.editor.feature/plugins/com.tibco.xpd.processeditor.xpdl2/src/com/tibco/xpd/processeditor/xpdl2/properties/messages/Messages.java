@@ -260,6 +260,14 @@ public class Messages extends NLS {
 
     public static String EventTriggerTypeCompensationSection_label;
 
+    public static String EventTriggerTypeIntermediateRequestSection_CorrelateImmediately_checkbox;
+
+    public static String EventTriggerTypeIntermediateRequestSection_CorrelationGroup_label;
+
+    public static String EventTriggerTypeIntermediateRequestSection_SetCorrelateImmediatley_menu;
+
+    public static String EventTriggerTypeIntermediateRequestSection_UnsetCorrelateImmediatley_menu;
+
     public static String SetCompensationEventName_label;
 
     public static String EventTriggerTypeThrowErrorSection_EnterFaultName_label;

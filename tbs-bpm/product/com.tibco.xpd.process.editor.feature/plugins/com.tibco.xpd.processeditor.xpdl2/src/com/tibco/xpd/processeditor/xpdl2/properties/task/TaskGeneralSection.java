@@ -246,7 +246,7 @@ public class TaskGeneralSection extends SashDividedNamedElementSection {
 
         tt =
                 new TaskTypeSection(TaskType.RECEIVE_LITERAL,
-                        new EmptyTaskTypeSection());
+                        new ConfigureTaskReceiveSection());
         ttLeftSideSections.add(tt);
 
         tt =

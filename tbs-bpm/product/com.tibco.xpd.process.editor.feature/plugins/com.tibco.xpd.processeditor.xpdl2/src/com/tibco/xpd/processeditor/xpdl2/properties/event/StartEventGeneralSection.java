@@ -62,6 +62,12 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  */
 
 public class StartEventGeneralSection extends BaseEventGeneralSection {
+    /**
+     * Sid ACE-2388 Check box for "Correlate Immediately", available on correlating activities.
+     */
+    private Group correlationGroup;
+
+    protected Button correlateImmediately;
 
     /**
      * Group to contain the event sub process start event specific controls.
@@ -240,16 +246,30 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
         additionalControlsRoot.setLayout(layout);
 
         /*
-         * 1. Group to contain event subprocess start event interruption
-         * controls.
+         * Sid ACE-2388 Add correlate immediately controls
+         */
+        correlationGroup = toolkit.createGroup(additionalControlsRoot,
+                Messages.EventTriggerTypeIntermediateRequestSection_CorrelationGroup_label);
+        GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
+        gridData.horizontalSpan = 2;
+
+        correlationGroup.setLayoutData(gridData);
+        correlationGroup.setLayout(new GridLayout(1, false));
+
+        correlateImmediately = toolkit.createButton(correlationGroup,
+                Messages.EventTriggerTypeIntermediateRequestSection_CorrelateImmediately_checkbox,
+                SWT.CHECK);
+        correlateImmediately.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+        manageControl(correlateImmediately);
+
+        /*
+         * 1. Group to contain event subprocess start event interruption controls.
          */
         eventSubProcStartEventGroup =
-                new Group(additionalControlsRoot, SWT.SHADOW_ETCHED_IN);
-        eventSubProcStartEventGroup
-                .setText(Messages.StartEventSection_EventSubProcessGroupText);
+                toolkit.createGroup(additionalControlsRoot, Messages.StartEventSection_EventSubProcessGroupText);
         eventSubProcStartEventGroup.setBackground(additionalControlsRoot
                 .getBackground());
-        GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
+        gridData = new GridData(GridData.FILL_HORIZONTAL);
 
         eventSubProcStartEventGroup.setLayoutData(gridData);
         GridLayout gLayout = new GridLayout(1, false);
@@ -389,6 +409,20 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
 
                     }
 
+                } else if (obj == correlateImmediately) {
+                    /*
+                     * Sid ACE-2388 handle correlate immediately setting.
+                     */
+                    boolean isCorrelateImmediately = correlateImmediately.getSelection();
+                    cmd = new CompoundCommand(isCorrelateImmediately
+                            ? Messages.EventTriggerTypeIntermediateRequestSection_SetCorrelateImmediatley_menu
+                            : Messages.EventTriggerTypeIntermediateRequestSection_UnsetCorrelateImmediatley_menu);
+
+                    cmd.append(Xpdl2ModelUtil.getSetOtherAttributeCommand(ed,
+                            startEventAct.getEvent(),
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelateImmediately(),
+                            isCorrelateImmediately));
+
                 }
 
                 Object triggerNode =
@@ -469,6 +503,24 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
                 hideAdditionalControlsSection(true);
 
             } else {
+                /*
+                 * Sid ACE-2388 handle correlate immediately setting.
+                 */
+                if (EventTriggerType.EVENT_NONE_LITERAL.equals(EventObjectUtil.getEventTriggerType(activity))) {
+                    boolean isCorrelateImmediately = Xpdl2ModelUtil.getOtherAttributeAsBoolean(activity.getEvent(),
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelateImmediately());
+
+                    correlateImmediately.setSelection(isCorrelateImmediately);
+
+                    if (!correlationGroup.getVisible()) {
+                        hideUIComposite(correlationGroup, false, GridData.FILL_HORIZONTAL);
+                    }
+
+                } else {
+                    if (correlationGroup.getVisible()) {
+                        hideUIComposite(correlationGroup, true, GridData.FILL_HORIZONTAL);
+                    }
+                }
 
                 /*
                  * XPD-7075 : Event sub process event handler controls are now

@@ -337,6 +337,19 @@ public class ConvertPick {
         // See: XPDLUtils.getMessageTimeout(xpdlActivity);
         BPELUtils.addExtensionAttribute(onMessage, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
        
+        // Sid ACE-2388 Correlate immediate
+        boolean correlateImmediate;
+        if (task.getXpdlActivity().getEvent()==null) {
+            //receive task
+            correlateImmediate = XPDLUtils.getCorrelateImmediately(((Task) task.getXpdlActivity().getImplementation()).getTaskReceive());
+        } else {
+            //receive event
+            correlateImmediate = XPDLUtils.getCorrelateImmediately(task.getXpdlActivity().getEvent());
+        }
+        if(correlateImmediate) {
+            BPELUtils.addExtensionAttribute(onMessage, N2PEConstants.CORRELATE_IMMEDIATE, "yes");
+        }
+        
         org.eclipse.bpel.model.Activity assign =  org.eclipse.bpel.model.BPELFactory.eINSTANCE.createAssign();
         assign.setName(context.genUniqueActivityName("assign")); //$NON-NLS-1$
 

@@ -45,23 +45,47 @@ public class EventTriggerTypeIntermediateRequestSection extends AbstractFiltered
 
     private Group eventHandlerGroup;
 
+    /**
+     * Sid ACE-2388 Check box for "Correlate Immediately", available on correlating activities.
+     */
+    private Group correlationGroup;
+
+    protected Button correlateImmediately;
+
     public EventTriggerTypeIntermediateRequestSection() {
         super(Xpdl2Package.eINSTANCE.getActivity());
     }
 
     @Override
     protected Composite doCreateControls(Composite parent, XpdFormToolkit toolkit) {
-
-        GridData gData;
         Composite root = toolkit.createComposite(parent);
-
         GridLayout gl = new GridLayout(2, false);
         root.setLayout(gl);
 
-        eventHandlerGroup = new Group(root, SWT.SHADOW_ETCHED_IN);
-        eventHandlerGroup.setText(Messages.EventTriggerTypeMessageSection_EventHandlerDetailGroupHeader_label);
-        eventHandlerGroup.setBackground(root.getBackground());
+        /*
+         * Sid ACE-2388 Add correlate immediately controls
+         */
+        correlationGroup =
+                toolkit.createGroup(root, Messages.EventTriggerTypeIntermediateRequestSection_CorrelationGroup_label);
         GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
+        gridData.horizontalSpan = 2;
+
+        correlationGroup.setLayoutData(gridData);
+        correlationGroup.setLayout(new GridLayout(1, false));
+
+        correlateImmediately = toolkit.createButton(correlationGroup,
+                Messages.EventTriggerTypeIntermediateRequestSection_CorrelateImmediately_checkbox,
+                SWT.CHECK);
+        correlateImmediately.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+        manageControl(correlateImmediately);
+
+        /*
+         * Create the grup for event handlers and sub-processes
+         */
+        eventHandlerGroup =
+                toolkit.createGroup(root, Messages.EventTriggerTypeMessageSection_EventHandlerDetailGroupHeader_label);
+        eventHandlerGroup.setBackground(root.getBackground());
+        gridData = new GridData(GridData.FILL_HORIZONTAL);
         gridData.horizontalSpan = 2;
         eventHandlerGroup.setLayoutData(gridData);
         GridLayout gLayout = new GridLayout(1, false);
@@ -127,8 +151,9 @@ public class EventTriggerTypeIntermediateRequestSection extends AbstractFiltered
                 SWT.RADIO);
         allowConcurrentFlows.setToolTipText(Messages.EventTriggerTypeMessageSection_AllowConcurrent_tooltip);
         allowConcurrentFlows.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-
         manageControl(allowConcurrentFlows);
+
+
     }
 
     /*
@@ -164,6 +189,21 @@ public class EventTriggerTypeIntermediateRequestSection extends AbstractFiltered
                         intermediateEvent,
                         XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy(),
                         EventHandlerFlowStrategy.ALLOW_CONCURRENT));
+
+            } else if (obj == correlateImmediately) {
+                /*
+                 * Sid ACE-2388 handle correlate immediately setting.
+                 */
+                boolean isCorrelateImmediately = correlateImmediately.getSelection();
+                cmd = new CompoundCommand(isCorrelateImmediately
+                        ? Messages.EventTriggerTypeIntermediateRequestSection_SetCorrelateImmediatley_menu
+                        : Messages.EventTriggerTypeIntermediateRequestSection_UnsetCorrelateImmediatley_menu);
+
+                cmd.append(Xpdl2ModelUtil.getSetOtherAttributeCommand(ed,
+                        intermediateEvent,
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelateImmediately(),
+                        isCorrelateImmediately));
+
             }
         }
         return cmd;
@@ -187,7 +227,17 @@ public class EventTriggerTypeIntermediateRequestSection extends AbstractFiltered
         Activity activity = getActivity();
 
         if (activity != null && activity.getEvent() instanceof IntermediateEvent) {
+            /*
+             * Sid ACE-2388 handle correlate immediately setting.
+             */
+            boolean isCorrelateImmediately = Xpdl2ModelUtil.getOtherAttributeAsBoolean(activity.getEvent(),
+                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelateImmediately());
 
+            correlateImmediately.setSelection(isCorrelateImmediately);
+
+            /*
+             * Handle event handler options
+             */
             boolean showEventHandlerOptions = Xpdl2ModelUtil.isEventHandlerActivity(activity)
                     && !Xpdl2ModelUtil.isPageflowOrSubType(activity.getProcess());
 

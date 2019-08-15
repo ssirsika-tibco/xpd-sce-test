@@ -219,7 +219,7 @@ public class ConvertBoundaryEvents {
 	private static Scope wrapInScope(ConverterContext context, Activity activity,
 			com.tibco.xpd.xpdl2.Activity xpdlActivity) {
 		// BX-2538: create a scope to wrap the assign
-		String scopeName = context.generateActivityName("scope", xpdlActivity.getId(), xpdlActivity.getId());
+		String scopeName = context.generateActivityName("scope", xpdlActivity.getId(), xpdlActivity.getId()); //$NON-NLS-1$
 		Scope scopeBody = BPELUtils.wrapInScope(activity, scopeName);
 		return scopeBody;
 	}
@@ -248,7 +248,7 @@ public class ConvertBoundaryEvents {
 			if (boundaryHost.isMigrationAllowed()) {
 				// move migrationAllowed attribute to outside of loop
 				BPELUtils.addExtensionAttribute(host, N2PEConstants.MIGRATION_ALLOWED_TAG, null);
-				BPELUtils.addExtensionAttribute(scope, N2PEConstants.MIGRATION_ALLOWED_TAG, "yes");
+				BPELUtils.addExtensionAttribute(scope, N2PEConstants.MIGRATION_ALLOWED_TAG, "yes"); //$NON-NLS-1$
 			}
 			if (boundaryHost.isUncontrolledMerge()) {
 				// move unconrolledMerge attribute up to scope
@@ -302,7 +302,7 @@ public class ConvertBoundaryEvents {
 			// create link from host to empty
 			Condition condition = BPELFactory.eINSTANCE.createCondition();
 			condition.setExpressionLanguage(N2PEConstants.JSCRIPT_LANGUAGE);
-			condition.setBody(fanVar.getName() + "=0; true");
+			condition.setBody(fanVar.getName() + "=0; true"); //$NON-NLS-1$
 			ConvertControlFlow.createLink(context, host, empty, condition, bpelFlow);
 
 			// reposition in links of host to scope
@@ -714,13 +714,13 @@ public class ConvertBoundaryEvents {
 
 		Long seconds = XPDLUtils.getMessageTimeout(xpdlActivity);
 		if (seconds > 0) {
-			BPELUtils.addExtensionAttribute(onEvent, "messageTimeout", seconds.toString());
+			BPELUtils.addExtensionAttribute(onEvent, "messageTimeout", seconds.toString()); //$NON-NLS-1$
 		}
 
 		// Correlate immediate
 		boolean correlateImmediate = XPDLUtils.getCorrelateImmediately(triggerResultMessage);
 		if (correlateImmediate) {
-			BPELUtils.addExtensionAttribute(onEvent, N2PEConstants.CORRELATE_IMMEDIATE, "yes");
+			BPELUtils.addExtensionAttribute(onEvent, N2PEConstants.CORRELATE_IMMEDIATE, "yes"); //$NON-NLS-1$
 		}
 
 		ConvertCorrelations.convert(context, xpdlActivity, onEvent, wsoInfo, message);
@@ -765,11 +765,11 @@ public class ConvertBoundaryEvents {
 
 						if (extElement != null) {
 							if (extElement.getAttributeNode(
-									BPELUtils.EXTENSION_PREFIX + ":" + N2PEConstants.TYPE_TAG) != null) {
+									BPELUtils.EXTENSION_PREFIX + ":" + N2PEConstants.TYPE_TAG) != null) { //$NON-NLS-1$
 								continue;
 							}
 							if (extElement.getAttributeNode(
-									BPELUtils.EXTENSION_PREFIX + ":" + N2PEConstants.XPDL_ID_TAG) != null) {
+									BPELUtils.EXTENSION_PREFIX + ":" + N2PEConstants.XPDL_ID_TAG) != null) { //$NON-NLS-1$
 								continue;
 							}
 						}
@@ -779,7 +779,7 @@ public class ConvertBoundaryEvents {
 				}
 			} else {
 				throw new RuntimeException(String.format(
-						"Error Converting Boundary Event '%s.%s'.\nConversion of data mappings did not produce an <assign> activity.",
+						"Error Converting Boundary Event '%s.%s'.\nConversion of data mappings did not produce an <assign> activity.", //$NON-NLS-1$
 						xpdlActivity.getProcess().getName(), xpdlActivity.getName()));
 			}
 
@@ -845,6 +845,13 @@ public class ConvertBoundaryEvents {
 	    
 	    Scope scope4OnEvent = wrapInScope(context, theMappingActivity, xpdlActivity);
 	    onEvent.setActivity(scope4OnEvent);
+	    
+	    // Sid ACE-2388 - Correlate immediate
+        boolean correlateImmediate = XPDLUtils.getCorrelateImmediately(xpdlActivity.getEvent());
+        if (correlateImmediate) {
+            BPELUtils.addExtensionAttribute(onEvent, N2PEConstants.CORRELATE_IMMEDIATE, "yes"); //$NON-NLS-1$
+        }
+
 	}
 
 	public static Variable makeFanVariable(ConverterContext context, boolean setInitValue) {
