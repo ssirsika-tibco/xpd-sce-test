@@ -1114,14 +1114,14 @@ data.DateTimeField;&#xD;
                 <xpdExt:DataMappings>
                   <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BooleanField">
                     <xpdExt:ScriptInformation Id="_CtgyIIeyEemmHL5LWHEcVw" Name="Script1" Direction="OUT">
-                      <xpdExt:Expression ScriptGrammar="JavaScript">return BooleanParameter;&#xD;
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return parameters.BooleanParameter;&#xD;
 </xpdExt:Expression>
                     </xpdExt:ScriptInformation>
                     <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
                   </xpdExt:DataMapping>
                   <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextField">
                     <xpdExt:ScriptInformation Id="_FShskIeyEemmHL5LWHEcVw" Name="Script2" Direction="OUT">
-                      <xpdExt:Expression ScriptGrammar="JavaScript">return TextParameter.concat(&quot; &quot;, &quot;Hey back!&quot;);</xpdExt:Expression>
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return parameters.TextParameter.concat(&quot; &quot;, &quot;Hey back!&quot;);</xpdExt:Expression>
                     </xpdExt:ScriptInformation>
                     <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
                   </xpdExt:DataMapping>

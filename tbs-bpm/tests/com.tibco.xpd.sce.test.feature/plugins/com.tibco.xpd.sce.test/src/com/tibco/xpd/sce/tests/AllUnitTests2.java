@@ -8,6 +8,7 @@ import com.tibco.xpd.ant.tasks.GenerateRascTaskTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelDataFieldDescriptorTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelGlobalSignalsTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelIncomingRequestActivityTest;
+import com.tibco.xpd.sce.tests.bpel.transform.BpelLocalSignalsTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelSharedResourceTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelSubProcessConversionTest;
 import com.tibco.xpd.sce.tests.brm.transform.BRMGenUC2FTest;
@@ -15,16 +16,7 @@ import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
 import com.tibco.xpd.sce.tests.importmigration.ScriptMigrationTests;
-import com.tibco.xpd.sce.tests.javascript.AceGlobalSignalMappingGenerationTest;
-import com.tibco.xpd.sce.tests.legacy.datamapper.AllLegacyDataMapperTests;
 import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
-import com.tibco.xpd.sce.tests.validation.AceDuplicatePackageNameTest;
-import com.tibco.xpd.sce.tests.validation.AceGlobalSignalDataMapperTest;
-import com.tibco.xpd.sce.tests.validation.AceIncomingRequestActivityTest;
-import com.tibco.xpd.sce.tests.validation.AceLocalSignalDataMapperNegativeTest;
-import com.tibco.xpd.sce.tests.validation.AceLocalSignalDataMapperTest;
-import com.tibco.xpd.sce.tests.validation.AcePropertyLimitValidationTest;
-import com.tibco.xpd.sce.tests.validation.SearchSummaryValidationTest;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -51,11 +43,10 @@ public class AllUnitTests2 {
         /*
          * BPEL transformation tests
          */
-        suite.addTest(AllLegacyDataMapperTests.suite());
         suite.addTestSuite(BpelSharedResourceTest.class);
         suite.addTestSuite(BpelDataFieldDescriptorTest.class);
-        suite.addTestSuite(AceGlobalSignalMappingGenerationTest.class);
         suite.addTestSuite(BpelGlobalSignalsTest.class);
+        suite.addTestSuite(BpelLocalSignalsTest.class);
         suite.addTestSuite(BpelSubProcessConversionTest.class);
         suite.addTestSuite(BpelIncomingRequestActivityTest.class);
 
@@ -70,16 +61,6 @@ public class AllUnitTests2 {
          */
         suite.addTestSuite(WorkListFacadeGenTest.class);
 
-        /*
-         * Validation Rule Tests
-         */
-        suite.addTestSuite(AceDuplicatePackageNameTest.class);
-        suite.addTestSuite(AceGlobalSignalDataMapperTest.class);
-        suite.addTestSuite(AceIncomingRequestActivityTest.class);
-        suite.addTestSuite(AceLocalSignalDataMapperTest.class);
-        suite.addTestSuite(AceLocalSignalDataMapperNegativeTest.class);
-        suite.addTestSuite(AcePropertyLimitValidationTest.class);
-        suite.addTestSuite(SearchSummaryValidationTest.class);
 
         return suite;
     }
