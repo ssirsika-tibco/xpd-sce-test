@@ -22,6 +22,7 @@ import junit.framework.TestCase;
  * <li>All process data must be wrapped in 'bpm' object.</li> TBD ... ...
  *
  * @author aallway
+ * @author pwatson
  * @since 12 Jul 2019
  */
 @SuppressWarnings("nls")
