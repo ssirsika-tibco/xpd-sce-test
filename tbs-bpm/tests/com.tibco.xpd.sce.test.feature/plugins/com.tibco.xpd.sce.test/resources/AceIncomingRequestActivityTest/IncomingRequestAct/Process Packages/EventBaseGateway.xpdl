@@ -89,7 +89,7 @@
         </xpdl2:Activity>
         <xpdl2:Activity Id="_OJp1MbNrEemyOeCi73RnLA" Name="IntermediateEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Intermediate Event">
           <xpdl2:Event>
-            <xpdl2:IntermediateEvent Trigger="None"/>
+            <xpdl2:IntermediateEvent xpdExt:CorrelateImmediately="true" Trigger="None"/>
           </xpdl2:Event>
           <xpdl2:Performers/>
           <xpdl2:NodeGraphicsInfos>
@@ -102,7 +102,7 @@
         <xpdl2:Activity Id="_ThL6krNrEemyOeCi73RnLA" Name="ReceiveTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Receive Task">
           <xpdl2:Implementation>
             <xpdl2:Task>
-              <xpdl2:TaskReceive xpdExt:ImplementationType="Unspecified" Implementation="Unspecified" Instantiate="false">
+              <xpdl2:TaskReceive xpdExt:ImplementationType="Unspecified" xpdExt:CorrelateImmediately="true" Implementation="Unspecified" Instantiate="false">
                 <xpdl2:Message Id="_UPt0gLNrEemyOeCi73RnLA"/>
               </xpdl2:TaskReceive>
             </xpdl2:Task>

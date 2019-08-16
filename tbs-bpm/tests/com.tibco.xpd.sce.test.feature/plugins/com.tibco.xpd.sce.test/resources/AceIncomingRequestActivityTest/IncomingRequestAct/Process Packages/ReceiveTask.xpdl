@@ -64,7 +64,7 @@
         <xpdl2:Activity Id="_Dg_IsK1dEemheL-rDtMNiw" Name="ReceiveTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Receive Task" xpdExt:ActivityDeadlineEventId="_nV1eILLZEem57eOcN39uRA">
           <xpdl2:Implementation>
             <xpdl2:Task>
-              <xpdl2:TaskReceive Implementation="Unspecified" Instantiate="false">
+              <xpdl2:TaskReceive xpdExt:CorrelateImmediately="true" Implementation="Unspecified" Instantiate="false">
                 <xpdl2:Message Id="_EWbi8K1dEemheL-rDtMNiw"/>
               </xpdl2:TaskReceive>
             </xpdl2:Task>

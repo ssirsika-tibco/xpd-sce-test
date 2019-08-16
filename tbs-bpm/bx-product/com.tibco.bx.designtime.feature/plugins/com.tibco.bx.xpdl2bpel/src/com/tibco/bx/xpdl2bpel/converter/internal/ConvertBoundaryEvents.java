@@ -835,6 +835,12 @@ public class ConvertBoundaryEvents {
         // See: XPDLUtils.getMessageTimeout(xpdlActivity);
         BPELUtils.addExtensionAttribute(onEvent, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
 	    
+        // Sid ACE-2388 - Correlate immediate
+        boolean correlateImmediate = XPDLUtils.getCorrelateImmediately(xpdlActivity.getEvent());
+        if (correlateImmediate) {
+            BPELUtils.addExtensionAttribute(onEvent, N2PEConstants.CORRELATE_IMMEDIATE, "yes"); //$NON-NLS-1$
+        }
+
 	    BPELUtils.addExtensionAttribute(onEvent, CANCEL_EXTENSION, "yes"); //$NON-NLS-1$
 	    context.syncXpdlId(onEvent, xpdlActivity);
 	    
@@ -846,11 +852,6 @@ public class ConvertBoundaryEvents {
 	    Scope scope4OnEvent = wrapInScope(context, theMappingActivity, xpdlActivity);
 	    onEvent.setActivity(scope4OnEvent);
 	    
-	    // Sid ACE-2388 - Correlate immediate
-        boolean correlateImmediate = XPDLUtils.getCorrelateImmediately(xpdlActivity.getEvent());
-        if (correlateImmediate) {
-            BPELUtils.addExtensionAttribute(onEvent, N2PEConstants.CORRELATE_IMMEDIATE, "yes"); //$NON-NLS-1$
-        }
 
 	}
 

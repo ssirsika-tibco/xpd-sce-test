@@ -346,6 +346,7 @@ public class ConvertPick {
             //receive event
             correlateImmediate = XPDLUtils.getCorrelateImmediately(task.getXpdlActivity().getEvent());
         }
+        
         if(correlateImmediate) {
             BPELUtils.addExtensionAttribute(onMessage, N2PEConstants.CORRELATE_IMMEDIATE, "yes");
         }

@@ -204,6 +204,12 @@ public class ConvertEventHandlers {
         // SCE: Default message correlation timeout is no longer configurable by the user.
         // See: XPDLUtils.getMessageTimeout(xpdlActivity);
         BPELUtils.addExtensionAttribute(onEvent, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
+        
+        // Sid ACE-2388 - Correlate immediate
+        boolean correlateImmediate = XPDLUtils.getCorrelateImmediately(xpdlActivity.getEvent());
+        if (correlateImmediate) {
+            BPELUtils.addExtensionAttribute(onEvent, N2PEConstants.CORRELATE_IMMEDIATE, "yes"); //$NON-NLS-1$
+        }
 
         context.syncXpdlId(onEvent, xpdlActivity);
         
@@ -287,12 +293,6 @@ public class ConvertEventHandlers {
              BPELUtils.addExtensionAttribute(onEvent, N2PEConstants.EVENTHANDLER_BLOCK_UNTIL_COMPLETED, "yes"); //$NON-NLS-1$
          }
 
-         
-         // Sid ACE-2388 - Correlate immediate
-         boolean correlateImmediate = XPDLUtils.getCorrelateImmediately(xpdlActivity.getEvent());
-         if (correlateImmediate) {
-             BPELUtils.addExtensionAttribute(onEvent, N2PEConstants.CORRELATE_IMMEDIATE, "yes"); //$NON-NLS-1$
-         }
 
         return onEvent;
     }

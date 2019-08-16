@@ -387,6 +387,12 @@ public class ConvertEvent {
         // See: XPDLUtils.getMessageTimeout(xpdlActivity);
         BPELUtils.addExtensionAttribute(receive, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
 
+        // Sid ACE-2388 - Correlate immediate
+        boolean correlateImmediate = XPDLUtils.getCorrelateImmediately(xpdlActivity.getEvent());
+        if (correlateImmediate) {
+            BPELUtils.addExtensionAttribute(receive, N2PEConstants.CORRELATE_IMMEDIATE, "yes"); //$NON-NLS-1$
+        }
+
         sequence.getActivities().add(receive);
 
         //SCE: The mapping assign activity is not requited at the moment but we keep it to preserve the structure. 

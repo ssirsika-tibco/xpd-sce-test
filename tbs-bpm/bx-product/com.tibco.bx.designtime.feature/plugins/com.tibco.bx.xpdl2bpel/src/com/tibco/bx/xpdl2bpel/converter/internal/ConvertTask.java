@@ -172,7 +172,6 @@ public class ConvertTask {
                 if (correlateImmediate) {
                     BPELUtils.addExtensionAttribute(receive, N2PEConstants.CORRELATE_IMMEDIATE, "yes"); //$NON-NLS-1$
                 }
-
                 
                 sequence.getActivities().add(receive);
     

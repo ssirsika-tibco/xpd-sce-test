@@ -107,6 +107,9 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
             // check if timeout is set
             assertAttrNsValue(onMessage.get(), TIBEX_NS, "messageTimeout", "3600");
 
+            // ACE-2388 check if correlateImmediate is set
+            assertAttrNsValue(onMessage.get(), TIBEX_NS, "correlateImmediate", "yes");
+
             // check onMessage has the assign for specific xpdl gateway element
             Optional<Node> assign = findFirstElement(onMessage.get().getChildNodes(),
                     node -> hasAttrNsValue(node, TIBEX_NS, "xpdlId", "_OJp1MbNrEemyOeCi73RnLA"));
@@ -125,6 +128,9 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
 
             // check if timeout is set
             assertAttrNsValue(onMessage.get(), TIBEX_NS, "messageTimeout", "3600");
+
+            // ACE-2388 check if correlateImmediate is set
+            assertAttrNsValue(onMessage.get(), TIBEX_NS, "correlateImmediate", "yes");
 
             // check onMessage has the assign for specific xpdl gateway element
             Optional<Node> assign = findFirstElement(onMessage.get().getChildNodes(),
@@ -147,6 +153,9 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         assertAttrNsValue(onEventElem, TIBEX_NS, "messageTimeout", "3600");
         assertAttrNsValue(onEventElem, TIBEX_NS, "blockUntilCompleted", "yes");
         assertAttrNsValue(onEventElem, TIBEX_NS, "xpdlId", "_fB8G0K1eEemheL-rDtMNiw");
+
+        // ACE-2388 check if correlateImmediate is set
+        assertAttrNsValue(onEventElem, TIBEX_NS, "correlateImmediate", "yes");
 
         // Check onEvent has a scope and a the flow in it.
         Optional<Node> flow = findChildElement(onEventElem, "bpws:scope/bpws:flow");
@@ -173,6 +182,8 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         assertAttrNsValue(onEventElem, TIBEX_NS, "messageTimeout", "3600");
         assertAttrNsValue(onEventElem, TIBEX_NS, "blockUntilCompleted", "yes");
         assertAttrNsValue(onEventElem, TIBEX_NS, "xpdlId", "_T9JOkK1cEemheL-rDtMNiw");
+        // ACE-2388 check if correlateImmediate is set
+        assertAttrNsValue(onEventElem, TIBEX_NS, "correlateImmediate", "yes");
 
         // Check onEvent has a scope and a the flow in it.
         Optional<Node> scope =
@@ -218,6 +229,8 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         assertTrue("Receive is missing.", receive.isPresent());
         assertAttrNsValue(receive.get(), TIBEX_NS, "messageTimeout", "3600");
         assertAttrValue(receive.get(), "createInstance", "no");
+        // ACE-2388 check if correlateImmediate is set
+        assertAttrNsValue(receive.get(), TIBEX_NS, "correlateImmediate", "yes");
 
         Optional<Node> assign = findChildElement(scopeElem, "bpws:sequence/bpws:assign");
         assertTrue("Element assign is missing.", assign.isPresent());
@@ -257,6 +270,8 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         assertTrue("Missing bpws:receive", receive.isPresent());
         assertAttrNsValue(receive.get(), TIBEX_NS, "messageTimeout", "3600");
         assertAttrValue(receive.get(), "createInstance", "no");
+        // ACE-2388 check if correlateImmediate is set
+        assertAttrNsValue(receive.get(), TIBEX_NS, "correlateImmediate", "yes");
 
     }
 
@@ -280,6 +295,8 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         assertAttrNsValue(onEvent.get(), TIBEX_NS, "cancel", "yes");
         assertAttrNsValue(onEvent.get(), TIBEX_NS, "xpdlId", "_MO0-UK4oEemYb8w_p5NPDw");
         assertAttrNsValue(onEvent.get(), TIBEX_NS, "messageTimeout", "3600");
+        // ACE-2388 check if correlateImmediate is set
+        assertAttrNsValue(onEvent.get(), TIBEX_NS, "correlateImmediate", "yes");
 
         Optional<Node> assign = findChildElement(onEvent.get(), "bpws:scope/bpws:assign");
         assertTrue("Missing bpws:assign", assign.isPresent());
