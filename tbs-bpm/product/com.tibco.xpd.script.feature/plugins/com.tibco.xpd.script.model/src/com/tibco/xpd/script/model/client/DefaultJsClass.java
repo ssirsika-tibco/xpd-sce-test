@@ -20,6 +20,7 @@ import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
+import com.tibco.xpd.script.model.Activator;
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.internal.client.IContentAssistIconProvider;
 import com.tibco.xpd.script.model.jscript.JScriptUtils;
@@ -31,6 +32,18 @@ import com.tibco.xpd.script.model.jscript.JScriptUtils;
  */
 public class DefaultJsClass extends DefaultMultipleJsClassResolver implements
         JsClass, Cloneable {
+
+    /**
+     * Sid ACE-2419 - suffix dynamically created class names with this to have the content assist icon set to the BOM
+     * package icon.
+     */
+    public static final String BOM_PKG_SUFFIX = "_$$package$$"; //$NON-NLS-1$
+
+    /**
+     * Sid ACE-2419 - suffix dynamically created class names with this to have the content assist icon set to the BOM
+     * enumeration icon.
+     */
+    public static final String BOM_ENUM_SUFFIX = "_$$enumeration$$"; //$NON-NLS-1$
 
     private Class umlClass;
 
@@ -421,7 +434,27 @@ public class DefaultJsClass extends DefaultMultipleJsClassResolver implements
     protected JsReference createJsReference(Property property) {
         DefaultJsReference jsReference =
                 new DefaultJsReference(property, multipleClass);
-        jsReference.setIcon(WorkingCopyUtil.getImage(property));
+
+        /*
+         * Sid ACE-2419 Look for specially created properties that represent packages / enumerations etc.
+         */
+        if (property.getType() instanceof Class && property.getType().getName() != null
+                && property.getType().getName().endsWith(BOM_PKG_SUFFIX)) {
+            /* Any dynamcially created class ending in _$$package gets the package icon */
+            jsReference.setIcon(Activator.getDefault().getImageRegistry().get(JsConsts.CDS_BOM_PACKAGE_ICON));
+
+        } else if (property.getType() instanceof Class && property.getType().getName() != null
+                && property.getType().getName().endsWith(BOM_ENUM_SUFFIX)) {
+            jsReference.setIcon(Activator.getDefault().getImageRegistry().get(JsConsts.CDS_BOM_ENUMERATION_ICON));
+
+        } else if (property.eContainer() instanceof Class && ((Class) property.eContainer()).getName() != null
+                && ((Class) property.eContainer()).getName().endsWith(BOM_ENUM_SUFFIX)) {
+            jsReference.setIcon(Activator.getDefault().getImageRegistry().get(JsConsts.CDS_BOM_ENUMERATION_LITERAL_ICON));
+
+        } else {
+            jsReference.setIcon(WorkingCopyUtil.getImage(property));
+        }
+
         jsReference.setContentAssistIconProvider(contentAssistIconProvider);
         return jsReference;
     }

@@ -57,14 +57,14 @@ public class AceCdsFactoriesWrapperFactory {
      * type name used for the dynamically generated UML class (as in
      * com_my_bom_enumerations).
      */
-    private static final String BOM_PKG_ENUM_CLASS_SUFFIX = "_enumerations"; //$NON-NLS-1$
+    private static final String BOM_PKG_ENUM_CLASS_SUFFIX = "_enumerations_" + DefaultJsClass.BOM_PKG_SUFFIX; //$NON-NLS-1$
 
     /**
      * The BOM package enumeration class suffix. This is the suffix to the type
      * name used for the dynamically generated UML class (as in
      * com_my_bom_Colours_enumerations).
      */
-    private static final String BOM_ENUM_CLASS_SUFFIX = "_enumeration"; //$NON-NLS-1$
+    private static final String BOM_ENUM_CLASS_SUFFIX = DefaultJsClass.BOM_ENUM_SUFFIX;
 
     /**
      * Keep a permanent resource set. As we load the primitive type definitions
@@ -249,7 +249,7 @@ public class AceCdsFactoriesWrapperFactory {
          * all classes in the BOM.
          */
         Class factoryClass = UMLFactory.eINSTANCE.createClass();
-        factoryClass.setName(factoryName + "_factory"); //$NON-NLS-1$
+        factoryClass.setName(factoryName + "_factory" + DefaultJsClass.BOM_PKG_SUFFIX); //$NON-NLS-1$
         wrapperPackage.getPackagedElements().add(factoryClass);
 
         factoryPkgProperty.setType(factoryClass);

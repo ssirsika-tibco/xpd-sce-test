@@ -48,9 +48,16 @@ public class JsConsts {
     public static final String CDS_FACTORY_ARRAY =
             "icons/full/obj16/DataFieldExtRefArray.png"; //$NON-NLS-1$
 
+    public static final String CDS_BOM_PACKAGE_ICON = "icons/full/obj16/Package.png"; //$NON-NLS-1$
+
+    public static final String CDS_BOM_ENUMERATION_ICON = "icons/full/obj16/Enumeration.png"; //$NON-NLS-1$
+
+    public static final String CDS_BOM_ENUMERATION_LITERAL_ICON = "icons/full/obj16/EnumerationLiteral.png"; //$NON-NLS-1$
+
     public static final String[] IMAGES =
             new String[] { JS_CLASS, XPATH_IMG_CLASS, ICON_JSATTRIBUTE,
-                    CASE_REF_TYPE, CASE_REF_TYPE_ARRAY, CDS_FACTORY_ARRAY };
+                    CASE_REF_TYPE, CASE_REF_TYPE_ARRAY, CDS_FACTORY_ARRAY, CDS_BOM_PACKAGE_ICON, CDS_BOM_ENUMERATION_ICON,
+                    CDS_BOM_ENUMERATION_LITERAL_ICON };
 
     public static final String VAR_TYPE = "VarType"; //$NON-NLS-1$
 
