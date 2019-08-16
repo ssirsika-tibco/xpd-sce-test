@@ -958,6 +958,7 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
                             Type cls = pkg.getOwnedType(className);
                             if (cls instanceof Class && BOMGlobalDataUtils.isCaseClass((Class) cls)) {
                                 valid = true;
+                                break;
                             }
                         }
                     }
@@ -996,6 +997,7 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
             if (input != null) {
                 Process process = Xpdl2ModelUtil.getProcess(input);
                 Set<Package> packages = CDSUtils.getReferencedBomPackages(process);
+                loops:
                 for (Package pkg : packages) {
                     EList<Type> types = pkg.getOwnedTypes();
                     for (Type type : types) {
@@ -1007,6 +1009,7 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
                                     for (Property property : association.getMemberEnds()) {
                                         if (stringLiteralValue.equals(property.getName())) {
                                             valid = true;
+                                            break loops;
                                         }
                                     }
                                 }
