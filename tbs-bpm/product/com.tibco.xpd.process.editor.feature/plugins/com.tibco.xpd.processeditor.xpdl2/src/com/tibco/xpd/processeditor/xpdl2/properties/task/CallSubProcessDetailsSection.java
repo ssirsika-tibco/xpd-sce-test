@@ -77,8 +77,6 @@ public class CallSubProcessDetailsSection extends
 
     private static final String DEFAULT_SUBPROCID = "-unknown-"; //$NON-NLS-1$
 
-    private Button transactionalBut;
-
     private Color defaultTextColor;
 
     private CLabel subflowPkgLabel;
@@ -248,10 +246,6 @@ public class CallSubProcessDetailsSection extends
                     .setForeground(ident != null ? ColorConstants.black
                             : ColorConstants.lightGray);
 
-            // Set the transactional flag.
-            transactionalBut.setSelection(TaskObjectUtil
-                    .getSubprocessIsTransactional(act));
-
         }
 
         if (txtColor != subflowProcess.getForeground()) {
@@ -296,15 +290,6 @@ public class CallSubProcessDetailsSection extends
 
         GridData data = new GridData();
         data.horizontalSpan = 3;
-
-        transactionalBut =
-                toolkit.createButton(root,
-                        Messages.TaskGeneralSection_SUBPROC_TRANSACTIONAL,
-                        SWT.CHECK);
-
-        transactionalBut.setData("name", "buttonIsSubprocessTransaction"); //$NON-NLS-1$ //$NON-NLS-2$
-        manageControl(transactionalBut);
-        transactionalBut.setLayoutData(data);
 
         data = new GridData();
         data.horizontalSpan = 3;
@@ -453,13 +438,14 @@ public class CallSubProcessDetailsSection extends
                                     subProcess);
                 }
 
-            } else if (obj == transactionalBut) {
-                // Get transactional sub-process
-                cmd =
-                        TaskObjectUtil
-                                .getSetSubProcessIsTransactionalCommand(ed,
-                                        act,
-                                        transactionalBut.getSelection());
+                // ACE-2011: Remove Unsupported features. Transaction checkbox removed in SCE.
+                // } else if (obj == transactionalBut) {
+                // // Get transactional sub-process
+                // cmd =
+                // TaskObjectUtil
+                // .getSetSubProcessIsTransactionalCommand(ed,
+                // act,
+                // transactionalBut.getSelection());
 
             } else if (SUBPROC_HYPERLINK_HREF.equals(obj)) {
                 EObject subproc = TaskObjectUtil.getSubProcessOrInterface(act);

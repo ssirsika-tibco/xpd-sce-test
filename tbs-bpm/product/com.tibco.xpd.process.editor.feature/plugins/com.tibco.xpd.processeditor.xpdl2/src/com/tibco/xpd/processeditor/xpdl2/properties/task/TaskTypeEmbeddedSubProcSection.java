@@ -4,7 +4,6 @@
 package com.tibco.xpd.processeditor.xpdl2.properties.task;
 
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
@@ -36,13 +35,7 @@ public class TaskTypeEmbeddedSubProcSection extends
 
     private String instrumentationPrefixName;
 
-    private Button embSubTransactionalBut;
-
     private Button embSubChainedBut;
-
-    private Button embSubRequireNewBut;
-
-    private Label transactionLbl;
 
     private Label chainingLbl;
 
@@ -131,55 +124,7 @@ public class TaskTypeEmbeddedSubProcSection extends
                 .setToolTipText(Messages.TaskGeneralSection_EVENT_SUB_PROC_Tooltip);
         manageControl(eventSubProcBut);
 
-        /*
-         * Row 2: Fill up the second row to display transaction label,
-         * "Is A Transaction" check box and "Start A New Transaction" check box
-         * just beneath "Is A Transaction" check box with a small indentation
-         * towards right.
-         */
-        /*
-         * 1. Transaction label.
-         */
-        transactionLbl =
-                toolkit.createLabel(root,
-                        Messages.TaskGeneralSection_TRANSACTION_LABEL);
-        transactionLbl.setLayoutData(new GridData(
-                GridData.VERTICAL_ALIGN_BEGINNING));
 
-        /*
-         * 2. Composite to contain "Is A Transaction" check box and
-         * "Start A New Transaction" check box.
-         */
-        Composite comp2 = toolkit.createComposite(root);
-        GridLayout gl4 = new GridLayout(1, false);
-        gl4.marginHeight = 0;
-        comp2.setLayout(gl4);
-
-        /*
-         * 2.1. "Is A Transaction" check box.
-         */
-        embSubTransactionalBut =
-                toolkit.createButton(comp2,
-                        Messages.TaskGeneralSection_SUBPROC_TRANSACTIONAL,
-                        SWT.CHECK,
-                        "Is" + instrumentationPrefixName + "Transaction"); //$NON-NLS-1$ //$NON-NLS-2$
-        embSubTransactionalBut.setData("name", "buttonIsSubprocessTransaction"); //$NON-NLS-1$ //$NON-NLS-2$
-        embSubTransactionalBut.setLayoutData(new GridData(
-                GridData.HORIZONTAL_ALIGN_BEGINNING));
-        manageControl(embSubTransactionalBut);
-
-        /*
-         * 2.2. "Start A New Transaction" check box.
-         */
-        embSubRequireNewBut =
-                toolkit.createButton(comp2,
-                        Messages.TaskGeneralSection_SUBPROC_REQUIRENEW,
-                        SWT.CHECK,
-                        "Is" + instrumentationPrefixName + "RequireNew"); //$NON-NLS-1$ //$NON-NLS-2$
-        GridData gd2 = new GridData();
-        gd2.horizontalIndent = 23;
-        embSubRequireNewBut.setLayoutData(gd2);
-        manageControl(embSubRequireNewBut);
 
         /*
          * Don't need separator now as we are putting spaces between rows.
@@ -207,7 +152,7 @@ public class TaskTypeEmbeddedSubProcSection extends
         Composite comp3 = toolkit.createComposite(root);
         GridLayout gl5 = new GridLayout(1, false);
         gl5.marginHeight = 0;
-        comp3.setLayout(gl4);
+        comp3.setLayout(gl5);
 
         /*
          * 2.1. "Chained Execution" check box.
@@ -254,28 +199,31 @@ public class TaskTypeEmbeddedSubProcSection extends
                                 true,
                                 true);
 
-            } else if (obj == embSubTransactionalBut) {
-                CompoundCommand setSubTrans = new CompoundCommand();
-                setSubTrans.append(TaskObjectUtil
-                        .getSetSubProcessIsTransactionalCommand(ed,
-                                act,
-                                embSubTransactionalBut.getSelection()));
-                setSubTrans.append(TaskObjectUtil
-                        .getSetSubProcessIsRequireNewCommand(ed,
-                                act,
-                                embSubTransactionalBut.getSelection()));
-                cmd = setSubTrans;
-            } else if (obj == embSubChainedBut) {
-                cmd =
-                        TaskObjectUtil.getSetSubProcessIsChainedCommand(ed,
-                                act,
-                                embSubChainedBut.getSelection());
-            } else if (obj == embSubRequireNewBut) {
-                cmd =
-                        TaskObjectUtil.getSetSubProcessIsRequireNewCommand(ed,
-                                act,
-                                embSubRequireNewBut.getSelection());
             }
+            // ACE-2011: Remove Unsupported features. Transaction checkbox removed in SCE.
+            //
+            // else if (obj == embSubTransactionalBut) {
+            // CompoundCommand setSubTrans = new CompoundCommand();
+            // setSubTrans.append(TaskObjectUtil
+            // .getSetSubProcessIsTransactionalCommand(ed,
+            // act,
+            // embSubTransactionalBut.getSelection()));
+            // setSubTrans.append(TaskObjectUtil
+            // .getSetSubProcessIsRequireNewCommand(ed,
+            // act,
+            // embSubTransactionalBut.getSelection()));
+            // cmd = setSubTrans;
+            // } else if (obj == embSubChainedBut) {
+            // cmd =
+            // TaskObjectUtil.getSetSubProcessIsChainedCommand(ed,
+            // act,
+            // embSubChainedBut.getSelection());
+            // } else if (obj == embSubRequireNewBut) {
+            // cmd =
+            // TaskObjectUtil.getSetSubProcessIsRequireNewCommand(ed,
+            // act,
+            // embSubRequireNewBut.getSelection());
+            // }
 
         }
         return cmd;
@@ -291,17 +239,8 @@ public class TaskTypeEmbeddedSubProcSection extends
             setSubProcTypeRadioButtons(TaskType.EVENT_SUBPROCESS_LITERAL
                     .equals(TaskObjectUtil.getTaskTypeStrict(act)));
 
-            embSubTransactionalBut.setSelection(TaskObjectUtil
-                    .getSubprocessIsTransactional(act));
             embSubChainedBut.setSelection(TaskObjectUtil
                     .getSubprocessIsChained(act));
-            embSubRequireNewBut.setSelection(TaskObjectUtil
-                    .getSubprocessIsRequireNew(act));
-
-            embSubRequireNewBut.setEnabled(true);
-            if (!embSubTransactionalBut.getSelection()) {
-                embSubRequireNewBut.setEnabled(false);
-            }
         }
     }
 
