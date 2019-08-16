@@ -4,8 +4,8 @@
 
 package com.tibco.xpd.implementer.nativeservices.script;
 
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -80,7 +80,7 @@ public class PerfomerScriptDataResolver extends ScriptProcessFieldResolver
 
                 dataMap = getProcessDataMap(dataSet, pckg);
 
-                List<String> variablesInUse =
+                Collection<String> variablesInUse =
                         getVariablesInUse(process,
                                 performerScript,
                                 dataMap,
@@ -206,7 +206,7 @@ public class PerfomerScriptDataResolver extends ScriptProcessFieldResolver
                             process,
                             participantSet);
         }
-        List<String> variablesInUse =
+        Collection<String> variablesInUse =
                 getVariablesInUse(process,
                         performerScript,
                         dataMap,

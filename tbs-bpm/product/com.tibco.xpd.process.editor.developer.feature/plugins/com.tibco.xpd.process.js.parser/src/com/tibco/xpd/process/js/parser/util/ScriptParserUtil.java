@@ -7,17 +7,17 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import antlr.RecognitionException;
-import antlr.Token;
-import antlr.TokenStreamException;
-
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.process.js.parser.validator.IProcessValidationStrategy;
 import com.tibco.xpd.process.js.parser.validator.ProcessValidationUtil;
 import com.tibco.xpd.script.parser.Messages;
@@ -31,6 +31,10 @@ import com.tibco.xpd.script.parser.validator.ErrorMessage;
 import com.tibco.xpd.script.parser.validator.ErrorType;
 import com.tibco.xpd.script.parser.validator.ISymbolTable;
 import com.tibco.xpd.script.parser.validator.IValidationStrategy;
+
+import antlr.RecognitionException;
+import antlr.Token;
+import antlr.TokenStreamException;
 
 /**
  * 
@@ -354,22 +358,7 @@ public class ScriptParserUtil {
             return strScript;
         }
 
-        // Make sure we are newline terminated else get exceptions.
-        String fixedScript;
-        if (!strScript.endsWith("\n")) { //$NON-NLS-1$
-            fixedScript = strScript + "\n"; //$NON-NLS-1$
-        } else {
-            fixedScript = strScript;
-        }
-
-        StringReader reader = new StringReader(fixedScript);
-        JScriptLexer lexer = new JScriptLexer(reader);
-
-        // THIS IS REALLY IMPORTANT - SET TAB SIZE TO ZERO - LExer counts tabs
-        // as 8 chars by default when calculating the 'column' for a token.
-        lexer.setTabSize(1);
-
-        JScriptParser scriptParser = new JScriptParser(lexer);
+        JScriptParser scriptParser = prepareScriptParser(strScript);
 
         //
         // First of all, search for all occurrences of any field in the list to
@@ -393,12 +382,13 @@ public class ScriptParserUtil {
                     // IDENT is either a symbol (data field / formal param) or a
                     // class property/method (such as DateTime.Date)
                     //
-                    // We only want to change data fields / params so we will
-                    // ensure that previous token is not ".".
-                    // This is very crude, but at this point we do not have the
-                    // ability to distinguish between them.
-                    if (prevToken == null
-                            || prevToken.getType() != JScriptTokenTypes.DOT) {
+                    /*
+                     * Sid ACE-2344 All data field / parameter references are now wrapped in the new 'data' object.
+                     * So we're looking for data fields with a dot and 'data' ident in front.
+                     */
+                    if (isWrappedInDataObject(scriptParser,
+                            tokenIdx - 1,
+                            ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME)) {
 
                         // Check if it's in rename map and if so, store the
                         // reference info.
@@ -510,6 +500,117 @@ public class ScriptParserUtil {
         }
 
         return outScript.toString();
+    }
+
+    /**
+     * Sid ACE-2344 Get all of objects referenced within the script under the given data field descriptor object name
+     * {@link ReservedWords#PROCESS_DATA_WRAPPER_OBJECT_NAME} for the standard 'data' object
+     * 
+     * <b>NOTE:</b> That the references will incldue ANY identifier under the given object regardless of whether it is a
+     * valid data field or not.
+     * 
+     * @param strScript
+     * @param dataWrapperObjectName
+     * @return The set of data references for data wrapped in the given named data field descriptor wrapper object
+     */
+    public static Collection<String> getProcessDataReferences(String strScript, String dataWrapperObjectName) {
+        Set<String> dataReferences = new HashSet<String>();
+
+        if (strScript == null || strScript.trim().length() == 0) {
+            return dataReferences;
+        }
+
+        JScriptParser scriptParser = prepareScriptParser(strScript);
+
+        Token token = null;
+        Token prevToken = null;
+        int tokenIdx = 1;
+        while (true) {
+            try {
+                //
+                // Get next token from sript
+                token = scriptParser.LT(tokenIdx++);
+                if (token == null || token.getType() == Token.EOF_TYPE) {
+                    // End of script. That's it all done.
+                    break;
+                }
+
+                if (token != null && token.getType() == JScriptTokenTypes.IDENT) {
+                    // IDENT is either a symbol (data field / formal param) or a
+                    // class property/method (such as DateTime.Date)
+                    //
+                    /*
+                     * Sid ACE-2344 All data field / parameter references are now wrapped in the new 'data' object. So
+                     * we're looking for data fields with a dot and 'data' ident in front.
+                     */
+                    if (isWrappedInDataObject(scriptParser, tokenIdx - 1, dataWrapperObjectName)) {
+                        dataReferences.add(token.getText());
+                    }
+                }
+
+            } catch (TokenStreamException e) {
+                // ON exception return what we have so far.
+                return dataReferences;
+            }
+        }
+
+        return dataReferences;
+    }
+
+    /**
+     * Prepare the script and create a parser for it.
+     * 
+     * @param strScript
+     * @return The scrpt parser.
+     */
+    private static JScriptParser prepareScriptParser(String strScript) {
+        // Make sure we are newline terminated else get exceptions.
+        String fixedScript;
+        if (!strScript.endsWith("\n")) { //$NON-NLS-1$
+            fixedScript = strScript + "\n"; //$NON-NLS-1$
+        } else {
+            fixedScript = strScript;
+        }
+
+        StringReader reader = new StringReader(fixedScript);
+        JScriptLexer lexer = new JScriptLexer(reader);
+
+        // THIS IS REALLY IMPORTANT - SET TAB SIZE TO ZERO - LExer counts tabs
+        // as 8 chars by default when calculating the 'column' for a token.
+        lexer.setTabSize(1);
+
+        JScriptParser scriptParser = new JScriptParser(lexer);
+        return scriptParser;
+    }
+
+    /**
+     * Given the token index of an identifier token, check if it is within the process "data" object
+     * 
+     * @param scriptParser
+     * @param identTokenIdx
+     *            1-based script parser token index of the identifier we're checking.
+     * 
+     * @return <code>true</code> if identifier is within the process "data" object
+     * @throws TokenStreamException
+     */
+    private static boolean isWrappedInDataObject(JScriptParser scriptParser, int identTokenIdx,
+            String dataWrapperObjectName)
+            throws TokenStreamException {
+        if (identTokenIdx >= 3) {
+            Token prevToken = scriptParser.LT(identTokenIdx - 1);
+            Token prevPrevToken = scriptParser.LT(identTokenIdx - 2);
+
+            if (prevToken.getType() == JScriptTokenTypes.DOT && prevPrevToken.getType() == JScriptTokenTypes.IDENT
+                    && dataWrapperObjectName.equals(prevPrevToken.getText())) {
+
+                /* Musn't be anything before the data wrapper object. */
+                if (identTokenIdx == 3 || scriptParser.LT(identTokenIdx - 3).getType() != JScriptTokenTypes.DOT) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     /**

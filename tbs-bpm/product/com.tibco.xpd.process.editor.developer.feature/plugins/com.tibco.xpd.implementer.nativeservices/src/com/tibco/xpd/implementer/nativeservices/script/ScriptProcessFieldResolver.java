@@ -4,6 +4,7 @@
 package com.tibco.xpd.implementer.nativeservices.script;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -17,6 +18,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.destinations.ui.DestinationUtil;
 import com.tibco.xpd.process.js.model.ProcessJsConsts;
 import com.tibco.xpd.process.js.model.util.ProcessUtil;
@@ -198,7 +200,7 @@ public abstract class ScriptProcessFieldResolver implements
 
                 Map<String, IScriptRelevantData> dataMap =
                         getProcessDataMap(dataSet, process);
-                List<String> variablesInUse =
+                Collection<String> variablesInUse =
                         getVariablesInUse(process,
                                 activityScript,
                                 dataMap,
@@ -244,7 +246,7 @@ public abstract class ScriptProcessFieldResolver implements
             if (dataNamesAppearInScript) {
                 Map<String, IScriptRelevantData> dataMap =
                         getProcessDataMap(dataSet, process);
-                List<String> variablesInUse =
+                Collection<String> variablesInUse =
                         getVariablesInUse(process,
                                 transitionScript,
                                 dataMap,
@@ -363,7 +365,7 @@ public abstract class ScriptProcessFieldResolver implements
     }
 
     protected Set<ProcessRelevantData> createProcessDataInUse(
-            List<String> variablesInUse, Set<ProcessRelevantData> dataSet) {
+            Collection<String> variablesInUse, Set<ProcessRelevantData> dataSet) {
         Set<ProcessRelevantData> dataSetInUse =
                 new HashSet<ProcessRelevantData>();
         for (ProcessRelevantData processRelevantData : dataSet) {
@@ -377,7 +379,7 @@ public abstract class ScriptProcessFieldResolver implements
     }
 
     protected Set<Participant> createParticipantDataInUse(
-            List<String> variablesInUse, ProcessRelevantData dataSet,
+            Collection<String> variablesInUse, ProcessRelevantData dataSet,
             Set<Participant> participantSet) {
         Set<Participant> dataSetInUse = new HashSet<Participant>();
         for (Participant participant : participantSet) {
@@ -390,29 +392,13 @@ public abstract class ScriptProcessFieldResolver implements
         return dataSetInUse;
     }
 
-    protected List<String> getVariablesInUse(Process process, String strScript,
+    protected Collection<String> getVariablesInUse(Process process, String strScript,
             Map<String, IScriptRelevantData> dataMap, String scriptType) {
-
-        /* Don't parse the script if it's empty! */
-        if (strScript == null || strScript.length() == 0) {
-            return null;
-        }
-
         /*
-         * SID SIA-106: Create symbol table here so we dispose a table that we
-         * created.
+         * Sid ACE-2344 Use new parser util' that copes with fields wrapped in the process data field descriptor "data."
+         * object.
          */
-        SymbolTable symbolTable = new SymbolTable();
-        symbolTable.setScriptRelevantDataTypeMap(dataMap);
-
-        JScriptParser parser =
-                getScriptParser(process, strScript, symbolTable, scriptType);
-
-        List<String> variablesInUse = symbolTable.getVariablesInUse();
-
-        symbolTable.dispose();
-
-        return variablesInUse;
+        return ScriptParserUtil.getProcessDataReferences(strScript, ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME);
     }
 
     private JScriptParser getScriptParser(Process process, String strScript,

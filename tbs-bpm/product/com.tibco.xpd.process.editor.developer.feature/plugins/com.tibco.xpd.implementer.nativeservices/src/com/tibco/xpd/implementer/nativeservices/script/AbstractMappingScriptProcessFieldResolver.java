@@ -233,7 +233,7 @@ public abstract class AbstractMappingScriptProcessFieldResolver implements
                      * of the name in the script.
                      */
                     if (dataNamesAppearInScript) {
-                        List<String> variablesInUse =
+                        Collection<String> variablesInUse =
                                 getVariablesInUse(process,
                                         script,
                                         dataMap,
@@ -756,7 +756,7 @@ public abstract class AbstractMappingScriptProcessFieldResolver implements
      */
     private void addProcessDataInUse(
             Map<ProcessRelevantData, ProcessDataReferenceAndContexts> dataSetInUse,
-            List<String> variablesInUse, Set<ProcessRelevantData> dataSet,
+            Collection<String> variablesInUse, Set<ProcessRelevantData> dataSet,
             DataReferenceContext dataReferenceContext) {
 
         for (ProcessRelevantData processRelevantData : dataSet) {
@@ -989,7 +989,7 @@ public abstract class AbstractMappingScriptProcessFieldResolver implements
     protected abstract String getTranslatedScript(Process process,
             String strScript, Map<String, String> nameMap, String scriptType);
 
-    protected abstract List<String> getVariablesInUse(Process process,
+    protected abstract Collection<String> getVariablesInUse(Process process,
             String strScript, Map<String, IScriptRelevantData> dataMap,
             String scriptType);
 

@@ -3,6 +3,7 @@
  */
 package com.tibco.xpd.implementer.nativeservices.script;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.implementer.nativeservices.internal.Messages;
 import com.tibco.xpd.process.js.model.ProcessJsConsts;
 import com.tibco.xpd.process.js.parser.util.ScriptParserUtil;
@@ -132,24 +134,14 @@ public abstract class AbstractMappingJavaScriptProcessFieldResolver
     }
 
     @Override
-    protected List<String> getVariablesInUse(Process process, String strScript,
+    protected Collection<String> getVariablesInUse(Process process, String strScript,
             Map<String, IScriptRelevantData> dataMap, String scriptType) {
+        /*
+         * Sid ACE-2344 Use new parser util' that copes with fields wrapped in the process data field descriptor "data."
+         * object.
+         */
+        return ScriptParserUtil.getProcessDataReferences(strScript, ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME);
 
-        JScriptParser parser =
-                getScriptParser(process, strScript, dataMap, scriptType);
-        if (parser == null) {
-            // could not parse the script
-            return null;
-        }
-        ISymbolTable symbolTable = parser.getSymbolTable();
-        List<String> variablesInUse =
-                parser.getSymbolTable().getVariablesInUse();
-        if (symbolTable instanceof SymbolTable) {
-            ((SymbolTable) symbolTable).dispose();
-        }
-        symbolTable = null;
-        parser = null;
-        return variablesInUse;
     }
 
     private JScriptParser getScriptParser(Process process, String strScript,
