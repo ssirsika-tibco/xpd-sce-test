@@ -42,8 +42,6 @@ import antlr.TokenStreamException;
 /**
  * XPDL Migration command injector for migrating AMX BPM script to ACE semantics
  *
- *
- *
  * @author aallway
  * @author pwatson
  * @since 11 Jul 2019
