@@ -292,7 +292,8 @@ class CaseAccessRefactor implements ScriptRefactorRule {
         
         // caseDataRef.navigateByCriteriaToOrderRef("attribute1 = 1");
         if (method.startsWith(CaseAccessRefactor.NAVIGATE_METHOD)) {
-            String linkName = method.substring(CaseAccessRefactor.NAVIGATE_METHOD.length());
+            // get the case link name and remove "Ref" suffix
+            String linkName = getCaseRefLinkName(method.substring(CaseAccessRefactor.NAVIGATE_METHOD.length()));
             
             // only support string literal parameter
 
@@ -311,5 +312,29 @@ class CaseAccessRefactor implements ScriptRefactorRule {
         }
         
         return result;
+    }
+
+    /**
+     * Takes the name of the navigation link name, as given in the original "navigateByCriteriaXxxx" call, and refactors
+     * it to derive the actual link name.
+     * 
+     * @param aName
+     *            the link name as given in original navigateBy method.
+     * @return the actual link name.
+     */
+    private String getCaseRefLinkName(String aName) {
+        StringBuilder result = new StringBuilder();
+
+        result.append(Character.toLowerCase(aName.charAt(0)));
+
+        if (aName.endsWith("Refs")) { //$NON-NLS-1$
+            result.append(aName.substring(1, aName.length() - 4));
+        } else if (aName.endsWith("Ref")) { //$NON-NLS-1$
+            result.append(aName.substring(1, aName.length() - 3));
+        } else {
+            result.append(aName.substring(1));
+        }
+
+        return result.toString();
     }
 }
