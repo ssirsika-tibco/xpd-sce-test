@@ -55,6 +55,15 @@
             </xpdl2:BasicType>
           </xpdl2:DataType>
         </xpdl2:DataField>
+        <xpdl2:DataField Id="_0ZqbwMJ6EemZc76e2HDdcA" xpdExt:DisplayName="CaseRef" Name="CaseRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_DKo-MKSqEem39IeC8ZwHNg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
       </xpdl2:DataFields>
       <xpdl2:Activities>
         <xpdl2:Activity Id="_Lm2AobKvEemYQ8BLJRMPWQ" Name="StartEvent" xpdExt:DisplayName="Start Event">
@@ -86,7 +95,9 @@ bpm.caseData.navigateByCriteria(data.TextField,'','',1,2);&#xD;
 bpm.caseData.navigateBySimpleSearch(data.TextField,'','',1,2);&#xD;
 bpm.caseData.read(data.TextField);&#xD;
 bpm.caseData.readAll(data.TextArrayField);&#xD;
-</xpdl2:Script>
+data.TextField = data.CaseRef;&#xD;
+data.CaseRef = data.TextField;&#xD;
+data.CaseRef.c;</xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>
           </xpdl2:Implementation>

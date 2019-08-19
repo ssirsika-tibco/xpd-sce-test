@@ -621,6 +621,7 @@ public class CDSUtils {
         N2JAVASCRIPT_TYPE.put(JsConsts.DATETIMELC, JsConsts.DATE);
         N2JAVASCRIPT_TYPE.put(JsConsts.DATETIMETZLC, JsConsts.DATE);
         N2JAVASCRIPT_TYPE.put(JsConsts.BOM_DATE, JsConsts.DATE);
+        N2JAVASCRIPT_TYPE.put(JsConsts.CASE_REFERENCE, JsConsts.OBJECT);
 
         return N2JAVASCRIPT_TYPE;
     }

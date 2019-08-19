@@ -160,6 +160,26 @@ public class CaseDataTaskInvalidTest extends AbstractN2BaseValidationTest {
                         "BPM  : It is recommended that you use delete by non-array case reference field as this will ensure that the case object is not in use by other process instances (which can cause those instances to halt). (CaseDataTaskInvalidTestProcess:DeleteArrayByRef)", //$NON-NLS-1$
                         ""), //$NON-NLS-1$
 
+                new ValidationsTestProblemMarkerInfo(
+                        "/CaseDataTaskInvalidTest/Process Packages/CaseDataTaskInvalidTest.xpdl", //$NON-NLS-1$
+                        "bx.validateScriptTask", //$NON-NLS-1$
+                        "_M7e4ULKvEemYQ8BLJRMPWQ", //$NON-NLS-1$
+                        "BPM  : At Line:6 column:30, Assignment of Text from CaseReference is not supported (CaseDataTaskInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
+                        ""), //$NON-NLS-1$
+
+                new ValidationsTestProblemMarkerInfo(
+                        "/CaseDataTaskInvalidTest/Process Packages/CaseDataTaskInvalidTest.xpdl", //$NON-NLS-1$
+                        "bx.validateScriptTask", //$NON-NLS-1$
+                        "_M7e4ULKvEemYQ8BLJRMPWQ", //$NON-NLS-1$
+                        "BPM  : At Line:7 column:30, Assignment of CaseReference from Text is not supported (CaseDataTaskInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
+                        ""), //$NON-NLS-1$
+
+                new ValidationsTestProblemMarkerInfo(
+                        "/CaseDataTaskInvalidTest/Process Packages/CaseDataTaskInvalidTest.xpdl", //$NON-NLS-1$
+                        "bx.validateScriptTask", //$NON-NLS-1$
+                        "_M7e4ULKvEemYQ8BLJRMPWQ", //$NON-NLS-1$
+                        "BPM  : At Line:8 column:15, Property c is invalid for the current context (CaseDataTaskInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
+                        ""), //$NON-NLS-1$
         };
     }
 
