@@ -140,9 +140,10 @@
                 <xpdl2:Script ScriptGrammar="JavaScript">//This script must be modified to match the cac factory name,&#xD;
 //case identifiers, findBy method name and read method name&#xD;
 //with correct arguments and types&#xD;
-caseRefType = cac_XXX.findByXXX(caseId1);&#xD;
-if (caseRefType != null) {&#xD;
-	caseBomType = caseRefType.readXXX();&#xD;
+// XXX needs to be the qualified case type string "<package>.<class>" e.g. 'com.tibco.example.MyClass'
+data.caseRefType = bpm.caseData.findByCaseIdentifier(data.caseId1, 'XXX');&#xD;
+if (data.caseRefType != null) {&#xD;
+	data.caseBomType = bpm.caseData.read(data.caseRefType);&#xD;
 }</xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>
@@ -324,7 +325,7 @@ if (caseRefType != null) {&#xD;
           </xpdl2:ConnectorGraphicsInfos>
         </xpdl2:Transition>
         <xpdl2:Transition Id="_Y2nCxRiFEeSZl-ER2FAHig" xpdExt:DisplayName="" Name="" From="_Y2nCsxiFEeSZl-ER2FAHig" To="_Y2mbpBiFEeSZl-ER2FAHig">
-          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression ScriptGrammar="JavaScript">caseRefType == null;</xpdl2:Expression></xpdl2:Condition>
+          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression ScriptGrammar="JavaScript">data.caseRefType == null;</xpdl2:Expression></xpdl2:Condition>
           <xpdl2:ExtendedAttributes>
             <xpdl2:ExtendedAttribute Name="PostProcess" Value="LookupFailConditionalTransition"/>
           </xpdl2:ExtendedAttributes>

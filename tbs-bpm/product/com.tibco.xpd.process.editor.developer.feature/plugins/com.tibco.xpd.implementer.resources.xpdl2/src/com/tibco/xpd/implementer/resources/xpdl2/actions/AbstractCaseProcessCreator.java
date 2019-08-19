@@ -390,19 +390,9 @@ public abstract class AbstractCaseProcessCreator extends AbstractProcessCreator 
             List<Property> autoOrCustomCaseIds =
                     getAutoOrCustomCaseId(caseClass.getAllAttributes());
 
-            List<Property> compositeCaseIds =
-                    getCompositeCaseIds(caseClass.getAllAttributes());
-
             StringBuilder scriptBuilder = new StringBuilder();
 
-            if (!compositeCaseIds.isEmpty()) {
-                /*
-                 * custRef =
-                 * cac_com_example_customerdata_Customer.findByCompositeIdentifier
-                 * (compositeId1, compositeId2);
-                 */
-                getFirstLineForCompositeCaseIds(compositeCaseIds, scriptBuilder);
-            } else if (!autoOrCustomCaseIds.isEmpty()) {
+            if (!autoOrCustomCaseIds.isEmpty()) {
                 /*
                  * custRef =
                  * cac_com_example_customerdata_Customer.findByCaseIdentifier1
@@ -436,68 +426,19 @@ public abstract class AbstractCaseProcessCreator extends AbstractProcessCreator 
                 List<Property> autoOrCustomCaseIds, StringBuilder sb) {
 
             /* caseClassName + Ref - caseRefType field name */
-            String refName = caseClass.getName() + "Ref"; //$NON-NLS-1$
+            String refName = "data." + caseClass.getName() + "Ref"; //$NON-NLS-1$ //$NON-NLS-2$
             sb.append(refName);
             sb.append("="); //$NON-NLS-1$
-            /* cac factory name - cac_com_example_CustomerBOM */
-            StringBuffer cacClassName =
-                    new StringBuffer("cac_" //$NON-NLS-1$
-                            + caseClass.getQualifiedName().replace('.', '_')
-                                    .replace("::", "_")); //$NON-NLS-1$ //$NON-NLS-2$
 
-            sb.append(cacClassName);
-            sb.append("."); //$NON-NLS-1$
+            sb.append("bpm.caseData.findByCaseIdentifier("); //$NON-NLS-1$
 
             Property property = autoOrCustomCaseIds.get(0);
-            String methodName = changeCaseInitialChar(property.getName(), true);
-            /* method name - findByCaseId1 */
-            sb.append("findBy" + methodName); //$NON-NLS-1$
-            /* arguments to the findBy method */
-            sb.append("("); //$NON-NLS-1$
-            sb.append(property.getName());
-            sb.append(");"); //$NON-NLS-1$
-        }
-
-        /**
-         * custRef =
-         * cac_com_example_customerdata_Customer.findByCompositeIdentifier
-         * (compostiecaseid1, compositecaseid2, ...);
-         * 
-         * @param compositeCaseIds
-         * @param sb
-         * @return string - script string for the first line in the script
-         */
-        private void getFirstLineForCompositeCaseIds(
-                List<Property> compositeCaseIds, StringBuilder sb) {
-
-            /* caseClassName + Ref - caseRefType field name */
-            StringBuilder tempStr = new StringBuilder(sb.toString());
-            String refName = caseClass.getName() + "Ref"; //$NON-NLS-1$
-            tempStr.append(refName);
-            tempStr.append("="); //$NON-NLS-1$
-            /* cac factory name - cac_com_example_CustomerBOM */
-            StringBuffer cacClassName =
-                    new StringBuffer("cac_" //$NON-NLS-1$
-                            + caseClass.getQualifiedName().replace('.', '_')
-                                    .replace("::", "_")); //$NON-NLS-1$ //$NON-NLS-2$
-
-            tempStr.append(cacClassName);
-            tempStr.append("."); //$NON-NLS-1$
-
-            /* method name - findByCompositeIdentifier */
-            String methodName = "findByCompositeIdentifier"; //$NON-NLS-1$
-            tempStr.append(methodName);
-            tempStr.append("("); //$NON-NLS-1$
-            /* arguments to the findBy method */
-            for (Property property : compositeCaseIds) {
-
-                tempStr.append(property.getName());
-                tempStr.append(","); //$NON-NLS-1$
-            }
-            String str = tempStr.substring(0, tempStr.lastIndexOf(",")); //$NON-NLS-1$
-            sb.append(str);
-            sb.append(");"); //$NON-NLS-1$
-
+            String caseId = property.getName();
+            sb.append("data."); //$NON-NLS-1$
+            sb.append(caseId);
+            sb.append(", '"); //$NON-NLS-1$
+            sb.append(caseClass.getName());
+            sb.append("');"); //$NON-NLS-1$
         }
 
         /**
@@ -552,11 +493,11 @@ public abstract class AbstractCaseProcessCreator extends AbstractProcessCreator 
          */
         private void getThirdLine(StringBuilder sb) {
 
-            String refName = caseClass.getName() + "Ref"; //$NON-NLS-1$
-            sb.append(caseClass.getName() + " = "); //$NON-NLS-1$
+            String refName = "data." + caseClass.getName() + "Ref"; //$NON-NLS-1$ //$NON-NLS-2$
+            sb.append("data." + caseClass.getName() + " = "); //$NON-NLS-1$ //$NON-NLS-2$
+            sb.append("bpm.caseData.read" + "("); //$NON-NLS-1$ //$NON-NLS-2$
             sb.append(refName);
-            sb.append(".read" + caseClass.getName() + "()"); //$NON-NLS-1$ //$NON-NLS-2$
-            sb.append(";"); //$NON-NLS-1$
+            sb.append(");"); //$NON-NLS-1$
             sb.append("\n"); //$NON-NLS-1$
             sb.append("}"); //$NON-NLS-1$
         }
@@ -571,7 +512,7 @@ public abstract class AbstractCaseProcessCreator extends AbstractProcessCreator 
 
             /* caseClassName + Ref - caseRefType field name */
             String refName = caseClass.getName() + "Ref"; //$NON-NLS-1$
-            sb.append("if ("); //$NON-NLS-1$
+            sb.append("if (data."); //$NON-NLS-1$
             sb.append(refName);
             sb.append(" != null) {"); //$NON-NLS-1$
         }
@@ -709,7 +650,7 @@ public abstract class AbstractCaseProcessCreator extends AbstractProcessCreator 
 
             /* custRef == null; */
             StringBuilder sb = new StringBuilder();
-            String refName = caseClass.getName() + "Ref"; //$NON-NLS-1$
+            String refName = "data." + caseClass.getName() + "Ref"; //$NON-NLS-1$ //$NON-NLS-2$
             sb.append(refName);
             sb.append(" == null;"); //$NON-NLS-1$
             return sb.toString();

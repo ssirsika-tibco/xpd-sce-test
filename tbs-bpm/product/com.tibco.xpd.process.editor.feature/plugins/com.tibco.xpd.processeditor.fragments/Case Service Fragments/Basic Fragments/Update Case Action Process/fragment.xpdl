@@ -94,8 +94,8 @@
             <xpdl2:Task>
               <xpdl2:TaskScript>
                 <xpdl2:Script ScriptGrammar="JavaScript">//This script must be modified to match the read method name&#xD;
-if (caseRefType != null) {&#xD;
-	caseBomType = caseRefType.readXXX();&#xD;
+if (data.caseRefType != null) {&#xD;
+	data.caseBomType = bpm.caseData.read(data.caseRefType);&#xD;
 }&#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
@@ -346,7 +346,7 @@ if (caseRefType != null) {&#xD;
         </xpdl2:Transition>
         <xpdl2:Transition Id="_TE5qwCRiEeS7nfcnWLEGQg" xpdExt:DisplayName="" Name="" From="_xmzl5xiFEeSZl-ER2FAHig" To="_DfMhMCRiEeS7nfcnWLEGQg">
           <xpdl2:Condition Type="CONDITION">
-<xpdl2:Expression ScriptGrammar="JavaScript">caseBomType == null;</xpdl2:Expression>
+<xpdl2:Expression ScriptGrammar="JavaScript">data.caseBomType == null;</xpdl2:Expression>
 </xpdl2:Condition>
           <xpdl2:ConnectorGraphicsInfos>
             <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>

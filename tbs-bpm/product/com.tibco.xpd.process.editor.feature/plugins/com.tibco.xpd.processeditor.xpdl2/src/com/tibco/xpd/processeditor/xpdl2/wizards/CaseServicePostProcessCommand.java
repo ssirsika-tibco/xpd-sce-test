@@ -25,6 +25,8 @@ import com.tibco.xpd.xpdExtension.GlobalDataOperation;
 import com.tibco.xpd.xpdExtension.XpdExtensionFactory;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
+import com.tibco.xpd.xpdl2.Condition;
+import com.tibco.xpd.xpdl2.ConditionType;
 import com.tibco.xpd.xpdl2.DataField;
 import com.tibco.xpd.xpdl2.Expression;
 import com.tibco.xpd.xpdl2.ExternalReference;
@@ -37,6 +39,7 @@ import com.tibco.xpd.xpdl2.RecordType;
 import com.tibco.xpd.xpdl2.Task;
 import com.tibco.xpd.xpdl2.TaskScript;
 import com.tibco.xpd.xpdl2.TaskService;
+import com.tibco.xpd.xpdl2.Transition;
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
 import com.tibco.xpd.xpdl2.Xpdl2Package;
 import com.tibco.xpd.xpdl2.commands.AbstractLateExecuteCommand;
@@ -380,6 +383,9 @@ public class CaseServicePostProcessCommand extends AbstractLateExecuteCommand {
                         }
                     }
                 }
+
+                cmd.append(new ConditionalExpressionScriptCommand(editingDomain, process));
+
                 return cmd;
             }
             return null;
@@ -412,7 +418,7 @@ public class CaseServicePostProcessCommand extends AbstractLateExecuteCommand {
 
             /* caseClassName + Ref - caseRefType field name */
             String refName = caseClass.getName() + "Ref"; //$NON-NLS-1$
-            sb.append("if ("); //$NON-NLS-1$
+            sb.append("if (data."); //$NON-NLS-1$
             sb.append(refName);
             sb.append(" != null) {"); //$NON-NLS-1$
         }
@@ -425,11 +431,11 @@ public class CaseServicePostProcessCommand extends AbstractLateExecuteCommand {
          */
         private void getSecondLine(StringBuilder sb) {
 
-            String refName = caseClass.getName() + "Ref"; //$NON-NLS-1$
-            sb.append(caseClass.getName() + " = "); //$NON-NLS-1$
+            String refName = "data." + caseClass.getName() + "Ref"; //$NON-NLS-1$ //$NON-NLS-2$
+            sb.append("data." + caseClass.getName() + " = "); //$NON-NLS-1$ //$NON-NLS-2$
+            sb.append("bpm.caseData.read" + "("); //$NON-NLS-1$ //$NON-NLS-2$
             sb.append(refName);
-            sb.append(".read" + caseClass.getName() + "()"); //$NON-NLS-1$ //$NON-NLS-2$
-            sb.append(";"); //$NON-NLS-1$
+            sb.append(");"); //$NON-NLS-1$
             sb.append("\n"); //$NON-NLS-1$
             sb.append("}"); //$NON-NLS-1$
         }
@@ -534,6 +540,99 @@ public class CaseServicePostProcessCommand extends AbstractLateExecuteCommand {
                 return cmd;
             }
             return null;
+        }
+    }
+
+    /**
+     * Command to generate the script for a conditional transition in a case
+     * action.
+     *
+     * @author sajain
+     * @since Aug 9, 2019
+     */
+    class ConditionalExpressionScriptCommand extends AbstractLateExecuteCommand {
+
+        Process process;
+
+        /**
+         * @param editingDomain
+         * @param contextObject
+         */
+        private ConditionalExpressionScriptCommand(EditingDomain editingDomain, Object contextObject) {
+
+            super(editingDomain, contextObject);
+            if (contextObject instanceof Process) {
+
+                this.process = (Process) contextObject;
+            }
+        }
+
+        /**
+         * @see com.tibco.xpd.xpdl2.commands.AbstractLateExecuteCommand#createCommand(org.eclipse.emf.edit.domain.EditingDomain,
+         *      java.lang.Object)
+         * 
+         * @param editingDomain
+         * @param contextObject
+         * @return
+         */
+        @Override
+        protected Command createCommand(EditingDomain editingDomain, Object contextObject) {
+
+            if (null != process) {
+                EList<Transition> transitions = process.getTransitions();
+                CompoundCommand cmd = new CompoundCommand();
+
+                Condition oldCondition = null;
+                Transition transition = null;
+                for (Transition trans : transitions) {
+                    if (null != trans.getCondition() && ConditionType.CONDITION_LITERAL.equals(trans.getCondition().getType())) {
+                        transition = trans;
+                        oldCondition = trans.getCondition();
+                        break;
+                    }
+                }
+                String newScript = getTransitionScript();
+
+                if (null != oldCondition) {
+
+                    String scriptGrammar = oldCondition.getExpression().getScriptGrammar();
+                    Condition newCondition = Xpdl2Factory.eINSTANCE.createCondition();
+                    newCondition.setType(ConditionType.CONDITION_LITERAL);
+                    Expression expression = Xpdl2Factory.eINSTANCE.createExpression();
+                    expression.setScriptGrammar(scriptGrammar);
+                    expression.getMixed().add(XMLTypePackage.eINSTANCE.getXMLTypeDocumentRoot_Text(), newScript);
+                    newCondition.setExpression(expression);
+
+                    Command removeCommand = SetCommand.create(editingDomain,
+                            transition,
+                            Xpdl2Package.eINSTANCE.getTransition_Condition(),
+                            oldCondition);
+                    Command setCommand = SetCommand.create(editingDomain,
+                            transition,
+                            Xpdl2Package.eINSTANCE.getTransition_Condition(),
+                            newCondition);
+                    cmd.append(removeCommand);
+                    cmd.append(setCommand);
+                }
+
+                return cmd;
+            }
+            return null;
+
+        }
+
+        /**
+         * 
+         * @return String - script for conditional transition
+         */
+        private String getTransitionScript() {
+
+            /* custRef == null; */
+            StringBuilder sb = new StringBuilder();
+            String refName = "data." + caseClass.getName(); //$NON-NLS-1$
+            sb.append(refName);
+            sb.append(" == null;"); //$NON-NLS-1$
+            return sb.toString();
         }
     }
 }
