@@ -72,7 +72,6 @@ public class BomConstraintTransformer {
                     .getBasePrimitiveType((PrimitiveType) bomType).getName();
             switch (baseType) {
             case PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME:
-            case PrimitivesUtil.BOM_PRIMITIVE_ENUMERATION_NAME:
                 return getTextConstraints(bomProperty);
             case PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME:
                 return getIntegerConstraints(bomProperty);
@@ -80,6 +79,8 @@ public class BomConstraintTransformer {
                 return getDecimalConstraints(bomProperty);
             }
             // All other primitive types have no constraints.
+        } else if (bomType instanceof Enumeration) {
+            return getEnumerationConstraints(bomProperty);
         }
         return Collections.emptyList();
     }
@@ -248,6 +249,38 @@ public class BomConstraintTransformer {
         // constraints
         // .add(new NameValuePair(NAME_PATTERN, pattern.toString()));
         // }
+        return constraints;
+    }
+
+    /**
+     * Returns list of CDM constraints for the property of a Enumeration type.
+     * 
+     * @param bomProperty
+     *            the BOM property of a Enumeration type.
+     * @return list of CDM constraints for the property of a Enumeration type.
+     */
+    private Collection<NameValuePair> getEnumerationConstraints(Property bomProperty) {
+        assert (bomProperty.getType() instanceof Enumeration);
+        List<NameValuePair> constraints = new ArrayList<>();
+
+        // Do not add length constraint for caseAttribute
+        boolean isStateAttribute = BOMGlobalDataUtils.isCaseState(bomProperty);
+        if (!isStateAttribute) {
+            // For Enumeration typed attributes add the length constraint that equals the length of the longest literal
+            // name.
+            Collection<EnumerationLiteral> allowedValues = getAllowedValues(bomProperty);
+            if (!allowedValues.isEmpty()) {
+                int maxEnumLength = 0; // Maximum length of the name of enumeration literal.
+                for (EnumerationLiteral literal : allowedValues) {
+                    String name = literal.getName();
+                    if (name != null) {
+                        maxEnumLength = Math.max(maxEnumLength, name.length());
+                    }
+                }
+                constraints.add(new NameValuePair(Constraint.NAME_LENGTH, String.valueOf(maxEnumLength)));
+            }
+        }
+
         return constraints;
     }
 

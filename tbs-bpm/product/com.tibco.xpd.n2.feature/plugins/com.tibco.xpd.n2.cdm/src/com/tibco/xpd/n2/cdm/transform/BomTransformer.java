@@ -175,10 +175,8 @@ public class BomTransformer {
         boolean isStateAttribute = BOMGlobalDataUtils.isCaseState(bomAttribute);
         if (!isStateAttribute) {
             // Only set the allowed values for non-state attributes.
-            CONSTRANT_TRANSFORMER.getAllowedValues(bomAttribute).stream()
-                    .forEach(literal -> cdmAttribute.newAllowedValue(
-                            /* label */ getLabel(literal),
-                            /* value */ literal.getName()));
+            CONSTRANT_TRANSFORMER.getAllowedValues(bomAttribute).stream().forEach(literal -> cdmAttribute
+                    .newAllowedValue(/* label */ getLabel(literal), /* value */ literal.getName()));
         }
         String defaultValue =
                 CONSTRANT_TRANSFORMER.getDefaultValue(bomAttribute);

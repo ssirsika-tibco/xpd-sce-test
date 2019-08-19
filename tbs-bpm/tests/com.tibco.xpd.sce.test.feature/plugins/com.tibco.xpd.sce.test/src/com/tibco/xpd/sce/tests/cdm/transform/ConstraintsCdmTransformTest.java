@@ -219,6 +219,7 @@ public class ConstraintsCdmTransformTest
                 Arrays.asList(new NameValuePair("Apple", "APPLE"),
                         new NameValuePair("Bannana", "BANNANA"),
                         new NameValuePair("Plum", "PLUM")));
+        assertConstraints(favFruit, Arrays.asList(new NameValuePair("length", "7")));
         //////////////////////
     }
 
