@@ -426,6 +426,10 @@ public class Messages extends NLS {
 
     public static String GlobalDataTaskServiceSection_createOrDeleteCaseObjByCaseId_longdesc;
 
+    public static String GlobalDataTaskServiceSection_deleteByCaseIdentifier;
+
+    public static String GlobalDataTaskServiceSection_deleteByCompositeIdentifier;
+
     public static String GlobalDataTaskServiceSection_deleteCaseObjByCaseId_longdesc;
 
     public static String GlobalDataTaskServiceSection_deleteCaseObjUsingCompositeCaseId_longdesc;

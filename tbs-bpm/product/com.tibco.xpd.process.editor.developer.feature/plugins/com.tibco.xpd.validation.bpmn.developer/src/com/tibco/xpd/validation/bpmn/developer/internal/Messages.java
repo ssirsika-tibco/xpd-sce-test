@@ -78,6 +78,8 @@ public class Messages extends NLS {
 
     public static String ConvertBWToWebServiceCmd_label;
 
+    public static String ConvertDeleteByCaseIdToReferenceResolution_commandLabel;
+
     public static String DeleteInvalidInitializerActivities_RemoveInvalidInitializerActivitiesResolution_label;
 
     public static String InitializeEventHandlerCorrelationDataResolution_InitializeListWithStartActivities_menu;

@@ -389,36 +389,6 @@
             severity="ERROR">
       </issue>
       <issue
-            id="bpmn.dev.globalDataTask.deleteByCaseIdOp.validCaseId"
-            message="%bpmn.dev.globalDataTask.deleteByCaseIdOp.validCaseId"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.globalDataTask.deleteByCaseIdOp.validEqualsValue"
-            message="%bpmn.dev.globalDataTask.deleteByCaseIdOp.validEqualsValue"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.invalidId"
-            message="%bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.invalidId"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.validEqualsValue"
-            message="%bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.validEqualsValue"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.noCompositeCaseId"
-            message="%bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.noCompositeCaseId"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.mappingsMissing"
-            message="%bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.mappingsMissing"
-            severity="ERROR">
-      </issue>
-      <issue
             id="bpmn.dev.globalDataTask.createOp.onlyBOMDataTypes"
             message="%bpmn.dev.globalDataTask.createOp.onlyBOMDataTypes"
             severity="ERROR">
@@ -426,11 +396,6 @@
       <issue
             id="bpmn.dev.globalDataTask.dataNotExistOrNotAssociatedWithActivity"
             message="%bpmn.dev.globalDataTask.dataNotExistOrNotAssociatedWithActivity"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.globalDataTask.deleteByCaseIdOp.noCaseId"
-            message="%bpmn.dev.globalDataTask.deleteByCaseIdOp.noCaseId"
             severity="ERROR">
       </issue>
        <issue
@@ -616,6 +581,15 @@
              message="%bpmn.dev.globalDataTask.deleteArrayCaseReferenceField"
              severity="ERROR">
        </issue>    
+        <issue
+             id="bpmn.dev.globalDataTask.caseAccessOps.invalidOperation"
+             message="%bpmn.dev.globalDataTask.caseAccessOps.invalidOperation"
+             severity="ERROR">
+           <resolution
+                 canApplyToMultiple="true"
+                 id="bpmn.resolution.caseDeleteByIdToReferenceResolution">
+           </resolution>
+       </issue>    
           
    </extension>
    <extension
@@ -664,13 +638,6 @@
             label="%resolution.bpmn.dev.activityGrammarMappingGrammarMismatch">
       </resolution>
 
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.RemoveInvalidCaseIdentifierResolution"
-            description="%removeInvalidCaseIdResolution_longdesc"
-            id="bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.invalidId"
-            image="icons/delete.gif"
-            label="%removeInvalidCaseIdResolution_lbl">
-      </resolution>
    </extension>
    <extension
          point="com.tibco.xpd.validation.reusableResolutions">
@@ -752,6 +719,12 @@
             description="%bpmn.resolution.convertToRESTServiceParticipantResolution"
             id="bpmn.resolution.convertToRESTServiceParticipantResolution"
             label="%bpmn.resolution.convertToRESTServiceParticipantResolution">
+      </resolution>
+      <resolution
+            class="com.tibco.xpd.validation.bpmn.developer.resolution.ConvertDeleteByCaseIdToReferenceResolution"
+            description="%bpmn.resolution.caseDeleteByIdToReferenceResolution"
+            id="bpmn.resolution.caseDeleteByIdToReferenceResolution"
+            label="%bpmn.resolution.caseDeleteByIdToReferenceResolution">
       </resolution>
    </extension>
    <extension

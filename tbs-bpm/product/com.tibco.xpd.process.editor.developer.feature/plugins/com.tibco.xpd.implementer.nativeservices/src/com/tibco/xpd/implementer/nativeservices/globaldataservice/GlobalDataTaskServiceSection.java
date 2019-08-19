@@ -114,6 +114,11 @@ public class GlobalDataTaskServiceSection extends
     private final Map<EReference, AbstractOperationPage<CaseAccessOperationsType>> caseAccOperationPages;
 
     /**
+     * Pages that were removed for SCE, but may still be selected in the model after migration.
+     */
+    private final List<EReference> removedCaseAccOperationPages;
+
+    /**
      * Constructor
      */
     public GlobalDataTaskServiceSection() {
@@ -122,6 +127,7 @@ public class GlobalDataTaskServiceSection extends
                 new LinkedHashMap<EReference, AbstractOperationPage<CaseReferenceOperationsType>>();
         caseAccOperationPages =
                 new LinkedHashMap<EReference, AbstractOperationPage<CaseAccessOperationsType>>();
+        removedCaseAccOperationPages = new ArrayList<>();
     }
 
     /**
@@ -561,6 +567,9 @@ public class GlobalDataTaskServiceSection extends
         cacOperationPageBook.registerPage(createPage, createPage
                 .createPage(cacOperationPageBook.getContainer(), toolkit));
 
+        removedCaseAccOperationPages.add(EXT_PACKAGE.getCaseAccessOperationsType_DeleteByCaseIdentifier());
+        removedCaseAccOperationPages.add(EXT_PACKAGE.getCaseAccessOperationsType_DeleteByCompositeIdentifiers());
+
         caseAccessOperations.setInput(caseAccOperationPages.keySet());
 
         /* Size Case picker according to combo box width for nicer sizing. */
@@ -577,6 +586,7 @@ public class GlobalDataTaskServiceSection extends
                 manageControl(txt);
             }
         }
+
     }
 
     /**
@@ -641,7 +651,7 @@ public class GlobalDataTaskServiceSection extends
             } else {
                 caseAccessClassPickerCtrl.setValue(null);
             }
-            updateOperationCombo(caseAccessOperations,
+            updateCaseAccessOperationCombo(caseAccessOperations,
                     caseAccOperationPages,
                     caseAccessOp);
 
@@ -650,7 +660,9 @@ public class GlobalDataTaskServiceSection extends
              */
             for (AbstractOperationPage<CaseAccessOperationsType> page : caseAccOperationPages
                     .values()) {
-                page.update(caseAccessOp);
+                if (page != null) {
+                    page.update(caseAccessOp);
+                }
             }
 
             if (!caseAccessOpsContainer.getVisible()) {
@@ -701,7 +713,7 @@ public class GlobalDataTaskServiceSection extends
                     dataOp.getCaseReferenceOperations();
             boolean doLayout = false;
             caseRefOpsButton.setSelection(true);
-            updateOperationCombo(caseRefOperations,
+            updateCaseReferenceOperationCombo(caseRefOperations,
                     caseRefOperationPages,
                     refOperationsType);
 
@@ -758,8 +770,47 @@ public class GlobalDataTaskServiceSection extends
      * @param options
      * @param src
      */
-    private void updateOperationCombo(ComboViewer viewer,
+    private void updateCaseAccessOperationCombo(ComboViewer viewer,
             Map<EReference, ?> pages, EObject src) {
+        EReference selection = null;
+
+        // Clear out removed operation selections
+        for (EReference eRef : removedCaseAccOperationPages) {
+            caseAccOperationPages.remove(eRef);
+        }
+
+        for (EReference eRef : pages.keySet()) {
+            if (src.eGet(eRef) != null) {
+                selection = eRef;
+                break;
+            }
+        }
+        // Check if one of the removed operations is still selected
+        if (selection == null) {
+            for (EReference eRef : removedCaseAccOperationPages) {
+                if (src.eGet(eRef) != null) {
+                    selection = eRef;
+                    // Temporarily add it to the dropdown content
+                    caseAccOperationPages.put(selection, null);
+                    break;
+                }
+            }
+        }
+
+        viewer.refresh();
+        // viewer.setInput(caseAccOperationPages);
+        viewer.setSelection(selection != null ? new StructuredSelection(
+                selection) : StructuredSelection.EMPTY);
+    }
+
+    /**
+     * Update the operations combo from the model.
+     * 
+     * @param viewer
+     * @param options
+     * @param src
+     */
+    private void updateCaseReferenceOperationCombo(ComboViewer viewer, Map<EReference, ?> pages, EObject src) {
         EReference selection = null;
 
         for (EReference eRef : pages.keySet()) {
@@ -769,8 +820,7 @@ public class GlobalDataTaskServiceSection extends
             }
         }
 
-        viewer.setSelection(selection != null ? new StructuredSelection(
-                selection) : StructuredSelection.EMPTY);
+        viewer.setSelection(selection != null ? new StructuredSelection(selection) : StructuredSelection.EMPTY);
     }
 
     /**
@@ -1267,6 +1317,14 @@ public class GlobalDataTaskServiceSection extends
                 Object page = map.get(element);
                 if (page instanceof AbstractOperationPage<?>) {
                     return ((AbstractOperationPage<?>) page).getLabel();
+                } else if (page == null) {
+                    // Handle references to removed operations
+                    if ("deleteByCompositeIdentifiers".equals(((EReference) element).getName())) { //$NON-NLS-1$
+                        return Messages.GlobalDataTaskServiceSection_deleteByCompositeIdentifier;
+                    } else {
+                        return Messages.GlobalDataTaskServiceSection_deleteByCaseIdentifier;
+                    }
+
                 }
             }
             return super.getText(element);

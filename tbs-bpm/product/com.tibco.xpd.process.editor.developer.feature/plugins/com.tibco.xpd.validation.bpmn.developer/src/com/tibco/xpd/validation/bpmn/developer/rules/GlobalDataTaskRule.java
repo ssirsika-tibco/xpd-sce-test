@@ -6,14 +6,11 @@ package com.tibco.xpd.validation.bpmn.developer.rules;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -26,7 +23,6 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
-import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.implementer.nativeservices.utilities.TaskServiceExtUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
@@ -35,10 +31,7 @@ import com.tibco.xpd.validation.xpdl2.rules.ProcessActivitiesValidationRule;
 import com.tibco.xpd.xpdExtension.AddLinkAssociationsType;
 import com.tibco.xpd.xpdExtension.CaseAccessOperationsType;
 import com.tibco.xpd.xpdExtension.CaseReferenceOperationsType;
-import com.tibco.xpd.xpdExtension.CompositeIdentifierType;
 import com.tibco.xpd.xpdExtension.CreateCaseOperationType;
-import com.tibco.xpd.xpdExtension.DeleteByCaseIdentifierType;
-import com.tibco.xpd.xpdExtension.DeleteByCompositeIdentifiersType;
 import com.tibco.xpd.xpdExtension.GlobalDataOperation;
 import com.tibco.xpd.xpdExtension.RemoveLinkAssociationsType;
 import com.tibco.xpd.xpdExtension.UpdateCaseOperationType;
@@ -126,29 +119,11 @@ public class GlobalDataTaskRule extends ProcessActivitiesValidationRule {
     private static final String CREATE_OP_VALIDMULTIPLICITY =
             "bpmn.dev.globalDataTask.createOp.validMultiplicity"; //$NON-NLS-1$
 
-    private static final String DELETEBYCASEID_OP_VALIDCASEID =
-            "bpmn.dev.globalDataTask.deleteByCaseIdOp.validCaseId"; //$NON-NLS-1$
-
-    private static final String DELETEBYCASEID_OP_VALIDEQUALSVALUE =
-            "bpmn.dev.globalDataTask.deleteByCaseIdOp.validEqualsValue"; //$NON-NLS-1$
-
-    private static final String DELETEBYCOMPCASEID_OP_INVALIDID =
-            "bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.invalidId"; //$NON-NLS-1$
-
-    private static final String DELETEBYCOMPCASEID_OP_VALIDEQUALSVALUE =
-            "bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.validEqualsValue"; //$NON-NLS-1$
-
-    private static final String DELETEBYCOMPCASEID_NOCOMPCASEIDS =
-            "bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.noCompositeCaseId"; //$NON-NLS-1$
-
-    private static final String DELETEBYCASEID_NOCASEIDS =
-            "bpmn.dev.globalDataTask.deleteByCaseIdOp.noCaseId"; //$NON-NLS-1$
-
-    private static final String DELETEBYCOMPCASEID_MISSINGMAPPINGS =
-            "bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.mappingsMissing"; //$NON-NLS-1$
-
     private static final String FIELD_NOT_EXIST_OR_NOT_ASSOCIATED =
             "bpmn.dev.globalDataTask.dataNotExistOrNotAssociatedWithActivity"; //$NON-NLS-1$
+
+    private static final String CASEACCESSOPS_INVALID_OPERATION =
+            "bpmn.dev.globalDataTask.caseAccessOps.invalidOperation"; //$NON-NLS-1$
 
     @Override
     public void validate(Activity activity) {
@@ -209,98 +184,17 @@ public class GlobalDataTaskRule extends ProcessActivitiesValidationRule {
                         caseClass,
                         caseAccessOps.getCreate());
             } else if (caseAccessOps.getDeleteByCaseIdentifier() != null) {
-                /*
-                 * Validate delete by case identifier operation
-                 */
-                validateDeleteByCaseIdOperation(activity,
-                        caseClass,
-                        caseAccessOps.getDeleteByCaseIdentifier());
+                addIssue(CASEACCESSOPS_INVALID_OPERATION,
+                        activity,
+                        Collections.singletonList("Delete by Case Identifier"));
             } else if (caseAccessOps.getDeleteByCompositeIdentifiers() != null) {
-                /*
-                 * Validate delete by composite identifier operation
-                 */
-                validateDeleteByCaseCompositeIdOperation(activity,
-                        caseClass,
-                        caseAccessOps.getDeleteByCompositeIdentifiers());
+                addIssue(CASEACCESSOPS_INVALID_OPERATION,
+                        activity,
+                        Collections.singletonList("Delete by Composite Identifier"));
             }
         } else {
             // Not a valid case class
             addIssue(CASEACCESSOPS_VALIDCASECLASS, activity);
-        }
-    }
-
-    /**
-     * Validate the delete by composite case id operation.
-     * 
-     * @param activity
-     * @param caseClass
-     * @param deleteByCompositeIdentifiers
-     */
-    private void validateDeleteByCaseCompositeIdOperation(Activity activity,
-            Class caseClass, DeleteByCompositeIdentifiersType deleteType) {
-        EList<CompositeIdentifierType> compositeIdTypes =
-                deleteType.getCompositeIdentifier();
-
-        List<Property> compositeCaseIds = getCompositeCaseIds(caseClass);
-
-        if (compositeCaseIds.isEmpty()) {
-            addIssue(DELETEBYCOMPCASEID_NOCOMPCASEIDS, activity);
-        } else if (compositeCaseIds.size() != compositeIdTypes.size()) {
-            addIssue(DELETEBYCOMPCASEID_MISSINGMAPPINGS, activity);
-        }
-        /*
-         * Validate each composite case id mapping
-         */
-        for (CompositeIdentifierType compositeId : compositeIdTypes) {
-            String idName = compositeId.getIdentifiername();
-            String fieldPath = compositeId.getFieldPath();
-
-            // Validate the id
-            boolean isValidId = false;
-            Property caseId = null;
-            if (idName != null && !idName.isEmpty()) {
-                /*
-                 * XPD-6078: Saket: Consider the attributes from superclasses as
-                 * well.
-                 */
-                for (Property eachAttribute : caseClass.getAllAttributes()) {
-                    if (eachAttribute.getName().equals(idName)
-                            && BOMGlobalDataUtils.isCompositeCID(eachAttribute)) {
-                        caseId = eachAttribute;
-                        break;
-                    }
-                }
-                isValidId = caseId != null;
-            }
-
-            if (isValidId) {
-                // Validate the equals value field path
-                if (fieldPath == null
-                        || fieldPath.isEmpty()
-                        || !validateEqualsParameter(activity,
-                                caseId,
-                                fieldPath,
-                                false)) {
-
-                    // Invalid equals value field path
-                    List<String> msgs = new ArrayList<String>();
-                    msgs.add(PrimitivesUtil.getDisplayLabel(caseId.getType()));
-                    msgs.add(idName);
-                    addIssue(DELETEBYCOMPCASEID_OP_VALIDEQUALSVALUE,
-                            activity,
-                            msgs);
-                }
-            } else {
-                // Invalid composite ID
-                Map<String, String> addInfo = new HashMap<String, String>();
-                addInfo.put(CASE_CLASS_ID, EcoreUtil.getURI(caseClass)
-                        .fragment());
-                addInfo.put(ID, idName);
-                addIssue(DELETEBYCOMPCASEID_OP_INVALIDID,
-                        activity,
-                        Collections.singletonList(idName),
-                        addInfo);
-            }
         }
     }
 
@@ -339,82 +233,6 @@ public class GlobalDataTaskRule extends ProcessActivitiesValidationRule {
         }
 
         return properties;
-    }
-
-    /**
-     * Validate the Delete By Case Id operation.
-     * 
-     * @param activity
-     * @param caseClass
-     * @param deleteType
-     */
-    private void validateDeleteByCaseIdOperation(Activity activity,
-            Class caseClass, DeleteByCaseIdentifierType deleteType) {
-        List<Property> caseIds = getAutoORCustomCaseIds(caseClass);
-
-        /*
-         * XPD-6045: Saket: Make sure that if case has composite IDs, then
-         * delete by auto/custom case ID is not allowed.
-         */
-        if (caseIds.isEmpty()) {
-            addIssue(DELETEBYCASEID_NOCASEIDS, activity);
-        } else {
-            /*
-             * XPD-6045: Saket: Otherwise check for other validations.
-             */
-
-            String idName = deleteType.getIdentifierName();
-
-            /*
-             * Validate the case id name
-             */
-            boolean isCaseIdValid = false;
-            Property caseId = null;
-            if (idName != null && !idName.isEmpty()) {
-                /*
-                 * XPD-6028: Saket: caseClass.getOwnedAttribute(String, Type)
-                 * doesn't consider the attributes in super class. Hence we need
-                 * to fetch all the attributes (including that of superclasses
-                 * as well) to figure out the need to raise validation markers.
-                 */
-                EList<Property> allAttributes = caseClass.getAllAttributes();
-                for (Property eachAttribute : allAttributes) {
-                    if (eachAttribute.getName().equals(idName)) {
-                        if (BOMGlobalDataUtils.isCID(eachAttribute)) {
-                            caseId = eachAttribute;
-                            break;
-                        }
-                    }
-                }
-                isCaseIdValid = caseId != null;
-            }
-
-            if (isCaseIdValid && caseId.getType() != null) {
-                /*
-                 * Validate the equals value field path
-                 */
-                String equalsValueFieldPath = deleteType.getFieldPath();
-
-                boolean isValidEqualsValue =
-                        validateEqualsParameter(activity,
-                                caseId,
-                                equalsValueFieldPath,
-                                true);
-
-                if (!isValidEqualsValue) {
-                    List<String> msgs = new ArrayList<String>();
-                    msgs.add(idName);
-                    msgs.add(PrimitivesUtil.getDisplayLabel(caseId.getType()));
-                    addIssue(DELETEBYCASEID_OP_VALIDEQUALSVALUE, activity, msgs);
-                }
-
-            } else {
-                /*
-                 * Case id is invalid
-                 */
-                addIssue(DELETEBYCASEID_OP_VALIDCASEID, activity);
-            }
-        }
     }
 
     /**
