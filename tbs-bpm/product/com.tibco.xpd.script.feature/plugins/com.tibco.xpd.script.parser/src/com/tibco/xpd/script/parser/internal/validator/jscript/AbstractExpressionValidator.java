@@ -27,6 +27,7 @@ import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.AbstractUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.BaseJsMethodParam;
 import com.tibco.xpd.script.model.client.DefaultJsAttribute;
+import com.tibco.xpd.script.model.client.DefaultJsClass;
 import com.tibco.xpd.script.model.client.DefaultScriptRelevantData;
 import com.tibco.xpd.script.model.client.DefaultUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
@@ -2878,6 +2879,10 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
             if (null != objectSubType && objectSubType.length() > 0) {
                 typeStr = objectSubType;
             }
+        }
+        // Strip the enum suffix from enum types
+        if (typeStr.endsWith(DefaultJsClass.BOM_ENUM_SUFFIX)) {
+            typeStr = typeStr.substring(0, typeStr.length() - DefaultJsClass.BOM_ENUM_SUFFIX.length());
         }
         return typeStr;
     }

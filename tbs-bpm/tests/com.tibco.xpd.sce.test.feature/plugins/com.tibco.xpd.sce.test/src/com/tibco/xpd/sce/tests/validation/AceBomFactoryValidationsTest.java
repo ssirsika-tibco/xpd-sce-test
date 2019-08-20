@@ -134,7 +134,7 @@ public class AceBomFactoryValidationsTest extends AbstractN2BaseValidationTest {
                                 "/DataFactoryTests/Process Packages/CheckIncorrectUsage.xpdl", //$NON-NLS-1$
                                 "bx.validateScriptTask", //$NON-NLS-1$
                                 "_C75Q4ZJ9EemsHsINLISM4w", //$NON-NLS-1$
-                                "BPM  : At Line:12 column:75, Assignment of Colours from com_example_datafactorytestsdata1_Colours_enumeration is not supported (CheckIncorrectUsageProcess:ScriptTask)", //$NON-NLS-1$
+                                "BPM  : At Line:12 column:75, Assignment of Colours from com_example_datafactorytestsdata1_Colours is not supported (CheckIncorrectUsageProcess:ScriptTask)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
