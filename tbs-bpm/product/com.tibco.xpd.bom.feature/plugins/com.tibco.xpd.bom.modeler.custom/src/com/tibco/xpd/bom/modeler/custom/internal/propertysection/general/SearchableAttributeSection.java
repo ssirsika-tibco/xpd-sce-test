@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
@@ -248,6 +249,9 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
                 return false;
             }
             return true;
+        } else if (type instanceof Enumeration) {
+            // Enumerations in SCE are treated as Text types
+            return true;
         }
         return false;
     }
@@ -274,6 +278,9 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
                     .equals(primType.getName())) {
                 return false;
             }
+            return true;
+        } else if (type instanceof Enumeration) {
+            // Enumerations in SCE are treated as Text types
             return true;
         }
         return false;
