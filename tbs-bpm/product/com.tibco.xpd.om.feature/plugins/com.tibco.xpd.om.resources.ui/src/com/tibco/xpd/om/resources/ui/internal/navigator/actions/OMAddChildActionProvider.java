@@ -5,6 +5,7 @@ package com.tibco.xpd.om.resources.ui.internal.navigator.actions;
 
 import java.util.Collection;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
@@ -31,6 +32,7 @@ import com.tibco.xpd.om.core.om.Resource;
 import com.tibco.xpd.om.core.om.provider.OMModelImages;
 import com.tibco.xpd.om.resources.ui.internal.Messages;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 
 /**
  * Action provider to add a children for OM model's objects in the project
@@ -194,8 +196,21 @@ public class OMAddChildActionProvider extends CommonActionProvider {
                                     null);
                     if (descriptors != null) {
                         for (Object descriptor : descriptors) {
-                            subMenu.add(new CreateAndSelectChildAction(
-                                    activePart, selection, descriptor));
+
+                            CreateAndSelectChildAction newAction =
+                                    new CreateAndSelectChildAction(activePart, selection, descriptor);
+
+                            /*
+                             * ACE-2473: Saket: Action should be disabled for
+                             * locked application.
+                             */
+                            if (selection.getFirstElement() instanceof EObject) {
+                                boolean isLocked = (new GovernanceStateService())
+                                        .isLockedForProduction((EObject) (selection.getFirstElement()));
+                                newAction.setEnabled(!isLocked);
+                            }
+
+                            subMenu.add(newAction);
                         }
                     }
                 }

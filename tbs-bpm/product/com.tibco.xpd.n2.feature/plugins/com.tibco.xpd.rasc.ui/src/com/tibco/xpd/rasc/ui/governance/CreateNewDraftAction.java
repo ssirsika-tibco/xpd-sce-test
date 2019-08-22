@@ -11,8 +11,8 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.actions.BaseSelectionListenerAction;
 
-import com.tibco.xpd.rasc.core.governance.GovernanceStateService;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 
 /**
  * Menu action to create a new draft of a project.

@@ -12,9 +12,9 @@ import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.LabelDecorator;
 import org.eclipse.swt.graphics.Image;
 
-import com.tibco.xpd.rasc.core.governance.GovernanceStateService;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.internal.Messages;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 
 /**
  * Project explorer label decorator for projects that are Locked for Production.

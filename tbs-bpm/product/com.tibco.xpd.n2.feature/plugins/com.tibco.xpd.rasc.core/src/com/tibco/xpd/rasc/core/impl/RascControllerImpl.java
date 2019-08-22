@@ -42,11 +42,11 @@ import com.tibco.xpd.rasc.core.RascWriter;
 import com.tibco.xpd.rasc.core.exception.RascContributionException;
 import com.tibco.xpd.rasc.core.exception.RascGenerationException;
 import com.tibco.xpd.rasc.core.exception.RascInternalException;
-import com.tibco.xpd.rasc.core.governance.GovernanceStateService;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.ProjectUtil2;
 
 /**

@@ -4,12 +4,15 @@
 
 package com.tibco.xpd.analyst.processinterface.editor.convertprocifc;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.navigator.CommonActionProvider;
 import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 import org.eclipse.ui.navigator.ICommonMenuConstants;
+
+import com.tibco.xpd.resources.util.GovernanceStateService;
 
 /**
  * Action provider to convert process interface to service process interface
@@ -44,6 +47,17 @@ public class ConvertProcIntfcToServiceProcIntfcActionProvider extends
     public void fillContextMenu(IMenuManager menu) {
 
         updateSelection();
+
+        /*
+         * ACE-2473: Saket: Action should be disabled for locked application.
+         */
+        IStructuredSelection selection = (IStructuredSelection) getContext().getSelection();
+        if (selection.getFirstElement() instanceof EObject) {
+            boolean isLocked =
+                    (new GovernanceStateService()).isLockedForProduction((EObject) (selection.getFirstElement()));
+            convertToServiceProcIntfcAction.setEnabled(!isLocked);
+        }
+
         menu.appendToGroup(ICommonMenuConstants.GROUP_REORGANIZE,
                 new Separator());
         menu.appendToGroup(ICommonMenuConstants.GROUP_REORGANIZE,

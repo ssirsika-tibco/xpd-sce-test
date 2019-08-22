@@ -20,6 +20,7 @@ import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
 import org.eclipse.ui.texteditor.IWorkbenchActionDefinitionIds;
 
 import com.tibco.xpd.resources.WorkingCopy;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 
 /**
@@ -74,6 +75,16 @@ public class RenameGSDElementActionProvider extends CommonActionProvider {
     public void fillContextMenu(IMenuManager menu) {
 
         updateSelection();
+
+        /*
+         * ACE-2473: Saket: Action should be disabled for locked application.
+         */
+        IStructuredSelection selection = (IStructuredSelection) getContext().getSelection();
+        if (selection.getFirstElement() instanceof EObject) {
+            boolean isLocked =
+                    (new GovernanceStateService()).isLockedForProduction((EObject) (selection.getFirstElement()));
+            renameAction.setEnabled(!isLocked);
+        }
 
         menu.appendToGroup(ICommonMenuConstants.GROUP_EDIT, renameAction);
 

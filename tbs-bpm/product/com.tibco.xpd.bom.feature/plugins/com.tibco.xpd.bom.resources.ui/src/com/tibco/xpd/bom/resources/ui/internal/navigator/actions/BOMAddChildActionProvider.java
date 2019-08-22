@@ -56,6 +56,7 @@ import com.tibco.xpd.bom.resources.utils.UML2ModelUtil;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 
 /**
@@ -179,6 +180,16 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
 
                                 isWorkingCopyReadOnly = wc.isReadOnly();
                             }
+
+                            /*
+                             * ACE-2473: Saket: Action should be disabled for
+                             * locked application.
+                             */
+                            if (selection.getFirstElement() instanceof EObject) {
+                                isWorkingCopyReadOnly = isWorkingCopyReadOnly || (new GovernanceStateService())
+                                        .isLockedForProduction((EObject) (selection.getFirstElement()));
+                            }
+
                             if (isWorkingCopyReadOnly) {
 
                                 childAct.setEnabled(false);
@@ -364,6 +375,16 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
 
                         isWCReadOnly = wc.isReadOnly();
                     }
+
+                    /*
+                     * ACE-2473: Saket: Action should be disabled for locked
+                     * application.
+                     */
+                    if (selection.getFirstElement() instanceof EObject) {
+                        isWCReadOnly = isWCReadOnly || (new GovernanceStateService())
+                                .isLockedForProduction((EObject) (selection.getFirstElement()));
+                    }
+
                     if (isWCReadOnly) {
 
                         childAct2.setEnabled(false);

@@ -14,9 +14,9 @@ import org.eclipse.ui.actions.ActionContext;
 import org.eclipse.ui.navigator.CommonActionProvider;
 import org.eclipse.ui.navigator.ICommonMenuConstants;
 
-import com.tibco.xpd.rasc.core.governance.GovernanceStateService;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.internal.Messages;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 
 /**
  * Action provider for the project lifecycle governance context menu

@@ -18,10 +18,10 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.actions.BaseSelectionListenerAction;
 
 import com.tibco.xpd.deploy.ui.util.DeployUtil;
-import com.tibco.xpd.rasc.core.governance.GovernanceStateService;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.internal.Messages;
 import com.tibco.xpd.resources.builder.BuildSynchronizerUtil;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 
 /**
  * Menu action to lock projects for production.

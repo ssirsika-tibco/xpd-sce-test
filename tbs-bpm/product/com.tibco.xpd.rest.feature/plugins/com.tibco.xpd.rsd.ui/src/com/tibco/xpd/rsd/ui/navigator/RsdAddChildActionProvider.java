@@ -5,6 +5,7 @@ package com.tibco.xpd.rsd.ui.navigator;
 
 import java.util.Collection;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
@@ -22,6 +23,7 @@ import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 import org.eclipse.ui.navigator.ICommonMenuConstants;
 
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.rsd.Method;
 import com.tibco.xpd.rsd.Resource;
 import com.tibco.xpd.rsd.ui.RsdImage;
@@ -135,8 +137,18 @@ public class RsdAddChildActionProvider extends CommonActionProvider {
                                     null);
                     if (descriptors != null) {
                         for (Object descriptor : descriptors) {
-                            subMenu.add(new CreateAndSelectChildAction(
-                                    activePart, selection, descriptor));
+                            CreateAndSelectChildAction newAction =
+                                    new CreateAndSelectChildAction(activePart, selection, descriptor);
+                            /*
+                             * ACE-2473: Saket: Action should be disabled for
+                             * locked application.
+                             */
+                            if (selection.getFirstElement() instanceof EObject) {
+                                boolean isLocked = (new GovernanceStateService())
+                                        .isLockedForProduction((EObject) (selection.getFirstElement()));
+                                newAction.setEnabled(!isLocked);
+                            }
+                            subMenu.add(newAction);
                         }
                     }
                 }

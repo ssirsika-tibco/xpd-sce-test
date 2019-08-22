@@ -4,6 +4,7 @@
 
 package com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.actions.providers;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.IShellProvider;
@@ -13,6 +14,7 @@ import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 
 import com.tibco.xpd.analyst.resources.xpdl2.internal.Messages;
 import com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.actions.ConvertToCorrelationDataAction;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 
 /**
  * @author nwilson
@@ -42,6 +44,15 @@ public class DataFieldToCorrelationDataActionProvider extends
     @Override
     public void fillContextMenu(IMenuManager menu) {
         updateSelection();
+        /*
+         * ACE-2473: Saket: Action should be disabled for locked application.
+         */
+        IStructuredSelection selection = (IStructuredSelection) getContext().getSelection();
+        if (selection.getFirstElement() instanceof EObject) {
+            boolean isLocked =
+                    (new GovernanceStateService()).isLockedForProduction((EObject) (selection.getFirstElement()));
+            converToCorrelationDataAction.setEnabled(!isLocked);
+        }
         menu.add(converToCorrelationDataAction);
     }
 

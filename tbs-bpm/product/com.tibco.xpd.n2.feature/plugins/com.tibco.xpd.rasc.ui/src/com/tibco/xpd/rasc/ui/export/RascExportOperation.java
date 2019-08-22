@@ -24,13 +24,13 @@ import org.eclipse.swt.widgets.Shell;
 
 import com.tibco.xpd.rasc.core.RascController;
 import com.tibco.xpd.rasc.core.exception.RascGenerationException;
-import com.tibco.xpd.rasc.core.governance.GovernanceStateService;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.internal.Messages;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.builder.BuildSynchronizerUtil;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog;
 import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteStatus;
 

@@ -1,5 +1,6 @@
 package com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.actions.providers;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -12,6 +13,7 @@ import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
 import org.eclipse.ui.texteditor.IWorkbenchActionDefinitionIds;
 
 import com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.actions.RenameAction;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 
 /**
  * Rename action provider for the Xpdl2 EObjects (BPM Content)
@@ -55,6 +57,15 @@ public class RenameActionProvider extends CommonActionProvider {
     @Override
     public void fillActionBars(IActionBars actionBars) {
         updateSelection();
+        /*
+         * ACE-2473: Saket: Action should be disabled for locked application.
+         */
+        IStructuredSelection selection = (IStructuredSelection) getContext().getSelection();
+        if (selection.getFirstElement() instanceof EObject) {
+            boolean isLocked =
+                    (new GovernanceStateService()).isLockedForProduction((EObject) (selection.getFirstElement()));
+            renameAction.setEnabled(!isLocked);
+        }
         actionBars.setGlobalActionHandler(ActionFactory.RENAME.getId(),
                 renameAction);
 

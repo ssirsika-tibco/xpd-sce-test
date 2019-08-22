@@ -5,6 +5,7 @@ package com.tibco.xpd.bom.modeler.custom.internal.diagram;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuManager;
@@ -22,6 +23,7 @@ import com.tibco.xpd.bom.modeler.custom.internal.Messages;
 import com.tibco.xpd.bom.resources.ui.providers.DiagramGroupTransientItemProvider;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
 import com.tibco.xpd.resources.WorkingCopy;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 
 /**
@@ -101,6 +103,15 @@ public class AddDiagramActionProvider extends CommonActionProvider {
                         if (bomWc.isReadOnly()) {
 
                             isWCReadonly = true;
+                        }
+
+                        /*
+                         * ACE-2473: Saket: Action should be disabled for locked
+                         * application.
+                         */
+                        if (selection.getFirstElement() instanceof EObject) {
+                            isWCReadonly = isWCReadonly || (new GovernanceStateService())
+                                    .isLockedForProduction((EObject) (selection.getFirstElement()));
                         }
 
                         if (isWCReadonly) {

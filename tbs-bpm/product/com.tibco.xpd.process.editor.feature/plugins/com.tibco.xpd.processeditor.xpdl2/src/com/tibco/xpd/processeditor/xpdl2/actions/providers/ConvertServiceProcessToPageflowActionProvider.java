@@ -4,6 +4,7 @@
 
 package com.tibco.xpd.processeditor.xpdl2.actions.providers;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.navigator.CommonActionProvider;
@@ -11,6 +12,7 @@ import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 import org.eclipse.ui.navigator.ICommonMenuConstants;
 
 import com.tibco.xpd.processeditor.xpdl2.actions.ServiceProcessToPageflowAction;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 
 /**
  * Action provider to convert service process to pageflow.
@@ -44,6 +46,17 @@ public class ConvertServiceProcessToPageflowActionProvider extends
     public void fillContextMenu(IMenuManager menu) {
 
         updateSelection();
+
+        /*
+         * ACE-2473: Saket: Action should be disabled for locked application.
+         */
+        IStructuredSelection selection = (IStructuredSelection) getContext().getSelection();
+        if (selection.getFirstElement() instanceof EObject) {
+            boolean isLocked =
+                    (new GovernanceStateService()).isLockedForProduction((EObject) (selection.getFirstElement()));
+            convertServiceProcessToPageflow.setEnabled(!isLocked);
+        }
+
         menu.appendToGroup(ICommonMenuConstants.GROUP_REORGANIZE,
                 convertServiceProcessToPageflow);
     }
