@@ -11,6 +11,7 @@ import java.util.List;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
@@ -28,6 +29,7 @@ import com.tibco.xpd.resources.projectconfig.SpecialFolder;
 import com.tibco.xpd.resources.projectconfig.specialfolders.ISpecialFolderModel;
 import com.tibco.xpd.resources.ui.XpdResourcesUIActivator;
 import com.tibco.xpd.resources.ui.internal.Messages;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.ui.projectexplorer.actions.specialfolder.AbstractSpecialFolderAction;
 import com.tibco.xpd.ui.projectexplorer.actions.specialfolder.AssetConfigAction;
 import com.tibco.xpd.ui.projectexplorer.actions.specialfolder.SetSpecialFolderAction;
@@ -138,6 +140,15 @@ public class SpecialFoldersActionProvider extends CommonActionProvider {
                                         ext);
 
                                 if (action.updateSelection(selection)) {
+                                    /*
+                                     * ACE-2473: Saket: Action should be
+                                     * disabled for locked application.
+                                     */
+                                    if (selection.getFirstElement() instanceof EObject) {
+                                        boolean isLocked = (new GovernanceStateService())
+                                                .isLockedForProduction((EObject) (selection.getFirstElement()));
+                                        action.setEnabled(!isLocked);
+                                    }
                                     subMenu.add(action);
                                 }
                             }
@@ -239,6 +250,19 @@ public class SpecialFoldersActionProvider extends CommonActionProvider {
                                                             .updateSelection(selection)) {
                                                 // Add action to the right
                                                 // submenu
+
+                                                /*
+                                                 * ACE-2473: Saket: Action
+                                                 * should be disabled for locked
+                                                 * application.
+                                                 */
+                                                if (selection.getFirstElement() instanceof EObject) {
+                                                    boolean isLocked =
+                                                            (new GovernanceStateService()).isLockedForProduction(
+                                                                    (EObject) (selection.getFirstElement()));
+                                                    action.setEnabled(!isLocked);
+                                                }
+
                                                 if (action instanceof SetSpecialFolderAction) {
                                                     subMenu.add(action);
                                                 } else {
@@ -602,7 +626,7 @@ public class SpecialFoldersActionProvider extends CommonActionProvider {
             List<?> list = selection.toList();
 
             if (list != null) {
-                return (IFolder[]) list.toArray(new IFolder[list.size()]);
+                return list.toArray(new IFolder[list.size()]);
             }
         }
 

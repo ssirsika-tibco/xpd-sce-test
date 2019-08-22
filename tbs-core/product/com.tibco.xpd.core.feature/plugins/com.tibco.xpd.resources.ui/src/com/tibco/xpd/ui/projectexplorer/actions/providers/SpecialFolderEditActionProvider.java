@@ -3,6 +3,7 @@
  */
 package com.tibco.xpd.ui.projectexplorer.actions.providers;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.dnd.Clipboard;
@@ -18,6 +19,7 @@ import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 import org.eclipse.ui.navigator.ICommonMenuConstants;
 import org.eclipse.ui.texteditor.IWorkbenchActionDefinitionIds;
 
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.ui.projectexplorer.actions.CopyAction;
 import com.tibco.xpd.ui.projectexplorer.actions.PasteAction;
 
@@ -50,6 +52,18 @@ public class SpecialFolderEditActionProvider extends CommonActionProvider {
 
     @Override
     public void fillContextMenu(IMenuManager menu) {
+
+        /*
+         * ACE-2473: Saket: Action should be disabled for locked application.
+         */
+        IStructuredSelection selection = (IStructuredSelection) getContext().getSelection();
+        if (selection.getFirstElement() instanceof EObject) {
+            boolean isLocked =
+                    (new GovernanceStateService()).isLockedForProduction((EObject) (selection.getFirstElement()));
+            pasteAction.setEnabled(!isLocked);
+            deleteAction.setEnabled(!isLocked);
+        }
+
         menu.appendToGroup(ICommonMenuConstants.GROUP_EDIT, copyAction);
         menu.insertAfter(copyAction.getId(), pasteAction);
         menu.insertAfter(pasteAction.getId(), deleteAction);
