@@ -44,7 +44,9 @@ import com.tibco.xpd.processwidget.adapters.BaseProcessAdapter;
 import com.tibco.xpd.processwidget.adapters.DropObjectPopupItem;
 import com.tibco.xpd.processwidget.adapters.DropTypeInfo;
 import com.tibco.xpd.processwidget.adapters.MarkerAndModelObject;
+import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.DescribedElement;
 import com.tibco.xpd.xpdl2.Description;
@@ -527,4 +529,20 @@ public abstract class Xpdl2BaseProcessAdapter extends AdapterImpl
         return XpdResourcesPlugin.isRCP();
     }
 
+    /**
+     * @see com.tibco.xpd.processwidget.adapters.BaseProcessAdapter#isReadOnly()
+     *
+     * @return
+     */
+    @Override
+    public boolean isReadOnly() {
+        Process process = (Process) getProcess();
+        if (process != null) {
+            WorkingCopy wc = WorkingCopyUtil.getWorkingCopyFor(process);
+            if (wc != null) {
+                return wc.isReadOnly();
+            }
+        }
+        return false;
+    }
 }

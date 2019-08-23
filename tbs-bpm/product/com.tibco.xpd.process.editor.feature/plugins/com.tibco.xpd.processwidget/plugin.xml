@@ -48,6 +48,12 @@
                id="com.tibco.xpd.processwidget.cut"
                label="%action.label.4"
                menubarPath="edit"/>
+         <visibility>
+            <objectState
+                 name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+                 value="FALSE">
+           </objectState>
+         </visibility>
       </objectContribution>
       <objectContribution
             id="com.tibco.xpd.processwidget.transactionalContribution"
@@ -103,7 +109,12 @@
                <objectState
                      name="com.tibco.xpd.processwidget.IS_PAGEFLOW"
                      value="TRUE">
-               </objectState></not>
+               </objectState>
+           </not>
+           <objectState
+                 name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+                 value="FALSE">
+           </objectState>
             </and>
          </visibility>
          <action
@@ -236,6 +247,10 @@
                      value="TRUE">
                </objectState>
             </or>
+            <objectState
+                 name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+                 value="FALSE">
+            </objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -317,6 +332,10 @@
                      name="com.tibco.xpd.processwidget.IS_DECISION_FLOW_EDITOR"
                      value="TRUE">
                </objectState>
+               <objectState
+                 name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+                 value="FALSE">
+           		</objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -448,6 +467,10 @@
                         value="TRUE">
                   </objectState>
                </not>
+               <objectState
+                 name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+                 value="FALSE">
+           		</objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -544,6 +567,10 @@
                      name="com.tibco.xpd.processwidget.IS_TASK_LIBRARY_EDITOR"
                      value="TRUE">
                </objectState>
+               <objectState
+                 name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+                 value="FALSE">
+           	   </objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -624,6 +651,10 @@
                         value="TRUE">
                   </objectState>
                </not>
+               <objectState
+                 name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+                 value="FALSE">
+           		</objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -668,6 +699,10 @@
                      name="com.tibco.xpd.processwidget.IS_DECISION_FLOW_EDITOR"
                      value="TRUE">
                </objectState>
+               <objectState
+                 name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+                 value="FALSE">
+           	    </objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -776,9 +811,15 @@
                style="toggle"
                tooltip="%action.tooltip.27"/>
          <visibility>
-            <objectState
+            <and>
+            	<objectState
                   name="com.tibco.xpd.processwidget.EVENT_FLOW_TYPE"
                   value="INTERMEDIATE"/>
+                <objectState
+                  name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+                  value="FALSE">
+           	    </objectState>
+            </and>
          </visibility>
          <action
                class="com.tibco.xpd.processwidget.popup.actions.SetEventTypeAction$MessageThrowEvent"
@@ -926,6 +967,10 @@
                         value="TRUE">
                   </objectState>
                </not>
+               <objectState
+                  name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+                  value="FALSE">
+           	    </objectState>
             </and>
          </visibility>
 
@@ -971,6 +1016,10 @@
                      name="com.tibco.xpd.processwidget.IS_DECISION_FLOW_EDITOR"
                      value="TRUE">
                </objectState>
+               <objectState
+                  name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+                  value="FALSE">
+           	    </objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -1030,6 +1079,12 @@
                menubarPath="com.tibco.xpd.processwidget.gatewayTypeMenu/gatewayTypeGroup"
                style="toggle"
                tooltip="%action.tooltip.40"/>
+          <visibility>
+           <objectState
+              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+              value="FALSE">
+       	    </objectState>
+         </visibility>
       </objectContribution>
 
 
@@ -1046,20 +1101,26 @@
                style="toggle"
                tooltip="%action.tooltip.41"/>
          <visibility>
-         <or>
-            <objectState
-                  name="com.tibco.xpd.processwidget.IS_EMBEDDED_SUBPROCESS"
-                  value="TRUE">
-            </objectState>
-            <objectState
-                  name="com.tibco.xpd.processwidget.IS_USER_TASK"
-                  value="TRUE">
-            </objectState>
-            <objectState
-                  name="com.tibco.xpd.processwidget.IS_INDEPENDENT_SUBPROCESS"
-                  value="TRUE">
-            </objectState>
-         </or>
+         <and>
+	        <or>
+				<objectState
+				      name="com.tibco.xpd.processwidget.IS_EMBEDDED_SUBPROCESS"
+				      value="TRUE">
+				</objectState>
+				<objectState
+				      name="com.tibco.xpd.processwidget.IS_USER_TASK"
+				      value="TRUE">
+				</objectState>
+				<objectState
+				      name="com.tibco.xpd.processwidget.IS_INDEPENDENT_SUBPROCESS"
+				      value="TRUE">
+				</objectState>
+	        </or>
+         	<objectState
+				  name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+				  value="FALSE">
+       	   	</objectState>
+         </and>
          </visibility>
       </objectContribution>
       <objectContribution
@@ -1073,6 +1134,12 @@
                id="com.tibco.xpd.processwidget.directEdit"
                label="%action.label.49"
                menubarPath="object"/>
+         <visibility>
+           <objectState
+              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+              value="FALSE">
+       	    </objectState>
+         </visibility>     
       </objectContribution>
       <objectContribution
             adaptable="false"
@@ -1085,6 +1152,12 @@
                id="com.tibco.xpd.processwidget.directEdit"
                label="%action.label.50"
                menubarPath="object"/>
+         <visibility>
+           <objectState
+              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+              value="FALSE">
+       	    </objectState>
+         </visibility>      
       </objectContribution>
       <objectContribution
             adaptable="false"
@@ -1097,6 +1170,12 @@
                id="com.tibco.xpd.processwidget.directEdit"
                label="%action.label.51"
                menubarPath="object"/>
+          <visibility>
+           <objectState
+              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+              value="FALSE">
+       	    </objectState>
+         </visibility>      
       </objectContribution>
       <objectContribution
             adaptable="false"
@@ -1115,6 +1194,12 @@
                id="com.tibco.xpd.processwidget.directEdit"
                label="%action.label.53"
                menubarPath="object"/>
+         <visibility>
+           <objectState
+              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+              value="FALSE">
+       	    </objectState>
+         </visibility>     
       </objectContribution>
       <objectContribution
             adaptable="false"
@@ -1133,6 +1218,12 @@
                id="com.tibco.xpd.processwidget.directEdit"
                label="%action.label.55"
                menubarPath="object"/>
+         <visibility>
+           <objectState
+              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+              value="FALSE">
+       	    </objectState>
+         </visibility>                  
       </objectContribution>
       <objectContribution
             id="com.tibco.xpd.processwidget.baseConnectionContribution"
@@ -1151,6 +1242,12 @@
                id="com.tibco.xpd.processwidget.directEdit"
                label="%action.label.57"
                menubarPath="object"/>
+         <visibility>
+           <objectState
+              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+              value="FALSE">
+       	    </objectState>
+         </visibility>                  
       </objectContribution>
       <objectContribution
             id="com.tibco.xpd.processwidget.flowConnectionContribution"
@@ -1186,12 +1283,18 @@
                style="radio"
                tooltip="%action.tooltip.45"/>
          <visibility>
-            <not>
-               <objectState
-                     name="com.tibco.xpd.processwidget.IS_DECISION_FLOW_EDITOR"
-                     value="TRUE">
-               </objectState>
-            </not>
+         	<and>
+	            <not>
+	               <objectState
+	                     name="com.tibco.xpd.processwidget.IS_DECISION_FLOW_EDITOR"
+	                     value="TRUE">
+	               </objectState>
+	            </not>
+	            <objectState
+	              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+	              value="FALSE">
+	       	    </objectState>
+            </and>
          </visibility>
       </objectContribution>
       <objectContribution
@@ -1221,6 +1324,12 @@
                label="%action.label.63"
                menubarPath="com.tibco.xpd.processwidget.formatMenu/restoreDefaultsSeparator"
                tooltip="%action.tooltip.48"/>
+         <visibility>
+           <objectState
+              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+              value="FALSE">
+       	    </objectState>
+         </visibility>        
       </objectContribution>
       <objectContribution
             id="com.tibco.xpd.processwidget.taskIcon"
@@ -1233,9 +1342,15 @@
                label="%setTaskIcon.menu"
                menubarPath="com.tibco.xpd.processwidget.formatMenu/imageGroup"/>
          <visibility>
-            <objectClass
-                  name="com.tibco.xpd.processwidget.parts.TaskEditPart">
-            </objectClass>
+         	<and>
+	            <objectClass
+	                  name="com.tibco.xpd.processwidget.parts.TaskEditPart">
+	            </objectClass>
+	           <objectState
+	              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+	              value="FALSE">
+	       	    </objectState>
+            </and>
          </visibility>
       </objectContribution>
       <objectContribution
@@ -1250,9 +1365,15 @@
                menubarPath="com.tibco.xpd.processwidget.formatMenu/formatGroup"
                tooltip="%action.tooltip.49"/>
          <visibility>
-            <objectState
-                  name="com.tibco.xpd.processwidget.SUPPORTS_LINE_COLOR"
-                  value="TRUE"/>
+         	<and>
+	            <objectState
+	                  name="com.tibco.xpd.processwidget.SUPPORTS_LINE_COLOR"
+	                  value="TRUE"/>
+	           <objectState
+	              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+	              value="FALSE">
+	       	    </objectState>
+       	    </and>
          </visibility>
       </objectContribution>
       <objectContribution
@@ -1268,9 +1389,15 @@
                tooltip="%action.tooltip.50">
          </action>
          <visibility>
-            <objectState
+            <and>
+               <objectState
                   name="com.tibco.xpd.processwidget.SUPPORTS_FILL_COLOR"
                   value="TRUE"/>
+	           <objectState
+	              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+	              value="FALSE">
+	       	    </objectState>
+       	    </and>       
          </visibility>
       </objectContribution>
       <objectContribution
@@ -1287,6 +1414,12 @@
             <separator name="formatDefaultsSeparator"/>
             <separator name="restoreDefaultsSeparator"/>
          </menu>
+         <visibility>
+            <objectState
+              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+              value="FALSE">
+       	    </objectState>
+         </visibility>
       </objectContribution>
       <objectContribution
             id="com.tibco.xpd.processwidget.refactorObjectsMenuContribution"
@@ -1303,17 +1436,23 @@
             </separator>
          </menu>
          <visibility>
-            <or>
-               <objectClass
-                     name="com.tibco.xpd.processwidget.parts.DataObjectEditPart">
-               </objectClass>
-               <objectClass
-                     name="com.tibco.xpd.processwidget.parts.BaseFlowNodeEditPart">
-               </objectClass>
-               <objectClass
-                     name="com.tibco.xpd.processwidget.parts.NoteEditPart">
-               </objectClass>
-            </or>
+            <and>
+	            <or>
+	               <objectClass
+	                     name="com.tibco.xpd.processwidget.parts.DataObjectEditPart">
+	               </objectClass>
+	               <objectClass
+	                     name="com.tibco.xpd.processwidget.parts.BaseFlowNodeEditPart">
+	               </objectClass>
+	               <objectClass
+	                     name="com.tibco.xpd.processwidget.parts.NoteEditPart">
+	               </objectClass>
+	            </or>
+	           <objectState
+	              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+	              value="FALSE">
+	       	    </objectState>
+       	    </and>   
          </visibility>
       </objectContribution>
       <objectContribution
@@ -1346,6 +1485,10 @@
                      name="com.tibco.xpd.processwidget.IS_BUSINESS_PROCESS"
                      value="TRUE">
                </objectState>
+               <objectState
+	              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+	              value="FALSE">
+	       	    </objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -1389,6 +1532,10 @@
                         value="TRUE">
                   </objectState>
                </or>
+               <objectState
+	              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+	              value="FALSE">
+	       	    </objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -1404,6 +1551,12 @@
                label="%addBookmark.label"
                menubarPath="visual">
          </action>
+         <visibility>
+           <objectState
+              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+              value="FALSE">
+       	    </objectState>
+         </visibility>
       </objectContribution>
       <objectContribution
             id="com.tibco.xpd.processwidget.inlineSubProcContribution"
@@ -1429,6 +1582,10 @@
                         value="TRUE">
                   </objectState>
                </not>
+	           <objectState
+	              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+	              value="FALSE">
+	       	    </objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -1472,6 +1629,10 @@
                         name="com.tibco.xpd.processwidget.parts.NoteEditPart">
                   </objectClass>
                </or>
+	           <objectState
+	              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+	              value="FALSE">
+	       	   </objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -1489,10 +1650,16 @@
                tooltip="%action.tooltip.41">
          </action>
          <visibility>
-            <objectState
-                  name="com.tibco.xpd.processwidget.IS_EVENT_SUBPROCESS"
-                  value="TRUE">
-            </objectState>
+            <and>
+	            <objectState
+	                  name="com.tibco.xpd.processwidget.IS_EVENT_SUBPROCESS"
+	                  value="TRUE">
+	            </objectState>
+	            <objectState
+		              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+		              value="FALSE">
+	       	    </objectState>
+            </and>
          </visibility>
       </objectContribution>
       <!-- Refactor To Embedded Sub process for PageFlow/Business Service-->
@@ -1547,6 +1714,10 @@
                      name="com.tibco.xpd.processwidget.IS_EVENT_HANDLER_ACTIVITY"
                      value="FALSE">
                </objectState>
+               <objectState
+		              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+		              value="FALSE">
+	       	    </objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -1595,6 +1766,10 @@
                      name="com.tibco.xpd.processwidget.IS_EVENT_HANDLER_ACTIVITY"
                      value="TRUE">
                </objectState>
+               <objectState
+		              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+		              value="FALSE">
+	       	    </objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -1639,6 +1814,10 @@
                         value="TRUE">
                   </objectState>
                </not>
+               <objectState
+		              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+		              value="FALSE">
+	       	    </objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -1683,6 +1862,10 @@
                         value="TRUE">
                   </objectState>
                </not>
+               <objectState
+		              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+		              value="FALSE">
+	       	    </objectState>
             </and>
          </visibility>
       </objectContribution>
@@ -1712,6 +1895,10 @@
                         name="com.tibco.xpd.processwidget.parts.NoteEditPart">
                   </objectClass>
                </or>
+               <objectState
+		              name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+		              value="FALSE">
+	       	    </objectState>
             </and>
          </visibility>
       </objectContribution>

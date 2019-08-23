@@ -105,7 +105,7 @@ public class WidgetActionFilter implements IActionFilter {
             "com.tibco.xpd.processwidget.IS_PAGEFLOW"; //$NON-NLS-1$
 
     public static final String IS_SERVICEPROCESS =
-            "com.tibco.xpd.processwidget.IS_SERVICEPROCESS"; //$NON-NLS-1$
+            "`"; //$NON-NLS-1$
 
     public static final String IS_CASE_SERVICE =
             "com.tibco.xpd.processwidget.IS_CASE_SERVICE"; //$NON-NLS-1$
@@ -127,6 +127,9 @@ public class WidgetActionFilter implements IActionFilter {
 
     public static final String IS_EVENT_HANDLER_ACTIVITY =
             "com.tibco.xpd.processwidget.IS_EVENT_HANDLER_ACTIVITY"; //$NON-NLS-1$
+    
+    public static final String IS_READ_ONLY =
+            "com.tibco.xpd.processwidget.IS_READ_ONLY"; //$NON-NLS-1$
 
     /*
      * (non-Javadoc)
@@ -657,6 +660,18 @@ public class WidgetActionFilter implements IActionFilter {
             }
             return (ANSWER_FALSE.equals(value));
 
+        } else if (IS_READ_ONLY.equals(name)) {
+            if (target instanceof BaseGraphicalEditPart) {
+                BaseGraphicalEditPart ep = (BaseGraphicalEditPart) target;
+
+                if (ep.getModelAdapter() != null) {
+                    if (ep.getModelAdapter().isReadOnly()) {
+                        return (ANSWER_TRUE.equals(value));
+                    } else {
+                        return (ANSWER_FALSE.equals(value));
+                    }
+                }
+            }
         }
         return false;
     }

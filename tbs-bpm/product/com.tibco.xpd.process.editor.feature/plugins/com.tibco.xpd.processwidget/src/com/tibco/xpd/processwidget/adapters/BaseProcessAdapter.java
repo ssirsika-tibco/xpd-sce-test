@@ -171,4 +171,8 @@ public interface BaseProcessAdapter extends Adapter {
      */
     String getDocumentationURL();
 
+    /**
+     * Returns if the process is read-only.
+     */
+    public boolean isReadOnly();
 }

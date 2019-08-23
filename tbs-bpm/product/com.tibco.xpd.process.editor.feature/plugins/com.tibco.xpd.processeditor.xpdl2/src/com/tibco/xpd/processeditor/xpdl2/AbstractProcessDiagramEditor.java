@@ -237,6 +237,7 @@ public abstract class AbstractProcessDiagramEditor extends SceEditorPart
      */
     @Override
     public void doSave(IProgressMonitor monitor) {
+
         // Ask user whether they want to save all processes in this package
         boolean canSave =
                 ProcessDialogUtil.canSavePackage(getEditorSite().getShell());
