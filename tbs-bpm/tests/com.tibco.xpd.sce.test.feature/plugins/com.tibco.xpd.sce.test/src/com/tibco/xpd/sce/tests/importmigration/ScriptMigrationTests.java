@@ -202,6 +202,9 @@ public class ScriptMigrationTests extends TestCase {
                     // var orderCriteria = cac_com_example_simplecacdata_Order.createCriteria("attribute1 = 1");
                     "BPM  : At Line:13 column:89, Variable cac_com_example_simplecacdata_Order not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
 
+                    // caseDataRef.navigateByCriteriaToOrderRef(orderCriteria); - criteria object not supported
+                    "BPM  : At Line:14 column:61, Method navigateByCriteriaToOrderRef is invalid for the current context (simpleprocProcess:ScriptTask)",
+
                     // bpm.caseData.navigateByCriteria(data.caseDataRef, "order", "attribute1 = 1");
                     "BPM  : At Line:15 column:77, Method navigateByCriteria is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)" };
             assertEquals(expectedFailures.length, errorMarkers.size());
