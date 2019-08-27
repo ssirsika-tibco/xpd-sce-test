@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:om="http://www.tibco.com/om/1.0" xmlns:omnotation="http://www.tibco.com/models/omnotation">
+  <om:OrgModel xmi:id="_wtZO4MSqEemPlZJK1J0DXA" name="OrganizationModel" displayName="Organization Model" version="1.0.0.qualifier" author="pwatson" dateCreated="1566460930380" humanResourceType="_wtZO9cSqEemPlZJK1J0DXA" consumableResourceType="_wtZO9sSqEemPlZJK1J0DXA" durableResourceType="_wtZ18MSqEemPlZJK1J0DXA">
+    <systemActions xmi:type="om:SystemAction" xmi:id="_Pi1VMMSvEemPlZJK1J0DXA" actionId="canEditApplication" component="APPDEV">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_Pi1VMcSvEemPlZJK1J0DXA" privilege="_6kLxAMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_QyFWkMSvEemPlZJK1J0DXA" actionId="canEditLocales" component="APPDEV">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_QyFWkcSvEemPlZJK1J0DXA" privilege="_6TGoEMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_Rp2sEMSvEemPlZJK1J0DXA" actionId="canEditRoles" component="APPDEV">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_Rp3TIMSvEemPlZJK1J0DXA" privilege="_6AOvYMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_TI3AsMSvEemPlZJK1J0DXA" actionId="canPublishApplication" component="APPDEV">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_TI3AscSvEemPlZJK1J0DXA" privilege="_66Iy4MSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_UD0NEMSvEemPlZJK1J0DXA" actionId="canViewRoles" component="APPDEV">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_UD0NEcSvEemPlZJK1J0DXA" privilege="_5TWbQMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_Xg8bQMSvEemPlZJK1J0DXA" actionId="directAuditAccess" component="EC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_Xg8bQcSvEemPlZJK1J0DXA" privilege="_KTs6sMSrEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_ZxL_kMSvEemPlZJK1J0DXA" actionId="listProcessTemplateAuditTrail" component="EC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_ZxL_kcSvEemPlZJK1J0DXA" privilege="_M4ImUMSrEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_bQkusMSvEemPlZJK1J0DXA" actionId="manageAuditConfiguration" component="EC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_bQkuscSvEemPlZJK1J0DXA" privilege="_JbHF0MSrEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_c_3iEMSvEemPlZJK1J0DXA" actionId="openWorkItemAuditTrail" component="EC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_c_3iEcSvEemPlZJK1J0DXA" privilege="_NyFtIMSrEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_eS-IsMSvEemPlZJK1J0DXA" actionId="purgeAudit" component="EC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_eS-IscSvEemPlZJK1J0DXA" privilege="_Ij6_IMSrEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_fh_gkMSvEemPlZJK1J0DXA" actionId="queryAudit" component="EC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_fh_gkcSvEemPlZJK1J0DXA" privilege="_HtY_wMSrEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_gT9JAMSvEemPlZJK1J0DXA" actionId="queryStatistics" component="EC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_gT9JAcSvEemPlZJK1J0DXA" privilege="_JxSxMMSrEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_haM_YMSvEemPlZJK1J0DXA" actionId="showProcessInstanceAuditTrail" component="EC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_haM_YcSvEemPlZJK1J0DXA" privilege="_NS4BkMSrEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_iknkEMSvEemPlZJK1J0DXA" actionId="writeAudit" component="EC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_iknkEcSvEemPlZJK1J0DXA" privilege="_INUdAMSrEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_j90LoMSvEemPlZJK1J0DXA" actionId="listBusinessServices" component="BIZSVC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_j90LocSvEemPlZJK1J0DXA" privilege="_g0xzkMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_ldG0IMSvEemPlZJK1J0DXA" actionId="executeBusinessService" component="BIZSVC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_ldG0IcSvEemPlZJK1J0DXA" privilege="_JuOuwMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_mmyZAMSvEemPlZJK1J0DXA" actionId="deleteCalendars" component="DAC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_mmyZAcSvEemPlZJK1J0DXA" privilege="_OH3ogMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_nUsn4MSvEemPlZJK1J0DXA" actionId="readCalendars" component="DAC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_nUsn4cSvEemPlZJK1J0DXA" privilege="_Nj0gQMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_oH_tEMSvEemPlZJK1J0DXA" actionId="writeCalendars" component="DAC">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_oH_tEcSvEemPlZJK1J0DXA" privilege="_N2e9kMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_qWDgEMSvEemPlZJK1J0DXA" actionId="accessGlobalDataScripts" component="BDS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_qWDgEcSvEemPlZJK1J0DXA" privilege="_maxywMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_rgrgIMSvEemPlZJK1J0DXA" actionId="administerGlobalDataScripts" component="BDS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_rgrgIcSvEemPlZJK1J0DXA" privilege="_mthvoMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_uaOgIMSvEemPlZJK1J0DXA" actionId="cmisAdmin" component="BDS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_uaOgIcSvEemPlZJK1J0DXA" privilege="_olAOoMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_vV1z0MSvEemPlZJK1J0DXA" actionId="cmisUser" component="BDS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_vV1z0cSvEemPlZJK1J0DXA" privilege="_o3d3oMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_wb1LgMSvEemPlZJK1J0DXA" actionId="createGlobalData" component="BDS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_wb1LgcSvEemPlZJK1J0DXA" privilege="_nRR88MSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_xbtUIMSvEemPlZJK1J0DXA" actionId="deleteGlobalData" component="BDS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_xbtUIcSvEemPlZJK1J0DXA" privilege="_oLVKYMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_yjVDgMSvEemPlZJK1J0DXA" actionId="manageDataViews" component="BDS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_yjVDgcSvEemPlZJK1J0DXA" privilege="_m_issMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_zcuJoMSvEemPlZJK1J0DXA" actionId="readGlobalData" component="BDS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_zcuJocSvEemPlZJK1J0DXA" privilege="_nmEhMMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_0eDDwMSvEemPlZJK1J0DXA" actionId="updateGlobalData" component="BDS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_0eDDwcSvEemPlZJK1J0DXA" privilege="_n4r7MMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_2IRw8MSvEemPlZJK1J0DXA" actionId="contributeGadget" component="OS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_2IRw8cSvEemPlZJK1J0DXA" privilege="_TcsYIMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_3BFoQMSvEemPlZJK1J0DXA" actionId="editHubPolicy" component="OS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_3BFoQcSvEemPlZJK1J0DXA" privilege="_TIH2UMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_3zmDQMSvEemPlZJK1J0DXA" actionId="manageGadgets" component="OS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_3zmDQcSvEemPlZJK1J0DXA" privilege="_SdT-wMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_4sSl0MSvEemPlZJK1J0DXA" actionId="openspaceFeatureSetA" component="OS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_4sSl0cSvEemPlZJK1J0DXA" privilege="_T7el4MSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_5lNx4MSvEemPlZJK1J0DXA" actionId="openspaceFeatureSetB" component="OS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_5lNx4cSvEemPlZJK1J0DXA" privilege="_UUydwMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_69NfkMSvEemPlZJK1J0DXA" actionId="openspaceFeatureSetC" component="OS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_69NfkcSvEemPlZJK1J0DXA" privilege="_Um13EMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_7_CI8MSvEemPlZJK1J0DXA" actionId="viewHubPolicy" component="OS">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_7_CI8cSvEemPlZJK1J0DXA" privilege="_S17TEMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_9SWyAMSvEemPlZJK1J0DXA" actionId="browseModel" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_9SWyAcSvEemPlZJK1J0DXA" privilege="_mQSr8MSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_-ZZSkMSvEemPlZJK1J0DXA" actionId="createResourceAdmin" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_-ZZSkcSvEemPlZJK1J0DXA" privilege="_qnDQ0MSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="__KTLEMSvEemPlZJK1J0DXA" actionId="deleteLDAPAdmin" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="__KTLEcSvEemPlZJK1J0DXA" privilege="_m8dOYMSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="__3mV8MSvEemPlZJK1J0DXA" actionId="deleteResourceAdmin" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="__3mV8cSvEemPlZJK1J0DXA" privilege="_q5FcAMSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_AuzDsMSwEemPlZJK1J0DXA" actionId="exportLDAPAdmin" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_AuzDscSwEemPlZJK1J0DXA" privilege="_n5Q04MSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_B3a4oMSwEemPlZJK1J0DXA" actionId="importLDAPAdmin" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_B3a4ocSwEemPlZJK1J0DXA" privilege="_nk-m8MSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_DUfTkMSwEemPlZJK1J0DXA" actionId="LDAPAdmin" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_DUfTkcSwEemPlZJK1J0DXA" privilege="_mnKT0MSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_EPx3IMSwEemPlZJK1J0DXA" actionId="organizationAdmin" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_EPx3IcSwEemPlZJK1J0DXA" privilege="_rw2KcMSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_GPkkoMSwEemPlZJK1J0DXA" actionId="readParameters" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_GPkkocSwEemPlZJK1J0DXA" privilege="_jXvKcMSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_HSFxkMSwEemPlZJK1J0DXA" actionId="readPushDestinations" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_HSFxkcSwEemPlZJK1J0DXA" privilege="_lkQFUMSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_ISBkkMSwEemPlZJK1J0DXA" actionId="resolveResource" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_ISBkkcSwEemPlZJK1J0DXA" privilege="_nQuOMMSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_w24d4MSxEemPlZJK1J0DXA" actionId="resourceAdmin" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_w24d4cSxEemPlZJK1J0DXA" privilege="_ofK-UMSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_yL1eoMSxEemPlZJK1J0DXA" actionId="userAdmin" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_yL1eocSxEemPlZJK1J0DXA" privilege="_rLYs8MSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_zCQwUMSxEemPlZJK1J0DXA" actionId="writeParameters" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_zCQwUcSxEemPlZJK1J0DXA" privilege="_lOVfsMSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_z7rroMSxEemPlZJK1J0DXA" actionId="writePushDestinations" component="DE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_z7rrocSxEemPlZJK1J0DXA" privilege="_l6FycMSsEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_1zI8gMSxEemPlZJK1J0DXA" actionId="bulkCancelProcessInstances" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_1zI8gcSxEemPlZJK1J0DXA" privilege="_scf6EMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_2oG1oMSxEemPlZJK1J0DXA" actionId="bulkPurgeProcessInstances" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_2oG1ocSxEemPlZJK1J0DXA" privilege="_sFAAEMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_4Cw1wMSxEemPlZJK1J0DXA" actionId="bulkResumeProcessInstances" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_4Cw1wcSxEemPlZJK1J0DXA" privilege="_rgNQ8MStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_8P16MMSxEemPlZJK1J0DXA" actionId="bulkSuspendProcessInstances" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_8P16McSxEemPlZJK1J0DXA" privilege="_rzxtMMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_9hlO4MSxEemPlZJK1J0DXA" actionId="cancelProcessInstance" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_9hlO4cSxEemPlZJK1J0DXA" privilege="_q40g0MStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_IpILEMSyEemPlZJK1J0DXA" actionId="haltedProcessAdministration" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_IpILEcSyEemPlZJK1J0DXA" privilege="_ve_asMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_JiSAoMSyEemPlZJK1J0DXA" actionId="handleProcessMigration" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_JiSAocSyEemPlZJK1J0DXA" privilege="_vLR0gMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_KbdEUMSyEemPlZJK1J0DXA" actionId="purgeProcessInstances" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_KbdEUcSyEemPlZJK1J0DXA" privilege="_rLnhAMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_MAGG4MSyEemPlZJK1J0DXA" actionId="queryProcessInstance" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_MAGG4cSyEemPlZJK1J0DXA" privilege="_tDSNQMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_M5ChEMSyEemPlZJK1J0DXA" actionId="queryProcessTemplate" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_M5ChEcSyEemPlZJK1J0DXA" privilege="_tVnTYMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_NxoV8MSyEemPlZJK1J0DXA" actionId="resumeProcessInstance" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_NxoV8cSyEemPlZJK1J0DXA" privilege="_qOGv4MStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_OzFL4MSyEemPlZJK1J0DXA" actionId="setDeadlineExpiration" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_OzFL4cSyEemPlZJK1J0DXA" privilege="_uwpG8MStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_QPjJ4MSyEemPlZJK1J0DXA" actionId="setPriority" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_QPjJ4cSyEemPlZJK1J0DXA" privilege="_tn4vIMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_RMi9oMSyEemPlZJK1J0DXA" actionId="startprocess" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_RMi9ocSyEemPlZJK1J0DXA" privilege="_sx1Q4MStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_URRS4MSyEemPlZJK1J0DXA" actionId="startAndCancelAdHocActivity" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_URRS4cSyEemPlZJK1J0DXA" privilege="_v4YyIMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_VzWwsMSyEemPlZJK1J0DXA" actionId="suspendProcessInstance" component="PE">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_VzWwscSyEemPlZJK1J0DXA" privilege="_ql9PMMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_cV4pkMSyEemPlZJK1J0DXA" actionId="autoOpenNextWorkItem" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_cV4pkcSyEemPlZJK1J0DXA" privilege="_H1ObMMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_dRLNIMSyEemPlZJK1J0DXA" actionId="cancelWorkItem" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_dRLNIcSyEemPlZJK1J0DXA" privilege="_DvYnMMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_eNiHsMSyEemPlZJK1J0DXA" actionId="changeAllocatedWorkItemPriority" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_eNiHscSyEemPlZJK1J0DXA" privilege="_I7Da0MStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_fEasYMSyEemPlZJK1J0DXA" actionId="changeAnyWorkItemPriority" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_fEasYcSyEemPlZJK1J0DXA" privilege="_JQccAMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_gA0qQMSyEemPlZJK1J0DXA" actionId="closeOtherResourcesItems" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_gA0qQcSyEemPlZJK1J0DXA" privilege="_FwzFUMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_hYx7sMSyEemPlZJK1J0DXA" actionId="openOtherResourcesItems" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_hYx7scSyEemPlZJK1J0DXA" privilege="_FSW10MStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_iPuKwMSyEemPlZJK1J0DXA" actionId="pendWorkItem" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_iPuKwcSyEemPlZJK1J0DXA" privilege="_HHP64MStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_jyrLQMSyEemPlZJK1J0DXA" actionId="reallocateToOfferSet" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_jyrLQcSyEemPlZJK1J0DXA" privilege="_Gv-qYMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_k4Q6UMSyEemPlZJK1J0DXA" actionId="reallocateWorkItemToWorld" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_k4Q6UcSyEemPlZJK1J0DXA" privilege="_GZ8wAMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_lxnkMMSyEemPlZJK1J0DXA" actionId="rescheduleWorkItem" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_lxnkMcSyEemPlZJK1J0DXA" privilege="_IOa-UMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_my0igMSyEemPlZJK1J0DXA" actionId="scheduleWorkItem" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_my0igcSyEemPlZJK1J0DXA" privilege="_DX_a4MStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_nuHGEMSyEemPlZJK1J0DXA" actionId="setResourceOrderFilterCriteria" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_nuHGEcSyEemPlZJK1J0DXA" privilege="_E79IAMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_oq_lEMSyEemPlZJK1J0DXA" actionId="skipWorkItem" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_oq_lEcSyEemPlZJK1J0DXA" privilege="_GEW6gMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_pnb_MMSyEemPlZJK1J0DXA" actionId="suspendWorkItem" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_pnb_McSyEemPlZJK1J0DXA" privilege="_EHzuQMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_qYyjoMSyEemPlZJK1J0DXA" actionId="viewGlobalWorkList" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_qYyjocSyEemPlZJK1J0DXA" privilege="_JrNscMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_rb0t8MSyEemPlZJK1J0DXA" actionId="viewWorkList" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_rb0t8cSyEemPlZJK1J0DXA" privilege="_EgabgMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_sgfP8MSyEemPlZJK1J0DXA" actionId="workItemAllocation" component="BRM">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_sgfP8cSyEemPlZJK1J0DXA" privilege="_HfZVIMStEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_uLRWwMSyEemPlZJK1J0DXA" actionId="applicationConfiguration" component="WSB">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_uLRWwcSyEemPlZJK1J0DXA" privilege="_KCcrQMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <systemActions xmi:type="om:SystemAction" xmi:id="_vlyM8MSyEemPlZJK1J0DXA" actionId="startBusinessService" component="WSB">
+      <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_vly0AMSyEemPlZJK1J0DXA" privilege="_JuOuwMSuEemPlZJK1J0DXA"/>
+    </systemActions>
+    <groups xmi:type="om:Group" xmi:id="_y3XzIMSqEemPlZJK1J0DXA" name="Group2" displayName="Group2">
+      <systemActions xmi:type="om:SystemAction" xmi:id="_caE6IMS_EemP7JzDWlW_Yw" actionId="closeOtherResourcesItems" component="BRM">
+        <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_caE6IcS_EemP7JzDWlW_Yw" privilege="_FwzFUMStEemPlZJK1J0DXA"/>
+      </systemActions>
+      <systemActions xmi:type="om:SystemAction" xmi:id="_dSYbIMS_EemP7JzDWlW_Yw" actionId="openOtherResourcesItems" component="BRM">
+        <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_dSYbIcS_EemP7JzDWlW_Yw" privilege="_FSW10MStEemPlZJK1J0DXA"/>
+      </systemActions>
+      <systemActions xmi:type="om:SystemAction" xmi:id="_eHCyQMS_EemP7JzDWlW_Yw" actionId="reallocateToOfferSet" component="BRM">
+        <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_eHCyQcS_EemP7JzDWlW_Yw" privilege="_Gv-qYMStEemPlZJK1J0DXA"/>
+      </systemActions>
+      <systemActions xmi:type="om:SystemAction" xmi:id="_ezfokMS_EemP7JzDWlW_Yw" actionId="reallocateWorkItemToWorld" component="BRM">
+        <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_ezfokcS_EemP7JzDWlW_Yw" privilege="_GZ8wAMStEemPlZJK1J0DXA"/>
+      </systemActions>
+      <systemActions xmi:type="om:SystemAction" xmi:id="_fmRJUMS_EemP7JzDWlW_Yw" actionId="setResourceOrderFilterCriteria" component="BRM">
+        <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_fmRJUcS_EemP7JzDWlW_Yw" privilege="_E79IAMStEemPlZJK1J0DXA"/>
+      </systemActions>
+      <systemActions xmi:type="om:SystemAction" xmi:id="_hPcGkMS_EemP7JzDWlW_Yw" actionId="viewWorkList" component="BRM">
+        <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_hPcGkcS_EemP7JzDWlW_Yw" privilege="_EgabgMStEemPlZJK1J0DXA"/>
+      </systemActions>
+      <systemActions xmi:type="om:SystemAction" xmi:id="_iMyfoMS_EemP7JzDWlW_Yw" actionId="workItemAllocation" component="BRM">
+        <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_iMyfocS_EemP7JzDWlW_Yw" privilege="_HfZVIMStEemPlZJK1J0DXA"/>
+      </systemActions>
+      <subGroups xmi:type="om:Group" xmi:id="_qaSFgMS_EemP7JzDWlW_Yw" name="Group4" displayName="Group4">
+        <systemActions xmi:type="om:SystemAction" xmi:id="_twRJ4MS_EemP7JzDWlW_Yw" actionId="closeOtherResourcesItems" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_twRw8MS_EemP7JzDWlW_Yw" privilege="_FwzFUMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_uzrusMS_EemP7JzDWlW_Yw" actionId="workItemAllocation" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_uzruscS_EemP7JzDWlW_Yw" privilege="_HfZVIMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_veyhMMS_EemP7JzDWlW_Yw" actionId="viewWorkList" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_veyhMcS_EemP7JzDWlW_Yw" privilege="_EgabgMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_wT0EsMS_EemP7JzDWlW_Yw" actionId="setResourceOrderFilterCriteria" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_wT0EscS_EemP7JzDWlW_Yw" privilege="_E79IAMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_xDYgcMS_EemP7JzDWlW_Yw" actionId="reallocateWorkItemToWorld" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_xDYgccS_EemP7JzDWlW_Yw" privilege="_GZ8wAMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_x1AKoMS_EemP7JzDWlW_Yw" actionId="reallocateToOfferSet" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_x1AKocS_EemP7JzDWlW_Yw" privilege="_Gv-qYMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_ywwoQMS_EemP7JzDWlW_Yw" actionId="openOtherResourcesItems" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_ywxPUMS_EemP7JzDWlW_Yw" privilege="_FSW10MStEemPlZJK1J0DXA"/>
+        </systemActions>
+      </subGroups>
+    </groups>
+    <groups xmi:type="om:Group" xmi:id="_oX9BYMS_EemP7JzDWlW_Yw" name="Group1" displayName="Group1">
+      <subGroups xmi:type="om:Group" xmi:id="_qBOFQMS_EemP7JzDWlW_Yw" name="Group3" displayName="Group3"/>
+    </groups>
+    <organizations xmi:type="om:Organization" xmi:id="_wtZO4cSqEemPlZJK1J0DXA" name="Organization" displayName="Organization" allocationMethod="NEXT">
+      <units xmi:type="om:OrgUnit" xmi:id="_iUv44MSrEemPlZJK1J0DXA" name="OrgUnit3" displayName="OrgUnit3" allocationMethod="NEXT" outgoingRelationships="_gwZsEMS9EemP7JzDWlW_Yw _i_QJQcS9EemP7JzDWlW_Yw">
+        <positions xmi:type="om:Position" xmi:id="_iNCpMMS9EemP7JzDWlW_Yw" name="Position1" displayName="Position1">
+          <systemActions xmi:type="om:SystemAction" xmi:id="_oyiWgMS9EemP7JzDWlW_Yw" actionId="closeOtherResourcesItems" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_oyiWgcS9EemP7JzDWlW_Yw" privilege="_FwzFUMStEemPlZJK1J0DXA"/>
+          </systemActions>
+          <systemActions xmi:type="om:SystemAction" xmi:id="_p9pewMS9EemP7JzDWlW_Yw" actionId="openOtherResourcesItems" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_p9pewcS9EemP7JzDWlW_Yw" privilege="_FSW10MStEemPlZJK1J0DXA"/>
+          </systemActions>
+          <systemActions xmi:type="om:SystemAction" xmi:id="_rKDngMS9EemP7JzDWlW_Yw" actionId="reallocateToOfferSet" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_rKDngcS9EemP7JzDWlW_Yw" privilege="_Gv-qYMStEemPlZJK1J0DXA"/>
+          </systemActions>
+          <systemActions xmi:type="om:SystemAction" xmi:id="_sQww4MS9EemP7JzDWlW_Yw" actionId="reallocateWorkItemToWorld" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_sQww4cS9EemP7JzDWlW_Yw" privilege="_GZ8wAMStEemPlZJK1J0DXA"/>
+          </systemActions>
+          <systemActions xmi:type="om:SystemAction" xmi:id="_tdwIcMS9EemP7JzDWlW_Yw" actionId="setResourceOrderFilterCriteria" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_tdwIccS9EemP7JzDWlW_Yw" privilege="_E79IAMStEemPlZJK1J0DXA"/>
+          </systemActions>
+          <systemActions xmi:type="om:SystemAction" xmi:id="_vvKKYMS9EemP7JzDWlW_Yw" actionId="viewWorkList" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_vvKKYcS9EemP7JzDWlW_Yw" privilege="_EgabgMStEemPlZJK1J0DXA">
+              <qualifierValue xmi:type="om:AttributeValue" xmi:id="_bI8fEMTjEemP7JzDWlW_Yw" attribute="_Qc1hsMTjEemP7JzDWlW_Yw">
+                <setValues>value-1</setValues>
+                <setValues>value-2</setValues>
+              </qualifierValue>
+            </privilegeAssociations>
+          </systemActions>
+          <systemActions xmi:type="om:SystemAction" xmi:id="_wqLBIMS9EemP7JzDWlW_Yw" actionId="workItemAllocation" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_wqLBIcS9EemP7JzDWlW_Yw" privilege="_HfZVIMStEemPlZJK1J0DXA">
+              <qualifierValue xmi:type="om:AttributeValue" xmi:id="_cU8YIMTjEemP7JzDWlW_Yw" attribute="_TDZUQMTjEemP7JzDWlW_Yw" enumSetValues="_TxoTQMTjEemP7JzDWlW_Yw _T1FP4MTjEemP7JzDWlW_Yw"/>
+            </privilegeAssociations>
+          </systemActions>
+        </positions>
+      </units>
+      <units xmi:type="om:OrgUnit" xmi:id="_c5JtsMS9EemP7JzDWlW_Yw" name="OrgUnit1" displayName="OrgUnit1" allocationMethod="NEXT" outgoingRelationships="_fr-aocS9EemP7JzDWlW_Yw">
+        <positions xmi:type="om:Position" xmi:id="_hKtpgMS9EemP7JzDWlW_Yw" name="Position1" displayName="Position1"/>
+      </units>
+      <units xmi:type="om:OrgUnit" xmi:id="_dea98MS9EemP7JzDWlW_Yw" name="OrgUnit2" displayName="OrgUnit2" allocationMethod="NEXT" outgoingRelationships="_gVDM0cS9EemP7JzDWlW_Yw">
+        <positions xmi:type="om:Position" xmi:id="_hu7J0MS9EemP7JzDWlW_Yw" name="Position1" displayName="Position1"/>
+      </units>
+      <units xmi:type="om:OrgUnit" xmi:id="_fr-aoMS9EemP7JzDWlW_Yw" name="OrgUnit4" displayName="OrgUnit4" allocationMethod="NEXT" incomingRelationships="_fr-aocS9EemP7JzDWlW_Yw"/>
+      <units xmi:type="om:OrgUnit" xmi:id="_gVDM0MS9EemP7JzDWlW_Yw" name="OrgUnit5" displayName="OrgUnit5" allocationMethod="NEXT" incomingRelationships="_gVDM0cS9EemP7JzDWlW_Yw"/>
+      <units xmi:type="om:OrgUnit" xmi:id="_gwZFAMS9EemP7JzDWlW_Yw" name="OrgUnit6" displayName="OrgUnit6" allocationMethod="NEXT" outgoingRelationships="_kvGWQMS9EemP7JzDWlW_Yw" incomingRelationships="_gwZsEMS9EemP7JzDWlW_Yw">
+        <systemActions xmi:type="om:SystemAction" xmi:id="_zYwuUMS9EemP7JzDWlW_Yw" actionId="closeOtherResourcesItems" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_zYwuUcS9EemP7JzDWlW_Yw" privilege="_FwzFUMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_0TkwwMS9EemP7JzDWlW_Yw" actionId="openOtherResourcesItems" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_0TkwwcS9EemP7JzDWlW_Yw" privilege="_FSW10MStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_1eTegMS9EemP7JzDWlW_Yw" actionId="reallocateToOfferSet" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_1eTegcS9EemP7JzDWlW_Yw" privilege="_Gv-qYMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_2TFKYMS9EemP7JzDWlW_Yw" actionId="reallocateWorkItemToWorld" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_2TFKYcS9EemP7JzDWlW_Yw" privilege="_GZ8wAMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_3fGRkMS9EemP7JzDWlW_Yw" actionId="setResourceOrderFilterCriteria" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_3fGRkcS9EemP7JzDWlW_Yw" privilege="_E79IAMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_4hnegMS9EemP7JzDWlW_Yw" actionId="viewWorkList" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_4hnegcS9EemP7JzDWlW_Yw" privilege="_EgabgMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_5d780MS9EemP7JzDWlW_Yw" actionId="workItemAllocation" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_5d780cS9EemP7JzDWlW_Yw" privilege="_HfZVIMStEemPlZJK1J0DXA"/>
+        </systemActions>
+      </units>
+      <orgUnitRelationships xmi:type="om:OrgUnitRelationship" xmi:id="_fr-aocS9EemP7JzDWlW_Yw" name="OrgUnit1OrgUnit4" displayName="OrgUnit1::OrgUnit4" from="_c5JtsMS9EemP7JzDWlW_Yw" to="_fr-aoMS9EemP7JzDWlW_Yw" isHierarchical="true"/>
+      <orgUnitRelationships xmi:type="om:OrgUnitRelationship" xmi:id="_gVDM0cS9EemP7JzDWlW_Yw" name="OrgUnit2OrgUnit5" displayName="OrgUnit2::OrgUnit5" from="_dea98MS9EemP7JzDWlW_Yw" to="_gVDM0MS9EemP7JzDWlW_Yw" isHierarchical="true"/>
+      <orgUnitRelationships xmi:type="om:OrgUnitRelationship" xmi:id="_gwZsEMS9EemP7JzDWlW_Yw" name="OrgUnit3OrgUnit6" displayName="OrgUnit3::OrgUnit6" from="_iUv44MSrEemPlZJK1J0DXA" to="_gwZFAMS9EemP7JzDWlW_Yw" isHierarchical="true"/>
+      <orgUnitRelationships xmi:type="om:OrgUnitRelationship" xmi:id="_i_QJQcS9EemP7JzDWlW_Yw" name="OrgUnit3DynamicOrgUnit1" displayName="OrgUnit3::DynamicOrgUnit1" from="_iUv44MSrEemPlZJK1J0DXA" isHierarchical="true"/>
+      <orgUnitRelationships xmi:type="om:OrgUnitRelationship" xmi:id="_kvGWQMS9EemP7JzDWlW_Yw" name="OrgUnit6DynamicOrgUnit1" displayName="OrgUnit6::DynamicOrgUnit1" from="_gwZFAMS9EemP7JzDWlW_Yw" isHierarchical="true"/>
+    </organizations>
+    <organizations xmi:type="om:Organization" xmi:id="_9G-gEMS9EemP7JzDWlW_Yw" name="DynamicOrganization1" displayName="Dynamic Organization1" allocationMethod="NEXT" dynamic="true">
+      <units xmi:type="om:OrgUnit" xmi:id="_92DMkMS9EemP7JzDWlW_Yw" name="DynOrgUnit1" displayName="DynOrgUnit1" allocationMethod="NEXT" outgoingRelationships="_VPA3EcS-EemP7JzDWlW_Yw _kl0B8cS-EemP7JzDWlW_Yw">
+        <positions xmi:type="om:Position" xmi:id="_SMFRkMS-EemP7JzDWlW_Yw" name="DynPosition1" displayName="DynPosition1"/>
+      </units>
+      <units xmi:type="om:OrgUnit" xmi:id="_VPA3EMS-EemP7JzDWlW_Yw" name="DynSubOrgUnit1" displayName="DynSubOrgUnit1" allocationMethod="NEXT" incomingRelationships="_VPA3EcS-EemP7JzDWlW_Yw">
+        <positions xmi:type="om:Position" xmi:id="_Y6nmIMS-EemP7JzDWlW_Yw" name="DynSubPosition1" displayName="DynSubPosition1"/>
+      </units>
+      <units xmi:type="om:OrgUnit" xmi:id="_kl0B8MS-EemP7JzDWlW_Yw" name="DynSubOrgUnit2" displayName="DynSubOrgUnit2" allocationMethod="NEXT" incomingRelationships="_kl0B8cS-EemP7JzDWlW_Yw">
+        <systemActions xmi:type="om:SystemAction" xmi:id="_1NxSsMS-EemP7JzDWlW_Yw" actionId="closeOtherResourcesItems" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_1NxSscS-EemP7JzDWlW_Yw" privilege="_FwzFUMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_2HgXEMS-EemP7JzDWlW_Yw" actionId="openOtherResourcesItems" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_2HgXEcS-EemP7JzDWlW_Yw" privilege="_FSW10MStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_23jT8MS-EemP7JzDWlW_Yw" actionId="reallocateToOfferSet" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_23jT8cS-EemP7JzDWlW_Yw" privilege="_Gv-qYMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_3rnOIMS-EemP7JzDWlW_Yw" actionId="reallocateWorkItemToWorld" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_3rnOIcS-EemP7JzDWlW_Yw" privilege="_GZ8wAMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_4hg7YMS-EemP7JzDWlW_Yw" actionId="setResourceOrderFilterCriteria" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_4hg7YcS-EemP7JzDWlW_Yw" privilege="_E79IAMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_5R5PcMS-EemP7JzDWlW_Yw" actionId="viewWorkList" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_5R5PccS-EemP7JzDWlW_Yw" privilege="_EgabgMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <systemActions xmi:type="om:SystemAction" xmi:id="_6RgSUMS-EemP7JzDWlW_Yw" actionId="workItemAllocation" component="BRM">
+          <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_6RgSUcS-EemP7JzDWlW_Yw" privilege="_HfZVIMStEemPlZJK1J0DXA"/>
+        </systemActions>
+        <positions xmi:type="om:Position" xmi:id="_oqf_YMS-EemP7JzDWlW_Yw" name="DynSubPosition2" displayName="DynSubPosition2">
+          <systemActions xmi:type="om:SystemAction" xmi:id="_thaD8MS-EemP7JzDWlW_Yw" actionId="closeOtherResourcesItems" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_thaD8cS-EemP7JzDWlW_Yw" privilege="_FwzFUMStEemPlZJK1J0DXA"/>
+          </systemActions>
+          <systemActions xmi:type="om:SystemAction" xmi:id="_vQ-kIMS-EemP7JzDWlW_Yw" actionId="openOtherResourcesItems" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_vQ-kIcS-EemP7JzDWlW_Yw" privilege="_FSW10MStEemPlZJK1J0DXA"/>
+          </systemActions>
+          <systemActions xmi:type="om:SystemAction" xmi:id="_wHFswMS-EemP7JzDWlW_Yw" actionId="reallocateToOfferSet" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_wHFswcS-EemP7JzDWlW_Yw" privilege="_Gv-qYMStEemPlZJK1J0DXA"/>
+          </systemActions>
+          <systemActions xmi:type="om:SystemAction" xmi:id="_w31NMMS-EemP7JzDWlW_Yw" actionId="reallocateWorkItemToWorld" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_w31NMcS-EemP7JzDWlW_Yw" privilege="_GZ8wAMStEemPlZJK1J0DXA"/>
+          </systemActions>
+          <systemActions xmi:type="om:SystemAction" xmi:id="_xp5jUMS-EemP7JzDWlW_Yw" actionId="setResourceOrderFilterCriteria" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_xp5jUcS-EemP7JzDWlW_Yw" privilege="_E79IAMStEemPlZJK1J0DXA"/>
+          </systemActions>
+          <systemActions xmi:type="om:SystemAction" xmi:id="_yf_d0MS-EemP7JzDWlW_Yw" actionId="viewWorkList" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_yf_d0cS-EemP7JzDWlW_Yw" privilege="_EgabgMStEemPlZJK1J0DXA"/>
+          </systemActions>
+          <systemActions xmi:type="om:SystemAction" xmi:id="_zVF50MS-EemP7JzDWlW_Yw" actionId="workItemAllocation" component="BRM">
+            <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_zVF50cS-EemP7JzDWlW_Yw" privilege="_HfZVIMStEemPlZJK1J0DXA"/>
+          </systemActions>
+        </positions>
+      </units>
+      <orgUnitRelationships xmi:type="om:OrgUnitRelationship" xmi:id="_VPA3EcS-EemP7JzDWlW_Yw" name="DynOrgUnit1OrgUnit1" displayName="DynOrgUnit1::OrgUnit1" from="_92DMkMS9EemP7JzDWlW_Yw" to="_VPA3EMS-EemP7JzDWlW_Yw" isHierarchical="true"/>
+      <orgUnitRelationships xmi:type="om:OrgUnitRelationship" xmi:id="_XJ3aMcS-EemP7JzDWlW_Yw" name="DynOrgUnit2OrgUnit1" displayName="DynOrgUnit2::OrgUnit1" isHierarchical="true"/>
+      <orgUnitRelationships xmi:type="om:OrgUnitRelationship" xmi:id="_kl0B8cS-EemP7JzDWlW_Yw" name="DynOrgUnit1OrgUnit1" displayName="DynOrgUnit1::OrgUnit1" from="_92DMkMS9EemP7JzDWlW_Yw" to="_kl0B8MS-EemP7JzDWlW_Yw" isHierarchical="true"/>
+      <dynamicOrgIdentifiers xmi:type="om:DynamicOrgIdentifier" xmi:id="_HasyoMS-EemP7JzDWlW_Yw" name="Identifier" displayName="Identifier"/>
+    </organizations>
+    <privileges xmi:type="om:Privilege" xmi:id="_HtY_wMSrEemPlZJK1J0DXA" name="QueryAudit" displayName="Query Audit" category="_o77oQMSrEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_INUdAMSrEemPlZJK1J0DXA" name="WriteAudit" displayName="Write Audit" category="_o77oQMSrEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_Ij6_IMSrEemPlZJK1J0DXA" name="PurgeAudit" displayName="Purge Audit" category="_o77oQMSrEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_JbHF0MSrEemPlZJK1J0DXA" name="ManageAuditConfig" displayName="Manage Audit Config" category="_o77oQMSrEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_JxSxMMSrEemPlZJK1J0DXA" name="QueryStatistics" displayName="Query Statistics" category="_o77oQMSrEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_KTs6sMSrEemPlZJK1J0DXA" name="DirectAuditAccess" displayName="Direct Audit Access" category="_o77oQMSrEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_M4ImUMSrEemPlZJK1J0DXA" name="ListProcessTemplateAudit" displayName="List Process Template Audit" category="_o77oQMSrEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_NS4BkMSrEemPlZJK1J0DXA" name="ShowProcessInstanceAudit" displayName="Show Process Instance Audit" category="_o77oQMSrEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_NyFtIMSrEemPlZJK1J0DXA" name="OpenWorkItemAudit" displayName="Open Work Item Audit" category="_o77oQMSrEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_jXvKcMSsEemPlZJK1J0DXA" name="ReadParameters" displayName="Read Parameters" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_lOVfsMSsEemPlZJK1J0DXA" name="WriteParameters" displayName="Write Parameters" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_lkQFUMSsEemPlZJK1J0DXA" name="ReadPushDestinations" displayName="Read Push Destinations" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_l6FycMSsEemPlZJK1J0DXA" name="WritePushDestinations" displayName="Write Push Destinations" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_mQSr8MSsEemPlZJK1J0DXA" name="BrowseModel" displayName="Browse Model" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_mnKT0MSsEemPlZJK1J0DXA" name="LDAPAdmin" displayName="LDAP Admin" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_m8dOYMSsEemPlZJK1J0DXA" name="DeleteLDAPAdmin" displayName="Delete LDAP Admin" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_nQuOMMSsEemPlZJK1J0DXA" name="ResolveResource" displayName="Resolve Resource" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_nk-m8MSsEemPlZJK1J0DXA" name="ImportLDAPAdmin" displayName="Import LDAP Admin" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_n5Q04MSsEemPlZJK1J0DXA" name="ExportLDAPAdmin" displayName="Export LDAP Admin" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_ofK-UMSsEemPlZJK1J0DXA" name="ResourceAdmin" displayName="Resource Admin" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_qnDQ0MSsEemPlZJK1J0DXA" name="CreateResourceAdmin" displayName="Create Resource Admin" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_q5FcAMSsEemPlZJK1J0DXA" name="DeleteResourceAdmin" displayName="Delete Resource Admin" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_rLYs8MSsEemPlZJK1J0DXA" name="UserAdmin" displayName="User Admin" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_rw2KcMSsEemPlZJK1J0DXA" name="OrganizationAdmin" displayName="Organization Admin" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_sH28QMSsEemPlZJK1J0DXA" name="LDAPUpdate" displayName="LDAP Update" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_slvyIMSsEemPlZJK1J0DXA" name="AuthenticatedUser" displayName="Authenticated User" category="_zKmRIMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_DX_a4MStEemPlZJK1J0DXA" name="ScheduleWorkItem" displayName="Schedule Work Item" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_DvYnMMStEemPlZJK1J0DXA" name="CancelWorkItem" displayName="Cancel Work Item" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_EHzuQMStEemPlZJK1J0DXA" name="SuspendWorkItem" displayName="Suspend Work Item" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_EgabgMStEemPlZJK1J0DXA" name="ViewWorkList" displayName="View Work List" category="_ziP8IMSqEemPlZJK1J0DXA">
+      <qualifierAttribute xmi:type="om:Attribute" xmi:id="_Qc1hsMTjEemP7JzDWlW_Yw" name="qualifier" displayName="qualifier" type="Set"/>
+    </privileges>
+    <privileges xmi:type="om:Privilege" xmi:id="_E79IAMStEemPlZJK1J0DXA" name="SetResourceOrderFilterCriteria" displayName="Set Resource Order Filter Criteria" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_FSW10MStEemPlZJK1J0DXA" name="OpenOtherResourceItems" displayName="Open Other Resource Items" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_FwzFUMStEemPlZJK1J0DXA" name="CloseOtherResouceItems" displayName="Close Other Resouce Items" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_GEW6gMStEemPlZJK1J0DXA" name="SkipWorkItem" displayName="Skip Work Item" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_GZ8wAMStEemPlZJK1J0DXA" name="ReallocateWorkItemToWorld" displayName="Reallocate Work Item To World" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_Gv-qYMStEemPlZJK1J0DXA" name="ReallocateToOfferSet" displayName="Reallocate To Offer Set" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_HHP64MStEemPlZJK1J0DXA" name="PendWorkItem" displayName="Pend Work Item" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_HfZVIMStEemPlZJK1J0DXA" name="WorkItemAllocation" displayName="Work Item Allocation" category="_ziP8IMSqEemPlZJK1J0DXA">
+      <qualifierAttribute xmi:type="om:Attribute" xmi:id="_TDZUQMTjEemP7JzDWlW_Yw" name="qualifier" displayName="qualifier" type="EnumSet">
+        <values xmi:type="om:EnumValue" xmi:id="_TxoTQMTjEemP7JzDWlW_Yw" value="enum-literal-1"/>
+        <values xmi:type="om:EnumValue" xmi:id="_TzZ04MTjEemP7JzDWlW_Yw" value="enum-literal-2"/>
+        <values xmi:type="om:EnumValue" xmi:id="_T1FP4MTjEemP7JzDWlW_Yw" value="enum-literal-3"/>
+      </qualifierAttribute>
+    </privileges>
+    <privileges xmi:type="om:Privilege" xmi:id="_H1ObMMStEemPlZJK1J0DXA" name="AutoOpenNextWorkItem" displayName="Auto Open Next Work Item" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_IOa-UMStEemPlZJK1J0DXA" name="RescheduleWorkItem" displayName="Reschedule Work Item" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_IiVY0MStEemPlZJK1J0DXA" name="EnabelWorkItem" displayName="Enabel Work Item" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_I7Da0MStEemPlZJK1J0DXA" name="ChangeAllocatedWorkItemPriority" displayName="Change Allocated Work Item Priority" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_JQccAMStEemPlZJK1J0DXA" name="ChangeAnyWorkItemPriority" displayName="Change Any Work Item Priority" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_JrNscMStEemPlZJK1J0DXA" name="ViewGlobalWorkList" displayName="View Global Work List" category="_ziP8IMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_qOGv4MStEemPlZJK1J0DXA" name="ResumeProcessInstance" displayName="Resume Process Instance" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_ql9PMMStEemPlZJK1J0DXA" name="SuspendProcessInstance" displayName="Suspend Process Instance" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_q40g0MStEemPlZJK1J0DXA" name="CancelProcessInstance" displayName="Cancel Process Instance" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_rLnhAMStEemPlZJK1J0DXA" name="PurgeProcessInstances" displayName="Purge Process Instances" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_rgNQ8MStEemPlZJK1J0DXA" name="BulkResumeProcessInstances" displayName="Bulk Resume Process Instances" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_rzxtMMStEemPlZJK1J0DXA" name="BulkSuspendProcessInstances" displayName="Bulk Suspend Process Instances" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_sFAAEMStEemPlZJK1J0DXA" name="BulkPurgeProcessInstances" displayName="Bulk Purge Process Instances" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_scf6EMStEemPlZJK1J0DXA" name="BulkCancelProcessInstances" displayName="Bulk Cancel Process Instances" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_sx1Q4MStEemPlZJK1J0DXA" name="StartProcess" displayName="Start Process" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_tDSNQMStEemPlZJK1J0DXA" name="QueryProcessInstance" displayName="Query Process Instance" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_tVnTYMStEemPlZJK1J0DXA" name="QueryProcessTemplate" displayName="Query Process Template" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_tn4vIMStEemPlZJK1J0DXA" name="SetPriority" displayName="Set Priority" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_uwpG8MStEemPlZJK1J0DXA" name="SetDeadlineExpiration" displayName="Set Deadline Expiration" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_vLR0gMStEemPlZJK1J0DXA" name="HandleProcessMigration" displayName="Handle Process Migration" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_ve_asMStEemPlZJK1J0DXA" name="HaltedProcessAdministration" displayName="Halted Process Administration" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_v4YyIMStEemPlZJK1J0DXA" name="StartandCancelAdhocActivity" displayName="Start and Cancel Adhoc Activity" category="_2eC-4MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_JuOuwMSuEemPlZJK1J0DXA" name="StartBusinessService" displayName="Start Business Service" category="_2wmugMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_KCcrQMSuEemPlZJK1J0DXA" name="ApplicationConfiguration" displayName="Application Configuration" category="_2wmugMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_Nj0gQMSuEemPlZJK1J0DXA" name="ReadCalendars" displayName="Read Calendars" category="_3BXuYMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_N2e9kMSuEemPlZJK1J0DXA" name="WriteCalendars" displayName="Write Calendars" category="_3BXuYMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_OH3ogMSuEemPlZJK1J0DXA" name="DeleteCalendars" displayName="Delete Calendars" category="_3BXuYMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_SdT-wMSuEemPlZJK1J0DXA" name="ManageGadgets" displayName="Manage Gadgets" category="_3TsNcMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_S17TEMSuEemPlZJK1J0DXA" name="ViewHubPolicy" displayName="View Hub Policy" category="_3TsNcMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_TIH2UMSuEemPlZJK1J0DXA" name="EditHubPolicy" displayName="Edit Hub Policy" category="_3TsNcMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_TcsYIMSuEemPlZJK1J0DXA" name="ContributeGadget" displayName="Contribute Gadget" category="_3TsNcMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_T7el4MSuEemPlZJK1J0DXA" name="OpenspaceFeatureSetA" displayName="Openspace Feature Set A" category="_3TsNcMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_UUydwMSuEemPlZJK1J0DXA" name="OpenspaceFeatureSetB" displayName="Openspace Feature Set B" category="_3TsNcMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_Um13EMSuEemPlZJK1J0DXA" name="OpenspaceFeatureSetC" displayName="Openspace Feature Set C" category="_3TsNcMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_gdEeMMSuEemPlZJK1J0DXA" name="ExecuteBusinessService" displayName="Execute Business Service" category="_3ld58MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_g0xzkMSuEemPlZJK1J0DXA" name="ListBusinessServices" displayName="List Business Services" category="_3ld58MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_maxywMSuEemPlZJK1J0DXA" name="AccessGlobalDataScripts" displayName="Access Global Data Scripts" category="_33FOYMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_mthvoMSuEemPlZJK1J0DXA" name="AdministerGlobalDataScripts" displayName="Administer Global Data Scripts" category="_33FOYMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_m_issMSuEemPlZJK1J0DXA" name="ManageDataViews" displayName="Manage Data Views" category="_33FOYMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_nRR88MSuEemPlZJK1J0DXA" name="CreateGlobalData" displayName="Create Global Data" category="_33FOYMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_nmEhMMSuEemPlZJK1J0DXA" name="ReadGlobalData" displayName="Read Global Data" category="_33FOYMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_n4r7MMSuEemPlZJK1J0DXA" name="UpdateGlobalData" displayName="Update Global Data" category="_33FOYMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_oLVKYMSuEemPlZJK1J0DXA" name="DeleteGlobalData" displayName="Delete Global Data" category="_33FOYMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_olAOoMSuEemPlZJK1J0DXA" name="CMISAdmin" displayName="CMIS Admin" category="_33FOYMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_o3d3oMSuEemPlZJK1J0DXA" name="CMISUser" displayName="CMIS User" category="_33FOYMSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_5TWbQMSuEemPlZJK1J0DXA" name="CanViewRoles" displayName="Can View Roles" category="_4OC84MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_6AOvYMSuEemPlZJK1J0DXA" name="CanEditRoles" displayName="Can Edit Roles" category="_4OC84MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_6TGoEMSuEemPlZJK1J0DXA" name="CanEditLocales" displayName="Can Edit Locales" category="_4OC84MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_6kLxAMSuEemPlZJK1J0DXA" name="CanEditApplication" displayName="Can Edit Application" category="_4OC84MSqEemPlZJK1J0DXA"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_66Iy4MSuEemPlZJK1J0DXA" name="CanPublishApplication" displayName="Can Publish Application" category="_4OC84MSqEemPlZJK1J0DXA"/>
+    <privilegeCategories xmi:type="om:PrivilegeCategory" xmi:id="_o77oQMSrEemPlZJK1J0DXA" name="ECGroup" displayName="EC Group" members="_KTs6sMSrEemPlZJK1J0DXA _M4ImUMSrEemPlZJK1J0DXA _JbHF0MSrEemPlZJK1J0DXA _NyFtIMSrEemPlZJK1J0DXA _Ij6_IMSrEemPlZJK1J0DXA _HtY_wMSrEemPlZJK1J0DXA _JxSxMMSrEemPlZJK1J0DXA _NS4BkMSrEemPlZJK1J0DXA _INUdAMSrEemPlZJK1J0DXA"/>
+    <privilegeCategories xmi:type="om:PrivilegeCategory" xmi:id="_zKmRIMSqEemPlZJK1J0DXA" name="DEGroup" displayName="DE Group" members="_jXvKcMSsEemPlZJK1J0DXA _lOVfsMSsEemPlZJK1J0DXA _lkQFUMSsEemPlZJK1J0DXA _l6FycMSsEemPlZJK1J0DXA _mQSr8MSsEemPlZJK1J0DXA _mnKT0MSsEemPlZJK1J0DXA _m8dOYMSsEemPlZJK1J0DXA _nQuOMMSsEemPlZJK1J0DXA _nk-m8MSsEemPlZJK1J0DXA _n5Q04MSsEemPlZJK1J0DXA _ofK-UMSsEemPlZJK1J0DXA _qnDQ0MSsEemPlZJK1J0DXA _q5FcAMSsEemPlZJK1J0DXA _rLYs8MSsEemPlZJK1J0DXA _rw2KcMSsEemPlZJK1J0DXA _sH28QMSsEemPlZJK1J0DXA _slvyIMSsEemPlZJK1J0DXA"/>
+    <privilegeCategories xmi:type="om:PrivilegeCategory" xmi:id="_ziP8IMSqEemPlZJK1J0DXA" name="BRMGroup" displayName="BRM Group" members="_DX_a4MStEemPlZJK1J0DXA _DvYnMMStEemPlZJK1J0DXA _EHzuQMStEemPlZJK1J0DXA _EgabgMStEemPlZJK1J0DXA _E79IAMStEemPlZJK1J0DXA _FSW10MStEemPlZJK1J0DXA _FwzFUMStEemPlZJK1J0DXA _GEW6gMStEemPlZJK1J0DXA _GZ8wAMStEemPlZJK1J0DXA _Gv-qYMStEemPlZJK1J0DXA _HHP64MStEemPlZJK1J0DXA _HfZVIMStEemPlZJK1J0DXA _H1ObMMStEemPlZJK1J0DXA _IOa-UMStEemPlZJK1J0DXA _IiVY0MStEemPlZJK1J0DXA _I7Da0MStEemPlZJK1J0DXA _JQccAMStEemPlZJK1J0DXA _JrNscMStEemPlZJK1J0DXA"/>
+    <privilegeCategories xmi:type="om:PrivilegeCategory" xmi:id="_2eC-4MSqEemPlZJK1J0DXA" name="PEGroup" displayName="PE Group" members="_qOGv4MStEemPlZJK1J0DXA _ql9PMMStEemPlZJK1J0DXA _q40g0MStEemPlZJK1J0DXA _rLnhAMStEemPlZJK1J0DXA _rgNQ8MStEemPlZJK1J0DXA _rzxtMMStEemPlZJK1J0DXA _sFAAEMStEemPlZJK1J0DXA _scf6EMStEemPlZJK1J0DXA _sx1Q4MStEemPlZJK1J0DXA _tDSNQMStEemPlZJK1J0DXA _tVnTYMStEemPlZJK1J0DXA _tn4vIMStEemPlZJK1J0DXA _uwpG8MStEemPlZJK1J0DXA _vLR0gMStEemPlZJK1J0DXA _ve_asMStEemPlZJK1J0DXA _v4YyIMStEemPlZJK1J0DXA"/>
+    <privilegeCategories xmi:type="om:PrivilegeCategory" xmi:id="_2wmugMSqEemPlZJK1J0DXA" name="WSBGroup" displayName="WSB Group" members="_JuOuwMSuEemPlZJK1J0DXA _KCcrQMSuEemPlZJK1J0DXA"/>
+    <privilegeCategories xmi:type="om:PrivilegeCategory" xmi:id="_3BXuYMSqEemPlZJK1J0DXA" name="DACGroup" displayName="DAC Group" members="_Nj0gQMSuEemPlZJK1J0DXA _N2e9kMSuEemPlZJK1J0DXA _OH3ogMSuEemPlZJK1J0DXA"/>
+    <privilegeCategories xmi:type="om:PrivilegeCategory" xmi:id="_3TsNcMSqEemPlZJK1J0DXA" name="OSGroup" displayName="OS Group" members="_SdT-wMSuEemPlZJK1J0DXA _S17TEMSuEemPlZJK1J0DXA _TIH2UMSuEemPlZJK1J0DXA _TcsYIMSuEemPlZJK1J0DXA _T7el4MSuEemPlZJK1J0DXA _UUydwMSuEemPlZJK1J0DXA _Um13EMSuEemPlZJK1J0DXA"/>
+    <privilegeCategories xmi:type="om:PrivilegeCategory" xmi:id="_3ld58MSqEemPlZJK1J0DXA" name="BIZSVCGroup" displayName="BIZSVC Group" members="_gdEeMMSuEemPlZJK1J0DXA _g0xzkMSuEemPlZJK1J0DXA"/>
+    <privilegeCategories xmi:type="om:PrivilegeCategory" xmi:id="_33FOYMSqEemPlZJK1J0DXA" name="CDMGroup" displayName="CDM Group" members="_maxywMSuEemPlZJK1J0DXA _mthvoMSuEemPlZJK1J0DXA _m_issMSuEemPlZJK1J0DXA _nRR88MSuEemPlZJK1J0DXA _nmEhMMSuEemPlZJK1J0DXA _n4r7MMSuEemPlZJK1J0DXA _oLVKYMSuEemPlZJK1J0DXA _olAOoMSuEemPlZJK1J0DXA _o3d3oMSuEemPlZJK1J0DXA"/>
+    <privilegeCategories xmi:type="om:PrivilegeCategory" xmi:id="_4OC84MSqEemPlZJK1J0DXA" name="APPDEVGroup" displayName="APPDEV Group" members="_5TWbQMSuEemPlZJK1J0DXA _6AOvYMSuEemPlZJK1J0DXA _6TGoEMSuEemPlZJK1J0DXA _6kLxAMSuEemPlZJK1J0DXA _66Iy4MSuEemPlZJK1J0DXA"/>
+    <embeddedMetamodel xmi:type="om:OrgMetaModel" xmi:id="_wtZO4sSqEemPlZJK1J0DXA">
+      <locationTypes xmi:type="om:LocationType" xmi:id="_wtZO48SqEemPlZJK1J0DXA" name="StandardLocationType" displayName="Standard Location Type">
+        <attributes xmi:type="om:Attribute" xmi:id="_wtZO5MSqEemPlZJK1J0DXA" name="Country" displayName="Country"/>
+        <attributes xmi:type="om:Attribute" xmi:id="_wtZO5cSqEemPlZJK1J0DXA" name="State" displayName="State"/>
+        <attributes xmi:type="om:Attribute" xmi:id="_wtZO5sSqEemPlZJK1J0DXA" name="City" displayName="City"/>
+        <attributes xmi:type="om:Attribute" xmi:id="_wtZO58SqEemPlZJK1J0DXA" name="Street" displayName="Street"/>
+        <attributes xmi:type="om:Attribute" xmi:id="_wtZO6MSqEemPlZJK1J0DXA" name="Postcode" displayName="Postcode"/>
+      </locationTypes>
+      <organizationTypes xmi:type="om:OrganizationType" xmi:id="_wtZO6cSqEemPlZJK1J0DXA" name="PublicCompany" displayName="Public Company">
+        <orgUnitFeatures xmi:type="om:OrgUnitFeature" xmi:id="_wtZO6sSqEemPlZJK1J0DXA" name="HeadDepartment" displayName="Head Department" featureType="_wtZO68SqEemPlZJK1J0DXA"/>
+      </organizationTypes>
+      <orgUnitTypes xmi:type="om:OrgUnitType" xmi:id="_wtZO68SqEemPlZJK1J0DXA" name="DepartmentType" displayName="Department Type">
+        <orgUnitFeatures xmi:type="om:OrgUnitFeature" xmi:id="_wtZO7MSqEemPlZJK1J0DXA" name="Department" displayName="Department" upperBound="-1" featureType="_wtZO68SqEemPlZJK1J0DXA"/>
+        <orgUnitFeatures xmi:type="om:OrgUnitFeature" xmi:id="_wtZO7cSqEemPlZJK1J0DXA" name="BusinessUnit" displayName="Business Unit" upperBound="-1" featureType="_wtZO68SqEemPlZJK1J0DXA"/>
+        <orgUnitFeatures xmi:type="om:OrgUnitFeature" xmi:id="_wtZO7sSqEemPlZJK1J0DXA" name="Team" displayName="Team" upperBound="-1" featureType="_wtZO68SqEemPlZJK1J0DXA"/>
+        <positionFeatures xmi:type="om:PositionFeature" xmi:id="_wtZO78SqEemPlZJK1J0DXA" name="Manager" displayName="Manager" featureType="_wtZO8cSqEemPlZJK1J0DXA"/>
+        <positionFeatures xmi:type="om:PositionFeature" xmi:id="_wtZO8MSqEemPlZJK1J0DXA" name="Member" displayName="Member" upperBound="-1" featureType="_wtZO8cSqEemPlZJK1J0DXA"/>
+      </orgUnitTypes>
+      <positionTypes xmi:type="om:PositionType" xmi:id="_wtZO8cSqEemPlZJK1J0DXA" name="StandardPositionType" displayName="Standard Position Type">
+        <attributes xmi:type="om:Attribute" xmi:id="_wtZO8sSqEemPlZJK1J0DXA" name="ContractType" displayName="Contract Type" type="Enum">
+          <values xmi:type="om:EnumValue" xmi:id="_wtZO88SqEemPlZJK1J0DXA" value="temporary"/>
+          <values xmi:type="om:EnumValue" xmi:id="_wtZO9MSqEemPlZJK1J0DXA" value="permanent"/>
+        </attributes>
+      </positionTypes>
+      <resourceTypes xmi:type="om:ResourceType" xmi:id="_wtZO9cSqEemPlZJK1J0DXA" name="HumanResourceType" displayName="Human Resource Type"/>
+      <resourceTypes xmi:type="om:ResourceType" xmi:id="_wtZO9sSqEemPlZJK1J0DXA" name="ConsumableResourceType" displayName="Consumable Resource Type"/>
+      <resourceTypes xmi:type="om:ResourceType" xmi:id="_wtZ18MSqEemPlZJK1J0DXA" name="DurableResourceType" displayName="Durable Resource Type"/>
+    </embeddedMetamodel>
+  </om:OrgModel>
+  <notation:Diagram xmi:id="_wuxu8MSqEemPlZJK1J0DXA" type="Organization Model" element="_wtZO4MSqEemPlZJK1J0DXA" name="system-actions.om" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_wuxu8cSqEemPlZJK1J0DXA" type="1050">
+      <children xmi:type="notation:Node" xmi:id="_wuxu8sSqEemPlZJK1J0DXA" type="4100"/>
+      <children xmi:type="notation:Node" xmi:id="_wuxu88SqEemPlZJK1J0DXA" type="5050">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_wuxu9MSqEemPlZJK1J0DXA"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_wuxu9cSqEemPlZJK1J0DXA" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_wuxu9sSqEemPlZJK1J0DXA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_wuxu98SqEemPlZJK1J0DXA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_wuxu-MSqEemPlZJK1J0DXA" fontName="Segoe UI" fontHeight="10" lineColor="0"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_wuxu-cSqEemPlZJK1J0DXA"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_wuxu-sSqEemPlZJK1J0DXA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wuxu-8SqEemPlZJK1J0DXA" y="145"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_wuzkIMSqEemPlZJK1J0DXA" type="OrgModelBadge">
+      <children xmi:type="notation:Node" xmi:id="_wu0LMMSqEemPlZJK1J0DXA" type="OrgModelNameBadge">
+        <styles xmi:type="notation:FontStyle" xmi:id="_wu0LMcSqEemPlZJK1J0DXA" fontName="Segoe UI" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_wu0yQMSqEemPlZJK1J0DXA" type="LabelAuthorBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_wu0yQcSqEemPlZJK1J0DXA" type="OrgModelAuthorBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_wu1ZUMSqEemPlZJK1J0DXA" type="LabelVersionBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_wu1ZUcSqEemPlZJK1J0DXA" type="OrgModelVersionBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_wu2AYMSqEemPlZJK1J0DXA" type="LabelDateCreatedBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_wu2AYcSqEemPlZJK1J0DXA" type="OrgModelDateCreatedBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_wu2AYsSqEemPlZJK1J0DXA" type="LabelDateModifiedBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_wu2ncMSqEemPlZJK1J0DXA" type="OrgModelDateModifiedBadgeEditPart"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_wuzkIcSqEemPlZJK1J0DXA" fontName="Segoe UI" fontHeight="10" fillColor="16315636" lineColor="4622313"/>
+      <styles xmi:type="omnotation:ShapeGradientStyle" xmi:id="_wuzkIsSqEemPlZJK1J0DXA" gradStartColor="0"/>
+      <styles xmi:type="omnotation:BorderGradientStyle" xmi:id="_wuzkI8SqEemPlZJK1J0DXA" gradStartColor="0"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_wuzkJMSqEemPlZJK1J0DXA"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_wuzkJcSqEemPlZJK1J0DXA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wuzkJsSqEemPlZJK1J0DXA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_wu3OgMSqEemPlZJK1J0DXA" type="1001" element="_wtZO4cSqEemPlZJK1J0DXA">
+      <children xmi:type="notation:Node" xmi:id="_wu4coMSqEemPlZJK1J0DXA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_wu5DsMSqEemPlZJK1J0DXA" type="4004">
+        <styles xmi:type="notation:FontStyle" xmi:id="_wu5DscSqEemPlZJK1J0DXA" fontName="Segoe UI" fontHeight="10" italic="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_wu5qwMSqEemPlZJK1J0DXA" type="5001">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_wu5qwcSqEemPlZJK1J0DXA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_wu5qwsSqEemPlZJK1J0DXA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_wu5qw8SqEemPlZJK1J0DXA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_wu3OgcSqEemPlZJK1J0DXA" fontName="Segoe UI" fontHeight="10" fillColor="14548991" lineColor="2263786"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_wu3OgsSqEemPlZJK1J0DXA" diagramLink="_wvL-oMSqEemPlZJK1J0DXA" hint="Organization Model Sub"/>
+      <styles xmi:type="omnotation:ShapeGradientStyle" xmi:id="_wu3Og8SqEemPlZJK1J0DXA" gradEndColor="4227327"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_wu3OhMSqEemPlZJK1J0DXA"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_wu3OhcSqEemPlZJK1J0DXA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wu3OhsSqEemPlZJK1J0DXA" x="270" y="50"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_wuxu_MSqEemPlZJK1J0DXA"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_wuxu_cSqEemPlZJK1J0DXA"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_wvL-oMSqEemPlZJK1J0DXA" type="Organization Model Sub" element="_wtZO4cSqEemPlZJK1J0DXA" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_wvNMwMSqEemPlZJK1J0DXA" type="OrganizationSubBadge">
+      <children xmi:type="notation:Node" xmi:id="_wvSFQMSqEemPlZJK1J0DXA" type="OrganizationNameSubBadge"/>
+      <children xmi:type="notation:Node" xmi:id="_wvSFQcSqEemPlZJK1J0DXA" type="LabelOrganizationNameSubBadge" element="_wtZO4MSqEemPlZJK1J0DXA"/>
+      <children xmi:type="notation:Node" xmi:id="_wvSsUMSqEemPlZJK1J0DXA" type="OrgModelNameSubBadge" element="_wtZO4MSqEemPlZJK1J0DXA"/>
+      <children xmi:type="notation:Node" xmi:id="_wvSsUcSqEemPlZJK1J0DXA" type="LabelOrgTypeSubBadge"/>
+      <children xmi:type="notation:Node" xmi:id="_wvTTYMSqEemPlZJK1J0DXA" type="OrgTypeSubBadge"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_wvNMwcSqEemPlZJK1J0DXA" fontName="Segoe UI" fontHeight="10" fillColor="16316150" lineColor="4622313"/>
+      <styles xmi:type="omnotation:ShapeGradientStyle" xmi:id="_wvNMwsSqEemPlZJK1J0DXA" gradStartColor="0"/>
+      <styles xmi:type="omnotation:BorderGradientStyle" xmi:id="_wvNMw8SqEemPlZJK1J0DXA" gradStartColor="0"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_wvNMxMSqEemPlZJK1J0DXA"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_wvNMxcSqEemPlZJK1J0DXA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wvNMxsSqEemPlZJK1J0DXA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_43I4AMS8EemP7JzDWlW_Yw" type="1001" element="_iUv44MSrEemPlZJK1J0DXA">
+      <children xmi:type="notation:Node" xmi:id="_43NwgMS8EemP7JzDWlW_Yw" type="4001"/>
+      <children xmi:type="notation:Node" xmi:id="_43OXkMS8EemP7JzDWlW_Yw" type="4002">
+        <styles xmi:type="notation:FontStyle" xmi:id="_43OXkcS8EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10" italic="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_43O-oMS8EemP7JzDWlW_Yw" type="5001">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_43O-ocS8EemP7JzDWlW_Yw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_43O-osS8EemP7JzDWlW_Yw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_43O-o8S8EemP7JzDWlW_Yw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_43I4AcS8EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10" fillColor="14548991" lineColor="2263786"/>
+      <styles xmi:type="omnotation:ShapeGradientStyle" xmi:id="_43I4AsS8EemP7JzDWlW_Yw" gradEndColor="4227327"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_43I4A8S8EemP7JzDWlW_Yw"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_43I4BMS8EemP7JzDWlW_Yw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_43I4BcS8EemP7JzDWlW_Yw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_c5WiAMS9EemP7JzDWlW_Yw" type="1001" element="_c5JtsMS9EemP7JzDWlW_Yw">
+      <children xmi:type="notation:Node" xmi:id="_c5XwIMS9EemP7JzDWlW_Yw" type="4001"/>
+      <children xmi:type="notation:Node" xmi:id="_c5XwIcS9EemP7JzDWlW_Yw" type="4002">
+        <styles xmi:type="notation:FontStyle" xmi:id="_c5XwIsS9EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10" italic="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_c5YXMMS9EemP7JzDWlW_Yw" type="5001">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_c5YXMcS9EemP7JzDWlW_Yw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_c5YXMsS9EemP7JzDWlW_Yw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_c5YXM8S9EemP7JzDWlW_Yw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_c5WiAcS9EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10" fillColor="14548991" lineColor="2263786"/>
+      <styles xmi:type="omnotation:ShapeGradientStyle" xmi:id="_c5XJEMS9EemP7JzDWlW_Yw" gradEndColor="4227327"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_c5XJEcS9EemP7JzDWlW_Yw"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_c5XJEsS9EemP7JzDWlW_Yw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_c5XJE8S9EemP7JzDWlW_Yw" x="642" y="225"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_deblAMS9EemP7JzDWlW_Yw" type="1001" element="_dea98MS9EemP7JzDWlW_Yw">
+      <children xmi:type="notation:Node" xmi:id="_decMEMS9EemP7JzDWlW_Yw" type="4001"/>
+      <children xmi:type="notation:Node" xmi:id="_decMEcS9EemP7JzDWlW_Yw" type="4002">
+        <styles xmi:type="notation:FontStyle" xmi:id="_decMEsS9EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10" italic="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_decME8S9EemP7JzDWlW_Yw" type="5001">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_decMFMS9EemP7JzDWlW_Yw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_decMFcS9EemP7JzDWlW_Yw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_decMFsS9EemP7JzDWlW_Yw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_deblAcS9EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10" fillColor="14548991" lineColor="2263786"/>
+      <styles xmi:type="omnotation:ShapeGradientStyle" xmi:id="_deblAsS9EemP7JzDWlW_Yw" gradEndColor="4227327"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_deblA8S9EemP7JzDWlW_Yw"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_deblBMS9EemP7JzDWlW_Yw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_deblBcS9EemP7JzDWlW_Yw" x="792" y="250"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_fr_owMS9EemP7JzDWlW_Yw" type="1001" element="_fr-aoMS9EemP7JzDWlW_Yw">
+      <children xmi:type="notation:Node" xmi:id="_fsAP0MS9EemP7JzDWlW_Yw" type="4001"/>
+      <children xmi:type="notation:Node" xmi:id="_fsAP0cS9EemP7JzDWlW_Yw" type="4002">
+        <styles xmi:type="notation:FontStyle" xmi:id="_fsAP0sS9EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10" italic="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_fsBd8MS9EemP7JzDWlW_Yw" type="5001">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_fsBd8cS9EemP7JzDWlW_Yw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_fsBd8sS9EemP7JzDWlW_Yw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_fsBd88S9EemP7JzDWlW_Yw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_fr_owcS9EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10" fillColor="14548991" lineColor="2263786"/>
+      <styles xmi:type="omnotation:ShapeGradientStyle" xmi:id="_fr_owsS9EemP7JzDWlW_Yw" gradEndColor="4227327"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_fr_ow8S9EemP7JzDWlW_Yw"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_fr_oxMS9EemP7JzDWlW_Yw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fr_oxcS9EemP7JzDWlW_Yw" x="942" y="275"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_gVFpEMS9EemP7JzDWlW_Yw" type="1001" element="_gVDM0MS9EemP7JzDWlW_Yw">
+      <children xmi:type="notation:Node" xmi:id="_gVG3MMS9EemP7JzDWlW_Yw" type="4001"/>
+      <children xmi:type="notation:Node" xmi:id="_gVG3McS9EemP7JzDWlW_Yw" type="4002">
+        <styles xmi:type="notation:FontStyle" xmi:id="_gVG3MsS9EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10" italic="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_gVHeQMS9EemP7JzDWlW_Yw" type="5001">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_gVHeQcS9EemP7JzDWlW_Yw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_gVHeQsS9EemP7JzDWlW_Yw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_gVHeQ8S9EemP7JzDWlW_Yw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_gVFpEcS9EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10" fillColor="14548991" lineColor="2263786"/>
+      <styles xmi:type="omnotation:ShapeGradientStyle" xmi:id="_gVFpEsS9EemP7JzDWlW_Yw" gradEndColor="4227327"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_gVFpE8S9EemP7JzDWlW_Yw"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_gVFpFMS9EemP7JzDWlW_Yw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gVFpFcS9EemP7JzDWlW_Yw" x="1092" y="300"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_gwaTIMS9EemP7JzDWlW_Yw" type="1001" element="_gwZFAMS9EemP7JzDWlW_Yw">
+      <children xmi:type="notation:Node" xmi:id="_gwa6MMS9EemP7JzDWlW_Yw" type="4001"/>
+      <children xmi:type="notation:Node" xmi:id="_gwa6McS9EemP7JzDWlW_Yw" type="4002">
+        <styles xmi:type="notation:FontStyle" xmi:id="_gwa6MsS9EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10" italic="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_gwa6M8S9EemP7JzDWlW_Yw" type="5001">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_gwa6NMS9EemP7JzDWlW_Yw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_gwa6NcS9EemP7JzDWlW_Yw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_gwa6NsS9EemP7JzDWlW_Yw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_gwaTIcS9EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10" fillColor="14548991" lineColor="2263786"/>
+      <styles xmi:type="omnotation:ShapeGradientStyle" xmi:id="_gwaTIsS9EemP7JzDWlW_Yw" gradEndColor="4227327"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_gwaTI8S9EemP7JzDWlW_Yw"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_gwaTJMS9EemP7JzDWlW_Yw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gwaTJcS9EemP7JzDWlW_Yw" x="1242" y="325"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_wvL-ocSqEemPlZJK1J0DXA"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_wvL-osSqEemPlZJK1J0DXA"/>
+    <edges xmi:type="notation:Edge" xmi:id="_fs0IIMS9EemP7JzDWlW_Yw" type="3001" element="_fr-aocS9EemP7JzDWlW_Yw" source="_c5WiAMS9EemP7JzDWlW_Yw" target="_fr_owMS9EemP7JzDWlW_Yw">
+      <children xmi:type="notation:Node" xmi:id="_fs1WQMS9EemP7JzDWlW_Yw" visible="false" type="4003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_fs1WQcS9EemP7JzDWlW_Yw" y="15"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_fs0IIcS9EemP7JzDWlW_Yw" routing="Tree" lineColor="4622313" lineWidth="2"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_fs0IIsS9EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_fs0II8S9EemP7JzDWlW_Yw"/>
+      <styles xmi:type="notation:LineTypeStyle" xmi:id="_fs0IJMS9EemP7JzDWlW_Yw"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_fs0IJcS9EemP7JzDWlW_Yw" points="[-60, -22, 642, 228]$[-702, -250, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_gVNk4MS9EemP7JzDWlW_Yw" type="3001" element="_gVDM0cS9EemP7JzDWlW_Yw" source="_deblAMS9EemP7JzDWlW_Yw" target="_gVFpEMS9EemP7JzDWlW_Yw">
+      <children xmi:type="notation:Node" xmi:id="_gVOzAMS9EemP7JzDWlW_Yw" visible="false" type="4003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_gVOzAcS9EemP7JzDWlW_Yw" y="15"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_gVOL8MS9EemP7JzDWlW_Yw" routing="Tree" lineColor="4622313" lineWidth="2"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_gVOL8cS9EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_gVOL8sS9EemP7JzDWlW_Yw"/>
+      <styles xmi:type="notation:LineTypeStyle" xmi:id="_gVOL88S9EemP7JzDWlW_Yw"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gVOL9MS9EemP7JzDWlW_Yw" points="[-60, -20, 792, 255]$[-852, -275, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_gwekkMS9EemP7JzDWlW_Yw" type="3001" element="_gwZsEMS9EemP7JzDWlW_Yw" source="_43I4AMS8EemP7JzDWlW_Yw" target="_gwaTIMS9EemP7JzDWlW_Yw">
+      <children xmi:type="notation:Node" xmi:id="_gwfLoMS9EemP7JzDWlW_Yw" visible="false" type="4003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_gwfLocS9EemP7JzDWlW_Yw" y="15"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_gwekkcS9EemP7JzDWlW_Yw" routing="Tree" lineColor="4622313" lineWidth="2"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_gwekksS9EemP7JzDWlW_Yw" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_gwekk8S9EemP7JzDWlW_Yw"/>
+      <styles xmi:type="notation:LineTypeStyle" xmi:id="_gweklMS9EemP7JzDWlW_Yw"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gweklcS9EemP7JzDWlW_Yw" points="[-60, -25, 0, 0]$[-60, -25, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

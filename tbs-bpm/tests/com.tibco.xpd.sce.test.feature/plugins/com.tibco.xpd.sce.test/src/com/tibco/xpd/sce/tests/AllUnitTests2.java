@@ -16,6 +16,7 @@ import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
 import com.tibco.xpd.sce.tests.importmigration.ScriptMigrationTests;
+import com.tibco.xpd.sce.tests.importmigration.SystemActionMigrationTest;
 import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
 
 import junit.framework.Test;
@@ -61,6 +62,7 @@ public class AllUnitTests2 {
          */
         suite.addTestSuite(WorkListFacadeGenTest.class);
 
+        suite.addTestSuite(SystemActionMigrationTest.class);
 
         return suite;
     }

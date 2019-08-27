@@ -1,0 +1,216 @@
+/*
+ * Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved.
+ */
+
+package com.tibco.xpd.sce.tests.importmigration;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
+
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.ecore.EObject;
+
+import com.tibco.xpd.core.test.util.TestUtil;
+import com.tibco.xpd.om.core.om.Group;
+import com.tibco.xpd.om.core.om.OrgModel;
+import com.tibco.xpd.om.core.om.OrgUnit;
+import com.tibco.xpd.om.core.om.Organization;
+import com.tibco.xpd.om.core.om.Position;
+import com.tibco.xpd.om.core.om.SystemAction;
+import com.tibco.xpd.om.core.om.util.OMUtil;
+import com.tibco.xpd.om.resources.wc.OMWorkingCopy;
+import com.tibco.xpd.resources.WorkingCopy;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.projectconfig.SpecialFolder;
+import com.tibco.xpd.resources.util.ProjectImporter;
+import com.tibco.xpd.resources.util.SpecialFolderUtil;
+
+import junit.framework.TestCase;
+
+/**
+ *
+ *
+ * @author pwatson
+ * @since 23 Aug 2019
+ */
+@SuppressWarnings("nls")
+public class SystemActionMigrationTest extends TestCase {
+    private static final String[][] DEPRECATED_ACTIONS = { //
+            { "EC", "purgeAudit" }, //
+            { "EC", "manageAuditConfiguration" }, //
+            { "EC", "queryStatistics" }, //
+            { "EC", "directAuditAccess" }, //
+            { "EC", "listProcessTemplateAuditTrail" }, //
+            { "EC", "showProcessInstanceAuditTrail" }, //
+            { "EC", "openWorkItemAuditTrail" }, //
+    };
+
+    // @Test
+    public void testSystemActions() throws Exception {
+        ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
+                new String[] { "resources/SystemActionMigrationTest/system-actions/" },
+                new String[] { "system-actions" });
+
+        assertTrue("Failed to load projects from resources/SystemActionMigrationTest/", projectImporter != null);
+        try {
+            TestUtil.buildAndWait();
+
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("system-actions");
+
+            // we expect no validation markers
+            TestUtil.outputErrorMarkers(project, true);
+            assertTrue(TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured").isEmpty());
+
+            checkOrgModel(findOrgModel(project));
+        } finally {
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
+        }
+    }
+
+    /**
+     * Checks the System Actions assigned to the given orgModel. It will recursively traverse the nested elements.
+     * 
+     * @param aOrgModel
+     *            the OrgModel whose System Actions are to be checked.
+     */
+    private void checkOrgModel(OrgModel aOrgModel) {
+        assertNotNull(aOrgModel);
+
+        checkSystemActions(aOrgModel.getSystemActions());
+
+        checkGroupActions(aOrgModel.getGroups());
+
+        for (Organization organization : aOrgModel.getOrganizations()) {
+            checkOrgUnitActions(organization.getUnits());
+        }
+    }
+
+    /**
+     * Checks the System Actions assigned to the given collection of Groups. It will recursively traverse the nested
+     * Groups.
+     * 
+     * @param aGroups
+     *            the Groups whose System Actions are to be checked.
+     */
+    private void checkGroupActions(Collection<Group> aGroups) {
+        for (Group group : aGroups) {
+            checkSystemActions(group.getSystemActions());
+
+            // recurse down into sub-groups
+            checkGroupActions(group.getSubGroups());
+        }
+    }
+
+    /**
+     * Checks the System Actions assigned to the given collection of Org-Units, and the Positions within those
+     * Org-Units.
+     * 
+     * @param aOrgUnits
+     *            the Org-Units, and Positions, whose System Actions are to be checked.
+     */
+    private void checkOrgUnitActions(Collection<OrgUnit> aOrgUnits) {
+        for (OrgUnit orgUnit : aOrgUnits) {
+            checkSystemActions(orgUnit.getSystemActions());
+
+            checkPositionActions(orgUnit.getPositions());
+        }
+    }
+
+    /**
+     * Checks the System Actions assigned to the given collection of Positions.
+     * 
+     * @param aOrgUnits
+     *            the Positions whose System Actions are to be checked.
+     */
+    private void checkPositionActions(Collection<Position> aPositions) {
+        for (Position position : aPositions) {
+            checkSystemActions(position.getSystemActions());
+        }
+    }
+
+    /**
+     * Checks that the given collection contains none of the deprecated SystemActions.
+     * 
+     * @param aActions
+     *            the actions to be checked.
+     */
+    private void checkSystemActions(Collection<SystemAction> aActions) {
+        List<String> failures = new ArrayList<>();
+
+        for (SystemAction action : aActions) {
+            for (String[] deprecated : SystemActionMigrationTest.DEPRECATED_ACTIONS) {
+                if ((Objects.equals(action.getComponent(), deprecated[0]))
+                        && (Objects.equals(action.getActionId(), deprecated[1]))) {
+                    failures.add(String.format("%1$s - %2$s", deprecated[0], deprecated[1]));
+                }
+            }
+        }
+
+        assertTrue(failures.toString(), failures.isEmpty());
+    }
+
+
+    /**
+     * Searches the given project for an org-model. If no org-model can be found the result will be <code>null</code>.
+     * 
+     * @param aProject
+     *            the project to be searched.
+     * @return the 1st org-model file in the project (project validation ensures only one)
+     * @throws CoreException
+     */
+    private OrgModel findOrgModel(IProject aProject) throws CoreException {
+        if (aProject == null) {
+            return null;
+        }
+
+        // look for all special folders - those releated to org-models
+        List<SpecialFolder> sFolders =
+                SpecialFolderUtil.getAllSpecialFoldersOfKind(aProject, OMUtil.OM_SPECIAL_FOLDER_KIND);
+        if (sFolders == null) {
+            return null;
+        }
+
+        for (SpecialFolder sFolder : sFolders) {
+            if (sFolder.getFolder() != null && sFolder.getFolder().exists()) {
+                // iterator over all 'files' within the folder
+                IResource[] members = sFolder.getFolder().members();
+                for (IResource resource : members) {
+                    // if it's a file with the org-model extension
+                    if (resource instanceof IFile && OMUtil.OM_FILE_EXTENSION.equals(resource.getFileExtension())) {
+                        return read(resource);
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Attempts to read the OrgModel from the given IResource. If no Org-Model can be found the return value will be
+     * <code>null</code>.
+     * 
+     * @param aResource
+     *            the resource (file) from which the OrgModel will be read.
+     * @return
+     */
+    private OrgModel read(IResource aResource) {
+        WorkingCopy wc = XpdResourcesPlugin.getDefault().getWorkingCopy(aResource);
+
+        if (wc instanceof OMWorkingCopy && ((OMWorkingCopy) wc).getRootElement() instanceof OrgModel
+                && ((OMWorkingCopy) wc).getRootElement().eResource() != null) {
+            EObject orgModel = ((OMWorkingCopy) wc).getRootElement();
+            return (OrgModel) orgModel;
+        }
+
+        return null;
+    }
+}
