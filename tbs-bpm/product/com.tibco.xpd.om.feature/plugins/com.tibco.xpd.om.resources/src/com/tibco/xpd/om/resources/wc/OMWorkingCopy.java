@@ -20,6 +20,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import com.tibco.xpd.om.core.om.BaseOrgModel;
 import com.tibco.xpd.om.core.om.NamedElement;
 import com.tibco.xpd.om.core.om.OMPackage;
+import com.tibco.xpd.om.core.om.OrgModel;
 import com.tibco.xpd.om.core.om.Organization;
 import com.tibco.xpd.om.core.om.provider.OMItemProviderAdapterFactory;
 import com.tibco.xpd.om.core.om.provider.OrganisationModelEditPlugin;
@@ -199,6 +200,10 @@ public class OMWorkingCopy extends AbstractGMFWorkingCopy {
                         protected void doExecute() {
                             orgModel.setVersion(null);
 
+                            // perform System Action migrations
+                            if (orgModel instanceof OrgModel) {
+                                new SystemActionMigration().migrate((OrgModel) orgModel);
+                            }
                         }
                     };
 
@@ -216,7 +221,5 @@ public class OMWorkingCopy extends AbstractGMFWorkingCopy {
                         e.getCause()));
             }
         }
-
     }
-
 }
