@@ -596,12 +596,42 @@ public class EventEditPart extends BaseFlowNodeEditPart implements
         info.addProperty(Messages.EventEditPart_HoverType_label, eventAdapter
                 .getFlowType().toString());
 
+        /*
+         * Sid ACE-2379: For start/intermediate event type none we cannot rely of the enumeration for event trigger type
+         * (because we don't want to say 'untriggered event' BUT we cannot change the enumeration name because sometimes
+         * 'untriggered event' is still appropriate).
+         * 
+         * So we'll treat these as special cases.
+         * 
+         * And whilst we're here we'll give a better message for end event type none.
+         */
         if (eventAdapter.getFlowType().equals(EventFlowType.FLOW_END_LITERAL)) {
-            info.addProperty(Messages.EventEditPart_HoverResult_label,
-                    eventAdapter.getEventTriggerType().toString());
+            String eventTypeName = null;
+
+            if (EventTriggerType.EVENT_NONE_LITERAL.equals(eventAdapter.getEventTriggerType())) {
+                eventTypeName = Messages.PaletteFactory_EndEventPalette_tooltip;
+
+            } else {
+                eventTypeName = eventAdapter.getEventTriggerType().toString();
+            }
+
+            info.addProperty(Messages.EventEditPart_HoverResult_label, eventTypeName);
         } else {
-            info.addProperty(Messages.EventEditPart_HoverTrigger_label,
-                    eventAdapter.getEventTriggerType().toString());
+            String eventTypeName = null;
+
+            if (EventFlowType.FLOW_START_LITERAL.equals(eventAdapter.getFlowType())
+                    && EventTriggerType.EVENT_NONE_LITERAL.equals(eventAdapter.getEventTriggerType())) {
+                eventTypeName = Messages.PaletteFactory_StartEventTool_menu;
+
+            } else if (EventFlowType.FLOW_INTERMEDIATE_LITERAL.equals(eventAdapter.getFlowType())
+                    && EventTriggerType.EVENT_NONE_LITERAL.equals(eventAdapter.getEventTriggerType())) {
+                eventTypeName = Messages.PaletteFactory_InterCatchEventTool_menu;
+
+            } else {
+                eventTypeName = eventAdapter.getEventTriggerType().toString();
+            }
+
+            info.addProperty(Messages.EventEditPart_HoverTrigger_label, eventTypeName);
         }
 
         if (EventTriggerType.EVENT_ERROR_LITERAL.equals(eventAdapter
