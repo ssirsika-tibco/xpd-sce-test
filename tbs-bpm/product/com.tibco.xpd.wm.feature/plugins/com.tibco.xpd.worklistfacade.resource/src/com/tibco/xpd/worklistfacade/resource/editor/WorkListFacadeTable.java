@@ -69,10 +69,31 @@ public class WorkListFacadeTable extends BaseTableControl {
 
     private WorkListFacade workListFacade;
 
+    /** If this control in the readOnly mode */
+    private boolean readOnly;
+
     /**
-     * Linked Hash Map of attribute name and the AttributeDataRow representing
-     * the Physical Attribute.LinkedHashMap is used to preserve the ordering of
-     * the Attributes.
+     * Returns if the control is in the read-only state.
+     * 
+     * @return the readOnly
+     */
+    public boolean isReadOnly() {
+        return readOnly;
+    }
+
+    /**
+     * Sets if control should be read-only.
+     * 
+     * @param readOnly
+     *            the readOnly to set.
+     */
+    public void setReadOnly(boolean readOnly) {
+        this.readOnly = readOnly;
+    }
+
+    /**
+     * Linked Hash Map of attribute name and the AttributeDataRow representing the Physical Attribute.LinkedHashMap is
+     * used to preserve the ordering of the Attributes.
      */
     private Map<String, AttributeDataRow> tableInput;
 
@@ -383,6 +404,17 @@ public class WorkListFacadeTable extends BaseTableControl {
                 return editor;
             }
             return null;
+        }
+
+        /**
+         * @see com.tibco.xpd.resources.ui.components.AbstractColumn#canEdit(java.lang.Object)
+         *
+         * @param element
+         * @return
+         */
+        @Override
+        protected boolean canEdit(Object element) {
+            return super.canEdit(element) && !isReadOnly();
         }
 
         /**

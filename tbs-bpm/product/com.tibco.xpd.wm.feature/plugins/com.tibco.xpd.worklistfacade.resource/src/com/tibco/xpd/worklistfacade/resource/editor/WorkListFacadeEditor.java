@@ -94,7 +94,7 @@ public class WorkListFacadeEditor extends SceEditorPart implements
                 workingCopy = editorInput.getWorkingCopy();
 
                 // Show WorkListFacade file name in Editor title.
-                setPartName(editorInput.getfileName());
+                setPartName(getTitleText());
 
                 site.getPage()
                         .addPartListener(new WorkListFacadeEditorListener(
@@ -105,6 +105,19 @@ public class WorkListFacadeEditor extends SceEditorPart implements
                     Messages.WorkListFacadeEditor_Invalid_Input);
         }
 
+    }
+
+    /**
+     * @see com.tibco.xpd.resources.ui.SceEditorPart#refreshTitle()
+     *
+     */
+    @Override
+    public void refreshTitle() {
+        super.refreshTitle();
+        // Sets read only state of the editor's main control.
+        if (workingCopy != null && section != null) {
+            section.setReadOnly(workingCopy.isReadOnly());
+        }
     }
 
     @Override
@@ -145,6 +158,9 @@ public class WorkListFacadeEditor extends SceEditorPart implements
 
         setInputData();
         section.createControls(parent, secToolkit);
+        if (workingCopy != null) {
+            section.setReadOnly(workingCopy.isReadOnly());
+        }
 
     }
 

@@ -160,4 +160,27 @@ public class WorkListFacadeEditorSection extends AbstractTransactionalSection {
         return null;
     }
 
+    /**
+     * @see com.tibco.xpd.ui.properties.AbstractXpdSection#disableControlsForReadOnlyInput(org.eclipse.swt.widgets.Control)
+     *
+     * @param control
+     */
+    @Override
+    protected void disableControlsForReadOnlyInput(Control control) {
+        // We need to suppress recursive control disablement as it is not reversible, so controls will not be re-enabled
+        // when the working copy will change it's state to not-readOnly.
+        // super.disableControlsForReadOnlyInput(control);
+    }
+
+    /**
+     * Sets the readOnly status for this control.
+     * 
+     * @param isReadOnly
+     *            if the control should be in readOnly state.
+     */
+    public void setReadOnly(boolean isReadOnly) {
+        if (workListFacadeTable != null) {
+            workListFacadeTable.setReadOnly(isReadOnly);
+        }
+    }
 }
