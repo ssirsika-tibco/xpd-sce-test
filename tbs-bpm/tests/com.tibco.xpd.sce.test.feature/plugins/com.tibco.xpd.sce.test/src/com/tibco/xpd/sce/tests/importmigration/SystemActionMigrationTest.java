@@ -5,23 +5,31 @@
 package com.tibco.xpd.sce.tests.importmigration;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import com.tibco.xpd.core.test.util.TestUtil;
+import com.tibco.xpd.om.core.om.AttributeType;
+import com.tibco.xpd.om.core.om.AttributeValue;
+import com.tibco.xpd.om.core.om.EnumValue;
 import com.tibco.xpd.om.core.om.Group;
 import com.tibco.xpd.om.core.om.OrgModel;
 import com.tibco.xpd.om.core.om.OrgUnit;
 import com.tibco.xpd.om.core.om.Organization;
 import com.tibco.xpd.om.core.om.Position;
+import com.tibco.xpd.om.core.om.PrivilegeAssociation;
 import com.tibco.xpd.om.core.om.SystemAction;
 import com.tibco.xpd.om.core.om.util.OMUtil;
 import com.tibco.xpd.om.resources.wc.OMWorkingCopy;
@@ -152,6 +160,35 @@ public class SystemActionMigrationTest extends TestCase {
                     failures.add(String.format("%1$s - %2$s", deprecated[0], deprecated[1]));
                 }
             }
+
+            // test for merged privileges with EC - Query Audit
+            if ((Objects.equals("EC", action.getComponent())) && (Objects.equals("queryAudit", action.getActionId()))) {
+                // The queryAudit action has privileges from a merged queryStatitics action with qualifiers
+                // this will ensure that the qualifiers are merged correctly
+                ExpectedPrivAssoc[] expected = { //
+                        new ExpectedPrivAssoc("QueryAudit", "Value1", "Value2", "Value3", "Value4"), //
+                        new ExpectedPrivAssoc("QueryStatistics", "Value1", "Value2") //
+                };
+
+                // this should now have enum values merged from EC - Query Statistics action
+                EList<PrivilegeAssociation> associations = action.getPrivilegeAssociations();
+                assertEquals(expected.length, associations.size());
+                for (PrivilegeAssociation privAssoc : associations) {
+                    boolean found = false;
+
+                    for (ExpectedPrivAssoc expect : expected) {
+                        if (expect.compare(privAssoc)) {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found)
+                    {
+                        fail("Unexpected privilege assignment: " + privAssoc.getPrivilege().getName());
+                    }
+                }
+            }
         }
 
         assertTrue(failures.toString(), failures.isEmpty());
@@ -212,5 +249,81 @@ public class SystemActionMigrationTest extends TestCase {
         }
 
         return null;
+    }
+
+    /**
+     * A simple class to compare the qualifiers of a System Action's associated privilege.
+     */
+    private static class ExpectedPrivAssoc {
+        String privName;
+
+        Collection<String> qualifiers;
+
+        /**
+         * Creates a new expectation.
+         * 
+         * @param aPrivilege
+         *            the name of the associated privilege.
+         * @param aQualifiers
+         *            the optional privilege qualifiers.
+         */
+        public ExpectedPrivAssoc(String aPrivilege, String... aQualifiers) {
+            privName = aPrivilege;
+            qualifiers = (aQualifiers == null) ? Collections.emptyList() : Arrays.asList(aQualifiers);
+        }
+
+        /**
+         * Compares the given privilege association. If the privilege is the same name as this expectation, the
+         * qualifier values are then compared. If the qualifiers don't match, an assertion failure is raised.
+         * 
+         * @param aAssocPrivilege
+         *            a SystemAction's associated Privilege (and qualifiers)
+         * @return true if the association is a match (and it's qualifiers).
+         */
+        public boolean compare(PrivilegeAssociation aAssocPrivilege) {
+            if (!Objects.equals(privName, aAssocPrivilege.getPrivilege().getName())) {
+                return false;
+            }
+
+            compareQualifiers(aAssocPrivilege.getQualifierValue());
+            return true;
+        }
+
+        private void compareQualifiers(AttributeValue aActual) {
+            Collection<String> actualValues;
+
+            if (aActual == null) {
+                actualValues = Collections.emptySet();
+            }
+
+            else if (aActual.getType() == AttributeType.ENUM_SET) {
+                EList<EnumValue> enumSetValues = aActual.getEnumSetValues();
+                actualValues = (enumSetValues == null) ? Collections.emptySet()
+                        : enumSetValues.stream().map(v -> v.getValue()).collect(Collectors.toList());
+            }
+
+            else if (aActual.getType() == AttributeType.SET) {
+                EList<String> setValues = aActual.getSetValues();
+                actualValues = (setValues == null) ? Collections.emptySet() : setValues;
+            }
+            
+            else {
+                actualValues = Collections.singleton(aActual.getValue());
+            }
+
+            assertEquals(qualifiers.size(), actualValues.size());
+            for (String actualValue : actualValues) {
+                boolean found = false;
+                for (String expected : qualifiers) {
+                    if (Objects.equals(expected, actualValue)) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    fail("Unexpected enum value: " + actualValue);
+                }
+            }
+        }
     }
 }
