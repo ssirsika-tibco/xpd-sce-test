@@ -32,7 +32,7 @@ public class OMResourcesActivator extends Plugin {
      * will still migrate to ACE).</i>
      * 
      */
-    public static final int OM_FILE_VERSION = 1000;
+    public static final int OM_FILE_VERSION = 1001;
 
     // The shared instance
     private static OMResourcesActivator plugin;

@@ -5,6 +5,7 @@ package com.tibco.xpd.om.resources.wc;
 
 import java.util.List;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
@@ -27,6 +28,9 @@ import com.tibco.xpd.om.core.om.provider.OrganisationModelEditPlugin;
 import com.tibco.xpd.om.core.om.provider.OrganisationModelEditPlugin.Implementation;
 import com.tibco.xpd.om.resources.OMResourcesActivator;
 import com.tibco.xpd.om.resources.internal.Messages;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.projectconfig.AssetType;
+import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.wc.InvalidFileException;
 import com.tibco.xpd.resources.wc.InvalidVersionException;
 import com.tibco.xpd.resources.wc.gmf.AbstractGMFWorkingCopy;
@@ -149,20 +153,28 @@ public class OMWorkingCopy extends AbstractGMFWorkingCopy {
     protected Resource loadResource(IResource resource)
             throws InvalidFileException {
         Resource res = super.loadResource(resource);
-        /*
-         * If there is a version in the org model then it's an old one from AMX
-         * or elsewhere.
-         */
+
         EObject model = getModelFromResource(res);
         if (model instanceof BaseOrgModel) {
+            // get the project configuration
+            IProject project = resource.getProject();
+            ProjectConfig projectConfig = XpdResourcesPlugin.getDefault().getProjectConfig(project);
 
-            if (((BaseOrgModel) model).getVersion() != null) {
-                // Unload the resource and throw exception
-                res.unload();
-                throw new InvalidVersionException(
-                        Messages.OMWorkingCopy_OrgModelVersionProblem_message);
+            // loook for an OM asset
+            for (AssetType assetType : projectConfig.getAssetTypes()) {
+                // If the OM asset version is less than the current value
+                if ("com.tibco.xpd.asset.om".equals(assetType.getId())) { //$NON-NLS-1$
+                    if (assetType.getVersion() < OMResourcesActivator.OM_FILE_VERSION) {
+                        // Unload the resource and throw exception to create validation marker and trigger migration
+                        res.unload();
+                        throw new InvalidVersionException(Messages.OMWorkingCopy_OrgModelVersionProblem_message);
+                    }
+
+                    break; // there should be only one OM asset
+                }
             }
         }
+
         return res;
     }
 
@@ -190,24 +202,29 @@ public class OMWorkingCopy extends AbstractGMFWorkingCopy {
                     }
                 }
 
-                if (model != null && model.getVersion() != null) {
+                if (model != null) {
                     final BaseOrgModel orgModel = model;
 
-                    RecordingCommand cmd = new RecordingCommand(
-                            (TransactionalEditingDomain) getEditingDomain()) {
-
-                        @Override
-                        protected void doExecute() {
-                            orgModel.setVersion(null);
-
-                            // perform System Action migrations
-                            if (orgModel instanceof OrgModel) {
+                    if (orgModel instanceof OrgModel) {
+                        RecordingCommand cmd = new RecordingCommand((TransactionalEditingDomain) getEditingDomain()) {
+                            @Override
+                            protected void doExecute() {
+                                // perform System Action migrations
                                 new SystemActionMigration().migrate((OrgModel) orgModel);
                             }
-                        }
-                    };
+                        };
+                        getEditingDomain().getCommandStack().execute(cmd);
+                    }
 
-                    getEditingDomain().getCommandStack().execute(cmd);
+                    if (model.getVersion() != null) {
+                        RecordingCommand cmd = new RecordingCommand((TransactionalEditingDomain) getEditingDomain()) {
+                            @Override
+                            protected void doExecute() {
+                                orgModel.setVersion(null);
+                            }
+                        };
+                        getEditingDomain().getCommandStack().execute(cmd);
+                    }
 
                     resource.save(null);
                 }
