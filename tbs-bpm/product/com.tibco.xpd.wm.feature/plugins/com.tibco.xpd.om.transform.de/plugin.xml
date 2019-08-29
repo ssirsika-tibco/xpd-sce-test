@@ -585,12 +585,33 @@
                default="false"
                id="cmisAdmin"
                name="%sysAction_CaseDocumentAdministration_label">
-         </action>     
+         </action>
+
          <action
                default="true"
                id="readTypes"
                name="%sysAction_CaseDocumentReadTypes_label">
-         </action>     
+         </action>
+         <action
+               default="true"
+               id="createCase"
+               name="%sysAction_createCaseData_label">
+         </action>
+         <action
+               default="true"
+               id="updateCase"
+               name="%sysAction_updateCaseData_label">
+         </action>
+         <action
+               default="false"
+               id="deleteCase"
+               name="%sysAction_deleteCaseData_label">
+         </action>
+         <action
+               default="true"
+               id="readCase"
+               name="%sysAction_readCaseData_label">
+         </action>
       </actions>
    </extension>
    <extension
@@ -660,6 +681,16 @@
                default="false"
                id="canPublishApplication"
                name="%sysAction_canPublishApplication_label">
+         </action>
+          <action
+               default="true"
+               id="useCaseDocument"
+               name="%sysAction_CaseDocumentUser_label">
+         </action>
+         <action
+               default="false"
+               id="administerCaseDocument"
+               name="%sysAction_CaseDocumentAdministration_label">
          </action>
       </actions>
    </extension>
