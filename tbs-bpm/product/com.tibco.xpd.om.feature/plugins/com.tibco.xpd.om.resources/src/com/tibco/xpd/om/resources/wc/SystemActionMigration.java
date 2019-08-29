@@ -238,7 +238,7 @@ public class SystemActionMigration {
         }
 
         else {
-            // we can't merge the qualifier - what now?
+            // we can't merge the qualifier - what now? - leave original as-is
         }
     }
 
