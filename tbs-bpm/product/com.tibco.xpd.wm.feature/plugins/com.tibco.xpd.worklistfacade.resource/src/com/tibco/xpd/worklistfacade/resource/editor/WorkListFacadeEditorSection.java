@@ -45,6 +45,11 @@ public class WorkListFacadeEditorSection extends AbstractTransactionalSection {
      */
     private EditorPart editor;
 
+    /**
+     * Editor's header section.
+     */
+    private Section workItemAttributeEditSec;
+
     public WorkListFacadeEditorSection(EditorPart editor) {
         this.editor = editor;
     }
@@ -84,9 +89,7 @@ public class WorkListFacadeEditorSection extends AbstractTransactionalSection {
     protected Control doCreateControls(Composite parent,
             XpdFormToolkit toolkit) {
 
-        // Create Base Section with Title
-        Section workItemAttributeEditSec =
-                toolkit.createSection(parent, Section.TITLE_BAR);
+        workItemAttributeEditSec = toolkit.createSection(parent, Section.TITLE_BAR);
 
         /*
          * Sid XPD-8387 you should NEVER set layout data on controls that you
@@ -181,6 +184,12 @@ public class WorkListFacadeEditorSection extends AbstractTransactionalSection {
     public void setReadOnly(boolean isReadOnly) {
         if (workListFacadeTable != null) {
             workListFacadeTable.setReadOnly(isReadOnly);
+            String wflEditorHeader = isReadOnly ? String
+                    .format("%1$s [%2$s]", //$NON-NLS-1$
+                            Messages.WorkListFacadeEditorSection_WorkItemAttributes_Section_Header,
+                            Messages.WorkListFacadeEditorSection_readOnly)
+                    : Messages.WorkListFacadeEditorSection_WorkItemAttributes_Section_Header;
+            workItemAttributeEditSec.setText(wflEditorHeader);
         }
     }
 }

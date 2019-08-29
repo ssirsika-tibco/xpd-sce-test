@@ -82,6 +82,8 @@ public class Messages extends NLS {
 
     public static String WorkListFacadeEditorSection_Facade_Label_Title;
 
+    public static String WorkListFacadeEditorSection_readOnly;
+
     public static String WorkListFacadeEditorSection_SetFacadeLabel_Command_Text;
 
     public static String WorkListFacadeEditorSection_WorkItemAttributes_Section_Header;

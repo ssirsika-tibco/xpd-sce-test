@@ -73,25 +73,6 @@ public class WorkListFacadeTable extends BaseTableControl {
     private boolean readOnly;
 
     /**
-     * Returns if the control is in the read-only state.
-     * 
-     * @return the readOnly
-     */
-    public boolean isReadOnly() {
-        return readOnly;
-    }
-
-    /**
-     * Sets if control should be read-only.
-     * 
-     * @param readOnly
-     *            the readOnly to set.
-     */
-    public void setReadOnly(boolean readOnly) {
-        this.readOnly = readOnly;
-    }
-
-    /**
      * Linked Hash Map of attribute name and the AttributeDataRow representing the Physical Attribute.LinkedHashMap is
      * used to preserve the ordering of the Attributes.
      */
@@ -843,5 +824,24 @@ public class WorkListFacadeTable extends BaseTableControl {
             this.workItemAttribute = workItemAttribute;
         }
 
+    }
+
+    /**
+     * Returns if the control is in the read-only state.
+     * 
+     * @return the readOnly
+     */
+    public boolean isReadOnly() {
+        return readOnly;
+    }
+
+    /**
+     * Sets if control should be read-only.
+     * 
+     * @param readOnly
+     *            the readOnly to set.
+     */
+    public void setReadOnly(boolean readOnly) {
+        this.readOnly = readOnly;
     }
 }
