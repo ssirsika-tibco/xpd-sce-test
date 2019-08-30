@@ -77,6 +77,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.ui.SceEditorPart;
+import com.tibco.xpd.resources.ui.components.BaseColumnViewerControl;
 import com.tibco.xpd.resources.ui.components.actions.CollapseAllAction;
 import com.tibco.xpd.resources.ui.components.actions.ExpandAllAction;
 import com.tibco.xpd.resources.ui.components.actions.ViewerDeleteAction;
@@ -183,15 +184,13 @@ public class RsdEditorPart extends SceEditorPart implements PropertyChangeListen
     }
 
     /**
+     * Will be called if editor readOnly status changes.
+     * 
      * @param readOnly
      */
     private void setReadOnly(boolean readOnly) {
         if (mainControl != null) {
             mainControl.setReadOnly(readOnly);
-            // getAction(ActionFactory.CUT.getId()).setEnabled(!readOnly);
-            // getAction(ActionFactory.PASTE.getId()).setEnabled(!readOnly);
-            // getAction(ActionFactory.UNDO.getId()).setEnabled(!readOnly);
-            // getAction(ActionFactory.REDO.getId()).setEnabled(!readOnly);
         }
         if (form != null) {
             form.setText(getEditorHeaderLabel());
@@ -313,6 +312,9 @@ public class RsdEditorPart extends SceEditorPart implements PropertyChangeListen
         }
     }
 
+    /**
+     * Returns the main header text.
+     */
     private String getEditorHeaderLabel() {
         if (wc != null && wc.isReadOnly()) {
             return String.format("%1$s [%2$s]", Messages.RsdEditorPart_RsdMain_label, Messages.RsdEditorPart_ReadOnly); //$NON-NLS-1$
@@ -543,7 +545,7 @@ public class RsdEditorPart extends SceEditorPart implements PropertyChangeListen
     /**
      * @return main control reference used by RSD editor.
      */
-    public RsdMainControl getRsdMainControl() {
+    public BaseColumnViewerControl getRsdMainControl() {
         return mainControl;
     }
 

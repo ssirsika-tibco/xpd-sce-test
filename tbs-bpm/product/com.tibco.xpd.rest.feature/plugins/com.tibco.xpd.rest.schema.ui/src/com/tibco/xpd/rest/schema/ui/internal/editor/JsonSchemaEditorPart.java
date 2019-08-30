@@ -143,6 +143,7 @@ public class JsonSchemaEditorPart extends SceEditorPart
         editor.createControls(parent, toolkit);
         getSite().setSelectionProvider(editor);
         editor.setInput(pkg);
+        setReadOnlyFromWc();
     }
 
     /**
@@ -379,5 +380,23 @@ public class JsonSchemaEditorPart extends SceEditorPart
             editor.setSelection(new StructuredSelection(eObjects));
         }
         return true;
+    }
+
+    /**
+     * @see com.tibco.xpd.resources.ui.SceEditorPart#refreshTitle()
+     */
+    @Override
+    public void refreshTitle() {
+        super.refreshTitle();
+        setReadOnlyFromWc();
+    }
+
+    /**
+     * Sets read-only state from the editor's working copy.
+     */
+    private void setReadOnlyFromWc() {
+        if (wc != null && editor != null) {
+            editor.setReadOnly(wc.isReadOnly());
+        }
     }
 }

@@ -56,6 +56,8 @@ public class Messages extends NLS {
 
     public static String JsonSchemaEditor_newPropertyBaseName;
 
+    public static String JsonSchemaEditor_ReadOnly;
+
     public static String JsonSchemaEditor_removeClassCommand;
 
     public static String JsonSchemaEditor_removeClassTooltip;

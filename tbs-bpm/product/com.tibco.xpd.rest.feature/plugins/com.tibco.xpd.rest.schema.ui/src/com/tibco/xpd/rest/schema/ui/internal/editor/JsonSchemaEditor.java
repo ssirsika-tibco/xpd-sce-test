@@ -101,6 +101,14 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
 
     private TreeViewer focussed;
 
+    private boolean isReadOnly;
+
+    private Form rootForm;
+
+    private SchemaOverviewTreeControl schemaTreeControl;
+
+    private SchemaClassesTreeControl classesTreeControl;
+
     public JsonSchemaEditor(JsonSchemaEditorPart editor) {
         this.editor = editor;
     }
@@ -148,7 +156,7 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
      */
     @Override
     public Control doCreateControls(Composite parent, XpdFormToolkit toolkit) {
-        Form rootForm = toolkit.createForm(parent);
+        rootForm = toolkit.createForm(parent);
         rootForm.setText(Messages.JsonSchemaEditor_title);
         toolkit.getFormToolkit().decorateFormHeading(rootForm);
         Composite root = rootForm.getBody();
@@ -180,7 +188,7 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
         rs.setClient(right);
 
         // Create the left section schema overview control.
-        SchemaOverviewTreeControl schemaTreeControl =
+        schemaTreeControl =
                 new SchemaOverviewTreeControl(left, toolkit, this);
         schemaTreeControl.init();
         schema = schemaTreeControl.getTreeViewer();
@@ -190,7 +198,7 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
         schema.setLabelProvider(new UmlJsonSchemaLabelProvider());
 
         // Create the right section schema classes control.
-        SchemaClassesTreeControl classesTreeControl =
+        classesTreeControl =
                 new SchemaClassesTreeControl(right, toolkit, this);
         classesTreeControl.init();
         classes = classesTreeControl.getTreeViewer();
@@ -492,8 +500,9 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
                 addPropertyEnabled = true;
             }
         }
-        addPropertyAction.setEnabled(addPropertyEnabled);
-        addClassPropertyAction.setEnabled(classesCount == 1);
+        addPropertyAction.setEnabled(addPropertyEnabled && !isReadOnly());
+        addClassPropertyAction.setEnabled(classesCount == 1 && !isReadOnly());
+        addClassAction.setEnabled(!isReadOnly());
     }
 
     @Override
@@ -1120,6 +1129,48 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
                 }
             }
         }
+    }
+
+    /**
+     * Sets read-only state for the control.
+     * 
+     * @param readOnly
+     *            the read-only state
+     */
+    public void setReadOnly(boolean readOnly) {
+        this.isReadOnly = readOnly;
+
+        // Pass the information to the ViewerControls to update actions.
+        if (schemaTreeControl != null) {
+            schemaTreeControl.setReadOnly(readOnly);
+        }
+        if (classesTreeControl != null) {
+            classesTreeControl.setReadOnly(readOnly);
+        }
+
+        // Update main editor header text.
+        if (rootForm != null) {
+            rootForm.setText(getEditorHeaderLabel());
+        }
+    }
+
+    /**
+     * Gets current read-only state of the control.
+     * 
+     * @return read-only state of the control.
+     */
+    public boolean isReadOnly() {
+        return this.isReadOnly;
+    }
+
+    /**
+     * Returns the main header text.
+     */
+    private String getEditorHeaderLabel() {
+        if (isReadOnly) {
+            return String.format("%1$s [%2$s]", Messages.JsonSchemaEditor_title, Messages.JsonSchemaEditor_ReadOnly); //$NON-NLS-1$
+        }
+        return Messages.JsonSchemaEditor_title;
     }
 
 }

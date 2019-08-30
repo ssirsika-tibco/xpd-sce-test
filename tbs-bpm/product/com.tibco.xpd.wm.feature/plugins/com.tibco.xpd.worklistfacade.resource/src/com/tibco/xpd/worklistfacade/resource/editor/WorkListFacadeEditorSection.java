@@ -182,7 +182,7 @@ public class WorkListFacadeEditorSection extends AbstractTransactionalSection {
      *            if the control should be in readOnly state.
      */
     public void setReadOnly(boolean isReadOnly) {
-        if (workListFacadeTable != null) {
+        if (workListFacadeTable != null && workItemAttributeEditSec != null) {
             workListFacadeTable.setReadOnly(isReadOnly);
             String wflEditorHeader = isReadOnly ? String
                     .format("%1$s [%2$s]", //$NON-NLS-1$

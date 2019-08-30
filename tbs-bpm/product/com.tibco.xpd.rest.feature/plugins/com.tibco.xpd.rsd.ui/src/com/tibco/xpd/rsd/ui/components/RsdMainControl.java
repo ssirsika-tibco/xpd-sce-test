@@ -21,7 +21,6 @@ import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ILabelProvider;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
@@ -31,12 +30,7 @@ import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.ui.components.BaseTreeControl;
 import com.tibco.xpd.resources.ui.components.ViewerAction;
 import com.tibco.xpd.resources.ui.components.XpdToolkit;
-import com.tibco.xpd.resources.ui.components.actions.TreeViewerDeleteEMFAction;
 import com.tibco.xpd.resources.ui.components.actions.ViewerDeleteAction;
-import com.tibco.xpd.resources.ui.components.actions.ViewerMoveDownAction;
-import com.tibco.xpd.resources.ui.components.actions.ViewerMoveDownEMFAction;
-import com.tibco.xpd.resources.ui.components.actions.ViewerMoveUpAction;
-import com.tibco.xpd.resources.ui.components.actions.ViewerMoveUpEMFAction;
 import com.tibco.xpd.rsd.Method;
 import com.tibco.xpd.rsd.Resource;
 import com.tibco.xpd.rsd.RsdPackage;
@@ -58,8 +52,6 @@ public class RsdMainControl extends BaseTreeControl {
     private AddMethodAction addMethodAction;
 
     private ShowPropertiesViewAction showPropertiesViewAction;
-
-    private boolean isReadOnly;
 
     /**
      * @param parent
@@ -371,66 +363,4 @@ public class RsdMainControl extends BaseTreeControl {
         return XpdResourcesPlugin.getDefault().getEditingDomain();
     }
 
-    /**
-     * @see com.tibco.xpd.resources.ui.components.BaseColumnViewerControl#createDeleteAction(org.eclipse.jface.viewers.ColumnViewer)
-     */
-    @Override
-    protected ViewerDeleteAction createDeleteAction(final ColumnViewer viewer) {
-        return new TreeViewerDeleteEMFAction(viewer, getDeletableFeatures()) {
-            /**
-             * @see com.tibco.xpd.resources.ui.components.actions.ViewerDeleteEMFAction#canDelete(org.eclipse.jface.viewers.IStructuredSelection)
-             */
-            @Override
-            protected boolean canDelete(IStructuredSelection selection) {
-                return super.canDelete(selection) && !isReadOnly();
-            }
-        };
-    }
-
-    /**
-     * @see com.tibco.xpd.resources.ui.components.BaseColumnViewerControl#createMoveDownAction(org.eclipse.jface.viewers.ColumnViewer)
-     */
-    @Override
-    protected ViewerMoveDownAction createMoveDownAction(ColumnViewer viewer) {
-        return new ViewerMoveDownEMFAction(viewer, getMovableFeatures()) {
-            @Override
-            protected boolean canMoveDown(IStructuredSelection selection, StructuredViewer viewer) {
-                return super.canMoveDown(selection, viewer) && !isReadOnly();
-            }
-        };
-    }
-
-    /**
-     * @see com.tibco.xpd.resources.ui.components.BaseColumnViewerControl#createMoveUpAction(org.eclipse.jface.viewers.ColumnViewer)
-     */
-    @Override
-    protected ViewerMoveUpAction createMoveUpAction(ColumnViewer viewer) {
-        return new ViewerMoveUpEMFAction(viewer, getMovableFeatures()) {
-            @Override
-            protected boolean canMoveUp(IStructuredSelection selection, StructuredViewer viewer) {
-                return super.canMoveUp(selection, viewer) && !isReadOnly();
-            }
-        };
-    }
-    /**
-     * Sets read-only state for the control.
-     * 
-     * @param isReadOnly
-     *            the read-only state
-     */
-    public void setReadOnly(boolean isReadOnly) {
-        this.isReadOnly = isReadOnly;
-        ISelection selection = getViewer().getSelection();
-        getViewer().setSelection(StructuredSelection.EMPTY);
-        getViewer().setSelection(selection);
-    }
-
-    /**
-     * Gets current read-only state of the control.
-     * 
-     * @return read-only state of the control.
-     */
-    public boolean isReadOnly(){
-        return this.isReadOnly;
-    }
 }

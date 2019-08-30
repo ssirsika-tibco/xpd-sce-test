@@ -117,7 +117,7 @@ final class SchemaClassesTreeControl extends BaseTreeControl {
             @Override
             protected boolean canDelete(IStructuredSelection selection) {
 
-                boolean canDelete = super.canDelete(selection);
+                boolean canDelete = super.canDelete(selection) && !isReadOnly();
 
                 if (canDelete) {
 
@@ -332,7 +332,7 @@ final class SchemaClassesTreeControl extends BaseTreeControl {
             protected boolean canMoveDown(IStructuredSelection selection,
                     StructuredViewer viewer) {
 
-                boolean canMoveDown = super.canMoveDown(selection, viewer);
+                boolean canMoveDown = super.canMoveDown(selection, viewer) && !isReadOnly();
 
                 if (canMoveDown) {
                     if (isRootSelected(selection)) {
@@ -395,7 +395,7 @@ final class SchemaClassesTreeControl extends BaseTreeControl {
             protected boolean canMoveUp(IStructuredSelection selection,
                     StructuredViewer viewer) {
 
-                boolean canMoveUp = super.canMoveUp(selection, viewer);
+                boolean canMoveUp = super.canMoveUp(selection, viewer) && !isReadOnly();
 
                 if (canMoveUp) {
 

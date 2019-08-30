@@ -119,7 +119,7 @@ final class SchemaOverviewTreeControl extends BaseTreeControl {
             @Override
             protected boolean canDelete(IStructuredSelection selection) {
 
-                boolean canDelete = super.canDelete(selection);
+                boolean canDelete = super.canDelete(selection) && !isReadOnly();
 
                 if (canDelete) {
                     /*
@@ -239,6 +239,11 @@ final class SchemaOverviewTreeControl extends BaseTreeControl {
                 }
                 return previous;
             }
+
+            @Override
+            protected boolean canMoveUp(IStructuredSelection selection, StructuredViewer viewer) {
+                return super.canMoveUp(selection, viewer) && !isReadOnly();
+            }
         };
     }
 
@@ -307,6 +312,11 @@ final class SchemaOverviewTreeControl extends BaseTreeControl {
                     }
                 }
                 return next;
+            }
+
+            @Override
+            protected boolean canMoveDown(IStructuredSelection selection, StructuredViewer viewer) {
+                return super.canMoveDown(selection, viewer) && !isReadOnly();
             }
         };
     }

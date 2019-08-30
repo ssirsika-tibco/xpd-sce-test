@@ -23,6 +23,10 @@ import org.eclipse.jface.layout.AbstractColumnLayout;
 import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
@@ -34,9 +38,9 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.ToolBar;
 
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.ui.components.actions.TreeViewerDeleteEMFAction;
 import com.tibco.xpd.resources.ui.components.actions.ViewerAddAction;
 import com.tibco.xpd.resources.ui.components.actions.ViewerDeleteAction;
-import com.tibco.xpd.resources.ui.components.actions.ViewerDeleteEMFAction;
 import com.tibco.xpd.resources.ui.components.actions.ViewerEditAction;
 import com.tibco.xpd.resources.ui.components.actions.ViewerMoveDownAction;
 import com.tibco.xpd.resources.ui.components.actions.ViewerMoveDownEMFAction;
@@ -119,6 +123,8 @@ public abstract class BaseColumnViewerControl extends Composite {
     private Composite columnViewerContainer;
 
     private ViewerCellSpecificTooltipHandler cellTooltipHandler;
+
+    private boolean isReadOnly;
 
     /**
      * @param parent
@@ -427,19 +433,57 @@ public abstract class BaseColumnViewerControl extends Composite {
     }
 
     /**
+     * Creates default delete action that for selected viewer elements. The returned {@link TreeViewerDeleteEMFAction}
+     * will use {@link #getDeletableFeatures()} to establish EMF features that can be deleted. This method can be
+     * overridden by subclasses if needed.
+     * 
      * @param viewer
-     * @return
+     *            the viewer.
+     * @return the delete action.
      */
     protected ViewerDeleteAction createDeleteAction(ColumnViewer viewer) {
-        return new ViewerDeleteEMFAction(viewer, getDeletableFeatures());
+        return new TreeViewerDeleteEMFAction(viewer, getDeletableFeatures()) {
+            @Override
+            protected boolean canDelete(IStructuredSelection selection) {
+                return super.canDelete(selection) && !isReadOnly();
+            }
+        };
     }
 
+    /**
+     * Creates default move down action that for a selected viewer element. The returned {@link ViewerMoveDownEMFAction}
+     * will use {@link #getMovableFeatures()} to establish EMF features that can be moved.This method can be overridden
+     * by subclasses if needed.
+     * 
+     * @param viewer
+     *            the viewer.
+     * @return the move action.
+     */
     protected ViewerMoveDownAction createMoveDownAction(ColumnViewer viewer) {
-        return new ViewerMoveDownEMFAction(viewer, getMovableFeatures());
+        return new ViewerMoveDownEMFAction(viewer, getMovableFeatures()) {
+            @Override
+            protected boolean canMoveDown(IStructuredSelection selection, StructuredViewer viewer) {
+                return super.canMoveDown(selection, viewer) && !isReadOnly();
+            }
+        };
     }
 
+    /**
+     * Creates default move up action that for a selected viewer element. The returned {@link ViewerMoveDownEMFAction}
+     * will use {@link #getMovableFeatures()} to establish EMF features that can be moved.This method can be overridden
+     * by subclasses if needed.
+     * 
+     * @param viewer
+     *            the viewer.
+     * @return the move action.
+     */
     protected ViewerMoveUpAction createMoveUpAction(ColumnViewer viewer) {
-        return new ViewerMoveUpEMFAction(viewer, getMovableFeatures());
+        return new ViewerMoveUpEMFAction(viewer, getMovableFeatures()) {
+            @Override
+            protected boolean canMoveUp(IStructuredSelection selection, StructuredViewer viewer) {
+                return super.canMoveUp(selection, viewer) && !isReadOnly();
+            }
+        };
     }
 
     /**
@@ -510,22 +554,50 @@ public abstract class BaseColumnViewerControl extends Composite {
     public abstract void setColumnProportions(float[] columnProportions);
 
     /**
-     * This is the custom layout <b>specifically</b> for
-     * {@link BaseColumnViewerControl}'s.
+     * Sets read-only state for the control.
+     * 
+     * @param readOnly
+     *            the read-only state
+     */
+    public void setReadOnly(boolean readOnly) {
+        this.isReadOnly = readOnly;
+        refreshSelectionInViewer();
+    }
+
+    /**
+     * Gets current read-only state of the control.
+     * 
+     * @return read-only state of the control.
+     */
+    public boolean isReadOnly() {
+        return this.isReadOnly;
+    }
+
+    /**
+     * Refreshes selection in the viewer. Usually used to refresh state of actions which depends on the viewer's
+     * selection.
+     */
+    public void refreshSelectionInViewer() {
+        StructuredViewer viewer = getViewer();
+        if (viewer != null) {
+            ISelection selection = viewer.getSelection();
+            viewer.setSelection(StructuredSelection.EMPTY);
+            viewer.setSelection(selection);
+        }
+    }
+
+    /**
+     * This is the custom layout <b>specifically</b> for {@link BaseColumnViewerControl}'s.
      * <p>
-     * This is necessary because when a column viewer has a proportional layout
-     * ({@link AbstractColumnLayout}) it does not interact nicely with it's
-     * parent container (the {@link BaseColumnViewerControl}) having a
-     * {@link GridLayout}.
+     * This is necessary because when a column viewer has a proportional layout ({@link AbstractColumnLayout}) it does
+     * not interact nicely with it's parent container (the {@link BaseColumnViewerControl}) having a {@link GridLayout}.
      * <p>
-     * It seems that {@link AbstractColumnLayout} does not constrain itself very
-     * well in that when it's parent layout asks it how wide it wants to be it
-     * will return 'n' _but_ when the layout asks it how wide it wants to be
-     * given 'n' width to fit into it _always_ returns 'n + a_bit_extra'.
+     * It seems that {@link AbstractColumnLayout} does not constrain itself very well in that when it's parent layout
+     * asks it how wide it wants to be it will return 'n' _but_ when the layout asks it how wide it wants to be given
+     * 'n' width to fit into it _always_ returns 'n + a_bit_extra'.
      * <p>
-     * The practical upshot of this is that when the controls parent is resized
-     * the control just gets bigger and bigger and bigger (this may also be due
-     * in part to having a scrollable container somewhere up the stack.
+     * The practical upshot of this is that when the controls parent is resized the control just gets bigger and bigger
+     * and bigger (this may also be due in part to having a scrollable container somewhere up the stack.
      * 
      * @author aallway
      * @since 3.4.2 (27 Jul 2010)
