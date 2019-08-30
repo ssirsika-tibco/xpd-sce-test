@@ -21,6 +21,7 @@ import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
@@ -32,6 +33,10 @@ import com.tibco.xpd.resources.ui.components.ViewerAction;
 import com.tibco.xpd.resources.ui.components.XpdToolkit;
 import com.tibco.xpd.resources.ui.components.actions.TreeViewerDeleteEMFAction;
 import com.tibco.xpd.resources.ui.components.actions.ViewerDeleteAction;
+import com.tibco.xpd.resources.ui.components.actions.ViewerMoveDownAction;
+import com.tibco.xpd.resources.ui.components.actions.ViewerMoveDownEMFAction;
+import com.tibco.xpd.resources.ui.components.actions.ViewerMoveUpAction;
+import com.tibco.xpd.resources.ui.components.actions.ViewerMoveUpEMFAction;
 import com.tibco.xpd.rsd.Method;
 import com.tibco.xpd.rsd.Resource;
 import com.tibco.xpd.rsd.RsdPackage;
@@ -53,6 +58,8 @@ public class RsdMainControl extends BaseTreeControl {
     private AddMethodAction addMethodAction;
 
     private ShowPropertiesViewAction showPropertiesViewAction;
+
+    private boolean isReadOnly;
 
     /**
      * @param parent
@@ -93,8 +100,7 @@ public class RsdMainControl extends BaseTreeControl {
      * @param viewerInput
      */
     @Override
-    protected void createContents(Composite parent, XpdToolkit toolkit,
-            Object viewerInput) {
+    protected void createContents(Composite parent, XpdToolkit toolkit, Object viewerInput) {
         super.createContents(parent, toolkit, viewerInput);
         getViewer().addDoubleClickListener(new IDoubleClickListener() {
             @Override
@@ -111,8 +117,7 @@ public class RsdMainControl extends BaseTreeControl {
     protected IContentProvider getViewerContentProvider() {
         if (viewerContentProvider == null) {
             TransactionalAdapterFactoryContentProvider delegate =
-                    new TransactionalAdapterFactoryContentProvider(
-                            XpdResourcesPlugin.getDefault().getEditingDomain(),
+                    new TransactionalAdapterFactoryContentProvider(XpdResourcesPlugin.getDefault().getEditingDomain(),
                             XpdResourcesPlugin.getDefault().getAdapterFactory());
             viewerContentProvider = new RsdContentProvider(delegate);
         }
@@ -145,8 +150,7 @@ public class RsdMainControl extends BaseTreeControl {
     @Override
     protected void createActions(ColumnViewer viewer) {
         super.createActions(viewer);
-        addResourceAction =
-                new AddResourceAction(getViewer(), getEditingDomain());
+        addResourceAction = new AddResourceAction(getViewer(), getEditingDomain());
         addMethodAction = new AddMethodAction(getViewer(), getEditingDomain());
         showPropertiesViewAction = new ShowPropertiesViewAction();
         viewer.addSelectionChangedListener(addResourceAction);
@@ -157,8 +161,7 @@ public class RsdMainControl extends BaseTreeControl {
      * {@inheritDoc}
      */
     @Override
-    protected void fillViewerButtonsBar(IContributionManager manager,
-            ColumnViewer viever) {
+    protected void fillViewerButtonsBar(IContributionManager manager, ColumnViewer viever) {
         super.fillViewerButtonsBar(manager, viever);
         manager.appendToGroup(ADD_ACTIONS_END_MARKER, addResourceAction);
         manager.appendToGroup(ADD_ACTIONS_END_MARKER, addMethodAction);
@@ -169,8 +172,7 @@ public class RsdMainControl extends BaseTreeControl {
      * {@inheritDoc}
      */
     @Override
-    protected void fillViewerContextMenu(IMenuManager manager,
-            ColumnViewer columnViewer) {
+    protected void fillViewerContextMenu(IMenuManager manager, ColumnViewer columnViewer) {
         super.fillViewerContextMenu(manager, columnViewer);
         manager.add(addResourceAction);
         manager.add(addMethodAction);
@@ -181,16 +183,15 @@ public class RsdMainControl extends BaseTreeControl {
      * Adds a new Resource to the Service.
      * 
      */
-    public static class AddResourceAction extends ViewerAction {
+    public class AddResourceAction extends ViewerAction {
 
-        private ShowPropertiesViewAction showProperties =
-                new ShowPropertiesViewAction();
+        private ShowPropertiesViewAction showProperties = new ShowPropertiesViewAction();
 
         private EditingDomain ed;
 
         public AddResourceAction(StructuredViewer viewer, EditingDomain ed) {
-            super(viewer, Messages.RsdMainControl_AddResource_label, RsdImage
-                    .getImageDescriptor(RsdImage.CREATE_RESOURCE));
+            super(viewer, Messages.RsdMainControl_AddResource_label,
+                    RsdImage.getImageDescriptor(RsdImage.CREATE_RESOURCE));
             setToolTipText(Messages.RsdMainControl_AddResource_tooltip);
             this.ed = ed;
         }
@@ -202,10 +203,8 @@ public class RsdMainControl extends BaseTreeControl {
         public void selectionChanged(IStructuredSelection selection) {
             if (selection.size() == 1) {
                 Object elem = selection.getFirstElement();
-                if (elem instanceof EObject
-                        && RsdEditingUtil.getParentOfType((EObject) elem,
-                                Service.class) != null) {
-                    setEnabled(true);
+                if (elem instanceof EObject && RsdEditingUtil.getParentOfType((EObject) elem, Service.class) != null) {
+                    setEnabled(!isReadOnly());
                     return;
                 }
             }
@@ -217,81 +216,59 @@ public class RsdMainControl extends BaseTreeControl {
          */
         @Override
         public void run() {
-            IStructuredSelection selection =
-                    (IStructuredSelection) getViewer().getSelection();
+            IStructuredSelection selection = (IStructuredSelection) getViewer().getSelection();
             if (selection.size() == 1) {
                 Service service = null;
                 Object context = selection.getFirstElement();
                 if (context instanceof EObject) {
-                    service =
-                            RsdEditingUtil.getParentOfType((EObject) context,
-                                    Service.class);
+                    service = RsdEditingUtil.getParentOfType((EObject) context, Service.class);
                 }
 
                 /*
-                 * Insert before current element if the context is a sibling
-                 * element (or it's descendant).
+                 * Insert before current element if the context is a sibling element (or it's descendant).
                  */
                 int index = CommandParameter.NO_INDEX;
-                Resource contextResource =
-                        RsdEditingUtil.getParentOfType((EObject) context,
-                                Resource.class);
+                Resource contextResource = RsdEditingUtil.getParentOfType((EObject) context, Resource.class);
                 if (contextResource != null) {
                     index = service.getResources().indexOf(contextResource) + 1;
                 }
 
                 if (service != null) {
-                    Resource resource =
-                            com.tibco.xpd.rsd.RsdFactory.eINSTANCE
-                                    .createResource();
-                    String name =
-                            RsdEditingUtil
-                                    .getDefaultName(RsdEditingUtil.NEW_RESOURCE_NAME_PREFIX,
-                                            service,
-                                            RsdPackage.eINSTANCE.getResource());
+                    Resource resource = com.tibco.xpd.rsd.RsdFactory.eINSTANCE.createResource();
+                    String name = RsdEditingUtil.getDefaultName(RsdEditingUtil.NEW_RESOURCE_NAME_PREFIX,
+                            service,
+                            RsdPackage.eINSTANCE.getResource());
                     resource.setName(name);
 
-                    Command cmd =
-                            AddCommand
-                                    .create(ed,
-                                            service,
-                                            RsdPackage.eINSTANCE
-                                                    .getService_Resources(),
-                                            resource,
-                                            index);
-                    ((AddCommand) cmd)
-                            .setLabel(Messages.RsdMainControl_AddResourceCmd_label);
+                    Command cmd = AddCommand
+                            .create(ed, service, RsdPackage.eINSTANCE.getService_Resources(), resource, index);
+                    ((AddCommand) cmd).setLabel(Messages.RsdMainControl_AddResourceCmd_label);
                     ed.getCommandStack().execute(cmd);
 
                     /*
-                     * Refreshes from the content provider are asynchronous so
-                     * we refresh parent synchronously to ensure that the new
-                     * object's reveal and selection is successful.
+                     * Refreshes from the content provider are asynchronous so we refresh parent synchronously to ensure
+                     * that the new object's reveal and selection is successful.
                      */
                     getViewer().refresh(service);
-                    getViewer().setSelection(new StructuredSelection(resource),
-                            true);
+                    getViewer().setSelection(new StructuredSelection(resource), true);
                     showProperties.run();
                 }
 
             }
         }
-
     }
 
     /**
      * Adds a new Method to the Resource.
      */
-    public static class AddMethodAction extends ViewerAction {
+    public class AddMethodAction extends ViewerAction {
 
-        private ShowPropertiesViewAction showProperties =
-                new ShowPropertiesViewAction();
+        private ShowPropertiesViewAction showProperties = new ShowPropertiesViewAction();
 
         private EditingDomain ed;
 
         public AddMethodAction(StructuredViewer viewer, EditingDomain ed) {
-            super(viewer, Messages.RsdMainControl_AddMethod_label, RsdImage
-                    .getImageDescriptor(RsdImage.CREATE_METHOD));
+            super(viewer, Messages.RsdMainControl_AddMethod_label, RsdImage.getImageDescriptor(RsdImage.CREATE_METHOD));
             setToolTipText(Messages.RsdMainControl_AddMethod_tooltip);
             this.ed = ed;
         }
@@ -303,10 +280,8 @@ public class RsdMainControl extends BaseTreeControl {
         public void selectionChanged(IStructuredSelection selection) {
             if (selection.size() == 1) {
                 Object elem = selection.getFirstElement();
-                if (elem instanceof EObject
-                        && RsdEditingUtil.getParentOfType((EObject) elem,
-                                Resource.class) != null) {
-                    setEnabled(true);
+                if (elem instanceof EObject && RsdEditingUtil.getParentOfType((EObject) elem, Resource.class) != null) {
+                    setEnabled(!isReadOnly());
                     return;
 
                 }
@@ -319,20 +294,16 @@ public class RsdMainControl extends BaseTreeControl {
          */
         @Override
         public void run() {
-            IStructuredSelection selection =
-                    (IStructuredSelection) getViewer().getSelection();
+            IStructuredSelection selection = (IStructuredSelection) getViewer().getSelection();
             if (selection.size() == 1) {
                 Resource resource = null;
                 Object context = selection.getFirstElement();
                 if (context instanceof EObject) {
-                    resource =
-                            RsdEditingUtil.getParentOfType((EObject) context,
-                                    Resource.class);
+                    resource = RsdEditingUtil.getParentOfType((EObject) context, Resource.class);
                 }
 
                 /*
-                 * Insert before current element if the context is a sibling
-                 * element.
+                 * Insert before current element if the context is a sibling element.
                  */
                 int index = CommandParameter.NO_INDEX;
                 if (context instanceof Method) {
@@ -341,37 +312,24 @@ public class RsdMainControl extends BaseTreeControl {
                 }
 
                 if (resource != null) {
-                    Method method =
-                            com.tibco.xpd.rsd.RsdFactory.eINSTANCE
-                                    .createMethod();
-                    Service service =
-                            RsdEditingUtil.getParentOfType(resource,
-                                    Service.class);
-                    String name =
-                            RsdEditingUtil
-                                    .getDefaultName(RsdEditingUtil.NEW_METHOD_NAME_PREFIX,
-                                            service,
-                                            RsdPackage.eINSTANCE.getMethod());
+                    Method method = com.tibco.xpd.rsd.RsdFactory.eINSTANCE.createMethod();
+                    Service service = RsdEditingUtil.getParentOfType(resource, Service.class);
+                    String name = RsdEditingUtil.getDefaultName(RsdEditingUtil.NEW_METHOD_NAME_PREFIX,
+                            service,
+                            RsdPackage.eINSTANCE.getMethod());
                     method.setName(name);
 
                     Command cmd =
-                            AddCommand.create(ed,
-                                    resource,
-                                    RsdPackage.eINSTANCE.getResource_Methods(),
-                                    method,
-                                    index);
-                    ((AddCommand) cmd)
-                            .setLabel(Messages.RsdMainControl_AddMethodCmd_label);
+                            AddCommand.create(ed, resource, RsdPackage.eINSTANCE.getResource_Methods(), method, index);
+                    ((AddCommand) cmd).setLabel(Messages.RsdMainControl_AddMethodCmd_label);
                     ed.getCommandStack().execute(cmd);
 
                     /*
-                     * Refreshes from the content provider are asynchronous so
-                     * we refresh parent synchronously to ensure that the new
-                     * object's reveal and selection is successful.
+                     * Refreshes from the content provider are asynchronous so we refresh parent synchronously to ensure
+                     * that the new object's reveal and selection is successful.
                      */
                     getViewer().refresh(resource);
-                    getViewer().setSelection(new StructuredSelection(method),
-                            true);
+                    getViewer().setSelection(new StructuredSelection(method), true);
                     showProperties.run();
                 }
             }
@@ -415,12 +373,64 @@ public class RsdMainControl extends BaseTreeControl {
 
     /**
      * @see com.tibco.xpd.resources.ui.components.BaseColumnViewerControl#createDeleteAction(org.eclipse.jface.viewers.ColumnViewer)
-     * 
-     * @param viewer
-     * @return
      */
     @Override
     protected ViewerDeleteAction createDeleteAction(final ColumnViewer viewer) {
-        return new TreeViewerDeleteEMFAction(viewer, getDeletableFeatures());
+        return new TreeViewerDeleteEMFAction(viewer, getDeletableFeatures()) {
+            /**
+             * @see com.tibco.xpd.resources.ui.components.actions.ViewerDeleteEMFAction#canDelete(org.eclipse.jface.viewers.IStructuredSelection)
+             */
+            @Override
+            protected boolean canDelete(IStructuredSelection selection) {
+                return super.canDelete(selection) && !isReadOnly();
+            }
+        };
+    }
+
+    /**
+     * @see com.tibco.xpd.resources.ui.components.BaseColumnViewerControl#createMoveDownAction(org.eclipse.jface.viewers.ColumnViewer)
+     */
+    @Override
+    protected ViewerMoveDownAction createMoveDownAction(ColumnViewer viewer) {
+        return new ViewerMoveDownEMFAction(viewer, getMovableFeatures()) {
+            @Override
+            protected boolean canMoveDown(IStructuredSelection selection, StructuredViewer viewer) {
+                return super.canMoveDown(selection, viewer) && !isReadOnly();
+            }
+        };
+    }
+
+    /**
+     * @see com.tibco.xpd.resources.ui.components.BaseColumnViewerControl#createMoveUpAction(org.eclipse.jface.viewers.ColumnViewer)
+     */
+    @Override
+    protected ViewerMoveUpAction createMoveUpAction(ColumnViewer viewer) {
+        return new ViewerMoveUpEMFAction(viewer, getMovableFeatures()) {
+            @Override
+            protected boolean canMoveUp(IStructuredSelection selection, StructuredViewer viewer) {
+                return super.canMoveUp(selection, viewer) && !isReadOnly();
+            }
+        };
+    }
+    /**
+     * Sets read-only state for the control.
+     * 
+     * @param isReadOnly
+     *            the read-only state
+     */
+    public void setReadOnly(boolean isReadOnly) {
+        this.isReadOnly = isReadOnly;
+        ISelection selection = getViewer().getSelection();
+        getViewer().setSelection(StructuredSelection.EMPTY);
+        getViewer().setSelection(selection);
+    }
+
+    /**
+     * Gets current read-only state of the control.
+     * 
+     * @return read-only state of the control.
+     */
+    public boolean isReadOnly(){
+        return this.isReadOnly;
     }
 }

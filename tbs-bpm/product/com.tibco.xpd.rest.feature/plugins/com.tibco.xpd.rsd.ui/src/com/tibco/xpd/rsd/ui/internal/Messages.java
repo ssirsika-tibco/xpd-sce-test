@@ -192,6 +192,8 @@ public class Messages extends NLS {
 
     public static String RsdEditingUtil_NewResourceName_prefix;
 
+    public static String RsdEditorPart_ReadOnly;
+
     public static String RsdEditorPart_RsdMain_label;
 
     public static String RsdEditorPart_RsdResourceSection_desc;

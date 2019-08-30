@@ -98,16 +98,13 @@ import com.tibco.xpd.ui.properties.XpdWizardToolkit;
  * @author jarciuch
  * @since 20 Feb 2015
  */
-public class RsdEditorPart extends SceEditorPart implements
-        PropertyChangeListener, ITabbedPropertySheetPageContributor,
-        IMenuListener, IEditingDomainProvider, IGotoMarker, IDisplayEObject,
-        IPersistableEditor {
+public class RsdEditorPart extends SceEditorPart implements PropertyChangeListener, ITabbedPropertySheetPageContributor,
+        IMenuListener, IEditingDomainProvider, IGotoMarker, IDisplayEObject, IPersistableEditor {
 
     /**
      * Id of this editor (as defined in the extension).
      */
-    public static final String EDITOR_ID =
-            "com.tibco.xpd.rsd.ui.rsd.editor".toString(); //$NON-NLS-1$
+    public static final String EDITOR_ID = "com.tibco.xpd.rsd.ui.rsd.editor".toString(); //$NON-NLS-1$
 
     /**
      * Used as a key for storing expanded elements in the memento.
@@ -120,8 +117,7 @@ public class RsdEditorPart extends SceEditorPart implements
     private static final String SELECTED_TAG = "SELECTED_TAG"; //$NON-NLS-1$
 
     /**
-     * Delimiter used to separate list of element's ids stored in the saved
-     * editor state.
+     * Delimiter used to separate list of element's ids stored in the saved editor state.
      */
     private static final char DELIMITER = ',';
 
@@ -140,9 +136,10 @@ public class RsdEditorPart extends SceEditorPart implements
      */
     private IMemento memento;
 
+    private Form form;
+
     @Override
-    public void init(IEditorSite site, IEditorInput input)
-            throws PartInitException {
+    public void init(IEditorSite site, IEditorInput input) throws PartInitException {
         setSite(site);
         setInput(input);
         if (input instanceof FileEditorInput) {
@@ -155,14 +152,12 @@ public class RsdEditorPart extends SceEditorPart implements
                 if (root instanceof Service) {
                     service = (Service) root;
                 } else {
-                    throw new PartInitException(
-                            String.format("File content is not recognized.", //$NON-NLS-1$
-                                    file.getName()));
+                    throw new PartInitException(String.format("File content is not recognized.", //$NON-NLS-1$
+                            file.getName()));
                 }
             } else {
-                throw new PartInitException(
-                        String.format("File type %s not supported.", //$NON-NLS-1$
-                                file.getFileExtension()));
+                throw new PartInitException(String.format("File type %s not supported.", //$NON-NLS-1$
+                        file.getFileExtension()));
             }
         } else {
             throw new PartInitException(
@@ -170,7 +165,37 @@ public class RsdEditorPart extends SceEditorPart implements
         }
         // Set the part name after the working copy is created so that we get
         // the right read-only state.
-        setPartName(input.getName());
+        setPartName(getTitleText());
+    }
+
+    /**
+     * @see com.tibco.xpd.resources.ui.SceEditorPart#refreshTitle()
+     *
+     */
+    @Override
+    public void refreshTitle() {
+        super.refreshTitle();
+        // Sets read only state of the editor's main control.
+        WorkingCopy wc = getWorkingCopy();
+        if (wc != null) {
+            setReadOnly(wc.isReadOnly());
+        }
+    }
+
+    /**
+     * @param readOnly
+     */
+    private void setReadOnly(boolean readOnly) {
+        if (mainControl != null) {
+            mainControl.setReadOnly(readOnly);
+            // getAction(ActionFactory.CUT.getId()).setEnabled(!readOnly);
+            // getAction(ActionFactory.PASTE.getId()).setEnabled(!readOnly);
+            // getAction(ActionFactory.UNDO.getId()).setEnabled(!readOnly);
+            // getAction(ActionFactory.REDO.getId()).setEnabled(!readOnly);
+        }
+        if (form != null) {
+            form.setText(getEditorHeaderLabel());
+        }
     }
 
     /**
@@ -183,18 +208,14 @@ public class RsdEditorPart extends SceEditorPart implements
 
             /* Save expansion state. */
             Object[] expandedElements = viewer.getVisibleExpandedElements();
-            String expandedElemsStr =
-                    getStringFromCollection(Arrays.asList(expandedElements),
-                            DELIMITER);
+            String expandedElemsStr = getStringFromCollection(Arrays.asList(expandedElements), DELIMITER);
             if (expandedElemsStr != null) {
                 memento.putString(EXPANDED_TAG, expandedElemsStr);
             }
 
             /* Save selection state. */
-            List<?> selectedElements =
-                    ((IStructuredSelection) viewer.getSelection()).toList();
-            String selectedElemsStr =
-                    getStringFromCollection(selectedElements, DELIMITER);
+            List<?> selectedElements = ((IStructuredSelection) viewer.getSelection()).toList();
+            String selectedElemsStr = getStringFromCollection(selectedElements, DELIMITER);
             if (selectedElemsStr != null) {
                 memento.putString(SELECTED_TAG, selectedElemsStr);
             }
@@ -207,8 +228,7 @@ public class RsdEditorPart extends SceEditorPart implements
     @Override
     public void restoreState(IMemento memento) {
         /*
-         * Saved into instance variable as the saved state is used at the end
-         * #createParControl(...)
+         * Saved into instance variable as the saved state is used at the end #createParControl(...)
          * 
          * @see restoreEditorState(...)
          */
@@ -216,30 +236,25 @@ public class RsdEditorPart extends SceEditorPart implements
     }
 
     /**
-     * Restores the expand and selection state of the viewer (after closing and
-     * opening wokrbench).
+     * Restores the expand and selection state of the viewer (after closing and opening wokrbench).
      * 
      * @param memento
      * @param viewer
      */
-    private void restoreMainViewerState(IMemento memento, TreeViewer viewer,
-            WorkingCopy wc) {
+    private void restoreMainViewerState(IMemento memento, TreeViewer viewer, WorkingCopy wc) {
         if (memento != null) {
             {
                 String expanded = memento.getString(EXPANDED_TAG);
                 if (expanded != null && !expanded.trim().isEmpty()) {
-                    List<EObject> expandedEos =
-                            getCollectionFromString(expanded, DELIMITER, wc);
+                    List<EObject> expandedEos = getCollectionFromString(expanded, DELIMITER, wc);
                     if (!expandedEos.isEmpty()) {
-                        viewer.setExpandedElements(expandedEos
-                                .toArray(new Object[expandedEos.size()]));
+                        viewer.setExpandedElements(expandedEos.toArray(new Object[expandedEos.size()]));
                     }
                 }
             }
             String selected = memento.getString(SELECTED_TAG);
             if (selected != null && !selected.trim().isEmpty()) {
-                List<EObject> selectedEos =
-                        getCollectionFromString(selected, DELIMITER, wc);
+                List<EObject> selectedEos = getCollectionFromString(selected, DELIMITER, wc);
                 if (!selectedEos.isEmpty()) {
                     viewer.setSelection(new StructuredSelection(selectedEos));
                 }
@@ -255,24 +270,24 @@ public class RsdEditorPart extends SceEditorPart implements
     @Override
     public void createPartControl(Composite parent) {
         parent.setLayout(new FillLayout());
-        parent.setBackground(parent.getDisplay()
-                .getSystemColor(SWT.COLOR_LIST_BACKGROUND));
+        parent.setBackground(parent.getDisplay().getSystemColor(SWT.COLOR_LIST_BACKGROUND));
         toolkit = new XpdWizardToolkit(parent);
-        Form form = toolkit.createForm(parent);
-        form.setText(Messages.RsdEditorPart_RsdMain_label);
+        form = toolkit.createForm(parent);
+        form.setText(getEditorHeaderLabel());
         form.setImage(RsdImage.getImage(RsdImage.RSD_FILE));
         toolkit.getFormToolkit().decorateFormHeading(form);
         GridLayoutFactory.swtDefaults().applyTo(form.getBody());
 
-        Section section =
-                toolkit.createSection(form.getBody(), Section.DESCRIPTION
-                        | ExpandableComposite.TITLE_BAR);
+        Section section = toolkit.createSection(form.getBody(), Section.DESCRIPTION | ExpandableComposite.TITLE_BAR);
         GridDataFactory.fillDefaults().grab(true, true).applyTo(section);
         GridLayoutFactory.swtDefaults().applyTo(section);
 
         section.setText(Messages.RsdEditorPart_RsdResourcesSection_header);
         section.setDescription(Messages.RsdEditorPart_RsdResourceSection_desc);
         mainControl = new RsdMainControl(section, toolkit);
+        if (wc != null) {
+            setReadOnly(wc.isReadOnly());
+        }
         section.setClient(mainControl);
         TreeViewer editorViewer = mainControl.getTreeViewer();
         getSite().setSelectionProvider(editorViewer);
@@ -283,13 +298,12 @@ public class RsdEditorPart extends SceEditorPart implements
 
         createContextMenuFor(editorViewer);
         createSectionToolbar(section, editorViewer);
-        editorViewer
-                .addSelectionChangedListener(new ISelectionChangedListener() {
-                    @Override
-                    public void selectionChanged(SelectionChangedEvent event) {
-                        setStatusLineManager(event.getSelection());
-                    }
-                });
+        editorViewer.addSelectionChangedListener(new ISelectionChangedListener() {
+            @Override
+            public void selectionChanged(SelectionChangedEvent event) {
+                setStatusLineManager(event.getSelection());
+            }
+        });
 
         if (this.memento != null) {
             restoreMainViewerState(this.memento, editorViewer, wc);
@@ -297,6 +311,13 @@ public class RsdEditorPart extends SceEditorPart implements
             /* Expand all by default (if not restoring state from memento.) */
             editorViewer.expandAll();
         }
+    }
+
+    private String getEditorHeaderLabel() {
+        if (wc != null && wc.isReadOnly()) {
+            return String.format("%1$s [%2$s]", Messages.RsdEditorPart_RsdMain_label, Messages.RsdEditorPart_ReadOnly); //$NON-NLS-1$
+        }
+        return Messages.RsdEditorPart_RsdMain_label;
     }
 
     /**
@@ -371,8 +392,7 @@ public class RsdEditorPart extends SceEditorPart implements
 
         // If Working Copy changed or removed then close editor
         // else if Working Copy dirtied then fire dirty property change
-        if (propName.equals(WorkingCopy.PROP_RELOADED)
-                || propName.equals(WorkingCopy.PROP_REMOVED)) {
+        if (propName.equals(WorkingCopy.PROP_RELOADED) || propName.equals(WorkingCopy.PROP_REMOVED)) {
             closeEditor();
         } else if (propName.equals(WorkingCopy.PROP_DIRTY)) {
             firePropertyChange(PROP_DIRTY);
@@ -406,8 +426,7 @@ public class RsdEditorPart extends SceEditorPart implements
      * 
      * @param id
      *            The action ID.
-     * @return {@link IAction} associated with this id or <code>null</code> when
-     *         not found.
+     * @return {@link IAction} associated with this id or <code>null</code> when not found.
      */
 
     public IAction getAction(String id) {
@@ -425,16 +444,13 @@ public class RsdEditorPart extends SceEditorPart implements
             actions = new HashMap<>();
 
             if (wc instanceof AbstractTransactionalWorkingCopy) {
-                AbstractTransactionalWorkingCopy twc =
-                        (AbstractTransactionalWorkingCopy) wc;
+                AbstractTransactionalWorkingCopy twc = (AbstractTransactionalWorkingCopy) wc;
                 IUndoContext undoContext = twc.getUndoContext();
-                UndoActionHandler undo =
-                        new UndoActionHandler(getSite(), undoContext);
+                UndoActionHandler undo = new UndoActionHandler(getSite(), undoContext);
                 undo.setId(ActionFactory.UNDO.getId());
                 actions.put(ActionFactory.UNDO.getId(), undo);
 
-                RedoActionHandler redo =
-                        new RedoActionHandler(getSite(), undoContext);
+                RedoActionHandler redo = new RedoActionHandler(getSite(), undoContext);
                 redo.setId(ActionFactory.REDO.getId());
                 actions.put(ActionFactory.REDO.getId(), redo);
 
@@ -443,13 +459,9 @@ public class RsdEditorPart extends SceEditorPart implements
                 actions.put(ActionFactory.DELETE.getId(), delete);
 
                 // Handled by GMF action handlers.
-                String[] actionIds =
-                        new String[] { ActionFactory.CUT.getId(),
-                                ActionFactory.COPY.getId(),
-                                ActionFactory.PASTE.getId() };
-                GlobalAction[] globalActions =
-                        GlobalActionManager.getInstance()
-                                .createGlobalActions(this, actionIds);
+                String[] actionIds = new String[] { ActionFactory.CUT.getId(), ActionFactory.COPY.getId(),
+                        ActionFactory.PASTE.getId() };
+                GlobalAction[] globalActions = GlobalActionManager.getInstance().createGlobalActions(this, actionIds);
                 for (GlobalAction globalAction : globalActions) {
                     actions.put(globalAction.getActionId(), globalAction);
                 }
@@ -458,8 +470,7 @@ public class RsdEditorPart extends SceEditorPart implements
     }
 
     /**
-     * This creates a context menu for the viewer and adds a listener as well
-     * registering the menu for extension.
+     * This creates a context menu for the viewer and adds a listener as well registering the menu for extension.
      */
     protected void createContextMenuFor(StructuredViewer viewer) {
         MenuManager contextMenu = new MenuManager("#PopUp"); //$NON-NLS-1$
@@ -476,16 +487,13 @@ public class RsdEditorPart extends SceEditorPart implements
         /* Add drag and drop support for the viewer. */
         int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
         Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
-        viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(
-                viewer));
-        viewer.addDropSupport(dndOperations,
-                transfers,
-                new EditingDomainViewerDropAdapter(getEditingDomain(), viewer));
+        viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
+        viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(getEditingDomain(), viewer));
     }
 
     /**
-     * This implements {@link org.eclipse.jface.action.IMenuListener} to help
-     * fill the context menus with contributions from the Edit menu.
+     * This implements {@link org.eclipse.jface.action.IMenuListener} to help fill the context menus with contributions
+     * from the Edit menu.
      */
     @Override
     public void menuAboutToShow(IMenuManager menuManager) {
@@ -521,8 +529,7 @@ public class RsdEditorPart extends SceEditorPart implements
     /**
      * {@inheritDoc}
      * 
-     * This editor adapts to the TabbedPropertySheetPage (to support tabbed
-     * properties).
+     * This editor adapts to the TabbedPropertySheetPage (to support tabbed properties).
      */
     @Override
     public Object getAdapter(@SuppressWarnings("rawtypes") Class adapter) {
@@ -569,8 +576,7 @@ public class RsdEditorPart extends SceEditorPart implements
      * Returns action bar contributor for this editor.
      */
     private EditorActionBarContributor getActionBarContributor() {
-        return (EditorActionBarContributor) getEditorSite()
-                .getActionBarContributor();
+        return (EditorActionBarContributor) getEditorSite().getActionBarContributor();
     }
 
     /**
@@ -584,37 +590,29 @@ public class RsdEditorPart extends SceEditorPart implements
      * Sets the status line.
      */
     public void setStatusLineManager(ISelection selection) {
-        IStatusLineManager statusLineManager =
-                getActionBars().getStatusLineManager();
+        IStatusLineManager statusLineManager = getActionBars().getStatusLineManager();
 
         if (statusLineManager != null) {
             if (selection instanceof IStructuredSelection) {
-                Collection<?> collection =
-                        ((IStructuredSelection) selection).toList();
+                Collection<?> collection = ((IStructuredSelection) selection).toList();
                 switch (collection.size()) {
                 case 0: {
-                    statusLineManager
-                            .setMessage(Messages.RsdEditorPart_StatusNothingSelected_message);
+                    statusLineManager.setMessage(Messages.RsdEditorPart_StatusNothingSelected_message);
                     break;
                 }
                 case 1: {
-                    ILabelProvider labeProvider =
-                            (ILabelProvider) mainControl.getViewer()
-                                    .getLabelProvider();
+                    ILabelProvider labeProvider = (ILabelProvider) mainControl.getViewer().getLabelProvider();
                     Object element = collection.iterator().next();
                     String text = labeProvider.getText(element);
                     Image image = labeProvider.getImage(element);
-                    statusLineManager
-                            .setMessage(image,
-                                    String.format(Messages.RsdEditorPart_StatusOneObjectSelected_message,
-                                            text));
+                    statusLineManager.setMessage(image,
+                            String.format(Messages.RsdEditorPart_StatusOneObjectSelected_message, text));
                     break;
                 }
                 default: {
                     int numberOfObjects = collection.size();
                     statusLineManager
-                            .setMessage(Messages.RsdEditorPart_StatusManyObjectsSelected_message
-                                    + numberOfObjects);
+                            .setMessage(Messages.RsdEditorPart_StatusManyObjectsSelected_message + numberOfObjects);
                     break;
                 }
                 }
@@ -631,14 +629,12 @@ public class RsdEditorPart extends SceEditorPart implements
     public void gotoMarker(IMarker marker) {
         EObject[] objects = MarkerFinder.getObject(marker);
         if (objects != null && objects.length > 0) {
-            getRsdMainControl().getViewer()
-                    .setSelection(new StructuredSelection(objects), true);
+            getRsdMainControl().getViewer().setSelection(new StructuredSelection(objects), true);
         }
     }
 
     /**
-     * @see com.tibco.xpd.xpdl2.edit.util.IGotoEObject#gotoEObject(boolean,
-     *      org.eclipse.emf.ecore.EObject[])
+     * @see com.tibco.xpd.xpdl2.edit.util.IGotoEObject#gotoEObject(boolean, org.eclipse.emf.ecore.EObject[])
      * 
      * @param selectObjects
      * @param eObjects
@@ -654,17 +650,15 @@ public class RsdEditorPart extends SceEditorPart implements
     }
 
     /**
-     * Returns string representation for the list of elements (string containing
-     * IDs separated by the delimiter) or <code>null</code> if list doesn't
-     * contain any {@link ModelElement}s.
+     * Returns string representation for the list of elements (string containing IDs separated by the delimiter) or
+     * <code>null</code> if list doesn't contain any {@link ModelElement}s.
      * 
      * @param elements
      *            the collection of elements.
      * @param delim
      *            delimiter to separate elements in the list.
-     * @return string representation for the list of elements (string containing
-     *         IDs separated by the delimiter) or <code>null</code> if list
-     *         doesn't contain any {@link ModelElement}s.
+     * @return string representation for the list of elements (string containing IDs separated by the delimiter) or
+     *         <code>null</code> if list doesn't contain any {@link ModelElement}s.
      * 
      * @see {@link ModelElement#getId()}
      */
@@ -690,8 +684,7 @@ public class RsdEditorPart extends SceEditorPart implements
     /**
      * Gets a list of resolved EObject from the string of delimited ids.
      */
-    private List<EObject> getCollectionFromString(String s, char delim,
-            WorkingCopy wc) {
+    private List<EObject> getCollectionFromString(String s, char delim, WorkingCopy wc) {
         if (s == null || s.trim().isEmpty()) {
             return Collections.emptyList();
         }
@@ -719,10 +712,7 @@ public class RsdEditorPart extends SceEditorPart implements
     private EObject resolve(WorkingCopy wc, String id) {
         IResource r = wc.getEclipseResources().get(0);
         if (r instanceof IFile) {
-            URI uri =
-                    URI.createPlatformResourceURI(r.getFullPath()
-                            .toPortableString(),
-                            true).appendFragment(id);
+            URI uri = URI.createPlatformResourceURI(r.getFullPath().toPortableString(), true).appendFragment(id);
             return wc.getEditingDomain().getResourceSet().getEObject(uri, true);
         }
         return null;
