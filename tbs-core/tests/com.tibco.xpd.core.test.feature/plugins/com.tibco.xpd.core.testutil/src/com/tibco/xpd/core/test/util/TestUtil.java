@@ -1131,17 +1131,16 @@ public class TestUtil {
      * 
      * @param resource
      * @param depthInfinite
-     *            <code>true</code> to check this resource and all it's
-     *            descendants <code>false</code> to check only this resource.
-     * @param exceptIds
-     *            Marker id's to ignore.
+     *            <code>true</code> to check this resource and all it's descendants <code>false</code> to check only
+     *            this resource.
+     * @param exceptIdsOrMessageText
+     *            Marker id's OR partial message text of markers to ignore.
      * 
-     * @return <code>true</code> if given resource has given problem marker
-     *         raised on it.
+     * @return <code>true</code> if given resource has given problem marker raised on it.
      */
     @SuppressWarnings("nls")
     public static boolean hasErrorProblemMarker(IResource resource, boolean depthInfinite,
-            Collection<String> exceptIds) {
+            Collection<String> exceptIdsOrMessageText) {
         try {
             IMarker[] markers = resource.findMarkers(IMarker.PROBLEM,
                     true,
@@ -1150,7 +1149,8 @@ public class TestUtil {
             if (markers != null) {
                 for (IMarker marker : markers) {
                     if (marker.getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR
-                            && !exceptIds.contains(marker.getAttribute("issueId", ""))) {
+                            && !exceptIdsOrMessageText.contains(marker.getAttribute("issueId", ""))
+                            && !containsMessageFragment(marker, exceptIdsOrMessageText)) {
                         System.out.println(
                                 "TestUtil.hasErrorProblemMarker() = true: " + marker.getAttribute(IMarker.MESSAGE, ""));
                         return true;
@@ -1161,6 +1161,23 @@ public class TestUtil {
 
         } catch (CoreException e) {
             e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    /**
+     * @param marker
+     * @param exceptIdsOrMessageText
+     * @return <code>true</code> if the message text for the problem marker contains any of the given strings.
+     */
+    private static boolean containsMessageFragment(IMarker marker, Collection<String> exceptIdsOrMessageText) {
+        String message = marker.getAttribute(IMarker.MESSAGE, ""); //$NON-NLS-1$
+
+        for (String exceptionText : exceptIdsOrMessageText) {
+            if (message.contains(exceptionText)) {
+                return true;
+            }
         }
 
         return false;

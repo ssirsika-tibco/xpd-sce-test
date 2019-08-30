@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 	===================================================================================================================
-	XSLT:       MigrateStudioXPDL_21.xslt
+	XSLT:       MigrateStudioXPDL_999.xslt
 	
 	DESCRIPTION:
 
@@ -21,8 +21,8 @@
 		  catch WSDL fault events. (in this case we will not unset the types, so that users can see where there PAAS entry points used 
 		  to be before changing them to event type none etc)
 
-		- Remove JavaScript data mappings from non-WSDL related event / task types (sub-process, signals, catch error)
-	
+		- Convert (as much as possible) JavaScript data mappings to datamapper mappings on sub-process, global signal, local signal, catch error  
+
 		- Remove current configuration information from REST and WEB service system participants (as in SCE the configuration UI 
 		  and model will be different).
 	
@@ -34,6 +34,7 @@
 		- Remove process package version (we only use project version now).
 		
 		- Remove ReceiveTask web-service configuration
+		
 		
   	    (See XpdlMigrate.java for format version <-> Studio version equivalence).
   	     
@@ -149,6 +150,386 @@
 		<!-- Do nothing (e.g. do not output xpdExt:CorrelationMapping when has JavaScript / XPath mappings inside-->
 	</xsl:template>
 
+
+	<!--
+	===============================================================================
+	Convert JavaScript data mappings to DataMapper mappings...
+	SUB-PROCESS INVOCATION
+	===============================================================================
+    -->
+    <xsl:template match="xpdl2:SubFlow">
+    
+    	<xsl:copy> <!--  xpdl2:Subflow -->
+    	
+    		<!-- Copy / remove etc most of the content according to other templates -->
+    		<xsl:apply-templates select="@* | node() | text()"/>
+    		
+    		<!--  
+    			INPUT mappings... 
+    			 If there are old javaScript input data mappings convert them to DataMapper mappings 
+    			 (ensuring we don't also already have DataMapper input mappings just in case) 
+    		-->
+    		<xsl:if test="xpdl2:DataMappings/xpdl2:DataMapping[@Direction = 'IN'] and not(xpdExt:InputMappings)">
+    			
+    			<xpdExt:InputMappings MapperContext="ProcessToSubProcess" MappingDirection="IN">
+    				<xpdExt:DataMappings>
+    				
+    					<xsl:for-each select="xpdl2:DataMappings/xpdl2:DataMapping[@Direction = 'IN']">
+    						<xsl:choose>
+    							<xsl:when test="xpdExt:ScriptInformation">
+    								<!-- Input Script mapping - almost the same EXCEPT in JavaScript mapping the script is in xpdl2:Actual -->
+									<xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" 
+														Direction="IN" 
+														Formal="{@Formal}">
+										<xpdExt:ScriptInformation Id="{xpdExt:ScriptInformation/@Id}" Name="{xpdExt:ScriptInformation/@Name}">
+											<xpdExt:Expression ScriptGrammar="JavaScript"><xsl:value-of select="xpdl2:Actual"/></xpdExt:Expression>
+										</xpdExt:ScriptInformation>
+										
+										<!--  And xpdl2:Actual is hard coded... -->
+										<xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+									</xpdExt:DataMapping>
+    							</xsl:when>
+    							<xsl:otherwise>
+    								<!-- Standard non-scripted mapping -->
+		                  			<xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" 
+		                  								xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" 
+		                  								Direction="IN" 
+		                  								Formal="{@Formal}">
+		                    			<xsl:apply-templates select="xpdl2:Actual"/>
+		                  			</xpdExt:DataMapping>    						
+    							</xsl:otherwise>
+    						</xsl:choose>
+    					
+    					</xsl:for-each>
+    					
+    				</xpdExt:DataMappings>
+    				
+    				<!--
+    					(As yet) Unmapped script mappings (move from xpdl2:activity to xpdExt:UnmappedScripts  
+    				 -->
+    				<xsl:if test="count(ancestor::xpdl2:Activity/xpdExt:ScriptInformation[@Name != '' and (not(@Direction) or @Direction != 'OUT')]) > 0">
+    					<xpdExt:UnmappedScripts>
+    						<xsl:copy-of select="ancestor::xpdl2:Activity/xpdExt:ScriptInformation[@Name != '' and (not(@Direction) or @Direction != 'OUT')]"/>
+    					</xpdExt:UnmappedScripts>
+    				</xsl:if>
+    				
+    			</xpdExt:InputMappings>
+    		
+    		</xsl:if> <!--  INPUT mappings -->
+
+    		<!-- 
+    			OUPUT mappings... 
+    			 If there are old javaScript output data mappings convert them to DataMapper mappings 
+    			 (ensuring we don't also already have DataMapper output mappings just in case) 
+    		-->
+    		<xsl:if test="xpdl2:DataMappings/xpdl2:DataMapping[@Direction = 'OUT'] and not(xpdExt:OutputMappings)">
+    			
+    			<xpdExt:OutputMappings MapperContext="SubProcessToProcess" MappingDirection="OUT">
+    				<xpdExt:DataMappings>
+    				
+    					<xsl:for-each select="xpdl2:DataMappings/xpdl2:DataMapping[@Direction = 'OUT']">
+    						<xsl:choose>
+    							<xsl:when test="xpdExt:ScriptInformation">
+    								<!-- Output Script mapping (@Formal comes from old xpdl2:Actual)-->
+									<xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" 
+														Direction="IN" 
+														Formal="{xpdl2:Actual/text()}">
+										<!-- And ScriptInformation is identical for output mappings -->
+										<xsl:copy-of select="xpdExt:ScriptInformation"/>
+										
+										<!--  And xpdl2:Actual is hard coded... -->
+										<xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+									</xpdExt:DataMapping>
+    							</xsl:when>
+    							<xsl:otherwise>
+    								<!-- Standard non-scripted mapping (@Formal swaps with xpdl2:Actual)-->
+		                  			<xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" 
+		                  								xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" 
+		                  								Direction="IN" 
+		                  								Formal="{xpdl2:Actual/text()}">
+		                    			<xpdl2:Actual ScriptGrammar="JavaScript"><xsl:value-of select="@Formal"/></xpdl2:Actual>
+		                  			</xpdExt:DataMapping>    						
+    							</xsl:otherwise>
+    						</xsl:choose>
+    					
+    					</xsl:for-each>
+
+    				</xpdExt:DataMappings>
+
+    				<!--
+    					(As yet) Unmapped script mappings (move from xpdl2:activity to xpdExt:UnmappedScripts  
+    				 -->
+    				<xsl:if test="count(ancestor::xpdl2:Activity/xpdExt:ScriptInformation[@Name != '' and @Direction = 'OUT']) > 0">
+    					<xpdExt:UnmappedScripts>
+    						<xsl:copy-of select="ancestor::xpdl2:Activity/xpdExt:ScriptInformation[@Name != '' and @Direction = 'OUT']"/>
+    					</xpdExt:UnmappedScripts>
+    				</xsl:if>
+    				
+    			</xpdExt:OutputMappings>
+    		
+    		</xsl:if> <!-- OUTPUT mappings -->
+
+    		
+    	</xsl:copy> <!-- xpdl2:Subflow -->
+    
+    </xsl:template>
+    
+    <!--
+	===============================================================================
+	Convert JavaScript data mappings to DataMapper mappings...
+	CATCH ERROR MAPPINGS
+	===============================================================================
+    -->
+    <xsl:template match="xpdl2:ResultError/xpdExt:CatchErrorMappings/xpdExt:Message">
+    
+        <xsl:copy> <!-- xpdl2:Message -->    
+    		<!-- apply templates to get existing content copied / removed as required before converting mappings if necessary. -->
+    		<xsl:apply-templates select="@* | node() | text()"/>
+    		
+    		<!-- A difference between CATCH all and CATCH SPECIFIC SUB-PROCESS is the mapper context -->
+			<xsl:variable name="mapperContext">
+				<xsl:choose>
+					<xsl:when test="ancestor::xpdl2:ResultError/xpdExt:ErrorThrowerInfo/@ThrowerType = 'ProcessActivity'">CatchSubProcessError</xsl:when>
+					<xsl:otherwise>CatchAll</xsl:otherwise>
+				</xsl:choose>
+			</xsl:variable>
+
+    		<!-- 
+    			OUPUT mappings... 
+    			 If there are old javaScript output data mappings convert them to DataMapper mappings 
+    			 (ensuring we don't also already have DataMapper output mappings just in case) 
+    		-->
+    		<xsl:if test="xpdl2:DataMappings/xpdl2:DataMapping[@Direction = 'OUT'] and not(xpdExt:OutputMappings)">
+    			
+    			<xpdExt:OutputMappings MapperContext="{$mapperContext}" MappingDirection="OUT">
+    				<xpdExt:DataMappings>
+    				
+    					<xsl:for-each select="xpdl2:DataMappings/xpdl2:DataMapping[@Direction = 'OUT']">
+
+				    		<!-- A difference between CATCH all and CATCH SPECIFIC SUB-PROCESS is the source contributor id. -->
+							<xsl:variable name="srcContribId">
+								<xsl:choose>
+									<xsl:when test="ancestor::xpdl2:ResultError/xpdExt:ErrorThrowerInfo/@ThrowerType = 'ProcessActivity' and starts-with(@Formal, '$ERROR')">CatchSubProcessError.DataMapperContent</xsl:when>
+									<xsl:when test="ancestor::xpdl2:ResultError/xpdExt:ErrorThrowerInfo/@ThrowerType = 'ProcessActivity'">CatchSubProcessErrorProcessData.DataMapperContent</xsl:when>
+									<xsl:otherwise>CatchAll.DataMapperContent</xsl:otherwise>
+								</xsl:choose>
+							</xsl:variable>
+
+    						<xsl:choose>
+    							<xsl:when test="xpdExt:ScriptInformation">
+    								<!-- Output Script mapping (@Formal comes from old xpdl2:Actual)-->
+									<xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" 
+														Direction="IN" 
+														Formal="{xpdl2:Actual/text()}">
+										<!-- And ScriptInformation is identical for output mappings -->
+										<xsl:copy-of select="xpdExt:ScriptInformation"/>
+										
+										<!--  And xpdl2:Actual is hard coded... -->
+										<xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+									</xpdExt:DataMapping>
+    							</xsl:when>
+    							<xsl:otherwise>
+    								<!-- Standard non-scripted mapping (@Formal swaps with xpdl2:Actual)-->
+		                  			<xpdExt:DataMapping xpdExt:SourceContributorId="{$srcContribId}" 
+		                  								xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" 
+		                  								Direction="IN" 
+		                  								Formal="{xpdl2:Actual/text()}">
+		                    			<xpdl2:Actual ScriptGrammar="JavaScript"><xsl:value-of select="@Formal"/></xpdl2:Actual>
+		                  			</xpdExt:DataMapping>    						
+    							</xsl:otherwise>
+    						</xsl:choose>
+    					
+    					</xsl:for-each>
+
+    				</xpdExt:DataMappings>
+
+    				<!--
+    					(As yet) Unmapped script mappings (move from xpdl2:activity to xpdExt:UnmappedScripts  
+    				 -->
+    				<xsl:if test="count(ancestor::xpdl2:Activity/xpdExt:ScriptInformation[@Name != '' and @Direction = 'OUT']) > 0">
+    					<xpdExt:UnmappedScripts>
+    						<xsl:copy-of select="ancestor::xpdl2:Activity/xpdExt:ScriptInformation[@Name != '' and @Direction = 'OUT']"/>
+    					</xpdExt:UnmappedScripts>
+    				</xsl:if>
+    				
+    			</xpdExt:OutputMappings>
+    		
+    		</xsl:if> <!-- OUTPUT mappings -->
+
+    		
+    	</xsl:copy> <!-- xpdl2:Message -->    
+    </xsl:template>
+    
+    
+    
+	<!--
+	===============================================================================
+	Convert JavaScript data mappings to DataMapper mappings...
+	THROW GLOBAL SIGNAL
+	===============================================================================
+    -->
+    <xsl:template match="xpdl2:TriggerResultSignal[@CatchThrow = 'THROW']/xpdExt:SignalData">
+	
+		<xsl:copy>  <!-- xpdExt:SignalData -->
+			<!-- apply templates to get existing content copied / removed as required before converting mappings if necessary. -->
+    		<xsl:apply-templates select="@* | node() | text()"/>
+
+    		<!-- Only do anything if not DataMapper grammar already (just in case there is some early ACE dev xpdl's with these in but not on latest FormatVersion 1000) -->
+    		<xsl:if test="not(xpdExt:InputScriptDataMapper)">
+			
+				<xpdExt:InputScriptDataMapper MapperContext="GlobalSignalThrow" MappingDirection="IN">
+					<xpdExt:DataMappings>
+						<!-- Convert correlation and normal mappings the ONLY difference is in the xpdExt:TargetContributorId -->
+						<xsl:for-each select="xpdExt:CorrelationMappings/xpdExt:DataMapping | xpdExt:DataMappings/xpdExt:DataMapping">
+						
+							<xsl:variable name="targetContributorId">
+								<xsl:choose>
+									<xsl:when test="ancestor::xpdExt:CorrelationMappings">MapToGlobalSignalCorrelation.DataMapperContent</xsl:when>
+									<xsl:otherwise>MapToGlobalSignal.DataMapperContent</xsl:otherwise>
+								</xsl:choose>
+							</xsl:variable>
+	
+	  						<xsl:choose>
+	  							<xsl:when test="xpdExt:ScriptInformation">
+	  								<!-- Script mapping - almost the same EXCEPT in JavaScript mapping the script is in xpdl2:Actual -->
+									<xpdExt:DataMapping xpdExt:TargetContributorId="{$targetContributorId}" Direction="IN" Formal="{@Formal}">
+	
+										<xpdExt:ScriptInformation Id="{xpdExt:ScriptInformation/@Id}" Name="{xpdExt:ScriptInformation/@Name}">
+											<xpdExt:Expression ScriptGrammar="JavaScript"><xsl:value-of select="xpdl2:Actual"/></xpdExt:Expression>
+										</xpdExt:ScriptInformation>
+										
+										<!--  And xpdl2:Actual is hard coded... -->
+										<xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+	
+									</xpdExt:DataMapping>
+	
+								</xsl:when>
+								<xsl:otherwise>
+	   								<!-- Standard non-scripted mapping -->
+									<xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="{$targetContributorId}" 
+											Direction="IN" Formal="{@Formal}">
+										<xsl:apply-templates select="xpdl2:Actual"/>
+									</xpdExt:DataMapping>
+						
+								</xsl:otherwise>
+							</xsl:choose>	
+							
+						</xsl:for-each>
+						
+						<!--
+	    					(As yet) Unmapped script mappings (move from xpdl2:activity to xpdExt:UnmappedScripts  
+	    				 -->
+	    				<xsl:if test="count(ancestor::xpdl2:Activity/xpdExt:ScriptInformation[@Name != '']) > 0">
+	    					<xpdExt:UnmappedScripts>
+	    						<xsl:copy-of select="ancestor::xpdl2:Activity/xpdExt:ScriptInformation[@Name != '']"/>
+	    					</xpdExt:UnmappedScripts>
+	    				</xsl:if>
+						
+					</xpdExt:DataMappings>
+				</xpdExt:InputScriptDataMapper>
+
+    		</xsl:if> <!-- Not got datamapper mappings already -->
+			
+		</xsl:copy> <!-- xpdExt:SignalData -->
+
+	</xsl:template>
+	
+	<!--
+	===============================================================================
+	Convert JavaScript data mappings to DataMapper mappings...
+	CATCH GLOBAL SIGNAL and 
+	CATCH LOCAL SIGNAL
+	===============================================================================
+    -->
+    <xsl:template match="xpdl2:TriggerResultSignal[@CatchThrow = 'CATCH']/xpdExt:SignalData">
+	
+		<xsl:copy>  <!-- xpdExt:SignalData -->
+    		<!-- apply templates to get existing content copied / removed as required before converting mappings if necessary. -->
+    		<xsl:apply-templates select="@* | node() | text()"/>
+    		
+    		<!-- Only do anything if not DataMapper grammar already (just in case there is some early ACE dev xpdl's with these in but not on latest FormatVersion 1000) -->
+    		<xsl:if test="not(xpdExt:OutputScriptDataMapper)">
+			
+				<!-- Only difference between local and global is the Mapper Context and source/target contributor id's -->
+				<xsl:variable name="mapperContext">
+					<xsl:choose>
+						<xsl:when test="../@xpdExt:SignalType = 'Global'">GlobalSignalCatch</xsl:when>
+						<xsl:otherwise>LocalSignalCatch</xsl:otherwise>
+					</xsl:choose>
+				</xsl:variable>
+	
+				<xsl:variable name="srcContribId">
+					<xsl:choose>
+						<xsl:when test="../@xpdExt:SignalType = 'Global'">MapFromGlobalSignal.DataMapperContent</xsl:when>
+						<xsl:otherwise>MapFromLocalSignal.DataMapperContent</xsl:otherwise>
+					</xsl:choose>
+				</xsl:variable>
+			
+				<xsl:variable name="tgtNonCorrelationContribId">
+					<xsl:choose>
+						<xsl:when test="../@xpdExt:SignalType = 'Global'">MapFromGlobalSignalTarget.DataMapperContent</xsl:when>
+						<xsl:otherwise>MapFromLocalSignalTarget.DataMapperContent</xsl:otherwise>
+					</xsl:choose>
+				</xsl:variable>
+			
+				<xpdExt:OutputScriptDataMapper MapperContext="{$mapperContext}" MappingDirection="IN">
+					<xpdExt:DataMappings>
+						<!--  Convert correlation(GLOBAL CATCH ONLY) and normal mappings the ONLY difference is in the xpdExt:TargetContributorId -->
+						<xsl:for-each select="xpdExt:CorrelationMappings/xpdExt:DataMapping | xpdExt:DataMappings/xpdExt:DataMapping">
+						
+							<xsl:variable name="targetContributorId">
+								<xsl:choose>
+									<xsl:when test="ancestor::xpdExt:CorrelationMappings">MapFromGlobalSignalCorrelation.DataMapperContent</xsl:when>
+									<xsl:otherwise><xsl:value-of select="$tgtNonCorrelationContribId"/></xsl:otherwise>
+								</xsl:choose>
+							</xsl:variable>
+	
+	  						<xsl:choose>
+	  							<xsl:when test="xpdExt:ScriptInformation">
+	   								<!-- Output Script mapping (@Formal comes from old xpdl2:Actual)-->
+									<xpdExt:DataMapping xpdExt:TargetContributorId="{$targetContributorId}" 
+														Direction="IN" 
+														Formal="{xpdl2:Actual/text()}">
+										<!-- And ScriptInformation is identical for output mappings -->
+										<xsl:copy-of select="xpdExt:ScriptInformation"/>
+										
+										<!--  And xpdl2:Actual is hard coded... -->
+										<xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+									</xpdExt:DataMapping>
+	
+								</xsl:when>
+								<xsl:otherwise>
+	   								<!-- Standard non-scripted mapping (@Formal and xpdl2:Actual are swapped around) -->
+									<xpdExt:DataMapping xpdExt:SourceContributorId="{$srcContribId}" xpdExt:TargetContributorId="{$targetContributorId}" 
+												Direction="IN" 
+												Formal="{xpdl2:Actual/text()}">
+			                    		<xpdl2:Actual ScriptGrammar="JavaScript"><xsl:value-of select="@Formal"/></xpdl2:Actual>
+									</xpdExt:DataMapping>
+						
+								</xsl:otherwise>
+							</xsl:choose>	
+							
+						</xsl:for-each>
+						
+						<!--
+	    					(As yet) Unmapped script mappings (move from xpdl2:activity to xpdExt:UnmappedScripts  
+	    				 -->
+	    				<xsl:if test="count(ancestor::xpdl2:Activity/xpdExt:ScriptInformation[@Name != '']) > 0">
+	    					<xpdExt:UnmappedScripts>
+	    						<xsl:copy-of select="ancestor::xpdl2:Activity/xpdExt:ScriptInformation[@Name != '']"/>
+	    					</xpdExt:UnmappedScripts>
+	    				</xsl:if>
+						
+						
+					</xpdExt:DataMappings>
+				</xpdExt:OutputScriptDataMapper>
+
+    		</xsl:if> <!-- Not got datamapper mappings already -->
+			
+		</xsl:copy> <!-- xpdExt:SignalData -->
+
+	</xsl:template>
+	
 	<!--
 	===============================================================================
 	Remove ReceiveTask web-service configuration 

@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_Re0AAMpdEemqrfkcQCortA" xpdExt:DisplayName="JS_vs_DataMapper-GlobalSignal" Name="JS_vs_DataMapperGlobalSignal">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2019-08-29</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_VNBrQMpqEemqrfkcQCortA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_VM-n8MpqEemqrfkcQCortA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_VNBrQcpqEemqrfkcQCortA" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="568.0" IsVisible="true"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_bPhFEMpdEemqrfkcQCortA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_RgkTgMpdEemqrfkcQCortA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_bPhFEcpdEemqrfkcQCortA" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_RgkTgMpdEemqrfkcQCortA" xpdExt:DisplayName="Throw Global Signal Process" Name="ThrowGlobalSignalProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_Ky8IcMpeEemqrfkcQCortA" xpdExt:DisplayName="Text Field 1" Name="TextField1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_L-mDQMpeEemqrfkcQCortA" xpdExt:DisplayName="Text Field 2" Name="TextField2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_M9LLYMpeEemqrfkcQCortA" xpdExt:DisplayName="Text Field 3" Name="TextField3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_tuKpUMprEemqrfkcQCortA" xpdExt:DisplayName="Complex Field" Name="ComplexField">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="MultiSubProcData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_3AzR0L0DEem-0J8I_YUyog"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_bPhFEspdEemqrfkcQCortA" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_bPhFEcpdEemqrfkcQCortA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_bPhFE8pdEemqrfkcQCortA" Name="ThrowGlobalGlobalSignal" xpdExt:DisplayName="Throw Global: GlobalSignal">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Signal">
+              <xpdl2:TriggerResultSignal xpdExt:SignalType="Global" CatchThrow="THROW" Name="com.example.migratemappingsglobalsignal/MigrateMappingsGlobalSignal.gsd#GlobalSignal">
+                <xpdExt:SignalData>
+                  <xpdExt:CorrelationMappings>
+                    <xpdExt:DataMapping Direction="IN" Formal="SignalCorrelationField1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TextField1</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping Direction="IN" Formal="SignalCorrelationField2">
+                      <xpdExt:ScriptInformation Id="_P4upoMp2EemqrfkcQCortA" Name="Correlation data mapping">
+                        <xpdExt:Expression ScriptGrammar="JavaScript"/>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">&quot;Correlation data mapping&quot;;</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationMappings>
+                  <xpdExt:DataMappings>
+                    <xpdExt:DataMapping Direction="IN" Formal="ComplexPayloadData">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ComplexField</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping Direction="IN" Formal="TextPayloadData">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TextField3</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping Direction="IN" Formal="FromScriptPayloadData">
+                      <xpdExt:ScriptInformation Id="_Uv9p4MpsEemqrfkcQCortA" Name="Throw Signal Script">
+                        <xpdExt:Expression ScriptGrammar="JavaScript"/>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">&quot;abc&quot; + &quot;xyz&quot;;</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:DataMappings>
+                </xpdExt:SignalData>
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_bPhFEcpdEemqrfkcQCortA" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false"/>
+          <xpdExt:ScriptInformation Id="_YjJAkMpsEemqrfkcQCortA" Name="Unmapped Throw Signal Script">
+            <xpdExt:Expression ScriptGrammar="JavaScript">&quot;Unmapped Throw Signal Script&quot;</xpdExt:Expression>
+          </xpdExt:ScriptInformation>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_vqQD4MpdEemqrfkcQCortA" Name="ThrowGlobalIntermediateEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Throw Global Intermediate Event">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Trigger="Signal">
+              <xpdl2:TriggerResultSignal xpdExt:SignalType="Global" CatchThrow="THROW" Name="com.example.migratemappingsglobalsignal/MigrateMappingsGlobalSignal.gsd#GlobalSignal">
+                <xpdExt:SignalData>
+                  <xpdExt:CorrelationMappings>
+                    <xpdExt:DataMapping Direction="IN" Formal="SignalCorrelationField1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TextField1</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping Direction="IN" Formal="SignalCorrelationField2">
+                      <xpdExt:ScriptInformation Id="_LwBu4Mp2EemqrfkcQCortA" Name="Correlation data mapping">
+                        <xpdExt:Expression ScriptGrammar="JavaScript"/>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">&quot;Correlation data mapping&quot;;</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationMappings>
+                  <xpdExt:DataMappings>
+                    <xpdExt:DataMapping Direction="IN" Formal="TextPayloadData">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TextField3</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping Direction="IN" Formal="ComplexPayloadData">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ComplexField</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping Direction="IN" Formal="FromScriptPayloadData">
+                      <xpdExt:ScriptInformation Id="_LHYmEMpsEemqrfkcQCortA" Name="Throw Signal Script">
+                        <xpdExt:Expression ScriptGrammar="JavaScript"/>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">&quot;abc&quot; + &quot;xyz&quot;;</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:DataMappings>
+                </xpdExt:SignalData>
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_bPhFEcpdEemqrfkcQCortA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="274.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false"/>
+          <xpdExt:ScriptInformation Id="_PQiz0MpsEemqrfkcQCortA" Name="Unmapped Throw Signal Script">
+            <xpdExt:Expression ScriptGrammar="JavaScript">&quot;Unmapped Throw Signal Script&quot;;</xpdExt:Expression>
+          </xpdExt:ScriptInformation>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_bPhFFMpdEemqrfkcQCortA" Name="" From="_vqQD4MpdEemqrfkcQCortA" To="_bPhFE8pdEemqrfkcQCortA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_vqSgIMpdEemqrfkcQCortA" xpdExt:DisplayName="" Name="" From="_bPhFEspdEemqrfkcQCortA" To="_vqQD4MpdEemqrfkcQCortA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_VM-n8MpqEemqrfkcQCortA" xpdExt:DisplayName="Catch Global Signal Process" Name="CatchGlobalSignalProcess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_3NK6YMprEemqrfkcQCortA" xpdExt:DisplayName="Complex Field" Name="ComplexField">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="MultiSubProcData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_3AzR0L0DEem-0J8I_YUyog"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3NK6YsprEemqrfkcQCortA" xpdExt:DisplayName="Text Field 3" Name="TextField3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3NK6Y8prEemqrfkcQCortA" xpdExt:DisplayName="CorrelationText Field 1" Name="CorrelationTextField1" IsArray="false" ReadOnly="false" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3NK6YcprEemqrfkcQCortA" xpdExt:DisplayName="Correlation Text Field 2" Name="CorrelationTextField2" IsArray="false" ReadOnly="false" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_H2kVkMpsEemqrfkcQCortA" xpdExt:DisplayName="From Script Field" Name="FromScriptField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:ActivitySets>
+        <xpdl2:ActivitySet Id="_v6Pp4MpsEemqrfkcQCortA">
+          <xpdl2:Activities>
+            <xpdl2:Activity Id="_uIVnZMpsEemqrfkcQCortA" Name="Task2" xpdExt:Visibility="Private" xpdExt:DisplayName="Task 2">
+              <xpdl2:Implementation>
+                <xpdl2:No/>
+              </xpdl2:Implementation>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" Width="96.0">
+                  <xpdl2:Coordinates XCoordinate="280.0" YCoordinate="52.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_uIVnYMpsEemqrfkcQCortA" Name="CatchGlobalEventSubProcess" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch Global Event Sub-Process">
+              <xpdl2:Event>
+                <xpdl2:StartEvent xpdExt:NonInterruptingEvent="false" Implementation="WebService" Trigger="Signal">
+                  <xpdl2:TriggerResultSignal xpdExt:SignalType="Global" xpdExt:EventHandlerFlowStrategy="SerializeConcurrent" CatchThrow="CATCH" Name="com.example.migratemappingsglobalsignal/MigrateMappingsGlobalSignal.gsd#GlobalSignal">
+                    <xpdExt:SignalData>
+                      <xpdExt:CorrelationMappings>
+                        <xpdExt:DataMapping Direction="OUT" Formal="SignalCorrelationField1">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationTextField2</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping Direction="OUT" Formal="SignalCorrelationField2">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationTextField1</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                      </xpdExt:CorrelationMappings>
+                      <xpdExt:DataMappings>
+                        <xpdExt:DataMapping Direction="OUT" Formal="TextPayloadData">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">TextField3</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping Direction="OUT" Formal="ComplexPayloadData">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">ComplexField</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                          <xpdExt:ScriptInformation Id="_uIVnYspsEemqrfkcQCortA" Name="Catch Signal Script" Direction="OUT">
+                            <xpdExt:Expression ScriptGrammar="JavaScript">SIGNAL_TextPayloadData + &quot;zyx&quot; + &quot;cba&quot;;</xpdExt:Expression>
+                          </xpdExt:ScriptInformation>
+                          <xpdl2:Actual ScriptGrammar="JavaScript">FromScriptField</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                      </xpdExt:DataMappings>
+                    </xpdExt:SignalData>
+                    <xpdExt:EventHandlerInitialisers Id="_uIVnY8psEemqrfkcQCortA">
+                      <xpdExt:ActivityRef xpdExt:IdRef="_VNBrQspqEemqrfkcQCortA"/>
+                    </xpdExt:EventHandlerInitialisers>
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:StartEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" Width="73.0">
+                  <xpdl2:Coordinates XCoordinate="56.0" YCoordinate="52.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:ScriptInformation Id="_uIVnYcpsEemqrfkcQCortA" Name="Unmapped Catch Signal Script" Direction="OUT">
+                <xpdExt:Expression ScriptGrammar="JavaScript">&quot;Unmapped Catch Signal Script&quot;;</xpdExt:Expression>
+              </xpdExt:ScriptInformation>
+            </xpdl2:Activity>
+          </xpdl2:Activities>
+          <xpdl2:Transitions>
+            <xpdl2:Transition Id="_uIVnZcpsEemqrfkcQCortA" Name="" From="_uIVnYMpsEemqrfkcQCortA" To="_uIVnZMpsEemqrfkcQCortA">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+          </xpdl2:Transitions>
+        </xpdl2:ActivitySet>
+      </xpdl2:ActivitySets>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_VNBrQspqEemqrfkcQCortA" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_VNBrQcpqEemqrfkcQCortA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_VNBrQ8pqEemqrfkcQCortA" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_VNBrQcpqEemqrfkcQCortA" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_8i5B4MprEemqrfkcQCortA" Name="CatchGlobalEventHandler" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch Global Event Handler">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Trigger="Signal">
+              <xpdl2:TriggerResultSignal xpdExt:SignalType="Global" xpdExt:EventHandlerFlowStrategy="SerializeConcurrent" CatchThrow="CATCH" Name="com.example.migratemappingsglobalsignal/MigrateMappingsGlobalSignal.gsd#GlobalSignal">
+                <xpdExt:SignalData>
+                  <xpdExt:CorrelationMappings>
+                    <xpdExt:DataMapping Direction="OUT" Formal="SignalCorrelationField1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationTextField2</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping Direction="OUT" Formal="SignalCorrelationField2">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationTextField1</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationMappings>
+                  <xpdExt:DataMappings>
+                    <xpdExt:DataMapping Direction="OUT" Formal="TextPayloadData">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TextField3</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping Direction="OUT" Formal="ComplexPayloadData">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ComplexField</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_cqYiwMpsEemqrfkcQCortA" Name="Catch Signal Script" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">SIGNAL_TextPayloadData + &quot;zyx&quot; + &quot;cba&quot;;</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">FromScriptField</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:DataMappings>
+                </xpdExt:SignalData>
+                <xpdExt:EventHandlerInitialisers Id="_nOQKIMpsEemqrfkcQCortA">
+                  <xpdExt:ActivityRef xpdExt:IdRef="_VNBrQspqEemqrfkcQCortA"/>
+                </xpdExt:EventHandlerInitialisers>
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_VNBrQcpqEemqrfkcQCortA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="273.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ScriptInformation Id="_g4m2sMpsEemqrfkcQCortA" Name="Unmapped Catch Signal Script" Direction="OUT">
+            <xpdExt:Expression ScriptGrammar="JavaScript">&quot;Unmapped Catch Signal Script&quot;;</xpdExt:Expression>
+          </xpdExt:ScriptInformation>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_-I7LksprEemqrfkcQCortA" Name="Task1" xpdExt:Visibility="Private" xpdExt:DisplayName="Task 1">
+          <xpdl2:Implementation>
+            <xpdl2:No/>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_VNBrQcpqEemqrfkcQCortA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="302.0" YCoordinate="273.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_v6Pp4cpsEemqrfkcQCortA" Name="EventSubProcess" xpdExt:DisplayName="Event Sub-Process">
+          <xpdl2:BlockActivity xpdExt:IsEventSubProcess="true" ActivitySetId="_v6Pp4MpsEemqrfkcQCortA" View="EXPANDED"/>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,230,138" Height="203.0" LaneId="_VNBrQcpqEemqrfkcQCortA" Width="461.0">
+              <xpdl2:Coordinates XCoordinate="301.0" YCoordinate="456.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_VNBrRMpqEemqrfkcQCortA" xpdExt:DisplayName="" Name="" From="_VNBrQspqEemqrfkcQCortA" To="_VNBrQ8pqEemqrfkcQCortA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_-I7Lk8prEemqrfkcQCortA" Name="" From="_8i5B4MprEemqrfkcQCortA" To="_-I7LksprEemqrfkcQCortA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData/></xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="22"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="22"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

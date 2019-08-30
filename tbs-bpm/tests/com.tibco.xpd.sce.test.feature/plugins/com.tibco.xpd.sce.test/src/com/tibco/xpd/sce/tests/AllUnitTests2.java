@@ -15,6 +15,7 @@ import com.tibco.xpd.sce.tests.brm.transform.BRMGenUC2FTest;
 import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
+import com.tibco.xpd.sce.tests.importmigration.JsToDataMapperMigrationsTest;
 import com.tibco.xpd.sce.tests.importmigration.ScriptMigrationTests;
 import com.tibco.xpd.sce.tests.importmigration.SystemActionMigrationTest;
 import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
@@ -40,6 +41,7 @@ public class AllUnitTests2 {
         suite.addTestSuite(ScriptMigrationTests.class);
         suite.addTestSuite(NewCeProjectsTest.class);
         suite.addTestSuite(GenerateRascTaskTest.class);
+        suite.addTestSuite(JsToDataMapperMigrationsTest.class);
 
         /*
          * BPEL transformation tests

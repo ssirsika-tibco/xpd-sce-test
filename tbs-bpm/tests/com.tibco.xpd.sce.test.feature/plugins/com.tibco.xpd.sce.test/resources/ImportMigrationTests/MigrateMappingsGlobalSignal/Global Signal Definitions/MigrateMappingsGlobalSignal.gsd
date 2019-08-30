@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gsd:GlobalSignalDefinitions xmlns:gsd="http://www.tibco.com/XPD/GlobalSignalDefinition1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" FormatVersion="1">
+  <gsd:GlobalSignals>
+    <gsd:GlobalSignal Name="GlobalSignal">
+      <gsd:PayloadDataFields>
+        <gsd:PayloadDataField Id="_emZhUMpdEemqrfkcQCortA" xpdExt:DisplayName="Signal Correlation Field 1" Name="SignalCorrelationField1" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </gsd:PayloadDataField>
+        <gsd:PayloadDataField Id="_hAzuQMpdEemqrfkcQCortA" xpdExt:DisplayName="Signal Correlation Field 2" Name="SignalCorrelationField2" Correlation="true" Mandatory="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </gsd:PayloadDataField>
+        <gsd:PayloadDataField Id="_pVSs8MpdEemqrfkcQCortA" xpdExt:DisplayName="Text PayloadData" Name="TextPayloadData">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </gsd:PayloadDataField>
+        <gsd:PayloadDataField Id="_qo0KUMpdEemqrfkcQCortA" xpdExt:DisplayName="Complex PayloadData" Name="ComplexPayloadData">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="MultiSubProcData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_3AzR0L0DEem-0J8I_YUyog"/>
+          </xpdl2:DataType>
+        </gsd:PayloadDataField>
+        <gsd:PayloadDataField Id="_Et24MMpsEemqrfkcQCortA" xpdExt:DisplayName="From Script PayloadData" Name="FromScriptPayloadData">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </gsd:PayloadDataField>
+      </gsd:PayloadDataFields>
+    </gsd:GlobalSignal>
+  </gsd:GlobalSignals>
+</gsd:GlobalSignalDefinitions>
