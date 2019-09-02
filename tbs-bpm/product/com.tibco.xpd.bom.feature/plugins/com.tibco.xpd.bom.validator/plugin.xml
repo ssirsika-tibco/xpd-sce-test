@@ -373,6 +373,10 @@
             id="bom.globaldata.class.case.summary.unsupported.upper.bound.issue"
             message="%globaldataBOM.class.case.summary.unsupported.upper.bound.issue"
             severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="bom.globaldata.class.case.summary.remove.resolution">
+         </resolution>
       </issue>
       <issue
             id="casestate.not.enough.states.issue"
@@ -593,6 +597,12 @@
             class="com.tibco.xpd.bom.validator.resolution.RemoveGlobalDataProfileResolution"
             id="businessdata.removeGDProfile"
             label="%businessdata.removeGDProfile">
+      </resolution> 
+      
+      <resolution
+            class="com.tibco.xpd.bom.validator.resolution.RemoveSummaryResolution"
+            id="bom.globaldata.class.case.summary.remove.resolution"
+            label="%bom.globaldata.class.case.summary.remove.resolution">
       </resolution> 
    </extension>
    <extension
