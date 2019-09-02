@@ -222,7 +222,6 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
                 return false;
             }
         }
-        // return MessageDialog.open(MessageDialog.WARNING, shell, title, message, SWT.NONE, createNewDraftLabel);
         MessageDialogNoClose messageDialog = new MessageDialogNoClose(shell, title, null, message,
                 MessageDialog.WARNING, 0, new String[] { okButtonLabel });
         return messageDialog.open();
