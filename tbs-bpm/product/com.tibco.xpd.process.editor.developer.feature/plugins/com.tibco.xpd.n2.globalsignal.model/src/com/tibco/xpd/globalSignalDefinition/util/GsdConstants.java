@@ -15,6 +15,8 @@ package com.tibco.xpd.globalSignalDefinition.util;
  */
 public final class GsdConstants {
 
+    public static final String PLUGIN_ID = "com.tibco.xpd.n2.globalsignal.model"; //$NON-NLS-1$
+
     /**
      * Global Signal Definition File Extension
      */

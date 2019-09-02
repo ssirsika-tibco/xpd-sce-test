@@ -76,7 +76,7 @@ public class GsdResourcePlugin extends AbstractUIPlugin {
      * therefore future AMX BPM releases with incremented formatversion numbers
      * will still migrate to ACE).</i>
      */
-    public static final String FORMAT_VERSION = "1000"; //$NON-NLS-1$
+    public static final String FORMAT_VERSION = "1001"; //$NON-NLS-1$
 
     /**
      * Image used in Form Header

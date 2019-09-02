@@ -15,6 +15,7 @@ import com.tibco.xpd.sce.tests.brm.transform.BRMGenUC2FTest;
 import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
+import com.tibco.xpd.sce.tests.importmigration.GlobalSignalMigrationTest;
 import com.tibco.xpd.sce.tests.importmigration.JsToDataMapperMigrationsTest;
 import com.tibco.xpd.sce.tests.importmigration.ScriptMigrationTests;
 import com.tibco.xpd.sce.tests.importmigration.SystemActionMigrationTest;
@@ -41,6 +42,8 @@ public class AllUnitTests2 {
         suite.addTestSuite(ScriptMigrationTests.class);
         suite.addTestSuite(NewCeProjectsTest.class);
         suite.addTestSuite(GenerateRascTaskTest.class);
+        suite.addTestSuite(SystemActionMigrationTest.class);
+        suite.addTestSuite(GlobalSignalMigrationTest.class);
         suite.addTestSuite(JsToDataMapperMigrationsTest.class);
 
         /*
@@ -63,8 +66,6 @@ public class AllUnitTests2 {
          * Related Legacy Studio tests moved to SCE once proved work
          */
         suite.addTestSuite(WorkListFacadeGenTest.class);
-
-        suite.addTestSuite(SystemActionMigrationTest.class);
 
         return suite;
     }
