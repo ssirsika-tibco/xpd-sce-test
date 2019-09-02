@@ -20,6 +20,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
@@ -112,13 +113,11 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
     }
 
     /**
-     * Checks a delta for any changes that we shouldn't allow on locked
-     * projects.
+     * Checks a delta for any changes that we shouldn't allow on locked projects.
      * 
      * @param delta
      *            The delta to check for changes.
-     * @return true if there are any changes that shouldn't occur on locked
-     *         projects.
+     * @return true if there are any changes that shouldn't occur on locked projects.
      */
     private boolean hasSignificantChanges(IResourceDelta delta) {
         boolean changed = false;
@@ -166,8 +165,7 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
         String createNewDraftLabel = Messages.LifecycleActionProvider_CreateDraftMenuLabel;
         Display.getDefault().asyncExec(() -> {
             Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-            int result =
-                    MessageDialog.open(MessageDialog.WARNING, shell, title, message, SWT.NONE, createNewDraftLabel);
+            int result = openMessageDialog(shell, title, message, createNewDraftLabel);
             if (result == IStatus.OK) {
                 Job job =
                         Job.createSystem(Messages.ReadOnlyResourceChangeListener_CreatingDraftJob, new ICoreRunnable() {
@@ -190,6 +188,44 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
                 job.schedule();
             }
         });
+    }
+
+    /**
+     * Opens a confirming modal dialog (that can only be closed by "Create a new draft") for creation of a new draft of
+     * a modified locked project.
+     * @param shell
+     *            patent shell.
+     * @param title
+     *            dialog's title.
+     * @param message
+     *            dialog's message.
+     * @param okButtonLabel
+     *            "OK" button label.
+     * 
+     * @return IStatus.OK or IStatus.CANCEL.
+     */
+    private int openMessageDialog(Shell shell, String title, String message, String okButtonLabel) {
+        class MessageDialogNoClose extends MessageDialog {
+            public MessageDialogNoClose(Shell parentShell, String dialogTitle, Image dialogTitleImage,
+                    String dialogMessage, int dialogImageType, int defaultIndex, String[] dialogButtonLabels) {
+                super(parentShell, dialogTitle, dialogTitleImage, dialogMessage, dialogImageType, defaultIndex,
+                        dialogButtonLabels);
+                int shellStyle = getShellStyle() & ~SWT.CLOSE;
+                setShellStyle(shellStyle);
+            }
+
+            /**
+             * @see org.eclipse.jface.window.Window#canHandleShellCloseEvent()
+             */
+            @Override
+            protected boolean canHandleShellCloseEvent() {
+                return false;
+            }
+        }
+        // return MessageDialog.open(MessageDialog.WARNING, shell, title, message, SWT.NONE, createNewDraftLabel);
+        MessageDialogNoClose messageDialog = new MessageDialogNoClose(shell, title, null, message,
+                MessageDialog.WARNING, 0, new String[] { okButtonLabel });
+        return messageDialog.open();
     }
 
 }
