@@ -563,6 +563,10 @@
              id="ace.bom.searchable.must.be.nonarray"
              message="%ace.bom.searchable.must.be.nonarray"
              severity="ERROR">
+          <resolution
+                canApplyToMultiple="true"
+                id="com.tibco.xpd.n2.cds.validator.resolution.unsetSearchableResolution">
+          </resolution>
        </issue>
        <issue
              id="ace.bom.caseid.in.case.only"
@@ -734,6 +738,13 @@
             id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyMandatorySingle"
             label="%makepropertymandatorysingle_resolution_label">
       </resolution>
+      
+      <resolution
+            class="com.tibco.bds.designtime.validator.resolution.UnsetSearchableResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.unsetSearchableResolution"
+            label="%unsetsearchable_resolution_label">
+      </resolution>      
+      
       <resolution
             class="com.tibco.bds.designtime.validator.resolution.SetTypeTextResolution"
             id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyTextType"
