@@ -28,6 +28,7 @@ public enum RestSchemaImage {
     JSON_ROOT_CLASS_OBJECT("icons/JSONRootClassObject.png"), //$NON-NLS-1$
     JSON_STRING_ARRAY_PROPERTY("icons/JSONStringArrayProperty.png"), //$NON-NLS-1$
     JSON_STRING_PROPERTY("icons/JSONStringProperty.png"), //$NON-NLS-1$
+    JSON_SWITCH_ROOT("icons/SwitchRoot.png"), //$NON-NLS-1$
     IMPORT_JSON_WIZARD("icons/ImportJSONWizard.png"), //$NON-NLS-1$
     NEW_JSON_FILE_WIZARD("icons/NewJSONFileWizard.png"), //$NON-NLS-1$
     IMG_ERROR("icons/error.png"), //$NON-NLS-1$

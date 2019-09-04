@@ -12,7 +12,6 @@ import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.jface.action.IContributionManager;
 import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -116,16 +115,7 @@ final class SchemaClassesTreeControl extends BaseTreeControl {
              */
             @Override
             protected boolean canDelete(IStructuredSelection selection) {
-
-                boolean canDelete = super.canDelete(selection) && !isReadOnly();
-
-                if (canDelete) {
-
-                    if (isRootSelected(selection)) {
-                        canDelete = false;
-                    }
-                }
-                return canDelete;
+                return super.canDelete(selection) && !isReadOnly();
             }
 
             // extracted isRootSelected method out
@@ -331,18 +321,7 @@ final class SchemaClassesTreeControl extends BaseTreeControl {
             @Override
             protected boolean canMoveDown(IStructuredSelection selection,
                     StructuredViewer viewer) {
-
-                boolean canMoveDown = super.canMoveDown(selection, viewer) && !isReadOnly();
-
-                if (canMoveDown) {
-                    if (isRootSelected(selection)) {
-                        /*
-                         * the root json type cannot be moved down.
-                         */
-                        canMoveDown = false;
-                    }
-                }
-                return canMoveDown;
+                return super.canMoveDown(selection, viewer) && !isReadOnly();
             }
 
             /**
@@ -394,35 +373,7 @@ final class SchemaClassesTreeControl extends BaseTreeControl {
             @Override
             protected boolean canMoveUp(IStructuredSelection selection,
                     StructuredViewer viewer) {
-
-                boolean canMoveUp = super.canMoveUp(selection, viewer) && !isReadOnly();
-
-                if (canMoveUp) {
-
-                    Object o =
-                            AdapterFactoryEditingDomain.unwrap(selection
-                                    .getFirstElement());
-
-                    if (o instanceof EObject) {
-                        final EObject eObject = (EObject) o;
-
-                        EObject previous = getPrevious(viewer, eObject);
-                        /*
-                         * Don't allow the Json type which is just below the
-                         * root json type to be moved up.
-                         */
-                        if (previous instanceof Class) {
-
-                            Class cls = (Class) previous;
-                            if (cls.getEAnnotation("root") != null) { //$NON-NLS-1$
-
-                                canMoveUp = false;
-                            }
-                        }
-                    }
-                }
-
-                return canMoveUp;
+                return super.canMoveUp(selection, viewer) && !isReadOnly();
             }
 
             /**

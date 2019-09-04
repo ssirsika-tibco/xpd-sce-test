@@ -8,12 +8,16 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Package;
@@ -39,6 +43,10 @@ public class JsonSchemaClassSection extends AbstractTransactionalSection {
     private Text className;
 
     private CLabel classNameLabel;
+
+    private Button isRootButton; // a.k.a. Public
+
+    private final static JsonSchemaUtil JSON_SCHEMA_UTIL = new JsonSchemaUtil();
 
     /**
      * Updates the contents of a Text control only if it has changed. This
@@ -70,6 +78,7 @@ public class JsonSchemaClassSection extends AbstractTransactionalSection {
         if (input instanceof Class) {
             Class cls = (Class) input;
             setIfChanged(className, cls.getName());
+            isRootButton.setSelection(JSON_SCHEMA_UTIL.isRootClass(cls));
         }
     }
 
@@ -101,8 +110,13 @@ public class JsonSchemaClassSection extends AbstractTransactionalSection {
                 .setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         className
                 .setToolTipText(Messages.JsonSchemaEditorDetails_classNameTooltip);
-
         manageControl(className);
+
+        Label isRootLabel = toolkit.createLabel(root, Messages.JsonSchemaClassSection_Public_label);
+        isRootLabel.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, false, false));
+        isRootButton = toolkit.createButton(root, "", SWT.CHECK); //$NON-NLS-1$
+        isRootButton.setLayoutData(new GridData(SWT.LEAD, SWT.TOP, false, false));
+        manageControl(isRootButton);
 
         return root;
     }
@@ -119,7 +133,7 @@ public class JsonSchemaClassSection extends AbstractTransactionalSection {
         Command cmd = null;
         EObject input = getInput();
         if (input instanceof Class) {
-            Class cls = (Class) input;
+            final Class cls = (Class) input;
             if (obj == className) {
                 CompoundCommand cc =
                         new CompoundCommand(
@@ -127,6 +141,20 @@ public class JsonSchemaClassSection extends AbstractTransactionalSection {
                 String name = className.getText();
                 cc.append(new SetCommand(getEditingDomain(), cls,
                         UMLPackage.eINSTANCE.getNamedElement_Name(), name));
+                cmd = cc;
+            }
+            if (obj == isRootButton) {
+                final boolean isRoot = isRootButton.getSelection();
+                String cmdLabel = isRoot ? Messages.JsonSchemaClassSection_SetAsPublic_label : Messages.JsonSchemaClassSection_SetAsPrivateLabel;
+                CompoundCommand cc =
+                        new CompoundCommand(
+                                cmdLabel);
+                cc.append(new RecordingCommand((TransactionalEditingDomain) getEditingDomain()) {
+                    @Override
+                    protected void doExecute() {
+                        JSON_SCHEMA_UTIL.setClassAsRoot(cls, isRoot);
+                    }
+                });
                 cmd = cc;
             }
         }

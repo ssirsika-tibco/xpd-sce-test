@@ -10,7 +10,9 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
@@ -29,6 +31,11 @@ import com.tibco.xpd.rest.schema.internal.JsonSchemaIndexProvider;
  */
 public class JsonSchemaUtil {
 
+    /**
+     * Root eAnnotation source used for marking root classes.
+     */
+    private static final String ROOT = "root"; //$NON-NLS-1$
+
     public static final String JSON_SCHEMA_INDEXER_ID =
             "com.tibco.xpd.rest.schema.json.indexer"; //$NON-NLS-1$
 
@@ -46,7 +53,26 @@ public class JsonSchemaUtil {
      * @return true if it is the root class.
      */
     public boolean isRootClass(Class cls) {
-        return cls.getEAnnotation("root") != null; //$NON-NLS-1$
+        return cls.getEAnnotation(ROOT) != null;
+    }
+
+    /**
+     * Sets the class as a root class.
+     * 
+     * @param cls
+     *            the class to set.
+     * @param isRoot
+     *            if the class should be root.
+     */
+    public void setClassAsRoot(Class cls, boolean isRoot) {
+        boolean isAlreadyRoot = isRootClass(cls);
+        if (!isAlreadyRoot && isRoot) {
+            EAnnotation eAnnotation = EcoreFactory.eINSTANCE.createEAnnotation();
+            eAnnotation.setSource(ROOT);
+            cls.getEAnnotations().add(eAnnotation);
+        } else if (isAlreadyRoot && !isRoot) {
+            cls.getEAnnotations().remove(cls.getEAnnotation(ROOT));
+        }
     }
 
     /**

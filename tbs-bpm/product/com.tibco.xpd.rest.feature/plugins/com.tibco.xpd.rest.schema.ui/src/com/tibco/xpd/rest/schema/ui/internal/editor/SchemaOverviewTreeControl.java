@@ -82,6 +82,7 @@ final class SchemaOverviewTreeControl extends BaseTreeControl {
         Set<EStructuralFeature> deletable = super.getDeletableFeatures();
         deletable
                 .add(UMLPackage.Literals.STRUCTURED_CLASSIFIER__OWNED_ATTRIBUTE);
+        deletable.add(UMLPackage.Literals.PACKAGE__PACKAGED_ELEMENT);
         return deletable;
     }
 

@@ -63,6 +63,7 @@ import com.tibco.xpd.resources.ui.components.BaseColumnViewerControl;
 import com.tibco.xpd.resources.ui.components.actions.CollapseAllAction;
 import com.tibco.xpd.resources.ui.components.actions.ExpandAllAction;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
+import com.tibco.xpd.rest.schema.JsonSchemaUtil;
 import com.tibco.xpd.rest.schema.JsonSchemaWorkingCopy;
 import com.tibco.xpd.rest.schema.ui.internal.Messages;
 import com.tibco.xpd.rest.schema.ui.internal.RestSchemaImage;
@@ -97,6 +98,8 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
 
     private CommandViewerAction addClassPropertyAction;
 
+    private CommandViewerAction switchRootClassAction;
+
     private SashForm sash;
 
     private TreeViewer focussed;
@@ -108,6 +111,26 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
     private SchemaOverviewTreeControl schemaTreeControl;
 
     private SchemaClassesTreeControl classesTreeControl;
+
+    private final static JsonSchemaUtil JSON_SCHEMA_UTIL = new JsonSchemaUtil();
+
+    /** Represents the type of switch between root and non-root type that is available for a selection */
+    private enum SwitchType {
+        NONE(Messages.JsonSchemaEditor_SetAsPrivateOrPublic), //
+        TO_ROOT(Messages.JsonSchemaEditor_SetAsPublic), //
+        TO_NON_ROOT(Messages.JsonSchemaEditor_SetAsPrivate);
+
+        /** The label used for action button or command name. */
+        String label;
+
+        SwitchType(String label) {
+            this.label = label;
+        }
+
+        String getLabel() {
+            return label;
+        }
+    };
 
     public JsonSchemaEditor(JsonSchemaEditorPart editor) {
         this.editor = editor;
@@ -145,6 +168,13 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
             manager.appendToGroup(BaseColumnViewerControl.ADD_ACTIONS_END_MARKER,
                     addClassPropertyAction);
             addClassPropertyAction.setEnabled(false);
+
+            switchRootClassAction = new CommandViewerAction(viewer, this);
+            switchRootClassAction.setToolTipText(SwitchType.NONE.getLabel());
+            switchRootClassAction.setImageDescriptor(
+                    RestSchemaUiPlugin.getDefault().getImageDescriptor(RestSchemaImage.JSON_SWITCH_ROOT));
+            manager.appendToGroup(BaseColumnViewerControl.ADD_ACTIONS_END_MARKER, switchRootClassAction);
+            switchRootClassAction.setEnabled(false);
         }
     }
 
@@ -500,10 +530,43 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
                 addPropertyEnabled = true;
             }
         }
+
+
         addPropertyAction.setEnabled(addPropertyEnabled && !isReadOnly());
         addClassPropertyAction.setEnabled(classesCount == 1 && !isReadOnly());
         addClassAction.setEnabled(!isReadOnly());
+        
+        SwitchType switchType = getAllowedRootSwichType(classesSelection);
+        switchRootClassAction.setToolTipText(switchType.getLabel());
+        switchRootClassAction.setEnabled(switchType != SwitchType.NONE && !isReadOnly());
     }
+
+    /**
+     * Determines the type of class root/non-root switch based on selected objects.
+     * 
+     * @param selectedObjects
+     *            the selection.
+     * @return the type of allowed switch for the selection.
+     */
+    private SwitchType getAllowedRootSwichType(List<?> selectedObjects) {
+        SwitchType switchType = SwitchType.NONE;
+        for (Object elem : selectedObjects) {
+            if (elem instanceof Class) {
+                Class cls = (Class) elem;
+                boolean isRoot = JSON_SCHEMA_UTIL.isRootClass(cls);
+                if (switchType == SwitchType.NONE) {
+                    switchType = (isRoot) ? SwitchType.TO_NON_ROOT: SwitchType.TO_ROOT;
+                } else if ((switchType == SwitchType.TO_ROOT && isRoot)
+                        || (switchType == SwitchType.TO_NON_ROOT && !isRoot)) {
+                    return SwitchType.NONE;
+                }
+            } else {
+                return SwitchType.NONE;
+            }
+        }
+        return switchType;
+    }
+
 
     @Override
     protected IWorkbenchSite getSite() {
@@ -533,6 +596,7 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
     protected void doRefresh() {
         schema.refresh();
         classes.refresh();
+        updateButtons();
 
         /*
          * Sid XPD-7861. Don't leave a 'trap' variable (utb newSelection) for
@@ -618,6 +682,8 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
                 cmd = getAddPropertyCommand(schema);
             } else if (obj == addClassPropertyAction) {
                 cmd = getAddPropertyCommand(classes);
+            } else if (obj == switchRootClassAction) {
+                cmd = getSwitchRootCommand(classes);
             }
         }
         return cmd;
@@ -673,6 +739,35 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
              */
             Display.getDefault().asyncExec(new SetSelectionOnAddedProperty(
                     property));
+        }
+        return cmd;
+    }
+
+    /**
+     * Adds a new property based on the current viewer and selection.
+     * 
+     * @param source
+     *            The source viewer.
+     * @return The command to add a new property.
+     */
+    private Command getSwitchRootCommand(Viewer source) {
+        Command cmd = null;
+        List<NamedElement> selected = getSelection(source, NamedElement.class);
+        SwitchType switchType = getAllowedRootSwichType(selected);
+        if (switchType != SwitchType.NONE) {
+            TransactionalEditingDomain ed = (TransactionalEditingDomain) getWorkingCopyEditingDomain();
+            cmd = new RecordingCommand(ed, switchType.getLabel()) {
+                @Override
+                protected void doExecute() {
+                    for (NamedElement elem: selected) {
+                        if (elem instanceof Class) {
+                            final Class cls = (Class) elem;
+                            JSON_SCHEMA_UTIL.setClassAsRoot(cls, !JSON_SCHEMA_UTIL.isRootClass(cls));
+                        }
+                        
+                    }
+                }
+            };
         }
         return cmd;
     }
