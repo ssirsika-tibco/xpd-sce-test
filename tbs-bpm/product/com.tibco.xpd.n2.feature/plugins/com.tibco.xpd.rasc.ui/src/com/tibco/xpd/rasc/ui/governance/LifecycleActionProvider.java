@@ -64,11 +64,11 @@ public class LifecycleActionProvider extends CommonActionProvider {
                 MenuManager subMenu = new MenuManager(Messages.LifecycleActionProvider_DeploymentMenuLabel);
 
                 GenerateArtifactsAction generateDraftArtifacts = new GenerateArtifactsAction(
-                        Messages.LifecycleActionProvider_GenerateDraftMenuLabel, selection);
+                        Messages.LifecycleActionProvider_GenerateDraftMenuLabel, selection, false);
                 LockForProductionAction lockForProduction = new LockForProductionAction(
                         Messages.LifecycleActionProvider_LockForProductionMenuLabel, gss, gsus, projects);
                 GenerateArtifactsAction generateProductionArtifacts = new GenerateArtifactsAction(
-                        Messages.LifecycleActionProvider_GenerateProductionMenuLabel, selection);
+                        Messages.LifecycleActionProvider_GenerateProductionMenuLabel, selection, true);
                 CreateNewDraftAction createNewDraft =
                         new CreateNewDraftAction(Messages.LifecycleActionProvider_CreateDraftMenuLabel, gss, gsus,
                                 projects);

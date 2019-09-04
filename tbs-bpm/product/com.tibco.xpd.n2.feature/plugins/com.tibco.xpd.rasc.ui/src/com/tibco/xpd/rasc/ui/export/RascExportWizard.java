@@ -65,10 +65,20 @@ public class RascExportWizard extends Wizard
     private boolean exportRunning = false;
 
     /**
+     * True if the export is for production, false if it's for drafts.
+     */
+    private boolean isGeneratingForProduction = false;
+
+    /**
      * Constructor.
      */
-    public RascExportWizard() {
-        setWindowTitle(Messages.RascExportWizard_Title);
+    public RascExportWizard(boolean isGeneratingForProduction) {
+        this.isGeneratingForProduction = isGeneratingForProduction;
+        if (this.isGeneratingForProduction) {
+            setWindowTitle(Messages.RascGenerateProductionRascWizard_Title);
+        } else {
+            setWindowTitle(Messages.RascGenerateDraftRascWizard_Title);
+        }
     }
 
     /**
@@ -90,11 +100,19 @@ public class RascExportWizard extends Wizard
     public void addPages() {
         exportPage = new RascExportProjectSelectionPage(selection);
         exportPage.setTitle(getWindowTitle());
-        exportPage.setDescription(Messages.RascExportWizard_Description);
+        if (this.isGeneratingForProduction) {
+            exportPage.setDescription(Messages.RascGenerateProductionRascWizard_Description);
+        } else {
+            exportPage.setDescription(Messages.RascGenerateDraftRascWizard_Description);
+        }
 
         statusPage = new RascExportStatusPage();
         statusPage.setTitle(getWindowTitle());
-        statusPage.setDescription(Messages.RascExportWizard_Description);
+        if (this.isGeneratingForProduction) {
+            statusPage.setDescription(Messages.RascGenerateProductionRascWizard_Description);
+        } else {
+            statusPage.setDescription(Messages.RascGenerateDraftRascWizard_Description);
+        }
         statusPage.setExportCompleteListener(this);
 
         addPage(exportPage);

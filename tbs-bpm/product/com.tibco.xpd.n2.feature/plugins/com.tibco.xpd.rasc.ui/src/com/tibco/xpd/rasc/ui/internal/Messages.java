@@ -94,13 +94,18 @@ public class Messages extends NLS {
 
     public static String RascExportWizard_CloseButton;
 
-    public static String RascExportWizard_Description;
+    public static String RascGenerateDraftRascWizard_Description;
+
+    public static String RascGenerateProductionRascWizard_Description;
 
     public static String RascExportWizard_ExportButton;
 
     public static String RascExportWizard_LaunchButton;
 
-    public static String RascExportWizard_Title;
+    public static String RascGenerateDraftRascWizard_Title;
+
+    public static String RascGenerateProductionRascWizard_Title;
+
     public static String ReadOnlyResourceChangeListener_ChangeDetectedMessage;
 
     public static String ReadOnlyResourceChangeListener_ChangeDetectedTitle;

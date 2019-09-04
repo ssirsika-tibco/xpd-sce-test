@@ -25,6 +25,12 @@ public class GenerateArtifactsAction extends BaseSelectionListenerAction {
     private IStructuredSelection selection;
 
     /**
+     * True if we're generating artifacts for production, false if it's for
+     * draft.
+     */
+    private boolean isGeneratingForProduction;
+
+    /**
      * Constructor for action.
      * 
      * @param text
@@ -34,9 +40,10 @@ public class GenerateArtifactsAction extends BaseSelectionListenerAction {
      * @param isForProduction
      *            true if we are generating production artifacts.
      */
-    protected GenerateArtifactsAction(String text, IStructuredSelection selection) {
+    protected GenerateArtifactsAction(String text, IStructuredSelection selection, boolean isGeneratingForProduction) {
         super(text);
         this.selection = selection;
+        this.isGeneratingForProduction = isGeneratingForProduction;
     }
 
     /**
@@ -47,7 +54,7 @@ public class GenerateArtifactsAction extends BaseSelectionListenerAction {
     public void run() {
         IWorkbench workbench = PlatformUI.getWorkbench();
         Shell shell = XpdResourcesPlugin.getStandardDisplay().getActiveShell();
-        RascExportWizard wizard = new RascExportWizard();
+        RascExportWizard wizard = new RascExportWizard(isGeneratingForProduction);
         wizard.init(workbench, selection);
         WizardDialog dialog = new WizardDialog(shell, wizard);
         dialog.open();
