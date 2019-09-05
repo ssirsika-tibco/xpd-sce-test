@@ -76,9 +76,9 @@ public class Messages extends NLS {
 
     public static String JsonSchemaEditor_SetAsNonRoot;
 
-    public static String JsonSchemaEditor_SetAsPrivateOrPublic;
-
     public static String JsonSchemaEditor_SetAsRoot;
+
+    public static String JsonSchemaEditor_SetAsRootNonRoot_label;
 
     public static String JsonSchemaEditor_title;
 

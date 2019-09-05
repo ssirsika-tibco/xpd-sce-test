@@ -116,7 +116,7 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
 
     /** Represents the type of switch between root and non-root type that is available for a selection */
     private enum SwitchType {
-        NONE(Messages.JsonSchemaEditor_SetAsPrivateOrPublic), //
+        NONE(Messages.JsonSchemaEditor_SetAsRootNonRoot_label), //
         TO_ROOT(Messages.JsonSchemaEditor_SetAsRoot), //
         TO_NON_ROOT(Messages.JsonSchemaEditor_SetAsNonRoot);
 
