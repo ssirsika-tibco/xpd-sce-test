@@ -66,7 +66,7 @@ public class RestServiceDefinitionRule implements IValidationRule {
     private static final String MISSING_TYPE_REFERENCE =
             "rest.missingTypeReference"; //$NON-NLS-1$
 
-    private static final String PRIVATE_TYPE_REFERENCE = "rest.privateTypeReference"; //$NON-NLS-1$
+    private static final String NON_ROOT_TYPE_REFERENCE = "rest.nonRootTypeReference"; //$NON-NLS-1$
 
     private static final String DUPLICATE_TYPE_REFERENCE =
             "rest.duplicateTypeReference"; //$NON-NLS-1$
@@ -357,7 +357,7 @@ public class RestServiceDefinitionRule implements IValidationRule {
                         messages.add(methodName);
                         messages.add(service.getName());
                         messages.add(payloadType);
-                        addIssue(scope, PRIVATE_TYPE_REFERENCE, method, messages);
+                        addIssue(scope, NON_ROOT_TYPE_REFERENCE, method, messages);
                     }
                 } else if (count == 0) {
                     Collection<String> messages = new ArrayList<>();
