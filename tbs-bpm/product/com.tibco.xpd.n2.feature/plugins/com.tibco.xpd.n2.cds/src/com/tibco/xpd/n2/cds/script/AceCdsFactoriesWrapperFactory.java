@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Operation;
@@ -258,13 +259,38 @@ public class AceCdsFactoriesWrapperFactory {
             if (element instanceof Class) {
                 Operation classCreatorMethod =
                         UMLFactory.eINSTANCE.createOperation();
-                classCreatorMethod.setName(BOM_FACTORY_CREATE_METHOD_PREFIX
-                        + ((Class) element).getName());
+                classCreatorMethod.setName(getFactoryClassCreatorMethodName((Class) element));
                 classCreatorMethod.setType((Class) element);
 
                 factoryClass.getOwnedOperations().add(classCreatorMethod);
             }
         }
+    }
+
+    /**
+     * Sid ACE-2896
+     * Get the BOM factory class creator method name.
+     * 
+     * This is "createBomClassName" where the B in Bom is forced to uppercase.
+     * 
+     * @param clazz
+     * 
+     * @return The BOM factory class creator method name
+     */
+    public String getFactoryClassCreatorMethodName(Classifier clazz) {
+        String methodName = BOM_FACTORY_CREATE_METHOD_PREFIX;
+
+        String className = clazz.getName();
+
+        if (className.length() > 0) {
+            methodName += className.substring(0, 1).toUpperCase();
+
+            if (className.length() > 1) {
+                methodName += className.substring(1);
+            }
+        }
+
+        return methodName;
     }
 
     /**

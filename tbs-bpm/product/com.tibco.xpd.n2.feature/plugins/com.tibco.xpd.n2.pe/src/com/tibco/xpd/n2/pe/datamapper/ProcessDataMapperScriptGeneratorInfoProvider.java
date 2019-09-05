@@ -13,6 +13,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.bom.modeler.custom.enumlitext.util.EnumLitValueUtil;
 import com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider;
+import com.tibco.xpd.n2.cds.script.AceCdsFactoriesWrapperFactory;
 import com.tibco.xpd.processeditor.xpdl2.properties.ChoiceConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
@@ -430,9 +431,14 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
                     /*
                      * Sid ACE-564 BOM JS class factories are now wrapped in a
                      * "factory" class.
+                     * 
+                     * Sid ACE-2896 The BOM class name part of the creator method should always have upper case initial character
                      */
                     return ReservedWords.BOM_FACTORY_WRAPPER_OBJECT_NAME + "." //$NON-NLS-1$
-                            + factoryForPackage + ".create" + clazzName + "()"; //$NON-NLS-1$//$NON-NLS-2$
+                            + factoryForPackage + ConceptPath.CONCEPTPATH_SEPARATOR
+                            + AceCdsFactoriesWrapperFactory.getDefault().getFactoryClassCreatorMethodName(cp.getType())
+                            + "()"; //$NON-NLS-1$
+
                 }
             }
         }

@@ -4,8 +4,9 @@
 
 package com.tibco.xpd.n2.resources.postimport;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
+import java.util.List;
 
 import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
@@ -81,6 +82,39 @@ class BOMFactoryRefactor implements ScriptRefactorRule {
         String newIdentifierText =
                 ReservedWords.BOM_FACTORY_WRAPPER_OBJECT_NAME + ConceptPath.CONCEPTPATH_SEPARATOR + newFactoryName;
 
-        return Collections.singleton(new ScriptItemReplacementRef(aToken, newIdentifierText));
+        List<ScriptItemReplacementRef> replacements = new ArrayList<ScriptItemReplacementRef>();
+
+        replacements.add(new ScriptItemReplacementRef(aToken, newIdentifierText));
+
+        /*
+         * Sid ACE-2896 In AMX BPM the factory creator method was just "create"+bomClass.getName(). In ACE the initial
+         * character of the BOM class name is always upper-cased.
+         */
+        Token nextToken = aParser.LT(++aIndex);
+
+        if (nextToken != null && nextToken.getType() == JScriptTokenTypes.DOT) {
+            nextToken = aParser.LT(++aIndex);
+
+            if (nextToken != null && nextToken.getType() == JScriptTokenTypes.IDENT && nextToken.getText() != null
+                    && nextToken.getText().startsWith(BOM_CLASS_CREATE_METHOD_PREFIX)) {
+
+                String className = nextToken.getText().substring(BOM_CLASS_CREATE_METHOD_PREFIX.length());
+
+                String newCreateMethodName = BOM_CLASS_CREATE_METHOD_PREFIX;
+
+                if (className.length() > 0) {
+                    newCreateMethodName += className.substring(0, 1).toUpperCase();
+
+                    if (className.length() > 1) {
+                        newCreateMethodName += className.substring(1);
+                    }
+                }
+
+                replacements.add(new ScriptItemReplacementRef(nextToken, newCreateMethodName));
+            }
+
+        }
+
+        return replacements;
     }
 }

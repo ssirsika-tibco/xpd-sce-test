@@ -82,6 +82,11 @@
             </xpdl2:BasicType>
           </xpdl2:DataType>
         </xpdl2:DataField>
+        <xpdl2:DataField Id="_a3xbwc_1EemCKviNzxP7Yw" xpdExt:DisplayName="Field of type classWithLowerCaseInitial" Name="FieldoftypeclassWithLowerCaseInitial">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="DataFactoryTestsData1.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_zVRh4M_0EemCKviNzxP7Yw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
       </xpdl2:DataFields>
       <xpdl2:Activities>
         <xpdl2:Activity Id="_d_9JlJJ8EemsHsINLISM4w" Name="StartEvent" xpdExt:DisplayName="Start Event">
@@ -127,8 +132,10 @@ data.DataType1.coloursEnum = pkg.com_example_datafactorytestsdata1.Colours.get(&
 &#xD;
 // Should correctly validate against mixing same name classes / enums from different packages&#xD;
 data.DataType1.coloursEnum = pkg.com_example_datafactorytestsdata2.Colours.RED;&#xD;
-data.data_type_field = factory.com_example_datafactorytestsdata2.createdata();&#xD;
+data.data_type_field = factory.com_example_datafactorytestsdata2.createData();&#xD;
 &#xD;
+// When BOM Class name has lower case initial character then creation method for it should upper case the initial&#xD;
+data.FieldoftypeclassWithLowerCaseInitial = factory.com_example_datafactorytestsdata1.createclassWithLowerCaseInitial();&#xD;
 &#xD;
 &#xD;
 &#xD;
@@ -250,7 +257,7 @@ data.data_type_field = factory.com_example_datafactorytestsdata2.createdata();&#
   </xpdl2:WorkflowProcesses>
   <xpdl2:ExtendedAttributes>
     <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
-    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>  <!-- Sid ACE-1699 Prevent script migration so that BOM factory refs are not migrated -->
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
     <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="23"/>
   </xpdl2:ExtendedAttributes>
 </xpdl2:Package>

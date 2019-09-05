@@ -221,6 +221,14 @@ public class AceBomFactoryValidationsTest extends AbstractN2BaseValidationTest {
                                 "BPM  : At Line:9 column:80, Assignment of read only elements is not allowed (CheckIncorrectUsageProcess:ScriptTask)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
+                        /* Sid ACE-2896 The BOM class name part of the creator method should always have upper case initial character */
+                        new ValidationsTestProblemMarkerInfo(
+                                "/DataFactoryTests/Process Packages/CheckIncorrectUsage.xpdl", //$NON-NLS-1$
+                                "bx.validateScriptTask", //$NON-NLS-1$
+                                "_C75Q4ZJ9EemsHsINLISM4w", //$NON-NLS-1$
+                                "BPM  : At Line:23 column:120, Method createclassWithLowerCaseInitial is invalid for the current context (CheckIncorrectUsageProcess:ScriptTask)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
                 };
         return markerInfos;
     }

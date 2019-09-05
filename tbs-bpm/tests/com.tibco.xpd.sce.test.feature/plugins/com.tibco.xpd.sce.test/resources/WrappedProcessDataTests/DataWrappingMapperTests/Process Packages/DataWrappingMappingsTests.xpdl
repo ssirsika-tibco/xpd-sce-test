@@ -1244,7 +1244,7 @@ if (data != null &amp;&amp; data.ClassFieldtoInflate != null) {
 
 // Create target 'Copy_Of_ClassFieldtoInflate.complexChild' if it doesn't exist.
 if (data.Copy_Of_ClassFieldtoInflate.complexChild == null) {
-    data.Copy_Of_ClassFieldtoInflate.complexChild = factory.com_example_data.createChild();
+    data.Copy_Of_ClassFieldtoInflate.complexChild = factory.com_example_data.createChildClass();
 }
 
 // Map from 'ClassFieldtoInflate.complexChild.attribute1' to 'Copy_Of_ClassFieldtoInflate.complexChild.attribute1'
@@ -1268,7 +1268,7 @@ if (data != null &amp;&amp; data.ClassFieldtoInflate != null &amp;&amp; data.Cla
 
     for (var i1 = 0; i1 &lt; data.ClassFieldtoInflate.complexList.length; i1++) { 
         var $sVi1 = data.ClassFieldtoInflate.complexList[i1];
-        var $tVi1 = factory.com_example_data.createChild();
+        var $tVi1 = factory.com_example_data.createChildClass();
 
         // Map from 'ClassFieldtoInflate.complexList.attribute1' to 'Copy_Of_ClassFieldtoInflate.complexList.attribute1'
         $tVi1.attribute1 = $sVi1.attribute1;
@@ -1414,7 +1414,7 @@ if (data != null &amp;&amp; data.MergingPartialComplexListField != null) {
 
         // Create target 'Copy_Of_MergingPartialComplexListField.complexChild' if it doesn't exist.
         if ($tVi7.complexChild == null) {
-            $tVi7.complexChild = factory.com_example_data.createChild();
+            $tVi7.complexChild = factory.com_example_data.createChildClass();
         }
 
         // Map from 'MergingPartialComplexListField.complexChild.attribute1' to 'Copy_Of_MergingPartialComplexListField.complexChild.attribute1'
@@ -1436,7 +1436,7 @@ if (data != null &amp;&amp; data.MergingPartialComplexListField != null) {
                 if (i8 &lt; $tVi7.complexList.length) {
                     $tVi8 = $tVi7.complexList[i8];
                 } else {
-                    $tVi8 = factory.com_example_data.createChild();
+                    $tVi8 = factory.com_example_data.createChildClass();
                 }
 
                 // Map from 'MergingPartialComplexListField.complexList.attribute1' to 'Copy_Of_MergingPartialComplexListField.complexList.attribute1'

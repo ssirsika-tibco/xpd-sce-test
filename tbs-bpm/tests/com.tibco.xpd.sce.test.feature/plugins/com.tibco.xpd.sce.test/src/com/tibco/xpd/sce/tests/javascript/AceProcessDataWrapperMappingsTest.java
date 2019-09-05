@@ -281,6 +281,18 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                 inputMappingsScript.contains("parameters.ClassParameter.complexChild.attribute1 =")); //$NON-NLS-1$
 
         /*
+         * Sid ACE-2896 - Check that BOm class name in creator methods for lower case BOM classes are have initial
+         * character upper cased.
+         */
+        assertFalse(context
+                + ": BOM Factory creator method name should not use lower case initial for BOM class name when BOM class has lower case initial.", //$NON-NLS-1$
+                inputMappingsScript.contains("= factory.com_example_data.createchildClass()")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": BOM Factory creator method name should use upper case initial for BOM class name when BOM class has lower case initial.", //$NON-NLS-1$
+                inputMappingsScript.contains("= factory.com_example_data.createChildClass()")); //$NON-NLS-1$
+
+        /*
          * Generate the output mapping script for the activity.
          */
         String outputMappingsScript = new DataMapperJavascriptGenerator().convertMappingsToJavascript(

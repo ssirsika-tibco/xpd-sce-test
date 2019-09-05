@@ -88,6 +88,11 @@
             <xpdl2:ExternalReference location="ScriptMigrationTestsData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_iYRz0Kb4Eemaf4ToGXKYng"/>
           </xpdl2:DataType>
         </xpdl2:DataField>
+        <xpdl2:DataField Id="_f0fcIM_vEemtidrtvNKqaw" xpdExt:DisplayName="lowerCaseInitialBomClassName" Name="lowerCaseInitialBomClassName">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="ScriptMigrationTestsData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_6wBD4M_uEemtidrtvNKqaw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
       </xpdl2:DataFields>
       <xpdl2:ActivitySets>
         <xpdl2:ActivitySet Id="_1-k0EaR-EemRRZbfKWoDXw">
@@ -352,6 +357,10 @@ com_example_scriptmigrationtestsdata_Factory.createClass1().attribute2 = &quot;a
 if (com_example_scriptmigrationtestsdata_Factory.createClass1().attribute2 == &quot;abc&quot;) {&#xD;
 &#xD;
 }&#xD;
+&#xD;
+// Factory class creator method - class name should be capitalised.&#xD;
+lowerCaseInitialBomClassName =  com_example_scriptmigrationtestsdata_Factory.createclassWithLowerCaseInitial();&#xD;
+&#xD;
 &#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
