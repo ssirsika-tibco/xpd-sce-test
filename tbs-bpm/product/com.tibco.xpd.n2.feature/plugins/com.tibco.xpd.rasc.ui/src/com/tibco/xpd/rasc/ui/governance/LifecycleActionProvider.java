@@ -61,7 +61,8 @@ public class LifecycleActionProvider extends CommonActionProvider {
             checkSelectedProjects(projects, hasLockedProjects, hasUnlockedProjects);
             // If we have any projects selected add the menu options.
             if (hasLockedProjects.get() || hasUnlockedProjects.get()) {
-                MenuManager subMenu = new MenuManager(Messages.LifecycleActionProvider_DeploymentMenuLabel);
+                MenuManager subMenu = new MenuManager(Messages.LifecycleActionProvider_DeploymentMenuLabel,
+                        RascUiActivator.getImageDescriptor(RascUiConstants.ICON_DEPLOYMENT), null);
 
                 GenerateArtifactsAction generateDraftArtifacts = new GenerateArtifactsAction(
                         Messages.LifecycleActionProvider_GenerateDraftMenuLabel, selection, false);

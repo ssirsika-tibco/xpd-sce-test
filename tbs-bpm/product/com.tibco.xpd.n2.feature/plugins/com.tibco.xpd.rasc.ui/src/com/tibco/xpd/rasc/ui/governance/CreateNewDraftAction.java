@@ -44,6 +44,7 @@ public class CreateNewDraftAction extends BaseSelectionListenerAction {
         this.gss = gss;
         this.gsus = gsus;
         this.projects = projects;
+        setImageDescriptor(RascUiActivator.getImageDescriptor(RascUiConstants.ICON_CREATE_NEW_DRAFT));
     }
 
     /**

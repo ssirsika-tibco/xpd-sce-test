@@ -11,6 +11,7 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.BaseSelectionListenerAction;
 
+import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.export.RascExportWizard;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 
@@ -44,6 +45,11 @@ public class GenerateArtifactsAction extends BaseSelectionListenerAction {
         super(text);
         this.selection = selection;
         this.isGeneratingForProduction = isGeneratingForProduction;
+        if (isGeneratingForProduction) {
+            setImageDescriptor(RascUiActivator.getImageDescriptor(RascUiConstants.ICON_GENERATE_PRODUCTION_ARTIFACTS));
+        } else {
+            setImageDescriptor(RascUiActivator.getImageDescriptor(RascUiConstants.ICON_GENERATE_TEST_ARTIFACTS));
+        }
     }
 
     /**

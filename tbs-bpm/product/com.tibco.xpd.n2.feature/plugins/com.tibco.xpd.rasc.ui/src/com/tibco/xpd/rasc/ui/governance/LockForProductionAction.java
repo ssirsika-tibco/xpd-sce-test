@@ -53,6 +53,7 @@ public class LockForProductionAction extends BaseSelectionListenerAction {
         this.gss = gss;
         this.gsus = gsus;
         this.projects = projects;
+        setImageDescriptor(RascUiActivator.getImageDescriptor(RascUiConstants.ICON_LOCK_FOR_PRODUCTION));
     }
 
     /**

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -18,6 +19,8 @@ import com.tibco.xpd.resources.logger.LoggerFactory;
  * The activator class controls the plug-in life cycle
  */
 public class RascUiActivator extends AbstractUIPlugin {
+
+    public static final String ID = "com.tibco.xpd.rasc.ui"; //$NON-NLS-1$
 
     // The plug-in ID
     public static final String PLUGIN_ID = "com.tibco.xpd.rasc.ui"; //$NON-NLS-1$
@@ -132,6 +135,18 @@ public class RascUiActivator extends AbstractUIPlugin {
     public String[] getAdminBaseHistory() {
         List<String> result = _getAdminBaseHistory();
         return result.toArray(new String[result.size()]);
+    }
+
+    /**
+     * Returns an image descriptor for the image file at the given plug-in
+     * relative path.
+     * 
+     * @param path
+     *            the path
+     * @return the image descriptor
+     */
+    public static ImageDescriptor getImageDescriptor(String path) {
+        return AbstractUIPlugin.imageDescriptorFromPlugin(ID, path);
     }
 
     /**
