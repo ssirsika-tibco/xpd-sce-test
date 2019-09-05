@@ -112,7 +112,7 @@ public class JsonSchemaClassSection extends AbstractTransactionalSection {
                 .setToolTipText(Messages.JsonSchemaEditorDetails_classNameTooltip);
         manageControl(className);
 
-        Label isRootLabel = toolkit.createLabel(root, Messages.JsonSchemaClassSection_Public_label);
+        Label isRootLabel = toolkit.createLabel(root, Messages.JsonSchemaClassSection_Root_label);
         isRootLabel.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, false, false));
         isRootButton = toolkit.createButton(root, "", SWT.CHECK); //$NON-NLS-1$
         isRootButton.setLayoutData(new GridData(SWT.LEAD, SWT.TOP, false, false));
@@ -145,7 +145,7 @@ public class JsonSchemaClassSection extends AbstractTransactionalSection {
             }
             if (obj == isRootButton) {
                 final boolean isRoot = isRootButton.getSelection();
-                String cmdLabel = isRoot ? Messages.JsonSchemaClassSection_SetAsPublic_label : Messages.JsonSchemaClassSection_SetAsPrivateLabel;
+                String cmdLabel = isRoot ? Messages.JsonSchemaClassSection_SetAsRoot_label : Messages.JsonSchemaClassSection_SetAsNonRoot_label;
                 CompoundCommand cc =
                         new CompoundCommand(
                                 cmdLabel);
