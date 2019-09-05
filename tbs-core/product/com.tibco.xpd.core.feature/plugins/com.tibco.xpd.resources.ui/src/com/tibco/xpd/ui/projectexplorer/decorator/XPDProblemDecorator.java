@@ -13,6 +13,7 @@ import java.util.Map;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IMarkerDelta;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
@@ -37,6 +38,7 @@ import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
 import com.tibco.xpd.resources.ui.XpdResourcesUIActivator;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.resources.util.XpdConsts;
 
@@ -65,11 +67,17 @@ public class XPDProblemDecorator extends LabelDecorator {
     private ImageData warningOvr;
 
     /**
+     * Locked image overlay.
+     */
+    private ImageData lockOvr;
+
+    /**
      * resource changes listener. listen to changes in markers assiciated with
      * files
      */
     private IResourceChangeListener resourceListener =
             new IResourceChangeListener() {
+                @Override
                 public void resourceChanged(IResourceChangeEvent event) {
                     IMarkerDelta[] deltas =
                             event.findMarkerDeltas(IMarker.PROBLEM, true);
@@ -144,6 +152,7 @@ public class XPDProblemDecorator extends LabelDecorator {
         warningOvr =
                 XpdResourcesUIActivator
                         .getImageDescriptor("icons/overlay/warning.gif").getImageData(); //$NON-NLS-1$
+        lockOvr = XpdResourcesUIActivator.getImageDescriptor("icons/overlay/lockAnnotation.png").getImageData(); //$NON-NLS-1$
         ResourcesPlugin.getWorkspace()
                 .addResourceChangeListener(resourceListener);
     }
@@ -200,6 +209,7 @@ public class XPDProblemDecorator extends LabelDecorator {
     /**
      * Decorate given image.
      */
+    @Override
     public Image decorateImage(Image image, Object element) {
         if (image == null) {
             return null;
@@ -207,6 +217,7 @@ public class XPDProblemDecorator extends LabelDecorator {
         IResource res = getResource(element);
         boolean hasError = false;
         boolean hasWarning = false;
+        boolean isLocked = false;
         try {
             if (element instanceof XPDDecorationStatusProvider) {
 
@@ -252,11 +263,17 @@ public class XPDProblemDecorator extends LabelDecorator {
                     }
                 }
             }
+
+            if (element instanceof IProject) {
+                IProject project = (IProject) element;
+                isLocked = (new GovernanceStateService()).isLockedForProduction(project);
+            }
+
         } catch (CoreException e) {
             // ignore
         }
 
-        if (image == null || !(hasError || hasWarning)) {
+        if (image == null || !(hasError || hasWarning || isLocked)) {
             return null;
         }
         final ImageData ovr;
@@ -269,11 +286,19 @@ public class XPDProblemDecorator extends LabelDecorator {
             registry = warningRegistry;
         }
         if (registry.containsKey(image)) {
+            if (isLocked) {
+                Display display = PlatformUI.getWorkbench().getDisplay();
+                Image retImage = createOverlayImage(display, image, lockOvr);
+                return retImage;
+            }
             return registry.get(image);
         } else {
             Display display = PlatformUI.getWorkbench().getDisplay();
 
             Image retImage = createOverlayImage(display, image, ovr);
+            if (isLocked) {
+                retImage = createOverlayImage(display, retImage, lockOvr);
+            }
 
             registry.put(image, retImage);
             return retImage;
@@ -333,7 +358,7 @@ public class XPDProblemDecorator extends LabelDecorator {
         gc.dispose();
 
         // Make transparency.
-        ImageData resData = (ImageData) result.getImageData();
+        ImageData resData = result.getImageData();
         resData.transparentPixel = transPixel;
 
         Image transparentResult = new Image(device, resData);
@@ -382,6 +407,7 @@ public class XPDProblemDecorator extends LabelDecorator {
     /**
      * This decorator does not decorate text.
      */
+    @Override
     public String decorateText(String text, Object element) {
         return text;
     }
@@ -391,6 +417,7 @@ public class XPDProblemDecorator extends LabelDecorator {
      * org.eclipse.jface.viewers.IBaseLabelProvider#addListener(org.eclipse.
      * jface.viewers.ILabelProviderListener)
      */
+    @Override
     public void addListener(ILabelProviderListener listener) {
         if (!listeners.contains(listener)) {
             listeners.add(listener);
@@ -400,6 +427,7 @@ public class XPDProblemDecorator extends LabelDecorator {
     /*
      * @see org.eclipse.jface.viewers.IBaseLabelProvider#dispose()
      */
+    @Override
     public void dispose() {
         for (Image img : errorRegistry.values()) {
             img.dispose();
@@ -416,6 +444,7 @@ public class XPDProblemDecorator extends LabelDecorator {
      * org.eclipse.jface.viewers.IBaseLabelProvider#isLabelProperty(java.lang
      * .Object, java.lang.String)
      */
+    @Override
     public boolean isLabelProperty(Object element, String property) {
         return false;
     }
@@ -441,6 +470,7 @@ public class XPDProblemDecorator extends LabelDecorator {
      * org.eclipse.jface.viewers.IBaseLabelProvider#removeListener(org.eclipse
      * .jface.viewers.ILabelProviderListener)
      */
+    @Override
     public void removeListener(ILabelProviderListener listener) {
         listeners.remove(listener);
     }
