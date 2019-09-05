@@ -397,6 +397,9 @@ public class PoolEditPart extends BaseGraphicalEditPart implements
 
         ((PoolFigure) getFigure()).setClosed(getPool().isClosed());
 
+        /* Sid ACE-2879 if read-only don't show the expand/collapse button. */
+        ((PoolFigure) getFigure()).getHeaderFigure().setCloseable(!isReadOnly());
+
     }
 
     // Our getTargetEditPart() for pool will ask the lanes whether the request

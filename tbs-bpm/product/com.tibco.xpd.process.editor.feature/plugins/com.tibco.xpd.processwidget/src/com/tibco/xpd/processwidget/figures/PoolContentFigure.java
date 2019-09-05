@@ -122,21 +122,22 @@ public class PoolContentFigure extends BaseLogExceptionFigure {
         }
     }
 
+    /* Sid ACE-2879 - this override now superfluous as PoolEditPart sets closeability of pool header figure. */
     // Keep a check on things being added to enable the close/open button.
-    @Override
-    public void add(IFigure figure, Object constraint, int index) {
-
-        if (getChildren().size() == 0) {
-            // First add - enable closeability.
-            PoolHeaderFigure hdr =
-                    (PoolHeaderFigure) ((PoolFigure) getParent())
-                            .getHeaderFigure();
-            hdr.setCloseable(true);
-        }
-
-        super.add(figure, constraint, index);
-
-    }
+    // @Override
+    // public void add(IFigure figure, Object constraint, int index) {
+    //
+    // if (getChildren().size() == 0) {
+    // // First add - enable closeability.
+    // PoolHeaderFigure hdr =
+    // (PoolHeaderFigure) ((PoolFigure) getParent())
+    // .getHeaderFigure();
+    // hdr.setCloseable(true);
+    // }
+    //
+    // super.add(figure, constraint, index);
+    //
+    // }
 
     /*
      * (non-Javadoc)

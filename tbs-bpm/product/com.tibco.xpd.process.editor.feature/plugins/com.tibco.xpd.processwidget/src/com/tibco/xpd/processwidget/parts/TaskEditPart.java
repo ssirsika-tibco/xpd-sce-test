@@ -323,12 +323,17 @@ public class TaskEditPart extends BaseFlowNodeEditPart implements
         f.setTransactional(false);
         f.setContentsVisible(false);
 
-        if (TaskType.EMBEDDED_SUBPROCESS_LITERAL.equals(realTaskType)
-                || TaskType.EVENT_SUBPROCESS_LITERAL.equals(realTaskType)) {
-            f.setTransactional(adapter.getSubprocessIsTransactional());
+        /*
+         * Sid ACE-2879 Don't show expand/collapse on embedded sub-proc in read only mode.
+         * 
+         * In order to do so had to separate the creation of button from the other behaviours for emb sub-proc.
+         * 
+         * Sort out expand/collapse button first,,,
+         */
+        if (!isReadOnly() && (TaskType.EMBEDDED_SUBPROCESS_LITERAL.equals(realTaskType)
+                || TaskType.EVENT_SUBPROCESS_LITERAL.equals(realTaskType))) {
 
             if (!adapter.isEmbeddedSubProcessCollapsed()) {
-                f.setContentsVisible(true);
                 ImageFigure expCollapseMarker = createEmbSubCollapseMarker(ir);
                 f.setOpenCloseButton(expCollapseMarker);
             } else {
@@ -339,6 +344,16 @@ public class TaskEditPart extends BaseFlowNodeEditPart implements
 
         } else {
             f.setOpenCloseButton(null);
+        }
+
+        /* Then sort out the other (than expand/collapse button) aspects of emb-sub-proc */
+        if (TaskType.EMBEDDED_SUBPROCESS_LITERAL.equals(realTaskType)
+                || TaskType.EVENT_SUBPROCESS_LITERAL.equals(realTaskType)) {
+            f.setTransactional(adapter.getSubprocessIsTransactional());
+
+            if (!adapter.isEmbeddedSubProcessCollapsed()) {
+                f.setContentsVisible(true);
+            }
         }
 
         if (TaskType.EVENT_SUBPROCESS_LITERAL.equals(realTaskType)) {

@@ -863,4 +863,52 @@ public abstract class AbstractProcessDiagramEditor extends SceEditorPart
         super.dispose();
         return;
     }
+
+    /**
+     * Sid ACE-2879 Configure the process editor as read-only (or not).
+     * 
+     * If read-only then the diagram edit control edit facilities will be disabled.
+     * 
+     * @param isReadOnly
+     */
+    public void setReadOnly(boolean isReadOnly) {
+        if (widget != null) {
+
+            if (widget.isReadOnly() != isReadOnly) {
+                /*
+                 * To enable / disable all the edit capabilities in the diagram all we need to do is set the process
+                 * widget to read-only...
+                 */
+                widget.setReadOnly(isReadOnly);
+
+                if (widget.getGraphicalViewer() != null) {
+                    /*
+                     * ... and then reset the input to force all of the edit-parts to be re-initialised (which in turn
+                     * will either install their edit-policies or not (if read-only)
+                     */
+                    widget.getGraphicalViewer().setContents(widget.getInput());
+                }
+            }
+        }
+    }
+
+    /**
+     * @see com.tibco.xpd.resources.ui.SceEditorPart#refreshTitle()
+     *
+     */
+    @Override
+    public void refreshTitle() {
+        /*
+         * Sid ACE-2879 refreshTitle() gets called when the status of the file under edit changes (for instance, changes
+         * to read-only).
+         * 
+         * So refresh the title and reconfigure the editor into read-only mode.
+         */
+        super.refreshTitle();
+
+        WorkingCopy wc = getWorkingCopy();
+        if (wc != null) {
+            setReadOnly(wc.isReadOnly());
+        }
+    }
 }

@@ -34,6 +34,7 @@ public class LaneContentFigure extends BaseLogExceptionFigure {
     static {
         if (PlatformUI.isWorkbenchRunning()) {
             PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
+                @Override
                 public void run() {
                     Font df = JFaceResources.getDialogFont();
                     FontData fds = df.getFontData()[0];
@@ -94,19 +95,22 @@ public class LaneContentFigure extends BaseLogExceptionFigure {
             }
 
             /*
-             * XPD-1140: If process edit session is read only then display
-             * background [Read Only]
+             * XPD-1140: If process edit session is read only then display background [Read Only]
+             * 
+             * Sid ACE-2879 Read-only is now shown in the tab header consistently with other editors (which do not
+             * water-mark the background) so changing process editor to not add the read-only watermark for now for
+             * consistency).
              */
-            if (XPDFigureUtilities.isReadOnly(this)) {
-                gr.setTextAntialias(SWT.ON);
-                Font bigFont = fontRegistry.get(BIG_FONT);
-                gr.setFont(bigFont);
-                gr.setForegroundColor(ColorConstants.lightGray);
-                gr.setAlpha(Math.max(72 - laneAlpha, 50));
-                gr.drawText(Messages.LaneContentFigure_ReadOnly_label,
-                        ca.x,
-                        ca.y);
-            }
+//            if (XPDFigureUtilities.isReadOnly(this)) {
+//                gr.setTextAntialias(SWT.ON);
+//                Font bigFont = fontRegistry.get(BIG_FONT);
+//                gr.setFont(bigFont);
+//                gr.setForegroundColor(ColorConstants.lightGray);
+//                gr.setAlpha(Math.max(72 - laneAlpha, 50));
+//                gr.drawText(Messages.LaneContentFigure_ReadOnly_label,
+//                        ca.x,
+//                        ca.y);
+//            }
 
             gr.popState();
         }

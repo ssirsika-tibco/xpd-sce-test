@@ -42,6 +42,7 @@ import org.eclipse.gef.NodeEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
+import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.eclipse.gef.tools.CellEditorLocator;
@@ -68,7 +69,9 @@ import com.tibco.xpd.processwidget.figures.anchors.FixedOrientationAnchor;
 import com.tibco.xpd.processwidget.figures.anchors.FromClosedAncestorAnchor;
 import com.tibco.xpd.processwidget.figures.anchors.LineAnchor;
 import com.tibco.xpd.processwidget.internal.Messages;
+import com.tibco.xpd.processwidget.policies.ConnectionsAnimatorEditPolicy;
 import com.tibco.xpd.processwidget.policies.ExternalAnnotationEditPolicy;
+import com.tibco.xpd.processwidget.policies.FlowContainerXYLayoutEditPolicy;
 import com.tibco.xpd.processwidget.tools.ConfigurableDirectEditManager;
 import com.tibco.xpd.processwidget.viewer.BpmnScrollingGraphicalViewer;
 import com.tibco.xpd.processwidget.viewer.WidgetTextActionHandlers;
@@ -1000,5 +1003,60 @@ public abstract class BaseGraphicalEditPart extends AbstractGraphicalEditPart
      */
     public void forceRefreshVisuals() {
         refreshVisuals();
+    }
+
+    /**
+     * Sid ACE-2879 Override understandsRequest() to return <code>false</code> if the editor is in read-only mode. This
+     * is just a catch in case there are edit requests that are handled directly by edit parts as opposed to the edit
+     * policies associated with them.
+     * 
+     * @see org.eclipse.gef.editparts.AbstractEditPart#understandsRequest(org.eclipse.gef.Request)
+     *
+     * @param req
+     * @return
+     */
+    @Override
+    public boolean understandsRequest(Request req) {
+        if (isReadOnly()) {
+            return false;
+        }
+        return super.understandsRequest(req);
+    }
+
+    /**
+     * Sid ACE-2879 override installEditPolicy() so that when the editor is in read-only mode then only certain edit
+     * policies (such as diagram annotations) will be installed and other edit policies (that allow editing) will be
+     * ignored.
+     * 
+     * When in read-only mode a non-resizable selection policy is added (selection policy is normally a child policy of
+     * the {@link FlowContainerXYLayoutEditPolicy} which is ignored because it is where add/delete/move commands are
+     * handled
+     * 
+     * @see org.eclipse.gef.editparts.AbstractEditPart#installEditPolicy(java.lang.Object, org.eclipse.gef.EditPolicy)
+     *
+     * @param key
+     * @param editPolicy
+     */
+    @Override
+    public void installEditPolicy(Object key, EditPolicy editPolicy) {
+        /*
+         * In read-only mode, ignore policies that are not just for non-editing policies like diagram object annotations
+         * (problem markers etc).
+         */
+        if (!isReadOnly() || editPolicy instanceof ExternalAnnotationEditPolicy
+                || editPolicy instanceof ConnectionsAnimatorEditPolicy) {
+            super.installEditPolicy(key, editPolicy);
+
+        } else if (isReadOnly()) {
+            /*
+             * When in read-only mode a non-resizable selection policy is added (selection policy is normally a child
+             * policy of the {@link FlowContainerXYLayoutEditPolicy} which is ignored because it is where
+             * add/delete/move commands are handled
+             */
+            if (this.getEditPolicy("read.only.selection.policy") == null //$NON-NLS-1$
+                    && this instanceof BaseConnectableNodeEditPart) {
+                super.installEditPolicy("read.only.selection.policy", new NonResizableEditPolicy()); //$NON-NLS-1$
+            }
+        }
     }
 }

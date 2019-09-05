@@ -193,7 +193,10 @@ public class LaneEditPart extends BaseGraphicalEditPart implements
         f.setBackgroundColor(fillColor);
         f.setForegroundColor(lineColor);
 
-        ((LaneFigure) getFigure()).setClosed(getLane().isClosed());
+        f.setClosed(getLane().isClosed());
+
+        /* Sid ACE-2879 if read-only don't show the expand/collapse button. */
+        f.getHeaderFigure().setCloseable(!isReadOnly());
 
         f.revalidate();
     }

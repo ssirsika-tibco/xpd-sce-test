@@ -88,7 +88,12 @@ public class ProcessEditPart extends BaseGraphicalEditPart {
                     public void propertyChange(PropertyChangeEvent evt) {
                         if (evt.getOldValue() != null && fl != null) {
                             IFigure op = (IFigure) evt.getNewValue();
-                            op.removeFigureListener(fl);
+                            
+                            /* Sid ACE-2879 used to cause NPE when resetting diagram to/from read-only. So added null check. */
+                            if (op != null) {
+                                op.removeFigureListener(fl);
+                            }
+
                         }
                         IFigure p = (IFigure) evt.getNewValue();
                         if (fl == null)

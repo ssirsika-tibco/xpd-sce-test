@@ -108,14 +108,14 @@ public class HeaderFigure extends BaseLogExceptionFigure {
      *            the isCloseable to set
      */
     public void setCloseable(boolean isCloseable) {
-        this.isCloseable = isCloseable;
+        /* Sid ACE-2879 Improved handling of setCloseable() for correct refreshing either way when close button hidden / shown. */
+        if (isCloseable != this.isCloseable) {
+            this.isCloseable = isCloseable;
 
-        closeButton.setVisible(isCloseable);
+            closeButton.setVisible(isCloseable);
 
-        if (isCloseable) {
             layout();
         }
-
     }
 
     private void setupCloseButton() {
