@@ -13,6 +13,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.actions.BaseSelectionListenerAction;
@@ -20,8 +21,11 @@ import org.eclipse.ui.actions.BaseSelectionListenerAction;
 import com.tibco.xpd.deploy.ui.util.DeployUtil;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.internal.Messages;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.builder.BuildSynchronizerUtil;
 import com.tibco.xpd.resources.util.GovernanceStateService;
+import com.tibco.xpd.resources.util.MessageDialogUtil;
+import com.tibco.xpd.resources.util.XpdConsts;
 
 /**
  * Menu action to lock projects for production.
@@ -95,8 +99,16 @@ public class LockForProductionAction extends BaseSelectionListenerAction {
             if (invalidProject == null) {
                 for (IProject project : projects) {
                     try {
-                        gss.lockForProduction(project);
-                        gsus.refreshEditorLabels();
+                        if (MessageDialogUtil.openOkCancelConfirm(Display.getDefault().getActiveShell(),
+                                Messages.LockForProductionConfirmation_Title,
+                                Messages.LockForProductionConfirmation_Desc,
+                                Messages.LockAndDraftConfirmation_Skip,
+                                false,
+                                XpdConsts.PREF_DONT_ASK_AGAIN_FOR_LOCK,
+                                XpdResourcesPlugin.getDefault().getPreferenceStore()) == IDialogConstants.OK_ID) {
+                            gss.lockForProduction(project);
+                            gsus.refreshEditorLabels();
+                        }
                     } catch (CoreException e) {
                         RascUiActivator.getLogger().error("Could not lock project " + project.getName()); //$NON-NLS-1$
                     }

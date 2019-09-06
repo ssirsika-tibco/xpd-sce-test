@@ -112,6 +112,16 @@ public class Messages extends NLS {
 
     public static String ReadOnlyResourceChangeListener_CreatingDraftJob;
 
+    public static String LockForProductionConfirmation_Title;
+
+    public static String LockForProductionConfirmation_Desc;
+
+    public static String CreateNewDraftConfirmation_Title;
+
+    public static String CreateNewDraftConfirmation_Desc;
+
+    public static String LockAndDraftConfirmation_Skip;
+
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);
