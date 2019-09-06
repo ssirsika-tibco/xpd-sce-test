@@ -132,7 +132,15 @@ public abstract class AbstractBpelTransformTest extends TestCase {
             BPELOnDemandBuilder bpelBuilder = new BPELOnDemandBuilder(processProject);
             IStatus status = bpelBuilder.buildProject(new NullProgressMonitor());
             if (!status.isOK()) {
-                fail(String.format("BPEL builder failed on project: %s ", processProject.getName()));
+                fail(String.format(
+                        "BPEL builder failed on project: %s (status sev:%d  code:%d msg:'%s' exception:'%s' )",
+                        processProject.getName(),
+                        status.getSeverity(),
+                        status.getCode(),
+                        status.getMessage(),
+                        status.getException() != null && status.getException().getStackTrace() != null
+                                ? status.getException().getStackTrace().toString()
+                                : "n/a"));
             }
 
             // Get expected bpel files.
