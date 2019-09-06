@@ -79,8 +79,12 @@ public class OrgModelRascContributor implements RascContributor {
     @Override
     public boolean hasContributionsFor(IProject aProject) {
         try {
-            return findOrgModel(aProject) != null;
+            boolean result = findOrgModel(aProject) != null;
+            System.err.println("OMRASC: hasContributionsFor result: " + result);
+            return result;
         } catch (CoreException e) {
+            System.err.println("OMRASC: hasContributionsFor failed with: " + e.getMessage());
+            e.printStackTrace();
             return false;
         }
     }
@@ -108,6 +112,7 @@ public class OrgModelRascContributor implements RascContributor {
             if (aProgressMonitor != null) {
                 aProgressMonitor.done();
             }
+            System.err.println("OMRASC: process()  null or inaccessible model");
             return;
         }
         OrgModel orgModel = read(orgFile);
@@ -115,6 +120,7 @@ public class OrgModelRascContributor implements RascContributor {
             if (aProgressMonitor != null) {
                 aProgressMonitor.done();
             }
+            System.err.println("OMRASC: process()  read org-model returned null");
             return;
         }
 
@@ -130,6 +136,7 @@ public class OrgModelRascContributor implements RascContributor {
 
         // has the job been cancelled by the user
         if (monitor.isCanceled()) {
+            System.err.println("OMRASC: process()  canceled 1");
             return;
         }
         monitor.worked(1);
@@ -149,6 +156,7 @@ public class OrgModelRascContributor implements RascContributor {
         monitor.worked(1);
         monitor.subTask(""); //$NON-NLS-1$
         monitor.done();
+        System.err.println("OMRASC: process()  complete");
     }
 
     /**
@@ -190,6 +198,7 @@ public class OrgModelRascContributor implements RascContributor {
                 SpecialFolderUtil.getAllSpecialFoldersOfKind(aProject,
                         OMUtil.OM_SPECIAL_FOLDER_KIND);
         if (sFolders == null) {
+            System.err.println("OMRASC: findOrgModel()  no special folder found");
             return null;
         }
 
@@ -201,12 +210,14 @@ public class OrgModelRascContributor implements RascContributor {
                     // if it's a file with the org-model extension
                     if (resource instanceof IFile && OMUtil.OM_FILE_EXTENSION
                             .equals(resource.getFileExtension())) {
+                        System.err.println("OMRASC: findOrgModel()  found resource");
                         return resource;
                     }
                 }
             }
         }
 
+        System.err.println("OMRASC: findOrgModel()  failed to find orgm-model");
         return null;
     }
 
@@ -222,13 +233,16 @@ public class OrgModelRascContributor implements RascContributor {
         WorkingCopy wc =
                 XpdResourcesPlugin.getDefault().getWorkingCopy(aResource);
 
+        System.err.println("OMRASC: read()  workingcopy: " + wc);
         if (wc instanceof OMWorkingCopy
                 && ((OMWorkingCopy) wc).getRootElement() instanceof OrgModel
                 && ((OMWorkingCopy) wc).getRootElement().eResource() != null) {
             EObject orgModel = ((OMWorkingCopy) wc).getRootElement();
+            System.err.println("OMRASC: read()  complete: " + orgModel);
             return (OrgModel) orgModel;
         }
 
+        System.err.println("OMRASC: read() resource not an OMWorkingCopy ");
         return null;
     }
 }

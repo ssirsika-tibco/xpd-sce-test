@@ -536,26 +536,37 @@
    <extension
          point="com.tibco.xpd.om.resources.systemActions">
       <component
+            id="CDM"
+            name="%component_caseData_label">
+      </component>
+      <actions componentId="CDM">
+         <action default="true" id="createCase" name="%sysAction_createCaseData_label"> </action>
+         <action default="true" id="updateCase" name="%sysAction_updateCaseData_label"> </action>
+         <action default="false" id="deleteCase" name="%sysAction_deleteCaseData_label"> </action>
+         <action
+               default="true"
+               id="readCase"
+               name="%sysAction_readCaseData_label">
+         </action>
+
+         <action
+               default="true"
+               id="readTypes"
+               name="%sysAction_CaseDocumentReadTypes_label">
+         </action>
+         </actions>
+   </extension>
+   <extension
+         point="com.tibco.xpd.om.resources.systemActions">
+      <component
             id="BDS"
             name="%component_globalData_label">
       </component>
       <actions
             componentId="BDS">
-         <action
-               default="true"
-               id="createGlobalData"
-               name="%sysAction_createGlobalData_label">
-         </action>
-         <action
-               default="true"
-               id="updateGlobalData"
-               name="%sysAction_updateGlobalData_label">
-         </action>
-         <action
-               default="false"
-               id="deleteGlobalData"
-               name="%sysAction_deleteGlobalData_label">
-         </action>
+         <action default="true" id="createGlobalData" name="%sysAction_createGlobalData_label"></action>
+         <action default="true" id="updateGlobalData" name="%sysAction_updateGlobalData_label"></action>
+         <action default="false" id="deleteGlobalData" name="%sysAction_deleteGlobalData_label"> </action>
          <action
                default="true"
                id="readGlobalData"
@@ -585,32 +596,6 @@
                default="false"
                id="cmisAdmin"
                name="%sysAction_CaseDocumentAdministration_label">
-         </action>
-
-         <action
-               default="true"
-               id="readTypes"
-               name="%sysAction_CaseDocumentReadTypes_label">
-         </action>
-         <action
-               default="true"
-               id="createCase"
-               name="%sysAction_createCaseData_label">
-         </action>
-         <action
-               default="true"
-               id="updateCase"
-               name="%sysAction_updateCaseData_label">
-         </action>
-         <action
-               default="false"
-               id="deleteCase"
-               name="%sysAction_deleteCaseData_label">
-         </action>
-         <action
-               default="true"
-               id="readCase"
-               name="%sysAction_readCaseData_label">
          </action>
       </actions>
    </extension>
