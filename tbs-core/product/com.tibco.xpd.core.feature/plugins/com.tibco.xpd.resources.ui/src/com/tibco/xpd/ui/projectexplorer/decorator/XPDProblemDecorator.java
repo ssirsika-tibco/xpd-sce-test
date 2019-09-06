@@ -60,6 +60,11 @@ public class XPDProblemDecorator extends LabelDecorator {
      */
     private Map<Image, Image> warningRegistry = new HashMap<Image, Image>();
 
+    /**
+     * Lock images registry (local cache).
+     */
+    private Map<Image, Image> lockRegistry = new HashMap<Image, Image>();
+
     /** error image overlay */
     private ImageData errorOvr;
 
@@ -278,7 +283,10 @@ public class XPDProblemDecorator extends LabelDecorator {
         }
         final ImageData ovr;
         Map<Image, Image> registry;
-        if (hasError) {
+        if (isLocked) {
+            ovr = lockOvr;
+            registry = lockRegistry;
+        } else if (hasError) {
             ovr = errorOvr;
             registry = errorRegistry;
         } else { // hasWarning
@@ -286,19 +294,11 @@ public class XPDProblemDecorator extends LabelDecorator {
             registry = warningRegistry;
         }
         if (registry.containsKey(image)) {
-            if (isLocked) {
-                Display display = PlatformUI.getWorkbench().getDisplay();
-                Image retImage = createOverlayImage(display, image, lockOvr);
-                return retImage;
-            }
             return registry.get(image);
         } else {
             Display display = PlatformUI.getWorkbench().getDisplay();
 
             Image retImage = createOverlayImage(display, image, ovr);
-            if (isLocked) {
-                retImage = createOverlayImage(display, retImage, lockOvr);
-            }
 
             registry.put(image, retImage);
             return retImage;
@@ -433,6 +433,9 @@ public class XPDProblemDecorator extends LabelDecorator {
             img.dispose();
         }
         for (Image img : warningRegistry.values()) {
+            img.dispose();
+        }
+        for (Image img : lockRegistry.values()) {
             img.dispose();
         }
         ResourcesPlugin.getWorkspace()
