@@ -283,12 +283,12 @@ public class XPDProblemDecorator extends LabelDecorator {
         }
         final ImageData ovr;
         Map<Image, Image> registry;
-        if (isLocked) {
-            ovr = lockOvr;
-            registry = lockRegistry;
-        } else if (hasError) {
+        if (hasError) {
             ovr = errorOvr;
             registry = errorRegistry;
+        } else if (isLocked) {
+            ovr = lockOvr;
+            registry = lockRegistry;
         } else { // hasWarning
             ovr = warningOvr;
             registry = warningRegistry;
