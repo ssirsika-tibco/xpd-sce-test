@@ -37,7 +37,8 @@ public class AceIncomingRequestActivityTest extends TestCase {
                     + " project should not have any ERROR level problem markers", //$NON-NLS-1$
                     TestUtil.hasErrorProblemMarker(
                             ResourcesPlugin.getWorkspace().getRoot().getProject("IncomingRequestAct"), //$NON-NLS-1$
-                            true));
+                            true,
+                            "testIncomingRequestActivityScenarios"));
 
         } finally {
             if (projectImporter != null) {

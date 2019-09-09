@@ -80,7 +80,8 @@ public class JsToDataMapperMigrationsTest extends TestCase {
                     "ScriptMigrationTests project should have migrated with only a few expected script-mapping problems.", //$NON-NLS-1$
                     TestUtil.hasErrorProblemMarker(project,
                             true,
-                            okProblems)); // $NON-NLS-1$
+                            okProblems,
+                            "testDataMappingMigration")); // $NON-NLS-1$ //$NON-NLS-1$
 
             checkSubProcessMappingMigrations(project);
 

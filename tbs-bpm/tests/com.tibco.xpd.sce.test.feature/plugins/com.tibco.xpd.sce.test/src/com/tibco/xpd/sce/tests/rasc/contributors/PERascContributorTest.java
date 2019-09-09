@@ -105,7 +105,7 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
                 ResourcesPlugin.getWorkspace().getRoot().getProject("RASC");
 
         assertFalse("Project RASC should not have error problem markers",
-                TestUtil.hasErrorProblemMarker(project, true));
+                TestUtil.hasErrorProblemMarker(project, true, "PERascContributorTest.testProcess"));
 
         // call the contributor's process() method
         RascContributor fixture = new PERascContributor();

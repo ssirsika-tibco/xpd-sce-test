@@ -49,7 +49,8 @@ public class ScriptMigrationTests extends TestCase {
             assertFalse("ScriptMigrationTests project should have migrated to have no problem markers anywhere.",
                     TestUtil.hasErrorProblemMarker(project,
                             true,
-                            Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured")));
+                            Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured"),
+                            "testBasicScriptMigrations"));
         } finally {
             if (projectImporter != null) {
                 projectImporter.performDelete();

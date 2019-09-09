@@ -1117,17 +1117,22 @@ public class TestUtil {
      * 
      * @param resource
      * @param depthInfinite
-     *            <code>true</code> to check this resource and all it's
-     *            descendants <code>false</code> to check only this resource.
+     *            <code>true</code> to check this resource and all it's descendants <code>false</code> to check only
+     *            this resource.
+     * @param testName
+     *            Name of test to output in System.err (so that if an error was found it would be output).
      * 
-     * @return <code>true</code> if given resource has given problem marker
-     *         raised on it.
+     * @return <code>true</code> if given resource has given problem marker raised on it.
      */
-    public static boolean hasErrorProblemMarker(IResource resource, boolean depthInfinite) {
-        return hasErrorProblemMarker(resource, depthInfinite, Collections.emptySet());
+    public static boolean hasErrorProblemMarker(IResource resource, boolean depthInfinite, String testName) {
+        return hasErrorProblemMarker(resource, depthInfinite, Collections.emptySet(), testName);
     }
 
     /**
+     * Checks if the given resources (or descendants if depthInfinite=true) has any error level problem marker.
+     * 
+     * If any found the error marker text will be output to System.err so that the console output will log the errors
+     * found.
      * 
      * @param resource
      * @param depthInfinite
@@ -1135,13 +1140,22 @@ public class TestUtil {
      *            this resource.
      * @param exceptIdsOrMessageText
      *            Marker id's OR partial message text of markers to ignore.
+     * @param testName
+     *            Name of test to output in System.err (so that if an error was found it would be output).
      * 
      * @return <code>true</code> if given resource has given problem marker raised on it.
      */
     @SuppressWarnings("nls")
     public static boolean hasErrorProblemMarker(IResource resource, boolean depthInfinite,
-            Collection<String> exceptIdsOrMessageText) {
+            Collection<String> exceptIdsOrMessageText, String testName) {
+        boolean found = false;
+
         try {
+            String heading = String.format(
+                    "TestUtil.hasErrorLevelProblemMarker() : Error markers found for test '%s' on resource '%s'...\n=================================================================\n",
+                    testName,
+                    resource != null ? resource.getFullPath().toString() : "<bad resource>");
+
             IMarker[] markers = resource.findMarkers(IMarker.PROBLEM,
                     true,
                     depthInfinite ? IResource.DEPTH_INFINITE : IResource.DEPTH_ZERO);
@@ -1151,9 +1165,9 @@ public class TestUtil {
                     if (marker.getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR
                             && !exceptIdsOrMessageText.contains(marker.getAttribute("issueId", ""))
                             && !containsMessageFragment(marker, exceptIdsOrMessageText)) {
-                        System.err.println(
-                                "TestUtil.hasErrorProblemMarker() = true: " + marker.getAttribute(IMarker.MESSAGE, ""));
-                        return true;
+                        System.err.println(heading + "- " + marker.getAttribute(IMarker.MESSAGE, ""));
+                        heading = "";
+                        found = true;
                     }
                 }
 
@@ -1163,7 +1177,11 @@ public class TestUtil {
             e.printStackTrace();
         }
 
-        return false;
+        if (found) {
+            // output footer to error messages
+            System.err.println("=================================================================");
+        }
+        return found;
     }
 
     /**

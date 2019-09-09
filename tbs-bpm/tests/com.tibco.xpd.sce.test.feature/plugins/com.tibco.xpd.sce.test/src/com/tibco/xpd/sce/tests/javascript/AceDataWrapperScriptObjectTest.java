@@ -31,7 +31,8 @@ public class AceDataWrapperScriptObjectTest extends TestCase {
                     + " project should not have any ERROR level problem markers", //$NON-NLS-1$
                     TestUtil.hasErrorProblemMarker(
                             ResourcesPlugin.getWorkspace().getRoot().getProject("DataWrappingTests"), //$NON-NLS-1$
-                            true));
+                            true,
+                            "testDataIsWrappedInAllScriptScenarios")); //$NON-NLS-1$
 
         } finally {
             if (projectImporter != null) {

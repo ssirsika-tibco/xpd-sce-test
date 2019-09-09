@@ -59,7 +59,7 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
             assertTrue("DataWrappingMapperTests project exists", mapperProject.isAccessible()); //$NON-NLS-1$
 
             assertFalse("DataWrappingMapperTests project has no error level problem markers.", //$NON-NLS-1$
-                    TestUtil.hasErrorProblemMarker(mapperProject, true));
+                    TestUtil.hasErrorProblemMarker(mapperProject, true, "testDataIsWrappedInAllScriptScenarios"));
 
             Process process = ProcessUIUtil.getProcesById("_9JPIoIheEemL0JNuli1Mqw"); //$NON-NLS-1$
 
