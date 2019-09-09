@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.layout.GridData;
@@ -237,11 +238,13 @@ public class JsonSchemaPropertySection extends AbstractTransactionalSection {
                 false));
         propertyType.setLabelProvider(new UmlJsonSchemaLabelProvider());
 
+        // checkbox labels needs indentation to align to text labels.
+        GridDataFactory checkboxLabelGDF = GridDataFactory.swtDefaults().indent(/* hIndent */3, /* vIndent */0);
+
         Label isMandatoryLabel =
                 toolkit.createLabel(root,
                         Messages.JsonSchemaEditorDetails_mandatoryLabel);
-        isMandatoryLabel.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER,
-                false, false));
+        isMandatoryLabel.setLayoutData(checkboxLabelGDF.create());
         isMandatory = toolkit.createButton(root, "", SWT.CHECK); //$NON-NLS-1$
         isMandatory
                 .setLayoutData(new GridData(SWT.LEAD, SWT.TOP, false, false));
@@ -249,8 +252,7 @@ public class JsonSchemaPropertySection extends AbstractTransactionalSection {
         Label isArrayLabel =
                 toolkit.createLabel(root,
                         Messages.JsonSchemaEditorDetails_arrayLabel);
-        isArrayLabel.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, false,
-                false));
+        isArrayLabel.setLayoutData(checkboxLabelGDF.create());
         isArray = toolkit.createButton(root, "", SWT.CHECK); //$NON-NLS-1$
         isArray.setLayoutData(new GridData(SWT.LEAD, SWT.TOP, false, false));
 

@@ -585,6 +585,9 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
         super.setInput(Collections.singleton(pkg));
         schema.setInput(pkg);
         classes.setInput(pkg);
+
+        // Fully expands the schema (objects overview) at the beginning.
+        schema.expandAll();
     }
 
     /**
@@ -665,6 +668,7 @@ public class JsonSchemaEditor extends AbstractTransactionalSection implements
                 CompoundCommand cc =
                         new CompoundCommand(
                                 Messages.JsonSchemaEditor_addClassCommand);
+                JSON_SCHEMA_UTIL.setClassAsRoot(cls, /* isRoot */true);
                 cc.append(new AddCommand(getWorkingCopyEditingDomain(), pkg,
                         UMLPackage.eINSTANCE.getPackage_PackagedElement(), cls));
                 cmd = cc;

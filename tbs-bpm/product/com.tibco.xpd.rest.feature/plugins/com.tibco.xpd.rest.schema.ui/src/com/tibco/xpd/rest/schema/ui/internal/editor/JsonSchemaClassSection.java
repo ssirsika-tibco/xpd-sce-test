@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.layout.GridData;
@@ -44,7 +45,7 @@ public class JsonSchemaClassSection extends AbstractTransactionalSection {
 
     private CLabel classNameLabel;
 
-    private Button isRootButton; // a.k.a. Public
+    private Button isInternalButton; // a.k.a. Private
 
     private final static JsonSchemaUtil JSON_SCHEMA_UTIL = new JsonSchemaUtil();
 
@@ -78,7 +79,7 @@ public class JsonSchemaClassSection extends AbstractTransactionalSection {
         if (input instanceof Class) {
             Class cls = (Class) input;
             setIfChanged(className, cls.getName());
-            isRootButton.setSelection(JSON_SCHEMA_UTIL.isRootClass(cls));
+            isInternalButton.setSelection(!JSON_SCHEMA_UTIL.isRootClass(cls));
         }
     }
 
@@ -112,11 +113,16 @@ public class JsonSchemaClassSection extends AbstractTransactionalSection {
                 .setToolTipText(Messages.JsonSchemaEditorDetails_classNameTooltip);
         manageControl(className);
 
-        Label isRootLabel = toolkit.createLabel(root, Messages.JsonSchemaClassSection_Root_label);
-        isRootLabel.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, false, false));
-        isRootButton = toolkit.createButton(root, "", SWT.CHECK); //$NON-NLS-1$
-        isRootButton.setLayoutData(new GridData(SWT.LEAD, SWT.TOP, false, false));
-        manageControl(isRootButton);
+        // checkbox labels needs indentation to align to text labels.
+        GridDataFactory checkboxLabelGDF = GridDataFactory.swtDefaults().indent(/* hIndent */3, /* vIndent */0);
+
+        Label internalLabel = toolkit.createLabel(root, Messages.JsonSchemaClassSection_Internal_label);
+        internalLabel.setToolTipText(Messages.JsonSchemaClassSection_Internal_tooltip);
+        internalLabel.setLayoutData(checkboxLabelGDF.create());
+        isInternalButton = toolkit.createButton(root, "", SWT.CHECK); //$NON-NLS-1$
+        isInternalButton.setToolTipText(Messages.JsonSchemaClassSection_Internal_tooltip);
+        isInternalButton.setLayoutData(new GridData(SWT.LEAD, SWT.TOP, false, false));
+        manageControl(isInternalButton);
 
         return root;
     }
@@ -143,16 +149,17 @@ public class JsonSchemaClassSection extends AbstractTransactionalSection {
                         UMLPackage.eINSTANCE.getNamedElement_Name(), name));
                 cmd = cc;
             }
-            if (obj == isRootButton) {
-                final boolean isRoot = isRootButton.getSelection();
-                String cmdLabel = isRoot ? Messages.JsonSchemaClassSection_SetAsRoot_label : Messages.JsonSchemaClassSection_SetAsNonRoot_label;
+            if (obj == isInternalButton) {
+                final boolean isInternal = isInternalButton.getSelection();
+                String cmdLabel = isInternal ? Messages.JsonSchemaClassSection_SetAsInternal_label
+                        : Messages.JsonSchemaClassSection_SetAsPublic_label;
                 CompoundCommand cc =
                         new CompoundCommand(
                                 cmdLabel);
                 cc.append(new RecordingCommand((TransactionalEditingDomain) getEditingDomain()) {
                     @Override
                     protected void doExecute() {
-                        JSON_SCHEMA_UTIL.setClassAsRoot(cls, isRoot);
+                        JSON_SCHEMA_UTIL.setClassAsRoot(cls, !isInternal);
                     }
                 });
                 cmd = cc;

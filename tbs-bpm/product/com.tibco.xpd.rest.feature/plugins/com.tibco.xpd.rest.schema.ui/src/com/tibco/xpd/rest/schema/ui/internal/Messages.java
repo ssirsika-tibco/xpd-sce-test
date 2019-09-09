@@ -42,11 +42,13 @@ public class Messages extends NLS {
 
     public static String JsonSchemaClassSection_EmptyTypeNotAllowedError_msg;
 
-    public static String JsonSchemaClassSection_Root_label;
+    public static String JsonSchemaClassSection_Internal_label;
 
-    public static String JsonSchemaClassSection_SetAsNonRoot_label;
+    public static String JsonSchemaClassSection_Internal_tooltip;
 
-    public static String JsonSchemaClassSection_SetAsRoot_label;
+    public static String JsonSchemaClassSection_SetAsInternal_label;
+
+    public static String JsonSchemaClassSection_SetAsPublic_label;
 
     public static String JsonSchemaEditor_addClassCommand;
 
