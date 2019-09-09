@@ -64,10 +64,12 @@ public class UnsupportedActivitiesInServiceProcessRule extends
             "bx.unsupportedManualAdhocActivityTypeInServiceProcess"; //$NON-NLS-1$
 
     /**
-     * Non boundary timer events are not supported in Service Processes.
+     * Sid ACE-2947 - Expanded restriction to task-boundary timer events as well as just in-flow ones..
+     * 
+     * Timer events are not supported in Service Processes.
      */
-    private static final String UNSUPPORTED_NON_BOUNDARY_TIMER_EVENTS_TYPE_ISSUE_ID =
-            "bx.unsupportedNonBoundaryTimerEventInServiceProcess"; //$NON-NLS-1$
+    private static final String UNSUPPORTED_TIMER_EVENTS_TYPE_ISSUE_ID =
+            "bx.unsupportedTimerEventInServiceProcess"; //$NON-NLS-1$
 
     /**
      * @see com.tibco.xpd.validation.xpdl2.rules.ProcessValidationRule#validate(com.tibco.xpd.xpdl2.Process)
@@ -127,12 +129,10 @@ public class UnsupportedActivitiesInServiceProcessRule extends
                 EventTriggerType eventType =
                         EventObjectUtil.getEventTriggerType(activity);
                 if (EventTriggerType.EVENT_TIMER_LITERAL.equals(eventType)) {
-
-                    if (!EventObjectUtil.isAttachedToTask(activity)) {
-
-                        addIssue(UNSUPPORTED_NON_BOUNDARY_TIMER_EVENTS_TYPE_ISSUE_ID,
-                                activity);
-                    }
+                    /*
+                     * Sid ACE-2947 - Expanded restriction to task-boundary timer events as well as just in-flow ones..
+                     */
+                    addIssue(UNSUPPORTED_TIMER_EVENTS_TYPE_ISSUE_ID, activity);
                 }
             }
         }
