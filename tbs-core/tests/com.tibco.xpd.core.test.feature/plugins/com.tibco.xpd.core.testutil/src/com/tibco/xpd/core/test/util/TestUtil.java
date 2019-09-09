@@ -1185,6 +1185,39 @@ public class TestUtil {
     }
 
     /**
+     *
+     * @param resource
+     * @param depthInfinite
+     *            <code>true</code> to check this resource and all it's descendants <code>false</code> to check only
+     *            this resource.
+     * 
+     * @return String list of error level problem markers on resource (and optionally, its descendants).
+     */
+    @SuppressWarnings("nls")
+    public static String getErrorProblemMarkerList(IResource resource, boolean depthInfinite) {
+        String errorList = "";
+
+        try {
+            IMarker[] markers = resource.findMarkers(IMarker.PROBLEM,
+                    true,
+                    depthInfinite ? IResource.DEPTH_INFINITE : IResource.DEPTH_ZERO);
+
+            if (markers != null) {
+                for (IMarker marker : markers) {
+                    if (marker.getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR) {
+                        errorList += "- " + marker.getAttribute(IMarker.MESSAGE, "") + "\n";
+                    }
+                }
+            }
+
+        } catch (CoreException e) {
+            e.printStackTrace();
+        }
+
+        return errorList;
+    }
+
+    /**
      * @param marker
      * @param exceptIdsOrMessageText
      * @return <code>true</code> if the message text for the problem marker contains any of the given strings.
