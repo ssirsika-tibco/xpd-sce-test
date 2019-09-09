@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" generated="true" id="__CRXcNMIEemVCPWsM5Nvzg" formatVersion="11.0.0">
-  <form:runtimeDependencies/>
+<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" generated="true" generatorSource="Pageflow.xpdl#_be8mAW2IEemO1rJgkseCdg?p=WpRascTestProject%26s=Process%20Packages%26t=xpdl2%3aActivity%26q=Pageflow%3a%3aBusinessService%26n=UserTask?" formatVersion="11.0.0">
   <form:externalResources>
     <form:externalResource name="resource.common" uri="pathmap://FORMS_RESOURCES/common.properties" internal="true" localized="true"/>
-    <form:externalResource name="resource.form" uri="UserTask.properties" internal="true" localized="true"/>
+    <form:externalResource name="resource.form" uri=".default/Pageflow/BusinessService/UserTask/UserTask.properties" sfRelative="true" internal="true" localized="true"/>
   </form:externalResources>
   <form:dataModel/>
   <form:actions/>
@@ -11,10 +10,6 @@
     <form:rule generated="true" name="rule.cancel" label="Cancel">
       <form:event source="#control.cancel" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.cancel.select"/>
       <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.cancel"/>
-    </form:rule>
-    <form:rule generated="true" name="rule.close" label="Close">
-      <form:event source="#control.close" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.close.select"/>
-      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.close"/>
     </form:rule>
     <form:rule generated="true" name="rule.submit" label="Submit">
       <form:event source="#control.submit" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.submit.select"/>
@@ -42,13 +37,6 @@
     <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.cancel">
       <form:propertySet xsi:type="et:ButtonPropertySet"/>
       <form:label>Cancel</form:label>
-      <form:visible>true</form:visible>
-      <form:enabled>true</form:enabled>
-      <form:required>false</form:required>
-    </form:control>
-    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.close">
-      <form:propertySet xsi:type="et:ButtonPropertySet"/>
-      <form:label>Close</form:label>
       <form:visible>true</form:visible>
       <form:enabled>true</form:enabled>
       <form:required>false</form:required>

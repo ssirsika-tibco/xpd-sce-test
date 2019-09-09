@@ -1,25 +1,25 @@
 {
   "bindings": [],
   "rules": [],
-  "name": "UserTask",
+  "name": "LookupFailed",
   "type": "form",
   "reverseBindings": [],
-  "formModelId": "__CRXcNMIEemVCPWsM5Nvzg",
-  "formPathSegmentCount": 4,
+  "formModelId": "__CnVsNMIEemVCPWsM5Nvzg",
+  "formPathSegmentCount": 5,
   "formatVersion": "11.0.0.013",
   "bomJsFiles": [],
   "styleName": null,
-  "genCssClass": "f899b900c-9d9d-4432-98ac-8ccaf65bcd91",
+  "genCssClass": "f2dbbde50-3c1f-4198-a7ba-0300b581bc6e",
   "labelPosition": "top",
   "externalResources": [
     {
       "name": "",
-      "uri": "UserTask.gwt.js",
+      "uri": "LookupFailed.gwt.js",
       "localized": false
     },
     {
       "name": null,
-      "uri": "UserTask.gwt.css",
+      "uri": "LookupFailed.gwt.css",
       "localized": false
     },
     {
@@ -29,18 +29,44 @@
     },
     {
       "name": "resource.form",
-      "uri": "UserTask.properties",
+      "uri": "LookupFailed.properties",
       "localized": true
     }
   ],
-  "data": [],
+  "data": [
+    {
+      "bindings": [
+        {
+          "name": "control.CaseNotFound",
+          "type": "control",
+          "sourceFeature": [
+            "value"
+          ],
+          "destinationFeature": [
+            "value"
+          ]
+        }
+      ],
+      "rules": [],
+      "name": "data.CaseNotFound",
+      "type": "data",
+      "reverseBindings": [],
+      "datumType": "BomPrimitiveTypes::Text",
+      "label": "CaseNotFound",
+      "inout": "IN",
+      "array": false,
+      "decimalPlaces": 0,
+      "length": 100,
+      "primitive": true
+    }
+  ],
   "controlRefs": [
     {
-      "name": "control.cancel",
+      "name": "control.CaseNotFound",
       "type": "control"
     },
     {
-      "name": "control.close",
+      "name": "control.cancel",
       "type": "control"
     },
     {
@@ -65,6 +91,53 @@
   "control": [
     {
       "bindings": [],
+      "rules": [],
+      "name": "control.CaseNotFound",
+      "type": "control",
+      "reverseBindings": [
+        {
+          "name": "data.CaseNotFound",
+          "type": "data",
+          "sourceFeature": [
+            "value"
+          ],
+          "destinationFeature": [
+            "value"
+          ]
+        }
+      ],
+      "componentType": "com.tibco.forms.controls.textarea",
+      "shortLabelRef": "",
+      "labelRef": "",
+      "hintRef": "",
+      "enabled": true,
+      "visible": true,
+      "styleName": "",
+      "validations": [
+        {
+          "name": "CaseNotFound__length",
+          "message": "",
+          "messageRef": "resource.common.validation_text_length",
+          "when": "oncontrolchange",
+          "list": false
+        }
+      ],
+      "inheritsDeferInitialization": false,
+      "readOnly": true,
+      "required": false,
+      "value": [
+        "Case not found for the given case reference"
+      ],
+      "tabIndex": 0,
+      "alwaysRenderControl": false,
+      "propSetList": false,
+      "propSetMaxVisibleRows": 0,
+      "propSetTextBoxBaseMaxLen": 100,
+      "propSetTextAreaRows": 10,
+      "propSetTextAreaCols": 25
+    },
+    {
+      "bindings": [],
       "rules": [
         {
           "name": "cancel",
@@ -73,34 +146,6 @@
         }
       ],
       "name": "control.cancel",
-      "type": "control",
-      "reverseBindings": [],
-      "componentType": "com.tibco.forms.controls.button",
-      "shortLabelRef": "",
-      "labelRef": "",
-      "hintRef": "",
-      "enabled": true,
-      "visible": true,
-      "styleName": "",
-      "validations": [],
-      "inheritsDeferInitialization": false,
-      "readOnly": false,
-      "required": false,
-      "value": [],
-      "tabIndex": 0,
-      "alwaysRenderControl": false,
-      "propSetButtonType": "peripheral"
-    },
-    {
-      "bindings": [],
-      "rules": [
-        {
-          "name": "close",
-          "trigger": "select",
-          "cancelOnError": false
-        }
-      ],
-      "name": "control.close",
       "type": "control",
       "reverseBindings": [],
       "componentType": "com.tibco.forms.controls.button",
@@ -169,7 +214,12 @@
       "dataType": null,
       "concreteClassifierNames": [],
       "concreteClassifierLabels": [],
-      "children": [],
+      "children": [
+        {
+          "name": "control.CaseNotFound",
+          "type": "control"
+        }
+      ],
       "staticRendering": false,
       "textOnly": false,
       "deferRendering": false,
@@ -199,10 +249,6 @@
       "children": [
         {
           "name": "control.cancel",
-          "type": "control"
-        },
-        {
-          "name": "control.close",
           "type": "control"
         },
         {

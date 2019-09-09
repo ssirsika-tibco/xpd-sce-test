@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_DPaDYG2JEemO1rJgkseCdg" xpdExt:DisplayName="WpRascTestDataProject" Name="WpRascTestDataProject">
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_DPaDYG2JEemO1rJgkseCdg" xpdExt:DisplayName="WpRascTestDataProject" Name="WpRascTestDataProject">
   <xpdl2:PackageHeader xpdExt:Language="en_GB">
     <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
     <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
@@ -8,7 +8,6 @@
   </xpdl2:PackageHeader>
   <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
     <xpdl2:Author>aallway</xpdl2:Author>
-    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
   </xpdl2:RedefinableHeader>
   <xpdl2:Pools>
     <xpdl2:Pool Id="_DWzr4G2JEemO1rJgkseCdg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_DVMiUG2JEemO1rJgkseCdg">
@@ -91,9 +90,10 @@
           <xpdl2:Implementation>
             <xpdl2:Task>
               <xpdl2:TaskScript>
-                <xpdl2:Script ScriptGrammar="JavaScript">if (Case1Ref != null) {
-Case1 = Case1Ref.readCase1();
-}</xpdl2:Script>
+                <xpdl2:Script ScriptGrammar="JavaScript">if (data.Case1Ref != null) {
+data.Case1 = bpm.caseData.read(data.Case1Ref);
+}
+</xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>
           </xpdl2:Implementation>
@@ -218,14 +218,16 @@ Case1 = Case1Ref.readCase1();
               <xpdl2:ResultError ErrorCode="">
                 <xpdExt:CatchErrorMappings>
                   <xpdExt:Message Id="_DWzr722JEemO1rJgkseCdg">
-                    <xpdl2:DataMappings>
-                      <xpdl2:DataMapping Direction="OUT" Formal="$ERRORCODE">
-                        <xpdl2:Actual ScriptGrammar="JavaScript">ErrorCode</xpdl2:Actual>
-                      </xpdl2:DataMapping>
-                      <xpdl2:DataMapping Direction="OUT" Formal="$ERRORDETAIL">
-                        <xpdl2:Actual ScriptGrammar="JavaScript">ErrorDetail</xpdl2:Actual>
-                      </xpdl2:DataMapping>
-                    </xpdl2:DataMappings>
+                    <xpdExt:OutputMappings MapperContext="CatchAll" MappingDirection="OUT">
+                      <xpdExt:DataMappings>
+                        <xpdExt:DataMapping xpdExt:SourceContributorId="CatchAll.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="ErrorCode">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">$ERRORCODE</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping xpdExt:SourceContributorId="CatchAll.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="ErrorDetail">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">$ERRORDETAIL</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                      </xpdExt:DataMappings>
+                    </xpdExt:OutputMappings>
                   </xpdExt:Message>
                 </xpdExt:CatchErrorMappings>
               </xpdl2:ResultError>
@@ -343,9 +345,11 @@ Case1 = Case1Ref.readCase1();
         </xpdl2:Transition>
         <xpdl2:Transition Id="_DWzr-22JEemO1rJgkseCdg" xpdExt:DisplayName="" Name="" From="_DWzr5G2JEemO1rJgkseCdg" To="_DWzr8W2JEemO1rJgkseCdg">
           <xpdl2:Condition Type="CONDITION">
-<xpdl2:Expression ScriptGrammar="JavaScript">Case1 == null;
+                        
+                        <xpdl2:Expression ScriptGrammar="JavaScript">data.Case1 == null;
 </xpdl2:Expression>
-</xpdl2:Condition>
+                        
+                    </xpdl2:Condition>
           <xpdl2:ConnectorGraphicsInfos>
             <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
             <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
@@ -365,10 +369,7 @@ Case1 = Case1Ref.readCase1();
         </xpdl2:Transition>
       </xpdl2:Transitions>
       <xpdl2:ExtendedAttributes>
-        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
-        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData>
-            <simulation:ParameterDistribution ParameterId="caseRefType"/>
-          </simulation:WorkflowProcessSimulationData></xpdl2:ExtendedAttribute>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
       </xpdl2:ExtendedAttributes>
       <xpdl2:Extensions/>
       <xpdExt:CaseService>
@@ -378,7 +379,7 @@ Case1 = Case1Ref.readCase1();
   </xpdl2:WorkflowProcesses>
   <xpdl2:ExtendedAttributes>
     <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
-    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="22"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
     <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="22"/>
   </xpdl2:ExtendedAttributes>
 </xpdl2:Package>

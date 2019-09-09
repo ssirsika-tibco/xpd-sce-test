@@ -2,23 +2,14 @@
 
 if (typeof(tibcoforms) == 'undefined') tibcoforms = new Object();
 if (typeof(tibcoforms.formCode) == 'undefined') tibcoforms.formCode = new Object();
-tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg'] = new Object();
-tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg']['defineActions'] = function() {
-var fc = tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg'];
+tibcoforms.formCode['__DPn0NMIEemVCPWsM5Nvzg'] = new Object();
+tibcoforms.formCode['__DPn0NMIEemVCPWsM5Nvzg']['defineActions'] = function() {
+var fc = tibcoforms.formCode['__DPn0NMIEemVCPWsM5Nvzg'];
     fc['rule_cancel'] = function(formId, context, thisObj) {
        try {
             bpm.forms.Util.handleScriptAction.call(thisObj, formId, context, thisObj, "cancel", "cancel", fc['action_cancel']);
        } catch(e) {
            tibcoforms.bridge.log_error("Rule(cancel) Error: " + e);
-           throw e;
-       }
-    }
-
-    fc['rule_close'] = function(formId, context, thisObj) {
-       try {
-            bpm.forms.Util.handleScriptAction.call(thisObj, formId, context, thisObj, "close", "close", fc['action_close']);
-       } catch(e) {
-           tibcoforms.bridge.log_error("Rule(close) Error: " + e);
            throw e;
        }
     }
@@ -60,11 +51,10 @@ var fc = tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg'];
         return "TIBCO Forms for ACE Runtime 11.0.0.015";
     }
 };
-tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg']['defineActions']();
+tibcoforms.formCode['__DPn0NMIEemVCPWsM5Nvzg']['defineActions']();
 
-tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg']['defineValidations'] = function() {
-var fc = tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg'];
-    
+tibcoforms.formCode['__DPn0NMIEemVCPWsM5Nvzg']['defineValidations'] = function() {
+var fc = tibcoforms.formCode['__DPn0NMIEemVCPWsM5Nvzg'];
     
     
     
@@ -86,4 +76,4 @@ var fc = tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg'];
        
        
 };
-tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg']['defineValidations']();
+tibcoforms.formCode['__DPn0NMIEemVCPWsM5Nvzg']['defineValidations']();

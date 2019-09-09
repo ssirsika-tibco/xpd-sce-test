@@ -2,23 +2,14 @@
 
 if (typeof(tibcoforms) == 'undefined') tibcoforms = new Object();
 if (typeof(tibcoforms.formCode) == 'undefined') tibcoforms.formCode = new Object();
-tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg'] = new Object();
-tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg']['defineActions'] = function() {
-var fc = tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg'];
+tibcoforms.formCode['__CnVsNMIEemVCPWsM5Nvzg'] = new Object();
+tibcoforms.formCode['__CnVsNMIEemVCPWsM5Nvzg']['defineActions'] = function() {
+var fc = tibcoforms.formCode['__CnVsNMIEemVCPWsM5Nvzg'];
     fc['rule_cancel'] = function(formId, context, thisObj) {
        try {
             bpm.forms.Util.handleScriptAction.call(thisObj, formId, context, thisObj, "cancel", "cancel", fc['action_cancel']);
        } catch(e) {
            tibcoforms.bridge.log_error("Rule(cancel) Error: " + e);
-           throw e;
-       }
-    }
-
-    fc['rule_close'] = function(formId, context, thisObj) {
-       try {
-            bpm.forms.Util.handleScriptAction.call(thisObj, formId, context, thisObj, "close", "close", fc['action_close']);
-       } catch(e) {
-           tibcoforms.bridge.log_error("Rule(close) Error: " + e);
            throw e;
        }
     }
@@ -60,12 +51,16 @@ var fc = tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg'];
         return "TIBCO Forms for ACE Runtime 11.0.0.015";
     }
 };
-tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg']['defineActions']();
+tibcoforms.formCode['__CnVsNMIEemVCPWsM5Nvzg']['defineActions']();
 
-tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg']['defineValidations'] = function() {
-var fc = tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg'];
+tibcoforms.formCode['__CnVsNMIEemVCPWsM5Nvzg']['defineValidations'] = function() {
+var fc = tibcoforms.formCode['__CnVsNMIEemVCPWsM5Nvzg'];
     
     
+fc['validation_CaseNotFound_CaseNotFound__length'] = function(formId, controlName, cloneUID, listIndex) {
+    var valScr = 'typeof context.stringValue != \'undefined\' && typeof bpm.forms.Util != \'undefined\' ? bpm.forms.Util.checkTextLength(context.stringValue, 100) ? true : [context.control.label, \'100\'] : context.value.length <= 100;';
+    return bpm.forms.Util.handleInlineValidation.call(this, formId, this, cloneUID, listIndex, valScr, "CaseNotFound__length", true, true);
+}
     
     
     
@@ -81,9 +76,18 @@ var fc = tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg'];
     fc['DataModel'] = function(formId) {
         if (this.form) return;
         this.form = tibcoforms.formCache[formId];
+        Object.defineProperty(this, 'CaseNotFound', {
+            get: function() {
+                return this.form.dataMap['CaseNotFound'].value;
+            },
+            set: function(value) {
+                this.form.dataMap['CaseNotFound'].value = value;
+            },
+            enumerable: true
+        });
     }
        
        
        
 };
-tibcoforms.formCode['__CRXcNMIEemVCPWsM5Nvzg']['defineValidations']();
+tibcoforms.formCode['__CnVsNMIEemVCPWsM5Nvzg']['defineValidations']();
