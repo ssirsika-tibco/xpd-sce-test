@@ -54,14 +54,14 @@ public class AceNameLengthRestrictionsTest extends AbstractN2BaseValidationTest 
          */
         assertTrue("NameLimitsExceededProcess_0123456789012345678901234567890123456789012345678901234567890123456789_Test" //$NON-NLS-1$
                 + " project should have the 'Project names must not exceed 100 characters.' raised on it ", //$NON-NLS-1$
-                hasErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject(
+                hasSpecificErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject(
                         "NameLimitsExceededProcess_0123456789012345678901234567890123456789012345678901234567890123456789_Test"), //$NON-NLS-1$
                         "ace.project.name.too.long")); //$NON-NLS-1$
 
         assertTrue(
                 "NameLimitsExceededProcess_0123456789012345678901234567890123456789012345678901234567890123456789_Test" //$NON-NLS-1$
                         + " project should have the 'Project ID must not exceed 100 characters.' raised on it ", //$NON-NLS-1$
-                hasErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject(
+                hasSpecificErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject(
                         "NameLimitsExceededProcess_0123456789012345678901234567890123456789012345678901234567890123456789_Test"), //$NON-NLS-1$
                         "ace.project.id.too.long")); //$NON-NLS-1$
 
@@ -208,7 +208,7 @@ public class AceNameLengthRestrictionsTest extends AbstractN2BaseValidationTest 
      * @return <code>true</code> if given resource has given problem marker
      *         raised on it.
      */
-    private boolean hasErrorProblemMarker(IResource resource, String issueId) {
+    private boolean hasSpecificErrorProblemMarker(IResource resource, String issueId) {
         try {
             IMarker[] markers = resource.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_INFINITE);
 

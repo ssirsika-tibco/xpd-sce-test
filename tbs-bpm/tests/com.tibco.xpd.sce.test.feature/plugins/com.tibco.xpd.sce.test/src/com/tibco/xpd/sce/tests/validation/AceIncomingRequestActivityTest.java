@@ -4,10 +4,7 @@
 
 package com.tibco.xpd.sce.tests.validation;
 
-import org.eclipse.core.resources.IMarker;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.resources.util.ProjectImporter;
@@ -38,7 +35,9 @@ public class AceIncomingRequestActivityTest extends TestCase {
         try {
             assertFalse("IncomingRequestAct" //$NON-NLS-1$
                     + " project should not have any ERROR level problem markers", //$NON-NLS-1$
-                    hasErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject("IncomingRequestAct"))); //$NON-NLS-1$
+                    TestUtil.hasErrorProblemMarker(
+                            ResourcesPlugin.getWorkspace().getRoot().getProject("IncomingRequestAct"), //$NON-NLS-1$
+                            true));
 
         } finally {
             if (projectImporter != null) {
@@ -67,32 +66,6 @@ public class AceIncomingRequestActivityTest extends TestCase {
         TestUtil.buildAndWait();
 
         return projectImporter;
-    }
-
-    /**
-     * 
-     * @param resource
-     * @param markerId
-     * @return <code>true</code> if given resource has given problem marker raised on it.
-     */
-    private boolean hasErrorProblemMarker(IResource resource) {
-        try {
-            IMarker[] markers = resource.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_INFINITE);
-
-            if (markers != null) {
-                for (IMarker marker : markers) {
-                    if (marker.getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR) {
-                        return true;
-                    }
-                }
-
-            }
-
-        } catch (CoreException e) {
-            e.printStackTrace();
-        }
-
-        return false;
     }
 
 }
