@@ -43,6 +43,16 @@ public class RascUiActivator extends AbstractUIPlugin {
     public static final String HIDE_ADMIN_BASE_URL = "hideAdminBaseUrl"; //$NON-NLS-1$
 
     /**
+     * Preference store key for confirmation to lock project.
+     */
+    public static final String HIDE_LOCK_CONFIRMATION = "hideLockConfirmation"; //$NON-NLS-1$
+
+    /**
+     * Preference store key for confirmation to create new draft for a project.
+     */
+    public static final String HIDE_CREATE_NEW_DRAFT_CONFIRMATION = "hideCreateNewDraftConfirmation"; //$NON-NLS-1$
+
+    /**
      * The maximum number of entries to record in the Admin URL history.
      */
     private static final int URL_HISTORY_SIZE = 10;
@@ -207,5 +217,37 @@ public class RascUiActivator extends AbstractUIPlugin {
      */
     public void setHideAdminUrlDialog(boolean hide) {
         getPreferenceStore().setValue(HIDE_ADMIN_BASE_URL, hide);
+    }
+
+    /**
+     * @return true if the lock confirmation dialog should be hidden.
+     */
+    public boolean getHideLockConfirmationDialog() {
+        return getPreferenceStore().getBoolean(HIDE_LOCK_CONFIRMATION);
+    }
+
+    /**
+     * @param hide
+     *            true if the lock confirmation dialog should be hidden.
+     */
+    public void setHideLockConfirmationDialog(boolean hide) {
+        getPreferenceStore().setValue(HIDE_LOCK_CONFIRMATION, hide);
+    }
+
+    /**
+     * @return true if the create new draft confirmation dialog should be
+     *         hidden.
+     */
+    public boolean getHideCreateNewDraftConfirmationDialog() {
+        return getPreferenceStore().getBoolean(HIDE_CREATE_NEW_DRAFT_CONFIRMATION);
+    }
+
+    /**
+     * @param hide
+     *            true if the create new draft confirmation dialog should be
+     *            hidden.
+     */
+    public void setHideCreateNewDraftConfirmationDialog(boolean hide) {
+        getPreferenceStore().setValue(HIDE_CREATE_NEW_DRAFT_CONFIRMATION, hide);
     }
 }

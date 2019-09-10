@@ -15,10 +15,8 @@ import org.eclipse.ui.actions.BaseSelectionListenerAction;
 
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.internal.Messages;
-import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.MessageDialogUtil;
-import com.tibco.xpd.resources.util.XpdConsts;
 
 /**
  * Menu action to create a new draft of a project.
@@ -59,23 +57,22 @@ public class CreateNewDraftAction extends BaseSelectionListenerAction {
      */
     @Override
     public void run() {
-        for (IProject project : projects) {
-            try {
-                if (MessageDialogUtil.openOkCancelConfirm(
-                        Display.getDefault().getActiveShell(),
-                        Messages.CreateNewDraftConfirmation_Title,
-                        Messages.CreateNewDraftConfirmation_Desc,
-                        Messages.LockAndDraftConfirmation_Skip,
-                        false,
-                        XpdConsts.PREF_DONT_ASK_AGAIN_FOR_CREATE_NEW_DRAFT,
-                        XpdResourcesPlugin.getDefault().getPreferenceStore()) == IDialogConstants.OK_ID) {
+        if (MessageDialogUtil.openOkCancelConfirm(Display.getDefault().getActiveShell(),
+                Messages.CreateNewDraftConfirmation_Title,
+                Messages.CreateNewDraftConfirmation_Desc,
+                Messages.LockAndDraftConfirmation_Skip,
+                false,
+                RascUiActivator.HIDE_CREATE_NEW_DRAFT_CONFIRMATION,
+                RascUiActivator.getDefault().getPreferenceStore()) == IDialogConstants.OK_ID) {
+            for (IProject project : projects) {
+                try {
                     gss.createNewDraft(project);
                     gsus.refreshEditorLabels();
+                } catch (CoreException e) {
+                    RascUiActivator.getLogger().error("Could not unlock project " + project.getName()); //$NON-NLS-1$
+                } catch (IOException e) {
+                    RascUiActivator.getLogger().error("Could not update version on project " + project.getName()); //$NON-NLS-1$
                 }
-            } catch (CoreException e) {
-                RascUiActivator.getLogger().error("Could not unlock project " + project.getName()); //$NON-NLS-1$
-            } catch (IOException e) {
-                RascUiActivator.getLogger().error("Could not update version on project " + project.getName()); //$NON-NLS-1$
             }
         }
 
