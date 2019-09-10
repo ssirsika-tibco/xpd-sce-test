@@ -104,6 +104,8 @@ class ParseXML {
             FileInputStream inStream = new FileInputStream(file);
             try {
                 document = docBuilder.parse(inStream);
+            } catch (SAXException e) {
+                throw new SAXException("Failed to parse: " + file.getAbsolutePath(), e); //$NON-NLS-1$
             } finally {
                 inStream.close();
             }

@@ -145,8 +145,8 @@
                 <xpdl2:Script ScriptGrammar="JavaScript">//This script must be modified to match the cac factory name,&#xD;
 //case identifiers, findBy method name and read method name&#xD;
 //with correct arguments and types&#xD;
-// XXX needs to be the qualified case type string "<package>.<class>" e.g. 'com.tibco.example.MyClass'
-data.caseRefType = bpm.caseData.findByCaseIdentifier(data.caseId1, 'XXX');&#xD;
+// XXX needs to be the qualified case type string &quot;&lt;package&gt;.&lt;class&gt;&quot; e.g. &apos;com.tibco.example.MyClass&apos;
+data.caseRefType = bpm.caseData.findByCaseIdentifier(data.caseId1, &apos;XXX&apos;);&#xD;
 if (data.caseRefType != null) {&#xD;
 	data.caseBomType = bpm.caseData.read(data.caseRefType);&#xD;
 }</xpdl2:Script>
