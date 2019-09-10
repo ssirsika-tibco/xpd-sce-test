@@ -30,6 +30,16 @@ public class AdminUrlPreferencePage extends PreferencePage
     private AdminUrlPropertyPanel panel;
 
     /**
+     * Checkbox for hiding the lock confirmation dialog.
+     */
+    private Button showLockConfirmationDialog;
+
+    /**
+     * Checkbox for hiding the create new draft confirmation dialog.
+     */
+    private Button showCreateNewDraftConfirmationDialog;
+
+    /**
      * Checkbox for hiding the admin URL dialog.
      */
     private Button showAdminUrl;
@@ -68,6 +78,19 @@ public class AdminUrlPreferencePage extends PreferencePage
                 showAminUrlDialog,
                 Messages.AdminUrlPreferencePage_ShowAdminUrlDialog,
                 RascUiActivator.HIDE_ADMIN_BASE_URL);
+
+        boolean showLockConfirmation = !RascUiActivator.getDefault().getHideLockConfirmationDialog();
+        showLockConfirmationDialog = toolkit.createCheckbox(page,
+                showLockConfirmation,
+                Messages.RascUi_ShowLockConfirmationDialog,
+                RascUiActivator.HIDE_LOCK_CONFIRMATION);
+
+        boolean showCreateNewDraftConfirmation =
+                !RascUiActivator.getDefault().getHideCreateNewDraftConfirmationDialog();
+        showCreateNewDraftConfirmationDialog = toolkit.createCheckbox(page,
+                showCreateNewDraftConfirmation,
+                Messages.RascUi_ShowCreateNewDraftConfirmationDialog,
+                RascUiActivator.HIDE_CREATE_NEW_DRAFT_CONFIRMATION);
         // showAdminUrl.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true,
         // true));
         return page;
@@ -82,6 +105,9 @@ public class AdminUrlPreferencePage extends PreferencePage
         panel.reset();
         showAdminUrl.setSelection(
                 !RascUiActivator.getDefault().getHideAdminUrlDialog());
+        showLockConfirmationDialog.setSelection(!RascUiActivator.getDefault().getHideLockConfirmationDialog());
+        showCreateNewDraftConfirmationDialog
+                .setSelection(!RascUiActivator.getDefault().getHideCreateNewDraftConfirmationDialog());
         super.performDefaults();
     }
 
@@ -95,6 +121,9 @@ public class AdminUrlPreferencePage extends PreferencePage
         RascUiActivator.getDefault().setAdminBaseUrl(panel.getAdminBaseUrl());
         RascUiActivator.getDefault()
                 .setHideAdminUrlDialog(!showAdminUrl.getSelection());
+        RascUiActivator.getDefault().setHideLockConfirmationDialog(!showLockConfirmationDialog.getSelection());
+        RascUiActivator.getDefault()
+                .setHideCreateNewDraftConfirmationDialog(!showCreateNewDraftConfirmationDialog.getSelection());
         return super.performOk();
     }
 

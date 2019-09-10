@@ -28,6 +28,10 @@ public class Messages extends NLS {
 
     public static String AdminUrlPropertyPanel_DefaultUrlWarning;
 
+    public static String RascUi_ShowLockConfirmationDialog;
+
+    public static String RascUi_ShowCreateNewDraftConfirmationDialog;
+
     public static String LifecycleActionProvider_CreateDraftMenuLabel;
 
     public static String LifecycleActionProvider_DeploymentMenuLabel;
