@@ -95,16 +95,6 @@ public class XpdConsts {
      */
     public static final String PREF_DONT_ASK_AGAIN_FOR_PROJECT_REFERENCE =
             "dont_ask_project_reference_always"; //$NON-NLS-1$
-    
-    /**
-     * Don't ask for confirmation to lock project.
-     */
-    public static final String PREF_DONT_ASK_AGAIN_FOR_LOCK = "dont_ask_lock_project_always"; //$NON-NLS-1$
-
-    /**
-     * Don't ask for confirmation to create new draft for a project.
-     */
-    public static final String PREF_DONT_ASK_AGAIN_FOR_CREATE_NEW_DRAFT = "dont_ask_draft_project_always"; //$NON-NLS-1$
 
     /**
      * It is the id of the browser instance that can be shared by xpd components
