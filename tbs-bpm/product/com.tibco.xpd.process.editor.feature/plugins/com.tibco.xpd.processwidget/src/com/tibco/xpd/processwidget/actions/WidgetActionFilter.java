@@ -661,8 +661,8 @@ public class WidgetActionFilter implements IActionFilter {
             return (ANSWER_FALSE.equals(value));
 
         } else if (IS_READ_ONLY.equals(name)) {
-            if (target instanceof BaseGraphicalEditPart) {
-                BaseGraphicalEditPart ep = (BaseGraphicalEditPart) target;
+            if (target instanceof ModelAdapterEditPart) {
+                ModelAdapterEditPart ep = (ModelAdapterEditPart) target;
 
                 if (ep.getModelAdapter() != null) {
                     if (ep.getModelAdapter().isReadOnly()) {
