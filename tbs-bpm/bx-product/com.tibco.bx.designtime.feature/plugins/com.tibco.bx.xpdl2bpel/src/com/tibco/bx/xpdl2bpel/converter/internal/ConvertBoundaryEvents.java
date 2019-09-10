@@ -368,7 +368,14 @@ public class ConvertBoundaryEvents {
 			// set link condition for fan number (todo what if link already had
 			// a condition
 			Condition condition = BPELFactory.eINSTANCE.createCondition();
-			condition.setBody("$" + fanVar.getName() + "=" + fanNumber); //$NON-NLS-1$ //$NON-NLS-2$
+			
+			/* Sid ACE-2822 ACE runtime does not support XPath scripting. The condition we used to create wasn't JavaScript so it fell back on XPath.
+			 * 
+			 * So we need to declare the transitionConditioin for the fan-out as JavaScript instead (like for other fan variables "_BX_fan_variable1=1; true;"
+			 */
+			condition.setExpressionLanguage(N2PEConstants.JSCRIPT_LANGUAGE);
+			condition.setBody(fanVar.getName() + "=" + fanNumber + "; true"); //$NON-NLS-1$ //$NON-NLS-2$
+			
 			List<Source> sources = scope.getSources().getChildren();
 			for (Source source : sources) {
 				if (link.equals(source.getLink())) {
