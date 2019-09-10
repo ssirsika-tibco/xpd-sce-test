@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_9Ej-QNOwEemSkvPDaTzxFw" xpdExt:DisplayName="TestImplicitTypeConversionBPMProj" Name="TestImplicitTypeConversionBPMProj">
+  <xpdl2:PackageHeader xpdExt:Language="en_US">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2019-09-10</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>USD</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>sajain</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_izrUUNPEEemSkvPDaTzxFw" xpdExt:DisplayName="Participant" Name="Participant">
+      <xpdl2:ParticipantType Type="RESOURCE_SET">
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name='tibco-admin')</xpdExt:ParticipantQuery>
+      </xpdl2:ParticipantType>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_ki4pINO5EemSkvPDaTzxFw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_kivfMNO5EemSkvPDaTzxFw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_ki4pIdO5EemSkvPDaTzxFw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_NoEz4NOxEemSkvPDaTzxFw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_9FDGcNOwEemSkvPDaTzxFw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_NoGpENOxEemSkvPDaTzxFw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="450.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_9FDGcNOwEemSkvPDaTzxFw" xpdExt:DisplayName="TestImplicitTypeConversionBPMProj-Process" Name="TestImplicitTypeConversionBPMProjProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_MQWjQNPCEemSkvPDaTzxFw" Name="Parameter" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_NbdrgNPCEemSkvPDaTzxFw" Name="Parameter2" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_OdjaoNPCEemSkvPDaTzxFw" Name="Parameter3" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_QtNeMNPEEemSkvPDaTzxFw" Name="Parameter4" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter4">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_RZpGYNPEEemSkvPDaTzxFw" Name="Parameter5" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter5">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_SCsDYNPEEemSkvPDaTzxFw" Name="Parameter6" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter6">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_SxxW8NPEEemSkvPDaTzxFw" Name="Parameter7" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter7">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_YhnOoNPEEemSkvPDaTzxFw" Name="Parameter8" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter8">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_PhqjANPCEemSkvPDaTzxFw" xpdExt:DisplayName="Field" Name="Field">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_QenTcNPCEemSkvPDaTzxFw" xpdExt:DisplayName="Field2" Name="Field2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_RtFRsNPCEemSkvPDaTzxFw" xpdExt:DisplayName="Field3" Name="Field3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_S_JWgNPCEemSkvPDaTzxFw" xpdExt:DisplayName="Field4" Name="Field4">
+          <xpdl2:DataType>
+            <xpdl2:BasicType xpdExt:FieldFormat="URI" Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_5Z-oQNPDEemSkvPDaTzxFw" xpdExt:DisplayName="Field5" Name="Field5">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_6BhwcNPDEemSkvPDaTzxFw" xpdExt:DisplayName="Field6" Name="Field6">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_6p1toNPDEemSkvPDaTzxFw" xpdExt:DisplayName="Field7" Name="Field7">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_50r8YNPFEemSkvPDaTzxFw" xpdExt:DisplayName="CorrelationField" Name="CorrelationField" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_V2R-4NPGEemSkvPDaTzxFw" xpdExt:DisplayName="Field8" Name="Field8">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_WqCXENPGEemSkvPDaTzxFw" xpdExt:DisplayName="Field9" Name="Field9">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_6UZFQNPHEemSkvPDaTzxFw" xpdExt:DisplayName="Field10" Name="Field10">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_7dhQgNPHEemSkvPDaTzxFw" xpdExt:DisplayName="Field11" Name="Field11">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_gke8ENPIEemSkvPDaTzxFw" xpdExt:DisplayName="Field12" Name="Field12">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iCzUMNPIEemSkvPDaTzxFw" xpdExt:DisplayName="Field13" Name="Field13">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_i2tdYNPIEemSkvPDaTzxFw" xpdExt:DisplayName="Field14" Name="Field14">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_oviNwNPPEemxjptNGhboJg" xpdExt:DisplayName="Field15" Name="Field15">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:ActivitySets>
+        <xpdl2:ActivitySet Id="_wJKSQdPFEemSkvPDaTzxFw">
+          <xpdl2:Activities>
+            <xpdl2:Activity Id="_xsUuINPFEemSkvPDaTzxFw" Name="CatchGlobalGlobalSignal" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch Global: GlobalSignal">
+              <xpdl2:Event>
+                <xpdl2:StartEvent xpdExt:NonInterruptingEvent="true" Trigger="Signal">
+                  <xpdl2:TriggerResultSignal xpdExt:SignalType="Global" xpdExt:EventHandlerFlowStrategy="AllowConcurrent" CatchThrow="CATCH" Name="com.example.testimplicittypeconversiongsdproj/TestImplicitTypeConversionGSDProj.gsd#GlobalSignal">
+                    <xpdExt:SignalData>
+                      <xpdExt:OutputScriptDataMapper MapperContext="GlobalSignalCatch" MappingDirection="OUT">
+                        <xpdExt:DataMappings>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalCorrelation.DataMapperContent" Direction="IN" Formal="CorrelationField">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Parameter4">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData2</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Parameter5">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData3</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Parameter6">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData4</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Parameter7">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData5</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Parameter8">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData6</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field2">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData16</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field5">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData7</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field6">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData8</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field12">
+                            <xpdExt:ScriptInformation Id="_K4wLQNPPEemxjptNGhboJg" Name="ret_DTZ" Direction="OUT">
+                              <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_PayloadData3;</xpdExt:Expression>
+                            </xpdExt:ScriptInformation>
+                            <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field13">
+                            <xpdExt:ScriptInformation Id="_FAf-cNPPEemxjptNGhboJg" Name="ret_Date" Direction="OUT">
+                              <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_PayloadData2;</xpdExt:Expression>
+                            </xpdExt:ScriptInformation>
+                            <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field10">
+                            <xpdExt:ScriptInformation Id="_MTMwANPPEemxjptNGhboJg" Name="ret_FixedPointNumber" Direction="OUT">
+                              <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_PayloadData4;</xpdExt:Expression>
+                            </xpdExt:ScriptInformation>
+                            <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field14">
+                            <xpdExt:ScriptInformation Id="_MTMwANPPEemxjptNGhboJg" Name="Copy1Ofret_FixedPointNumber" Direction="OUT">
+                              <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_PayloadData4;</xpdExt:Expression>
+                            </xpdExt:ScriptInformation>
+                            <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field11">
+                            <xpdExt:ScriptInformation Id="_Ng6gUNPPEemxjptNGhboJg" Name="ret_FloatingPointNumber" Direction="OUT">
+                              <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_PayloadData5;</xpdExt:Expression>
+                            </xpdExt:ScriptInformation>
+                            <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field7">
+                            <xpdExt:ScriptInformation Id="_Ng6gUNPPEemxjptNGhboJg" Name="Copy1Ofret_FloatingPointNumber" Direction="OUT">
+                              <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_PayloadData5;</xpdExt:Expression>
+                            </xpdExt:ScriptInformation>
+                            <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field8">
+                            <xpdExt:ScriptInformation Id="_PKo3MNPPEemxjptNGhboJg" Name="ret_Performer" Direction="OUT">
+                              <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_PayloadData6;</xpdExt:Expression>
+                            </xpdExt:ScriptInformation>
+                            <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field9">
+                            <xpdExt:ScriptInformation Id="_ScfpgNPPEemxjptNGhboJg" Name="ret_Time" Direction="OUT">
+                              <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_PayloadData7;</xpdExt:Expression>
+                            </xpdExt:ScriptInformation>
+                            <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field15">
+                            <xpdExt:ScriptInformation Id="_Tz2eANPPEemxjptNGhboJg" Name="ret_URI" Direction="OUT">
+                              <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_PayloadData8;</xpdExt:Expression>
+                            </xpdExt:ScriptInformation>
+                            <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                        </xpdExt:DataMappings>
+                      </xpdExt:OutputScriptDataMapper>
+                    </xpdExt:SignalData>
+                    <xpdExt:EventHandlerInitialisers Id="_H7p3ENPGEemSkvPDaTzxFw">
+                      <xpdExt:ActivityRef xpdExt:IdRef="_NoGpEdOxEemSkvPDaTzxFw"/>
+                    </xpdExt:EventHandlerInitialisers>
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:StartEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="43.0" YCoordinate="65.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_ywJiotPFEemSkvPDaTzxFw" Name="EndEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event">
+              <xpdl2:Event>
+                <xpdl2:EndEvent Result="None"/>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="200.0" YCoordinate="68.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+          </xpdl2:Activities>
+          <xpdl2:Transitions>
+            <xpdl2:Transition Id="_ywJio9PFEemSkvPDaTzxFw" Name="" From="_xsUuINPFEemSkvPDaTzxFw" To="_ywJiotPFEemSkvPDaTzxFw">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+          </xpdl2:Transitions>
+        </xpdl2:ActivitySet>
+      </xpdl2:ActivitySets>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_NoGpEdOxEemSkvPDaTzxFw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_NoGpENOxEemSkvPDaTzxFw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_NoGpEtOxEemSkvPDaTzxFw" Name="ThrowGlobalGlobalSignal" xpdExt:DisplayName="Throw Global: GlobalSignal">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Signal">
+              <xpdl2:TriggerResultSignal xpdExt:SignalType="Global" CatchThrow="THROW" Name="com.example.testimplicittypeconversiongsdproj/TestImplicitTypeConversionGSDProj.gsd#GlobalSignal">
+                <xpdExt:SignalData>
+                  <xpdExt:InputScriptDataMapper MapperContext="GlobalSignalThrow" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignalCorrelation.DataMapperContent" Direction="IN" Formal="PayloadData">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData10">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Parameter2</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData11">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Parameter3</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData12">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData5">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Parameter3</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData13">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field2</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData14">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field3</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData15">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field4</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData16">
+                        <xpdExt:ScriptInformation Id="_LHQ90NPOEemxjptNGhboJg" Name="ret_Date">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Parameter;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData17">
+                        <xpdExt:ScriptInformation Id="_Sx35ENPOEemxjptNGhboJg" Name="ret_DTZ">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Parameter2;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData18">
+                        <xpdExt:ScriptInformation Id="_YfPrkNPOEemxjptNGhboJg" Name="ret_FixedPointNumber">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Parameter3;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData21">
+                        <xpdExt:ScriptInformation Id="_YfPrkNPOEemxjptNGhboJg" Name="Copy1Ofret_FixedPointNumber">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Parameter3;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData9">
+                        <xpdExt:ScriptInformation Id="_jEek4NPOEemxjptNGhboJg" Name="ret_FloatingPointNumber">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Field10;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData4">
+                        <xpdExt:ScriptInformation Id="_jEek4NPOEemxjptNGhboJg" Name="Copy1Ofret_FloatingPointNumber">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Field10;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData19">
+                        <xpdExt:ScriptInformation Id="_vD-cwdPOEemxjptNGhboJg" Name="ret_Performer">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Field2;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData20">
+                        <xpdExt:ScriptInformation Id="_25luINPOEemxjptNGhboJg" Name="ret_Time">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Field3;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData22">
+                        <xpdExt:ScriptInformation Id="__Taf0NPOEemxjptNGhboJg" Name="ret_URI">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Field4;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:InputScriptDataMapper>
+                </xpdExt:SignalData>
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_NoGpENOxEemSkvPDaTzxFw" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_WBu9wNPCEemSkvPDaTzxFw" Name="CallSubProcess" FinishMode="Automatic" StartMode="Automatic" xpdExt:Visibility="Private" xpdExt:DisplayName="Call Sub-Process">
+          <xpdl2:Implementation>
+            <xpdl2:SubFlow Id="_kivfMNO5EemSkvPDaTzxFw" xpdExt:StartStrategy="StartImmediately" xpdExt:SuspendResumeWithParent="true">
+              <xpdExt:InputMappings MapperContext="ProcessToSubProcess" MappingDirection="IN">
+                <xpdExt:DataMappings>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Parameter">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Parameter2">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter2</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Parameter3">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter3</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Parameter4">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter3</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Parameter5">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Field</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Parameter6">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Field2</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Parameter7">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Field3</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Parameter8">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Field4</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Parameter9">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Field</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                </xpdExt:DataMappings>
+              </xpdExt:InputMappings>
+              <xpdExt:OutputMappings MapperContext="SubProcessToProcess" MappingDirection="OUT">
+                <xpdExt:DataMappings>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Parameter3">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter4</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Field2">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter5</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Field">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter9</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Parameter4">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter4</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Parameter8">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter9</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Parameter5">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter10</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Parameter6">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter11</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Parameter7">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter12</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Field5">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter13</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Field6">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Parameter14</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                </xpdExt:DataMappings>
+              </xpdExt:OutputMappings>
+            </xpdl2:SubFlow>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="_NoGpENOxEemSkvPDaTzxFw" Width="128.0">
+              <xpdl2:Coordinates XCoordinate="336.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_EM-30NPEEemSkvPDaTzxFw" Name="ThrowSignalEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Throw Signal Event">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Trigger="Signal">
+              <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="Signal1">
+                <xpdExt:SignalData/>
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_NoGpENOxEemSkvPDaTzxFw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="191.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_gplbUNPEEemSkvPDaTzxFw" Name="UserTask" xpdExt:Visibility="Private" xpdExt:DisplayName="User Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_gplbUdPEEemSkvPDaTzxFw"/>
+                <xpdl2:MessageOut Id="_gplbUtPEEemSkvPDaTzxFw"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_izrUUNPEEemSkvPDaTzxFw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_NoGpENOxEemSkvPDaTzxFw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="494.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hh48UNPEEemSkvPDaTzxFw" Name="CatchSignal1" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch: Signal1">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="_gplbUNPEEemSkvPDaTzxFw" Trigger="Signal">
+              <xpdl2:TriggerResultSignal xpdExt:NonCancelling="true" CatchThrow="CATCH" Name="Signal1">
+                <xpdExt:SignalData>
+                  <xpdExt:OutputScriptDataMapper MapperContext="LocalSignalCatch" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromLocalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Parameter4">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromLocalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Parameter5">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Parameter2</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromLocalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Parameter6">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Parameter3</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromLocalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Parameter3</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromLocalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field2">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Parameter4</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromLocalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Parameter7">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field2</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromLocalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Parameter8">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field3</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromLocalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field5">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field4</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field6">
+                        <xpdExt:ScriptInformation Id="_MrTAkNPHEemSkvPDaTzxFw" Name="ret_date" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_Parameter;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field7">
+                        <xpdExt:ScriptInformation Id="_dAMLYNPHEemSkvPDaTzxFw" Name="ret_FixedPointNumber" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_Parameter3;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field8">
+                        <xpdExt:ScriptInformation Id="_T0oawNPHEemSkvPDaTzxFw" Name="ret_DTZ" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_Parameter2;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field10">
+                        <xpdExt:ScriptInformation Id="_dAMLYNPHEemSkvPDaTzxFw" Name="Copy1Ofret_FixedPointNumber" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_Parameter3;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field11">
+                        <xpdExt:ScriptInformation Id="_Gi_JENPIEemSkvPDaTzxFw" Name="ret_FloatingPointNumber" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_Field10;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field9">
+                        <xpdExt:ScriptInformation Id="_Gi_JENPIEemSkvPDaTzxFw" Name="Copy1Ofret_FloatingPointNumber" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_Field10;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field12">
+                        <xpdExt:ScriptInformation Id="_SFlCgNPIEemSkvPDaTzxFw" Name="ret_Performer" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_Field2;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field13">
+                        <xpdExt:ScriptInformation Id="_YNpM8NPIEemSkvPDaTzxFw" Name="ret_Time" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_Field3;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field14">
+                        <xpdExt:ScriptInformation Id="_ZOj3YNPIEemSkvPDaTzxFw" Name="ret_URI" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_Field4;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:OutputScriptDataMapper>
+                </xpdExt:SignalData>
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_NoGpENOxEemSkvPDaTzxFw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="36.25" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_wJKSQNPFEemSkvPDaTzxFw" Name="EventSubProcess" xpdExt:DisplayName="Event Sub-Process">
+          <xpdl2:BlockActivity xpdExt:IsEventSubProcess="true" ActivitySetId="_wJKSQdPFEemSkvPDaTzxFw" View="EXPANDED"/>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,230,138" Height="192.0" LaneId="_NoGpENOxEemSkvPDaTzxFw" Width="288.0">
+              <xpdl2:Coordinates XCoordinate="351.0" YCoordinate="344.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_WBvk0NPCEemSkvPDaTzxFw" xpdExt:DisplayName="" Name="" From="_EM-30NPEEemSkvPDaTzxFw" To="_WBu9wNPCEemSkvPDaTzxFw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_EM_e4NPEEemSkvPDaTzxFw" xpdExt:DisplayName="" Name="" From="_NoGpEdOxEemSkvPDaTzxFw" To="_EM-30NPEEemSkvPDaTzxFw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_GPCPINPEEemSkvPDaTzxFw" xpdExt:DisplayName="" Name="" From="_gplbUNPEEemSkvPDaTzxFw" To="_NoGpEtOxEemSkvPDaTzxFw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_gpmCYNPEEemSkvPDaTzxFw" xpdExt:DisplayName="" Name="" From="_WBu9wNPCEemSkvPDaTzxFw" To="_gplbUNPEEemSkvPDaTzxFw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_kivfMNO5EemSkvPDaTzxFw" xpdExt:DisplayName="TestImplicitTypeConversionBPMProj-Process2" Name="TestImplicitTypeConversionBPMProjProcess2">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_nr3MQNO5EemSkvPDaTzxFw" Name="Parameter2" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_ow6IwNO5EemSkvPDaTzxFw" Name="Parameter3" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_7N3SoNPBEemSkvPDaTzxFw" Name="Parameter" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_SCRCENPDEemSkvPDaTzxFw" Name="Parameter4" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter4">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_XPiYMNPDEemSkvPDaTzxFw" Name="Parameter5" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter5">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_YM28ENPDEemSkvPDaTzxFw" Name="Parameter6" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter6">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Y1DkgNPDEemSkvPDaTzxFw" Name="Parameter7" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter7">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_cCtzUNPDEemSkvPDaTzxFw" Name="Parameter8" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter8">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_lO1SsNPFEemSkvPDaTzxFw" Name="Parameter9" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter9">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_tQiC0NPGEemSkvPDaTzxFw" Name="Parameter10" Mode="INOUT" Required="false" xpdExt:DisplayName="Parameter10">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_uXtGQNPGEemSkvPDaTzxFw" Name="Parameter11" Mode="INOUT" Required="false" xpdExt:DisplayName="Parameter11">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_vYkGUNPGEemSkvPDaTzxFw" Name="Parameter12" Mode="INOUT" Required="false" xpdExt:DisplayName="Parameter12">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_w9k8UNPGEemSkvPDaTzxFw" Name="Parameter13" Mode="INOUT" Required="false" xpdExt:DisplayName="Parameter13">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_yKIPANPGEemSkvPDaTzxFw" Name="Parameter14" Mode="INOUT" Required="false" xpdExt:DisplayName="Parameter14">
+          <xpdl2:DataType>
+            <xpdl2:BasicType xpdExt:FieldFormat="URI" Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_-Xt_gNPBEemSkvPDaTzxFw" xpdExt:DisplayName="Field2" Name="Field2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="__fRdcNPBEemSkvPDaTzxFw" xpdExt:DisplayName="Field3" Name="Field3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType xpdExt:FieldFormat="URI" Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Dn-YMNPCEemSkvPDaTzxFw" xpdExt:DisplayName="Field4" Name="Field4">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_ki4pItO5EemSkvPDaTzxFw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_ki4pIdO5EemSkvPDaTzxFw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ki4pI9O5EemSkvPDaTzxFw" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_ki4pIdO5EemSkvPDaTzxFw" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_XB4EwdPFEemSkvPDaTzxFw" xpdExt:DisplayName="" Name="" From="_ki4pItO5EemSkvPDaTzxFw" To="_ki4pI9O5EemSkvPDaTzxFw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

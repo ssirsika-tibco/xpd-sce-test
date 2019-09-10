@@ -10,6 +10,7 @@ import com.tibco.xpd.sce.tests.javascript.AceProcessAndWMScriptMappingTest;
 import com.tibco.xpd.sce.tests.javascript.AceProcessDataWrapperMappingsTest;
 import com.tibco.xpd.sce.tests.legacy.datamapper.AllLegacyDataMapperTests;
 import com.tibco.xpd.sce.tests.validation.AceGlobalSignalDataMapperTest;
+import com.tibco.xpd.sce.tests.validation.AceImplicitTypeConversionTest;
 import com.tibco.xpd.sce.tests.validation.AceIntegerWorkItemAttributeMappingTest;
 import com.tibco.xpd.sce.tests.validation.AceLocalSignalDataMapperNegativeTest;
 import com.tibco.xpd.sce.tests.validation.AceLocalSignalDataMapperTest;
@@ -39,6 +40,7 @@ public class AllUnitTestsDataMapper {
         suite.addTestSuite(AceLocalSignalMappingGenerationTest.class);
         suite.addTestSuite(AceIntegerWorkItemAttributeMappingTest.class);
         suite.addTestSuite(AceMultiInstanceSubProcMappingValidationTest.class);
+        suite.addTestSuite(AceImplicitTypeConversionTest.class);
         return suite;
     }
 }
