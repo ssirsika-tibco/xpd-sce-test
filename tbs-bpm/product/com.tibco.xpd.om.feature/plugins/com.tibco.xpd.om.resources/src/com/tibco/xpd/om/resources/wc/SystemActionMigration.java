@@ -44,7 +44,18 @@ public class SystemActionMigration {
             MigrationAction.delete("EC", "directAuditAccess"), //
             MigrationAction.delete("EC", "listProcessTemplateAuditTrail"), //
             MigrationAction.delete("EC", "showProcessInstanceAuditTrail"), //
-            MigrationAction.delete("EC", "openWorkItemAuditTrail") //
+            MigrationAction.delete("EC", "openWorkItemAuditTrail"), //
+
+            MigrationAction.reasign("BDS", "createGlobalData", "CDM", "createCase"), //
+            MigrationAction.reasign("BDS", "updateGlobalData", "CDM", "updateCase"), //
+            MigrationAction.reasign("BDS", "deleteGlobalData", "CDM", "deleteCase"), //
+            MigrationAction.reasign("BDS", "readGlobalData", "CDM", "readCase"), //
+            MigrationAction.reasign("BDS", "cmisUser", "APPDEV", "useCaseDocument"), //
+            MigrationAction.reasign("BDS", "cmisAdmin", "APPDEV", "administerCaseDocument"), //
+
+            MigrationAction.delete("BDS", "manageDataViews"), //
+            MigrationAction.delete("BDS", "accessGlobalDataScripts"), //
+            MigrationAction.delete("BDS", "administerGlobalDataScripts") //
     };
 
     /**
@@ -132,9 +143,6 @@ public class SystemActionMigration {
             boolean migrated = false;
             for (MigrationAction migration : MIGRATIONS) {
                 if (migration.appliesTo(action)) {
-                    // remove the original action
-                    iterator.remove();
-
                     // perform the migration
                     action = migration.migrate(action);
 
@@ -148,10 +156,16 @@ public class SystemActionMigration {
                         if (processed != null) {
                             // merge with the existing action
                             merge(processed, action);
+
+                            // remove the original action
+                            iterator.remove();
                         } else {
                             // add it to the list
                             processedActions.put(new SystemActionKey(action), action);
                         }
+                    } else {
+                        // remove the original action
+                        iterator.remove();
                     }
 
                     migrated = true;

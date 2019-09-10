@@ -57,6 +57,27 @@ public class SystemActionMigrationTest extends TestCase {
             { "EC", "listProcessTemplateAuditTrail" }, //
             { "EC", "showProcessInstanceAuditTrail" }, //
             { "EC", "openWorkItemAuditTrail" }, //
+
+            { "BDS", "createGlobalData" }, //
+            { "BDS", "updateGlobalData" }, //
+            { "BDS", "deleteGlobalData" }, //
+            { "BDS", "readGlobalData" }, //
+            { "BDS", "cmisUser" }, //
+            { "BDS", "cmisAdmin" }, //
+
+            { "BDS", "manageDataViews" }, //
+            { "BDS", "accessGlobalDataScripts" }, //
+            { "BDS", "administerGlobalDataScripts" } //
+    };
+
+    // the new actions that are migrated from older actions during migration
+    private static final String[][] ADDITIONAL_ACTIONS = { //
+            { "CDM", "createCase" }, //
+            { "CDM", "updateCase" }, //
+            { "CDM", "deleteCase" }, //
+            { "CDM", "readCase" }, //
+            { "APPDEV", "useCaseDocument" }, //
+            { "APPDEV", "administerCaseDocument" } //
     };
 
     // @Test
@@ -93,11 +114,37 @@ public class SystemActionMigrationTest extends TestCase {
         assertNotNull(aOrgModel);
 
         checkSystemActions(aOrgModel.getSystemActions());
+        checkNewActions(aOrgModel.getSystemActions());
 
         checkGroupActions(aOrgModel.getGroups());
 
         for (Organization organization : aOrgModel.getOrganizations()) {
             checkOrgUnitActions(organization.getUnits());
+        }
+    }
+
+    /**
+     * Tests that all the new actions appear in the given collection. This is only called on org-model level actions -
+     * as that is the only place where ALL actions will appear.
+     */
+    private void checkNewActions(Collection<SystemAction> aActions) {
+        boolean[] foundAdditions = new boolean[SystemActionMigrationTest.ADDITIONAL_ACTIONS.length];
+        Arrays.fill(foundAdditions, false);
+
+        for (SystemAction action : aActions) {
+            // look for the new actions
+            for (int i = 0; i < SystemActionMigrationTest.ADDITIONAL_ACTIONS.length; i++) {
+                String[] addition = SystemActionMigrationTest.ADDITIONAL_ACTIONS[i];
+                if ((Objects.equals(action.getComponent(), addition[0]))
+                        && (Objects.equals(action.getActionId(), addition[1]))) {
+                    foundAdditions[i] = true;
+                }
+            }
+        }
+
+        for (int i = 0; i < foundAdditions.length; i++) {
+            String[] action = SystemActionMigrationTest.ADDITIONAL_ACTIONS[i];
+            assertTrue("Failed to locate new action: " + action[0] + ":" + action[1], foundAdditions[i]);
         }
     }
 
