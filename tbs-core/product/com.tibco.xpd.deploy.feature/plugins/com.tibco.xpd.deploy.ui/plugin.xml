@@ -8,6 +8,17 @@
    <extension-point id="deployResolver" name="Deploy Resolver" schema="schema/deployResolver.exsd"/>
    <extension-point id="defaultServers" name="defaultServers" schema="schema/defaultServers.exsd"/>
  
+      <!-- 
+      		Sid ACE-2918 Deploy Server view was removed from the Modelling perspectives BUT
+      		We should not contribute the Deploy Server view at all
+            OTHERWISE, the user can still access it via the Window->Open View dialog and 
+            delete the dummy deploy server created for ACE BPM Live Dev View....
+
+		THEREFORE ALL CONTRIBUTIONS COMMENTED FOR NOW UNTIL WE NEED TO INTRODUCE DEPLOY SERVERS FOR ACE
+		
+		IF THIS ALL-CONTRIBUTIONS COMMENT OUT IS REMOVED THEN LOOK FOR TODO's below to re-comment out 
+			a couple previously commented out sections related to server groups  
+
       <extension
             point="org.eclipse.ui.navigator.viewer">
          <viewerContentBinding viewerId="com.tibco.xpd.deploy.server.view">
@@ -27,6 +38,7 @@
             </includes>
          </viewerActionBinding>
       </extension>
+      
       <extension
             point="org.eclipse.ui.navigator.navigatorContent">
          <navigatorContent
@@ -69,7 +81,8 @@
                   </or>
                </enablement>
             </commonWizard>
-            <!-- TODO Uncomment for server groups.
+            
+!- TODO Uncomment for server groups. ===============================================
             <commonWizard
                   type="new"
                   wizardId="com.tibco.xpd.deploy.ui.newServerGroupWizard">
@@ -81,7 +94,8 @@
                   </or>
                </enablement>
             </commonWizard>
-            -->
+- ==========================================================================
+            
             <actionProvider
                   class="com.tibco.xpd.deploy.ui.providers.ConnectivityActionProvider"
                   id="com.tibco.xpd.deploy.projectexplorer.ConnectivityActions">
@@ -179,25 +193,7 @@
                </enablement>
             </actionProvider>
       </extension>
-      <!--
-      <extension
-            point="org.eclipse.ui.popupMenus">
-         <objectContribution
-               adaptable="false"
-               id="com.tibco.xpd.deploy.ui.ServerActionContribution"
-               objectClass="com.tibco.xpd.deploy.Server">
-            <action
-               class="com.tibco.xpd.deploy.ui.actions.AddServerActionDelegate"
-               icon="icons/elcl16/add_server.gif"
-               id="com.tibco.xpd.deploy.ui.AddServer"
-               label="%AddServerAction.label"
-               menubarPath="additions"
-               style="push"
-               toolbarPath="additions"
-               tooltip="%AddServerAction.tooltip"/>
-         </objectContribution>
-      </extension>
-      -->
+
       <extension
             point="org.eclipse.ui.newWizards">
          <category
@@ -215,7 +211,8 @@
                %newDeployServerWizard.description
             </description>
          </wizard>
-         <!-- TODO Uncomment for server groups.
+         
+!- TODO Uncomment for server groups. ===============================================
          <wizard
                category="com.tibco.xpd.newWizard.modeling.category/com.tibco.xpd.deploy.ui.deploymentNewWizardCategory.ID"
                class="com.tibco.xpd.deploy.ui.wizards.addserver.AddServerGroupWizard"
@@ -227,7 +224,8 @@
                %newDeployServerGroupWizard.description
             </description>
          </wizard>
-         -->
+- =====================================================
+         
       </extension>
       <extension
             point="org.eclipse.ui.propertyPages">
@@ -241,9 +239,7 @@
                       property="com.tibco.xpd.deploy.ui.servertester.adaptsTo"
                       value="com.tibco.xpd.deploy.ServerGroup"/>
             </enabledWhen>
-            <!--<enabledWhen>
-               <adapt type="com.tibco.xpd.deploy.Server"/>
-            </enabledWhen>-->
+
          </page>
          <page
                class="com.tibco.xpd.deploy.ui.properties.ServerInfoPropertyPage"
@@ -353,17 +349,7 @@
                repositoryPublisher="com.tibco.xpd.deploy.ui.WorkspacePublisher">
          </repositoryType>
       </extension>
-      <!-- 
-      -->
-      <!-- 
-      <extension
-            point="org.eclipse.core.runtime.preferences">
-         <initializer
-               class="com.tibco.xpd.deploy.ui.preferences.ClientRuntimesPreferencePage"
-               id="com.tibco.xpd.deploy.ui.preferences.ClientRuntimesPreferencePage"
-               name="Client Runtimes"/>
-      </extension>
-      -->
+
       <extension
             point="org.eclipse.ui.preferencePages">
          <page
@@ -431,6 +417,7 @@
                pattern=".BSServers"
                selected="true"/>
       </extension>
+      
       <extension
             point="org.eclipse.ui.views">
          <view
@@ -443,6 +430,7 @@
                restorable="true">
          </view>
       </extension>
+      
       <extension
             point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
          <propertyContributor
@@ -544,7 +532,6 @@
             class="com.tibco.xpd.deploy.ui.providers.DefaultServerManager">
       </startup>
    </extension>
-   <!-- View Actions for Deployment Server View. -->
    <extension
          point="org.eclipse.ui.viewActions">
       <viewContribution
@@ -604,4 +591,7 @@
          </action>
      </viewContribution>
    </extension>
+   
+   -->
+   
 </plugin>
