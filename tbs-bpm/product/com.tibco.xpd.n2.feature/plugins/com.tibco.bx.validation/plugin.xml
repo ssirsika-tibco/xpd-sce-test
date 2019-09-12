@@ -5012,6 +5012,9 @@ s         <scriptContribution
                class="com.tibco.bx.validation.ace.rules.ProcessInterfaceMessageEventsRule">
          </rule>
          <rule
+               class="com.tibco.bx.validation.ace.rules.AceJavaScriptMappingsRule">
+         </rule>
+         <rule
                class="com.tibco.bx.validation.ace.rules.AceProcessRules"
                validateOnSaveOnly="false">
          </rule>
@@ -5110,6 +5113,15 @@ s         <scriptContribution
          <resolution
                canApplyToMultiple="false"
                id="resolution.bpmn.renameProcess">
+         </resolution>
+      </issue>
+      <issue
+            id="ace.jsMappingsNotSupported"
+            message="%ace.jsMappingsNotSupported"
+            severity="ERROR">
+            <resolution
+               canApplyToMultiple="false"
+               id="resolution.bpmn.removeJSDataMappings">
          </resolution>
       </issue>
       <issue

@@ -63,6 +63,8 @@ public class Messages extends NLS {
 
     public static String RemoveActivityScriptsResolution_RemiveActScripts_menu;
 
+    public static String RemoveJSDataMappingsContainer_Resolution;
+
     public static String RemoveCorrelationAssociations_RemoveCommand;
 
     public static String RemoveDeletedTasksFromGroupResolution_RemoveDeletedTasksFromTaskGroup_menu;
