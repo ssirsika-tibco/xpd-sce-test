@@ -2,22 +2,16 @@ package com.tibco.xpd.n2.live.internal;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 import org.eclipse.core.commands.operations.IUndoContext;
 import org.eclipse.core.commands.operations.UndoContext;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageRegistry;
-import org.eclipse.jface.viewers.ArrayContentProvider;
-import org.eclipse.jface.viewers.ComboViewer;
-import org.eclipse.jface.viewers.ILabelProvider;
-import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.custom.ScrolledComposite;
@@ -26,7 +20,6 @@ import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -42,28 +35,23 @@ import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributo
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import com.tibco.xpd.deploy.Server;
-import com.tibco.xpd.deploy.ServerType;
-import com.tibco.xpd.deploy.ui.DeployUIActivator;
 
 /**
  * View to allow easy access to Openspace on any of the configured BPM servers.
- * The server can be selected via a combo box and the Openspace web page is
- * displayed in an embedded browser. Buttons allow the page to be refreshed or
- * opened in an external browser.
+ * 
+ * Sid ACE-2918 In ACE there are no deployment servers, so the preferences just holds a single in-built server id. NOW
+ * the user sets the single server's URL in the property sheet and that gets saved in the preferences.
+ * 
+ * For now we will keep this class as permitting multiple servers as we may introduce deployment servers back into ACE
+ * or may allow the user to manually create multiple server configurations. The difference from AMX BPM is that the
+ * server will be slected in the properties view not in this view if we ever did so, therefore this function doesn't
+ * need to save selected server to prefs etc.
  * 
  * @author nwilson
  * @since 2 Sep 2014
  */
 public class OpenspaceViewPart extends ViewPart implements
         ITabbedPropertySheetPageContributor {
-
-    private static final String ADMIN_SERVER_TYPE_ID =
-            "com.tibco.amf.tools.admincligen.adminserver"; //$NON-NLS-1$
-
-    /**
-     * A list of available BPM servers.
-     */
-    private ComboViewer servers;
 
     /**
      * The embedded browser control.
@@ -96,7 +84,7 @@ public class OpenspaceViewPart extends ViewPart implements
         sc.setExpandVertical(true);
 
         Composite root = new Composite(sc, SWT.NONE);
-        root.setLayout(new GridLayout(4, false));
+        root.setLayout(new GridLayout(3, false));
         sc.setContent(root);
 
         Label serverLabel = new Label(root, SWT.NONE);
@@ -104,15 +92,17 @@ public class OpenspaceViewPart extends ViewPart implements
         GridData gd = new GridData(SWT.LEFT, SWT.CENTER, false, false);
         gd.verticalAlignment = SWT.CENTER;
         serverLabel.setLayoutData(gd);
-
-        servers = new ComboViewer(root);
-        GridData serverLayoutData =
-                new GridData(SWT.FILL, SWT.FILL, false, false);
-        serverLayoutData.widthHint = 150;
-        servers.getCombo().setLayoutData(serverLayoutData);
-        servers.setContentProvider(new ArrayContentProvider());
-        servers.setLabelProvider(new ServersLabelProvider());
-        servers.addSelectionChangedListener(new ServerSelectionListener());
+        
+        /* Sid ACE-2918 Deploy Server selection is no longer required. */ 
+        //
+        // servers = new ComboViewer(root);
+        // GridData serverLayoutData =
+        // new GridData(SWT.FILL, SWT.FILL, false, false);
+        // serverLayoutData.widthHint = 150;
+        // servers.getCombo().setLayoutData(serverLayoutData);
+        // servers.setContentProvider(new ArrayContentProvider());
+        // servers.setLabelProvider(new ServersLabelProvider());
+        // servers.addSelectionChangedListener(new ServerSelectionListener());
 
         messageLabel = new Label(root, SWT.NONE);
         messageLabel.setText(Messages.OpenspaceViewPart_ServerNotFoundLabel);
@@ -145,13 +135,50 @@ public class OpenspaceViewPart extends ViewPart implements
                 .setToolTipText(Messages.OpenspaceViewPart_RelaunchButtonToolTip);
         btnLaunch.addSelectionListener(listener);
 
-        getSite().setSelectionProvider(servers);
+        /*
+         * Sid ACE-2918 In ACE there is just one built in server {@link OpenspaceViewHelper#ACE_DEFAULT_SERVER_ID} -
+         * later, we may provide a way to create additional id's so we'll act as if the user has selected the default
+         * serverId.
+         */
+        getSite().setSelectionProvider(new ISelectionProvider() {
+
+            @Override
+            public void addSelectionChangedListener(ISelectionChangedListener listener) {
+            }
+
+            @Override
+            public ISelection getSelection() {
+                String serverId = OpenspaceViewHelper.getServerIdFromPreferences();
+
+                if (serverId == null || serverId.isEmpty()) {
+                    serverId = OpenspaceViewHelper.ACE_DUMMY_DEFAULT_SERVER_ID;
+                }
+
+                Server deployServer = OpenspaceViewHelper.getDeployServer(serverId);
+
+                if (deployServer != null) {
+                    return new StructuredSelection(Collections.singletonList(deployServer));
+                }
+
+                return null;
+            }
+
+            @Override
+            public void removeSelectionChangedListener(ISelectionChangedListener listener) {
+            }
+
+            @Override
+            public void setSelection(ISelection selection) {
+                // Only one thing is ever selected - so do nothing
+            }
+        });
 
         browser = new Browser(root, SWT.NONE);
-        browser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 4, 1));
+        browser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 3, 1));
 
         sc.setMinSize(root.computeSize(SWT.DEFAULT, SWT.DEFAULT));
         initialiseControls();
+
     }
 
     /**
@@ -161,225 +188,66 @@ public class OpenspaceViewPart extends ViewPart implements
      */
     public void initialiseControls() {
 
-        messageLabel.setVisible(false);
         browser.setText(Messages.OpenspaceViewPart_BrowserLoadingMessage);
-
-        List<Server> deploymentServers = getDeploymentServers();
-        servers.setInput(deploymentServers);
 
         /*
          * if server selection is stored in the preference then select that
-         * server if it is still in the list of available servers
+         * 
+         * Sid ACE-2918 In ACE there are no deployment servers, so the preferences just holds a single in-built server
+         * id. NOW the user sets the single server's URL in the property sheet and that gets saved in the preferences.
+         * 
+         * For now we will keep this class as permitting multiple servers as we may introduce deployment servers back
+         * into ACE or may allow the user to manually create multiple server configurations. The difference from AMX BPM
+         * is that the server will be slected in the properties view not in this view if we ever did so, therefore this
+         * function doesn't need to save selected server to prefs etc.
          */
+        String selectedServerId = OpenspaceViewHelper.getServerIdFromPreferences();
 
-        String prefServerId = OpenspaceViewHelper.getServerIdFromPreferences();
-        Server server = null;
-        if (prefServerId != null) {
-            for (int i = 0; i < deploymentServers.size(); i++) {
-                if (prefServerId.equals(deploymentServers.get(i).getId())) {
+        /*
+         * If the user hasn't changed from the default URL or hasn't at least change the domain name then tell them
+         * that.
+         */
+        try {
+            if (selectedServerId != null && !OpenspaceViewHelper
+                    .isTemplateOpenspaceURLDomain(OpenspaceViewHelper.getOpenspaceBaseURL(selectedServerId))) {
+                final String openspaceBaseURL = OpenspaceViewHelper.getOpenspaceBaseURL(selectedServerId);
+                messageLabel.setText(openspaceBaseURL);
+                messageLabel.setForeground(Display.getDefault().getSystemColor(SWT.COLOR_BLUE));
+                messageLabel.setToolTipText(null);
 
-                    /* server found in prefs then select this in the combo */
-                    servers.getCombo().select(i);
-                    server = deploymentServers.get(i);
-                    break;
-                }
-                /*
-                 * TODO: server not found, so delete the prefs value for the
-                 * server prefServerId
-                 */
-            }
-        } else if (deploymentServers.size() > 0) {
-            server = deploymentServers.get(0);
-            servers.getCombo().select(0);
-        }
-
-        if (server != null) {
-            /*
-             * save the selected server's id in the preferences
-             */
-            OpenspaceViewHelper.saveServerIdInPreferences(server.getId());
-
-            final String openspaceURL =
-                    OpenspaceViewHelper.getOpenspaceURLWithParams(server);
-
-            if (openspaceURL != null) {
                 Display.getDefault().asyncExec(new Runnable() {
 
                     @Override
                     public void run() {
-                        browser.setUrl(openspaceURL);
+                        browser.setUrl(openspaceBaseURL);
                     }
                 });
+
             } else {
+                messageLabel.setText(String.format(Messages.OpenspaceViewPart_ConfigureWorkManagerURL_message,
+                        Messages.OpenspaceViewHelper_DomainNameForDefaultTemplateURL));
+                messageLabel.setForeground(Display.getDefault().getSystemColor(SWT.COLOR_RED));
+                messageLabel.setToolTipText(String.format(
+                        Messages.OpenspaceViewPart_SetRULDomainTooltip_message,
+                        Messages.OpenspaceViewHelper_DomainNameForDefaultTemplateURL));
+
                 browser.setText(""); //$NON-NLS-1$
             }
-        } else {
+        } catch (MalformedURLException e) {
+            messageLabel.setText(String.format(Messages.OpenspaceViewPart_InvalidWorkManagerURL_message,
+                    Messages.OpenspaceViewHelper_DomainNameForDefaultTemplateURL));
+            messageLabel.setForeground(Display.getDefault().getSystemColor(SWT.COLOR_RED));
+            messageLabel.setToolTipText(null);
+
             browser.setText(""); //$NON-NLS-1$
-        }
-
-        if (deploymentServers == null || deploymentServers.isEmpty()) {
-
-            /* Show message for 'No deployment server found' */
-            messageLabel.setVisible(true);
         }
     }
 
     @Override
     public void setFocus() {
-        servers.getControl().setFocus();
-    }
-
-    /**
-     * Get list of available deployment servers
-     * 
-     * @return list of <code>com.tibco.xpd.deploy.Server</code>
-     */
-    private List<Server> getDeploymentServers() {
-        List<Server> servers = new ArrayList<>();
-        com.tibco.xpd.deploy.manager.ServerManager serverManagers =
-                DeployUIActivator.getServerManager();
-        EList<Server> allServers =
-                serverManagers.getServerContainer().getServers();
-        for (Server server : allServers) {
-            ServerType serverType = server.getServerType();
-            if (serverType != null) {
-                if (ADMIN_SERVER_TYPE_ID.equals(serverType.getId())) {
-                    servers.add(server);
-                }
-            }
+        if (browser != null && !browser.isDisposed()) {
+            browser.setFocus();
         }
-
-        return servers;
-    }
-
-    /**
-     * 
-     * 
-     * Label provider for servers
-     */
-    private class ServersLabelProvider implements ILabelProvider {
-
-        /**
-         * @see org.eclipse.jface.viewers.IBaseLabelProvider#addListener(org.eclipse.jface.viewers.ILabelProviderListener)
-         * 
-         * @param listener
-         */
-        @Override
-        public void addListener(ILabelProviderListener listener) {
-            // TODO Auto-generated method stub
-
-        }
-
-        /**
-         * @see org.eclipse.jface.viewers.IBaseLabelProvider#dispose()
-         * 
-         */
-        @Override
-        public void dispose() {
-            // TODO Auto-generated method stub
-
-        }
-
-        /**
-         * @see org.eclipse.jface.viewers.IBaseLabelProvider#isLabelProperty(java.lang.Object,
-         *      java.lang.String)
-         * 
-         * @param element
-         * @param property
-         * @return
-         */
-        @Override
-        public boolean isLabelProperty(Object element, String property) {
-            // TODO Auto-generated method stub
-            return false;
-        }
-
-        /**
-         * @see org.eclipse.jface.viewers.IBaseLabelProvider#removeListener(org.eclipse.jface.viewers.ILabelProviderListener)
-         * 
-         * @param listener
-         */
-        @Override
-        public void removeListener(ILabelProviderListener listener) {
-            // TODO Auto-generated method stub
-        }
-
-        /**
-         * @see org.eclipse.jface.viewers.ILabelProvider#getImage(java.lang.Object)
-         * 
-         * @param element
-         * @return
-         */
-        @Override
-        public Image getImage(Object element) {
-            // TODO Auto-generated method stub
-            return null;
-        }
-
-        /**
-         * @see org.eclipse.jface.viewers.ILabelProvider#getText(java.lang.Object)
-         * 
-         * @param element
-         * @return
-         */
-        @Override
-        public String getText(Object element) {
-            if (element instanceof Server) {
-                Server server = (Server) element;
-                return server.getName();
-            }
-            return null;
-        }
-    }
-
-    /**
-     * Selection change listener for servers combo
-     */
-    public class ServerSelectionListener implements ISelectionChangedListener {
-
-        /**
-         * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
-         * 
-         * @param event
-         */
-        @Override
-        public void selectionChanged(SelectionChangedEvent event) {
-            Server server = getSelectedServer(event.getSelection());
-            if (server != null) {
-                browser.setText(Messages.OpenspaceViewPart_BrowserLoadingMessage);
-                /*
-                 * save the selected server's id in the preferences
-                 */
-                OpenspaceViewHelper.saveServerIdInPreferences(server.getId());
-
-                final String openspaceURL =
-                        OpenspaceViewHelper.getOpenspaceURLWithParams(server);
-                if (openspaceURL != null) {
-                    Display.getDefault().asyncExec(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            browser.setUrl(openspaceURL);
-                        }
-                    });
-                }
-            } else {
-                browser.setText(""); //$NON-NLS-1$
-            }
-        }
-    }
-
-    /**
-     * @param selection
-     * @return server from the given selection
-     */
-    private Server getSelectedServer(ISelection selection) {
-        if (selection instanceof IStructuredSelection) {
-            IStructuredSelection ss = ((IStructuredSelection) selection);
-            Object selectedObj = ss.getFirstElement();
-            return (Server) selectedObj;
-        }
-        return null;
     }
 
     /**
@@ -405,38 +273,33 @@ public class OpenspaceViewPart extends ViewPart implements
             } else if (e.widget == btnLaunch) {
 
                 // get selected server
-                Server server = getSelectedServer(servers.getSelection());
-                if (server != null) {
+                /* Sid ACE-2918 We don't work with real servers, just the (currently one built in) server id's */
+                String selectedServerId = OpenspaceViewHelper.getServerIdFromPreferences();
+                if (selectedServerId != null) {
 
                     try {
-                        String openspaceUrl =
-                                OpenspaceViewHelper
-                                        .getOpenspaceURLWithParams(server);
+                        String openspaceUrl = OpenspaceViewHelper.getOpenspaceURLWithParams(selectedServerId);
                         if (openspaceUrl != null) {
                             URL url = new URL(openspaceUrl);
-                            PlatformUI.getWorkbench().getBrowserSupport()
-                                    .getExternalBrowser().openURL(url);
+                            PlatformUI.getWorkbench().getBrowserSupport().getExternalBrowser().openURL(url);
                         }
                     } catch (PartInitException e1) {
                         MessageDialog.openError(getSite().getShell(),
                                 Messages.OpenspaceViewPart_LaunchErrorTitle,
-                                Messages.OpenspaceViewPart_LaunchErrorMessage
-                                        + "\n" + e1.getMessage()); //$NON-NLS-1$
+                                Messages.OpenspaceViewPart_LaunchErrorMessage + "\n" + e1.getMessage()); //$NON-NLS-1$
                     } catch (MalformedURLException e1) {
-                        String base =
-                                OpenspaceViewHelper.getOpenspaceBaseURL(server);
+                        String base = OpenspaceViewHelper.getOpenspaceBaseURL(selectedServerId);
                         MessageDialog.openError(getSite().getShell(),
                                 Messages.OpenspaceViewPart_LaunchErrorTitle,
-                                Messages.OpenspaceViewPart_InvalidUrl
-                                        + "\n" + base); //$NON-NLS-1$
+                                Messages.OpenspaceViewPart_InvalidUrl + "\n" + base); //$NON-NLS-1$
                     }
                 }
+
             } else if (e.widget == copyUrlToClipboard) {
-                Server server = getSelectedServer(servers.getSelection());
-                if (server != null) {
-                    String url =
-                            OpenspaceViewHelper
-                                    .getOpenspaceURLWithParams(server);
+                /* Sid ACE-2918 We don't work with real servers, just the (currently one built in) server id's */
+                String selectedServerId = OpenspaceViewHelper.getServerIdFromPreferences();
+                if (selectedServerId != null) {
+                    String url = OpenspaceViewHelper.getOpenspaceURLWithParams(selectedServerId);
                     Display display = Display.getDefault();
                     Clipboard clipboard = new Clipboard(display);
                     TextTransfer textTransfer = TextTransfer.getInstance();

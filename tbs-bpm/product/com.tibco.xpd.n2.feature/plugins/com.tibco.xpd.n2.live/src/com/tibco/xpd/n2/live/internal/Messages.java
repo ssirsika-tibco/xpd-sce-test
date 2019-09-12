@@ -28,11 +28,19 @@ public class Messages extends NLS {
 
     public static String OpenspaceViewConnectionPropertySection_OpenspaceViewRefreshNote;
 
+    public static String OpenspaceViewHelper_DomainNameForDefaultTemplateURL;
+
+    public static String OpenspaceViewPart_ConfigureWorkManagerURL_message;
+
     public static String OpenspaceViewPart_CopyUrlToolTip;
 
     public static String OpenspaceViewPart_BrowserLoadingMessage;
 
+    public static String OpenspaceViewPart_DefaultServer_label;
+
     public static String OpenspaceViewPart_InvalidUrl;
+
+    public static String OpenspaceViewPart_InvalidWorkManagerURL_message;
 
     public static String OpenspaceViewPart_LaunchErrorMessage;
 
@@ -45,6 +53,8 @@ public class Messages extends NLS {
     public static String OpenspaceViewPart_ServerComboLabel;
 
     public static String OpenspaceViewPart_ServerNotFoundLabel;
+
+    public static String OpenspaceViewPart_SetRULDomainTooltip_message;
 
     public static String SetOpenspaceUrlOperation_Label;
 
