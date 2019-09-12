@@ -10,7 +10,10 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -21,6 +24,7 @@ import com.tibco.xpd.rasc.ui.internal.Messages;
 import com.tibco.xpd.resources.util.CyclicDependencyException;
 import com.tibco.xpd.resources.util.ProjectUtil2;
 import com.tibco.xpd.ui.importexport.exportwizard.pages.AbstractInputOutputSelectionWizardPage;
+import com.tibco.xpd.ui.projectexplorer.viewerfilters.XpdNatureProjectsOnly;
 
 /**
  * Initial project and export location selection page for the RASC export
@@ -85,6 +89,37 @@ public class RascExportProjectSelectionPage
                     Messages.RascExportProjectSelectionPage_NoProjectSelectedError,
                     ERROR);
         }
+    }
+
+    /**
+     * @see com.tibco.xpd.ui.importexport.exportwizard.pages.AbstractInputOutputSelectionWizardPage#createViewerFilters()
+     *
+     * @return
+     */
+    @Override
+    protected ViewerFilter[] createViewerFilters() {
+        return new ViewerFilter[] {
+                // XPD projects content only.
+                new XpdNatureProjectsOnly(),
+
+                // Only projects.
+                new ViewerFilter() {
+                    @Override
+                    public boolean select(Viewer viewer, Object parentElement, Object element) {
+                        if (element instanceof IWorkspaceRoot || element instanceof IProject) {
+                            if (element instanceof IProject) {
+                                IProject project = (IProject) element;
+                                /*
+                                 * Need to show only open projects.
+                                 */
+                                return project.isOpen();
+                            } else {
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                } };
     }
 
     /**
