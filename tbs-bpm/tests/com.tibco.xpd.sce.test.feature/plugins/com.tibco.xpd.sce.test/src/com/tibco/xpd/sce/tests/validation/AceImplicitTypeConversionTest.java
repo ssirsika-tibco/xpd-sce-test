@@ -15,7 +15,8 @@ import com.tibco.xpd.n2.test.core.validation.AbstractN2BaseValidationTest;
 import com.tibco.xpd.resources.util.ProjectUtil;
 
 /**
- *
+ * JUnit suite to make sure that the implicit type and script conversion works
+ * well in Studio.
  *
  * @author sajain
  * @since Sep 10, 2019
