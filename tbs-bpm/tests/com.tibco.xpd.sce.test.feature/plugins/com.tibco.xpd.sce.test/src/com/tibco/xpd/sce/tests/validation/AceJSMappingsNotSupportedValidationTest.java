@@ -108,17 +108,6 @@ public class AceJSMappingsNotSupportedValidationTest extends AbstractN2BaseValid
         return "AceJSMappingsNotSupportedValidationTest";
     }
 
-    /**
-     * @see com.tibco.xpd.core.test.util.AbstractBaseResourceTest#tearDown()
-     *
-     * @throws Exception
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        // TODO Auto-generated method stub
-        // super.tearDown();
-    }
-
     @Override
     protected String getTestPlugInId() {
         return "com.tibco.xpd.sce.test";
