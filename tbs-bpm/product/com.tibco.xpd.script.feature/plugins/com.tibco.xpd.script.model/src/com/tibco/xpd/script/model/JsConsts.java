@@ -71,6 +71,10 @@ public class JsConsts {
 
     public static final String BOM_OBJECT = "bom.Object"; //$NON-NLS-1$
 
+    /**
+     * Name of private primitive type for case references (note this should be kept in-synch with BOM
+     * PrimitivesUtil.BOM_PRIMITIVE_CASEREFERENCE_NAME)
+     */
     public static final String CASE_REFERENCE = "CaseReference"; //$NON-NLS-1$
 
     public static final String CASE_TYPE_NAME = "CaseTypeName"; //$NON-NLS-1$

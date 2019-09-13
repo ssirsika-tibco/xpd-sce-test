@@ -138,6 +138,12 @@ public class PrimitivesUtil {
     /** Name of Duration type. */
     public static final String BOM_PRIMITIVE_DURATION_NAME = "Duration"; //$NON-NLS-1$
 
+    /**
+     * Name of BOM (private) Primitive type used for Case References (note this should be kept in-synch with
+     * JsConsts.CASE_REFERENCE)
+     */
+    public static final String BOM_PRIMITIVE_CASEREFERENCE_NAME = "CaseReference"; //$NON-NLS-1$
+
     /** Name of Attachment type. */
     public static final String BOM_PRIMITIVE_ATTACHMENT_NAME = "Attachment"; //$NON-NLS-1$
 

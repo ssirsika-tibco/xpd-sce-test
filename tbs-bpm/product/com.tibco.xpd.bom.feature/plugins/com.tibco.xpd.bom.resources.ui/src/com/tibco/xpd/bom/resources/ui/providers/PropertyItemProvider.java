@@ -486,6 +486,13 @@ public class PropertyItemProvider extends NamedElementItemProvider {
                 } else if (PrimitivesUtil.BOM_PRIMITIVE_URI_NAME
                         .equals(typeName)) {
                     imageName = BOMImages.PROCESS_DATA_FIELD_URI;
+
+                } else if (PrimitivesUtil.BOM_PRIMITIVE_CASEREFERENCE_NAME.equals(typeName)) {
+                    /*
+                     * Sid ACE-3047 Handle case reference property types (used for case reference fields in the "data"
+                     * object
+                     */
+                    imageName = BOMImages.PROCESS_DATA_FIELD_CASEREFERENCE;
                 }
             }
 

@@ -114,6 +114,8 @@ public class BOMImages {
     public static final String PROCESS_DATA_FIELD_URI =
             "icons/process_data/DataFieldURI.png"; //$NON-NLS-1$
 
+    public static final String PROCESS_DATA_FIELD_CASEREFERENCE = "icons/process_data/DataFieldCaseRefType.png"; //$NON-NLS-1$
+
     public static final String[] IMAGES = new String[] { CLASS, CASE_CLASS,
             GLOBAL_CLASS, AUTO_CASE_IDENTIFIER, CASE_STATE, PACKAGE, PROPERTY,
             PRIMITIVE_TYPE, DIAGRAM, DIAGRAM_FOLDER, ASSOCIATION,
@@ -126,6 +128,6 @@ public class BOMImages {
             PROCESS_DATA_FIELD_DATETIME, PROCESS_DATA_FIELD_COMPLEXTYPE,
             PROCESS_DATA_FIELD_FLOAT, PROCESS_DATA_FIELD_INT,
             PROCESS_DATA_FIELD_STRING, PROCESS_DATA_FIELD_ENUM,
-            PROCESS_DATA_FIELD_URI
+            PROCESS_DATA_FIELD_URI, PROCESS_DATA_FIELD_CASEREFERENCE
     };
 }
