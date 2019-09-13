@@ -79,26 +79,8 @@ public class AceJSMappingsNotSupportedValidationTest extends AbstractN2BaseValid
                 new ValidationsTestProblemMarkerInfo(
                         "/TestJSMappingNotSupportedValidation/Process Packages/TestJSMappingNotSupportedValidation.xpdl",
                         "ace.jsMappingsNotSupported",
-                        "_P77e8tX4EemTVcOpVXCVwg",
-                        "BPM  : JavaScript grammar mappings are no longer supported. Use Data Mapper grammar instead. (TestJSMappingNotSupportedValidationProcess:EndEvent3)",
-                        "Convert to Data Mapper"),
-                new ValidationsTestProblemMarkerInfo(
-                        "/TestJSMappingNotSupportedValidation/Process Packages/TestJSMappingNotSupportedValidation.xpdl",
-                        "ace.jsMappingsNotSupported",
                         "_M3uuINX4EemTVcOpVXCVwg",
                         "BPM  : JavaScript grammar mappings are no longer supported. Use Data Mapper grammar instead. (TestJSMappingNotSupportedValidationProcess:ErrorEvent)",
-                        "Convert to Data Mapper"),
-                new ValidationsTestProblemMarkerInfo(
-                        "/TestJSMappingNotSupportedValidation/Process Packages/TestJSMappingNotSupportedValidation.xpdl",
-                        "ace.jsMappingsNotSupported",
-                        "_ndKxINX3EemTVcOpVXCVwg",
-                        "BPM  : JavaScript grammar mappings are no longer supported. Use Data Mapper grammar instead. (TestJSMappingNotSupportedValidationProcess:EventSubProcess)",
-                        "Convert to Data Mapper"),
-                new ValidationsTestProblemMarkerInfo(
-                        "/TestJSMappingNotSupportedValidation/Process Packages/TestJSMappingNotSupportedValidation.xpdl",
-                        "ace.jsMappingsNotSupported",
-                        "_5nWpoNX3EemTVcOpVXCVwg",
-                        "BPM  : JavaScript grammar mappings are no longer supported. Use Data Mapper grammar instead. (TestJSMappingNotSupportedValidationProcess:ThrowGlobalGlobalSignal)",
                         "Convert to Data Mapper") };
         return markerInfos;
     }
