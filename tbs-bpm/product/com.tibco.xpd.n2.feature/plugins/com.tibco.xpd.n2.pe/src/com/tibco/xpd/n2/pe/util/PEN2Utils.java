@@ -50,8 +50,7 @@ public class PEN2Utils {
 
     public static final String PE_BPM_PROCESS_PRIORITY_OBJECT_NAME = "priority"; //$NON-NLS-1$
 
-    public static final String CASE_SIGNAL_MODEL_FILE_NAME =
-            "/model/CaseSignalAttributes.uml"; //$NON-NLS-1$
+    public static final String PE_CASE_SIGNAL_FLOW_MODEL_FILE_NAME = "/model/ProcessCaseSignalFlowBpmJsClass.bom"; //$NON-NLS-1$
 
     public static final String PROCESS_FLOW_APPEND = "#ProcessFlow"; //$NON-NLS-1$
 

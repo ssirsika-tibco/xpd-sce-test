@@ -67,9 +67,13 @@ public class PEJScriptProcessAndCSARelevantDataProvider extends
 
     /**
      * Case signal attributes reader class instance.
+     * 
+     * Sid ACE-2807 Case signal attributes reader is switched to a new BOM used for any process scope script ON an
+     * activity/flow in a catch Case Signal event flow. It has it's own "bpm" class that sub-classes the standard one in
+     * ProcessBpmJsClass and adds a bpm.caseSignal 
      */
-    CaseSignalAttributesReader delegateCSADefinitionReader =
-            new CaseSignalAttributesReader();
+    PEJScriptCaseSignalFlowDefinitionReader delegateCaseSignalFlowDefinitionReader =
+            new PEJScriptCaseSignalFlowDefinitionReader();
 
     /**
      * @see com.tibco.xpd.process.js.model.DefaultJavaScriptRelevantDataProvider#getScriptRelevantDataList()
@@ -84,24 +88,14 @@ public class PEJScriptProcessAndCSARelevantDataProvider extends
         Collection<JsClass> classes = new ArrayList<JsClass>();
 
         /*
-         * Always load the classes supported by
-         * PEJScriptProcessDefinitionReader.
+         * Sid ACE-2807 we now load either the base process-scope "bpm" class OR the case signal flow "bpm" class if
+         * this is an activity/flow in a case signal event handler flow.
          */
-        classes.addAll(delegatePEJSSPDefinitionReader.getSupportedClasses());
+        if (activity != null && (isCaseDataEvent(activity) || isCaseDataEventHandlerOrESPFlowActivity(activity))) {
+            classes.addAll(delegateCaseSignalFlowDefinitionReader.getSupportedClasses());
 
-        /*
-         * If we have an activity in the flow of a case data signal catch event
-         * handler/event sub-process, then add the classes supported by
-         * CaseSignalAttributesReader as well.
-         */
-        if (activity != null) {
-
-            if (isCaseDataEvent(activity)
-                    || isCaseDataEventHandlerOrESPFlowActivity(activity)) {
-
-                classes.addAll(delegateCSADefinitionReader
-                        .getSupportedClasses());
-            }
+        } else {
+            classes.addAll(delegatePEJSSPDefinitionReader.getSupportedClasses());
         }
 
         List<IScriptRelevantData> scriptRelevantDataList =
@@ -267,7 +261,7 @@ public class PEJScriptProcessAndCSARelevantDataProvider extends
      * @author sajain
      * @since Mar 24, 2015
      */
-    public class CaseSignalAttributesReader extends
+    public class PEJScriptCaseSignalFlowDefinitionReader extends
             CdsExtendedJScriptProcessDefinitionReader {
 
         @Override
@@ -275,7 +269,7 @@ public class PEJScriptProcessAndCSARelevantDataProvider extends
 
             URL entry =
                     PEActivator.getDefault().getBundle()
-                            .getEntry(PEN2Utils.CASE_SIGNAL_MODEL_FILE_NAME);
+                            .getEntry(PEN2Utils.PE_CASE_SIGNAL_FLOW_MODEL_FILE_NAME);
 
             return URI.createURI(entry.toExternalForm());
         }
