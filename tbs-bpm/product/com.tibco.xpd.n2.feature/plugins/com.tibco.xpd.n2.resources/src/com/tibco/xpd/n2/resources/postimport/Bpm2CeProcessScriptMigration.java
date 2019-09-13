@@ -216,6 +216,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         result.add(new BOMFactoryRefactor());
         result.add(new StaticRefRefactor("Process", "bpm.process")); //$NON-NLS-1$ //$NON-NLS-2$
         result.add(new StaticRefRefactor("WorkManagerFactory", "bpm.workManager")); //$NON-NLS-1$ //$NON-NLS-2$
+        result.add(new StaticRefRefactor("CaseSignalAttributes", "bpm.caseSignal")); //$NON-NLS-1$ //$NON-NLS-2$
 
         // a method filter to check that the method belongs to an array field
         MethodNameRefactor.MethodFilter arrayFilter = (parser, index) -> {

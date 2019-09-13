@@ -15,6 +15,7 @@ import com.tibco.xpd.sce.tests.brm.transform.BRMGenUC2FTest;
 import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
+import com.tibco.xpd.sce.tests.importmigration.CaseSignalMigrationTest;
 import com.tibco.xpd.sce.tests.importmigration.GlobalSignalMigrationTest;
 import com.tibco.xpd.sce.tests.importmigration.JsToDataMapperMigrationsTest;
 import com.tibco.xpd.sce.tests.importmigration.ScriptMigrationTests;
@@ -45,6 +46,7 @@ public class AllUnitTests2 {
         suite.addTestSuite(SystemActionMigrationTest.class);
         suite.addTestSuite(GlobalSignalMigrationTest.class);
         suite.addTestSuite(JsToDataMapperMigrationsTest.class);
+        suite.addTestSuite(CaseSignalMigrationTest.class);
 
         /*
          * BPEL transformation tests
