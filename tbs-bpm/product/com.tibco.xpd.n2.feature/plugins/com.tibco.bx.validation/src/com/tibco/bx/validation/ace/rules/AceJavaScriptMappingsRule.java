@@ -38,8 +38,8 @@ public class AceJavaScriptMappingsRule extends FlowContainerValidationRule {
     @Override
     public void validate(FlowContainer process) {
         EList<Activity> contents = process.getActivities();
-        boolean addIssue = false;
         for (Activity eachActivity : contents) {
+            boolean addIssue = false;
             if (eachActivity.getImplementation() instanceof SubFlow) {
                 /*
                  * SubFlow Data mappings.
