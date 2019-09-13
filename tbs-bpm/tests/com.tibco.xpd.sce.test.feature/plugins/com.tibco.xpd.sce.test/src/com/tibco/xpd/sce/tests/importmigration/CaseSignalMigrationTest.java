@@ -67,17 +67,17 @@ public class CaseSignalMigrationTest extends AbstractN2BaseValidationTest {
     @Override
     protected void tearDown() throws Exception {
         if (projectImporter != null) {
-            // projectImporter.performDelete();
+            projectImporter.performDelete();
         }
         super.tearDown();
     }
 
 	/**
-     * ServiceProcessTimerEventValidationTest
+     * CaseSignalMigrationTest
      * 
      * @throws Exception
      */
-    public void testServiceProcessTimerEventValidationTest() throws Exception {
+    public void testCaseSignalMigration() throws Exception {
         doTestValidations();
 
         /* The xpdl with the same timer events in a business process should not have errors. */
@@ -92,7 +92,7 @@ public class CaseSignalMigrationTest extends AbstractN2BaseValidationTest {
 
         assertFalse(
                 "CaseSignalProcess/Process Packages/Case Signal Process.xpdl should have no error problem markers.", //$NON-NLS-1$
-                TestUtil.hasErrorProblemMarker(bizProcFile, true, "testServiceProcessTimerEventValidationTest")); //$NON-NLS-1$
+                TestUtil.hasErrorProblemMarker(bizProcFile, true, "testCaseSignalMigration")); //$NON-NLS-1$
 
 	}
 

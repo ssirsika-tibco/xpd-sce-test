@@ -111,7 +111,13 @@
             applyToMapperRHS="false"
             mapperContribution="com.tibco.xpd.globaldataservice.datamapper.GlobalDataCatchFaultDataMapperContentContributor"
             priority="3">
-      </mapperContentContributor>      
+      </mapperContentContributor>
+            <mapperContentContributor
+            applicableContext="GDFaultCatch"
+            applyToMapperRHS="true"
+            mapperContribution="com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperContentContributor"
+            priority="2">
+      </mapperContentContributor>
    </extension>
    <extension
          point="com.tibco.xpd.datamapper.DataMapperContentContribution">

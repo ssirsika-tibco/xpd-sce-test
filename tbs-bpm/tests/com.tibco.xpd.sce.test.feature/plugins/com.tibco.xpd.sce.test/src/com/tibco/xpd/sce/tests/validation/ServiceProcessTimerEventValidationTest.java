@@ -64,7 +64,7 @@ public class ServiceProcessTimerEventValidationTest extends AbstractN2BaseValida
     @Override
     protected void tearDown() throws Exception {
         if (projectImporter != null) {
-            // projectImporter.performDelete();
+            projectImporter.performDelete();
         }
         super.tearDown();
     }

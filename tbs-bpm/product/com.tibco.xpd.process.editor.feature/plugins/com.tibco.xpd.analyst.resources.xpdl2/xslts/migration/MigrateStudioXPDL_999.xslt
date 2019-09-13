@@ -286,13 +286,23 @@
     		<!-- apply templates to get existing content copied / removed as required before converting mappings if necessary. -->
     		<xsl:apply-templates select="@* | node() | text()"/>
     		
-    		<!-- A difference between CATCH all and CATCH SPECIFIC SUB-PROCESS is the mapper context -->
-			<xsl:variable name="mapperContext">
+
+    		<!-- Sid ACE-3045 Track the activity that this error event is attached to. -->    		
+    		<xsl:variable name="errorThrowerActivityId" select="ancestor::xpdl2:IntermediateEvent/@Target"/>
+    		<xsl:variable name="errorThrowerActivity" select="ancestor::xpdl2:ActivitySet/xpdl2:Activities/xpdl2:Activity[@Id = $errorThrowerActivityId] 
+    														| ancestor::xpdl2:WorkflowProcess/xpdl2:Activities/xpdl2:Activity[@Id = $errorThrowerActivityId]"/>
+    		
+    		<!-- And its type -->
+			<xsl:variable name="errorThrowerType">
 				<xsl:choose>
-					<xsl:when test="ancestor::xpdl2:ResultError/xpdExt:ErrorThrowerInfo/@ThrowerType = 'ProcessActivity'">CatchSubProcessError</xsl:when>
-					<xsl:otherwise>CatchAll</xsl:otherwise>
+					<!--  CatchAll takes priority as it may be used regardless of specific error thrower activity type -->
+					<xsl:when test="not(ancestor::xpdl2:ResultError/xpdExt:ErrorThrowerInfo)">CatchAll</xsl:when>
+					<xsl:when test="$errorThrowerActivity/xpdl2:Implementation/xpdl2:SubFlow">SubProcess</xsl:when>
+					<xsl:when test="$errorThrowerActivity/xpdl2:Implementation/xpdl2:Task/xpdl2:TaskService[@xpdExt:ImplementationType = 'GlobalData']">GlobalData</xsl:when>
+					<xsl:otherwise>Unknown</xsl:otherwise>
 				</xsl:choose>
 			</xsl:variable>
+			
 
     		<!-- 
     			OUPUT mappings... 
@@ -301,17 +311,28 @@
     		-->
     		<xsl:if test="xpdl2:DataMappings/xpdl2:DataMapping[@Direction = 'OUT'] and not(xpdExt:OutputMappings)">
     			
-    			<xpdExt:OutputMappings MapperContext="{$mapperContext}" MappingDirection="OUT">
+    			<xpdExt:OutputMappings MappingDirection="OUT">
+    				<!-- Sid ACE-3045 - A difference between CATCH all and CATCH SPECIFIC SUB-PROCESS (or REST service or Case Data Task) is the mapper context -->
+    				<xsl:attribute name="MapperContext">
+						<xsl:choose>
+							<xsl:when test="$errorThrowerType = 'SubProcess'">CatchSubProcessError</xsl:when>
+							<xsl:when test="$errorThrowerType = 'GlobalData'">GDFaultCatch</xsl:when>
+							<xsl:otherwise>CatchAll</xsl:otherwise>
+						</xsl:choose>
+    				</xsl:attribute>
+    			
     				<xpdExt:DataMappings>
     				
     					<xsl:for-each select="xpdl2:DataMappings/xpdl2:DataMapping[@Direction = 'OUT']">
 
-				    		<!-- A difference between CATCH all and CATCH SPECIFIC SUB-PROCESS is the source contributor id. -->
+				    		<!-- Sid ACE-3045 A difference between CATCH all and CATCH SPECIFIC TASK is the source contributor id. -->
 							<xsl:variable name="srcContribId">
 								<xsl:choose>
-									<xsl:when test="ancestor::xpdl2:ResultError/xpdExt:ErrorThrowerInfo/@ThrowerType = 'ProcessActivity' and starts-with(@Formal, '$ERROR')">CatchSubProcessError.DataMapperContent</xsl:when>
-									<xsl:when test="ancestor::xpdl2:ResultError/xpdExt:ErrorThrowerInfo/@ThrowerType = 'ProcessActivity'">CatchSubProcessErrorProcessData.DataMapperContent</xsl:when>
-									<xsl:otherwise>CatchAll.DataMapperContent</xsl:otherwise>
+									<xsl:when test="$errorThrowerType = 'SubProcess' and starts-with(@Formal, '$ERROR')">CatchSubProcessError.DataMapperContent</xsl:when>
+									<xsl:when test="$errorThrowerType = 'SubProcess'">CatchSubProcessErrorProcessData.DataMapperContent</xsl:when>
+									<xsl:when test="$errorThrowerType = 'GlobalData'">GDFaultCatch.DataMapperContent</xsl:when>
+									<xsl:when test="$errorThrowerType = 'CatchAll'">CatchAll.DataMapperContent</xsl:when>
+									<xsl:otherwise>Unknown.DataMapperContent</xsl:otherwise>
 								</xsl:choose>
 							</xsl:variable>
 

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_Ho4sENY3Eemom_3l2K1D9Q" xpdExt:DisplayName="JS_vs_DataMapper-GlobalDataError" Name="JS_vs_DataMapperGlobalDataError">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2019-08-27</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_Ho4sEdY3Eemom_3l2K1D9Q" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_Ho5TI9Y3Eemom_3l2K1D9Q">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_Ho5TINY3Eemom_3l2K1D9Q" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="336.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_Ho5TI9Y3Eemom_3l2K1D9Q" xpdExt:DisplayName="CatchGlobalDataError-Process" Name="CatchGlobalDataErrorProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_Ho5TR9Y3Eemom_3l2K1D9Q" xpdExt:DisplayName="Text Field 1" Name="TextField1" IsArray="false" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Ho5TSNY3Eemom_3l2K1D9Q" xpdExt:DisplayName="Decimal Field 1" Name="DecimalField1" IsArray="false" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Ho5TSdY3Eemom_3l2K1D9Q" xpdExt:DisplayName="Complex Field" Name="ComplexField" IsArray="false" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="MultiSubProcData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_3AzR0L0DEem-0J8I_YUyog"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Ho5TStY3Eemom_3l2K1D9Q" xpdExt:DisplayName="Text Field 2" Name="TextField2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Ho5TS9Y3Eemom_3l2K1D9Q" xpdExt:DisplayName="Decimal Field 2" Name="TeField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Ho5TTNY3Eemom_3l2K1D9Q" xpdExt:DisplayName="From Script Field" Name="FromScriptField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Ho5TTdY3Eemom_3l2K1D9Q" xpdExt:DisplayName="Text Array Field" Name="TextArrayField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_jmtB0NY3Eemom_3l2K1D9Q" xpdExt:DisplayName="Case Ref Field" Name="CaseRefField">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="MultiSubProcData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_NFjJENY3Eemom_3l2K1D9Q"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_7aqmQNY3Eemom_3l2K1D9Q" xpdExt:DisplayName="Case Object Field" Name="CaseObjectField">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="MultiSubProcData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_NFjJENY3Eemom_3l2K1D9Q"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_Ho5TJNY3Eemom_3l2K1D9Q" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_Ho5TINY3Eemom_3l2K1D9Q" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Ho5TJtY3Eemom_3l2K1D9Q" Name="GlobalDataTask1" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Global Data Task 1">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="GlobalData" Implementation="Other">
+                <xpdl2:MessageIn Id="_XeEcENY3Eemom_3l2K1D9Q"/>
+                <xpdl2:MessageOut Id="_XeEcEdY3Eemom_3l2K1D9Q"/>
+                <xpdExt:GlobalDataOperation>
+                  <xpdExt:CaseReferenceOperations>
+                    <xpdExt:CaseRefField>CaseRefField</xpdExt:CaseRefField>
+                    <xpdExt:Delete/>
+                  </xpdExt:CaseReferenceOperations>
+                </xpdExt:GlobalDataOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="_Ho5TINY3Eemom_3l2K1D9Q" Width="128.0">
+              <xpdl2:Coordinates XCoordinate="193.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Ho5TL9Y3Eemom_3l2K1D9Q" Name="GlobalDataUpdateCase" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Global Data Update Case">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="GlobalData" Implementation="Other">
+                <xpdl2:MessageIn Id="_eacYUNY3Eemom_3l2K1D9Q"/>
+                <xpdl2:MessageOut Id="_eacYUdY3Eemom_3l2K1D9Q"/>
+                <xpdExt:GlobalDataOperation>
+                  <xpdExt:CaseReferenceOperations>
+                    <xpdExt:CaseRefField>CaseRefField</xpdExt:CaseRefField>
+                    <xpdExt:Update FromFieldPath="CaseObjectField"/>
+                  </xpdExt:CaseReferenceOperations>
+                </xpdExt:GlobalDataOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="_Ho5TINY3Eemom_3l2K1D9Q" Width="128.0">
+              <xpdl2:Coordinates XCoordinate="396.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Ho5TONY3Eemom_3l2K1D9Q" Name="CatchAllError" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch All Error">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="_Ho5TJtY3Eemom_3l2K1D9Q" Trigger="Error">
+              <xpdl2:ResultError ErrorCode="">
+                <xpdExt:CatchErrorMappings>
+                  <xpdExt:Message Id="_Ho5TOtY3Eemom_3l2K1D9Q">
+                    <xpdl2:DataMappings>
+                      <xpdl2:DataMapping Direction="OUT" Formal="$ERRORCODE">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextField1</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="$ERRORDETAIL">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextField2</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                    </xpdl2:DataMappings>
+                  </xpdExt:Message>
+                </xpdExt:CatchErrorMappings>
+              </xpdl2:ResultError>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_Ho5TINY3Eemom_3l2K1D9Q" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="27.884615384615387" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ScriptInformation Id="_Ho5TOdY3Eemom_3l2K1D9Q" Direction="OUT">
+            <xpdExt:Expression ScriptGrammar="JavaScript"/>
+          </xpdExt:ScriptInformation>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Ho5TO9Y3Eemom_3l2K1D9Q" Name="EndEvent2" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event 2">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_Ho5TINY3Eemom_3l2K1D9Q" Width="63.0">
+              <xpdl2:Coordinates XCoordinate="221.0" YCoordinate="290.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Ho5TPNY3Eemom_3l2K1D9Q" Name="CatchCaseOutOfSync" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch Case Out Of Sync">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="_Ho5TL9Y3Eemom_3l2K1D9Q" Trigger="Error">
+              <xpdl2:ResultError ErrorCode="CaseOutOfSyncError">
+                <xpdExt:ErrorThrowerInfo ThrowerId="_Ho5TL9Y3Eemom_3l2K1D9Q" ThrowerContainerId="_Ho5TI9Y3Eemom_3l2K1D9Q" ThrowerType="ProcessActivity"/>
+                <xpdExt:CatchErrorMappings>
+                  <xpdExt:Message Id="_J6zO4NY4Eemom_3l2K1D9Q">
+                    <xpdl2:DataMappings>
+                      <xpdl2:DataMapping Direction="OUT" Formal="$ERRORCODE">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextField1</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="$ERRORDETAIL">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextField2</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                    </xpdl2:DataMappings>
+                  </xpdExt:Message>
+                </xpdExt:CatchErrorMappings>
+              </xpdl2:ResultError>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_Ho5TINY3Eemom_3l2K1D9Q" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="25.961538461538463" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ScriptInformation Id="_Ho5TPtY3Eemom_3l2K1D9Q" Name="Unmapped script mapping" Direction="OUT">
+            <xpdExt:Expression ScriptGrammar="JavaScript">&quot;Unmapped script mapping&quot;;</xpdExt:Expression>
+          </xpdExt:ScriptInformation>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Ho5TQdY3Eemom_3l2K1D9Q" Name="EndEvent3" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event 3">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_Ho5TINY3Eemom_3l2K1D9Q" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="432.0" YCoordinate="293.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_Ho5TQ9Y3Eemom_3l2K1D9Q" xpdExt:DisplayName="" Name="" From="_Ho5TJNY3Eemom_3l2K1D9Q" To="_Ho5TJtY3Eemom_3l2K1D9Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Ho5TRNY3Eemom_3l2K1D9Q" xpdExt:DisplayName="" Name="" From="_Ho5TJtY3Eemom_3l2K1D9Q" To="_Ho5TL9Y3Eemom_3l2K1D9Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Ho5TRdY3Eemom_3l2K1D9Q" Name="" From="_Ho5TONY3Eemom_3l2K1D9Q" To="_Ho5TO9Y3Eemom_3l2K1D9Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Ho5TRtY3Eemom_3l2K1D9Q" Name="" From="_Ho5TPNY3Eemom_3l2K1D9Q" To="_Ho5TQdY3Eemom_3l2K1D9Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData/></xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="22"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="22"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>
