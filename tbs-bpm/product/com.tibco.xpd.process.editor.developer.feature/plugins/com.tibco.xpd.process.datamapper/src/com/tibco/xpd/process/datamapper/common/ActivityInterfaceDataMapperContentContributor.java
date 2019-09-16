@@ -6,6 +6,7 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import com.tibco.xpd.datamapper.api.AbstractDataMapperContentContributor;
 import com.tibco.xpd.datamapper.api.AbstractDataMapperInfoProvider;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.ParameterLabelProvider;
+import com.tibco.xpd.processeditor.xpdl2.ProcessEditorConstants;
 
 /**
  * Contributes the normal process data content for Worm Manager Data Mapper
@@ -24,7 +25,7 @@ public class ActivityInterfaceDataMapperContentContributor extends
      * data content provider.
      */
     public static final String ACTIVITY_INTERFACE_CONTRIBUTOR_ID =
-            "ActivityInterface.DataMapperContent"; //$NON-NLS-1$
+            ProcessEditorConstants.DATAMAPPER_ACTIVITY_INTERFACE_CONTRIBUTOR_ID;
 
     public ActivityInterfaceDataMapperContentContributor() {
     }

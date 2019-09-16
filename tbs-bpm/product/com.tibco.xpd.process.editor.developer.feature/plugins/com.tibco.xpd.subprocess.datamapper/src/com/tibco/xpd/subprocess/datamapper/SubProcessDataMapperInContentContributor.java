@@ -11,6 +11,7 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.process.datamapper.common.AbstractProcessDataMapperContentContributor;
 import com.tibco.xpd.process.datamapper.common.ProcessDataMapperInfoProvider;
+import com.tibco.xpd.processeditor.xpdl2.ProcessEditorConstants;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
@@ -45,7 +46,7 @@ public class SubProcessDataMapperInContentContributor extends
      */
     @Override
     public String getContributorId() {
-        return "ProcessToSubProcess.DataMapperContent"; //$NON-NLS-1$
+        return ProcessEditorConstants.DATAMAPPER_PROCESS_TO_SUBPROCESS_CONTRIBUTOR_ID;
     }
 
     /**

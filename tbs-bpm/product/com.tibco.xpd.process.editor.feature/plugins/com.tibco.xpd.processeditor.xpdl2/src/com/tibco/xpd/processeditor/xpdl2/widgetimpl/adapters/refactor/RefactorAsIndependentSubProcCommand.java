@@ -24,12 +24,15 @@ import org.eclipse.emf.edit.command.CopyCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import com.tibco.xpd.processeditor.xpdl2.ProcessEditorConstants;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
 import com.tibco.xpd.processwidget.ProcessWidget.ProcessWidgetType;
 import com.tibco.xpd.processwidget.ProcessWidgetConstants;
 import com.tibco.xpd.processwidget.adapters.DiagramModelImageProvider;
 import com.tibco.xpd.processwidget.adapters.TaskType;
 import com.tibco.xpd.resources.util.XpdEcoreUtil;
+import com.tibco.xpd.xpdExtension.ScriptDataMapper;
+import com.tibco.xpd.xpdExtension.XpdExtensionFactory;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.DataMapping;
@@ -58,6 +61,10 @@ public class RefactorAsIndependentSubProcCommand extends
         AbstractRefactorActivitiesAsProcessCommand {
 
     private SubFlow newIndiSubProcRef;
+
+    private ScriptDataMapper inputMapper;
+
+    private ScriptDataMapper outputMapper;
 
     /**
      * Sub class can get a handle (to do extra stuff with the SubFlow) after
@@ -188,12 +195,40 @@ public class RefactorAsIndependentSubProcCommand extends
          */
 
         /*
+         * Sid ACE-2871 - Now creates DataMapper grammar mappings (instead of JavaScript)
+         */
+
+        /*
          * v3 Studio now only ever uses separate In and OUT params so have to
          * define separate ones.
          */
         if (ModeType.IN_LITERAL.equals(newParamMode)
                 || ModeType.INOUT_LITERAL.equals(newParamMode)) {
+
+            /* Add the input mapper if not already there. */
+            if (inputMapper == null) {
+                inputMapper = XpdExtensionFactory.eINSTANCE.createScriptDataMapper();
+                
+                inputMapper.setMapperContext(ProcessEditorConstants.DATAMAPPER_CONTEXT_PROCESS_TO_SUBPROCESS);
+                inputMapper.setMappingDirection(DirectionType.IN_LITERAL);
+
+                cmd.append(Xpdl2ModelUtil.getAddOtherElementCommand(getEditingDomain(),
+                        newIndiSubProcRef,
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings(),
+                        inputMapper));
+            }
+            
+            /* Create and add the data mapping (almost same as old data mapping. */
             DataMapping dmIn = Xpdl2Factory.eINSTANCE.createDataMapping();
+
+            Xpdl2ModelUtil.setOtherAttribute(dmIn,
+                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_SourceContributorId(),
+                    ProcessEditorConstants.DATAMAPPER_ACTIVITY_INTERFACE_CONTRIBUTOR_ID);
+
+            Xpdl2ModelUtil.setOtherAttribute(dmIn,
+                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_TargetContributorId(),
+                    ProcessEditorConstants.DATAMAPPER_PROCESS_TO_SUBPROCESS_CONTRIBUTOR_ID);
+
             dmIn.setDirection(DirectionType.IN_LITERAL);
             dmIn.setFormal(newFormalParam.getName());
 
@@ -207,15 +242,42 @@ public class RefactorAsIndependentSubProcCommand extends
             dmIn.setActual(expression);
 
             cmd.append(AddCommand.create(getEditingDomain(),
-                    newIndiSubProcRef,
-                    Xpdl2Package.eINSTANCE.getSubFlow_DataMappings(),
+                    inputMapper,
+                    XpdExtensionPackage.eINSTANCE.getScriptDataMapper_DataMappings(),
                     dmIn));
         }
 
         if (ModeType.OUT_LITERAL.equals(newParamMode)
                 || ModeType.INOUT_LITERAL.equals(newParamMode)) {
+
+            /* Add the input mapper if not already there. */
+            if (outputMapper == null) {
+                outputMapper = XpdExtensionFactory.eINSTANCE.createScriptDataMapper();
+
+                outputMapper.setMapperContext(ProcessEditorConstants.DATAMAPPER_CONTEXT_SUBPROCESS_TO_PROCESS);
+                outputMapper.setMappingDirection(DirectionType.OUT_LITERAL);
+
+                cmd.append(Xpdl2ModelUtil.getAddOtherElementCommand(getEditingDomain(),
+                        newIndiSubProcRef,
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings(),
+                        outputMapper));
+            }
+
+            /*
+             * Create and add the data mapping (almost same as old data mapping EXCEPT contrib-id's and direction
+             * (always IN for dataMapper as the ScriptDatamapper object itself holds the actual direction) .
+             */
             DataMapping dmOut = Xpdl2Factory.eINSTANCE.createDataMapping();
-            dmOut.setDirection(DirectionType.OUT_LITERAL);
+
+            Xpdl2ModelUtil.setOtherAttribute(dmOut,
+                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_SourceContributorId(),
+                    ProcessEditorConstants.DATAMAPPER_SUBPROCESS_TO_PROCESS_CONTRIBUTOR_ID);
+
+            Xpdl2ModelUtil.setOtherAttribute(dmOut,
+                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_TargetContributorId(),
+                    ProcessEditorConstants.DATAMAPPER_ACTIVITY_INTERFACE_CONTRIBUTOR_ID);
+
+            dmOut.setDirection(DirectionType.IN_LITERAL); // Not a mistake - intentional (see above)
             dmOut.setFormal(newFormalParam.getName());
 
             Expression expression = Xpdl2Factory.eINSTANCE.createExpression();
@@ -228,8 +290,8 @@ public class RefactorAsIndependentSubProcCommand extends
             dmOut.setActual(expression);
 
             cmd.append(AddCommand.create(getEditingDomain(),
-                    newIndiSubProcRef,
-                    Xpdl2Package.eINSTANCE.getSubFlow_DataMappings(),
+                    outputMapper,
+                    XpdExtensionPackage.eINSTANCE.getScriptDataMapper_DataMappings(),
                     dmOut));
         }
 

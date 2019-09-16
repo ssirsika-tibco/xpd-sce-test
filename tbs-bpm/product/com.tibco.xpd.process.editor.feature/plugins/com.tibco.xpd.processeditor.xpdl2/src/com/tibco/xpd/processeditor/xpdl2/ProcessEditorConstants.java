@@ -23,6 +23,19 @@ public class ProcessEditorConstants {
 
     public static final String IS_SHOWING_PAGINATION = "IS_SHOWING_PAGINATION"; //$NON-NLS-1$
 
+    /* Sid ACE-2871 refactored(ish) from editor developer. */
+    public static final String DATAMAPPER_CONTEXT_SUBPROCESS_TO_PROCESS = "SubProcessToProcess"; //$NON-NLS-1$
+
+    public static final String DATAMAPPER_CONTEXT_PROCESS_TO_SUBPROCESS = "ProcessToSubProcess"; //$NON-NLS-1$
+
+    public static final String DATAMAPPER_PROCESS_TO_SUBPROCESS_CONTRIBUTOR_ID =
+            "ProcessToSubProcess.DataMapperContent"; //$NON-NLS-1$
+
+    public static final String DATAMAPPER_SUBPROCESS_TO_PROCESS_CONTRIBUTOR_ID =
+            "SubProcessToProcess.DataMapperContent"; //$NON-NLS-1$
+
+    public static final String DATAMAPPER_ACTIVITY_INTERFACE_CONTRIBUTOR_ID = "ActivityInterface.DataMapperContent"; //$NON-NLS-1$
+
     public static final String IMG_SNAP_TO_GEOMETRY = "icons/snap_geometry.png"; //$NON-NLS-1$
 
     public static final String IMG_SNAP_TO_GRID = "icons/show_grid.png"; //$NON-NLS-1$
@@ -276,6 +289,7 @@ public class ProcessEditorConstants {
             "icons/taskSubProcServiceInterface.png"; //$NON-NLS-1$
 
     public static final String ICON_WARNING = "icons/warning.gif"; //$NON-NLS-1$
+
 
     public static final String[] IMAGES = new String[] { IMG_SNAP_TO_GEOMETRY,
             IMG_SNAP_TO_GRID, IMG_ZOOM_IN, IMG_ZOOM_OUT, IMG_ERROR_DECORATOR,

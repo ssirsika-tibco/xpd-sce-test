@@ -4,6 +4,8 @@
 
 package com.tibco.xpd.subprocess.datamapper;
 
+import com.tibco.xpd.processeditor.xpdl2.ProcessEditorConstants;
+
 /**
  * Constants to be used by call sub-process mapper.
  * 
@@ -12,8 +14,8 @@ package com.tibco.xpd.subprocess.datamapper;
  */
 public class SubProcessDataMapperConstants {
 
-    public static final String SUBPROCESS_TO_PROCESS = "SubProcessToProcess"; //$NON-NLS-1$
+    public static final String SUBPROCESS_TO_PROCESS = ProcessEditorConstants.DATAMAPPER_CONTEXT_SUBPROCESS_TO_PROCESS;
 
-    public static final String PROCESS_TO_SUBPROCESS = "ProcessToSubProcess"; //$NON-NLS-1$
+    public static final String PROCESS_TO_SUBPROCESS = ProcessEditorConstants.DATAMAPPER_CONTEXT_PROCESS_TO_SUBPROCESS;
 
 }
