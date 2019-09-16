@@ -36,6 +36,7 @@ import com.tibco.xpd.resources.projectconfig.Destination;
 import com.tibco.xpd.resources.projectconfig.Destinations;
 import com.tibco.xpd.resources.projectconfig.ProjectConfigFactory;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
+import com.tibco.xpd.resources.projectconfig.ProjectStatus;
 import com.tibco.xpd.resources.projectconfig.projectassets.IAssetProjectPropertyChangeListener;
 import com.tibco.xpd.resources.ui.internal.Messages;
 import com.tibco.xpd.resources.ui.internal.destination.ProjectDetailsSection;
@@ -192,9 +193,13 @@ public class ProjectSelectionPage extends WizardNewProjectCreationPage {
             if (detailsSection.getVersion() != null) {
                 projectDetails.setVersion(detailsSection.getVersion());
             }
-            if (detailsSection.getStatus() != null) {
-                projectDetails.setStatus(detailsSection.getStatus());
-            }
+
+            /*
+             * Sid ACE-2980 We don't expose the user to project status anymore so just set it to arbitrary value for
+             * now.
+             */
+            projectDetails.setStatus(ProjectStatus.UNDER_REVISION);
+
             List<String> destinationIds = detailsSection.getDestinationIds();
             Destinations globalDestinations =
                     projectDetails.getGlobalDestinations();
@@ -324,7 +329,9 @@ public class ProjectSelectionPage extends WizardNewProjectCreationPage {
         if (detailsSection != null && details != null) {
             detailsSection.setId(details.getId());
             detailsSection.setVersion(details.getVersion());
-            detailsSection.setStatus(details.getStatus());
+
+            /* Sid ACE-2980 Project status is no longer shown in new project wizard. */
+
             if (details.getGlobalDestinations() != null
                     && !details.getGlobalDestinations().getDestination()
                             .isEmpty()) {
@@ -552,6 +559,13 @@ public class ProjectSelectionPage extends WizardNewProjectCreationPage {
      */
     public void hideProjectVersion() {
         detailsSection.setShowProjectVersion(false);
+    }
+
+    /**
+     * Sid ACE-2980 - Hide the project status controls from the wizard.
+     */
+    public void hideProjectStatus() {
+        detailsSection.setShowProjectStatus(false);
     }
 
 }

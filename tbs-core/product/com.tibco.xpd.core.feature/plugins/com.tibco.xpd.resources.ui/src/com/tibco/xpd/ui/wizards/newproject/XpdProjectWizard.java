@@ -369,6 +369,12 @@ public class XpdProjectWizard extends BasicNewXpdResourceWizard {
             }
         }
 
+        /*
+         * Sid ACE-2980 always hide project status for new project wizard (showing Draft/Locked for production in new
+         * dialog doesn't make sense).
+         */
+        newProjectCreationPage.hideProjectStatus();
+
         if (presetDestinationEnv != null) {
             newProjectCreationPage.setPresetDestinationEnv(presetDestinationEnv);
         }

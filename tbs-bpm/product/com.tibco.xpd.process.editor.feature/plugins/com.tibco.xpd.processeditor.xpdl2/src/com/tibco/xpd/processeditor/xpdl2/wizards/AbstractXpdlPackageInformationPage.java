@@ -2,8 +2,6 @@ package com.tibco.xpd.processeditor.xpdl2.wizards;
 
 import java.text.DateFormat;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Locale;
 
 import org.eclipse.core.resources.IProject;
@@ -17,7 +15,6 @@ import org.eclipse.swt.events.VerifyEvent;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
@@ -105,10 +102,6 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
     private Text packageDesc;
 
     private Text documentation;
-
-    private Combo status;
-
-    private Text businessVer;
 
     private Text costUnitText;
 
@@ -245,18 +238,6 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
     }
 
     /**
-     * Get the business version.
-     * 
-     * @return
-     */
-    public String getBusinessVersion() {
-        if (businessVer != null) {
-            return businessVer.getText();
-        }
-        return null;
-    }
-
-    /**
      * Get the Cost Unit.
      * 
      * @return
@@ -276,19 +257,6 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
     public String getLanguage() {
         if (languageText != null) {
             return languageText.getText();
-        }
-        return null;
-    }
-
-    /**
-     * Get the publication status. This will return the string representation of
-     * the status.
-     * 
-     * @return
-     */
-    public String getStatus() {
-        if (status != null) {
-            return status.getText();
         }
         return null;
     }
@@ -369,31 +337,7 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
                         Messages.PackageInformationPage_9,
                         DOCUMENTATION);
 
-        // Add status combo
-        Label lblStatus = new Label(grpHeader, SWT.NONE);
-        lblStatus.setText(Messages.PackageInformationPage_10);
-
-        status = new Combo(grpHeader, SWT.READ_ONLY);
-
-        List values = PublicationStatusType.VALUES;
-        for (Iterator iter = values.iterator(); iter.hasNext();) {
-            PublicationStatusType statusType =
-                    (PublicationStatusType) iter.next();
-
-            status.add(statusType.getLiteral());
-        }
-
-        status.setText(STATUS);
-
-        globaliseStatusCombo();
-
-        // Business version
-        businessVer =
-                addTextControl(grpHeader,
-                        Messages.PackageInformationPage_11,
-                        BUSINESSVERSION);
-
-        updatePackageNameAndVersion();
+        updatePackageName();
 
         // create anonymous text content adaptor that forces the selection of a
         // content assist to
@@ -443,7 +387,7 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
     // to display ProcessPackage name.
     IPackageTextAndContainerPage packageTextAndContainerPage = null;
 
-    private void updatePackageNameAndVersion() {
+    private void updatePackageName() {
 
         if (getPreviousPage() instanceof IPackageTextAndContainerPage) {
             packageTextAndContainerPage =
@@ -499,11 +443,10 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
             // yet). (Get the packagefolder from the control itself)
             ProjectDetails projectDetails = getProjectDetails();
             if (null != projectDetails) {
-                String version = projectDetails.getVersion();
-                ProjectStatus pStatus = projectDetails.getStatus();
-                status.setText(pStatus.name() == null ? STATUS : pStatus.name());
-                businessVer
-                        .setText(version == null ? BUSINESSVERSION : version);
+                /*
+                 * Sid ACE-2980 package version is inherited from project version these days - so nothing left to update
+                 * here.
+                 */
             } else {
                 if (null != packageTextAndContainerPage
                         .getPackagesFolderContainer()) {
@@ -522,19 +465,6 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
                                     .getUserName();
                     author.setText(projectUserName != null ? projectUserName
                             : userName);
-                    if (null != config) {
-                        if (null != config.getProjectDetails()) {
-                            String version =
-                                    config.getProjectDetails().getVersion();
-                            ProjectStatus pStatus =
-                                    config.getProjectDetails().getStatus();
-                            status.setText(pStatus.name() == null ? STATUS
-                                    : pStatus.name());
-                            businessVer
-                                    .setText(version == null ? BUSINESSVERSION
-                                            : version);
-                        }
-                    }
                 }
             }
 
@@ -632,26 +562,6 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
 
     }
 
-    /**
-     * Changes the status text to what is in the messages.properties file for
-     * support with other languages.
-     */
-    private void globaliseStatusCombo() {
-        int itemCount = status.getItemCount();
-
-        for (int i = 0; i < itemCount; i++) {
-            String name = status.getItem(i);
-            PublicationStatusType pubStatusType =
-                    PublicationStatusType.getByName(name);
-            if (pubStatusType != null) {
-                String uiText =
-                        PublicationStatusType.getUIText(pubStatusType
-                                .getValue());
-                status.setItem(i, uiText);
-                status.setData(uiText, pubStatusType.getLiteral());
-            }
-        }
-    }
 
     @Override
     public void updateConfiguration() {
@@ -715,32 +625,20 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
         processPackage.getPackageHeader()
                 .setCreated(LocaleUtils.getISO8601Date(todayDate));
 
-        if (getBusinessVersion() != null) {
-            processPackage.getRedefinableHeader()
-                    .setVersion(getBusinessVersion());
-        } else {
-            processPackage.getRedefinableHeader()
-                    .setVersion(version == null ? BUSINESSVERSION : version);
-        }
         if (getAuthor() != null) {
             processPackage.getRedefinableHeader().setAuthor(getAuthor());
         } else {
             processPackage.getRedefinableHeader().setAuthor(userName);
         }
-        if (getStatus() != null) {
-            String value = (String) status.getData(getStatus());
-            processPackage.getRedefinableHeader()
-                    .setPublicationStatus(PublicationStatusType.get(value));
 
-        } else {
-            // setting the status to default STATUS if not retrieved from
-            // project
-            if (null == publicationStatusType) {
-                publicationStatusType = PublicationStatusType.get(STATUS);
-            }
-            processPackage.getRedefinableHeader()
-                    .setPublicationStatus(publicationStatusType);
-        }
+        /*
+         * Sid ACE-2980 Process package status just follows the project status so just set arbitrary status for backward
+         * compat'.
+         */
+        // setting the status to default STATUS if not retrieved from
+        // project
+        publicationStatusType = PublicationStatusType.get(STATUS);
+        processPackage.getRedefinableHeader().setPublicationStatus(publicationStatusType);
 
         CostUnit costUnit = processPackage.getPackageHeader().getCostUnit();
         if (costUnit == null) {

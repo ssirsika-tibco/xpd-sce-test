@@ -37,6 +37,7 @@ import com.tibco.xpd.resources.projectconfig.Destinations;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.ProjectConfigFactory;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
+import com.tibco.xpd.resources.projectconfig.ProjectStatus;
 import com.tibco.xpd.resources.projectconfig.wc.ProjectConfigWorkingCopy;
 import com.tibco.xpd.resources.ui.XpdResourcesUIActivator;
 import com.tibco.xpd.resources.ui.internal.Messages;
@@ -317,7 +318,13 @@ public class ProjectVersionPage extends PropertyPage implements
             // Update details from the details section
             details.setId(detailsSection.getId());
             details.setVersion(detailsSection.getVersion());
-            details.setStatus(detailsSection.getStatus());
+
+            /*
+             * Sid ACE-2980 We don't expose the user to project status anymore so just set it to arbitrary value for
+             * now.
+             */
+            details.setStatus(ProjectStatus.UNDER_REVISION);
+
             Destinations destinationsElem = details.getGlobalDestinations();
             if (destinationsElem == null) {
                 destinationsElem =
@@ -353,7 +360,10 @@ public class ProjectVersionPage extends PropertyPage implements
                 // Update the details section
                 detailsSection.setId(details.getId());
                 detailsSection.setVersion(details.getVersion());
-                detailsSection.setStatus(details.getStatus());
+
+                /* Sid ACE-2980 we now just update the status according to the current state of project. */
+                detailsSection.updateStatus(project);
+
                 Destinations destinationsElem = details.getGlobalDestinations();
                 if (destinationsElem != null
                         && !destinationsElem.getDestination().isEmpty()) {

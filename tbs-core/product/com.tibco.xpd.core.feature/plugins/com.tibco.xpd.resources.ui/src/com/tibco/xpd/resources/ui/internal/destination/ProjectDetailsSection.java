@@ -11,30 +11,26 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.jface.dialogs.DialogPage;
-import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.CheckboxCellEditor;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ColumnViewer;
-import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.EditingSupport;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.TableViewerFocusCellManager;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.events.KeyEvent;
@@ -57,10 +53,11 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Widget;
 import org.osgi.framework.Version;
 
-import com.tibco.xpd.resources.projectconfig.ProjectStatus;
 import com.tibco.xpd.resources.ui.XpdResourcesUIActivator;
+import com.tibco.xpd.resources.ui.XpdResourcesUIConstants;
 import com.tibco.xpd.resources.ui.components.FocusCellAndRowHighlighter;
 import com.tibco.xpd.resources.ui.internal.Messages;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.ui.util.CapabilityUtil;
 
@@ -82,11 +79,9 @@ public class ProjectDetailsSection extends DialogPage {
 
     private Version version;
 
+    private CLabel statusTxt;
+
     private Text versionTxt;
-
-    private ProjectStatus status;
-
-    private ComboViewer statusViewer;
 
     private TableViewer destinationsList;
 
@@ -119,6 +114,9 @@ public class ProjectDetailsSection extends DialogPage {
 
     /* Sid ACE-441 Allow hide of just the version part of lifecycle. */
     private boolean showProjectVersion = true;
+
+    /* Sid ACE-2980 Allow hide of project status. */
+    private boolean showProjectStatus = true;
 
     /**
      * Project version details section.
@@ -156,8 +154,16 @@ public class ProjectDetailsSection extends DialogPage {
     }
 
     /**
-     * Add a listener that will be notified of any modification to the input in
-     * this section.
+     * Set whether the project status selection should be displayed on this page.
+     * 
+     * @param show
+     */
+    public void setShowProjectStatus(boolean show) {
+        this.showProjectStatus = show;
+    }
+
+    /**
+     * Add a listener that will be notified of any modification to the input in this section.
      * 
      * @param listener
      */
@@ -239,31 +245,31 @@ public class ProjectDetailsSection extends DialogPage {
     }
 
     /**
-     * Get the status set in this section.
-     * 
-     * @return
-     */
-    public ProjectStatus getStatus() {
-        return status;
-    }
-
-    /**
-     * Set the status in this section.
+     * Update the status in this section.
      * 
      * @param status
      */
-    public void setStatus(ProjectStatus status) {
-        listenToChanges = false;
-        try {
-            this.status = status;
-            if (statusViewer != null
-                    && !statusViewer.getControl().isDisposed()) {
-                statusViewer.setSelection(
-                        status != null ? new StructuredSelection(status)
-                                : StructuredSelection.EMPTY);
+    public void updateStatus(IProject project) {
+        if (project != null && statusTxt != null && !statusTxt.isDisposed()) {
+            try {
+                if (new GovernanceStateService().isLockedForProduction(project)) {
+                    statusTxt.setText(Messages.ProjectDetailsSection_LockedForProduction_Status);
+                    statusTxt.setImage(XpdResourcesUIActivator.getDefault().getImageRegistry()
+                            .get(XpdResourcesUIConstants.ICON_LOCKED));
+
+                } else {
+                    statusTxt.setText(Messages.ProjectDetailsSection_Draft_status);
+                    statusTxt.setImage(XpdResourcesUIActivator.getDefault().getImageRegistry()
+                            .get(XpdResourcesUIConstants.ICON_UNLOCKED));
+
+                }
+            } catch (CoreException e) {
+                XpdResourcesUIActivator.getDefault().getLogger().error(e);
             }
-        } finally {
-            listenToChanges = true;
+
+        } else {
+            statusTxt.setText("");
+            statusTxt.setImage(null);
         }
     }
 
@@ -380,34 +386,15 @@ public class ProjectDetailsSection extends DialogPage {
             createVersionControl(root);
         }
 
-        createLabel(root, Messages.ProjectDetailsSection_status_label);
-        statusViewer = new ComboViewer(root);
-        statusViewer.setContentProvider(new ArrayContentProvider());
-        statusViewer.setLabelProvider(new LabelProvider() {
-            @Override
-            public String getText(Object element) {
-                if (element instanceof ProjectStatus) {
-                    return ((ProjectStatus) element).getLabel();
-                }
-                return super.getText(element);
-            }
-        });
-        statusViewer.setInput(ProjectStatus.values());
-        if (status != null) {
-            statusViewer.setSelection(new StructuredSelection(status));
+        /* Sid ACE-2980 Only show project status if necessary. */
+        if (this.showProjectStatus) {
+            createLabel(root, Messages.ProjectDetailsSection_status_label);
+
+            /* Sid ACE-2980 Status is now just a Draft / Locked for production label. */
+            GridData gd = new GridData(GridData.FILL_HORIZONTAL);
+            statusTxt = createCLabel(root, "", gd); //$NON-NLS-1$
+
         }
-        statusViewer.addPostSelectionChangedListener(
-                new ISelectionChangedListener() {
-                    @Override
-                    public void selectionChanged(SelectionChangedEvent event) {
-                        ISelection selection = event.getSelection();
-                        if (selection instanceof IStructuredSelection) {
-                            status = (ProjectStatus) ((IStructuredSelection) selection)
-                                    .getFirstElement();
-                            fireModifyEvent(statusViewer.getCombo());
-                        }
-                    }
-                });
 
         if (showDestinationEnv) {
             createLabel(root,
@@ -581,6 +568,27 @@ public class ProjectDetailsSection extends DialogPage {
      */
     private Label createLabel(Composite aParent, String aText, Object aLayout) {
         Label result = new Label(aParent, SWT.WRAP);
+        result.setLayoutData(aLayout);
+
+        if (aText != null) {
+            result.setText(aText);
+        }
+        return result;
+    }
+
+    /**
+     * Creates a label and adds it to the given parent composite.
+     * 
+     * @param aParent
+     *            the parent composite to which the label is added.
+     * @param aText
+     *            the text to be displayed within the label.
+     * @param aLayout
+     *            the layout data to be assigned to the label.
+     * @return the newly created label.
+     */
+    private CLabel createCLabel(Composite aParent, String aText, Object aLayout) {
+        CLabel result = new CLabel(aParent, SWT.WRAP);
         result.setLayoutData(aLayout);
 
         if (aText != null) {

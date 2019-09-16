@@ -118,6 +118,10 @@ public class XpdResourcesUIConstants {
 
     public static final String ICON_STUDIO_FOR_MAA_FILE = "icons/tibco32.png"; //$NON-NLS-1$
 
+    public static final String ICON_LOCKED = "icons/Locked.png"; //$NON-NLS-1$
+
+    public static final String ICON_UNLOCKED = "icons/Unlocked.png"; //$NON-NLS-1$
+
     public static final String[] IMAGES = new String[] {
             ICON_COMPARE_COLLAPSE_ALL, ICON_COMPARE_EXPAND_ALL,
             ICON_INTERNAL_PROPS_COMPARENODE_FAINT,
@@ -131,6 +135,6 @@ public class XpdResourcesUIConstants {
             IMG_SELECTALL_ICON, IMAGE_ADD, IMAGE_DELETE, IMAGE_UP, IMAGE_DOWN,
             IMAGE_EDIT, QUICKFIX_ACTION_ICON, ICON_COMPARATOR_FOLDER_NODE,
             ICON_DEFAULT_COMPARATOR_NODE, ICON_BLANK16,
-            ICON_STUDIO_FOR_MAA_FILE };
+            ICON_STUDIO_FOR_MAA_FILE, ICON_LOCKED, ICON_UNLOCKED };
 
 }

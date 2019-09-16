@@ -234,6 +234,8 @@ public class Messages extends NLS {
 
     public static String ProjectDetailsSection_DestinationEnvDoesNotExist_longdesc;
 
+    public static String ProjectDetailsSection_Draft_status;
+
     public static String ProjectDetailsSection_destinationEnvironment_label;
 
     public static String ProjectDetailsSection_EmptyId_error_shortdesc;
@@ -251,6 +253,8 @@ public class Messages extends NLS {
     public static String ProjectDetailsSection_increment_version_btn;
 
     public static String ProjectDetailsSection_increment_version_tooltip;
+
+    public static String ProjectDetailsSection_LockedForProduction_Status;
 
     public static String ProjectDetailsSection_status_label;
 

@@ -12,7 +12,6 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.jface.fieldassist.TextContentAdapter;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -30,7 +29,6 @@ import com.tibco.xpd.xpdl2.Description;
 import com.tibco.xpd.xpdl2.Documentation;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.PackageHeader;
-import com.tibco.xpd.xpdl2.PublicationStatusType;
 import com.tibco.xpd.xpdl2.RedefinableHeader;
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
 import com.tibco.xpd.xpdl2.Xpdl2Package;
@@ -54,8 +52,6 @@ public class PackageInformationSection extends
     private Text descriptionText;
 
     private Text documentationText;
-
-    private CCombo publicationStatusCombo;
 
     private Text costUnitText;
 
@@ -122,18 +118,6 @@ public class PackageInformationSection extends
         documentationText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
         manageControl(documentationText);
 
-        label =
-                toolkit.createLabel(composite,
-                        Messages.PackageInformationSection_status_label);
-        label.setLayoutData(new GridData());
-        publicationStatusCombo =
-                toolkit.createCCombo(composite, null, Xpdl2Package.eINSTANCE
-                        .getRedefinableHeader_PublicationStatus());
-        publicationStatusCombo.setEditable(false);
-        publicationStatusCombo.setLayoutData(new GridData(
-                GridData.FILL_HORIZONTAL));
-        globaliseStatusCombo();
-        manageControl(publicationStatusCombo);
 
         // create anonymous text content adaptor that forces the selection of a
         // content assist to
@@ -185,26 +169,6 @@ public class PackageInformationSection extends
                                 .getAlphaNumericChars(), true);
 
         return composite;
-    }
-
-    /**
-     * Changes the status text to what is in the messages.properties file for
-     * support with other languages.
-     */
-    private void globaliseStatusCombo() {
-        int itemCount = publicationStatusCombo.getItemCount();
-
-        for (int i = 0; i < itemCount; i++) {
-            String name = publicationStatusCombo.getItem(i);
-            PublicationStatusType pubStatusType =
-                    PublicationStatusType.getByName(name);
-            if (pubStatusType != null) {
-                String uiText =
-                        PublicationStatusType.getUIText(pubStatusType
-                                .getValue());
-                publicationStatusCombo.setItem(i, uiText);
-            }
-        }
     }
 
     /**
@@ -290,32 +254,6 @@ public class PackageInformationSection extends
                         .setLabel(Messages.PackageInformationSection_SetDocumentation_menu);
             }
 
-        } else if (obj == publicationStatusCombo) {
-            PublicationStatusType status =
-                    PublicationStatusType.UNDER_REVISION_LITERAL;
-            if (widget
-                    .getData(PublicationStatusType.RELEASED_LITERAL.getName())
-                    .equals(publicationStatusCombo.getText())) {
-                status = PublicationStatusType.RELEASED_LITERAL;
-            } else if (widget.getData(PublicationStatusType.UNDER_TEST_LITERAL
-                    .getName()).equals(publicationStatusCombo.getText())) {
-                status = PublicationStatusType.UNDER_TEST_LITERAL;
-            }
-
-            if (!status.equals(redefinableHeader.getPublicationStatus())) {
-                if (redefinableHeader.eContainer() == null) {
-                    redefinableHeader.setPublicationStatus(status);
-                } else {
-                    command.append(SetCommand.create(getEditingDomain(),
-                            redefinableHeader,
-                            feat,
-                            status));
-                    command
-                            .setLabel(Messages.PackageInformationSection_SetPubStatus_menu);
-                }
-            } else {
-                return null;
-            }
         } else if (obj == costUnitText) {
             CostUnit costUnit = Xpdl2Factory.eINSTANCE.createCostUnit();
             costUnit.setValue(costUnitText.getText());
@@ -369,10 +307,6 @@ public class PackageInformationSection extends
         if (getInput() == null) {
             return;
         }
-        String statusText =
-                (String) publicationStatusCombo
-                        .getData(PublicationStatusType.UNDER_TEST_LITERAL
-                                .getName());
         Package xpdlPackage = (Package) getInput();
         RedefinableHeader redefinableHeader =
                 xpdlPackage.getRedefinableHeader();
@@ -384,42 +318,12 @@ public class PackageInformationSection extends
             updateText(authorText, redefinableHeader.getAuthor());
             // updateCostUnit(packageHeader);
 
-            int status = redefinableHeader.getPublicationStatus().getValue();
-            switch (status) {
-            case PublicationStatusType.UNDER_REVISION:
-                statusText =
-                        (String) publicationStatusCombo
-                                .getData(PublicationStatusType.UNDER_REVISION_LITERAL
-                                        .getName());
-                break;
-            case PublicationStatusType.RELEASED:
-                statusText =
-                        (String) publicationStatusCombo
-                                .getData(PublicationStatusType.RELEASED_LITERAL
-                                        .getName());
-                break;
-            case PublicationStatusType.UNDER_TEST:
-                statusText =
-                        (String) publicationStatusCombo
-                                .getData(PublicationStatusType.UNDER_TEST_LITERAL
-                                        .getName());
-                break;
-            }
-
         } else {
 
             updateText(authorText, ""); //$NON-NLS-1$
         }
         // updateCCombo(publicationStatusCombo, statusText);
 
-        PublicationStatusType pubStatusType =
-                PublicationStatusType.getByName(statusText);
-        if (pubStatusType != null) {
-            statusText =
-                    PublicationStatusType.getUIText(pubStatusType.getValue());
-        }
-
-        publicationStatusCombo.setText(statusText);
         updateText(createdText, LocaleUtils.getLocalisedDateTime(packageHeader
                 .getCreated(), DateFormat.FULL, DateFormat.MEDIUM));
         if (packageHeader != null) {
