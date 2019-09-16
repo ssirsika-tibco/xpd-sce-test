@@ -82,13 +82,11 @@
                 <xpdl2:StartEvent xpdExt:NonInterruptingEvent="true" Trigger="Signal">
                   <xpdl2:TriggerResultSignal xpdExt:SignalType="Global" xpdExt:EventHandlerFlowStrategy="SerializeConcurrent" CatchThrow="CATCH" Name="com.example.simplegsdproject/SimpleGSDProject.gsd#GlobalSignal">
                     <xpdExt:SignalData>
-                      <xpdExt:OutputScriptDataMapper MapperContext="GlobalSignalCatch" MappingDirection="IN">
-                        <xpdExt:DataMappings>
-                          <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalCorrelation.DataMapperContent" Direction="IN" Formal="CorrelationField">
-                            <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData</xpdl2:Actual>
-                          </xpdExt:DataMapping>
-                        </xpdExt:DataMappings>
-                      </xpdExt:OutputScriptDataMapper>
+                      <xpdExt:DataMappings>
+                        <xpdExt:DataMapping Direction="OUT" Formal="PayloadData">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">Field</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                      </xpdExt:DataMappings>
                     </xpdExt:SignalData>
                     <xpdExt:EventHandlerInitialisers Id="_38-LcNX3EemTVcOpVXCVwg">
                       <xpdExt:ActivityRef xpdExt:IdRef="_4MkjIdX2EemTVcOpVXCVwg"/>
@@ -223,11 +221,11 @@
             <xpdl2:IntermediateEvent Trigger="Signal">
               <xpdl2:TriggerResultSignal xpdExt:SignalType="Global" CatchThrow="THROW" Name="com.example.simplegsdproject/SimpleGSDProject.gsd#GlobalSignal">
                 <xpdExt:SignalData>
-                  <xpdExt:CorrelationMappings>
+                  <xpdExt:DataMappings>
                     <xpdExt:DataMapping Direction="IN" Formal="PayloadData">
-                      <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField</xpdl2:Actual>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Field</xpdl2:Actual>
                     </xpdExt:DataMapping>
-                  </xpdExt:CorrelationMappings>
+                  </xpdExt:DataMappings>
                 </xpdExt:SignalData>
                 <xpdl2:Properties/>
               </xpdl2:TriggerResultSignal>
