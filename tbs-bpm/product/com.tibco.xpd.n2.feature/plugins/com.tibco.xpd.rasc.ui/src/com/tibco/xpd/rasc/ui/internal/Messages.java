@@ -92,6 +92,8 @@ public class Messages extends NLS {
 
     public static String RascExportProjectSelectionPage_NoProjectSelectedError;
 
+    public static String RascExportProjectSelectionPage_DraftProjectForProduction;
+
     public static String RascExportProjectSelectionPage_SelectRequired;
 
     public static String RascExportWizard_AdminPageError;

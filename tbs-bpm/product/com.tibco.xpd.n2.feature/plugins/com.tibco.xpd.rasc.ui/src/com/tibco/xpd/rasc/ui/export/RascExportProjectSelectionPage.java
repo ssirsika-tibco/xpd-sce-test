@@ -11,6 +11,7 @@ import java.util.Set;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
@@ -20,8 +21,10 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
+import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.internal.Messages;
 import com.tibco.xpd.resources.util.CyclicDependencyException;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.ProjectUtil2;
 import com.tibco.xpd.ui.importexport.exportwizard.pages.AbstractInputOutputSelectionWizardPage;
 import com.tibco.xpd.ui.projectexplorer.viewerfilters.XpdNatureProjectsOnly;
@@ -37,13 +40,21 @@ public class RascExportProjectSelectionPage
         extends AbstractInputOutputSelectionWizardPage {
 
     /**
+     * <code>true</code> if we're generating for production, <code>false</code>
+     * if we're generating test artifacts.
+     */
+    private boolean isGeneratingForProduction;
+
+    /**
      * Constructor.
      * 
      * @param selection
      *            The initial project selection.
+     * @param isGeneratingForProduction
      */
-    public RascExportProjectSelectionPage(IStructuredSelection selection) {
+    public RascExportProjectSelectionPage(IStructuredSelection selection, boolean isGeneratingForProduction) {
         super(selection, true);
+        this.isGeneratingForProduction = isGeneratingForProduction;
     }
 
     /**
@@ -81,8 +92,32 @@ public class RascExportProjectSelectionPage
     protected void validatePageCompletion() {
         List<Object> selected = getSelectedObjects();
         if (selected != null && !selected.isEmpty()) {
-            setPageComplete(true);
-            setMessage(null);
+            /*
+             * ACE-2849: Saket: Production artifacts cannot be generated for
+             * draft projects.
+             */
+            boolean isPageComplete = true;
+            for (Object eachSelectedObject : selected) {
+                if (eachSelectedObject instanceof IProject) {
+                    try {
+                        boolean isLocked =
+                                (new GovernanceStateService()).isLockedForProduction((IProject) eachSelectedObject);
+                        if (!isLocked && isGeneratingForProduction) {
+                            isPageComplete= false;
+                            break;
+                        }
+                    } catch (CoreException e) {
+                        RascUiActivator.getLogger().error(e);
+                    }
+                }
+            }
+            if (isPageComplete) {
+                setPageComplete(true);
+                setMessage(null);
+            } else {
+                setPageComplete(false);
+                setMessage(Messages.RascExportProjectSelectionPage_DraftProjectForProduction, ERROR);
+            }
         } else {
             setPageComplete(false);
             setMessage(

@@ -82,7 +82,10 @@ public class LifecycleActionProvider extends CommonActionProvider {
                 // If any projects are locked disable Generate Draft and Lock
                 // actions
                 if (hasLockedProjects.get()) {
-                    generateDraftArtifacts.setEnabled(false);
+                    /*
+                     * ACE-2849: Saket: Decided against disabling this action
+                     * for locked projects.
+                     */
                     lockForProduction.setEnabled(false);
                 }
                 // If any projects are unlocked disable Generate Production and

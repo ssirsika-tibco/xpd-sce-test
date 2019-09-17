@@ -98,7 +98,7 @@ public class RascExportWizard extends Wizard
      */
     @Override
     public void addPages() {
-        exportPage = new RascExportProjectSelectionPage(selection);
+        exportPage = new RascExportProjectSelectionPage(selection, this.isGeneratingForProduction);
         exportPage.setTitle(getWindowTitle());
         if (this.isGeneratingForProduction) {
             exportPage.setDescription(Messages.RascGenerateProductionRascWizard_Description);
