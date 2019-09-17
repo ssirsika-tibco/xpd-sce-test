@@ -37,6 +37,8 @@ import org.eclipse.bpel.model.extensions.BPELUnknownExtensionDeserializer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notifier;
@@ -96,6 +98,8 @@ import com.tibco.bx.xpdl2bpel.util.internal.BxExtensibilityAttributesDeserialize
 import com.tibco.bx.xpdl2bpel.util.internal.EObjectActivityDeserializer;
 import com.tibco.bx.xpdl2bpel.util.internal.EObjectActivitySerializer;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
+import com.tibco.xpd.resources.util.ProjectUtil;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.xpdl2.OtherAttributesContainer;
 
 public class BPELUtils {
@@ -955,6 +959,54 @@ public class BPELUtils {
         CDATASection cdata = scriptElement.getOwnerDocument().createCDATASection(script);
         scriptElement.appendChild(cdata);
         scriptElement.setAttribute("expressionLanguage", N2PEConstants.JSCRIPT_LANGUAGE);
+    }
+
+    
+    /**
+     * * Sid ACE-2936 Add the dataFieldDescriptor information (this is a per-process JS file and class that is generated
+     * for runtime initialisation of the process data in a "data" object - and also does JSON to JS data coercion and
+     * initialisation of arrays etc.
+     * 
+     * In the case of activity scoped data it contains the handling for the process data AND the activity scope data
+     * 
+     * 
+     * <li>tibex:dataFieldDescriptorClass="<project-id>.<process-package-name>.<process-name>.<task-name>"/li>
+     * <li>tibex:dataFieldDescriptorScript="process-js/<process-package-name>/<process-name>/<task-name>/<task-name>.js"</li>
+     * 
+     * @param variableContainer
+     * @param process
+     */
+    public static void addActivityDataFieldDescriptorInfo(ExtensibleElement variableContainer,
+            com.tibco.xpd.xpdl2.Activity activity) {
+        /*
+         * Build the path name.
+         * 
+         * /process-js/<process-package-name>/<process-name>/<activity-name>/<activity-name>.js
+         */
+        com.tibco.xpd.xpdl2.Process process = activity.getProcess();
+        String pkgName = process.getPackage().getName();
+        String processName = process.getName();
+        String activityName = activity.getName();
+
+        IPath descriptorPath = new Path("process-js").append(pkgName) //$NON-NLS-1$
+                .append(processName).append(activityName).append(activityName + "." + "js"); //$NON-NLS-1$ //$NON-NLS-2$
+
+        BPELUtils.addExtensionAttribute(variableContainer,
+                "dataFieldDescriptorScript", //$NON-NLS-1$
+                descriptorPath.toString());
+
+        /*
+         * Build the class name.
+         * 
+         * <application-id>.<process-package-name>.<process-name>.<activity-name>
+         */
+        String projectId = ProjectUtil.getProjectId(WorkingCopyUtil.getProjectFor(process));
+
+        String className = projectId + "." + pkgName + "." + processName + "." + activityName; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+
+        BPELUtils.addExtensionAttribute(variableContainer,
+                "dataFieldDescriptorClass", //$NON-NLS-1$
+                className);
     }
 
 }

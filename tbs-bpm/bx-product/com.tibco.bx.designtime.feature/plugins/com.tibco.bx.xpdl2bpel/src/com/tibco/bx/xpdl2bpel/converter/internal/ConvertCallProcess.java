@@ -401,6 +401,9 @@ public class ConvertCallProcess {
        
        EList<DataField> localDataFields = xpdlActivity.getDataFields();
        if (localDataFields != null) {
+            /* Sid ACE-2936 Add the dataField descriptor. This is here for completeness, we don't actually allow activity scope data fields on CallSubproc */
+            BPELUtils.addActivityDataFieldDescriptorInfo(scope, xpdlActivity);
+           
         	for (DataField dataField : localDataFields) {
 				ProcessRelevantData prd = findProcessRelevantDataFromActivityInterfaceData(dataField.getName(), mainProcessData);
 				if (prd != null) {

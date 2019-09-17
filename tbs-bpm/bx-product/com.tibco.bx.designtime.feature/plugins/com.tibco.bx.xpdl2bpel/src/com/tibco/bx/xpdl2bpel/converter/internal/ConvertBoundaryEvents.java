@@ -266,8 +266,12 @@ public class ConvertBoundaryEvents {
 					scope.setVariables(variables);
 				}
 				EList<DataField> dataFields = boundaryHost.getXpdlActivity().getDataFields();
-				if (dataFields != null && !dataFields.isEmpty()) { // has local
-																	// data
+                if (dataFields != null && !dataFields.isEmpty()) { // has local
+                                                                   // data
+
+                    /* Sid ACE-2936 Add the dataField descriptor. */
+                    BPELUtils.addActivityDataFieldDescriptorInfo(scope, boundaryHost.getXpdlActivity());
+
 					if (scope.getVariables() == null) {
 						scope.setVariables(org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariables());
 					}

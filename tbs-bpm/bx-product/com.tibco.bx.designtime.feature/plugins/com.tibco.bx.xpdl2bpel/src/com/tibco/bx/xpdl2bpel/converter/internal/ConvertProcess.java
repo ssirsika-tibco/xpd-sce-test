@@ -395,6 +395,10 @@ public class ConvertProcess {
                 	scope.setActivity(result);
                 	result = scope;
                 }
+                
+                /* Sid ACE-2936 Add the dataField descriptor. */
+                BPELUtils.addActivityDataFieldDescriptorInfo(scope, xpdlActivity);
+                
                 if (scope.getVariables() == null) {
                 	scope.setVariables(org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariables());
                 }

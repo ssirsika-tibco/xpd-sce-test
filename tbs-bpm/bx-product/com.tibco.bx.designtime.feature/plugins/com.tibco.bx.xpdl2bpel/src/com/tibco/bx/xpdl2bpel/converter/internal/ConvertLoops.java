@@ -264,6 +264,10 @@ public class ConvertLoops {
         
 		EList<DataField> dataFields = xpdlActivity.getDataFields();
 		if (dataFields != null && !dataFields.isEmpty()) { // has local data
+		    
+            /* Sid ACE-2936 Add the dataField descriptor. */
+            BPELUtils.addActivityDataFieldDescriptorInfo(scope, xpdlActivity);
+
             if (scope.getVariables() == null) {
             	scope.setVariables(org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariables());
             }
@@ -367,6 +371,10 @@ public class ConvertLoops {
         
 		EList<DataField> dataFields = xpdlActivity.getDataFields();
 		if (dataFields != null && !dataFields.isEmpty()) { // has local data
+		    
+            /* Sid ACE-2936 Add the dataField descriptor. */
+            BPELUtils.addActivityDataFieldDescriptorInfo(scope, xpdlActivity);
+
             if (scope.getVariables() == null) {
             	scope.setVariables(org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariables());
             }
