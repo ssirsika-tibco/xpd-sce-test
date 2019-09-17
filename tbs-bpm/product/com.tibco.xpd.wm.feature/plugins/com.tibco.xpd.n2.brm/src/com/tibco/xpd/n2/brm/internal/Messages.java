@@ -25,6 +25,9 @@ public class Messages extends NLS {
     public static String BrmModelsRascContributor_UserTaskModelExport_status;
 
 
+    public static String PfeModelsRascContributor_BuildingBusinessCategories_status;
+
+
     public static String WlfModelsRascContributor_Export_status;
 
     static {

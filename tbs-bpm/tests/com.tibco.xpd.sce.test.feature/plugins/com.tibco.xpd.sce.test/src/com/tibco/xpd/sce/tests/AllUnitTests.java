@@ -22,6 +22,7 @@ import com.tibco.xpd.sce.tests.rasc.contributors.GlobalSignalRascContributorTest
 import com.tibco.xpd.sce.tests.rasc.contributors.OrgModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PERascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PeSharedResourceContributorTest;
+import com.tibco.xpd.sce.tests.rasc.contributors.PfeRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WlfModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WpModelRascContributorTest;
 
@@ -50,6 +51,7 @@ public class AllUnitTests {
         suite.addTestSuite(WpModelRascContributorTest.class);
         suite.addTestSuite(WlfModelRascContributorTest.class);
         suite.addTestSuite(PeSharedResourceContributorTest.class);
+        suite.addTestSuite(PfeRascContributorTest.class);
 
         /*
          * BOM->CDM transformation

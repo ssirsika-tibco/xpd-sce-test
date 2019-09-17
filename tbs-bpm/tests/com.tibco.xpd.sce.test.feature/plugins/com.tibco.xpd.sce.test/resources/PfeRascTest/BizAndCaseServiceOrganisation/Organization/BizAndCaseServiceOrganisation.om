@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:om="http://www.tibco.com/om/1.0" xmlns:omnotation="http://www.tibco.com/models/omnotation">
+  <om:OrgModel xmi:id="_uI-04NlEEem0nrEZm0zHtg" name="OrganizationModel" displayName="Organization Model" author="aallway" dateCreated="1568726078886" humanResourceType="_uI-09dlEEem0nrEZm0zHtg" consumableResourceType="_uI-09tlEEem0nrEZm0zHtg" durableResourceType="_uI-099lEEem0nrEZm0zHtg">
+    <organizations xmi:type="om:Organization" xmi:id="_uI-04dlEEem0nrEZm0zHtg" name="Organization1" displayName="Organization1" allocationMethod="NEXT"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_uvrogNlEEem0nrEZm0zHtg" name="Privilege1" displayName="Privilege1"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_uxRj8NlEEem0nrEZm0zHtg" name="Privilege2" displayName="Privilege2"/>
+    <privileges xmi:type="om:Privilege" xmi:id="_uy_bMNlEEem0nrEZm0zHtg" name="Privilege3" displayName="Privilege3"/>
+    <embeddedMetamodel xmi:type="om:OrgMetaModel" xmi:id="_uI-04tlEEem0nrEZm0zHtg">
+      <locationTypes xmi:type="om:LocationType" xmi:id="_uI-049lEEem0nrEZm0zHtg" name="StandardLocationType" displayName="Standard Location Type">
+        <attributes xmi:type="om:Attribute" xmi:id="_uI-05NlEEem0nrEZm0zHtg" name="Country" displayName="Country"/>
+        <attributes xmi:type="om:Attribute" xmi:id="_uI-05dlEEem0nrEZm0zHtg" name="State" displayName="State"/>
+        <attributes xmi:type="om:Attribute" xmi:id="_uI-05tlEEem0nrEZm0zHtg" name="City" displayName="City"/>
+        <attributes xmi:type="om:Attribute" xmi:id="_uI-059lEEem0nrEZm0zHtg" name="Street" displayName="Street"/>
+        <attributes xmi:type="om:Attribute" xmi:id="_uI-06NlEEem0nrEZm0zHtg" name="Postcode" displayName="Postcode"/>
+      </locationTypes>
+      <organizationTypes xmi:type="om:OrganizationType" xmi:id="_uI-06dlEEem0nrEZm0zHtg" name="PublicCompany" displayName="Public Company">
+        <orgUnitFeatures xmi:type="om:OrgUnitFeature" xmi:id="_uI-06tlEEem0nrEZm0zHtg" name="HeadDepartment" displayName="Head Department" featureType="_uI-069lEEem0nrEZm0zHtg"/>
+      </organizationTypes>
+      <orgUnitTypes xmi:type="om:OrgUnitType" xmi:id="_uI-069lEEem0nrEZm0zHtg" name="DepartmentType" displayName="Department Type">
+        <orgUnitFeatures xmi:type="om:OrgUnitFeature" xmi:id="_uI-07NlEEem0nrEZm0zHtg" name="Department" displayName="Department" upperBound="-1" featureType="_uI-069lEEem0nrEZm0zHtg"/>
+        <orgUnitFeatures xmi:type="om:OrgUnitFeature" xmi:id="_uI-07dlEEem0nrEZm0zHtg" name="BusinessUnit" displayName="Business Unit" upperBound="-1" featureType="_uI-069lEEem0nrEZm0zHtg"/>
+        <orgUnitFeatures xmi:type="om:OrgUnitFeature" xmi:id="_uI-07tlEEem0nrEZm0zHtg" name="Team" displayName="Team" upperBound="-1" featureType="_uI-069lEEem0nrEZm0zHtg"/>
+        <positionFeatures xmi:type="om:PositionFeature" xmi:id="_uI-079lEEem0nrEZm0zHtg" name="Manager" displayName="Manager" featureType="_uI-08dlEEem0nrEZm0zHtg"/>
+        <positionFeatures xmi:type="om:PositionFeature" xmi:id="_uI-08NlEEem0nrEZm0zHtg" name="Member" displayName="Member" upperBound="-1" featureType="_uI-08dlEEem0nrEZm0zHtg"/>
+      </orgUnitTypes>
+      <positionTypes xmi:type="om:PositionType" xmi:id="_uI-08dlEEem0nrEZm0zHtg" name="StandardPositionType" displayName="Standard Position Type">
+        <attributes xmi:type="om:Attribute" xmi:id="_uI-08tlEEem0nrEZm0zHtg" name="ContractType" displayName="Contract Type" type="Enum">
+          <values xmi:type="om:EnumValue" xmi:id="_uI-089lEEem0nrEZm0zHtg" value="temporary"/>
+          <values xmi:type="om:EnumValue" xmi:id="_uI-09NlEEem0nrEZm0zHtg" value="permanent"/>
+        </attributes>
+      </positionTypes>
+      <resourceTypes xmi:type="om:ResourceType" xmi:id="_uI-09dlEEem0nrEZm0zHtg" name="HumanResourceType" displayName="Human Resource Type"/>
+      <resourceTypes xmi:type="om:ResourceType" xmi:id="_uI-09tlEEem0nrEZm0zHtg" name="ConsumableResourceType" displayName="Consumable Resource Type"/>
+      <resourceTypes xmi:type="om:ResourceType" xmi:id="_uI-099lEEem0nrEZm0zHtg" name="DurableResourceType" displayName="Durable Resource Type"/>
+    </embeddedMetamodel>
+  </om:OrgModel>
+  <notation:Diagram xmi:id="_uJHXwNlEEem0nrEZm0zHtg" type="Organization Model" element="_uI-04NlEEem0nrEZm0zHtg" name="BizAndCaseServiceOrganisation.om" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_uJHXwdlEEem0nrEZm0zHtg" type="1050">
+      <children xmi:type="notation:Node" xmi:id="_uJHXwtlEEem0nrEZm0zHtg" type="4100"/>
+      <children xmi:type="notation:Node" xmi:id="_uJHXw9lEEem0nrEZm0zHtg" type="5050">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_uJHXxNlEEem0nrEZm0zHtg"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_uJHXxdlEEem0nrEZm0zHtg" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_uJHXxtlEEem0nrEZm0zHtg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_uJHXx9lEEem0nrEZm0zHtg"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_uJHXyNlEEem0nrEZm0zHtg" fontName="Segoe UI" fontHeight="10" lineColor="0"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_uJHXydlEEem0nrEZm0zHtg"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_uJHXytlEEem0nrEZm0zHtg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uJHXy9lEEem0nrEZm0zHtg" y="145"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_uJJM8NlEEem0nrEZm0zHtg" type="OrgModelBadge">
+      <children xmi:type="notation:Node" xmi:id="_uJJ0ANlEEem0nrEZm0zHtg" type="OrgModelNameBadge">
+        <styles xmi:type="notation:FontStyle" xmi:id="_uJJ0AdlEEem0nrEZm0zHtg" fontName="Segoe UI" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_uJLCINlEEem0nrEZm0zHtg" type="LabelAuthorBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_uJLpMNlEEem0nrEZm0zHtg" type="OrgModelAuthorBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_uJMQQNlEEem0nrEZm0zHtg" type="LabelVersionBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_uJMQQdlEEem0nrEZm0zHtg" type="OrgModelVersionBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_uJM3UNlEEem0nrEZm0zHtg" type="LabelDateCreatedBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_uJM3UdlEEem0nrEZm0zHtg" type="OrgModelDateCreatedBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_uJNeYNlEEem0nrEZm0zHtg" type="LabelDateModifiedBadgeEditPart"/>
+      <children xmi:type="notation:Node" xmi:id="_uJNeYdlEEem0nrEZm0zHtg" type="OrgModelDateModifiedBadgeEditPart"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_uJJM8dlEEem0nrEZm0zHtg" fontName="Segoe UI" fontHeight="10" fillColor="16315636" lineColor="4622313"/>
+      <styles xmi:type="omnotation:ShapeGradientStyle" xmi:id="_uJJM8tlEEem0nrEZm0zHtg" gradStartColor="0"/>
+      <styles xmi:type="omnotation:BorderGradientStyle" xmi:id="_uJJM89lEEem0nrEZm0zHtg" gradStartColor="0"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_uJJM9NlEEem0nrEZm0zHtg"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_uJJM9dlEEem0nrEZm0zHtg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uJJM9tlEEem0nrEZm0zHtg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_uJOFcNlEEem0nrEZm0zHtg" type="1001" element="_uI-04dlEEem0nrEZm0zHtg">
+      <children xmi:type="notation:Node" xmi:id="_uJOFd9lEEem0nrEZm0zHtg" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_uJOFeNlEEem0nrEZm0zHtg" type="4004">
+        <styles xmi:type="notation:FontStyle" xmi:id="_uJOFedlEEem0nrEZm0zHtg" fontName="Segoe UI" fontHeight="10" italic="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_uJP6oNlEEem0nrEZm0zHtg" type="5001">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_uJP6odlEEem0nrEZm0zHtg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_uJP6otlEEem0nrEZm0zHtg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_uJP6o9lEEem0nrEZm0zHtg"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_uJOFcdlEEem0nrEZm0zHtg" fontName="Segoe UI" fontHeight="10" fillColor="14548991" lineColor="2263786"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_uJOFctlEEem0nrEZm0zHtg" diagramLink="_uJRIwNlEEem0nrEZm0zHtg" hint="Organization Model Sub"/>
+      <styles xmi:type="omnotation:ShapeGradientStyle" xmi:id="_uJOFc9lEEem0nrEZm0zHtg" gradEndColor="4227327"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_uJOFdNlEEem0nrEZm0zHtg"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_uJOFddlEEem0nrEZm0zHtg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uJOFdtlEEem0nrEZm0zHtg" x="270" y="50"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_uJHXzNlEEem0nrEZm0zHtg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_uJHXzdlEEem0nrEZm0zHtg"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_uJRIwNlEEem0nrEZm0zHtg" type="Organization Model Sub" element="_uI-04dlEEem0nrEZm0zHtg" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_uJSW4NlEEem0nrEZm0zHtg" type="OrganizationSubBadge">
+      <children xmi:type="notation:Node" xmi:id="_uJVaMNlEEem0nrEZm0zHtg" type="OrganizationNameSubBadge"/>
+      <children xmi:type="notation:Node" xmi:id="_uJWoUNlEEem0nrEZm0zHtg" type="LabelOrganizationNameSubBadge" element="_uI-04NlEEem0nrEZm0zHtg"/>
+      <children xmi:type="notation:Node" xmi:id="_uJWoUdlEEem0nrEZm0zHtg" type="OrgModelNameSubBadge" element="_uI-04NlEEem0nrEZm0zHtg"/>
+      <children xmi:type="notation:Node" xmi:id="_uJWoUtlEEem0nrEZm0zHtg" type="LabelOrgTypeSubBadge"/>
+      <children xmi:type="notation:Node" xmi:id="_uJWoU9lEEem0nrEZm0zHtg" type="OrgTypeSubBadge"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_uJSW4dlEEem0nrEZm0zHtg" fontName="Segoe UI" fontHeight="10" fillColor="16316150" lineColor="4622313"/>
+      <styles xmi:type="omnotation:ShapeGradientStyle" xmi:id="_uJSW4tlEEem0nrEZm0zHtg" gradStartColor="0"/>
+      <styles xmi:type="omnotation:BorderGradientStyle" xmi:id="_uJSW49lEEem0nrEZm0zHtg" gradStartColor="0"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_uJSW5NlEEem0nrEZm0zHtg"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_uJSW5dlEEem0nrEZm0zHtg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uJSW5tlEEem0nrEZm0zHtg"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_uJRIwdlEEem0nrEZm0zHtg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_uJRIwtlEEem0nrEZm0zHtg"/>
+  </notation:Diagram>
+</xmi:XMI>
