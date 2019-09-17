@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.internal.client.IContentAssistIconProvider;
@@ -56,7 +57,8 @@ public class DynamicJsAttribute extends DefaultMultipleJsClassResolver implement
         setMultipleClass(multipleClass);
     }
 	
-	public String getComment() {
+	@Override
+    public String getComment() {
 		return comment;
 	}
 	
@@ -65,7 +67,8 @@ public class DynamicJsAttribute extends DefaultMultipleJsClassResolver implement
     }
 	
 
-	public String getContentAssistString() {
+	@Override
+    public String getContentAssistString() {
 //	    String contentAssistString = getName();
 //	    if(isMultiple()){
 //	        contentAssistString+= JsConsts.ARRAY_CONTENT_ASSIST_SUFFIX; //$NON-NLS-1$
@@ -74,7 +77,8 @@ public class DynamicJsAttribute extends DefaultMultipleJsClassResolver implement
 	    return getName();
 	}
 
-	public Image getIcon() {
+	@Override
+    public Image getIcon() {
         if (this.image != null) {
             return this.image;
         } else if (contentAssistIconProvider != null) {
@@ -87,6 +91,7 @@ public class DynamicJsAttribute extends DefaultMultipleJsClassResolver implement
 		this.image = image;
 	}
 	
+    @Override
     public JsDataType getDataTypeForJSExpression(JsExpression jsExpression,
             List<JsClass> supportedJsClasses) {
         JsDataType dataType = new JsDataType();
@@ -172,14 +177,21 @@ public class DynamicJsAttribute extends DefaultMultipleJsClassResolver implement
         return dataType;
     }
 
+    @Override
     public String getDataType() {
         return dataType;
+    }
+
+    @Override
+    public Type getUmlType() {
+        return null;
     }
 
     public void setDataType(String dataType) {
         this.dataType = dataType;
     }
 
+    @Override
     public boolean isMultiple() {
         return isMultiple;
     }
@@ -192,10 +204,12 @@ public class DynamicJsAttribute extends DefaultMultipleJsClassResolver implement
         this.name = name;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public IScriptRelevantData getScriptRelevantData() {
         return null;
     }    

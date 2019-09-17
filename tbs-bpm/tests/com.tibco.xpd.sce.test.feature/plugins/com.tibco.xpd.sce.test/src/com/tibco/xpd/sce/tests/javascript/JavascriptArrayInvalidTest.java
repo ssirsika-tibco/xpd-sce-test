@@ -44,21 +44,28 @@ public class JavascriptArrayInvalidTest extends AbstractN2BaseValidationTest {
                         "/JavascriptArrayTest/Process Packages/JavascriptArrayInvalidTest.xpdl", //$NON-NLS-1$
                         "bx.validateScriptTask", //$NON-NLS-1$
                         "_bIkxMHvdEemwf9lclz0wQg", //$NON-NLS-1$
-                        "BPM  : At Line:3 column:26, Assignment of Array<Text> from Array is not supported (JavascriptArrayInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
+                        "BPM  : At Line:3 column:26, Arrays cannot be directly assigned. Use 'array.length = 0' to clear an array followed by 'array.pushAll(sourceArray)' to copy all array entries (JavascriptArrayInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
                         ""), //$NON-NLS-1$
 
                 new ValidationsTestProblemMarkerInfo(
                         "/JavascriptArrayTest/Process Packages/JavascriptArrayInvalidTest.xpdl", //$NON-NLS-1$
                         "bx.validateScriptTask", //$NON-NLS-1$
                         "_bIkxMHvdEemwf9lclz0wQg", //$NON-NLS-1$
-                        "BPM  : At Line:4 column:32, Assignment of Array<Details> from Array is not supported (JavascriptArrayInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
+                        "BPM  : At Line:4 column:32, Arrays cannot be directly assigned. Use 'array.length = 0' to clear an array followed by 'array.pushAll(sourceArray)' to copy all array entries (JavascriptArrayInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
                         ""), //$NON-NLS-1$
 
                 new ValidationsTestProblemMarkerInfo(
                         "/JavascriptArrayTest/Process Packages/JavascriptArrayInvalidTest.xpdl", //$NON-NLS-1$
-                        "bx.warning.validateScriptTask", //$NON-NLS-1$
+                        "bx.validateScriptTask", //$NON-NLS-1$
                         "_bIkxMHvdEemwf9lclz0wQg", //$NON-NLS-1$
-                        "BPM  : At Line:2 column:30, Unable to determine type, operation may not be supported and content assist will not be available (JavascriptArrayInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
+                        "BPM  : At Line:5 column:22, Method push is not applicable for the provided argument types (Text) (JavascriptArrayInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
+                        ""), //$NON-NLS-1$
+
+                new ValidationsTestProblemMarkerInfo(
+                        "/JavascriptArrayTest/Process Packages/JavascriptArrayInvalidTest.xpdl", //$NON-NLS-1$
+                        "bx.validateScriptTask", //$NON-NLS-1$
+                        "_bIkxMHvdEemwf9lclz0wQg", //$NON-NLS-1$
+                        "BPM  : At Line:6 column:41, Method pushAll is not applicable for the provided argument types (Text) (JavascriptArrayInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
                         ""), //$NON-NLS-1$
 
         };

@@ -56,7 +56,7 @@ public class DefaultJsClass extends DefaultMultipleJsClassResolver implements
     }
 
     public DefaultJsClass(Class umlClass, Class multipleClass) {
-        this.umlClass = umlClass;
+        this(umlClass);
         setMultipleClass(multipleClass);
     }
 

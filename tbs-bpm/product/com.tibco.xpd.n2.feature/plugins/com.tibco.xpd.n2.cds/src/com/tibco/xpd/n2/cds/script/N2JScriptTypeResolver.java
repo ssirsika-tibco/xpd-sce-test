@@ -22,6 +22,7 @@ import com.tibco.xpd.script.model.client.JsAttribute;
 import com.tibco.xpd.script.model.client.JsClass;
 import com.tibco.xpd.script.model.internal.client.DefaultJsEnumeration;
 import com.tibco.xpd.script.model.internal.client.IDataTypeMapper;
+import com.tibco.xpd.script.model.internal.client.ITypeResolution;
 import com.tibco.xpd.script.model.internal.client.JsEnumeration;
 import com.tibco.xpd.script.model.internal.client.JsEnumerationLiteral;
 import com.tibco.xpd.script.model.jscript.JScriptTypeResolver;
@@ -103,10 +104,11 @@ public class N2JScriptTypeResolver extends JScriptTypeResolver {
             IScriptRelevantData resolveJavaScriptStringType = null;
             if (isMultiple) {
                 resolveJavaScriptStringType =
-                        resolveMultipleType(jsAttribute.getName(),
-                                getSupportedJsClasses(),
-                                null,
-                                getTypeMap());
+                        resolveMultipleType(jsAttribute.getName(), getSupportedJsClasses(), null, getTypeMap());
+                if (resolveJavaScriptStringType instanceof ITypeResolution) {
+                    ITypeResolution res = (ITypeResolution) resolveJavaScriptStringType;
+                    res.setExtendedInfo(jsAttribute);
+                }
             } else if (JScriptUtils.isGenericType(dataType)) {
                 resolveJavaScriptStringType =
                         resolveGenericContext(genericContext);
@@ -151,12 +153,8 @@ public class N2JScriptTypeResolver extends JScriptTypeResolver {
             List<JsClass> jsClasses, Class multipleClass,
             Map<String, String> typeMap) {
 
-        return JScriptUtils.resolveJavaScriptStringType(name,
-                JsConsts.ARRAY,
-                false,
-                getSupportedJsClasses(),
-                null,
-                getTypeMap());
+        return JScriptUtils
+                .resolveJavaScriptStringType(name, JsConsts.ARRAY, false, getSupportedJsClasses(), null, getTypeMap());
     }
 
 }

@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import antlr.Token;
-import antlr.collections.AST;
-
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.script.model.client.JsMethod;
@@ -21,6 +18,9 @@ import com.tibco.xpd.script.parser.internal.expr.IExpr;
 import com.tibco.xpd.script.parser.internal.validator.IValidateResult;
 import com.tibco.xpd.script.parser.internal.validator.jscript.AbstractExpressionValidator;
 
+import antlr.Token;
+import antlr.collections.AST;
+
 /**
  * @author mtorres
  * 
@@ -30,6 +30,7 @@ import com.tibco.xpd.script.parser.internal.validator.jscript.AbstractExpression
  */
 public class JScriptMethodCallValidator extends AbstractExpressionValidator {
 
+    @Override
     public void validate(AST methodAST, Token token) {
         // This is handled now by the Expression Validator
     }
@@ -63,7 +64,7 @@ public class JScriptMethodCallValidator extends AbstractExpressionValidator {
                         // Delegate evaluation
                         IValidateResult evaluateExpression =
                                 delegateEvaluateExpression(firstChildExpr,
-                                        (Token) token);
+                                        token);
                         if (evaluateExpression != null) {
                             returnDataType = evaluateExpression.getType();
                             genericContext =

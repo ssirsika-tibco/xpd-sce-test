@@ -5,6 +5,8 @@ package com.tibco.xpd.script.model.client;
 
 import java.util.List;
 
+import org.eclipse.uml2.uml.Type;
+
 import com.tibco.xpd.script.model.internal.client.ContentAssistElement;
 
 
@@ -24,6 +26,13 @@ public interface JsAttribute extends ContentAssistElement{
      */
 	String getDataType();
 	
+    /**
+     * Returns the UML type for the JsAttribute
+     * 
+     * @return the UML type for the JsAttribute
+     */
+    Type getUmlType();
+
 	/**
      * Returns the comment of the JsAttribute
      * 

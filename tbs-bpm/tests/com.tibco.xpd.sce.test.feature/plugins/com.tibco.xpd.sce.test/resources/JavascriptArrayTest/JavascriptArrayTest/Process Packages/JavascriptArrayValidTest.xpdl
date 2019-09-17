@@ -10,7 +10,6 @@
   </xpdl2:PackageHeader>
   <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
     <xpdl2:Author>nwilson</xpdl2:Author>
-    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
   </xpdl2:RedefinableHeader>
   <xpdl2:Pools>
     <xpdl2:Pool Id="__nzW4HunEemYFaNtZBbPtA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_9qk1MHunEemYFaNtZBbPtA">
@@ -43,6 +42,32 @@
           </xpdl2:DataType>
         </xpdl2:FormalParameter>
       </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_pjLYYNiJEemOAPziCarY4g" xpdExt:DisplayName="tags" Name="tags" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_7UJfoNiJEemOAPziCarY4g" xpdExt:DisplayName="txt" Name="txt">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_9mGUINiJEemOAPziCarY4g" xpdExt:DisplayName="num" Name="num">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_AEg3UNiKEemOAPziCarY4g" xpdExt:DisplayName="bool" Name="bool">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
       <xpdl2:Activities>
         <xpdl2:Activity Id="__nzW4nunEemYFaNtZBbPtA" Name="StartEvent" xpdExt:DisplayName="Start Event">
           <xpdl2:Event>
@@ -83,17 +108,21 @@ c.details.pushAll(c.details);&#xD;
 c.num = c.details.reverse().length;&#xD;
 data.Detail = c.details.shift();&#xD;
 c.num = c.details.slice(1,2).length;&#xD;
-c.num = c.details.splice(1,2).length;&#xD;
+c.num = c.details.splice(1,2,data.Detail).length;&#xD;
 c.txt = c.details.toLocaleString('ja-JP',null);&#xD;
 c.txt = c.details.toString();&#xD;
 c.num = c.details.unshift(data.Detail);&#xD;
+c.txt = c.details.pop().name;&#xD;
+c.details.push(c.details[0]);&#xD;
+c.details[0] = c.details.pop();&#xD;
+c.details.pushAll(c.details.concat(c.details));&#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>
           </xpdl2:Implementation>
           <xpdl2:NodeGraphicsInfos>
             <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="__nzW4XunEemYFaNtZBbPtA" Width="96.0">
-              <xpdl2:Coordinates XCoordinate="189.0" YCoordinate="155.0"/>
+              <xpdl2:Coordinates XCoordinate="193.0" YCoordinate="155.0"/>
             </xpdl2:NodeGraphicsInfo>
           </xpdl2:NodeGraphicsInfos>
           <xpdl2:Extensions/>
@@ -119,7 +148,7 @@ c.tags.push(c.txt);&#xD;
 c.num = c.tags.reverse().length;&#xD;
 c.txt = c.tags.shift();&#xD;
 c.num = c.tags.slice(1,2).length;&#xD;
-c.num = c.tags.splice(1,2).length;&#xD;
+c.num = c.tags.splice(1,2,c.txt).length;&#xD;
 c.txt = c.tags.toLocaleString('ja-JP',null);&#xD;
 c.txt = c.tags.toString();&#xD;
 c.num = c.tags.unshift(c.txt);&#xD;
@@ -131,7 +160,45 @@ var n2 = [];&#xD;
           </xpdl2:Implementation>
           <xpdl2:NodeGraphicsInfos>
             <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="__nzW4XunEemYFaNtZBbPtA" Width="96.0">
-              <xpdl2:Coordinates XCoordinate="415.0" YCoordinate="155.0"/>
+              <xpdl2:Coordinates XCoordinate="350.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_r3XokNiJEemOAPziCarY4g" Name="ScriptTaskProcess" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task Process">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">var c = data;&#xD;
+c.tags.length = 1;&#xD;
+c.tags.concat(c.tags);&#xD;
+c.tags.copyWithin(1,2,3);&#xD;
+c.num = c.tags.fill(c.txt,0,2).length;&#xD;
+c.bool = c.tags.includes(c.txt,0);&#xD;
+c.num = c.tags.indexOf(c.txt,0);&#xD;
+c.txt = c.tags.join(',');&#xD;
+c.num = c.tags.lastIndexOf(c.txt,0);&#xD;
+c.txt = c.tags.pop();&#xD;
+c.tags.push(c.txt);&#xD;
+c.num = c.tags.reverse().length;&#xD;
+c.txt = c.tags.shift();&#xD;
+c.num = c.tags.slice(1,2).length;&#xD;
+c.num = c.tags.splice(1,2,c.txt).length;&#xD;
+c.txt = c.tags.toLocaleString('ja-JP',null);&#xD;
+c.txt = c.tags.toString();&#xD;
+c.num = c.tags.unshift(c.txt);&#xD;
+var n = new Array();&#xD;
+var n2 = [];&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="__nzW4XunEemYFaNtZBbPtA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="493.0" YCoordinate="155.0"/>
             </xpdl2:NodeGraphicsInfo>
           </xpdl2:NodeGraphicsInfos>
           <xpdl2:Extensions/>
@@ -141,7 +208,7 @@ var n2 = [];&#xD;
         </xpdl2:Activity>
       </xpdl2:Activities>
       <xpdl2:Transitions>
-        <xpdl2:Transition Id="__nzW5HunEemYFaNtZBbPtA" xpdExt:DisplayName="" Name="" From="_FJV5kHu4EemsK77BUtU-lw" To="__nzW43unEemYFaNtZBbPtA">
+        <xpdl2:Transition Id="__nzW5HunEemYFaNtZBbPtA" xpdExt:DisplayName="" Name="" From="_r3XokNiJEemOAPziCarY4g" To="__nzW43unEemYFaNtZBbPtA">
           <xpdl2:ConnectorGraphicsInfos>
             <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
             <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
@@ -157,6 +224,11 @@ var n2 = [];&#xD;
             <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
           </xpdl2:ConnectorGraphicsInfos>
         </xpdl2:Transition>
+        <xpdl2:Transition Id="_r3XokdiJEemOAPziCarY4g" xpdExt:DisplayName="" Name="" From="_FJV5kHu4EemsK77BUtU-lw" To="_r3XokNiJEemOAPziCarY4g">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
       </xpdl2:Transitions>
       <xpdl2:ExtendedAttributes>
         <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
@@ -165,7 +237,7 @@ var n2 = [];&#xD;
   </xpdl2:WorkflowProcesses>
   <xpdl2:ExtendedAttributes>
     <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
-    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="23"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
     <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="23"/>
   </xpdl2:ExtendedAttributes>
 </xpdl2:Package>

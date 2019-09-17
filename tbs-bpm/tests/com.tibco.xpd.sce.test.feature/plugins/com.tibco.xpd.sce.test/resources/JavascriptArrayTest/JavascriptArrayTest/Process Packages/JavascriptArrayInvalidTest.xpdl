@@ -10,7 +10,6 @@
   </xpdl2:PackageHeader>
   <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
     <xpdl2:Author>nwilson</xpdl2:Author>
-    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
   </xpdl2:RedefinableHeader>
   <xpdl2:Pools>
     <xpdl2:Pool Id="_6TLd8HvbEemwf9lclz0wQg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_0wwXMHvbEemwf9lclz0wQg">
@@ -67,6 +66,8 @@
 c.txt = c.details[c.num].name;&#xD;
 c.tags = c.tags.reverse();&#xD;
 c.details = c.details.reverse();&#xD;
+c.details.push(c.txt);&#xD;
+c.details.pushAll(c.tags.concat(c.tags));&#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>
@@ -102,7 +103,7 @@ c.details = c.details.reverse();&#xD;
   </xpdl2:WorkflowProcesses>
   <xpdl2:ExtendedAttributes>
     <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
-    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="23"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
     <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="23"/>
   </xpdl2:ExtendedAttributes>
 </xpdl2:Package>

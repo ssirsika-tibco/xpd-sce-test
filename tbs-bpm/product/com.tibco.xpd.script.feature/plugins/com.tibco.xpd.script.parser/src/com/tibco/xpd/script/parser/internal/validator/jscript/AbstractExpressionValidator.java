@@ -22,6 +22,7 @@ import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.AbstractUMLScriptRelevantData;
@@ -55,6 +56,7 @@ import com.tibco.xpd.script.model.internal.client.IUMLElement;
 import com.tibco.xpd.script.model.internal.client.JsEnumeration;
 import com.tibco.xpd.script.model.internal.client.JsEnumerationLiteral;
 import com.tibco.xpd.script.model.internal.jscript.IJScriptDataTypeMapper;
+import com.tibco.xpd.script.model.jscript.JScriptGenericsService;
 import com.tibco.xpd.script.model.jscript.JScriptUtils;
 import com.tibco.xpd.script.parser.Messages;
 import com.tibco.xpd.script.parser.antlr.JScriptEmitter;
@@ -1928,6 +1930,20 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                     if (jsMethodParam != null) {
                         String dataType = JScriptUtils
                                 .getJsMethodParamBaseDataType(jsMethodParam);
+                        JScriptGenericsService gs = new JScriptGenericsService();
+                        if (gs.isGeneric(jsMethodParam)) {
+                            Map<String, Type> typeMap = gs.createTypeMap(genericContext, jsMethodParam);
+                            Type type = typeMap.get(dataType);
+                            if (type != null) {
+                                if (type instanceof PrimitiveType) {
+                                    dataType = type.getName();
+                                } else {
+                                    dataType = type.getQualifiedName().replace("::", "."); //$NON-NLS-1$ //$NON-NLS-2$
+                                }
+                            } else {
+                                dataType = JsConsts.UNDEFINED_DATA_TYPE;
+                            }
+                        }
 
                         /*
                          * this generic context must be checked for UnionSRD

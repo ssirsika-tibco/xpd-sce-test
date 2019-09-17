@@ -349,13 +349,19 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_JZXmkPxsEduQPNEkUL8doA" name="Array">
     <ownedRule xmi:id="_I6sa8Cz1Ed-PoswVw6RFMQ" name="Multiple"/>
+    <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_JVIyQMNOEemMjdIQCTR8zw" name="" parameter="_vQl10MNOEemMjdIQCTR8zw">
+      <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_vQl10MNOEemMjdIQCTR8zw" parameteredElement="_wtl_UMNOEemMjdIQCTR8zw">
+        <ownedParameteredElement xmi:type="uml:Class" xmi:id="_wtl_UMNOEemMjdIQCTR8zw" name="T" templateParameter="_vQl10MNOEemMjdIQCTR8zw"/>
+      </ownedParameter>
+    </ownedTemplateSignature>
     <ownedAttribute xmi:id="_ZRnzgPx-EduQPNEkUL8doA" name="length" type="__1YCoPx9EduQPNEkUL8doA"/>
     <ownedOperation xmi:id="_tI31UPx_EduQPNEkUL8doA" name="concat">
-      <ownedParameter xmi:id="_tI31Ufx_EduQPNEkUL8doA" name="element1" type="_Zb2LsPxsEduQPNEkUL8doA">
+      <ownedParameter xmi:id="_tI31Ufx_EduQPNEkUL8doA" name="element1" type="_wtl_UMNOEemMjdIQCTR8zw">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bEjHgHiVEemDTeEcli2Cfg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_b_g68HiVEemDTeEcli2Cfg" value="*"/>
       </ownedParameter>
-      <ownedParameter xmi:id="_tI31U_x_EduQPNEkUL8doA" type="_Zb2LsPxsEduQPNEkUL8doA" direction="return">
+      <ownedParameter xmi:id="_tI31U_x_EduQPNEkUL8doA" type="_wtl_UMNOEemMjdIQCTR8zw" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EMthgM8jEemYMeSYgoomig"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vwPSEKSlEdyiHJpWQmvoRw" value="*"/>
       </ownedParameter>
     </ownedOperation>
@@ -369,25 +375,31 @@
       <ownedParameter xmi:id="_Yhe3cHfdEempi5bwuPC35w" name="end" type="_mFFkIPxsEduQPNEkUL8doA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6jSv8HfdEempi5bwuPC35w"/>
       </ownedParameter>
-      <ownedParameter xmi:id="_ZGdMwHfdEempi5bwuPC35w" type="_JZXmkPxsEduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_ZGdMwHfdEempi5bwuPC35w" type="_wtl_UMNOEemMjdIQCTR8zw" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__MXNEM8iEemYMeSYgoomig"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__gmXsM8iEemYMeSYgoomig" value="*"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_gpPJEHfaEempi5bwuPC35w" name="fill">
-      <ownedParameter xmi:id="_bgwFsHriEemETvY6LKfRRQ" name="value" type="_Zb2LsPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_bgwFsHriEemETvY6LKfRRQ" name="value" type="_wtl_UMNOEemMjdIQCTR8zw"/>
       <ownedParameter xmi:id="_cPgCEHriEemETvY6LKfRRQ" name="start" type="_mFFkIPxsEduQPNEkUL8doA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oGe3IHriEemETvY6LKfRRQ"/>
       </ownedParameter>
       <ownedParameter xmi:id="_dZizUHriEemETvY6LKfRRQ" name="end" type="_mFFkIPxsEduQPNEkUL8doA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nhpEsHriEemETvY6LKfRRQ"/>
       </ownedParameter>
-      <ownedParameter xmi:id="_eJIdMHriEemETvY6LKfRRQ" type="_JZXmkPxsEduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_eJIdMHriEemETvY6LKfRRQ" type="_wtl_UMNOEemMjdIQCTR8zw" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_utApQM8jEemYMeSYgoomig"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_u_drMM8jEemYMeSYgoomig" value="*"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_jMK_4HfaEempi5bwuPC35w" name="includes">
-      <ownedParameter xmi:id="_vskBQHruEemETvY6LKfRRQ" name="valueToFind" type="_Zb2LsPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_vskBQHruEemETvY6LKfRRQ" name="valueToFind" type="_wtl_UMNOEemMjdIQCTR8zw"/>
       <ownedParameter xmi:id="_wn_uwHruEemETvY6LKfRRQ" name="fromIndex" type="_mFFkIPxsEduQPNEkUL8doA"/>
       <ownedParameter xmi:id="_xR8qsHruEemETvY6LKfRRQ" type="_RaDDAPxtEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_k8cqsHfaEempi5bwuPC35w" name="indexOf">
-      <ownedParameter xmi:id="_Zdvm8Hr0EemETvY6LKfRRQ" name="searchElement" type="_Zb2LsPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_Zdvm8Hr0EemETvY6LKfRRQ" name="searchElement" type="_wtl_UMNOEemMjdIQCTR8zw"/>
       <ownedParameter xmi:id="_bDL6wHr0EemETvY6LKfRRQ" name="fromIndex" type="_mFFkIPxsEduQPNEkUL8doA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jA_e0Hr0EemETvY6LKfRRQ"/>
         <defaultValue xmi:type="uml:LiteralString" xmi:id="_tBZz0Hr0EemETvY6LKfRRQ" value="0"/>
@@ -399,7 +411,7 @@
       <ownedParameter xmi:id="_B8cK4_yAEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_qd-ZkHfaEempi5bwuPC35w" name="lastIndexOf">
-      <ownedParameter xmi:id="_2uVhQHr2EemETvY6LKfRRQ" name="searchElement" type="_Zb2LsPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_2uVhQHr2EemETvY6LKfRRQ" name="searchElement" type="_wtl_UMNOEemMjdIQCTR8zw"/>
       <ownedParameter xmi:id="_3Yf4kHr2EemETvY6LKfRRQ" name="fromIndex" type="_mFFkIPxsEduQPNEkUL8doA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8mHM8Hr2EemETvY6LKfRRQ"/>
         <defaultValue xmi:type="uml:LiteralString" xmi:id="_9Nf9EHr2EemETvY6LKfRRQ" value="0"/>
@@ -407,36 +419,50 @@
       <ownedParameter xmi:id="_4OAkQHr2EemETvY6LKfRRQ" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_esXk8Px-EduQPNEkUL8doA" name="pop">
-      <ownedParameter xmi:id="_j94h4Px-EduQPNEkUL8doA" type="_Zb2LsPxsEduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_j94h4Px-EduQPNEkUL8doA" type="_wtl_UMNOEemMjdIQCTR8zw" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_mDZc4Px-EduQPNEkUL8doA" name="push">
-      <ownedParameter xmi:id="_szHi8F0dEd-D3_Qjl8GOOQ" name="element1" type="_Zb2LsPxsEduQPNEkUL8doA">
+      <ownedParameter xmi:id="_szHi8F0dEd-D3_Qjl8GOOQ" name="element1" type="_wtl_UMNOEemMjdIQCTR8zw">
         <lowerValue xmi:type="uml:Interval" xmi:id="_0F0UgF0dEd-D3_Qjl8GOOQ" name="1"/>
         <upperValue xmi:type="uml:Interval" xmi:id="_35T0QF0dEd-D3_Qjl8GOOQ" name="*"/>
       </ownedParameter>
       <ownedParameter xmi:id="_mDZc4fx-EduQPNEkUL8doA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_kbXcMKcUEemDHZNoIdIzMA" name="pushAll">
-      <ownedParameter xmi:id="_o9MooKcUEemDHZNoIdIzMA" name="values" type="_JZXmkPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_o9MooKcUEemDHZNoIdIzMA" name="values" type="_wtl_UMNOEemMjdIQCTR8zw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pc9RQM8kEemYMeSYgoomig"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_P0BtcM8kEemYMeSYgoomig" value="*"/>
+      </ownedParameter>
       <ownedParameter xmi:id="_pvF_oKcUEemDHZNoIdIzMA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_rK7XYPx-EduQPNEkUL8doA" name="reverse">
-      <ownedParameter xmi:id="_HjPzcHr4EemETvY6LKfRRQ" type="_JZXmkPxsEduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_HjPzcHr4EemETvY6LKfRRQ" type="_wtl_UMNOEemMjdIQCTR8zw" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R4zooM8kEemYMeSYgoomig"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SROvsM8kEemYMeSYgoomig" value="*"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_3tWWIPx-EduQPNEkUL8doA" name="shift">
-      <ownedParameter xmi:id="_3tWWIfx-EduQPNEkUL8doA" type="_Zb2LsPxsEduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_3tWWIfx-EduQPNEkUL8doA" type="_wtl_UMNOEemMjdIQCTR8zw" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_RO_u8PyAEduQPNEkUL8doA" name="slice">
       <ownedParameter xmi:id="_RO_u8fyAEduQPNEkUL8doA" name="begin" type="_mFFkIPxsEduQPNEkUL8doA"/>
       <ownedParameter xmi:id="_RO_u8vyAEduQPNEkUL8doA" name="end" type="_mFFkIPxsEduQPNEkUL8doA"/>
-      <ownedParameter xmi:id="_RO_u8_yAEduQPNEkUL8doA" type="_JZXmkPxsEduQPNEkUL8doA" direction="return">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Kw7RMKSmEdyiHJpWQmvoRw" value="1"/>
+      <ownedParameter xmi:id="_RO_u8_yAEduQPNEkUL8doA" type="_wtl_UMNOEemMjdIQCTR8zw" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WQjsAM8kEemYMeSYgoomig"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Kw7RMKSmEdyiHJpWQmvoRw" value="*"/>
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_ySPnIHfaEempi5bwuPC35w" name="splice">
       <ownedParameter xmi:id="_g0iKIHr7EemETvY6LKfRRQ" name="start" type="_mFFkIPxsEduQPNEkUL8doA"/>
       <ownedParameter xmi:id="_hqndkHr7EemETvY6LKfRRQ" name="deleteCount" type="_mFFkIPxsEduQPNEkUL8doA"/>
-      <ownedParameter xmi:id="_1XZKMHr7EemETvY6LKfRRQ" type="_JZXmkPxsEduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_TW8t8NhhEeme6cyQCB8YJg" name="item" type="_wtl_UMNOEemMjdIQCTR8zw">
+        <lowerValue xmi:type="uml:Interval" xmi:id="_bfaC0NhhEeme6cyQCB8YJg" name="0"/>
+        <upperValue xmi:type="uml:Interval" xmi:id="_foFIYNhhEeme6cyQCB8YJg" name="*"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_1XZKMHr7EemETvY6LKfRRQ" type="_wtl_UMNOEemMjdIQCTR8zw" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gPVCQM8kEemYMeSYgoomig"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gjMZcM8kEemYMeSYgoomig" value="*"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_0XEloHfaEempi5bwuPC35w" name="toLocaleString">
       <ownedParameter xmi:id="_Rr0CEHr8EemETvY6LKfRRQ" name="locale" type="_W0LRQNGrEduWapZ5a676CA"/>
@@ -447,9 +473,9 @@
       <ownedParameter xmi:id="_c3wh0fyAEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_M3RWMPx_EduQPNEkUL8doA" name="unshift">
-      <ownedParameter xmi:id="__PcUUF0dEd-D3_Qjl8GOOQ" name="element1" type="_Zb2LsPxsEduQPNEkUL8doA">
-        <lowerValue xmi:type="uml:Interval" xmi:id="__PcUUl0dEd-D3_Qjl8GOOQ" name="1"/>
-        <upperValue xmi:type="uml:Interval" xmi:id="__PcUUV0dEd-D3_Qjl8GOOQ" name="*"/>
+      <ownedParameter xmi:id="__PcUUF0dEd-D3_Qjl8GOOQ" name="element1" type="_wtl_UMNOEemMjdIQCTR8zw">
+        <lowerValue xmi:type="uml:Interval" xmi:id="__CE1ANPKEem6tsuGeBfDyw" name="1"/>
+        <upperValue xmi:type="uml:Interval" xmi:id="_Aggh4NPLEem6tsuGeBfDyw" name="*"/>
       </ownedParameter>
       <ownedParameter xmi:id="_M3RWMfx_EduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
     </ownedOperation>

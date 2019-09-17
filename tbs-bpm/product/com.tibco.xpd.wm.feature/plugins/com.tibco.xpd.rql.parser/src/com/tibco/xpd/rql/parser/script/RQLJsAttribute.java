@@ -6,6 +6,7 @@ package com.tibco.xpd.rql.parser.script;
 import java.util.List;
 
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.om.core.om.Attribute;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
@@ -67,6 +68,13 @@ public class RQLJsAttribute implements JsAttribute{
 
     /** {@inheritDoc}. */
     public IScriptRelevantData getScriptRelevantData()  {
+        return null;
+    }
+
+    /**
+     * @see com.tibco.xpd.script.model.client.JsAttribute#getUmlType()
+     */
+    public Type getUmlType() {
         return null;
     }
 }

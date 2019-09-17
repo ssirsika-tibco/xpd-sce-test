@@ -63,6 +63,14 @@ public class DefaultJsAttribute extends DefaultMultipleJsClassResolver
         return typeName;
     }
 
+    /**
+     * @see com.tibco.xpd.script.model.client.JsAttribute#getUmlType()
+     */
+    @Override
+    public Type getUmlType() {
+        return property.getType();
+    }
+
     @Override
     public boolean isMultiple() {
         if (this.getDataType() != null

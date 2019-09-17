@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Enumeration;
+import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.DefaultJsClass;
@@ -201,10 +202,19 @@ public class JScriptTypeResolver implements ITypeResolver {
             IScriptRelevantData resolveJavaScriptStringType = null;
             String propertyName = null;
             String dataType = null;
+            Type type = null;
             JsMethodParam parameter = jsMethod.getReturnType();
             if (parameter != null) {
                 propertyName = jsMethod.getName();
-                dataType = JScriptUtils.getJsMethodParamBaseDataType(parameter);
+                JScriptGenericsService gs = new JScriptGenericsService();
+                if (gs.isGeneric(parameter)) {
+                    Map<String, Type> typeMap = gs.createTypeMap(genericContext, parameter);
+                    type = typeMap.get(JScriptUtils.getJsMethodParamBaseDataType(parameter));
+                    dataType = type.getName();
+                } else {
+                    type = JScriptUtils.getReturnedClass(parameter);
+                    dataType = JScriptUtils.getJsMethodParamBaseDataType(parameter);
+                }
             }
             if (isMultiple) {
                 resolveJavaScriptStringType =
@@ -215,24 +225,17 @@ public class JScriptTypeResolver implements ITypeResolver {
             } else if (JScriptUtils.isGenericType(dataType)) {
                 resolveJavaScriptStringType =
                         resolveGenericContext(genericContext);
-            } else if (JScriptUtils.getReturnedClass(parameter) != null) {
-                Class umlClass = JScriptUtils.getReturnedClass(parameter);
-                if (umlClass != null) {
-                    DefaultJsClass jsClass = new DefaultJsClass(umlClass);
-                    if (jsMethod instanceof DefaultJsMethod
-                            && ((DefaultJsMethod) jsMethod)
-                                    .getContentAssistIconProvider() != null) {
-                        jsClass.setContentAssistIconProvider(((DefaultJsMethod) jsMethod)
-                                .getContentAssistIconProvider());
-                    } else {
-                        jsClass.setContentAssistIconProvider(JScriptUtils
-                                .getJsContentAssistIconProvider());
-                    }
-                    resolveJavaScriptStringType =
-                            new DefaultUMLScriptRelevantData(propertyName,
-                                    umlClass.getName(), jsMethod.isMultiple(),
-                                    jsClass);
+            } else if (type instanceof Class) {
+                Class umlClass = (Class) type;
+                DefaultJsClass jsClass = new DefaultJsClass(umlClass);
+                if (jsMethod instanceof DefaultJsMethod
+                        && ((DefaultJsMethod) jsMethod).getContentAssistIconProvider() != null) {
+                    jsClass.setContentAssistIconProvider(((DefaultJsMethod) jsMethod).getContentAssistIconProvider());
+                } else {
+                    jsClass.setContentAssistIconProvider(JScriptUtils.getJsContentAssistIconProvider());
                 }
+                resolveJavaScriptStringType = new DefaultUMLScriptRelevantData(propertyName, umlClass.getName(),
+                        jsMethod.isMultiple(), jsClass);
             } else if (parameter instanceof PojoJsMethodParam
                     && ((PojoJsMethodParam) parameter).isReferenceReturnType()) {
                 JsClass referencedReturnType =

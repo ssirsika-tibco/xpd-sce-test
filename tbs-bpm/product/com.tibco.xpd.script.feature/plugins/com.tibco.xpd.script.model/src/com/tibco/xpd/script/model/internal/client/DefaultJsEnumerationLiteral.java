@@ -10,6 +10,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
+import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.DefaultUMLScriptRelevantData;
@@ -39,11 +40,13 @@ public class DefaultJsEnumerationLiteral implements JsEnumerationLiteral {
         this.enumerationLiteral = enumerationLiteral;
     }
 
+    @Override
     @SuppressWarnings("unchecked")//$NON-NLS-1$
     public String getComment() {
         return JScriptUtils.getUmlElementComment(enumerationLiteral);
     }
 
+    @Override
     public Enumeration getOwner() {
         Element owner = enumerationLiteral.getOwner();
         if (owner instanceof Enumeration) {
@@ -52,6 +55,7 @@ public class DefaultJsEnumerationLiteral implements JsEnumerationLiteral {
         return null;
     }
 
+    @Override
     public String getDataType() {
         Enumeration owner = getOwner();
         String typeName = JsConsts.UNDEFINED_DATA_TYPE;
@@ -61,18 +65,22 @@ public class DefaultJsEnumerationLiteral implements JsEnumerationLiteral {
         return typeName;
     }
 
+    @Override
     public boolean isMultiple() {
         return false;
     }
 
+    @Override
     public String getName() {
         return enumerationLiteral.getName();
     }
 
+    @Override
     public String getContentAssistString() {
         return getName();
     }
 
+    @Override
     public Image getIcon() {
         if (this.image != null) {
             return this.image;
@@ -92,6 +100,7 @@ public class DefaultJsEnumerationLiteral implements JsEnumerationLiteral {
         this.image = image;
     }
 
+    @Override
     public JsDataType getDataTypeForJSExpression(JsExpression jsExpression,
             List<JsClass> supportedJsClasses) {
         JsDataType dataType = new JsDataType();
@@ -153,16 +162,27 @@ public class DefaultJsEnumerationLiteral implements JsEnumerationLiteral {
     }
 
     /** {@inheritDoc}. */
+    @Override
     public IScriptRelevantData getScriptRelevantData() {
         return null;
     }
 
+    @Override
     public void setContentAssistIconProvider(
             IContentAssistIconProvider contentAssistIconProvider) {
         this.contentAssistIconProvider = contentAssistIconProvider;
     }
 
+    @Override
     public IContentAssistIconProvider getContentAssistIconProvider() {
         return contentAssistIconProvider;
+    }
+
+    /**
+     * @see com.tibco.xpd.script.model.client.JsAttribute#getUmlType()
+     */
+    @Override
+    public Type getUmlType() {
+        return null;
     }
 }

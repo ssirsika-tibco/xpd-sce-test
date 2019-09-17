@@ -281,8 +281,9 @@ public class ValidationUtil {
             int antlType, IScriptRelevantData varType,
             List<JsClass> supportedJsClasses) {
         antlType = JScriptTokenTypes.ARRAY_TYPE;
-        String varRelevantDataType =
-                DataTypeMapper.getCorrespondingDataType(antlType);
+        // ACE-1322
+        String varRelevantDataType = JsConsts.UNDEFINED_DATA_TYPE;
+        // DataTypeMapper.getCorrespondingDataType(antlType);
         varType = JScriptUtils.resolveJavaScriptStringType(varType.getName(),
                 varRelevantDataType,
                 true,

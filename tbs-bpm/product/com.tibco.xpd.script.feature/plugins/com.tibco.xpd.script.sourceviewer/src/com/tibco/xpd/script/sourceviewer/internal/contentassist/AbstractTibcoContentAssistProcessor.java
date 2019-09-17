@@ -34,11 +34,14 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Parameter;
+import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Type;
 import org.eclipse.wst.sse.core.internal.provisional.IndexedRegion;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
+import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.AbstractJsMethod;
 import com.tibco.xpd.script.model.client.DefaultJsClass;
 import com.tibco.xpd.script.model.client.DefaultScriptRelevantData;
@@ -54,12 +57,14 @@ import com.tibco.xpd.script.model.client.JsClassDefinitionReader;
 import com.tibco.xpd.script.model.client.JsMethod;
 import com.tibco.xpd.script.model.client.JsMethodParam;
 import com.tibco.xpd.script.model.client.JsReference;
+import com.tibco.xpd.script.model.internal.client.DefaultJsClassMultiple;
 import com.tibco.xpd.script.model.internal.client.IGlobalDataDefinitionReader;
 import com.tibco.xpd.script.model.internal.client.IJsElementExt;
 import com.tibco.xpd.script.model.internal.client.ITypeResolution;
 import com.tibco.xpd.script.model.internal.client.ITypeResolverProvider;
 import com.tibco.xpd.script.model.internal.client.IUMLElement;
 import com.tibco.xpd.script.model.internal.client.PojoJsMethodParam;
+import com.tibco.xpd.script.model.jscript.JScriptGenericsService;
 import com.tibco.xpd.script.model.jscript.JScriptUtils;
 import com.tibco.xpd.script.parser.validator.IValidationStrategy;
 import com.tibco.xpd.script.sourceviewer.client.IScriptInfoProvider;
@@ -414,8 +419,10 @@ public abstract class AbstractTibcoContentAssistProcessor
             toReturn = addCompletionStringNodes(resolvedTypes, toReturn);
             if (toReturn != null) {
 
-                toReturn.setGenericContext(new DefaultScriptRelevantData(
-                        propertyName, dataType, false));
+                DefaultScriptRelevantData genericContext = new DefaultScriptRelevantData(
+                        propertyName, dataType, isArray);
+                genericContext.setExtendedInfo(jsAttribute);
+                toReturn.setGenericContext(genericContext);
             }
         }
         return toReturn;
@@ -446,8 +453,24 @@ public abstract class AbstractTibcoContentAssistProcessor
         if (jsMethod != null) {
             JsMethodParam parameter = jsMethod.getReturnType();
             if (parameter != null) {
+                JScriptGenericsService gs = new JScriptGenericsService();
+                Type type = null;
+                String dataType;
+                if (gs.isGeneric(parameter)) {
+                    Map<String, Type> typeMap = gs.createTypeMap(genericContext, parameter);
+                    type = typeMap.get(parameter.getType());
+                    if (type instanceof PrimitiveType) {
+                        dataType = type.getName();
+                    } else if (type != null) {
+                        dataType = type.getQualifiedName().replace("::", "."); //$NON-NLS-1$ //$NON-NLS-2$
+                    } else {
+                        dataType = JsConsts.UNDEFINED_DATA_TYPE;
+                    }
+                } else {
+                    type = parameter.getUMLParameter().getType();
+                    dataType = type != null ? type.getName() : null;
+                }
                 String propertyName = jsMethod.getName();
-                String dataType = parameter.getType();
                 boolean isArray = jsMethod.isMultiple();
                 Parameter umlParameter = parameter.getUMLParameter();
                 if (umlParameter != null
@@ -498,9 +521,9 @@ public abstract class AbstractTibcoContentAssistProcessor
                         }
                         toReturn = addCompletionStringNodes(resolvedTypes,
                                 toReturn);
-                        if (JScriptUtils.getReturnedClass(parameter) != null) {
+                        if (type instanceof Class) {
                             Class umlClass =
-                                    JScriptUtils.getReturnedClass(parameter);
+                                    (Class) type;
                             if (umlClass != null
                                     && !JScriptUtils.isGenericType(dataType)
                                     && !JScriptUtils
@@ -682,6 +705,12 @@ public abstract class AbstractTibcoContentAssistProcessor
                         }
 
                         toReturn.setGenericContext(newGenericContext);
+                    } else if (myCompletionStringNode.isMultiple()) {
+                        // ACE-1322 Untyped temporary array
+                        Class arrClass = JScriptUtils.getDefaultMultipleClass();
+                        DefaultJsClassMultiple arrJsClass = new DefaultJsClassMultiple(arrClass);
+                        IScriptRelevantData srd = JScriptUtils.getScriptRelevantData(arrJsClass, className, true);
+                        toReturn = addCompletionStringNodes(Collections.singletonList(srd), toReturn);
                     }
                 }
             }
