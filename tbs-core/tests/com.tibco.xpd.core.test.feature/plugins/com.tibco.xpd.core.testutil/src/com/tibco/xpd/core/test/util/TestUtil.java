@@ -1276,11 +1276,16 @@ public class TestUtil {
                     depthInfinite ? IResource.DEPTH_INFINITE : IResource.DEPTH_ZERO);
 
             if (markers != null) {
+                String header = "Error Markers for resource: " + resource.getName()
+                        + "\n=============================================================\n";
+
                 for (IMarker marker : markers) {
                     if (marker.getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR) {
-                        System.err.println(String.format("%1$s - \"%2$s\"",
+                        System.err.println(header + String.format("%1$s - \"%2$s\"",
                                 marker.getAttribute("issueId"),
                                 marker.getAttribute(IMarker.MESSAGE)));
+
+                        header = "";
                     }
                 }
 
