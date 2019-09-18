@@ -56,6 +56,7 @@ import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.builder.ondemand.BuildTargetSet;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.xpdExtension.EmailResource;
 import com.tibco.xpd.xpdExtension.ParticipantSharedResource;
 import com.tibco.xpd.xpdExtension.RestServiceResource;
@@ -328,6 +329,16 @@ public class PERascContributor implements RascContributor {
                 try {
                     writer.printf("name=%1$s", pkg.getName()).println(); //$NON-NLS-1$
                     writer.printf("label=%1$s", label).println(); //$NON-NLS-1$
+
+                    /*
+                     * Sid ACE-3126 Add the package property - this should be exactly the same path as the Xpdl2Bpel
+                     * converter uses in the callProcess/packageRef attribute (i.e. this is the full workspace path of
+                     * the xpdl file including project and parent folder and xpdl file)
+                     */
+                    String packageRefPath = WorkingCopyUtil.getFile(pkg).getFullPath().toString();
+
+                    writer.printf("package=%1$s", packageRefPath).println(); //$NON-NLS-1$
+
                 } finally {
                     writer.close();
                 }
