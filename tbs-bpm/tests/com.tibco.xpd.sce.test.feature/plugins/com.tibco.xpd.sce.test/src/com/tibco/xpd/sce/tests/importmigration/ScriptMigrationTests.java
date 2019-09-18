@@ -59,15 +59,19 @@ public class ScriptMigrationTests extends TestCase {
     }
 
     // @Test
-    public void testArraysMigration() throws Exception {
+    public void testDatesAndArraysMigration() throws Exception {
         ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
                 new String[] { "resources/ScriptMigrationTests/simple-data/",
-                        "resources/ScriptMigrationTests/simple-proc/" },
-                new String[] { "simple-data", "simple-proc" });
+                        "resources/ScriptMigrationTests/simple-proc/",
+                        "resources/ScriptMigrationTests/simple-date-proc/" },
+                new String[] { "simple-data", "simple-proc", "simple-date-proc" });
         assertTrue("Failed to load projects from resources/ScriptMigrationTests/", projectImporter != null);
         try {
             TestUtil.buildAndWait();
 
+            /*
+             * Check arrays...
+             */
             IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("simple-proc");
 
             // we expect some markers
@@ -81,6 +85,19 @@ public class ScriptMigrationTests extends TestCase {
             assertEquals(1, errorMarkers.size());
             String message = (String) errorMarkers.iterator().next().getAttribute(IMarker.MESSAGE);
             assertTrue(message.contains("At Line:11 column:73, Method add is invalid for the current context"));
+
+            /*
+             * Check dates
+             */
+            project = ResourcesPlugin.getWorkspace().getRoot().getProject("simple-date-proc");
+
+            // we expect some markers
+            errorMarkers =
+                    TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
+
+            TestUtil.outputErrorMarkers(project, true);
+            assertEquals(0, errorMarkers.size());
+
         } finally {
             if (projectImporter != null) {
                 projectImporter.performDelete();
