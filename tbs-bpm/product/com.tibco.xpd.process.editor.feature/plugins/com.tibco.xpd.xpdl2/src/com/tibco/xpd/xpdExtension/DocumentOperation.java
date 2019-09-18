@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Type to represent the document related operations. It is used as the details of Service Task of type ‘Document Operations’.
+ * Type to represent the document related operations. It is used as the details of Service Task of type â€˜Document Operationsâ€™.
  * <!-- end-model-doc -->
  *
  * <p>

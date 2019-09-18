@@ -641,12 +641,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//RemoveLinkAssociationsType/associationName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//RemoveLinkAssociationsType/removeCaseRefField"/>
     </genClasses>
+    <genClasses ecoreClass="XpdExtension.ecore#//RemoveAllLinksByNameType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//RemoveAllLinksByNameType/associationName"/>
+    </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//CaseReferenceOperationsType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//CaseReferenceOperationsType/caseRefField"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//CaseReferenceOperationsType/update"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//CaseReferenceOperationsType/delete"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//CaseReferenceOperationsType/addLinkAssociations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//CaseReferenceOperationsType/removeLinkAssociations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//CaseReferenceOperationsType/removeAllLinksByName"/>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//GlobalDataOperation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//GlobalDataOperation/caseAccessOperations"/>

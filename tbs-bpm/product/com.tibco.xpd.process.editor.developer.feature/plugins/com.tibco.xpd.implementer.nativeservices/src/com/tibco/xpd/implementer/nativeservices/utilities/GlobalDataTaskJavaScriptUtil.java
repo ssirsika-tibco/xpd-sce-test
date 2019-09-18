@@ -25,6 +25,7 @@ import com.tibco.xpd.xpdExtension.CaseAccessOperationsType;
 import com.tibco.xpd.xpdExtension.CaseReferenceOperationsType;
 import com.tibco.xpd.xpdExtension.CreateCaseOperationType;
 import com.tibco.xpd.xpdExtension.GlobalDataOperation;
+import com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType;
 import com.tibco.xpd.xpdExtension.RemoveLinkAssociationsType;
 import com.tibco.xpd.xpdExtension.UpdateCaseOperationType;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
@@ -110,6 +111,12 @@ public class GlobalDataTaskJavaScriptUtil {
      * reference field names
      */
     private static final String UNLINK_ARRAY_METHOD = "bpm.caseData.unlinkAll(%1$s,%3$s,'%2$s');"; //$NON-NLS-1$
+
+    /*
+     * Javascript to unlink a case object from an associated case : // 1: Case reference field name // 2: association
+     * property name
+     */
+    private static final String UNLINK_ALL_BY_LINK_NAME_METHOD = "bpm.caseData.unlinkAllByLinkName(%1$s,'%2$s');"; //$NON-NLS-1$
 
     /*
      * Javascript to create a case reference from a local data field: // 1: Case
@@ -284,6 +291,10 @@ public class GlobalDataTaskJavaScriptUtil {
                                 linkAssociationAccessor,
                                 addCaseRefAccessor);
                     }
+                } else if (caseRefOp.getRemoveAllLinksByName() != null) {
+                    RemoveAllLinksByNameType linkAssociations = caseRefOp.getRemoveAllLinksByName();
+                    String linkAssociationAccessor = linkAssociations.getAssociationName();
+                    return getScript(UNLINK_ALL_BY_LINK_NAME_METHOD, caseRefFieldAccessor, linkAssociationAccessor);
                 }
 
             }

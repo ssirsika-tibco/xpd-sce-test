@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Defines constant period time duration and is used for Timer Events by specifying the Script type as ‘Constant Period’ and values of the duration.
+ * Defines constant period time duration and is used for Timer Events by specifying the Script type as â€˜Constant Periodâ€™ and values of the duration.
  * <!-- end-model-doc -->
  *
  * <p>

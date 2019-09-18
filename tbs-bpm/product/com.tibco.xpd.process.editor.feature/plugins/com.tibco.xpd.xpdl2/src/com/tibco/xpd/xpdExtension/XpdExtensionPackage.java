@@ -5203,6 +5203,34 @@ public interface XpdExtensionPackage extends EPackage {
     int REMOVE_LINK_ASSOCIATIONS_TYPE_FEATURE_COUNT = 2;
 
     /**
+     * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.RemoveAllLinksByNameTypeImpl <em>Remove All Links By Name Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.tibco.xpd.xpdExtension.impl.RemoveAllLinksByNameTypeImpl
+     * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getRemoveAllLinksByNameType()
+     * @generated
+     */
+    int REMOVE_ALL_LINKS_BY_NAME_TYPE = 83;
+
+    /**
+     * The feature id for the '<em><b>Association Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REMOVE_ALL_LINKS_BY_NAME_TYPE__ASSOCIATION_NAME = 0;
+
+    /**
+     * The number of structural features of the '<em>Remove All Links By Name Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REMOVE_ALL_LINKS_BY_NAME_TYPE_FEATURE_COUNT = 1;
+
+    /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.CaseReferenceOperationsTypeImpl <em>Case Reference Operations Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5210,7 +5238,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCaseReferenceOperationsType()
      * @generated
      */
-    int CASE_REFERENCE_OPERATIONS_TYPE = 83;
+    int CASE_REFERENCE_OPERATIONS_TYPE = 84;
 
     /**
      * The feature id for the '<em><b>Case Ref Field</b></em>' attribute.
@@ -5258,13 +5286,22 @@ public interface XpdExtensionPackage extends EPackage {
     int CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS = 4;
 
     /**
+     * The feature id for the '<em><b>Remove All Links By Name</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME = 5;
+
+    /**
      * The number of structural features of the '<em>Case Reference Operations Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CASE_REFERENCE_OPERATIONS_TYPE_FEATURE_COUNT = 5;
+    int CASE_REFERENCE_OPERATIONS_TYPE_FEATURE_COUNT = 6;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.GlobalDataOperationImpl <em>Global Data Operation</em>}' class.
@@ -5274,7 +5311,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getGlobalDataOperation()
      * @generated
      */
-    int GLOBAL_DATA_OPERATION = 84;
+    int GLOBAL_DATA_OPERATION = 85;
 
     /**
      * The feature id for the '<em><b>Case Access Operations</b></em>' containment reference.
@@ -5311,7 +5348,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDeleteByCaseIdentifierType()
      * @generated
      */
-    int DELETE_BY_CASE_IDENTIFIER_TYPE = 85;
+    int DELETE_BY_CASE_IDENTIFIER_TYPE = 86;
 
     /**
      * The feature id for the '<em><b>Field Path</b></em>' attribute.
@@ -5348,7 +5385,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCompositeIdentifierType()
      * @generated
      */
-    int COMPOSITE_IDENTIFIER_TYPE = 86;
+    int COMPOSITE_IDENTIFIER_TYPE = 87;
 
     /**
      * The feature id for the '<em><b>Field Path</b></em>' attribute.
@@ -5385,7 +5422,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDeleteCaseReferenceOperationType()
      * @generated
      */
-    int DELETE_CASE_REFERENCE_OPERATION_TYPE = 87;
+    int DELETE_CASE_REFERENCE_OPERATION_TYPE = 88;
 
     /**
      * The number of structural features of the '<em>Delete Case Reference Operation Type</em>' class.
@@ -5404,7 +5441,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDeleteByCompositeIdentifiersType()
      * @generated
      */
-    int DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE = 88;
+    int DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE = 89;
 
     /**
      * The feature id for the '<em><b>Group</b></em>' attribute list.
@@ -5441,7 +5478,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCreateCaseOperationType()
      * @generated
      */
-    int CREATE_CASE_OPERATION_TYPE = 89;
+    int CREATE_CASE_OPERATION_TYPE = 90;
 
     /**
      * The feature id for the '<em><b>From Field Path</b></em>' attribute.
@@ -5478,7 +5515,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCaseAccessOperationsType()
      * @generated
      */
-    int CASE_ACCESS_OPERATIONS_TYPE = 90;
+    int CASE_ACCESS_OPERATIONS_TYPE = 91;
 
     /**
      * The feature id for the '<em><b>Case Class External Reference</b></em>' containment reference.
@@ -5533,7 +5570,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDataWorkItemAttributeMapping()
      * @generated
      */
-    int DATA_WORK_ITEM_ATTRIBUTE_MAPPING = 91;
+    int DATA_WORK_ITEM_ATTRIBUTE_MAPPING = 92;
 
     /**
      * The feature id for the '<em><b>Attribute</b></em>' attribute.
@@ -5570,7 +5607,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getProcessDataWorkItemAttributeMappings()
      * @generated
      */
-    int PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS = 92;
+    int PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS = 93;
 
     /**
      * The feature id for the '<em><b>Data Work Item Attribute Mapping</b></em>' containment reference list.
@@ -5598,7 +5635,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getBpmRuntimeConfiguration()
      * @generated
      */
-    int BPM_RUNTIME_CONFIGURATION = 93;
+    int BPM_RUNTIME_CONFIGURATION = 94;
 
     /**
      * The feature id for the '<em><b>Incoming Request Timeout</b></em>' attribute.
@@ -5626,7 +5663,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getEnablementType()
      * @generated
      */
-    int ENABLEMENT_TYPE = 94;
+    int ENABLEMENT_TYPE = 95;
 
     /**
      * The feature id for the '<em><b>Initializer Activities</b></em>' containment reference.
@@ -5663,7 +5700,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getInitializerActivitiesType()
      * @generated
      */
-    int INITIALIZER_ACTIVITIES_TYPE = 95;
+    int INITIALIZER_ACTIVITIES_TYPE = 96;
 
     /**
      * The feature id for the '<em><b>Activity Ref</b></em>' containment reference list.
@@ -5691,7 +5728,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAdHocTaskConfigurationType()
      * @generated
      */
-    int AD_HOC_TASK_CONFIGURATION_TYPE = 96;
+    int AD_HOC_TASK_CONFIGURATION_TYPE = 97;
 
     /**
      * The feature id for the '<em><b>Enablement</b></em>' containment reference.
@@ -5755,7 +5792,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getRequiredAccessPrivileges()
      * @generated
      */
-    int REQUIRED_ACCESS_PRIVILEGES = 97;
+    int REQUIRED_ACCESS_PRIVILEGES = 98;
 
     /**
      * The feature id for the '<em><b>Privilege Reference</b></em>' containment reference list.
@@ -5783,7 +5820,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getVisibleForCaseStates()
      * @generated
      */
-    int VISIBLE_FOR_CASE_STATES = 98;
+    int VISIBLE_FOR_CASE_STATES = 99;
 
     /**
      * The feature id for the '<em><b>Visible For Unset Case State</b></em>' attribute.
@@ -5820,7 +5857,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCaseService()
      * @generated
      */
-    int CASE_SERVICE = 99;
+    int CASE_SERVICE = 100;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -5866,7 +5903,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDocumentOperation()
      * @generated
      */
-    int DOCUMENT_OPERATION = 100;
+    int DOCUMENT_OPERATION = 101;
 
     /**
      * The feature id for the '<em><b>Case Doc Ref Operation</b></em>' containment reference.
@@ -5912,7 +5949,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCaseDocRefOperations()
      * @generated
      */
-    int CASE_DOC_REF_OPERATIONS = 101;
+    int CASE_DOC_REF_OPERATIONS = 102;
 
     /**
      * The feature id for the '<em><b>Move Case Doc Operation</b></em>' containment reference.
@@ -5976,7 +6013,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCaseDocFindOperations()
      * @generated
      */
-    int CASE_DOC_FIND_OPERATIONS = 102;
+    int CASE_DOC_FIND_OPERATIONS = 103;
 
     /**
      * The feature id for the '<em><b>Find By File Name Operation</b></em>' containment reference.
@@ -6031,7 +6068,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getMoveCaseDocOperation()
      * @generated
      */
-    int MOVE_CASE_DOC_OPERATION = 103;
+    int MOVE_CASE_DOC_OPERATION = 104;
 
     /**
      * The feature id for the '<em><b>Source Case Ref Field</b></em>' attribute.
@@ -6068,7 +6105,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getUnlinkCaseDocOperation()
      * @generated
      */
-    int UNLINK_CASE_DOC_OPERATION = 104;
+    int UNLINK_CASE_DOC_OPERATION = 105;
 
     /**
      * The feature id for the '<em><b>Source Case Ref Field</b></em>' attribute.
@@ -6096,7 +6133,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getLinkCaseDocOperation()
      * @generated
      */
-    int LINK_CASE_DOC_OPERATION = 105;
+    int LINK_CASE_DOC_OPERATION = 106;
 
     /**
      * The feature id for the '<em><b>Target Case Ref Field</b></em>' attribute.
@@ -6124,7 +6161,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getLinkSystemDocumentOperation()
      * @generated
      */
-    int LINK_SYSTEM_DOCUMENT_OPERATION = 106;
+    int LINK_SYSTEM_DOCUMENT_OPERATION = 107;
 
     /**
      * The feature id for the '<em><b>Document Id</b></em>' attribute.
@@ -6170,7 +6207,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDeleteCaseDocOperation()
      * @generated
      */
-    int DELETE_CASE_DOC_OPERATION = 107;
+    int DELETE_CASE_DOC_OPERATION = 108;
 
     /**
      * The number of structural features of the '<em>Delete Case Doc Operation</em>' class.
@@ -6189,7 +6226,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getFindByFileNameOperation()
      * @generated
      */
-    int FIND_BY_FILE_NAME_OPERATION = 108;
+    int FIND_BY_FILE_NAME_OPERATION = 109;
 
     /**
      * The feature id for the '<em><b>File Name Field</b></em>' attribute.
@@ -6217,7 +6254,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getFindByQueryOperation()
      * @generated
      */
-    int FIND_BY_QUERY_OPERATION = 109;
+    int FIND_BY_QUERY_OPERATION = 110;
 
     /**
      * The feature id for the '<em><b>Case Document Query Expression</b></em>' containment reference list.
@@ -6245,7 +6282,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCaseDocumentQueryExpression()
      * @generated
      */
-    int CASE_DOCUMENT_QUERY_EXPRESSION = 110;
+    int CASE_DOCUMENT_QUERY_EXPRESSION = 111;
 
     /**
      * The feature id for the '<em><b>Query Expression Join Type</b></em>' attribute.
@@ -6327,7 +6364,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getServiceProcessConfiguration()
      * @generated
      */
-    int SERVICE_PROCESS_CONFIGURATION = 111;
+    int SERVICE_PROCESS_CONFIGURATION = 112;
 
     /**
      * The feature id for the '<em><b>Deploy To Process Runtime</b></em>' attribute.
@@ -6364,7 +6401,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getScriptDataMapper()
      * @generated
      */
-    int SCRIPT_DATA_MAPPER = 112;
+    int SCRIPT_DATA_MAPPER = 113;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -6446,7 +6483,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDataMapperArrayInflation()
      * @generated
      */
-    int DATA_MAPPER_ARRAY_INFLATION = 113;
+    int DATA_MAPPER_ARRAY_INFLATION = 114;
 
     /**
      * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -6492,7 +6529,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getLikeMappingExclusion()
      * @generated
      */
-    int LIKE_MAPPING_EXCLUSION = 114;
+    int LIKE_MAPPING_EXCLUSION = 115;
 
     /**
      * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -6520,7 +6557,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getLikeMappingExclusions()
      * @generated
      */
-    int LIKE_MAPPING_EXCLUSIONS = 115;
+    int LIKE_MAPPING_EXCLUSIONS = 116;
 
     /**
      * The feature id for the '<em><b>Exclusions</b></em>' containment reference list.
@@ -6548,7 +6585,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getRestServiceOperation()
      * @generated
      */
-    int REST_SERVICE_OPERATION = 116;
+    int REST_SERVICE_OPERATION = 117;
 
     /**
      * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -6585,7 +6622,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAllocationStrategyType()
      * @generated
      */
-    int ALLOCATION_STRATEGY_TYPE = 117;
+    int ALLOCATION_STRATEGY_TYPE = 118;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.AllocationType <em>Allocation Type</em>}' enum.
@@ -6595,7 +6632,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAllocationType()
      * @generated
      */
-    int ALLOCATION_TYPE = 118;
+    int ALLOCATION_TYPE = 119;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.AuditEventType <em>Audit Event Type</em>}' enum.
@@ -6605,7 +6642,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAuditEventType()
      * @generated
      */
-    int AUDIT_EVENT_TYPE = 119;
+    int AUDIT_EVENT_TYPE = 120;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.CorrelationMode <em>Correlation Mode</em>}' enum.
@@ -6615,7 +6652,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCorrelationMode()
      * @generated
      */
-    int CORRELATION_MODE = 120;
+    int CORRELATION_MODE = 121;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.ErrorThrowerType <em>Error Thrower Type</em>}' enum.
@@ -6625,7 +6662,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getErrorThrowerType()
      * @generated
      */
-    int ERROR_THROWER_TYPE = 121;
+    int ERROR_THROWER_TYPE = 122;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.EventHandlerFlowStrategy <em>Event Handler Flow Strategy</em>}' enum.
@@ -6635,7 +6672,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getEventHandlerFlowStrategy()
      * @generated
      */
-    int EVENT_HANDLER_FLOW_STRATEGY = 122;
+    int EVENT_HANDLER_FLOW_STRATEGY = 123;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.FlowRoutingStyle <em>Flow Routing Style</em>}' enum.
@@ -6645,7 +6682,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getFlowRoutingStyle()
      * @generated
      */
-    int FLOW_ROUTING_STYLE = 123;
+    int FLOW_ROUTING_STYLE = 124;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.FormImplementationType <em>Form Implementation Type</em>}' enum.
@@ -6655,7 +6692,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getFormImplementationType()
      * @generated
      */
-    int FORM_IMPLEMENTATION_TYPE = 124;
+    int FORM_IMPLEMENTATION_TYPE = 125;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.MaxRetryActionType <em>Max Retry Action Type</em>}' enum.
@@ -6665,7 +6702,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getMaxRetryActionType()
      * @generated
      */
-    int MAX_RETRY_ACTION_TYPE = 125;
+    int MAX_RETRY_ACTION_TYPE = 126;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.RescheduleDurationType <em>Reschedule Duration Type</em>}' enum.
@@ -6675,7 +6712,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getRescheduleDurationType()
      * @generated
      */
-    int RESCHEDULE_DURATION_TYPE = 126;
+    int RESCHEDULE_DURATION_TYPE = 127;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.RescheduleTimerSelectionType <em>Reschedule Timer Selection Type</em>}' enum.
@@ -6685,7 +6722,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getRescheduleTimerSelectionType()
      * @generated
      */
-    int RESCHEDULE_TIMER_SELECTION_TYPE = 127;
+    int RESCHEDULE_TIMER_SELECTION_TYPE = 128;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.SecurityPolicy <em>Security Policy</em>}' enum.
@@ -6695,7 +6732,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSecurityPolicy()
      * @generated
      */
-    int SECURITY_POLICY = 128;
+    int SECURITY_POLICY = 129;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.SoapBindingStyle <em>Soap Binding Style</em>}' enum.
@@ -6705,7 +6742,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSoapBindingStyle()
      * @generated
      */
-    int SOAP_BINDING_STYLE = 129;
+    int SOAP_BINDING_STYLE = 130;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.FieldFormat <em>Field Format</em>}' enum.
@@ -6715,7 +6752,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getFieldFormat()
      * @generated
      */
-    int FIELD_FORMAT = 130;
+    int FIELD_FORMAT = 131;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.SubProcessStartStrategy <em>Sub Process Start Strategy</em>}' enum.
@@ -6725,7 +6762,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSubProcessStartStrategy()
      * @generated
      */
-    int SUB_PROCESS_START_STRATEGY = 131;
+    int SUB_PROCESS_START_STRATEGY = 132;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.SystemErrorActionType <em>System Error Action Type</em>}' enum.
@@ -6735,7 +6772,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSystemErrorActionType()
      * @generated
      */
-    int SYSTEM_ERROR_ACTION_TYPE = 132;
+    int SYSTEM_ERROR_ACTION_TYPE = 133;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.ValidationIssueOverrideType <em>Validation Issue Override Type</em>}' enum.
@@ -6745,7 +6782,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getValidationIssueOverrideType()
      * @generated
      */
-    int VALIDATION_ISSUE_OVERRIDE_TYPE = 133;
+    int VALIDATION_ISSUE_OVERRIDE_TYPE = 134;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.Visibility <em>Visibility</em>}' enum.
@@ -6755,7 +6792,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getVisibility()
      * @generated
      */
-    int VISIBILITY = 134;
+    int VISIBILITY = 135;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.DeliveryMode <em>Delivery Mode</em>}' enum.
@@ -6765,7 +6802,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDeliveryMode()
      * @generated
      */
-    int DELIVERY_MODE = 135;
+    int DELIVERY_MODE = 136;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.XpdModelType <em>Xpd Model Type</em>}' enum.
@@ -6775,7 +6812,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getXpdModelType()
      * @generated
      */
-    int XPD_MODEL_TYPE = 136;
+    int XPD_MODEL_TYPE = 137;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.AdHocExecutionTypeType <em>Ad Hoc Execution Type Type</em>}' enum.
@@ -6785,7 +6822,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAdHocExecutionTypeType()
      * @generated
      */
-    int AD_HOC_EXECUTION_TYPE_TYPE = 137;
+    int AD_HOC_EXECUTION_TYPE_TYPE = 138;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.QueryExpressionJoinType <em>Query Expression Join Type</em>}' enum.
@@ -6795,7 +6832,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getQueryExpressionJoinType()
      * @generated
      */
-    int QUERY_EXPRESSION_JOIN_TYPE = 138;
+    int QUERY_EXPRESSION_JOIN_TYPE = 139;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.CMISQueryOperator <em>CMIS Query Operator</em>}' enum.
@@ -6805,7 +6842,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCMISQueryOperator()
      * @generated
      */
-    int CMIS_QUERY_OPERATOR = 139;
+    int CMIS_QUERY_OPERATOR = 140;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.AsyncExecutionMode <em>Async Execution Mode</em>}' enum.
@@ -6815,7 +6852,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAsyncExecutionMode()
      * @generated
      */
-    int ASYNC_EXECUTION_MODE = 140;
+    int ASYNC_EXECUTION_MODE = 141;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.SignalType <em>Signal Type</em>}' enum.
@@ -6825,7 +6862,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSignalType()
      * @generated
      */
-    int SIGNAL_TYPE = 141;
+    int SIGNAL_TYPE = 142;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.XpdInterfaceType <em>Xpd Interface Type</em>}' enum.
@@ -6835,7 +6872,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getXpdInterfaceType()
      * @generated
      */
-    int XPD_INTERFACE_TYPE = 142;
+    int XPD_INTERFACE_TYPE = 143;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.DataMapperArrayInflationType <em>Data Mapper Array Inflation Type</em>}' enum.
@@ -6845,7 +6882,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDataMapperArrayInflationType()
      * @generated
      */
-    int DATA_MAPPER_ARRAY_INFLATION_TYPE = 143;
+    int DATA_MAPPER_ARRAY_INFLATION_TYPE = 144;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.BusinessServicePublishType <em>Business Service Publish Type</em>}' enum.
@@ -6855,7 +6892,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getBusinessServicePublishType()
      * @generated
      */
-    int BUSINESS_SERVICE_PUBLISH_TYPE = 144;
+    int BUSINESS_SERVICE_PUBLISH_TYPE = 145;
 
     /**
      * The meta object id for the '<em>Audit Event Type Object</em>' data type.
@@ -6865,7 +6902,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAuditEventTypeObject()
      * @generated
      */
-    int AUDIT_EVENT_TYPE_OBJECT = 145;
+    int AUDIT_EVENT_TYPE_OBJECT = 146;
 
     /**
      * The meta object id for the '<em>Security Policy Object</em>' data type.
@@ -6875,7 +6912,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSecurityPolicyObject()
      * @generated
      */
-    int SECURITY_POLICY_OBJECT = 146;
+    int SECURITY_POLICY_OBJECT = 147;
 
     /**
      * The meta object id for the '<em>Soap Binding Style Object</em>' data type.
@@ -6885,7 +6922,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSoapBindingStyleObject()
      * @generated
      */
-    int SOAP_BINDING_STYLE_OBJECT = 147;
+    int SOAP_BINDING_STYLE_OBJECT = 148;
 
     /**
      * Returns the meta object for class '{@link com.tibco.xpd.xpdExtension.ActivityRef <em>Activity Ref</em>}'.
@@ -11073,6 +11110,27 @@ public interface XpdExtensionPackage extends EPackage {
     EAttribute getRemoveLinkAssociationsType_RemoveCaseRefField();
 
     /**
+     * Returns the meta object for class '{@link com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType <em>Remove All Links By Name Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Remove All Links By Name Type</em>'.
+     * @see com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType
+     * @generated
+     */
+    EClass getRemoveAllLinksByNameType();
+
+    /**
+     * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType#getAssociationName <em>Association Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Association Name</em>'.
+     * @see com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType#getAssociationName()
+     * @see #getRemoveAllLinksByNameType()
+     * @generated
+     */
+    EAttribute getRemoveAllLinksByNameType_AssociationName();
+
+    /**
      * Returns the meta object for class '{@link com.tibco.xpd.xpdExtension.CaseReferenceOperationsType <em>Case Reference Operations Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -11136,6 +11194,17 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      */
     EReference getCaseReferenceOperationsType_RemoveLinkAssociations();
+
+    /**
+     * Returns the meta object for the containment reference '{@link com.tibco.xpd.xpdExtension.CaseReferenceOperationsType#getRemoveAllLinksByName <em>Remove All Links By Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Remove All Links By Name</em>'.
+     * @see com.tibco.xpd.xpdExtension.CaseReferenceOperationsType#getRemoveAllLinksByName()
+     * @see #getCaseReferenceOperationsType()
+     * @generated
+     */
+    EReference getCaseReferenceOperationsType_RemoveAllLinksByName();
 
     /**
      * Returns the meta object for class '{@link com.tibco.xpd.xpdExtension.GlobalDataOperation <em>Global Data Operation</em>}'.
@@ -15934,6 +16003,25 @@ public interface XpdExtensionPackage extends EPackage {
                 eINSTANCE.getRemoveLinkAssociationsType_RemoveCaseRefField();
 
         /**
+         * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.RemoveAllLinksByNameTypeImpl <em>Remove All Links By Name Type</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see com.tibco.xpd.xpdExtension.impl.RemoveAllLinksByNameTypeImpl
+         * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getRemoveAllLinksByNameType()
+         * @generated
+         */
+        EClass REMOVE_ALL_LINKS_BY_NAME_TYPE = eINSTANCE.getRemoveAllLinksByNameType();
+
+        /**
+         * The meta object literal for the '<em><b>Association Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute REMOVE_ALL_LINKS_BY_NAME_TYPE__ASSOCIATION_NAME =
+                eINSTANCE.getRemoveAllLinksByNameType_AssociationName();
+
+        /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.CaseReferenceOperationsTypeImpl <em>Case Reference Operations Type</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -15985,6 +16073,15 @@ public interface XpdExtensionPackage extends EPackage {
          */
         EReference CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS =
                 eINSTANCE.getCaseReferenceOperationsType_RemoveLinkAssociations();
+
+        /**
+         * The meta object literal for the '<em><b>Remove All Links By Name</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME =
+                eINSTANCE.getCaseReferenceOperationsType_RemoveAllLinksByName();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.GlobalDataOperationImpl <em>Global Data Operation</em>}' class.

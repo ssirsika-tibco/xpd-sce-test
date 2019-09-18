@@ -225,6 +225,8 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl implements XpdExtensio
             return createAddLinkAssociationsType();
         case XpdExtensionPackage.REMOVE_LINK_ASSOCIATIONS_TYPE:
             return createRemoveLinkAssociationsType();
+        case XpdExtensionPackage.REMOVE_ALL_LINKS_BY_NAME_TYPE:
+            return createRemoveAllLinksByNameType();
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE:
             return createCaseReferenceOperationsType();
         case XpdExtensionPackage.GLOBAL_DATA_OPERATION:
@@ -1064,6 +1066,16 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl implements XpdExtensio
     public RemoveLinkAssociationsType createRemoveLinkAssociationsType() {
         RemoveLinkAssociationsTypeImpl removeLinkAssociationsType = new RemoveLinkAssociationsTypeImpl();
         return removeLinkAssociationsType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public RemoveAllLinksByNameType createRemoveAllLinksByNameType() {
+        RemoveAllLinksByNameTypeImpl removeAllLinksByNameType = new RemoveAllLinksByNameTypeImpl();
+        return removeAllLinksByNameType;
     }
 
     /**

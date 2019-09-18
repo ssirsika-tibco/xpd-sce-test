@@ -96,6 +96,10 @@ public class Messages extends NLS {
 
     public static String CaseRefDeleteOperationPage_label;
 
+    public static String CaseRefRemoveAllLinksByNamePage_desc;
+
+    public static String CaseRefRemoveAllLinksByNamePage_label;
+
     public static String CaseRefRemoveLinkOperationPage_label;
 
     public static String CaseRefUpdateOperationPage_label;

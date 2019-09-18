@@ -96,6 +96,7 @@ import com.tibco.xpd.xpdExtension.ProcessInterfaces;
 import com.tibco.xpd.xpdExtension.ProcessResourcePatterns;
 import com.tibco.xpd.xpdExtension.QueryExpressionJoinType;
 import com.tibco.xpd.xpdExtension.RESTServices;
+import com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType;
 import com.tibco.xpd.xpdExtension.RemoveLinkAssociationsType;
 import com.tibco.xpd.xpdExtension.ReplyImmediateDataMappings;
 import com.tibco.xpd.xpdExtension.RequiredAccessPrivileges;
@@ -286,6 +287,13 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
      * @generated
      */
     private EClass removeLinkAssociationsTypeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass removeAllLinksByNameTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2756,6 +2764,24 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getRemoveAllLinksByNameType() {
+        return removeAllLinksByNameTypeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getRemoveAllLinksByNameType_AssociationName() {
+        return (EAttribute) removeAllLinksByNameTypeEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -2807,6 +2833,15 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
     @Override
     public EReference getCaseReferenceOperationsType_RemoveLinkAssociations() {
         return (EReference) caseReferenceOperationsTypeEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getCaseReferenceOperationsType_RemoveAllLinksByName() {
+        return (EReference) caseReferenceOperationsTypeEClass.getEStructuralFeatures().get(5);
     }
 
     /**
@@ -6436,12 +6471,16 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
         createEAttribute(removeLinkAssociationsTypeEClass, REMOVE_LINK_ASSOCIATIONS_TYPE__ASSOCIATION_NAME);
         createEAttribute(removeLinkAssociationsTypeEClass, REMOVE_LINK_ASSOCIATIONS_TYPE__REMOVE_CASE_REF_FIELD);
 
+        removeAllLinksByNameTypeEClass = createEClass(REMOVE_ALL_LINKS_BY_NAME_TYPE);
+        createEAttribute(removeAllLinksByNameTypeEClass, REMOVE_ALL_LINKS_BY_NAME_TYPE__ASSOCIATION_NAME);
+
         caseReferenceOperationsTypeEClass = createEClass(CASE_REFERENCE_OPERATIONS_TYPE);
         createEAttribute(caseReferenceOperationsTypeEClass, CASE_REFERENCE_OPERATIONS_TYPE__CASE_REF_FIELD);
         createEReference(caseReferenceOperationsTypeEClass, CASE_REFERENCE_OPERATIONS_TYPE__UPDATE);
         createEReference(caseReferenceOperationsTypeEClass, CASE_REFERENCE_OPERATIONS_TYPE__DELETE);
         createEReference(caseReferenceOperationsTypeEClass, CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS);
         createEReference(caseReferenceOperationsTypeEClass, CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS);
+        createEReference(caseReferenceOperationsTypeEClass, CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME);
 
         globalDataOperationEClass = createEClass(GLOBAL_DATA_OPERATION);
         createEReference(globalDataOperationEClass, GLOBAL_DATA_OPERATION__CASE_ACCESS_OPERATIONS);
@@ -12128,6 +12167,28 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
                 !IS_DERIVED,
                 IS_ORDERED);
 
+        initEClass(removeAllLinksByNameTypeEClass,
+                RemoveAllLinksByNameType.class,
+                "RemoveAllLinksByNameType", //$NON-NLS-1$
+                !IS_ABSTRACT,
+                !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getRemoveAllLinksByNameType_AssociationName(),
+                theXMLTypePackage.getString(),
+                "associationName", //$NON-NLS-1$
+                null,
+                1,
+                1,
+                RemoveAllLinksByNameType.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                !IS_UNSETTABLE,
+                !IS_ID,
+                IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
+
         initEClass(caseReferenceOperationsTypeEClass,
                 CaseReferenceOperationsType.class,
                 "CaseReferenceOperationsType", //$NON-NLS-1$
@@ -12204,6 +12265,23 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
                 this.getRemoveLinkAssociationsType(),
                 null,
                 "removeLinkAssociations", //$NON-NLS-1$
+                null,
+                0,
+                1,
+                CaseReferenceOperationsType.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE,
+                IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
+        initEReference(getCaseReferenceOperationsType_RemoveAllLinksByName(),
+                this.getRemoveAllLinksByNameType(),
+                null,
+                "removeAllLinksByName", //$NON-NLS-1$
                 null,
                 0,
                 1,
@@ -15948,6 +16026,16 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "RemoveCaseRefField" //$NON-NLS-1$ //$NON-NLS-2$
                 });
+        addAnnotation(removeAllLinksByNameTypeEClass,
+                source,
+                new String[] { "name", "RemoveAllLinksByName_._type", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
+                });
+        addAnnotation(getRemoveAllLinksByNameType_AssociationName(),
+                source,
+                new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "AssociationName" //$NON-NLS-1$ //$NON-NLS-2$
+                });
         addAnnotation(caseReferenceOperationsTypeEClass,
                 source,
                 new String[] { "name", "CaseReferenceOperations_._type", //$NON-NLS-1$ //$NON-NLS-2$
@@ -15981,6 +16069,12 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
                 source,
                 new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "RemoveLinkAssociations", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                });
+        addAnnotation(getCaseReferenceOperationsType_RemoveAllLinksByName(),
+                source,
+                new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "RemoveAllLinksByName", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
         addAnnotation(globalDataOperationEClass,

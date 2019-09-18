@@ -1510,6 +1510,29 @@ public class XpdExtensionItemProviderAdapterFactory extends XpdExtensionAdapterF
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RemoveAllLinksByNameTypeItemProvider removeAllLinksByNameTypeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRemoveAllLinksByNameTypeAdapter() {
+        if (removeAllLinksByNameTypeItemProvider == null) {
+            removeAllLinksByNameTypeItemProvider = new RemoveAllLinksByNameTypeItemProvider(this);
+        }
+
+        return removeAllLinksByNameTypeItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CaseReferenceOperationsType} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2990,6 +3013,8 @@ public class XpdExtensionItemProviderAdapterFactory extends XpdExtensionAdapterF
             addLinkAssociationsTypeItemProvider.dispose();
         if (removeLinkAssociationsTypeItemProvider != null)
             removeLinkAssociationsTypeItemProvider.dispose();
+        if (removeAllLinksByNameTypeItemProvider != null)
+            removeAllLinksByNameTypeItemProvider.dispose();
         if (caseReferenceOperationsTypeItemProvider != null)
             caseReferenceOperationsTypeItemProvider.dispose();
         if (globalDataOperationItemProvider != null)

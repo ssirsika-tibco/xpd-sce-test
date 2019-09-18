@@ -833,6 +833,13 @@ public class XpdExtensionSwitch<T> {
                 result = defaultCase(theEObject);
             return result;
         }
+        case XpdExtensionPackage.REMOVE_ALL_LINKS_BY_NAME_TYPE: {
+            RemoveAllLinksByNameType removeAllLinksByNameType = (RemoveAllLinksByNameType) theEObject;
+            T result = caseRemoveAllLinksByNameType(removeAllLinksByNameType);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE: {
             CaseReferenceOperationsType caseReferenceOperationsType = (CaseReferenceOperationsType) theEObject;
             T result = caseCaseReferenceOperationsType(caseReferenceOperationsType);
@@ -2042,6 +2049,21 @@ public class XpdExtensionSwitch<T> {
      * @generated
      */
     public T caseRemoveLinkAssociationsType(RemoveLinkAssociationsType object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Remove All Links By Name Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Remove All Links By Name Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseRemoveAllLinksByNameType(RemoveAllLinksByNameType object) {
         return null;
     }
 

@@ -6,6 +6,7 @@ package com.tibco.xpd.xpdExtension.impl;
 import com.tibco.xpd.xpdExtension.AddLinkAssociationsType;
 import com.tibco.xpd.xpdExtension.CaseReferenceOperationsType;
 import com.tibco.xpd.xpdExtension.DeleteCaseReferenceOperationType;
+import com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType;
 import com.tibco.xpd.xpdExtension.RemoveLinkAssociationsType;
 import com.tibco.xpd.xpdExtension.UpdateCaseOperationType;
 import com.tibco.xpd.xpdExtension.UpdateType;
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.CaseReferenceOperationsTypeImpl#getDelete <em>Delete</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.CaseReferenceOperationsTypeImpl#getAddLinkAssociations <em>Add Link Associations</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.CaseReferenceOperationsTypeImpl#getRemoveLinkAssociations <em>Remove Link Associations</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.impl.CaseReferenceOperationsTypeImpl#getRemoveAllLinksByName <em>Remove All Links By Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -105,6 +107,16 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl implements Case
      * @ordered
      */
     protected RemoveLinkAssociationsType removeLinkAssociations;
+
+    /**
+     * The cached value of the '{@link #getRemoveAllLinksByName() <em>Remove All Links By Name</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRemoveAllLinksByName()
+     * @generated
+     * @ordered
+     */
+    protected RemoveAllLinksByNameType removeAllLinksByName;
 
     /**
      * <!-- begin-user-doc -->
@@ -378,6 +390,65 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl implements Case
      * <!-- end-user-doc -->
      * @generated
      */
+    public RemoveAllLinksByNameType getRemoveAllLinksByName() {
+        return removeAllLinksByName;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRemoveAllLinksByName(RemoveAllLinksByNameType newRemoveAllLinksByName,
+            NotificationChain msgs) {
+        RemoveAllLinksByNameType oldRemoveAllLinksByName = removeAllLinksByName;
+        removeAllLinksByName = newRemoveAllLinksByName;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME,
+                    oldRemoveAllLinksByName, newRemoveAllLinksByName);
+            if (msgs == null)
+                msgs = notification;
+            else
+                msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setRemoveAllLinksByName(RemoveAllLinksByNameType newRemoveAllLinksByName) {
+        if (newRemoveAllLinksByName != removeAllLinksByName) {
+            NotificationChain msgs = null;
+            if (removeAllLinksByName != null)
+                msgs = ((InternalEObject) removeAllLinksByName).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME,
+                        null,
+                        msgs);
+            if (newRemoveAllLinksByName != null)
+                msgs = ((InternalEObject) newRemoveAllLinksByName).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME,
+                        null,
+                        msgs);
+            msgs = basicSetRemoveAllLinksByName(newRemoveAllLinksByName, msgs);
+            if (msgs != null)
+                msgs.dispatch();
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME,
+                    newRemoveAllLinksByName, newRemoveAllLinksByName));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -389,6 +460,8 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl implements Case
             return basicSetAddLinkAssociations(null, msgs);
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS:
             return basicSetRemoveLinkAssociations(null, msgs);
+        case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME:
+            return basicSetRemoveAllLinksByName(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -411,6 +484,8 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl implements Case
             return getAddLinkAssociations();
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS:
             return getRemoveLinkAssociations();
+        case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME:
+            return getRemoveAllLinksByName();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -437,6 +512,9 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl implements Case
             return;
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS:
             setRemoveLinkAssociations((RemoveLinkAssociationsType) newValue);
+            return;
+        case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME:
+            setRemoveAllLinksByName((RemoveAllLinksByNameType) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -465,6 +543,9 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl implements Case
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS:
             setRemoveLinkAssociations((RemoveLinkAssociationsType) null);
             return;
+        case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME:
+            setRemoveAllLinksByName((RemoveAllLinksByNameType) null);
+            return;
         }
         super.eUnset(featureID);
     }
@@ -488,6 +569,8 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl implements Case
             return addLinkAssociations != null;
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS:
             return removeLinkAssociations != null;
+        case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME:
+            return removeAllLinksByName != null;
         }
         return super.eIsSet(featureID);
     }

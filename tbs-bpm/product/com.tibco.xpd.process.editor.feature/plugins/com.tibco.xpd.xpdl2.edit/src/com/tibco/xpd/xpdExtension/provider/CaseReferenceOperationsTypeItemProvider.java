@@ -112,6 +112,7 @@ public class CaseReferenceOperationsTypeItemProvider extends ItemProviderAdapter
             childrenFeatures.add(XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__DELETE);
             childrenFeatures.add(XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS);
             childrenFeatures.add(XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME);
         }
         return childrenFeatures;
     }
@@ -172,6 +173,7 @@ public class CaseReferenceOperationsTypeItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__DELETE:
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS:
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS:
+        case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
@@ -204,6 +206,10 @@ public class CaseReferenceOperationsTypeItemProvider extends ItemProviderAdapter
         newChildDescriptors.add(createChildParameter(
                 XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS,
                 XpdExtensionFactory.eINSTANCE.createRemoveLinkAssociationsType()));
+
+        newChildDescriptors.add(createChildParameter(
+                XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_ALL_LINKS_BY_NAME,
+                XpdExtensionFactory.eINSTANCE.createRemoveAllLinksByNameType()));
     }
 
     /**

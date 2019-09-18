@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.tibco.xpd.xpdExtension.CaseReferenceOperationsType#getDelete <em>Delete</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.CaseReferenceOperationsType#getAddLinkAssociations <em>Add Link Associations</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.CaseReferenceOperationsType#getRemoveLinkAssociations <em>Remove Link Associations</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.CaseReferenceOperationsType#getRemoveAllLinksByName <em>Remove All Links By Name</em>}</li>
  * </ul>
  *
  * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getCaseReferenceOperationsType()
@@ -164,5 +165,31 @@ public interface CaseReferenceOperationsType extends EObject {
      * @generated
      */
     void setRemoveLinkAssociations(RemoveLinkAssociationsType value);
+
+    /**
+     * Returns the value of the '<em><b>Remove All Links By Name</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * Operation to remove all links (refs) to other case object(s) for a given case-class association (within the case object identified by CaseRefField)
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Remove All Links By Name</em>' containment reference.
+     * @see #setRemoveAllLinksByName(RemoveAllLinksByNameType)
+     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getCaseReferenceOperationsType_RemoveAllLinksByName()
+     * @model containment="true"
+     *        extendedMetaData="kind='element' name='RemoveAllLinksByName' namespace='##targetNamespace'"
+     * @generated
+     */
+    RemoveAllLinksByNameType getRemoveAllLinksByName();
+
+    /**
+     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.CaseReferenceOperationsType#getRemoveAllLinksByName <em>Remove All Links By Name</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Remove All Links By Name</em>' containment reference.
+     * @see #getRemoveAllLinksByName()
+     * @generated
+     */
+    void setRemoveAllLinksByName(RemoveAllLinksByNameType value);
 
 } // CaseReferenceOperationsType

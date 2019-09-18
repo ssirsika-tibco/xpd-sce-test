@@ -5,6 +5,7 @@
 package com.tibco.xpd.sce.tests;
 
 import com.tibco.xpd.ant.tasks.GenerateRascTaskTest;
+import com.tibco.xpd.sce.tests.bpel.transform.BpelCaseDataOperationActivityTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelDataFieldDescriptorTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelGlobalSignalsTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelIncomingRequestActivityTest;
@@ -57,6 +58,7 @@ public class AllUnitTests2 {
         suite.addTestSuite(BpelLocalSignalsTest.class);
         suite.addTestSuite(BpelSubProcessConversionTest.class);
         suite.addTestSuite(BpelIncomingRequestActivityTest.class);
+        suite.addTestSuite(BpelCaseDataOperationActivityTest.class);
 
         /*
          * Miscellaneous

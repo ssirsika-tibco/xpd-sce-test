@@ -16,6 +16,7 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.ISelection;
@@ -230,7 +231,7 @@ public class GlobalDataTaskServiceSection extends
                                         : null);
                             }
                         });
-
+        caseRefPickerCtrl.setLayoutData(GridDataFactory.swtDefaults().create());
         manageControl(caseRefPickerCtrl);
 
         /*
@@ -308,6 +309,14 @@ public class GlobalDataTaskServiceSection extends
                 unlinkPage);
         crefOperationPageBook.registerPage(unlinkPage, unlinkPage
                 .createPage(crefOperationPageBook.getContainer(), toolkit));
+
+        /*
+         * Create Case Ref UnLink all by link name operation controls
+         */
+        CaseRefRemoveAllLinksByNamePage unlinkAllPage = new CaseRefRemoveAllLinksByNamePage(this);
+        caseRefOperationPages.put(EXT_PACKAGE.getCaseReferenceOperationsType_RemoveAllLinksByName(), unlinkAllPage);
+        crefOperationPageBook.registerPage(unlinkAllPage,
+                unlinkAllPage.createPage(crefOperationPageBook.getContainer(), toolkit));
 
         /*
          * Create Case Ref UnLink operation controls
@@ -1095,6 +1104,9 @@ public class GlobalDataTaskServiceSection extends
                 .equals(selection)) {
 
             eo = EXT_FACTORY.createRemoveLinkAssociationsType();
+        } else if (EXT_PACKAGE.getCaseReferenceOperationsType_RemoveAllLinksByName().equals(selection)) {
+
+            eo = EXT_FACTORY.createRemoveAllLinksByNameType();
         } else if (EXT_PACKAGE.getCaseReferenceOperationsType_Update()
                 .equals(selection)) {
 

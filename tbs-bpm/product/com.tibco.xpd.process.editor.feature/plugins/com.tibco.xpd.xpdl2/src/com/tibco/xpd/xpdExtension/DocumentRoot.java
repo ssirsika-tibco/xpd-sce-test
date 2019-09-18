@@ -330,7 +330,7 @@ public interface DocumentRoot extends EObject {
      * </p>
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
-     * Defines constant period time duration and is used for Timer Events by specifying the Script type as ‘Constant Period’ and values of the duration.
+     * Defines constant period time duration and is used for Timer Events by specifying the Script type as â€˜Constant Periodâ€™ and values of the duration.
      * <!-- end-model-doc -->
      * @return the value of the '<em>Constant Period</em>' containment reference list.
      * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getDocumentRoot_ConstantPeriod()
@@ -823,7 +823,7 @@ public interface DocumentRoot extends EObject {
      * </p>
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
-     * Boolean flag that states whether a data mapping is a mapping to a sub-process formal parameter that has pre-defined ‘allowed values’ .
+     * Boolean flag that states whether a data mapping is a mapping to a sub-process formal parameter that has pre-defined â€˜allowed valuesâ€™ .
      * <!-- end-model-doc -->
      * @return the value of the '<em>Initial Value Mapping</em>' attribute.
      * @see #setInitialValueMapping(boolean)
@@ -1071,7 +1071,7 @@ public interface DocumentRoot extends EObject {
      * </p>
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
-     * Type to represent the document related operations. It is used as the details of Service Task of type ‘Document Operations’.
+     * Type to represent the document related operations. It is used as the details of Service Task of type â€˜Document Operationsâ€™.
      * <!-- end-model-doc -->
      * @return the value of the '<em>Document Operation</em>' containment reference list.
      * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getDocumentRoot_DocumentOperation()
@@ -2209,7 +2209,7 @@ public interface DocumentRoot extends EObject {
      * </p>
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
-     * Attribute used in Activity to specify the attached timer event configured to be used as the Activity’s Deadline.
+     * Attribute used in Activity to specify the attached timer event configured to be used as the Activityâ€™s Deadline.
      * <!-- end-model-doc -->
      * @return the value of the '<em>Activity Deadline Event Id</em>' attribute.
      * @see #setActivityDeadlineEventId(String)

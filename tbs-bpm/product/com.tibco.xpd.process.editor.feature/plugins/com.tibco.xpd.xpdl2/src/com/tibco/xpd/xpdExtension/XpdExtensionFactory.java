@@ -585,6 +585,15 @@ public interface XpdExtensionFactory extends EFactory {
     RemoveLinkAssociationsType createRemoveLinkAssociationsType();
 
     /**
+     * Returns a new object of class '<em>Remove All Links By Name Type</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Remove All Links By Name Type</em>'.
+     * @generated
+     */
+    RemoveAllLinksByNameType createRemoveAllLinksByNameType();
+
+    /**
      * Returns a new object of class '<em>Case Reference Operations Type</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

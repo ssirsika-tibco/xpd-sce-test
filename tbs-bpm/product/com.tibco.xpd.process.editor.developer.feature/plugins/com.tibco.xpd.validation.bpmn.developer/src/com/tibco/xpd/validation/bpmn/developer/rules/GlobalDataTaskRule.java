@@ -33,6 +33,7 @@ import com.tibco.xpd.xpdExtension.CaseAccessOperationsType;
 import com.tibco.xpd.xpdExtension.CaseReferenceOperationsType;
 import com.tibco.xpd.xpdExtension.CreateCaseOperationType;
 import com.tibco.xpd.xpdExtension.GlobalDataOperation;
+import com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType;
 import com.tibco.xpd.xpdExtension.RemoveLinkAssociationsType;
 import com.tibco.xpd.xpdExtension.UpdateCaseOperationType;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
@@ -97,6 +98,11 @@ public class GlobalDataTaskRule extends ProcessActivitiesValidationRule {
 
     private static final String REMOVELINK_OP_VALID_ASSOC =
             "bpmn.dev.globalDataTask.removeLinkOp.association"; //$NON-NLS-1$
+
+    private static final String REMOVEALLLINK_OP_NOARRAY_CASEREF =
+            "bpmn.dev.globalDataTask.removeAllLinkOp.noArrayCaseRef"; //$NON-NLS-1$
+
+    private static final String REMOVEALLLINK_OP_VALID_ASSOC = "bpmn.dev.globalDataTask.removeAllLinkOp.association"; //$NON-NLS-1$
 
     private static final String REMOVELINK_OP_VALID_CASEOBJREF_MULTIPLICITY =
             "bpmn.dev.globalDataTask.removeLinkOp.caseObjectRefTypeMultiplicity"; //$NON-NLS-1$
@@ -369,6 +375,11 @@ public class GlobalDataTaskRule extends ProcessActivitiesValidationRule {
                 validateRemoveLinkOperation(activity,
                         caseRefField,
                         caseRefOps.getRemoveLinkAssociations());
+            } else if (caseRefOps.getRemoveAllLinksByName() != null) {
+                /*
+                 * Validate remove all links operation
+                 */
+                validateRemoveAllLinksOperation(activity, caseRefField, caseRefOps.getRemoveAllLinksByName());
             } else if (caseRefOps.getDelete() != null) {
                 if (caseField != null && caseField.isIsArray()) {
                     addIssue(DELETE_ARRAY_CASE_REF_FIELD, activity, Collections.singletonList(caseRefField));
@@ -410,6 +421,38 @@ public class GlobalDataTaskRule extends ProcessActivitiesValidationRule {
                         REMOVELINK_OP_VALID_ASSOC,
                         REMOVELINK_OP_VALID_CASEOBJREF_MULTIPLICITY,
                         REMOVELINK_OP_VALID_CASEOBJREF_TYPE);
+            }
+        }
+    }
+
+    /**
+     * Validate the remove all links operation of a case reference field.
+     * 
+     * @param activity
+     * @param caseRefField
+     * @param removeAllLinksByName
+     */
+    private void validateRemoveAllLinksOperation(Activity activity, String caseRefField,
+            RemoveAllLinksByNameType removeAllLinksByName) {
+        ProcessRelevantData caseRefData = validateActivityRelevantData(activity, caseRefField);
+        if (caseRefData != null) {
+            if (caseRefData.isIsArray()) {
+                // Array case reference is not allowed for a remove link
+                // operation
+                addIssue(REMOVEALLLINK_OP_NOARRAY_CASEREF, activity);
+            } else {
+                String associationName = removeAllLinksByName.getAssociationName();
+                Class caseClass = getCaseClassReferencedByField(activity, caseRefData);
+
+                /*
+                 * Check for valid association
+                 */
+                if (caseClass != null) {
+
+                    if (associationName == null || !isValidCaseAssociation(caseClass, associationName)) {
+                        addIssue(REMOVEALLLINK_OP_VALID_ASSOC, activity);
+                    }
+                }
             }
         }
     }
@@ -971,8 +1014,8 @@ public class GlobalDataTaskRule extends ProcessActivitiesValidationRule {
                 .getDeleteByCompositeIdentifiers() != null))
                 || (caseRefOps != null && (caseRefOps.getUpdate() != null
                         || caseRefOps.getAddLinkAssociations() != null
-                        || caseRefOps.getRemoveLinkAssociations() != null || caseRefOps
-                        .getDelete() != null));
+                        || caseRefOps.getRemoveLinkAssociations() != null
+                        || caseRefOps.getRemoveAllLinksByName() != null || caseRefOps.getDelete() != null));
     }
 
     /**
