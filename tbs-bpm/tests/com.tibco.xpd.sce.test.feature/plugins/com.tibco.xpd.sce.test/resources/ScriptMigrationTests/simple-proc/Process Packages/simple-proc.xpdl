@@ -136,7 +136,7 @@ var c = dataClassArrayField.get((Process.getId() == null) ? 19 : 20);&#xD;
 var d = dataClassArrayField.get((com_example_simpledata_Factory.createDataClass().timeAttribute.getHour() &lt; 12) ? 19 : 20);&#xD;
 var e = dataClassArrayField.get(&quot;this.is.a.String.get()&quot;.length);&#xD;
 var f = dataClassArrayField.get(intArrayField.get(0) + intArrayField.get(1));&#xD;
-var g = dataClassArrayField.get(0).arrayAttribute.get(9);&#xD;
+// Migration never handled this line (because ident left of arrayAttribute is a method not the array field itself)...  var g = dataClassArrayField.get(0).arrayAttribute.get(9);&#xD;
 &#xD;
 var i = dataClassArrayField.size() + intArrayField.size( /* count this */);&#xD;
 </xpdl2:Script>

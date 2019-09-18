@@ -1289,6 +1289,10 @@ public class TestUtil {
                     }
                 }
 
+                if (header.length() == 0) {
+                    System.err.println("\n=============================================================\n");
+                }
+
             }
 
         } catch (CoreException e) {

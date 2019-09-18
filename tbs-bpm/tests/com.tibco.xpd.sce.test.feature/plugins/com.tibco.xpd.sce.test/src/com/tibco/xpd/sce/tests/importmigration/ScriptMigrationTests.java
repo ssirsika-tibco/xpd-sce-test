@@ -59,45 +59,30 @@ public class ScriptMigrationTests extends TestCase {
     }
 
     // @Test
-    public void testDatesAndArraysMigration() throws Exception {
+    public void testArraysMigration() throws Exception {
         ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
                 new String[] { "resources/ScriptMigrationTests/simple-data/",
-                        "resources/ScriptMigrationTests/simple-proc/",
-                        "resources/ScriptMigrationTests/simple-date-proc/" },
-                new String[] { "simple-data", "simple-proc", "simple-date-proc" });
+                        "resources/ScriptMigrationTests/simple-proc/" },
+                new String[] { "simple-data", "simple-proc" });
         assertTrue("Failed to load projects from resources/ScriptMigrationTests/", projectImporter != null);
         try {
             TestUtil.buildAndWait();
 
-            /*
-             * Check arrays...
-             */
             IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("simple-proc");
 
             // we expect some markers
             Collection<IMarker> errorMarkers =
                     TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
 
-            TestUtil.outputErrorMarkers(project, true);
+            if (errorMarkers.size() != 1) {
+                TestUtil.outputErrorMarkers(project, true);
+            }
 
             // expect "com_example_simpledata_Factory.createDataClass().arrayAttribute.add(100);" to fail due to
             // function reference
             assertEquals(1, errorMarkers.size());
             String message = (String) errorMarkers.iterator().next().getAttribute(IMarker.MESSAGE);
             assertTrue(message.contains("At Line:11 column:73, Method add is invalid for the current context"));
-
-            /*
-             * Check dates
-             */
-            project = ResourcesPlugin.getWorkspace().getRoot().getProject("simple-date-proc");
-
-            // we expect some markers
-            errorMarkers =
-                    TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
-
-            TestUtil.outputErrorMarkers(project, true);
-            assertEquals(0, errorMarkers.size());
-
         } finally {
             if (projectImporter != null) {
                 projectImporter.performDelete();
@@ -121,7 +106,10 @@ public class ScriptMigrationTests extends TestCase {
             Collection<IMarker> errorMarkers =
                     TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
 
-            TestUtil.outputErrorMarkers(project, true);
+            if (errorMarkers.size() != 0) {
+                TestUtil.outputErrorMarkers(project, true);
+            }
+
             assertEquals(0, errorMarkers.size());
         } finally {
             if (projectImporter != null) {
@@ -146,8 +134,6 @@ public class ScriptMigrationTests extends TestCase {
             Collection<IMarker> errorMarkers =
                     TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
 
-            TestUtil.outputErrorMarkers(project, true);
-
             String[] expectedFailures = {
                     // instance.status.indicator = com_example_simpleenumdata_Colour.get(1);
                     "BPM  : At Line:21 column:73, Method get is invalid for the current context (simpleprocProcess:ScriptTask)",
@@ -155,6 +141,11 @@ public class ScriptMigrationTests extends TestCase {
                     "BPM  : At Line:24 column:87, Method get is invalid for the current context (simpleprocProcess:ScriptTask)",
                     // var x = com_example_simpleenumdata_AComplexEnumeration.GET.ENUMLIT1;
                     "BPM  : At Line:26 column:72, Property ENUMLIT1 is invalid for the current context (simpleprocProcess:ScriptTask)" };
+
+            if (errorMarkers.size() != expectedFailures.length) {
+                TestUtil.outputErrorMarkers(project, true);
+            }
+
             assertEquals(expectedFailures.length, errorMarkers.size());
             for (IMarker marker : errorMarkers) {
                 String message = (String) marker.getAttribute(IMarker.MESSAGE);
@@ -190,8 +181,6 @@ public class ScriptMigrationTests extends TestCase {
             Collection<IMarker> errorMarkers =
                     TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
 
-            TestUtil.outputErrorMarkers(project, true);
-            
             String[] expectedFailures = {
                     // var criteria = cac_com_example_simplecacdata_CaseData.createCriteria("attribute1 = 1");
                     "BPM  : At Line:1 column:87, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
@@ -225,7 +214,13 @@ public class ScriptMigrationTests extends TestCase {
 
                     // bpm.caseData.navigateByCriteria(data.caseDataRef, "order", "attribute1 = 1");
                     "BPM  : At Line:15 column:77, Method navigateByCriteria is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)" };
+
+            if (errorMarkers.size() != expectedFailures.length) {
+                TestUtil.outputErrorMarkers(project, true);
+            }
+
             assertEquals(expectedFailures.length, errorMarkers.size());
+
             for (IMarker marker : errorMarkers) {
                 String message = (String) marker.getAttribute(IMarker.MESSAGE);
                 boolean found = false;
@@ -260,7 +255,9 @@ public class ScriptMigrationTests extends TestCase {
             Collection<IMarker> errorMarkers =
                     TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
 
-            TestUtil.outputErrorMarkers(project, true);
+            if (errorMarkers.size() != 0) {
+                TestUtil.outputErrorMarkers(project, true);
+            }
 
             assertTrue(errorMarkers.isEmpty());
         } finally {
