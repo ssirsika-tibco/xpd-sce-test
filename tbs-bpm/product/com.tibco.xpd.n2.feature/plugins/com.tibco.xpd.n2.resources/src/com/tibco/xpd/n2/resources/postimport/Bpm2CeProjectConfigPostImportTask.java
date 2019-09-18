@@ -459,6 +459,9 @@ public class Bpm2CeProjectConfigPostImportTask
                 } else if ("com.tibco.xpd.asset.decisions" //$NON-NLS-1$
                         .equals(asset.getId())) {
                     iterator.remove();
+                } else if ("com.tibco.xpd.asset.businessAssetsV3" //$NON-NLS-1$
+                        .equals(asset.getId())) {
+                    iterator.remove();
                 }
             }
 
