@@ -1278,7 +1278,7 @@ public class TestUtil {
             if (markers != null) {
                 for (IMarker marker : markers) {
                     if (marker.getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR) {
-                        System.out.println(String.format("%1$s - \"%2$s\"",
+                        System.err.println(String.format("%1$s - \"%2$s\"",
                                 marker.getAttribute("issueId"),
                                 marker.getAttribute(IMarker.MESSAGE)));
                     }
