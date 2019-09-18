@@ -200,13 +200,13 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
                 new TestArtifactData("ProcessPackage", "ProcessPackage", MicroService.BP));
 
         expected.put("processOut/process/TestContributor2.xpdl/package.pkg",
-                new TestArtifactData("ProcessPackage2", "ProcessPackage2", MicroService.BP));
+                new TestArtifactData("Process Package 2", "ProcessPackage2", MicroService.BP));
 
         expected.put("processOut/pageflow/TestContributor.xpdl/package.pkg",
                 new TestArtifactData("ProcessPackage", "ProcessPackage", MicroService.UP));
 
         expected.put("processOut/pageflow/TestContributor2.xpdl/package.pkg",
-                new TestArtifactData("ProcessPackage2", "ProcessPackage2", MicroService.UP));
+                new TestArtifactData("Process Package 2", "ProcessPackage2", MicroService.UP));
 
         // artifacts should have been added to the writer
         assertEquals(expected.size(), writer.getArtifacts().size());
@@ -224,10 +224,8 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
 
                     assertTrue(fileContent.size() > 0);
 
-                    assertEquals(artifact.getArtifactName(),
-                            entry.getValue().artifactName);
-                    assertEquals(artifact.getInternalName(),
-                            entry.getValue().internalName);
+                    assertEquals(entry.getValue().artifactName, artifact.getArtifactName());
+                    assertEquals(entry.getValue().internalName, artifact.getInternalName());
 
                     /*
                      * Check that user task work model version number
@@ -243,6 +241,26 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
                         assertTrue("User task version range not set correctly",
                                 contentString.contains(
                                         expectedWorkModelVersionRange));
+                    }
+
+                    /*
+                     * Sid ACE-3126 check the content of one of the package.pkg files...
+                     */
+                    if ("processOut/pageflow/TestContributor2.xpdl/package.pkg".equals(artifact.getFullPath())
+                            || "processOut/process/TestContributor2.xpdl/package.pkg".equals(artifact.getFullPath())) {
+                        assertTrue(
+                                "processOut/pageflow/TestContributor2.xpdl/package.pkg should contain 'name=ProcessPackage2'",
+                                contentString.contains("name=ProcessPackage2\r\n")
+                                        || contentString.contains("name=ProcessPackage2\n"));
+                        assertTrue(
+                                "processOut/pageflow/TestContributor2.xpdl/package.pkg should contain 'label=ProcessPackage2'",
+                                contentString.contains("label=Process Package 2\r\n")
+                                        || contentString.contains("label=Process Package 2\n"));
+                        assertTrue(
+                                "processOut/pageflow/TestContributor2.xpdl/package.pkg should contain 'package=/RASC/Process Packages/TestContributor2.xpdl'",
+                                contentString.contains("package=/RASC/Process Packages/TestContributor2.xpdl\r\n")
+                                        || contentString
+                                                .contains("package=/RASC/Process Packages/TestContributor2.xpdl\n"));
                     }
 
                     found = true;
