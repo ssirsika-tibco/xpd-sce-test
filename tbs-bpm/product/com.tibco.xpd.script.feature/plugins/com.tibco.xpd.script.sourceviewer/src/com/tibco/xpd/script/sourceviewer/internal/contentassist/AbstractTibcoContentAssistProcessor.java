@@ -705,8 +705,10 @@ public abstract class AbstractTibcoContentAssistProcessor
                         }
 
                         toReturn.setGenericContext(newGenericContext);
-                    } else if (myCompletionStringNode.isMultiple()) {
+                    } else if (myCompletionStringNode.isMultiple() && !isExpressionArray) {
                         // ACE-1322 Untyped temporary array
+                        // Show content assist for "Array" class properties and functions except where we are looking at
+                        // an array instance field (isExpressionArray = true)
                         Class arrClass = JScriptUtils.getDefaultMultipleClass();
                         DefaultJsClassMultiple arrJsClass = new DefaultJsClassMultiple(arrClass);
                         IScriptRelevantData srd = JScriptUtils.getScriptRelevantData(arrJsClass, className, true);
