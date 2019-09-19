@@ -210,7 +210,7 @@ public class JScriptTypeResolver implements ITypeResolver {
                 if (gs.isGeneric(parameter)) {
                     Map<String, Type> typeMap = gs.createTypeMap(genericContext, parameter);
                     type = typeMap.get(JScriptUtils.getJsMethodParamBaseDataType(parameter));
-                    dataType = type.getName();
+                    dataType = type == null ? JsConsts.UNDEFINED_DATA_TYPE : type.getName();
                 } else {
                     type = JScriptUtils.getReturnedClass(parameter);
                     dataType = JScriptUtils.getJsMethodParamBaseDataType(parameter);

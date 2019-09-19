@@ -580,9 +580,11 @@ public abstract class AbstractTibcoContentAssistProcessor
             toReturn = addCompletionStringNodes(resolvedTypes, toReturn);
             JsClass referencedJsClass = jsReference.getReferencedJsClass();
             if (referencedJsClass != null && toReturn != null) {
-                toReturn.setGenericContext(new DefaultUMLScriptRelevantData(
+                DefaultUMLScriptRelevantData newCtx = new DefaultUMLScriptRelevantData(
                         jsReference.getName(), referencedJsClass.getName(),
-                        false, referencedJsClass));
+                        false, referencedJsClass);
+                newCtx.setExtendedInfo(jsReference);
+                toReturn.setGenericContext(newCtx);
             }
         }
         return toReturn;
