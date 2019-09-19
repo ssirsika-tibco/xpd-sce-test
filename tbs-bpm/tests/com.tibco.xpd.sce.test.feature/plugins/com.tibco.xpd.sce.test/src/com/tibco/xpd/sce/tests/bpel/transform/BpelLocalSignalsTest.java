@@ -84,20 +84,17 @@ public class BpelLocalSignalsTest extends AbstractBpelTransformTest {
                  * all fields are associated with the throw signal so they're
                  * all in signalVariables
                  */
-                new String[] { "TextArrayField", "ComplexArrayField", "TextField", "ComplexField" },
+                new String[] { "TextArrayField", "ComplexArrayField", "TextField", "ComplexField", "TextField2",
+                        "ComplexField2" },
                 /*
                  * all fields are mapped to on RHS so all should appear in
                  * updateVariables
                  */
-                new String[] { "TextArrayField", "ComplexArrayField", "TextField", "ComplexField" });
+                new String[] { "TextArrayField", "ComplexArrayField", "TextField2", "ComplexField2" });
 
         assertTrue("Catch: Signal1: mapping script should use correct LHS/RHS order for assignments",
                 mappingScript != null && mappingScript
-                        .contains("data.ComplexField.attribute1 = SIGNAL_ComplexField.class2.attribute1;"));
-
-        assertTrue("Catch: Signal1: target data should use BOM factories correctly.",
-                mappingScript != null && mappingScript
-                        .contains("data.ComplexField = factory.com_example_localsignaldata.createClass1();"));
+                        .contains("data.ComplexField2 = SIGNAL_ComplexField;"));
 
         /*
          * .... everything else in mapping is tested to death elsewhere (as
@@ -125,11 +122,11 @@ public class BpelLocalSignalsTest extends AbstractBpelTransformTest {
                  * only two fields are mapped to/into on RHS so only these two
                  * should appear in updateVariables
                  */
-                new String[] { "ComplexArrayField", "ComplexField" });
+                new String[] { "ComplexArrayField", "TextField2" });
 
-        assertTrue("Catch: Signal1: mapping script should use correct LHS/RHS order for assignments",
+        assertTrue("Catch: Signal2: mapping script should use correct LHS/RHS order for assignments",
                 mappingScript != null
-                        && mappingScript.contains("data.ComplexField.class2.attribute1 = SIGNAL_TextField;"));
+                        && mappingScript.contains("data.TextField2 = SIGNAL_TextField;"));
 
     }
 

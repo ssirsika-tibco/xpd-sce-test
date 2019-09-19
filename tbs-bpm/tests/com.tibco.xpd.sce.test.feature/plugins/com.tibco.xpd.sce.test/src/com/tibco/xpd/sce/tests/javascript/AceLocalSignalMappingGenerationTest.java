@@ -107,7 +107,7 @@ public class AceLocalSignalMappingGenerationTest extends TestCase {
 
         assertTrue(context
                 + ": Local Signal payload complex data sources should be prefixed with SIGNAL_.", //$NON-NLS-1$
-                script.contains("= SIGNAL_ComplexField.class2.attribute1;")); //$NON-NLS-1$
+                script.contains("= SIGNAL_ComplexField;")); //$NON-NLS-1$
 
         assertTrue(context + ": Local Signal payload loops should work with SIGNAL_<payloadparam>.length.", //$NON-NLS-1$
                 script.contains("< SIGNAL_ComplexArrayField.length;")); //$NON-NLS-1$
