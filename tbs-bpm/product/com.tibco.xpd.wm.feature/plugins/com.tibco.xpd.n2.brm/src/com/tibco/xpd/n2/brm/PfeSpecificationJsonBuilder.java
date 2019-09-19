@@ -302,8 +302,8 @@ public class PfeSpecificationJsonBuilder {
         BusinessServicePublishType pt = (BusinessServicePublishType) Xpdl2ModelUtil.getOtherAttribute(process,
                 XpdExtensionPackage.eINSTANCE.getDocumentRoot_BusinessServicePublishType());
 
-        if (pt != null && BusinessServicePublishType.MOBILE.equals(pt)) {
-            return "Mobile"; //$NON-NLS-1$
+        if (pt != null) {
+            return pt.getLiteral();
         }
 
         return "Desktop"; //$NON-NLS-1$
