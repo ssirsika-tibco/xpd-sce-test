@@ -437,7 +437,10 @@ public abstract class AbstractCaseProcessCreator extends AbstractProcessCreator 
             sb.append("data."); //$NON-NLS-1$
             sb.append(caseId);
             sb.append(", '"); //$NON-NLS-1$
-            sb.append(caseClass.getName());
+
+            /* Sid ACE-2976 Generate Business Service scripts should use qualified class reference */
+            sb.append(caseClass.getPackage().getName() + "." + caseClass.getName()); //$NON-NLS-1$
+
             sb.append("');"); //$NON-NLS-1$
         }
 
@@ -494,7 +497,7 @@ public abstract class AbstractCaseProcessCreator extends AbstractProcessCreator 
         private void getThirdLine(StringBuilder sb) {
 
             String refName = "data." + caseClass.getName() + "Ref"; //$NON-NLS-1$ //$NON-NLS-2$
-            sb.append("data." + caseClass.getName() + " = "); //$NON-NLS-1$ //$NON-NLS-2$
+            sb.append("    data." + caseClass.getName() + " = "); //$NON-NLS-1$ //$NON-NLS-2$
             sb.append("bpm.caseData.read" + "("); //$NON-NLS-1$ //$NON-NLS-2$
             sb.append(refName);
             sb.append(");"); //$NON-NLS-1$
