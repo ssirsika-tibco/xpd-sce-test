@@ -81,4 +81,44 @@ public class LocalSignalCatchTargetDataMapperContentProvider extends ProcessData
         return inScopeProcessData;
     }
 
+    /**
+     * Sid ACE-3025... When we switched to Data Mapper grammar for ACE for catch local signal on a user task boundary it
+     * introduced the ability to expand the content of complex data fields on the right hand side of the mapper and
+     * allow the user to map directly to child content.
+     * 
+     * If a user maps just a few of a target complex fields child attributes, then they might rightly be fooled into
+     * thinking that ONLY the few mappings would be applied to the target object WITHINT HE ACTUAL WORK ITEM.
+     * 
+     * However, this is not the case, merging the new values into the target complex field (by doing the assignments
+     * specified by the mappings) happens on the process side of things. Then the whole target complex field is resent
+     * to the Work Item in its entirety so whatever other values are prevalent in the process at that point will
+     * overwrite the current values in the work item.
+     * 
+     * The proposed solution to this is not to allow the user to expand the RHS complex type content at all. Thus the
+     * user can only map directly to a whole complex type field and this may be more intuitive in leading the user to
+     * believe that they will overwrite the whole field in the work item.
+     * 
+     * So we'll override the default content provider and prevent children from being returned.
+     * 
+     * @see com.tibco.xpd.process.datamapper.common.ProcessDataMapperConceptPathProvider#getChildren(java.lang.Object)
+     *
+     * @param parentElement
+     * @return
+     */
+    @Override
+    public Object[] getChildren(Object parentElement) {
+        return null;
+    }
+
+    /**
+     * @see com.tibco.xpd.process.datamapper.common.ProcessDataMapperConceptPathProvider#hasChildren(java.lang.Object)
+     *
+     * @param element
+     * @return
+     */
+    @Override
+    public boolean hasChildren(Object element) {
+        return false;
+    }
+
 }
