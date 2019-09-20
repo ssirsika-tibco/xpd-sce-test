@@ -115,8 +115,9 @@ public class RestScriptGeneratorInfoProviderStatementTest extends TestCase {
         when(param.getDataType()).thenReturn(DataType.DATE);
         String statement =
                 generator.getAssignmentStatement(paramTreeItem, "rhs", null); //$NON-NLS-1$
-        String expected = "2019-06-18T15:39:42.088Z"; //$NON-NLS-1$
-        String paramScript = "var rhs = new Date('" + expected + "');"; //$NON-NLS-1$ //$NON-NLS-2$
+        String rhs = "2019-06-18T15:39:42.088Z"; //$NON-NLS-1$
+        String expected = "2019-06-18"; //$NON-NLS-1$
+        String paramScript = "var rhs = new Date('" + rhs + "');"; //$NON-NLS-1$ //$NON-NLS-2$
         executor.verifyScript(statement, paramScript, PARAM_PATH, expected);
     }
 
@@ -130,9 +131,41 @@ public class RestScriptGeneratorInfoProviderStatementTest extends TestCase {
         when(param.getDataType()).thenReturn(DataType.TIME);
         String statement =
                 generator.getAssignmentStatement(paramTreeItem, "rhs", null); //$NON-NLS-1$
-        String expected = "2019-06-18T15:39:42.088Z"; //$NON-NLS-1$
-        String paramScript = "var rhs = new Date('" + expected + "');"; //$NON-NLS-1$ //$NON-NLS-2$
+        String rhs = "2019-06-18T15:39:42.088Z"; //$NON-NLS-1$
+        String expected = "15:39"; //$NON-NLS-1$
+        String paramScript = "var rhs = new Date('" + rhs + "');"; //$NON-NLS-1$ //$NON-NLS-2$
         executor.verifyScript(statement, paramScript, PARAM_PATH, expected);
+    }
+
+    /**
+     * Test assignment script for Time mapping.
+     */
+    public void testGetGetterStatementDateTime() throws Exception {
+        when(conceptPath.getPath()).thenReturn("data.time"); //$NON-NLS-1$
+        when(conceptPath.getType()).thenReturn(primitive);
+        when(primitive.getName()).thenReturn(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME);
+        when(primitive.getGenerals()).thenReturn(new BasicEList<>());
+        String statement = "var lhs = (" //$NON-NLS-1$
+                + generator.getGetterStatement(conceptPath, null) + ").toJSON()"; //$NON-NLS-1$
+        String expected = "2019-06-18T15:39:42.088Z"; //$NON-NLS-1$
+        String paramScript = "var data = {time: '" + expected + "'};"; //$NON-NLS-1$ //$NON-NLS-2$
+        executor.verifyScript(statement, paramScript, "lhs", expected); //$NON-NLS-1$
+    }
+
+    /**
+     * Test assignment script for Time mapping.
+     */
+    public void testGetGetterStatementDate() throws Exception {
+        when(conceptPath.getPath()).thenReturn("data.time"); //$NON-NLS-1$
+        when(conceptPath.getType()).thenReturn(primitive);
+        when(primitive.getName()).thenReturn(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME);
+        when(primitive.getGenerals()).thenReturn(new BasicEList<>());
+        String statement = "var lhs = (" //$NON-NLS-1$
+                + generator.getGetterStatement(conceptPath, null) + ").toJSON()"; //$NON-NLS-1$
+        String rhs = "2019-06-18"; //$NON-NLS-1$
+        String expected = "2019-06-18T00:00:00.000Z"; //$NON-NLS-1$
+        String paramScript = "var data = {time: '" + rhs + "'};"; //$NON-NLS-1$ //$NON-NLS-2$
+        executor.verifyScript(statement, paramScript, "lhs", expected); //$NON-NLS-1$
     }
 
     /**
@@ -147,8 +180,9 @@ public class RestScriptGeneratorInfoProviderStatementTest extends TestCase {
         String statement = "var lhs = (" //$NON-NLS-1$
                 + generator.getGetterStatement(conceptPath, null)
                 + ").toJSON()"; //$NON-NLS-1$
-        String expected = "2019-06-18T15:39:42.088Z"; //$NON-NLS-1$
-        String paramScript = "var data = {time: '" + expected + "'};"; //$NON-NLS-1$ //$NON-NLS-2$
+        String rhs = "15:39"; //$NON-NLS-1$
+        String expected = "2000-01-01T15:39:00.000Z"; //$NON-NLS-1$
+        String paramScript = "var data = {time: '" + rhs + "'};"; //$NON-NLS-1$ //$NON-NLS-2$
         executor.verifyScript(statement, paramScript, "lhs", expected); //$NON-NLS-1$
     }
 

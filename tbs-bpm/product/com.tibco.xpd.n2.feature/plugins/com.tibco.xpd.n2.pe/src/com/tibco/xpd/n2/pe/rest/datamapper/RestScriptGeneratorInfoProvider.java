@@ -109,10 +109,16 @@ public class RestScriptGeneratorInfoProvider
                         + ") : null"; //$NON-NLS-1$
                 break;
             case DATE:
+                suffix = " ? " + rhsObjectStatement //$NON-NLS-1$
+                        + ".toJSON().substring(0,10) : null"; //$NON-NLS-1$
+                break;
             case DATE_TIME:
-            case TIME:
                 suffix = " ? " + rhsObjectStatement //$NON-NLS-1$
                         + ".toJSON() : null"; //$NON-NLS-1$
+                break;
+            case TIME:
+                suffix = " ? " + rhsObjectStatement //$NON-NLS-1$
+                        + ".toJSON().substring(11,16) : null"; //$NON-NLS-1$
                 break;
             }
         } else if (object instanceof ConceptPath) {
@@ -122,14 +128,15 @@ public class RestScriptGeneratorInfoProvider
                 PrimitiveType pt = (PrimitiveType) type;
                 PrimitiveType basePt = PrimitivesUtil.getBasePrimitiveType(pt);
                 String name = basePt.getName();
-                if (PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME.equals(name)
-                        || PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME
-                                .equals(name)
-                        || PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME
-                                .equals(name)) {
+                if (PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME.equals(name)) {
+                    suffix = " ? " + rhsObjectStatement //$NON-NLS-1$
+                            + ".toJSON().substring(0,10) : null"; //$NON-NLS-1$
+                } else if (PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME.equals(name)) {
                     suffix = " ? " + rhsObjectStatement //$NON-NLS-1$
                             + ".toJSON() : null"; //$NON-NLS-1$
-
+                } else if (PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME.equals(name)) {
+                    suffix = " ? " + rhsObjectStatement //$NON-NLS-1$
+                            + ".toJSON().substring(11,16) : null"; //$NON-NLS-1$
                 } else if (PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME
                         .equals(name)) {
                     suffix = " ? Math.round(" + rhsObjectStatement //$NON-NLS-1$
