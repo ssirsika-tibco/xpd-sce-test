@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.internal.client.IContentAssistIconProvider;
@@ -180,11 +179,6 @@ public class DynamicJsAttribute extends DefaultMultipleJsClassResolver implement
     @Override
     public String getDataType() {
         return dataType;
-    }
-
-    @Override
-    public Type getUmlType() {
-        return null;
     }
 
     public void setDataType(String dataType) {

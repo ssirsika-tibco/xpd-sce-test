@@ -28,7 +28,7 @@ import com.tibco.xpd.script.model.jscript.JScriptUtils;
  * 
  */
 public class DefaultJsAttribute extends DefaultMultipleJsClassResolver
-        implements JsAttribute, IUMLElement, IJsElementExt {
+        implements JsUmlAttribute, IUMLElement, IJsElementExt {
 
     protected Property property;
 

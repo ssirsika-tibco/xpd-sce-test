@@ -13,10 +13,10 @@ import org.eclipse.uml2.uml.TemplateParameter;
 import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
-import com.tibco.xpd.script.model.client.JsAttribute;
 import com.tibco.xpd.script.model.client.JsClass;
 import com.tibco.xpd.script.model.client.JsMethodParam;
 import com.tibco.xpd.script.model.client.JsReference;
+import com.tibco.xpd.script.model.client.JsUmlAttribute;
 import com.tibco.xpd.script.model.internal.client.ITypeResolution;
 
 /**
@@ -105,8 +105,8 @@ public class JScriptGenericsService {
         if (genericContext instanceof ITypeResolution) {
             ITypeResolution typeResolution = (ITypeResolution) genericContext;
             Object ext = typeResolution.getExtendedInfo();
-            if (ext instanceof JsAttribute) {
-                JsAttribute att = (JsAttribute) ext;
+            if (ext instanceof JsUmlAttribute) {
+                JsUmlAttribute att = (JsUmlAttribute) ext;
                 type = att.getUmlType();
             } else if (ext instanceof JsReference) {
                 JsReference ref = (JsReference) ext;

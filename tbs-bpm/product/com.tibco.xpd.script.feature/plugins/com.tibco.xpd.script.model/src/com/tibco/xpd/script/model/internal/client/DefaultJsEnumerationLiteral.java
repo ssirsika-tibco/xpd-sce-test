@@ -10,7 +10,6 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
-import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.DefaultUMLScriptRelevantData;
@@ -176,13 +175,5 @@ public class DefaultJsEnumerationLiteral implements JsEnumerationLiteral {
     @Override
     public IContentAssistIconProvider getContentAssistIconProvider() {
         return contentAssistIconProvider;
-    }
-
-    /**
-     * @see com.tibco.xpd.script.model.client.JsAttribute#getUmlType()
-     */
-    @Override
-    public Type getUmlType() {
-        return null;
     }
 }
