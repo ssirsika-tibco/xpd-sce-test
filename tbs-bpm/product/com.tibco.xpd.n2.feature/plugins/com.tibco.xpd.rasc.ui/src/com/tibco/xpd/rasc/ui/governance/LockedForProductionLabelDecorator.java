@@ -11,13 +11,15 @@ import org.eclipse.jface.viewers.IDecorationContext;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.LabelDecorator;
 import org.eclipse.swt.graphics.Image;
+import org.osgi.framework.Version;
 
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.internal.Messages;
 import com.tibco.xpd.resources.util.GovernanceStateService;
+import com.tibco.xpd.resources.util.ProjectUtil;
 
 /**
- * Project explorer label decorator for projects that are Locked for Production.
+ * Project explorer label decorator for ACE projects (that will show version number and [Locked for Production] status.
  *
  * @author nwilson
  * @since 23 Jul 2019
@@ -51,9 +53,19 @@ public class LockedForProductionLabelDecorator extends LabelDecorator {
         if (element instanceof IProject) {
             IProject project = (IProject) element;
             try {
-                if (gss.isLockedForProduction(project)) {
-                    return text + " " + Messages.LockedForProductionLabelDecorator_DecoratorText; //$NON-NLS-1$
+                String projectVersion = ProjectUtil.getProjectVersion(project);
+                if (projectVersion != null) {
+                    Version version = Version.parseVersion(projectVersion);
+
+                    if (version != null) {
+                        text += " v" + version.getMajor() + "." + version.getMinor(); //$NON-NLS-1$//$NON-NLS-2$
+                    }
                 }
+
+                if (gss.isLockedForProduction(project)) {
+                    text += " " + Messages.LockedForProductionLabelDecorator_DecoratorText; //$NON-NLS-1$
+                }
+
             } catch (CoreException e) {
                 RascUiActivator.getLogger()
                         .error("Could not check Locked for Production state for project " + project.getName()); //$NON-NLS-1$
