@@ -118,6 +118,8 @@ public class ProjectDetailsSection extends DialogPage {
     /* Sid ACE-2980 Allow hide of project status. */
     private boolean showProjectStatus = true;
 
+    private Button incrementMajorBtn;
+
     /**
      * Project version details section.
      */
@@ -257,18 +259,23 @@ public class ProjectDetailsSection extends DialogPage {
                     statusTxt.setImage(XpdResourcesUIActivator.getDefault().getImageRegistry()
                             .get(XpdResourcesUIConstants.ICON_LOCKED));
 
+                    incrementMajorBtn.setEnabled(false);
+                    idTxt.setEditable(false);
+
                 } else {
                     statusTxt.setText(Messages.ProjectDetailsSection_Draft_status);
                     statusTxt.setImage(XpdResourcesUIActivator.getDefault().getImageRegistry()
                             .get(XpdResourcesUIConstants.ICON_UNLOCKED));
 
+                    incrementMajorBtn.setEnabled(true);
+                    idTxt.setEditable(true);
                 }
             } catch (CoreException e) {
                 XpdResourcesUIActivator.getDefault().getLogger().error(e);
             }
 
         } else {
-            statusTxt.setText("");
+            statusTxt.setText(""); //$NON-NLS-1$
             statusTxt.setImage(null);
         }
     }
@@ -461,10 +468,14 @@ public class ProjectDetailsSection extends DialogPage {
                 widgetSelected(e);
             }
         };
-        createButton(container,
+
+        incrementMajorBtn =
+                createButton(container,
                 Messages.ProjectDetailsSection_increment_version_btn,
                 SWT.PUSH,
-                buttonClick).setToolTipText(
+                        buttonClick);
+
+        incrementMajorBtn.setToolTipText(
                         Messages.ProjectDetailsSection_increment_version_tooltip);
 
         GridData layoutData = new GridData(SWT.FILL, SWT.FILL, true, true);

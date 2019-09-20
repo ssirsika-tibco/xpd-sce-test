@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -41,6 +42,7 @@ import com.tibco.xpd.resources.projectconfig.ProjectStatus;
 import com.tibco.xpd.resources.projectconfig.wc.ProjectConfigWorkingCopy;
 import com.tibco.xpd.resources.ui.XpdResourcesUIActivator;
 import com.tibco.xpd.resources.ui.internal.Messages;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 
 /**
@@ -115,6 +117,34 @@ public class ProjectVersionPage extends PropertyPage implements
              * will still be enabled.
              */
         }
+
+        /* Sid ACE-3170: We NEVER want the user to set the project version backwards. */
+        disableButtonsIfProjectLocked();
+    }
+
+    /**
+     * Force the disablement of the Apply button if the project is locked.
+     * 
+     * Always disable and hide Restore Defaults as we don't want to revert version to 1.0.
+     */
+    public void disableButtonsIfProjectLocked() {
+        Button btn = getDefaultsButton();
+        if (btn != null && !btn.isDisposed()) {
+            btn.setEnabled(false);
+            btn.setVisible(false);
+        }
+        
+        btn = getApplyButton();
+        if (btn != null && !btn.isDisposed()) {
+            boolean enabled;
+            try {
+                enabled = project != null && !(new GovernanceStateService().isLockedForProduction(project));
+                btn.setEnabled(enabled);
+            } catch (CoreException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     @Override
@@ -202,6 +232,10 @@ public class ProjectVersionPage extends PropertyPage implements
         if (btn != null && !btn.isDisposed()) {
             btn.setEnabled(enable);
         }
+
+        /* Sid ACE-3170: We NEVER want the user to set the project version backwards. */
+        disableButtonsIfProjectLocked();
+
     }
 
     /**
