@@ -77,7 +77,7 @@ public class JsToDataMapperMigrationsTest extends TestCase {
             okProblems.add("Forms Resources 11.x"); //$NON-NLS-1$ - Sometimes get these unrelated forms problems.
 
             assertFalse(
-                    "ScriptMigrationTests project should have migrated with only a few expected script-mapping problems.", //$NON-NLS-1$
+                    "MigrateMappings project should have migrated with only a few expected script-mapping problems.", //$NON-NLS-1$
                     TestUtil.hasErrorProblemMarker(project,
                             true,
                             okProblems,

@@ -156,8 +156,9 @@ public class OpenspaceViewHelper {
         if (openspaceUrl == null) {
 
             try {
-                /* Sid ACE-2918 
-                 * Initial URL now based on a hard coded MY_DOMAIN template rather than extracted from a deply server.
+                /*
+                 * Sid ACE-2918 Initial URL now based on a hard coded <domain> template rather than extracted from a
+                 * deply server.
                  */
                 
                 // XPD-6850 Default to a different port for local and remote dev
@@ -181,7 +182,7 @@ public class OpenspaceViewHelper {
      * Sid ACE-2918
      * 
      * @param openspaceURL
-     * @return <code>true</code> if the given URL string still has the default template domain name "MY_DOMAIN"
+     * @return <code>true</code> if the given URL string still has the default template domain name "<domain>"
      * @throws MalformedURLException
      */
     public static boolean isTemplateOpenspaceURLDomain(String openspaceURL) throws MalformedURLException {

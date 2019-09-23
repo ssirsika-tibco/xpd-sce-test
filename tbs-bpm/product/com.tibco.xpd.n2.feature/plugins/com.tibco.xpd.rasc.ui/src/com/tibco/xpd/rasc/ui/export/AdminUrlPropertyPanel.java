@@ -24,8 +24,8 @@ import com.tibco.xpd.resources.ui.components.XpdToolkit;
  */
 public class AdminUrlPropertyPanel extends Composite {
 
-    private static final String DEFUALT_URL =
-            "http://<domain>/apps/login"; //$NON-NLS-1$
+    private static final String DEFAULT_URL =
+            "https://<domain>/apps/admin/#/deploy-manager"; //$NON-NLS-1$
 
     private Combo adminUrl;
 
@@ -54,7 +54,7 @@ public class AdminUrlPropertyPanel extends Composite {
                 new GridData(SWT.LEFT, SWT.CENTER, false, false));
         String defaultText = RascUiActivator.getDefault().getAdminBaseUrl();
         if (defaultText == null || defaultText.length() == 0) {
-            defaultText = DEFUALT_URL;
+            defaultText = DEFAULT_URL;
         }
 
         adminUrl = new Combo(this, SWT.BORDER);
@@ -77,7 +77,7 @@ public class AdminUrlPropertyPanel extends Composite {
     }
 
     void updateMessages() {
-        if (DEFUALT_URL.equals(adminUrl.getText())) {
+        if (DEFAULT_URL.equals(adminUrl.getText())) {
             warning.setText(Messages.AdminUrlPropertyPanel_DefaultUrlWarning);
         } else {
             warning.setText(""); //$NON-NLS-1$
