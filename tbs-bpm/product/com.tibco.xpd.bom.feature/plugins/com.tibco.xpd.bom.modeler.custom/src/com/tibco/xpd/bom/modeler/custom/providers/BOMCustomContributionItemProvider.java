@@ -24,6 +24,7 @@ import com.tibco.xpd.resources.WorkingCopy;
 public class BOMCustomContributionItemProvider extends
         AbstractContributionItemProvider {
 
+    @Override
     protected IAction createAction(String actionId,
             IWorkbenchPartDescriptor partDescriptor) {
         IWorkbenchPage workbenchPage = partDescriptor.getPartPage();
@@ -58,8 +59,10 @@ public class BOMCustomContributionItemProvider extends
         }
 
         if (actionId.equals(BOMActionIds.ACTION_ADD_OPERATION)) { //$NON-NLS-1$
-            return new CreateBOMElementDiagramAction(workbenchPage,
-                    BOMActionIds.ACTION_ADD_OPERATION, null);
+            // ACE-1704: Remove BOM unsupported features from UI.
+            // return new CreateBOMElementDiagramAction(workbenchPage, BOMActionIds.ACTION_ADD_OPERATION, null);
+            // Returning null will stop it appearing on the menu
+            return null;
         }
 
         if (actionId.equals(BOMActionIds.ACTION_ADD_ENUMERATION_LIT)) { //$NON-NLS-1$
@@ -76,7 +79,7 @@ public class BOMCustomContributionItemProvider extends
         boolean isGlobalDataBOM = false;
         IEditorPart editor = workbenchPage.getActiveEditor();
         if (editor != null) {
-            WorkingCopy wc = (WorkingCopy) editor.getAdapter(WorkingCopy.class);
+            WorkingCopy wc = editor.getAdapter(WorkingCopy.class);
             if (wc != null && wc.getRootElement() instanceof Model) {
                 Model model = (Model) wc.getRootElement();
                 isGlobalDataBOM =

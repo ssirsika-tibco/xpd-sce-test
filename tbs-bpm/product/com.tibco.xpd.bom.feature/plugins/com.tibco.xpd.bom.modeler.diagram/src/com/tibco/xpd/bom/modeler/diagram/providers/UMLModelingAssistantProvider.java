@@ -52,7 +52,7 @@ public class UMLModelingAssistantProvider extends ModelingAssistantProvider {
     @Override
     public List<?> getTypesForPopupBar(IAdaptable host) {
         IGraphicalEditPart editPart =
-                (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
+                host.getAdapter(IGraphicalEditPart.class);
 
         List<IElementType> types = new ArrayList<IElementType>();
         // Object obj = editPart.resolveSemanticElement();
@@ -76,17 +76,19 @@ public class UMLModelingAssistantProvider extends ModelingAssistantProvider {
     public List<IElementType> getTypesForPopupBarGen(IAdaptable host) {
         List<IElementType> types = new ArrayList<IElementType>();
         IGraphicalEditPart editPart =
-                (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
+                host.getAdapter(IGraphicalEditPart.class);
         if (editPart instanceof ClassEditPart) {
             types.add(UMLElementTypes.Property_2001);
-            types.add(UMLElementTypes.Operation_2002);
+            // ACE-1704: Remove BOM unsupported features from UI.
+            // types.add(UMLElementTypes.Operation_2002);
 
         } else if (editPart instanceof EnumerationEditPart) {
             types.add(UMLElementTypes.EnumerationLiteral_2003);
 
         } else if (editPart instanceof AssociationClassEditPart) {
             types.add(UMLElementTypes.Property_2004);
-            types.add(UMLElementTypes.Operation_2005);
+            // ACE-1704: Remove BOM unsupported features from UI.
+            // types.add(UMLElementTypes.Operation_2005);
 
         } else if (editPart instanceof CanvasPackageEditPart) {
             addPackageElements(types);
@@ -101,7 +103,8 @@ public class UMLModelingAssistantProvider extends ModelingAssistantProvider {
      */
     private void addPackageElements(List<IElementType> types) {
         if (types != null) {
-            types.add(UMLElementTypes.Package_1001);
+            // ACE-1704: Remove BOM unsupported features from UI.
+            // types.add(UMLElementTypes.Package_1001);
             types.add(UMLElementTypes.Class_1002);
             types.add(UMLElementTypes.PrimitiveType_1003);
             types.add(UMLElementTypes.Enumeration_1004);
@@ -115,17 +118,19 @@ public class UMLModelingAssistantProvider extends ModelingAssistantProvider {
     public List<IElementType> getRelTypesOnSource(IAdaptable source) {
         List<IElementType> types = new ArrayList<IElementType>();
         IGraphicalEditPart sourceEditPart =
-                (IGraphicalEditPart) source
-                        .getAdapter(IGraphicalEditPart.class);
+                source
+                .getAdapter(IGraphicalEditPart.class);
 
         if (sourceEditPart instanceof ClassEditPart) {
             types.add(UMLElementTypes.Association_3002);
-            types.add(UMLElementTypes.Generalization_3001);
+            // ACE-1704: Remove BOM unsupported features from UI.
+            // types.add(UMLElementTypes.Generalization_3001);
         } else if (sourceEditPart instanceof PrimitiveTypeEditPart) {
             types.add(UMLElementTypes.Generalization_3001);
 
         } else if (sourceEditPart instanceof EnumerationEditPart) {
-            types.add(UMLElementTypes.Generalization_3001);
+            // ACE-1704: Remove BOM unsupported features from UI.
+            // types.add(UMLElementTypes.Generalization_3001);
 
         }
 
@@ -139,18 +144,20 @@ public class UMLModelingAssistantProvider extends ModelingAssistantProvider {
     public List<IElementType> getRelTypesOnTarget(IAdaptable target) {
         List<IElementType> types = new ArrayList<IElementType>();
         IGraphicalEditPart targetEditPart =
-                (IGraphicalEditPart) target
-                        .getAdapter(IGraphicalEditPart.class);
+                target
+                .getAdapter(IGraphicalEditPart.class);
 
         if (targetEditPart instanceof ClassEditPart) {
             types.add(UMLElementTypes.Association_3002);
-            types.add(UMLElementTypes.Generalization_3001);
+            // ACE-1704: Remove BOM unsupported features from UI.
+            // types.add(UMLElementTypes.Generalization_3001);
 
         } else if (targetEditPart instanceof PrimitiveTypeEditPart) {
             types.add(UMLElementTypes.Generalization_3001);
 
         } else if (targetEditPart instanceof EnumerationEditPart) {
-            types.add(UMLElementTypes.Generalization_3001);
+            // ACE-1704: Remove BOM unsupported features from UI.
+            // types.add(UMLElementTypes.Generalization_3001);
 
         }
 
@@ -165,26 +172,30 @@ public class UMLModelingAssistantProvider extends ModelingAssistantProvider {
             IAdaptable target) {
         List<IElementType> types = new ArrayList<IElementType>();
         IGraphicalEditPart sourceEditPart =
-                (IGraphicalEditPart) source
-                        .getAdapter(IGraphicalEditPart.class);
+                source
+                .getAdapter(IGraphicalEditPart.class);
         IGraphicalEditPart targetEditPart =
-                (IGraphicalEditPart) target
-                        .getAdapter(IGraphicalEditPart.class);
+                target
+                .getAdapter(IGraphicalEditPart.class);
 
         if (sourceEditPart instanceof ClassEditPart) {
             if (targetEditPart instanceof ClassEditPart) {
                 types.add(UMLElementTypes.Association_3002);
-                types.add(UMLElementTypes.Generalization_3001);
+                // ACE-1704: Remove BOM unsupported features from UI.
+                // types.add(UMLElementTypes.Generalization_3001);
             }
         } else if (sourceEditPart instanceof PrimitiveTypeEditPart) {
             if (targetEditPart instanceof PrimitiveTypeEditPart) {
-                types.add(UMLElementTypes.Generalization_3001);
+                // ACE-1704: Remove BOM unsupported features from UI.
+                // types.add(UMLElementTypes.Generalization_3001);
             }
         } else if (sourceEditPart instanceof EnumerationEditPart) {
             if (targetEditPart instanceof EnumerationEditPart) {
-                types.add(UMLElementTypes.Generalization_3001);
+                // ACE-1704: Remove BOM unsupported features from UI.
+                // types.add(UMLElementTypes.Generalization_3001);
             } else if (targetEditPart instanceof PrimitiveTypeEditPart) {
-                types.add(UMLElementTypes.Generalization_3001);
+                // ACE-1704: Remove BOM unsupported features from UI.
+                // types.add(UMLElementTypes.Generalization_3001);
             }
 
         }
@@ -200,8 +211,8 @@ public class UMLModelingAssistantProvider extends ModelingAssistantProvider {
             IElementType relationshipType) {
         List<IElementType> types = new ArrayList<IElementType>();
         IGraphicalEditPart targetEditPart =
-                (IGraphicalEditPart) target
-                        .getAdapter(IGraphicalEditPart.class);
+                target
+                .getAdapter(IGraphicalEditPart.class);
 
         if (targetEditPart instanceof ClassEditPart) {
             if ((relationshipType == UMLElementTypes.Generalization_3001)
@@ -231,8 +242,8 @@ public class UMLModelingAssistantProvider extends ModelingAssistantProvider {
             IElementType relationshipType) {
         List<IElementType> types = new ArrayList<IElementType>();
         IGraphicalEditPart sourceEditPart =
-                (IGraphicalEditPart) source
-                        .getAdapter(IGraphicalEditPart.class);
+                source
+                .getAdapter(IGraphicalEditPart.class);
 
         if (sourceEditPart instanceof ClassEditPart) {
             if ((relationshipType == UMLElementTypes.Generalization_3001)
@@ -281,7 +292,7 @@ public class UMLModelingAssistantProvider extends ModelingAssistantProvider {
             return null;
         }
         IGraphicalEditPart editPart =
-                (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
+                host.getAdapter(IGraphicalEditPart.class);
         if (editPart == null) {
             return null;
         }

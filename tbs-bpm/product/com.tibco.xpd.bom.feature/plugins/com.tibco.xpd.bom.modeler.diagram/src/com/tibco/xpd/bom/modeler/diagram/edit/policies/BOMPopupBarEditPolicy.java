@@ -35,6 +35,7 @@ import com.tibco.xpd.bom.modeler.diagram.edit.parts.ClassEditPart;
 import com.tibco.xpd.bom.modeler.diagram.part.DynamicPaletteFactory;
 import com.tibco.xpd.bom.modeler.diagram.part.DynamicPaletteFactory.BOMNodeToolEntry;
 import com.tibco.xpd.bom.modeler.diagram.part.Messages;
+import com.tibco.xpd.bom.modeler.diagram.providers.UMLElementTypes;
 import com.tibco.xpd.bom.resources.firstclassprofiles.IFirstClassProfileExtension;
 
 /**
@@ -74,6 +75,10 @@ public class BOMPopupBarEditPolicy extends PopupBarEditPolicy {
         if (addStandardElements) {
             for (Object type : types) {
                 if (type instanceof IElementType) {
+                    // ACE-1704: Remove BOM unsupported features from UI. Don't add "Operation" to the popup bar.
+                    if (type == UMLElementTypes.Operation_2002) {
+                        continue;
+                    }
                     addPopupBarDescriptor((IElementType) type, IconService
                             .getInstance().getIcon((IElementType) type));
                 }
