@@ -2,7 +2,7 @@
  * Copyright (c) TIBCO Software Inc 2004, 2014. All rights reserved.
  */
 
-package com.tibco.xpd.n2.live.internal;
+package com.tibco.xpd.n2.live;
 
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
@@ -28,7 +28,8 @@ import com.tibco.xpd.deploy.ServerType;
 import com.tibco.xpd.deploy.impl.DeployFactoryImpl;
 import com.tibco.xpd.deploy.manager.ServerManager;
 import com.tibco.xpd.deploy.ui.DeployUIActivator;
-import com.tibco.xpd.n2.live.IPropertyProvider;
+import com.tibco.xpd.n2.live.internal.Activator;
+import com.tibco.xpd.n2.live.internal.Messages;
 
 /**
  * 

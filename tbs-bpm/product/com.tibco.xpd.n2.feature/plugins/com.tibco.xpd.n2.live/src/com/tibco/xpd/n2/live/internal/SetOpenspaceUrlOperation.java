@@ -11,6 +11,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 
+import com.tibco.xpd.n2.live.OpenspaceViewHelper;
+
 /**
  * Undoable operation for setting the openspace URL.
  * 

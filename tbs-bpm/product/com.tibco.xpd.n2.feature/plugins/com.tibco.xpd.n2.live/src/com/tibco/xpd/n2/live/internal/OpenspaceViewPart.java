@@ -13,13 +13,13 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.browser.Browser;
-import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -35,6 +35,7 @@ import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributo
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import com.tibco.xpd.deploy.Server;
+import com.tibco.xpd.n2.live.OpenspaceViewHelper;
 
 /**
  * View to allow easy access to Openspace on any of the configured BPM servers.
@@ -55,14 +56,21 @@ public class OpenspaceViewPart extends ViewPart implements
 
     /**
      * The embedded browser control.
+     * 
+     * Sid ACE-3218 Studio Internal browser not compatible with latest forms stuff, so need to redesign view.
+     * 
+     * Left old view config stuff commented out in the code in case we wish to return to it after an update of the
+     * internal browser by Eclipse
      */
-    private Browser browser;
+    // private Browser browser;
 
     private Button btnRefresh;
 
     private Button copyUrlToClipboard;
 
     private Button btnLaunch;
+
+    private static Font btnLaunchFont = null;
 
     private Label messageLabel;
 
@@ -78,16 +86,31 @@ public class OpenspaceViewPart extends ViewPart implements
     @Override
     public void createPartControl(Composite parent) {
 
-        ScrolledComposite sc =
-                new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL);
-        sc.setExpandHorizontal(true);
-        sc.setExpandVertical(true);
+        // Sid ACE-3218 Studio Internal browser not compatible with latest forms stuff, so need to redesign view
+        // ScrolledComposite sc =
+        // new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL);
+        // sc.setExpandHorizontal(true);
+        // sc.setExpandVertical(true);
 
-        Composite root = new Composite(sc, SWT.NONE);
-        root.setLayout(new GridLayout(3, false));
-        sc.setContent(root);
+        Composite root = new Composite(parent, SWT.NONE);
+        GridLayout rootLayout = new GridLayout(1, false);
+        rootLayout.marginWidth = 0;
+        rootLayout.marginHeight = 0;
+        root.setLayout(rootLayout);
 
-        Label serverLabel = new Label(root, SWT.NONE);
+        // Sid ACE-3218 Studio Internal browser not compatible with latest forms stuff, so need to redesign view
+        // sc.setContent(root);
+
+        Composite btnBar = new Composite(root, SWT.NONE);
+        btnBar.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
+
+        GridLayout btnBarLayout = new GridLayout(3, false);
+        // btnBarLayout.marginWidth = 0;
+        // btnBarLayout.marginHeight = 0;
+        btnBar.setLayout(btnBarLayout);
+        btnBar.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+
+        Label serverLabel = new Label(btnBar, SWT.NONE);
         serverLabel.setText(Messages.OpenspaceViewPart_ServerComboLabel);
         GridData gd = new GridData(SWT.LEFT, SWT.CENTER, false, false);
         gd.verticalAlignment = SWT.CENTER;
@@ -104,12 +127,12 @@ public class OpenspaceViewPart extends ViewPart implements
         // servers.setLabelProvider(new ServersLabelProvider());
         // servers.addSelectionChangedListener(new ServerSelectionListener());
 
-        messageLabel = new Label(root, SWT.NONE);
+        messageLabel = new Label(btnBar, SWT.NONE);
         messageLabel.setText(Messages.OpenspaceViewPart_ServerNotFoundLabel);
         GridData gd2 = new GridData(SWT.FILL, SWT.CENTER, true, false);
         messageLabel.setLayoutData(gd2);
 
-        Composite buttons = new Composite(root, SWT.NONE);
+        Composite buttons = new Composite(btnBar, SWT.NONE);
         buttons.setLayoutData(new GridData(SWT.RIGHT, SWT.FILL, false, false));
         buttons.setLayout(new FillLayout());
 
@@ -129,11 +152,35 @@ public class OpenspaceViewPart extends ViewPart implements
                 .setToolTipText(Messages.OpenspaceViewPart_RefreshButtonToolTip);
         btnRefresh.addSelectionListener(listener);
 
-        btnLaunch = new Button(buttons, SWT.PUSH);
-        btnLaunch.setImage(imageRegistry.get(Activator.LAUNCH_ICON));
-        btnLaunch
-                .setToolTipText(Messages.OpenspaceViewPart_RelaunchButtonToolTip);
+        // Sid ACE-3218 Studio Internal browser not compatible with latest forms stuff, so need to redesign view
+        // Moved launch to main view.
+        btnLaunch = new Button(root, SWT.PUSH);
+
+        GridData gd3 = new GridData(SWT.LEFT, SWT.CENTER, false, true);
+        gd3.horizontalIndent = 20;
+        // gd3.minimumHeight = 70;
+        btnLaunch.setLayoutData(gd3);
+
+        btnLaunch.setImage(imageRegistry.get(Activator.LAUNCH_ICON32));
+        btnLaunch.setText("  " + Messages.OpenspaceViewPart_LaunchLiveDevWorkManager_btn + "  "); //$NON-NLS-1$ //$NON-NLS-2$
+        btnLaunch.setToolTipText(Messages.OpenspaceViewPart_RelaunchButtonToolTip);
         btnLaunch.addSelectionListener(listener);
+
+        if (btnLaunchFont == null) {
+            Font font = btnLaunch.getFont();
+
+            FontData[] fontData = font.getFontData();
+
+            if (fontData != null && fontData.length > 0) {
+                fontData[0].height *= 1.5;
+
+                btnLaunchFont = new Font(null, fontData[0]);
+            }
+        }
+
+        if (btnLaunchFont != null) {
+            btnLaunch.setFont(btnLaunchFont);
+        }
 
         /*
          * Sid ACE-2918 In ACE there is just one built in server {@link OpenspaceViewHelper#ACE_DEFAULT_SERVER_ID} -
@@ -173,10 +220,11 @@ public class OpenspaceViewPart extends ViewPart implements
             }
         });
 
-        browser = new Browser(root, SWT.NONE);
-        browser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 3, 1));
-
-        sc.setMinSize(root.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+        // Sid ACE-3218 Studio Internal browser not compatible with latest forms stuff, so need to redesign view
+        // browser = new Browser(root, SWT.NONE);
+        // browser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 3, 1));
+        // sc.setMinSize(root.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+        
         initialiseControls();
 
     }
@@ -188,7 +236,8 @@ public class OpenspaceViewPart extends ViewPart implements
      */
     public void initialiseControls() {
 
-        browser.setText(Messages.OpenspaceViewPart_BrowserLoadingMessage);
+        // Sid ACE-3218 Studio Internal browser not compatible with latest forms stuff, so need to redesign view
+        // browser.setText(Messages.OpenspaceViewPart_BrowserLoadingMessage);
 
         /*
          * if server selection is stored in the preference then select that
@@ -215,13 +264,14 @@ public class OpenspaceViewPart extends ViewPart implements
                 messageLabel.setForeground(Display.getDefault().getSystemColor(SWT.COLOR_BLUE));
                 messageLabel.setToolTipText(null);
 
-                Display.getDefault().asyncExec(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        browser.setUrl(openspaceBaseURL);
-                    }
-                });
+                // Sid ACE-3218 Studio Internal browser not compatible with latest forms stuff, so need to redesign view
+                // Display.getDefault().asyncExec(new Runnable() {
+                //
+                // @Override
+                // public void run() {
+                // browser.setUrl(openspaceBaseURL);
+                // }
+                // });
 
             } else {
                 messageLabel.setText(String.format(Messages.OpenspaceViewPart_ConfigureWorkManagerURL_message,
@@ -231,7 +281,8 @@ public class OpenspaceViewPart extends ViewPart implements
                         Messages.OpenspaceViewPart_SetRULDomainTooltip_message,
                         Messages.OpenspaceViewHelper_DomainNameForDefaultTemplateURL));
 
-                browser.setText(""); //$NON-NLS-1$
+                // Sid ACE-3218 Studio Internal browser not compatible with latest forms stuff, so need to redesign view
+                // browser.setText(""); //$NON-NLS-1$
             }
         } catch (MalformedURLException e) {
             messageLabel.setText(String.format(Messages.OpenspaceViewPart_InvalidWorkManagerURL_message,
@@ -239,15 +290,22 @@ public class OpenspaceViewPart extends ViewPart implements
             messageLabel.setForeground(Display.getDefault().getSystemColor(SWT.COLOR_RED));
             messageLabel.setToolTipText(null);
 
-            browser.setText(""); //$NON-NLS-1$
+            // Sid ACE-3218 Studio Internal browser not compatible with latest forms stuff, so need to redesign view
+            // browser.setText(""); //$NON-NLS-1$
         }
     }
 
     @Override
     public void setFocus() {
-        if (browser != null && !browser.isDisposed()) {
-            browser.setFocus();
+        // Sid ACE-3218 Studio Internal browser not compatible with latest forms stuff, so need to redesign view
+        // if (browser != null && !browser.isDisposed()) {
+        // browser.setFocus();
+        // }
+
+        if (btnLaunch != null && !btnLaunch.isDisposed()) {
+            btnLaunch.setFocus();
         }
+
     }
 
     /**

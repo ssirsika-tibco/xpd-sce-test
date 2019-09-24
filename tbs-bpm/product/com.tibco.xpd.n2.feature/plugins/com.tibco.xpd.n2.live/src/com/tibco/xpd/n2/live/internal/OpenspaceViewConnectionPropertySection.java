@@ -24,6 +24,7 @@ import org.eclipse.ui.IWorkbench;
 
 import com.tibco.xpd.deploy.DeployPackage;
 import com.tibco.xpd.deploy.Server;
+import com.tibco.xpd.n2.live.OpenspaceViewHelper;
 import com.tibco.xpd.processeditor.xpdl2.properties.SashSection;
 import com.tibco.xpd.ui.properties.AbstractFilteredTransactionalSection;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;

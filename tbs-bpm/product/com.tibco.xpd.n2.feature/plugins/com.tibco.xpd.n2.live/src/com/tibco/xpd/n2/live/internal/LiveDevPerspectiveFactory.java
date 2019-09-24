@@ -60,20 +60,21 @@ public class LiveDevPerspectiveFactory implements IPerspectiveFactory {
                 "topLeft"); //$NON-NLS-1$
         bottomLeft.addView(IPageLayout.ID_OUTLINE);
 
-        // Bottom: problems, properties
-        IFolderLayout bottom = layout.createFolder("bottom", //$NON-NLS-1$
-                IPageLayout.BOTTOM,
-                0.60f,
-                editorArea);
-        bottom.addView(IPageLayout.ID_PROP_SHEET);
-        bottom.addView(IPageLayout.ID_PROBLEM_VIEW);
-
         // Top right: Openspace view.
         IFolderLayout topRight = layout.createFolder("topRight", //$NON-NLS-1$
                 IPageLayout.RIGHT,
                 0.5f,
                 editorArea);
         topRight.addView(LIVE_DEV_OPENSPACE_VIEW_ID);
+
+        // Bottom of Live Dev View: problems, properties
+
+        IFolderLayout bottom = layout.createFolder("bottom", //$NON-NLS-1$
+                IPageLayout.BOTTOM,
+                0.175f,
+                "topRight"); //$NON-NLS-1$
+        bottom.addView(IPageLayout.ID_PROP_SHEET);
+        bottom.addView(IPageLayout.ID_PROBLEM_VIEW);
 
     }
 

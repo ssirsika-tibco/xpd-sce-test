@@ -46,6 +46,8 @@ public class Messages extends NLS {
 
     public static String OpenspaceViewPart_LaunchErrorTitle;
 
+    public static String OpenspaceViewPart_LaunchLiveDevWorkManager_btn;
+
     public static String OpenspaceViewPart_RefreshButtonToolTip;
 
     public static String OpenspaceViewPart_RelaunchButtonToolTip;

@@ -54,6 +54,11 @@ public class Activator extends AbstractUIPlugin {
             "icons/LaunchInExternalBrowser.png"; //$NON-NLS-1$
 
     /**
+     * Openspace view external browser launch icon.
+     */
+    public static final String LAUNCH_ICON32 = "icons/LaunchInExternalBrowser32.png"; //$NON-NLS-1$
+
+    /**
      * Live dev icon.
      */
     public static final String LIVE_DEV_ICON = "icons/LiveDevPerspective.png"; //$NON-NLS-1$
@@ -109,6 +114,7 @@ public class Activator extends AbstractUIPlugin {
         reg.put(REFRESH_ICON,
                 imageDescriptorFromPlugin(PLUGIN_ID, REFRESH_ICON));
         reg.put(LAUNCH_ICON, imageDescriptorFromPlugin(PLUGIN_ID, LAUNCH_ICON));
+        reg.put(LAUNCH_ICON32, imageDescriptorFromPlugin(PLUGIN_ID, LAUNCH_ICON32));
         reg.put(LIVE_DEV_ICON,
                 imageDescriptorFromPlugin(PLUGIN_ID, LIVE_DEV_ICON));
         reg.put(COPY_URL_ICON,
