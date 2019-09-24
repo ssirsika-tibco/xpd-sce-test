@@ -213,16 +213,12 @@ public class TaskTypeEmbeddedSubProcSection extends
             // act,
             // embSubTransactionalBut.getSelection()));
             // cmd = setSubTrans;
-            // } else if (obj == embSubChainedBut) {
-            // cmd =
-            // TaskObjectUtil.getSetSubProcessIsChainedCommand(ed,
-            // act,
-            // embSubChainedBut.getSelection());
-            // } else if (obj == embSubRequireNewBut) {
-            // cmd =
-            // TaskObjectUtil.getSetSubProcessIsRequireNewCommand(ed,
-            // act,
-            // embSubRequireNewBut.getSelection());
+            // }
+            else if (obj == embSubChainedBut) {
+                cmd = TaskObjectUtil.getSetSubProcessIsChainedCommand(ed, act, embSubChainedBut.getSelection());
+            }
+            // else if (obj == embSubRequireNewBut) {
+            // cmd = TaskObjectUtil.getSetSubProcessIsRequireNewCommand(ed, act, embSubRequireNewBut.getSelection());
             // }
 
         }
