@@ -502,6 +502,10 @@ public class JScriptUtils {
                                     jsClass,
                                     name,
                                     isArray);
+                    if (umlScriptRelevantData instanceof ITypeResolution) {
+                        ITypeResolution typeResolution = (ITypeResolution) umlScriptRelevantData;
+                        typeResolution.setExtendedInfo(jsClass);
+                    }
                     return umlScriptRelevantData;
                 }
             }

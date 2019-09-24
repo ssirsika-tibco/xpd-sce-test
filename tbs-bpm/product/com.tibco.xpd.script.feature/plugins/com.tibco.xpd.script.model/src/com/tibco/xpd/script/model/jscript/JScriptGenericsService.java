@@ -108,6 +108,9 @@ public class JScriptGenericsService {
             if (ext instanceof JsUmlAttribute) {
                 JsUmlAttribute att = (JsUmlAttribute) ext;
                 type = att.getUmlType();
+            } else if (ext instanceof JsClass) {
+                JsClass cls = (JsClass) ext;
+                type = cls.getUmlClass();
             } else if (ext instanceof JsReference) {
                 JsReference ref = (JsReference) ext;
                 JsClass referencedJsClass = ref.getReferencedJsClass();
