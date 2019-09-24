@@ -55,7 +55,15 @@ public class SystemActionMigration {
 
             MigrationAction.delete("BDS", "manageDataViews"), //
             MigrationAction.delete("BDS", "accessGlobalDataScripts"), //
-            MigrationAction.delete("BDS", "administerGlobalDataScripts") //
+            MigrationAction.delete("BDS", "administerGlobalDataScripts"), //
+
+            // MigrationAction.reasign("OS", "contributeGadget", "OS", "contributeApp"), //
+            MigrationAction.delete("OS", "manageGadgets"), //
+            MigrationAction.delete("OS", "viewHubPolicy"), //
+            MigrationAction.delete("OS", "editHubPolicy"), //
+            MigrationAction.delete("OS", "openspaceFeatureSetA"), //
+            MigrationAction.delete("OS", "openspaceFeatureSetB"), //
+            MigrationAction.delete("OS", "openspaceFeatureSetC") //
     };
 
     /**

@@ -67,7 +67,15 @@ public class SystemActionMigrationTest extends TestCase {
 
             { "BDS", "manageDataViews" }, //
             { "BDS", "accessGlobalDataScripts" }, //
-            { "BDS", "administerGlobalDataScripts" } //
+            { "BDS", "administerGlobalDataScripts" }, //
+
+            // { "OS", "contributeGadget" }, replace after re-assign //
+            { "OS", "manageGadgets" }, //
+            { "OS", "viewHubPolicy" }, //
+            { "OS", "editHubPolicy" }, //
+            { "OS", "openspaceFeatureSetA" }, //
+            { "OS", "openspaceFeatureSetB" }, //
+            { "OS", "openspaceFeatureSetC" } //
     };
 
     // the new actions that are migrated from older actions during migration
@@ -77,7 +85,8 @@ public class SystemActionMigrationTest extends TestCase {
             { "CDM", "deleteCase" }, //
             { "CDM", "readCase" }, //
             { "APPDEV", "useCaseDocument" }, //
-            { "APPDEV", "administerCaseDocument" } //
+            { "APPDEV", "administerCaseDocument" }, //
+            // { "OS", "contributeApp" } replace after re-assign //
     };
 
     // @Test
