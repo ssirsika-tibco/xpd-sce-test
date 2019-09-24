@@ -7,7 +7,7 @@ package com.tibco.xpd.n2.process.globalsignal.mapping;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.tibco.xpd.process.datamapper.common.ProcessDataMapperConceptPathProvider;
+import com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperConceptPathProvider;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.DataField;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
@@ -20,7 +20,7 @@ import com.tibco.xpd.xpdl2.ProcessRelevantData;
  * @since Feb 5, 2015
  */
 public class CatchGlobalSignalMapperTargetContentProvider extends
-    ProcessDataMapperConceptPathProvider {
+        ActivityInterfaceDataMapperConceptPathProvider {
 
     /**
      * Target Content provider for Catch Global Signal.
@@ -40,14 +40,14 @@ public class CatchGlobalSignalMapperTargetContentProvider extends
     protected List<ProcessRelevantData> getInScopeProcessData(
             Activity activity) {
         
-        List<ProcessRelevantData> allProcessRelevantData = super.getInScopeProcessData(activity);
+        List<ProcessRelevantData> associatedRelevantData = super.getInScopeProcessData(activity);
         
         List<ProcessRelevantData> inScopeProcessData = new ArrayList<ProcessRelevantData>();
         
         /*
          * Filter out correlation data.
          */
-        for (ProcessRelevantData eachProcessRelevantData : allProcessRelevantData) {
+        for (ProcessRelevantData eachProcessRelevantData : associatedRelevantData) {
             if (eachProcessRelevantData instanceof DataField) {
                 DataField currentDataField = (DataField) eachProcessRelevantData;
                 if (!currentDataField.isCorrelation()) {

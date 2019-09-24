@@ -16,7 +16,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
 import com.tibco.xpd.mapper.Mapping;
-import com.tibco.xpd.n2.process.globalsignal.datamapper.contentcontributors.ProcessCorrelationDataContentContributor;
+import com.tibco.xpd.n2.process.globalsignal.datamapper.contentcontributors.CatchGlobalSignalCorrelationDataContentContributor;
 import com.tibco.xpd.n2.process.globalsignal.internal.Messages;
 import com.tibco.xpd.n2.process.globalsignal.mapping.PayloadConceptPath;
 import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
@@ -699,7 +699,7 @@ public final class GlobalSignalMappingUtil {
     /**
      * Return <code>true</code> if target contributor ID is the same as that of
      * the contributor ID of
-     * {@link ProcessCorrelationDataContentContributor},
+     * {@link CatchGlobalSignalCorrelationDataContentContributor},
      * <code>false</code> otherwise.
      * 
      * @param dataMapping

@@ -10,34 +10,34 @@ import java.util.List;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 
-import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
-import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.process.datamapper.common.AbstractProcessDataMapperContentContributor;
+import com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperConceptPathProvider;
 import com.tibco.xpd.process.datamapper.common.ProcessDataMapperInfoProvider;
 import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.CorrelationDataFolder;
-import com.tibco.xpd.processeditor.xpdl2.properties.IncomingRequestActivityTargetDataProvider;
 import com.tibco.xpd.validation.bpmn.rules.baserules.ProcessDataMappingRuleInfoProvider;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.DataField;
-import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
 
 /**
  * Correlation content contributor for Global Signal Catch Target.
  * 
+ * Sid ACE-2982 - renamed to something less generic as is very specific to Catch Global
+ * 
  * @author sajain
  * @since Apr 29, 2016
  */
-public class ProcessCorrelationDataContentContributor extends
+public class CatchGlobalSignalCorrelationDataContentContributor extends
         AbstractProcessDataMapperContentContributor {
 
     /**
      * @param direction
      */
-    public ProcessCorrelationDataContentContributor() {
+    public CatchGlobalSignalCorrelationDataContentContributor() {
     }
+
 
     /**
      * @see com.tibco.xpd.datamapper.api.AbstractDataMapperContentContributor#getContributorId()
@@ -57,44 +57,106 @@ public class ProcessCorrelationDataContentContributor extends
      */
     @Override
     protected ITreeContentProvider createItemProvider() {
+        /*
+         * Sid ACE-2982 Catch global signal doesn't use the specific correlation data association element that incoming
+         * request activities do (even in BPM 4.3.0) so the correlation data content needs to be as the normal data
+         * associations (but just the correlation ones.
+         * 
+         * So it's like standard associated data provider except we add content into a Correlation Data folder
+         */
+        return new ActivityInterfaceDataMapperConceptPathProvider() {
+            private Activity inputActivity = null;
 
-        return new IncomingRequestActivityTargetDataProvider(
-                MappingDirection.OUT) {
-
+            private CorrelationDataFolder correlationDataFolder = new CorrelationDataFolder(null);
+            
             /**
-             * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java
-             *      .lang.Object)
+             * @see com.tibco.xpd.process.datamapper.common.ProcessDataMapperConceptPathProvider#getElements(java.lang.Object)
+             *
+             * @param inputElement
+             * @return
              */
             @Override
             public Object[] getElements(Object inputElement) {
-
-                List<Object> elements = new ArrayList<Object>();
-
                 if (inputElement instanceof Activity) {
+                    inputActivity = (Activity) inputElement;
 
-                    Activity activity = (Activity) inputElement;
-
-                    setActivity(activity);
-
-                    if (activity != null) {
-                        Process process = activity.getProcess();
-                        if (process != null) {
-                            if (ProcessInterfaceUtil
-                                    .getAssociatedCorrelationDataForActivity(activity)
-                                    .size() != 0) {
-
-                                CorrelationDataFolder container =
-                                        new CorrelationDataFolder(process);
-
-                                elements.add(container);
-                            }
-                        }
-                    }
+                    return new Object[] { correlationDataFolder };
                 }
-                return elements.toArray();
+                return new Object[0];
+            }
+            
+            /**
+             * @see com.tibco.xpd.process.datamapper.common.ProcessDataMapperConceptPathProvider#hasChildren(java.lang.Object)
+             *
+             * @param element
+             * @return
+             */
+            @Override
+            public boolean hasChildren(Object element) {
+                if (element instanceof CorrelationDataFolder) {
+                    Object[] children = getChildren(element);
+                    return children != null && children.length > 0;
+                }
+                return super.hasChildren(element);
             }
 
+            /**
+             * @see com.tibco.xpd.process.datamapper.common.ProcessDataMapperConceptPathProvider#getParent(java.lang.Object)
+             *
+             * @param element
+             * @return
+             */
+            @Override
+            public Object getParent(Object element) {
+                if (element instanceof CorrelationDataFolder) {
+                    return inputActivity;
+                } else if (element instanceof ConceptPath && ((ConceptPath) element).getParent() == null) {
+                    return correlationDataFolder;
+                }
+                return super.getParent(element);
+            }
+
+            /**
+             * @see com.tibco.xpd.process.datamapper.common.ProcessDataMapperConceptPathProvider#getChildren(java.lang.Object)
+             *
+             * @param parentElement
+             * @return
+             */
+            @Override
+            public Object[] getChildren(Object parentElement) {
+                if (parentElement instanceof CorrelationDataFolder) {
+                    if (inputActivity != null) {
+                        List<ConceptPath> associatedCorrelationData = new ArrayList<ConceptPath>();
+                        
+                        Object[] children = super.getElements(inputActivity);
+                         
+                         if (children != null) {
+                             for (Object child : children) {
+                                if (child instanceof ConceptPath) {
+                                    ConceptPath cp = (ConceptPath) child;
+                                    
+                                    if (cp.getItem() instanceof DataField) {
+                                        DataField dataField = (DataField)cp.getItem();
+                                        
+                                        if (dataField.isCorrelation()) {
+                                            associatedCorrelationData.add(cp);
+                                        }
+                                    }
+                                }
+                            }
+                         }
+                         
+                         return associatedCorrelationData.toArray();
+                    }
+                    
+                    return new Object[0];
+                }
+                
+                return super.getChildren(parentElement);
+            }
         };
+        
+
     }
 
     /**

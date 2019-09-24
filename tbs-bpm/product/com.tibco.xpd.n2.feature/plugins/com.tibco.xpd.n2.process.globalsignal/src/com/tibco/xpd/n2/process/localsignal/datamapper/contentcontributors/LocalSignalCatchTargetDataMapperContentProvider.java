@@ -31,8 +31,10 @@ public class LocalSignalCatchTargetDataMapperContentProvider extends ProcessData
     public LocalSignalCatchTargetDataMapperContentProvider() {
     }
 
+
     /**
-     * @see com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMapperTargetContentProvider#getInScopeProcessData(com.tibco.xpd.xpdl2.Activity)
+     * 
+     * @see com.tibco.xpd.process.datamapper.common.ProcessDataMapperConceptPathProvider#getInScopeProcessData(com.tibco.xpd.xpdl2.Activity)
      *
      * @param activity
      * @return
