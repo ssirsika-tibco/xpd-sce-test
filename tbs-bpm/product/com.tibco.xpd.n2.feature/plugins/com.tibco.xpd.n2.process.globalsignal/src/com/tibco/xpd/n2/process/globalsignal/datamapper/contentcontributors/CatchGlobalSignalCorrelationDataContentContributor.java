@@ -109,7 +109,7 @@ public class CatchGlobalSignalCorrelationDataContentContributor extends
             @Override
             public Object getParent(Object element) {
                 if (element instanceof CorrelationDataFolder) {
-                    return inputActivity;
+                    return null;
                 } else if (element instanceof ConceptPath && ((ConceptPath) element).getParent() == null) {
                     return correlationDataFolder;
                 }
