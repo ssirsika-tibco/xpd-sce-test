@@ -69,7 +69,7 @@ public class SystemActionMigrationTest extends TestCase {
             { "BDS", "accessGlobalDataScripts" }, //
             { "BDS", "administerGlobalDataScripts" }, //
 
-            // { "OS", "contributeGadget" }, replace after re-assign //
+            { "OS", "contributeGadget" }, //
             { "OS", "manageGadgets" }, //
             { "OS", "viewHubPolicy" }, //
             { "OS", "editHubPolicy" }, //
@@ -86,7 +86,7 @@ public class SystemActionMigrationTest extends TestCase {
             { "CDM", "readCase" }, //
             { "APPDEV", "useCaseDocument" }, //
             { "APPDEV", "administerCaseDocument" }, //
-            // { "OS", "contributeApp" } replace after re-assign //
+            { "OS", "contributeApp" } //
     };
 
     // @Test
