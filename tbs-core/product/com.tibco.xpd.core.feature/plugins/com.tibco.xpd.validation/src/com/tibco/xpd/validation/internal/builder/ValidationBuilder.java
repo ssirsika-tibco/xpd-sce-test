@@ -130,7 +130,8 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
          */
         if (ProjectCompatibilityWithCode.NOT_SCE
                 .equals(projectCompatibilityWithCode)) {
-            System.err.println("** ValidationBuilder: not a CE project - adding Marker"); //$NON-NLS-1$
+            System.err
+                    .println("** ValidationBuilder: '" + getProject().getName() + "' not a CE project - adding Marker"); //$NON-NLS-1$ //$NON-NLS-2$
 
             /*
              * Remove all problem markers and then add single migration marker
@@ -153,7 +154,7 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
          */
         else if (ProjectCompatibilityWithCode.OLDER
                 .equals(projectCompatibilityWithCode)) {
-            System.err.println("** ValidationBuilder: Older project - adding Marker"); //$NON-NLS-1$
+            System.err.println("** ValidationBuilder: '" + getProject().getName() + "' Older project - adding Marker"); //$NON-NLS-1$ //$NON-NLS-2$
 
             /*
              * Remove all problem markers and then add single migration marker
@@ -171,7 +172,7 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
 
         } else if (ProjectCompatibilityWithCode.NEWER
                 .equals(projectCompatibilityWithCode)) {
-            System.err.println("** ValidationBuilder: Newer project - adding Marker"); //$NON-NLS-1$
+            System.err.println("** ValidationBuilder: '" + getProject().getName() + "' Newer project - adding Marker"); //$NON-NLS-1$ //$NON-NLS-2$
 
             /*
              * Remove all problem markers and then add single migration marker
@@ -192,7 +193,8 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
             createProjectFromNewerStudioMarker(getProject());
 
         } else {
-            System.err.println("** ValidationBuilder: Compatible project - adding Marker"); //$NON-NLS-1$
+            System.err.println("** ValidationBuilder: '" + getProject().getName() //$NON-NLS-1$
+                    + "'Compatible project - removing migration markers"); //$NON-NLS-1$
 
             clearProjectFromNewerStudioMarker(getProject());
             clearMigrationMarker(getProject());
