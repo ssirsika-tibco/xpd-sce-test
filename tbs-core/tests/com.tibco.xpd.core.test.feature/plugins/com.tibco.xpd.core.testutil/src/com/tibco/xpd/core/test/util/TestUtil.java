@@ -1165,7 +1165,8 @@ public class TestUtil {
                     if (marker.getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR
                             && !exceptIdsOrMessageText.contains(marker.getAttribute("issueId", ""))
                             && !containsMessageFragment(marker, exceptIdsOrMessageText)) {
-                        System.err.println(heading + "- " + marker.getAttribute(IMarker.MESSAGE, ""));
+                        System.err.println(heading + "- " + marker.getAttribute(IMarker.MESSAGE, "") + " ("
+                                + marker.getAttribute("issueId", "") + ")");
                         heading = "";
                         found = true;
                     }

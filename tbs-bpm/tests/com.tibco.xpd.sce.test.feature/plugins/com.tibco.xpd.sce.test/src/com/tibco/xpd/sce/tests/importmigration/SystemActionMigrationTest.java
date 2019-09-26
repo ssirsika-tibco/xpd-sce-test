@@ -36,6 +36,8 @@ import com.tibco.xpd.om.resources.wc.OMWorkingCopy;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
+import com.tibco.xpd.resources.projectconfig.projectassets.util.ProjectAssetMigrationManager;
+import com.tibco.xpd.resources.projectconfig.projectassets.util.ProjectAssetMigrationManager.ProjectCompatibilityWithCode;
 import com.tibco.xpd.resources.util.ProjectImporter;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 
@@ -103,7 +105,29 @@ public class SystemActionMigrationTest extends TestCase {
 
             // we expect no validation markers
             TestUtil.outputErrorMarkers(project, true);
-            assertTrue(TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured").isEmpty());
+            boolean hasErrorMarkers = TestUtil.hasErrorProblemMarker(project,
+                    true,
+                    Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured"),
+                    "testSystemActions");
+
+            if (hasErrorMarkers) {
+                ProjectCompatibilityWithCode projectCompatibilityWithCode =
+                        ProjectAssetMigrationManager.getInstance().getProjectCompatibilityWithCode(project);
+
+                if (ProjectCompatibilityWithCode.NOT_SCE.equals(projectCompatibilityWithCode)) {
+                    System.err.println(
+                            "** SystemActionMigrationTest.testSystemActions() - Project HAS NOT been migrated to CE (ProjectCompatibilityWithCode:"
+                                    + projectCompatibilityWithCode + ")");
+                } else {
+                    System.err.println(
+                            "** SystemActionMigrationTest.testSystemActions() - Project HAS been migrated to CE (ProjectCompatibilityWithCode:"
+                                    + projectCompatibilityWithCode + ")");
+                }
+
+            }
+
+            assertFalse("system-actions projects has unexpected problem markers (see console) output)",
+                    hasErrorMarkers);
 
             checkOrgModel(findOrgModel(project));
         } finally {
