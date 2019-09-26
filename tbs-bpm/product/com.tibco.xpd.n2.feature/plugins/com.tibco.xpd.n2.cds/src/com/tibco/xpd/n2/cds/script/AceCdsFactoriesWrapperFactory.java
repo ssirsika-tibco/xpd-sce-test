@@ -23,6 +23,7 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.internal.resource.UMLResourceFactoryImpl;
 
+import com.tibco.bds.designtime.generator.BDSUtils;
 import com.tibco.bds.designtime.generator.CDSBOMIndexerService;
 import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
@@ -47,11 +48,6 @@ public class AceCdsFactoriesWrapperFactory {
     private static final AceCdsFactoriesWrapperFactory DEFAULT =
             new AceCdsFactoriesWrapperFactory();
 
-    /**
-     * The BOM class factory creation method prefix (as is
-     * factory.com_my_bom.createMyClass()
-     */
-    private static final String BOM_FACTORY_CREATE_METHOD_PREFIX = "create";//$NON-NLS-1$
 
     /**
      * The BOM package enumerations set class suffix. This is the suffix to the
@@ -268,8 +264,7 @@ public class AceCdsFactoriesWrapperFactory {
     }
 
     /**
-     * Sid ACE-2896
-     * Get the BOM factory class creator method name.
+     * Sid ACE-2896 Get the BOM factory class creator method name.
      * 
      * This is "createBomClassName" where the B in Bom is forced to uppercase.
      * 
@@ -278,19 +273,8 @@ public class AceCdsFactoriesWrapperFactory {
      * @return The BOM factory class creator method name
      */
     public String getFactoryClassCreatorMethodName(Classifier clazz) {
-        String methodName = BOM_FACTORY_CREATE_METHOD_PREFIX;
-
-        String className = clazz.getName();
-
-        if (className.length() > 0) {
-            methodName += className.substring(0, 1).toUpperCase();
-
-            if (className.length() > 1) {
-                methodName += className.substring(1);
-            }
-        }
-
-        return methodName;
+        /* Sid ACE-3153 Moved to BDSUtils so that it can be shared. */
+        return BDSUtils.getFactoryClassCreatorMethodName(clazz.getName());
     }
 
     /**

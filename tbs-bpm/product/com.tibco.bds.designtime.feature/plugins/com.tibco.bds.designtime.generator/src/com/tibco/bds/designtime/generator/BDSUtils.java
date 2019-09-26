@@ -28,6 +28,11 @@ import com.tibco.xpd.resources.XpdResourcesPlugin;
  */
 public class BDSUtils {
 
+    /**
+     * The BOM class factory creation method prefix (as is factory.com_my_bom.createMyClass()
+     */
+    private static final String BOM_FACTORY_CREATE_METHOD_PREFIX = "create";//$NON-NLS-1$
+
     public static boolean areAllBOMsGlobal(Collection<IFile> bomFiles) {
         boolean result = true;
         for (IFile bomFile : bomFiles) {
@@ -118,6 +123,56 @@ public class BDSUtils {
             }
         }
         return result;
+    }
+
+    /**
+     * Sid ACE-31513 copied from CDSBOMIndexer for public consumption.
+     * 
+     * Get the CDS factory name that <i>would</i> be generated for the given package name <i>if</i> that package were to
+     * have CDS factory generated.
+     * <p>
+     * Unlike {@link #getCDSFactoryForPackage(Package)} it <b>does not make any judgement as to whether the package will
+     * generate a CDS factory or not.</b>
+     * </p>
+     * 
+     * @param packageName
+     * @return The CDS factory name.
+     */
+    public static String getCDSFactoryName(String packageName) {
+        String factoryName = null;
+
+        if (packageName != null) {
+            /*
+             * Sid ACE-542 BOM factories are now in factory.com_xxx_yyy class
+             */
+            factoryName = packageName.replaceAll("\\.", "_"); //$NON-NLS-1$ //$NON-NLS-2$
+
+        }
+
+        return factoryName;
+    }
+
+    /**
+     * Sid ACE-2896 Get the BOM factory class creator method name.
+     * 
+     * This is "createBomClassName" where the B in Bom is forced to uppercase.
+     * 
+     * @param className
+     * 
+     * @return The BOM factory class creator method name
+     */
+    public static String getFactoryClassCreatorMethodName(String className) {
+        String methodName = BOM_FACTORY_CREATE_METHOD_PREFIX;
+
+        if (className.length() > 0) {
+            methodName += className.substring(0, 1).toUpperCase();
+
+            if (className.length() > 1) {
+                methodName += className.substring(1);
+            }
+        }
+
+        return methodName;
     }
 
 }

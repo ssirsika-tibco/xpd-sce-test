@@ -437,17 +437,7 @@ public class CDSBOMIndexer implements WorkingCopyIndexProvider {
      * @return The CDS factory name.
      */
     public static String getCDSFactoryName(String packageName) {
-        String factoryName = null;
-
-        if (packageName != null) {
-            /*
-             * Sid ACE-542 BOM factories are now in factory.com_xxx_yyy class
-             */
-            factoryName = packageName.replaceAll("\\.", "_"); //$NON-NLS-1$ //$NON-NLS-2$
-
-        }
-
-        return factoryName;
+        return BDSUtils.getCDSFactoryName(packageName);
     }
 
 }
