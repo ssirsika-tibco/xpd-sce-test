@@ -104,7 +104,6 @@ public class SystemActionMigrationTest extends TestCase {
             IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("system-actions");
 
             // we expect no validation markers
-            TestUtil.outputErrorMarkers(project, true);
             boolean hasErrorMarkers = TestUtil.hasErrorProblemMarker(project,
                     true,
                     Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured"),
