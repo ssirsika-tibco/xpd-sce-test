@@ -106,9 +106,6 @@ public class Messages extends NLS {
 
     public static String ReOfferStrategySection_ReofferOnClose_tooltip;
 
-    public static String PickerUtil_pickComplexType_label;
-
-    public static String PickerUtil_pickGlobalType_label;
 
     public static String PilingSashSection_AllowPilingLabel;
 
@@ -1745,10 +1742,6 @@ public class Messages extends NLS {
     public static String BaseMethodSection_NameExistsError_shortmsg;
 
     public static String BaseMethodSection_Type_label;
-
-    public static String BaseTypeSection_NotApplicable_text;
-
-    public static String BaseTypeSection_UnresolvedReference;
 
     public static String ProcessInterfacePropertySection_NameExistsError_shortmsg;
 
