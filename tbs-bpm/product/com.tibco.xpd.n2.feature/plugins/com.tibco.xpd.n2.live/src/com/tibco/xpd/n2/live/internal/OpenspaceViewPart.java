@@ -273,6 +273,8 @@ public class OpenspaceViewPart extends ViewPart implements
                 // }
                 // });
 
+                btnLaunch.setEnabled(true);
+
             } else {
                 messageLabel.setText(String.format(Messages.OpenspaceViewPart_ConfigureWorkManagerURL_message,
                         Messages.OpenspaceViewHelper_DomainNameForDefaultTemplateURL));
@@ -283,6 +285,9 @@ public class OpenspaceViewPart extends ViewPart implements
 
                 // Sid ACE-3218 Studio Internal browser not compatible with latest forms stuff, so need to redesign view
                 // browser.setText(""); //$NON-NLS-1$
+
+                btnLaunch.setEnabled(false);
+
             }
         } catch (MalformedURLException e) {
             messageLabel.setText(String.format(Messages.OpenspaceViewPart_InvalidWorkManagerURL_message,
