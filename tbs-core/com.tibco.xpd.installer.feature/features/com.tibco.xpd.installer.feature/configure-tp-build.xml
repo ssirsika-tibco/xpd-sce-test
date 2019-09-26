@@ -1,0 +1,114 @@
+<!--Run the default set of actions to make TP similar to the installed product.-->
+<project name="ConfigureTP" default="default">
+
+    <property name="bs.product.dir" location="." description="The product root folder containing executable and plugins and features folders."/>
+	<target name="init">
+		<condition property="os.isWindows">
+			<os family="windows" />
+		</condition>
+		<condition property="os.isNix">
+			<and>
+				<os family="unix" />
+				<not>
+					<os family="mac" />
+				</not>
+			</and>
+		</condition>
+	</target>
+
+	
+	<target name="default" depends="init" description="Run the default set of actions to make TP similar to the installed product.">
+		<!-- Update default perspective to: com.tibco.xpd.bpm.modeling.perspective perspective -->
+		<antcall target="replacePreferenceValue">
+			<param name="pref.name" value="org.eclipse.ui/defaultPerspectiveId" />
+			<param name="pref.value" value="com.tibco.xpd.bpm.modeling.perspective" />
+		</antcall>
+		<!-- Change the product to 'com.tibco.xpd.branding.prod' -->
+		<antcall target="replaceConfigValue">
+			<param name="config.name" value="eclipse.product" />
+			<param name="config.value" value="com.tibco.xpd.branding.prod" />
+		</antcall>
+		<!-- Update splash screen location. -->
+		<antcall target="replaceConfigValue">
+			<param name="config.name" value="osgi.splashPath" />
+			<param name="config.value" value="platform\:/base/plugins/com.tibco.xpd.branding" />
+		</antcall>
+		<!-- Rename/move exec -->
+		<antcall target="renameExec"></antcall>
+	</target>
+
+	
+	<!-- Replaces preference value in products plugin_customization.ini. Requires: 'pref.name" and 'pref.value' properties.-->
+	<target name="replacePreferenceValue" description="Replaces single preference value in the plugin_customization.ini in the branding plugin.">
+		<!--Check the required properties.-->
+		<fail unless="pref.name" message="'replacePreferenceValue' task requires: 'pref.name' and 'pref.value' properties to be set." />
+		<fail unless="pref.value" message="'replacePreferenceValue' task requires: 'pref.name' and 'pref.value' properties to be set." />
+
+		<!-- Default values of some other the required properties (so they can be overriden). -->
+		<property name="bs.p2.bundle.pool" location="${bs.product.dir}" />
+		<property name="pref.file.name" value="plugin_customization.ini" />
+		<property name="pref.plugin.name" value="com.tibco.xpd.branding_*" />
+
+		<whichresource id="src.files" property="prefFile" resource="${pref.file.name}">
+			<classpath>
+				<dirset dir="${bs.p2.bundle.pool}/plugins/">
+					<include name="${pref.plugin.name}" />
+				</dirset>
+			</classpath>
+		</whichresource>
+
+		<script language="javascript">
+            // whichresource will supply a URL so ...
+            // ... need to remove file:/ from start ...
+            var tmp = project.getProperty("prefFile");
+            if (tmp.indexOf(':', 5) > 0) {
+                // windows
+                tmp = prefFile.substring(6);
+            } else {
+                // *nix
+                tmp = prefFile.substring(5);
+            }
+            // ... and replace %20 with space
+            tmp = tmp.replace(/%20/g, ' ');
+            project.setProperty("prefFile.path", tmp);
+        </script>
+
+		<echo>Replacing preference in file: ${prefFile.path}</echo>
+		<echo>Prefererence: ${pref.name}=${pref.value}</echo>
+
+		<replaceregexp byline="true" file="${prefFile.path}" match="^(${pref.name}.*?=).*$" replace="${pref.name}=${pref.value}" />
+	</target>
+	
+	
+	<target name="replaceConfigValue" description="Replaces single configuration value in the configuration/config.ini">
+		<!--Check the required properties.-->
+		<fail unless="config.name" message="'replaceConfigValue' task requires: 'config.name' and 'config.value' properties to be set." />
+		<fail unless="config.value" message="'replaceConfigValue' task requires: 'config.name' and 'config.value' properties to be set." />
+
+		<echo>Replacing configuration value in file: ${bs.product.dir}/configuration/config.ini</echo>
+		<echo>New configuration property: ${config.name}=${config.value}</echo>
+
+		<replaceregexp byline="true" file="${bs.product.dir}/configuration/config.ini" match="^(${config.name}.*?=).*$" replace="${config.name}=${config.value}" />
+	</target>
+	
+	
+	<target name="renameExec" depends="init" description="Renames the executable and .ini.">
+		<antcall target="-renameExecWin" />
+		<antcall target="-renameExecNix" />
+	</target>
+	<target name="-renameExecWin" if="os.isWindows">
+		<echo>Renaming exec and ini files (Windows).</echo>
+		<move file="${bs.product.dir}/eclipse.ini" tofile="${bs.product.dir}/TIBCOBusinessStudio.ini" />
+		<move file="${bs.product.dir}/eclipse.exe" tofile="${bs.product.dir}/TIBCOBusinessStudio.exe" />
+	</target>
+	<target name="-renameExecNix" if="os.isNix">
+		<echo>Renaming exec and ini files (Nix).</echo>
+		<move file="${bs.product.dir}/eclipse.ini" tofile="${bs.product.dir}/TIBCOBusinessStudio.ini" />
+		<move file="${bs.product.dir}/eclipse" tofile="${bs.product.dir}/TIBCOBusinessStudio" />
+	</target>
+	<!--
+	<target name="selfDestroy" description="Removes itself (the build.xml file)">
+		<delete file="${bs.product.dir}/build.xml"></delete>
+	</target>
+	-->
+</project>

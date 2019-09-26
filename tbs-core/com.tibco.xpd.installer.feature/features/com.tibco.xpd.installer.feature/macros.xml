@@ -23,7 +23,7 @@
           target: default
     <target name="default" depends="-copy-eclipse, -prepare-download" description="Execute Eclipse tests">
          ================================= -->
-    <target name="default" depends="-copy-eclipse, -copy-extra-features, -check-launcher, -init-eclipse, -prepare-download, -emma.addinstrumentation" description="Execute Eclipse tests">
+    <target name="default" depends="-copy-eclipse, -copy-extra-features, -check-launcher, -init-eclipse, -configure-tp, -prepare-download, -emma.addinstrumentation" description="Execute Eclipse tests">
         <ant antfile="all.tests.xml">
         	<property name="jvm" value="${studio.junit.jre}"/>
 			<property name="coverage.dir" value="${coverage.dir}"/>
@@ -176,5 +176,12 @@
 	        <jvmarg value="-Xmx1024m"/>
 	        <jvmarg value="-XX:MaxPermSize=256m"/>
         </java>
+	</target>
+	
+	<target name="-configure-tp">
+		<echo>Configuring target platfom in: ${bs.tp.dir}</echo>
+		<ant antfile="configure-tp-build.xml">
+			<property name="bs.product.dir" value="${bs.tp.dir}"/>
+		</ant>
 	</target>
 </project>
