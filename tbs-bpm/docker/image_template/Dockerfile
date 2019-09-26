@@ -34,11 +34,12 @@ LABEL maintainer="TIBCO Software Inc" \
 # install required software and create studio user
 RUN yum -y -q install xorg-x11-server-Xvfb.x86_64 && \
     yum -y -q install install /usr/lib64/libstdc++.so.5 && \
-    yum -y -q install /usr/lib64/libgtk-x11-2.0.so.0 && \
+    yum -y -q install gtk3 && \
     yum -y -q install /usr/lib64/libXtst.so.6 && \
     groupadd -r studio && useradd -r -m -g studio studio  && \
     mkdir -p /opt/TIBCO/studio-cloud-bpm  && \
-    chown -R studio:studio /opt/TIBCO/studio-cloud-bpm
+    chown -R studio:studio /opt/TIBCO/studio-cloud-bpm && \
+    dbus-uuidgen --ensure
 
 # WORKSPACE_DIR = the folder in which the studio workspace is to be created
 # PROJECTS_DIR  = the folder in which the project to be imported is located
