@@ -194,7 +194,7 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
 
         } else {
             System.err.println("** ValidationBuilder: '" + getProject().getName() //$NON-NLS-1$
-                    + "'Compatible project - removing migration markers"); //$NON-NLS-1$
+                    + "'Compatible project - clearing any migration markers"); //$NON-NLS-1$
 
             clearProjectFromNewerStudioMarker(getProject());
             clearMigrationMarker(getProject());
