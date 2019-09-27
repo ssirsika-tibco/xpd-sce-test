@@ -130,8 +130,9 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
          */
         if (ProjectCompatibilityWithCode.NOT_SCE
                 .equals(projectCompatibilityWithCode)) {
-            System.err
-                    .println("** ValidationBuilder: '" + getProject().getName() + "' not a CE project - adding Marker"); //$NON-NLS-1$ //$NON-NLS-2$
+            // System.err
+            // .println("** ValidationBuilder: '" + getProject().getName() + "' not a CE project - adding Marker");
+            // //$NON-NLS-1$ //$NON-NLS-2$
 
             /*
              * Remove all problem markers and then add single migration marker
@@ -154,7 +155,8 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
          */
         else if (ProjectCompatibilityWithCode.OLDER
                 .equals(projectCompatibilityWithCode)) {
-            System.err.println("** ValidationBuilder: '" + getProject().getName() + "' Older project - adding Marker"); //$NON-NLS-1$ //$NON-NLS-2$
+            // System.err.println("** ValidationBuilder: '" + getProject().getName() + "' Older project - adding
+            // Marker"); //$NON-NLS-1$ //$NON-NLS-2$
 
             /*
              * Remove all problem markers and then add single migration marker
@@ -172,7 +174,8 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
 
         } else if (ProjectCompatibilityWithCode.NEWER
                 .equals(projectCompatibilityWithCode)) {
-            System.err.println("** ValidationBuilder: '" + getProject().getName() + "' Newer project - adding Marker"); //$NON-NLS-1$ //$NON-NLS-2$
+            // System.err.println("** ValidationBuilder: '" + getProject().getName() + "' Newer project - adding
+            // Marker"); //$NON-NLS-1$ //$NON-NLS-2$
 
             /*
              * Remove all problem markers and then add single migration marker
@@ -193,12 +196,17 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
             createProjectFromNewerStudioMarker(getProject());
 
         } else {
-            System.err.println("** ValidationBuilder: '" + getProject().getName() //$NON-NLS-1$
-                    + "'Compatible project - clearing any migration markers"); //$NON-NLS-1$
+            // System.err.println("** ValidationBuilder: '" + getProject().getName() //$NON-NLS-1$
+            // + "'Compatible project - clearing any migration markers"); //$NON-NLS-1$
 
             clearProjectFromNewerStudioMarker(getProject());
             clearMigrationMarker(getProject());
 
+            /*
+             * Sid ACE-3288 Should be clearing the non-CE destination marker here (else if ValidationBuilder does
+             * unusually kick in before import migration is done then it wouldn't have been removed.
+             */
+            clearNotCeDestinationMarker(getProject());
 
             if (kind == FULL_BUILD) {
                 TRACE("Full build requested..."); //$NON-NLS-1$

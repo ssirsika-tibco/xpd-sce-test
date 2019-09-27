@@ -107,7 +107,7 @@ public class Bpm2CeProjectConfigPostImportTask
                             && !projectDetails.isGlobalDestinationEnabled(
                                     XpdConsts.ACE_DESTINATION_NAME)) {
 
-                        System.err.println("** Migrating non-ACE project: " + project.getName()); //$NON-NLS-1$
+                        // System.err.println("** Migrating non-ACE project: " + project.getName()); //$NON-NLS-1$
 
                         resetVersion(projectDetails, monitor);
 
