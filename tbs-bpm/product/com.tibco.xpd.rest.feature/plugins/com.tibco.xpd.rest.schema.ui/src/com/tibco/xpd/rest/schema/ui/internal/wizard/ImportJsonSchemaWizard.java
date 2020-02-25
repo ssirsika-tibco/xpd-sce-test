@@ -92,4 +92,5 @@ public class ImportJsonSchemaWizard extends BasicNewXpdResourceWizard implements
         return file;
 
     }
+
 }

@@ -6,6 +6,8 @@ package com.tibco.xpd.bom.modeler.custom.internal.diagram;
 import java.util.Collections;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
@@ -19,6 +21,7 @@ import com.tibco.xpd.bom.modeler.custom.internal.Messages;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
 import com.tibco.xpd.resources.WorkingCopy;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.ui.dialogs.AbstractXpdWizardPage;
 import com.tibco.xpd.ui.dialogs.FileSelectionBrowserControl;
@@ -105,8 +108,22 @@ public class BOMFileSelectionPage extends AbstractXpdWizardPage {
         selectedBomFile = null;
         if (selection instanceof IFile) {
             selectedBomFile = (IFile) selection;
-            setErrorMessage(null);
-            return true;
+
+            /* Sid ACE-2859 - Check against locked projects. */
+            IProject project = selectedBomFile.getProject();
+
+            try {
+                if (!new GovernanceStateService().isLockedForProduction(project)) {
+                    setErrorMessage(null);
+                    return true;
+
+                } else {
+                    setErrorMessage(Messages.BOMFileSelectionPage_ProjectLocked_error);
+                    return false;
+                }
+            } catch (CoreException e) {
+            }
+
         }
 
         setErrorMessage(Messages.BOMFileSelectionPage_noBOMSelected_error_message);

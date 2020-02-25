@@ -615,26 +615,36 @@ Copyright (c) TIBCO Software Inc 2007. All rights reserved.
             type="new"
             wizardId="com.tibco.xpd.bom.modeler.diagram.part.UMLCreationWizardID">
          <enablement>
-            <or>
-               <and>
-                  <instanceof
-                        value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
-                  </instanceof>
-                  <test
-                        property="com.tibco.xpd.resources.specialfolder.isOfKind"
-                        value="bom">
-                  </test>
-               </and>
-               <and>
-                  <instanceof
-                        value="org.eclipse.core.resources.IResource">
-                  </instanceof>
-                  <test
-                        property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
-                        value="bom">
-                  </test>
-               </and>
-            </or></enablement>
+            <and>
+            	<not>
+                	<test
+                    	forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	</test>
+               	</not>
+            	<or>
+               		<and>
+                  		<instanceof
+                        	value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                  		</instanceof>
+                  		<test
+                        	property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                        	value="bom">
+                  		</test>
+               		</and>
+               		<and>
+                  		<instanceof
+                        	value="org.eclipse.core.resources.IResource">
+                  		</instanceof>
+                  		<test
+                        	property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                        	value="bom">
+                  		</test>
+               		</and>
+            	</or>
+            </and>	
+     	</enablement>
       </commonWizard>
    </extension>
       <extension

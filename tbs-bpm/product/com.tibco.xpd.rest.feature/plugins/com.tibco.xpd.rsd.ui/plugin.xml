@@ -194,26 +194,36 @@
             type="new"
             wizardId="com.tibco.xpd.rsd.ui.wizard.new">
          <enablement>
-            <or>
-               <and>
-                  <instanceof
-                        value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
-                  </instanceof>
-                  <test
-                        property="com.tibco.xpd.resources.specialfolder.isOfKind"
-                        value="rest">
-                  </test>
-               </and>
-               <and>
-                  <instanceof
-                        value="org.eclipse.core.resources.IResource">
-                  </instanceof>
-                  <test
-                        property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
-                        value="rest">
-                  </test>
-               </and>
-            </or></enablement>
+         	<and>
+         		<not>
+                	<test
+                    	forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	</test>
+               	</not>
+            	<or>
+               		<and>
+                  		<instanceof
+                        	value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                  		</instanceof>
+                  		<test
+                        	property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                        	value="rest">
+                  		</test>
+               		</and>
+               		<and>
+                  		<instanceof
+                        	value="org.eclipse.core.resources.IResource">
+                  		</instanceof>
+                  		<test
+                        	property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                        	value="rest">
+                  		</test>
+               		</and>
+            	</or>
+        	</and>    	
+     	</enablement>
       </commonWizard>
    </extension>
    

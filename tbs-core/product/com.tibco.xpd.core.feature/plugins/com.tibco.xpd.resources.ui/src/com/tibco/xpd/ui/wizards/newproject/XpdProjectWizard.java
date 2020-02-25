@@ -578,4 +578,5 @@ public class XpdProjectWizard extends BasicNewXpdResourceWizard {
     public void hideProjectVersion() {
         this.hideProjectVersion = true;
     }
+
 }

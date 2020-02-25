@@ -60,8 +60,7 @@ public class NewJsonSchemaWizard extends BasicNewXpdResourceWizard {
     }
 
     /**
-     * @see com.tibco.xpd.ui.wizards.newproject.BasicNewXpdResourceWizard
-     *      #performFinish()
+     * @see com.tibco.xpd.ui.wizards.newproject.BasicNewXpdResourceWizard #performFinish()
      * 
      * @return true if the JSON schema file was created.
      */

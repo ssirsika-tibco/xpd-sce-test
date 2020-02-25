@@ -5,9 +5,13 @@ package com.tibco.xpd.om.resources.ui.internal.navigator.actions;
 
 import java.util.Collection;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.action.IMenuManager;
@@ -33,6 +37,7 @@ import com.tibco.xpd.om.core.om.provider.OMModelImages;
 import com.tibco.xpd.om.resources.ui.internal.Messages;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.util.GovernanceStateService;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 
 /**
  * Action provider to add a children for OM model's objects in the project
@@ -195,6 +200,9 @@ public class OMAddChildActionProvider extends CommonActionProvider {
                                             .getEditingDomain(),
                                     null);
                     if (descriptors != null) {
+
+                        IProject project = getProjectForSelection(selection.getFirstElement());
+
                         for (Object descriptor : descriptors) {
 
                             CreateAndSelectChildAction newAction =
@@ -204,10 +212,19 @@ public class OMAddChildActionProvider extends CommonActionProvider {
                              * ACE-2473: Saket: Action should be disabled for
                              * locked application.
                              */
-                            if (selection.getFirstElement() instanceof EObject) {
-                                boolean isLocked = (new GovernanceStateService())
-                                        .isLockedForProduction((EObject) (selection.getFirstElement()));
-                                newAction.setEnabled(!isLocked);
+                            if (project != null) {
+                                boolean isLocked;
+                                try {
+                                    /*
+                                     * Sid ACE-2859 Original implementation didn't allow for virtual folders like
+                                     * capabilities etc - so AddChild menu from these never disabled children
+                                     */
+                                    isLocked = (new GovernanceStateService()).isLockedForProduction(project);
+
+                                    newAction.setEnabled(!isLocked);
+
+                                } catch (CoreException e) {
+                                }
                             }
 
                             subMenu.add(newAction);
@@ -219,6 +236,30 @@ public class OMAddChildActionProvider extends CommonActionProvider {
                 menu.appendToGroup(ICommonMenuConstants.GROUP_NEW, subMenu);
             }
         }
+    }
+
+    /**
+     * Get the parent project of the given selection.
+     * @param selection
+     * @return project or <code>null</code> if not found.
+     */
+    private IProject getProjectForSelection(Object selection) {
+        if (selection instanceof IProject) {
+            return (IProject)selection;
+            
+        } else if (selection instanceof ItemProviderAdapter) {
+            /* Handle the virtual folders like capabilities etc */
+            return getProjectForSelection(((ItemProviderAdapter)selection).getTarget());
+           
+        } else if (selection instanceof IResource) {
+            return ((IResource) selection).getProject();
+
+        } else if (selection instanceof EObject) {
+            return WorkingCopyUtil.getProjectFor((EObject) selection);
+        }
+        
+        return null;
+
     }
 
 }

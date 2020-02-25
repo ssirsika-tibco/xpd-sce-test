@@ -51,6 +51,7 @@ import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
 import com.tibco.xpd.resources.ui.XpdResourcesUIActivator;
 import com.tibco.xpd.resources.ui.internal.Messages;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 
 /**
  * New file in special folder creation page. This is similar to the
@@ -312,6 +313,7 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
      * org.eclipse.swt.widgets.Listener#handleEvent(org.eclipse.swt.widgets.
      * Event)
      */
+    @Override
     public void handleEvent(Event event) {
         setPageComplete(validatePage());
     }
@@ -373,6 +375,7 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
         final InputStream initialContents = getInitialContents();
 
         IRunnableWithProgress op = new IRunnableWithProgress() {
+            @Override
             public void run(IProgressMonitor monitor) {
                 CreateFileOperation op =
                         new CreateFileOperation(
@@ -389,6 +392,7 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
                 } catch (final ExecutionException e) {
                     getContainer().getShell().getDisplay()
                             .syncExec(new Runnable() {
+                                @Override
                                 public void run() {
                                     if (e.getCause() instanceof CoreException) {
                                         ErrorDialog
@@ -449,6 +453,7 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
      * org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets
      * .Composite)
      */
+    @Override
     public void createControl(Composite parent) {
         initializeDialogUnits(parent);
         // top level group
@@ -577,10 +582,22 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
             } else {
                 String projectName = containerPath.segment(0);
 
-                if (projectName == null
-                        || !root.getProject(projectName).exists()) {
-                    status =
+                if (projectName != null) {
+                    /* Sid ACE-2859 - Check against locked projects. */
+                    IProject project = root.getProject(projectName);
+
+                    if (!project.exists()) {
+                        status =
                             createErrorStatus(Messages.WizardNewFileInSpecialFolderCreationPage_folderDoedNotExist_message);
+
+                    } else {
+                        try {
+                            if (new GovernanceStateService().isLockedForProduction(project)) {
+                                status = createErrorStatus(Messages.BasicNewXpdResourceWizard_ProjectLockedError);
+                            }
+                        } catch (CoreException e) {
+                        }
+                    }
                 }
 
                 if (status.getSeverity() == IStatus.OK) {
@@ -793,6 +810,7 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
             this.status = status;
         }
 
+        @Override
         public IStatus isValid(Object selection) {
             SpecialFolder sf = null;
 
@@ -807,7 +825,7 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
                     folder = (IFolder) selection;
                 } else if (selection instanceof IAdaptable) {
                     folder =
-                            (IFolder) ((IAdaptable) selection)
+                            ((IAdaptable) selection)
                                     .getAdapter(IFolder.class);
                 }
 

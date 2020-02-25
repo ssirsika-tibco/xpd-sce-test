@@ -78,6 +78,7 @@ public class NewRsdFileWizard extends BasicNewXpdResourceWizard {
         addPage(page);
     }
 
+
     /**
      * {@inheritDoc}
      */

@@ -313,42 +313,51 @@
                type="new"
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.newpackage.wizard">
             <enablement>
-               <or>
-                  <and>
-                     <instanceof
-                           value="org.eclipse.core.resources.IFolder">
-                     </instanceof>
-                     <test
-                           property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
-                           value="processes">
-                     </test>
-                  </and>
-                  <and>
-                     <instanceof
-                           value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
-                     </instanceof>
-                     <test
-                           property="com.tibco.xpd.resources.specialfolder.isOfKind"
-                           value="processes">
-                     </test>
-                  </and>
-                  <and>
-                     <instanceof
-                           value="org.eclipse.core.resources.IFile">
-                     </instanceof>
-                     <test
-                           property="org.eclipse.core.resources.extension"
-                           value="xpdl">
-                     </test>
-                     <test
-                           property="com.tibco.xpd.analyst.resources.xpdl2.isXPDL2Package">
-                     </test>
-                     <test
-                           property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
-                           value="processes">
-                     </test>
-                  </and>
-               </or>
+            	<and>
+            		<not>
+                  		<test
+                        	forcePluginActivation="true"
+                            property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                            value="com.tibco.xpd.resources.lockedForProductionNature">
+                  		</test>
+               		</not>
+               		<or>
+                  		<and>
+                     		<instanceof
+                           		value="org.eclipse.core.resources.IFolder">
+                     		</instanceof>
+                     		<test
+                           		property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                           		value="processes">
+                     		</test>
+                  		</and>
+                  		<and>
+                     		<instanceof
+                           		value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                     		</instanceof>
+                     		<test
+                           		property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                           		value="processes">
+                     		</test>
+                  		</and>
+                  		<and>
+                     		<instanceof
+                           		value="org.eclipse.core.resources.IFile">
+                     		</instanceof>
+                     		<test
+                           		property="org.eclipse.core.resources.extension"
+                           		value="xpdl">
+                     		</test>
+                     		<test
+                           		property="com.tibco.xpd.analyst.resources.xpdl2.isXPDL2Package">
+                     		</test>
+                     		<test
+                           		property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                           		value="processes">
+                     		</test>
+                  		</and>	 
+               		</or>
+                 </and>
             </enablement>
          </commonWizard>
          <commonWizard
@@ -357,6 +366,13 @@
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.newprocess.wizard">
             <enablement>
                <and>
+               	  <not>
+                  	 <test
+                           forcePluginActivation="true"
+                           property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 </test>
+               	  </not>
                   <not>
                      <test
                            args="business_process"
@@ -409,6 +425,13 @@
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.newpageflow.wizard">
             <enablement>
                <and>
+               	  <not>
+                  	 <test
+                           forcePluginActivation="true"
+                           property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 </test>
+               	  </not>
                   <not>
                      <test
                            args="pageflow_process"
@@ -465,6 +488,13 @@
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.newprocessinterface.wizard">
             <enablement>
                <and>
+               	  <not>
+                  	 <test
+                           forcePluginActivation="true"
+                           property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 </test>
+               	  </not>
                   <not>
                      <test
                            args="process_interface"
@@ -515,6 +545,13 @@
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.newparticipant.wizard">
             <enablement>
                <and>
+               	  <not>
+                  	 <test
+                           forcePluginActivation="true"
+                           property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 </test>
+               	  </not>
                   <not>
                      <test
                            args="participant"
@@ -568,6 +605,13 @@
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.newdatafield.wizard">
             <enablement>
                <and>
+               	  <not>
+                  	 <test
+                           forcePluginActivation="true"
+                           property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 </test>
+               	  </not>
                   <not>
                      <test
                            args="datafield"
@@ -628,6 +672,13 @@
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.newcorrelationdata.wizard">
             <enablement>
                <and>
+               	  <not>
+                  	 <test
+                           forcePluginActivation="true"
+                           property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 </test>
+               	  </not>
                   <not>
                      <test
                            args="correlation_data"
@@ -667,6 +718,13 @@
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.newtypedeclaration.wizard">
             <enablement>
                <and>
+               	  <not>
+                  	 <test
+                           forcePluginActivation="true"
+                           property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 </test>
+               	  </not>
                   <not>
                      <test
                            args="type_declaration"
@@ -717,6 +775,13 @@
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.newfp.wizard">
             <enablement>
                <and>
+               	  <not>
+                  	 <test
+                           forcePluginActivation="true"
+                           property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 </test>
+               	  </not>
                   <not>
                      <test
                            args="formal_parameter"
@@ -750,21 +815,30 @@
                type="new"
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.pi.startmethod">
             <enablement>
-               <or>
-                  <and>
-                     <test
-                           property="com.tibco.xpd.analyst.resources.xpdl2.isXpdlFileContent">
-                     </test>
-                     <or>
-                        <instanceof
-                              value="com.tibco.xpd.xpdExtension.StartMethod">
-                        </instanceof>
-                        <instanceof
-                              value="com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.StartMethodGroup">
-                        </instanceof>
-                     </or>
-                  </and>
-               </or>
+            	<and>
+            		<not>
+                  	 <test
+                           forcePluginActivation="true"
+                           property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 </test>
+               	  	</not>
+				  	<or>
+                  		<and>
+                     		<test
+                           		property="com.tibco.xpd.analyst.resources.xpdl2.isXpdlFileContent">
+                     		</test>
+                     		<or>
+                        		<instanceof
+                              		value="com.tibco.xpd.xpdExtension.StartMethod">
+                        		</instanceof>
+                        		<instanceof
+                              		value="com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.StartMethodGroup">
+                        		</instanceof>
+                     		</or>
+                  		</and>
+               	  	</or>
+               </and>
             </enablement>
          </commonWizard>
          <commonWizard
@@ -772,21 +846,30 @@
                type="new"
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.pi.error">
             <enablement>
-               <or>
-                  <and>
-                     <test
-                           property="com.tibco.xpd.analyst.resources.xpdl2.isXpdlFileContent">
-                     </test>
-                     <or>
-                        <instanceof
-                              value="com.tibco.xpd.xpdExtension.ErrorMethod">
-                        </instanceof>
-                        <instanceof
-                              value="com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.EndErrorGroup">
-                        </instanceof>
-                     </or>
-                  </and>
-               </or>
+            	<and>
+            		<not>
+                  		<test
+                           	forcePluginActivation="true"
+                           	property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 	</test>
+               	  	</not>
+               		<or>
+                  		<and>
+                     		<test
+                           		property="com.tibco.xpd.analyst.resources.xpdl2.isXpdlFileContent">
+                     		</test>
+                     		<or>
+                        		<instanceof
+                              		value="com.tibco.xpd.xpdExtension.ErrorMethod">
+                        		</instanceof>
+                        		<instanceof
+                              		value="com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.EndErrorGroup">
+                        		</instanceof>
+                     		</or>
+                  		</and>
+               		</or>
+            	</and>
             </enablement>
          </commonWizard>
          <commonWizard
@@ -794,21 +877,30 @@
                type="new"
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.pi.intermediatemethod">
             <enablement>
-               <or>
-                  <and>
-                     <test
-                           property="com.tibco.xpd.analyst.resources.xpdl2.isXpdlFileContent">
-                     </test>
-                     <or>
-                        <instanceof
-                              value="com.tibco.xpd.xpdExtension.IntermediateMethod">
-                        </instanceof>
-                        <instanceof
-                              value="com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.IntermediateMethodGroup">
-                        </instanceof>
-                     </or>
-                  </and>
-               </or>
+            	<and>
+            		<not>
+                  	 	<test
+                           	forcePluginActivation="true"
+                           	property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 	</test>
+               	  	</not>
+               		<or>
+                  		<and>
+                     		<test
+                           		property="com.tibco.xpd.analyst.resources.xpdl2.isXpdlFileContent">
+                     		</test>
+                     		<or>
+                        		<instanceof
+                              		value="com.tibco.xpd.xpdExtension.IntermediateMethod">
+                        		</instanceof>
+                        		<instanceof
+                              		value="com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.IntermediateMethodGroup">
+                        		</instanceof>
+                     		</or>
+                  		</and>
+               		</or>
+               	</and>
             </enablement>
          </commonWizard>
          <!-- ACE-2011: Remove Unsupported features. ARIS import.
@@ -845,26 +937,35 @@
                type="import"
                wizardId="com.tibco.xpd.importwizard.ipm">
             <enablement>
-               <or>
-                  <and>
-                     <instanceof
-                           value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
-                     </instanceof>
-                     <test
-                           property="com.tibco.xpd.resources.specialfolder.isOfKind"
-                           value="processes">
-                     </test>
-                  </and>
-                  <and>
-                     <instanceof
-                           value="org.eclipse.core.resources.IResource">
-                     </instanceof>
-                     <test
-                           property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
-                           value="processes">
-                     </test>
-                  </and>
-               </or>
+               <and>
+               		<not>
+                  	 	<test
+                           	forcePluginActivation="true"
+                           	property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 	</test>
+               	  	</not>
+               		<or>
+                  		<and>
+                     		<instanceof
+                           		value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                     		</instanceof>
+                     		<test
+                           		property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                           		value="processes">
+                     		</test>
+                  		</and>
+                  		<and>
+                     		<instanceof
+                           		value="org.eclipse.core.resources.IResource">
+                     		</instanceof>
+                     		<test
+                           		property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                           		value="processes">
+                     		</test>
+                  		</and>
+               		</or>
+               	</and>
             </enablement>
          </commonWizard>
          <commonWizard
@@ -1215,6 +1316,13 @@
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.newbusinessservice.wizard">
             <enablement>
                <and>
+               	  <not>
+                  	 <test
+                           forcePluginActivation="true"
+                           property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 </test>
+               	  </not>
                   <not>
                      <test
                            args="business_service"
@@ -1271,6 +1379,13 @@
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.newcaseservice.wizard">
             <enablement>
                <and>
+               	  <not>
+                  	 <test
+                           forcePluginActivation="true"
+                           property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 </test>
+               	  </not>
                   <not>
                      <test
                            args="case_service"
@@ -1327,6 +1442,13 @@
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.newserviceprocess.wizard">
             <enablement>
                <and>
+               	  <not>
+                  	 <test
+                           forcePluginActivation="true"
+                           property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 </test>
+               	  </not>
                   <not>
                      <test
                            args="service_process"
@@ -1383,6 +1505,13 @@
                wizardId="com.tibco.xpd.analyst.resources.xpdl2.newserviceprocessinterface.wizard">
             <enablement>
                <and>
+               	  <not>
+                  	 <test
+                           forcePluginActivation="true"
+                           property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	   value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	 </test>
+               	  </not>
                   <not>
                      <test
                            args="service_process_interface"

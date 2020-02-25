@@ -147,6 +147,8 @@ public class Messages extends NLS {
 
     public static String BOMFileSelectionPage_noBOMSelected_error_message;
 
+    public static String BOMFileSelectionPage_ProjectLocked_error;
+
     public static String CaseClass_label;
 
     public static String CaseDocumentation_label;

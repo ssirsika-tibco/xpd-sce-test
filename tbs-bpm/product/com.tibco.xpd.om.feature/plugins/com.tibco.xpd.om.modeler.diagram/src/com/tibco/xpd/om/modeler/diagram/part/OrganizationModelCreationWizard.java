@@ -67,6 +67,7 @@ public class OrganizationModelCreationWizard extends BasicNewXpdResourceWizard {
     /**
      * @generated NOT
      */
+    @Override
     public void init(IWorkbench workbench, IStructuredSelection selection) {
         super.init(workbench, selection);
         setWindowTitle(Messages.OrganizationModelCreationWizardTitle);
@@ -185,4 +186,5 @@ public class OrganizationModelCreationWizard extends BasicNewXpdResourceWizard {
         }
         return model;
     }
+
 }

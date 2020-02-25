@@ -23,26 +23,35 @@
             type="import"
             wizardId="com.tibco.xpd.nimbus.importprocessmap">
          <enablement>
-               <or>
-                  <and>
-                     <instanceof
-                           value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
-                     </instanceof>
-                     <test
-                           property="com.tibco.xpd.resources.specialfolder.isOfKind"
-                           value="processes">
-                     </test>
-                  </and>
-                  <and>
-                     <instanceof
-                           value="org.eclipse.core.resources.IResource">
-                     </instanceof>
-                     <test
-                           property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
-                           value="processes">
-                     </test>
-                  </and>
-               </or>
+         	<and>
+         		<not>
+                	<test
+                    	forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	</test>
+               	</not>
+               	<or>
+                  	<and>
+                     	<instanceof
+                           	value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                     	</instanceof>
+                     	<test
+                           	property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                           	value="processes">
+                     	</test>
+                  	</and>
+                  	<and>
+                     	<instanceof
+                           	value="org.eclipse.core.resources.IResource">
+                     	</instanceof>
+                     	<test
+                           	property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                           	value="processes">
+                     	</test>
+                  	</and>
+               	</or>
+           	</and>
          </enablement>
       </commonWizard>
    </extension>

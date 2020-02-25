@@ -508,4 +508,6 @@ public class NewDiagramWizard extends BasicNewXpdResourceWizard {
             return Status.OK_STATUS;
         }
     }
+
+
 }

@@ -408,6 +408,8 @@ public class Messages extends NLS {
 
     public static String WCResourceDropAssist_unaccessibleContainer_error_shortdesc;
 
+    public static String BasicNewXpdResourceWizard_ProjectLockedError;
+
     public static String WCResourceDropAssist_unknown_error_message;
 
     public static String WizardNewFileInSpecialFolderCreationPage_creationProblemErr_title;

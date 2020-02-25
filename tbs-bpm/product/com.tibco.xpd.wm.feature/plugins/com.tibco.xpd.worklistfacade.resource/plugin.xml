@@ -137,6 +137,13 @@
          <enablement>
             
                <and>
+               	  <not>
+                	<test
+                    	forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	</test>
+               	  </not>
                   <instanceof
                         value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
                   </instanceof>

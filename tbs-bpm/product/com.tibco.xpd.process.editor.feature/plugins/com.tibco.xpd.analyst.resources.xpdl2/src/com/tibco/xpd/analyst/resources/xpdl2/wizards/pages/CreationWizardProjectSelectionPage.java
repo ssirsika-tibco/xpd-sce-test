@@ -42,11 +42,13 @@ import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.dialogs.ISelectionStatusValidator;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 
+import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
 import com.tibco.xpd.analyst.resources.xpdl2.internal.Messages;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
 import com.tibco.xpd.resources.projectconfig.SpecialFolders;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.resources.util.XpdConsts;
@@ -325,6 +327,17 @@ public abstract class CreationWizardProjectSelectionPage extends WizardPage {
                         IFolder folder = (IFolder) container;
                         setMessage(null);
                         ret = true;
+                    }
+
+                    /* Finally check if the project is locked. */
+                    try {
+                        if (ret && container != null
+                                && new GovernanceStateService().isLockedForProduction(container.getProject())) {
+                            setErrorMessage(Messages.CreationWizardProjectSelectionPage_ProjectLockedError);
+                            ret = false;
+                        }
+                    } catch (CoreException e) {
+                        Xpdl2ResourcesPlugin.getDefault().getLogger().error(e);
                     }
 
                     // Update target container

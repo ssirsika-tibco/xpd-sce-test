@@ -674,6 +674,8 @@ public class Messages extends NLS {
 
     public static String XPDCutToClipboardCommand_shortdesc;
 
+    public static String CreationWizardProjectSelectionPage_ProjectLockedError;
+
     public static String Xpdl2ResourcesConsts_DefaultBusinessVersion_shortdesc;
 
     public static String Xpdl2ResourcesConsts_DefaultPackageName_shortdesc;

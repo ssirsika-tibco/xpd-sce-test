@@ -320,39 +320,45 @@
             type="new"
             wizardId="com.tibco.xpd.gsd.GSDWizardID">
          <enablement>
-            
-            <or>
-            	<and>
-                  <instanceof
-                        value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
-                  </instanceof>
-                  <test
-                        property="com.tibco.xpd.resources.specialfolder.isOfKind"
-                        value="gsd">
-                  </test>
-               	</and>
-               	<and>
-                  <instanceof
-                        value="org.eclipse.core.resources.IFolder">
-                  </instanceof> 
-              	  <test
-                        property= "com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
-                        value= "gsd">
-                  </test>              	
-            	</and>
-            	<and>
-            		<instanceof
-                    	  value="org.eclipse.core.resources.IFile">
-                	</instanceof>
+            <and>
+            	<not>
                 	<test
-                    	  property="org.eclipse.core.resources.extension"
-                      	value="gsd">
-                	</test>
-                </and>
-            </or>
-               
-               
-            </enablement>
+                    	forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	</test>
+               	</not>
+            	<or>
+            		<and>
+                  		<instanceof
+                        	value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                  		</instanceof>
+                  		<test
+                        	property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                        	value="gsd">
+                  		</test>
+               		</and>
+               		<and>
+                  		<instanceof
+                        	value="org.eclipse.core.resources.IFolder">
+                  		</instanceof> 
+              	  		<test
+                        	property= "com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                        	value= "gsd">
+                  		</test>              	
+            		</and>
+            		<and>
+            			<instanceof
+                    	  	value="org.eclipse.core.resources.IFile">
+                		</instanceof>
+                		<test
+                    	  	property="org.eclipse.core.resources.extension"
+                      		value="gsd">
+                		</test>
+                	</and>
+            	</or>
+            </and>
+      	</enablement>
       </commonWizard>
       
        <!--  Wizard for New Global Signal option on GSD file and on a Global Signal-->
@@ -362,27 +368,34 @@
             type="new"
             wizardId="com.tibco.xpd.gsd.GlobalSignalWizardID">
          <enablement>
-            
-            <or>            
-            	<and>
-            		<instanceof
-                    	  value="org.eclipse.core.resources.IFile">
-                	</instanceof>
+         	<and>
+         		<not>
                 	<test
-                    	  property="org.eclipse.core.resources.extension"
-                      	value="gsd">
-               		</test>
-              	</and>
+                    	forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	</test>
+               	</not> 
+            	<or>            
+            		<and>
+            			<instanceof
+                    	  	value="org.eclipse.core.resources.IFile">
+                		</instanceof>
+                		<test
+                    	  	property="org.eclipse.core.resources.extension"
+                      		value="gsd">
+               			</test>
+              		</and>
                  
-                <instanceof
-                     	value="com.tibco.xpd.globalSignalDefinition.GlobalSignal">
-                </instanceof>
+                	<instanceof
+                    	value="com.tibco.xpd.globalSignalDefinition.GlobalSignal">
+                	</instanceof>
                 
-                <instanceof
+                	<instanceof
                      	value="com.tibco.xpd.n2.globalsignal.resource.ui.GlobalSignalsGroup">
-                </instanceof>
-            </or>
-                    
+                	</instanceof>
+            	</or>
+         	</and>    
          </enablement>
       </commonWizard>
       
@@ -393,22 +406,29 @@
             type="new"
             wizardId="com.tibco.xpd.gsd.PayloadDataWizardID">
          <enablement>
-            
-            <or>
-            	<instanceof
-                      value="com.tibco.xpd.globalSignalDefinition.GlobalSignal">
-               	</instanceof>
+            <and>
+            	<not>
+                	<test
+                    	forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	</test>
+               	</not>
+            	<or>
+            		<instanceof
+                      	value="com.tibco.xpd.globalSignalDefinition.GlobalSignal">
+               		</instanceof>
                
-               	<instanceof
-                      value="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
-               	</instanceof>  
+               		<instanceof
+                      	value="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
+               		</instanceof>  
                	
-               	<instanceof
+               		<instanceof
                      	value="com.tibco.xpd.n2.globalsignal.resource.ui.PayloadDataGroup">
-                </instanceof>       
-            </or>
- 
-            </enablement>
+                	</instanceof>       
+            	</or>
+			</and> 
+		</enablement>
       </commonWizard>
       
       <!-- Actions to be put on Global Signals and Payload Data --> 

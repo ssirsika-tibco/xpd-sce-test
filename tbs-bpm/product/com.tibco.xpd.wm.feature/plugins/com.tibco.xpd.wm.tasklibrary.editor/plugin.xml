@@ -348,95 +348,126 @@
                type="new"
                wizardId="com.tibco.xpd.wm.tasklibrary.editor.newtasklibrary.wizard">
             <enablement>
-               <or>
-                  <and>
-                     <instanceof
-                           value="org.eclipse.core.resources.IFolder">
-                     </instanceof>
-                     <test
-                           property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
-                           value="wm">
-                     </test>
-                  </and>
-                  <and>
-                     <instanceof
-                           value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
-                     </instanceof>
-                     <test
-                           property="com.tibco.xpd.resources.specialfolder.isOfKind"
-                           value="wm">
-                     </test>
-                  </and>
-                  <and>
-                     <instanceof
-                           value="org.eclipse.core.resources.IFile">
-                     </instanceof>
-                     <test
-                           property="org.eclipse.core.resources.extension"
-                           value="tasks">
-                     </test>
-                     <test
-                           property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
-                           value="wm">
-                     </test>
-                     <test
-                           property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryFile">
-                     </test>
-                  </and>
-               </or></enablement>
+            	<and>
+            		<not>
+                		<test
+                    		forcePluginActivation="true"
+                        	property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     		value="com.tibco.xpd.resources.lockedForProductionNature">
+                  		</test>
+               		</not>
+               	
+               		<or>
+                  		<and>
+                     		<instanceof
+                           		value="org.eclipse.core.resources.IFolder">
+                     		</instanceof>
+                     		<test
+                           		property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                           		value="wm">
+                     		</test>
+                  		</and>
+                  		<and>
+                     		<instanceof
+                           		value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                     		</instanceof>
+                     		<test
+                           		property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                           		value="wm">
+                     		</test>
+                  		</and>
+                  		<and>
+                     		<instanceof
+                           		value="org.eclipse.core.resources.IFile">
+                     		</instanceof>
+                     		<test
+                           		property="org.eclipse.core.resources.extension"
+                           		value="tasks">
+                     		</test>
+                     		<test
+                           		property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                           		value="wm">
+                     		</test>
+                     		<test
+                           		property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryFile">
+                     		</test>
+                  		</and>
+               		</or>
+            	</and>   		
+       		</enablement>
          </commonWizard>
          <commonWizard
                menuGroupId="additions.taskLibraryContent"
                type="new"
                wizardId="com.tibco.xpd.wm.tasklibrary.editor.newtypedeclaration.wizard">
             <enablement>
-               <or>
-                  <test
-                        property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryFile">
-                  </test>
-                  <test
-                        property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibrary">
-                  </test>
-                  <and>
-                     <test
-                           property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
-                     </test>
-                     <or>
-                        <instanceof
-                              value="com.tibco.xpd.xpdl2.TypeDeclaration">
-                        </instanceof>
-                        <instanceof
-                              value="com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.TypeDeclarationGroup">
-                        </instanceof>
-                     </or>
-                  </and></or></enablement>
+            	<and>
+            		<not>
+                		<test
+                    		forcePluginActivation="true"
+                        	property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     		value="com.tibco.xpd.resources.lockedForProductionNature">
+                  		</test>
+               		</not>
+               		<or>
+                  		<test
+                        	property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryFile">
+                  		</test>
+                  		<test
+                        	property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibrary">
+                  		</test>
+                  		<and>
+                     		<test
+                           		property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
+                     		</test>
+                     		<or>
+                        		<instanceof
+                              		value="com.tibco.xpd.xpdl2.TypeDeclaration">
+                        		</instanceof>
+                        		<instanceof
+                              		value="com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.TypeDeclarationGroup">
+                        		</instanceof>
+                     		</or>
+                  		</and>
+                  	</or>
+            	</and>      	
+        	</enablement>
          </commonWizard>
          <commonWizard
                menuGroupId="additions.taskLibraryContent"
                type="new"
                wizardId="com.tibco.xpd.wm.tasklibrary.editor.newdatafield.wizard">
             <enablement>
-               <or>
-                  <test
-                        property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryFile">
-                  </test>
-                  <test
-                        property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibrary">
-                  </test>
-                  <and>
-                     <test
-                           property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
-                     </test>
-                     <or>
-                        <instanceof
-                              value="com.tibco.xpd.xpdl2.DataField">
-                        </instanceof>
-                        <instanceof
-                              value="com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.DataFieldGroup">
-                        </instanceof>
-                     </or>
-                  </and>
-               </or>
+            	<and>
+            		<not>
+                		<test
+                    		forcePluginActivation="true"
+                        	property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     		value="com.tibco.xpd.resources.lockedForProductionNature">
+                  		</test>
+               		</not>
+               		<or>
+                  		<test
+                        	property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryFile">
+                  		</test>
+                  		<test
+                        	property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibrary">
+                  		</test>
+                  		<and>
+                     		<test
+                           		property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
+                     		</test>
+                     		<or>
+                        		<instanceof
+                              		value="com.tibco.xpd.xpdl2.DataField">
+                        		</instanceof>
+                        		<instanceof
+                              		value="com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.DataFieldGroup">
+                        		</instanceof>
+                     		</or>
+                  		</and>
+               		</or>
+             	</and>
             </enablement>
          </commonWizard>
          <commonWizard
@@ -444,27 +475,36 @@
                type="new"
                wizardId="com.tibco.xpd.wm.tasklibrary.editor.newparticipant.wizard">
             <enablement>
-               <or>
-                  <test
-                        property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryFile">
-                  </test>
-                  <test
-                        property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibrary">
-                  </test>
-                  <and>
-                     <test
-                           property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
-                     </test>
-                     <or>
-                        <instanceof
-                              value="com.tibco.xpd.xpdl2.Participant">
-                        </instanceof>
-                        <instanceof
-                              value="com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.ParticipantGroup">
-                        </instanceof>
-                     </or>
-                  </and>
-               </or>
+            	<and>
+            		<not>
+                		<test
+                    		forcePluginActivation="true"
+                        	property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     		value="com.tibco.xpd.resources.lockedForProductionNature">
+                  		</test>
+               		</not>
+               		<or>
+                  		<test
+                        	property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryFile">
+                  		</test>
+                  		<test
+                        	property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibrary">
+                  		</test>
+                  		<and>
+                     		<test
+                           		property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
+                     		</test>
+                     		<or>
+                        		<instanceof
+                              		value="com.tibco.xpd.xpdl2.Participant">
+                        		</instanceof>
+                        		<instanceof
+                              		value="com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.ParticipantGroup">
+                        		</instanceof>
+                     		</or>
+                  		</and>
+               		</or>
+            	</and>
             </enablement>
          </commonWizard>
          <commonWizard
@@ -472,27 +512,37 @@
                type="new"
                wizardId="com.tibco.xpd.wm.tasklibrary.editor.newtask.wizard">
             <enablement>
-               <or>
-                  <test
-                        property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryFile">
-                  </test>
-                  <test
-                        property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibrary">
-                  </test>
-                  <and>
-                     <test
-                           property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
-                     </test>
-                     <or>
-                        <instanceof
-                              value="com.tibco.xpd.xpdl2.Activity">
-                        </instanceof>
-                        <instanceof
-                              value="com.tibco.xpd.wm.tasklibrary.editor.resources.TasksGroup">
-                        </instanceof>
-                     </or>
-                  </and>
-               </or>
+               	<and>
+               		<not>
+                		<test
+                    		forcePluginActivation="true"
+                        	property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     		value="com.tibco.xpd.resources.lockedForProductionNature">
+                  		</test>
+               		</not>
+               	
+               		<or>
+                  		<test
+                        	property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryFile">
+                  		</test>
+                  		<test
+                        	property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibrary">
+                  		</test>
+                  		<and>
+                     		<test
+                           		property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
+                     		</test>
+                     		<or>
+                        		<instanceof
+                              		value="com.tibco.xpd.xpdl2.Activity">
+                        		</instanceof>
+                        		<instanceof
+                              		value="com.tibco.xpd.wm.tasklibrary.editor.resources.TasksGroup">
+                        		</instanceof>
+                     		</or>
+                  		</and>
+               		</or>
+            	</and>
             </enablement>
          </commonWizard>
          <commonWizard
@@ -501,6 +551,13 @@
                wizardId="com.tibco.xpd.wm.tasklibrary.editor.newusertask.wizard">
             <enablement>
                <and>
+               	  <not>
+                	<test
+                    	forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	</test>
+               	  </not>
                   <test
                         property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
                   </test>
@@ -531,6 +588,13 @@
                wizardId="com.tibco.xpd.wm.tasklibrary.editor.newmanualtask.wizard">
             <enablement>
                <and>
+               	  <not>
+                	<test
+                    	forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	</test>
+               	  </not>
                   <test
                         property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
                   </test>
@@ -561,6 +625,13 @@
                wizardId="com.tibco.xpd.wm.tasklibrary.editor.newservicetask.wizard">
             <enablement>
                <and>
+               	  <not>
+                	<test
+                    	forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	</test>
+               	  </not>
                   <test
                         property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
                   </test>
@@ -589,6 +660,13 @@
                wizardId="com.tibco.xpd.wm.tasklibrary.editor.newsendtask.wizard">
             <enablement>
                <and>
+               	  <not>
+                	<test
+                    	forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	</test>
+               	  </not>
                   <test
                         property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
                   </test>
@@ -617,6 +695,13 @@
                wizardId="com.tibco.xpd.wm.tasklibrary.editor.newscripttask.wizard">
             <enablement>
                <and>
+               	  <not>
+                	<test
+                    	forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	</test>
+               	  </not>
                   <test
                         property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
                   </test>
@@ -637,6 +722,13 @@
                wizardId="com.tibco.xpd.wm.tasklibrary.editor.newsubproctask.wizard">
             <enablement>
                <and>
+               	  <not>
+                	<test
+                    	forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                  	</test>
+               	  </not>
                   <test
                         property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
                   </test>

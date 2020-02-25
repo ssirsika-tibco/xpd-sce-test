@@ -572,8 +572,36 @@
              class="com.tibco.xpd.ui.propertytester.ProjectNatureTester"
              id="com.tibco.xpd.resources.ui.projectNatureTester"
              namespace="com.tibco.xpd.projectNatureTester"
-             properties="hasNature"
+             properties="hasNature, containingProjectHasNature"
              type="org.eclipse.core.resources.IProject">
+       </propertyTester>
+       <propertyTester
+             class="com.tibco.xpd.ui.propertytester.ProjectNatureTester"
+             id="com.tibco.xpd.resources.ui.projectNatureTester.iResource"
+             namespace="com.tibco.xpd.projectNatureTester"
+             properties="containingProjectHasNature"
+             type="org.eclipse.core.resources.IResource">
+       </propertyTester>
+       <propertyTester
+             class="com.tibco.xpd.ui.propertytester.ProjectNatureTester"
+             id="com.tibco.xpd.resources.ui.projectNatureTester.eObject"
+             namespace="com.tibco.xpd.projectNatureTester"
+             properties="containingProjectHasNature"
+             type="org.eclipse.emf.ecore.EObject">
+       </propertyTester>
+       <propertyTester
+             class="com.tibco.xpd.ui.propertytester.ProjectNatureTester"
+             id="com.tibco.xpd.resources.ui.projectNatureTester.iNavigatorGroup"
+             namespace="com.tibco.xpd.projectNatureTester"
+             properties="containingProjectHasNature"
+             type="com.tibco.xpd.ui.propertytester.INavigatorGroup">
+       </propertyTester>
+       <propertyTester
+             class="com.tibco.xpd.ui.propertytester.ProjectNatureTester"
+             id="com.tibco.xpd.resources.ui.projectNatureTester.collection"
+             namespace="com.tibco.xpd.projectNatureTester"
+             properties="containingProjectHasNature"
+             type="java.util.Collection">
        </propertyTester>
     </extension>
     <!-- ACE-2011: Remove Unsupported features. Documentation
