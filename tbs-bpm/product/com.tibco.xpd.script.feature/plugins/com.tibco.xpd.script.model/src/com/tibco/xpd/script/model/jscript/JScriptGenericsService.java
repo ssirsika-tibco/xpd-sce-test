@@ -9,10 +9,12 @@ import java.util.Map;
 
 import org.eclipse.uml2.uml.ClassifierTemplateParameter;
 import org.eclipse.uml2.uml.Parameter;
+import org.eclipse.uml2.uml.ParameterDirectionKind;
 import org.eclipse.uml2.uml.TemplateParameter;
 import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
+import com.tibco.xpd.script.model.client.IUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.JsClass;
 import com.tibco.xpd.script.model.client.JsMethodParam;
 import com.tibco.xpd.script.model.client.JsReference;
@@ -53,8 +55,19 @@ public class JScriptGenericsService {
      * @return true if the type is generic.
      */
     public boolean isGeneric(JsMethodParam param) {
-        boolean isGeneric = false;
         Parameter umlParam = param.getUMLParameter();
+        return isGeneric(umlParam);
+    }
+
+    /**
+     * Checks if a UML parameter is of generic type.
+     * 
+     * @param param
+     *            The param to check.
+     * @return true if the type is generic.
+     */
+    public boolean isGeneric(Parameter umlParam) {
+        boolean isGeneric = false;
         if (umlParam != null) {
             Type type = umlParam.getType();
             if (type != null) {
@@ -116,6 +129,30 @@ public class JScriptGenericsService {
                 JsClass referencedJsClass = ref.getReferencedJsClass();
                 if (referencedJsClass != null) {
                     type = referencedJsClass.getUmlClass();
+                }
+
+            } else if (ext instanceof Parameter && genericContext instanceof IUMLScriptRelevantData) {
+                /*
+                 * Sid ACE-3099 handle array.concat(array).pop().<content assist>
+                 * 
+                 * So if it's a return parameter (only thing we're interested in for content assist) then return it's
+                 * type. If it's a generic then return the type from the generic context.
+                 * 
+                 * It is __possible__ that in this use case the extendedinfo wasn't setup correctly by something and
+                 * should have been setup as a JsReference - that is certainly what happens for array.pop().<content
+                 * assist here>... but that was difficult to track down precisely, so handled things here instead.
+                 * 
+                 * If we get further problems then we will have to pursue the get extendedInfo correct route instead.
+                 */
+                Parameter parameter = (Parameter) ext;
+                IUMLScriptRelevantData umlData = (IUMLScriptRelevantData) genericContext;
+
+                if (ParameterDirectionKind.RETURN_LITERAL.equals(parameter.getDirection())) {
+                    if (isGeneric(parameter) && umlData.getJsClass() != null) {
+                        return umlData.getJsClass().getUmlClass();
+                    } else {
+                        return parameter.getType();
+                    }
                 }
             }
         }

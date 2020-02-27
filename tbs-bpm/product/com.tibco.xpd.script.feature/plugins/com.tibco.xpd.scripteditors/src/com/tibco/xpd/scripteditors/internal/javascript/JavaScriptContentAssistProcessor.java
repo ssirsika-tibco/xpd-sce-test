@@ -32,7 +32,9 @@ import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.DefaultUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.DynamicJsAttribute;
+import com.tibco.xpd.script.model.client.DynamicJsReference;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
+import com.tibco.xpd.script.model.client.IUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.JsAttribute;
 import com.tibco.xpd.script.model.client.JsClass;
 import com.tibco.xpd.script.model.client.JsMethod;
@@ -1005,18 +1007,40 @@ public class JavaScriptContentAssistProcessor extends AbstractTibcoContentAssist
                 MyFollowClass fc2 = getMyFollowClass(csn.getCompletionString(), false);
                 getProposalJsVector(viewer, estring.substring(idx1 + 1), docpos, fc2, outval);
             }
+
             // If myFollowClass is an Array then add proposals for the array instance type
             if (JsConsts.ARRAY.equals(myFollowClass.getClassName())) {
                 IScriptRelevantData genericCtx = myFollowClass.getGenericContext();
-                // Create a dummy attribute to represent the array instance field
-                JsAttribute att = new DynamicJsAttribute(genericCtx.getName(), genericCtx.getType(), false, null, null);
-                MyCompletionStringNode csn = new MyCompletionStringNode(att);
+                
+                /*
+                 * Sid ACE-3099 Nick's original implementation here for support of
+                 * 
+                 * data.array.concant(data.array2)[0].<get content assist here>
+                 * 
+                 * only worked for primitive types because only ever created a dummy DynamicJsAttribute. BOM Classes
+                 * need to be JsReference to work.
+                 */
+                MyCompletionStringNode csn = null;
+                
+                if (genericCtx instanceof IUMLScriptRelevantData) {
+                    // Create a dummy js reference for the given js class
+                    JsClass jsClass = ((IUMLScriptRelevantData) genericCtx).getJsClass();
+                    csn = new MyCompletionStringNode(new DynamicJsReference(genericCtx.getName(), jsClass));
+
+                } else {
+                    // Create a dummy attribute to represent the array instance field
+                    JsAttribute att =
+                            new DynamicJsAttribute(genericCtx.getName(), genericCtx.getType(), false, null, null);
+                    csn = new MyCompletionStringNode(att);
+                }
+                
                 MyFollowClass fc2 = getMyFollowClassForMatchingNode(csn,
                         false,
                         myFollowClass.getGenericContext().getType(),
                         myFollowClass.getGenericContext());
                 getProposalJsVector(viewer, estring.substring(idx1 + 1), docpos, fc2, outval);
             }
+
         } else if (estring.charAt(idx1) == '(') {
             String nextstr = estring.substring(idx0, idx1 + 1);
             String nextstrUC = nextstr.toUpperCase();
@@ -1141,6 +1165,8 @@ public class JavaScriptContentAssistProcessor extends AbstractTibcoContentAssist
         }
         return;
     }
+
+
 
     /**
      * Returns true if this is an entry for the unqualified name of an enumeration.
