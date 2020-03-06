@@ -66,10 +66,6 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
 
     private static final String ADD_ACTIVITY_LOOP_ADDITIONAL_INSTANCES_METHOD = "addActivityLoopAdditionalInstances"; //$NON-NLS-1$
 
-    private static final String GETCONTEXTVARIABLE_METHOD = "getContextVariable"; //$NON-NLS-1$
-
-    private static final String SETCONTEXTVARIABLE_METHOD = "setContextVariable"; //$NON-NLS-1$
-
     private static final String[] activityLoopAdditionalForbiddenContexts = new String[] {};
 
     private static final String[] activityLoopAdditionalAllowedRecursiveContexts =
@@ -307,15 +303,13 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
         }
         if (methodName != null && methodName.equals(ADD_ACTIVITY_LOOP_ADDITIONAL_INSTANCES_METHOD)) {
             validateAddActivityLoopAdditionalInstancesMethod(methodName, token, parameters);
-        } else if (methodName != null
-                && (methodName.equals(GETCONTEXTVARIABLE_METHOD) || methodName.equals(SETCONTEXTVARIABLE_METHOD))) {
-            if (getInput(getInfoObject()) != null) {
-                Process process = Xpdl2ModelUtil.getProcess(getInput(getInfoObject()));
-                if (!Xpdl2ModelUtil.isPageflowBusinessService(process) && !Xpdl2ModelUtil.isPageflow(process)) {
-                    return false;
-                }
-            }
         }
+        
+        /*
+         * Sid ACE-3309 bpm.process.getContextVariable() and setVariable() removed from process JS class, so no need to
+         * validate them out here anymore
+         */
+
         return true;
     }
 
