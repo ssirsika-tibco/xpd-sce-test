@@ -77,7 +77,10 @@ public class SystemActionMigrationTest extends TestCase {
             { "OS", "editHubPolicy" }, //
             { "OS", "openspaceFeatureSetA" }, //
             { "OS", "openspaceFeatureSetB" }, //
-            { "OS", "openspaceFeatureSetC" } //
+            { "OS", "openspaceFeatureSetC" }, //
+
+            { "WSB", "startBusinessService" }, //
+            { "WSB", "applicationConfiguration" } //
     };
 
     // the new actions that are migrated from older actions during migration

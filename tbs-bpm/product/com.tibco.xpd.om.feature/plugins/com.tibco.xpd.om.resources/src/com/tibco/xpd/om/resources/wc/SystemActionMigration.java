@@ -63,7 +63,11 @@ public class SystemActionMigration {
             MigrationAction.delete("OS", "editHubPolicy"), //
             MigrationAction.delete("OS", "openspaceFeatureSetA"), //
             MigrationAction.delete("OS", "openspaceFeatureSetB"), //
-            MigrationAction.delete("OS", "openspaceFeatureSetC") //
+            MigrationAction.delete("OS", "openspaceFeatureSetC"), //
+
+            MigrationAction.delete("WSB", "startBusinessService"), //
+            MigrationAction.delete("WSB", "applicationConfiguration") //
+
     };
 
     /**
