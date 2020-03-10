@@ -2,6 +2,35 @@
 <locations>
 	<location path="${project_loc}\resources\eclipse-411-20190430-163501-delta-pack\eclipse" type="Directory"/>
 	<location path="C:\src\p2\eclipse\eclipse-SDK-4.11-win32-x86_64\eclipse" type="Profile"/>
-	<location id="com.tibco.xpd.product.feature" path="${project_loc}\resources\product-assembly\assembly_tibco_com_tibco_xpd_product_feature_11.0.0.006\source" type="Feature"/>
+	<location id="com.tibco.xpd.product.feature" path="${project_loc}\resources\product-assembly\assembly_tibco_com_tibco_xpd_product_feature_11.0.0.007\source" type="Feature"/>
 </locations>
+	<includeBundles>
+		<feature id="com.tibco.xpd.product.feature"/>
+		<feature id="org.eclipse.e4.core.tools.feature"/>
+		<feature id="org.eclipse.e4.rcp"/>
+		<feature id="org.eclipse.ecf.core.feature"/>
+		<feature id="org.eclipse.ecf.core.ssl.feature"/>
+		<feature id="org.eclipse.ecf.filetransfer.feature"/>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient4.feature"/>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"/>
+		<feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
+		<feature id="org.eclipse.emf.common"/>
+		<feature id="org.eclipse.emf.ecore"/>
+		<feature id="org.eclipse.equinox.executable"/>
+		<feature id="org.eclipse.equinox.p2.core.feature"/>
+		<feature id="org.eclipse.equinox.p2.extras.feature"/>
+		<feature id="org.eclipse.equinox.p2.rcp.feature"/>
+		<feature id="org.eclipse.equinox.p2.user.ui"/>
+		<feature id="org.eclipse.help"/>
+		<feature id="org.eclipse.jdt"/>
+		<feature id="org.eclipse.pde"/>
+		<feature id="org.eclipse.platform"/>
+		<feature id="org.eclipse.rcp"/>
+		<feature id="org.eclipse.rcp.configuration"/>
+		<feature id="org.eclipse.sdk"/>
+		<feature id="org.eclipse.tips.feature"/>
+		<plugin id="org.eclipse.emf.databinding"/>
+		<plugin id="org.eclipse.emf.databinding.edit"/>
+		<plugin id="org.eclipse.emf.edit"/>
+	</includeBundles>
 </target>
