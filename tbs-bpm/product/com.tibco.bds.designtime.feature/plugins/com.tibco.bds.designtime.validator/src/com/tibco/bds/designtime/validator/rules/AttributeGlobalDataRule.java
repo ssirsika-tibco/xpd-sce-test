@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.Classifier;
+import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Generalization;
 import org.eclipse.uml2.uml.PrimitiveType;
@@ -137,7 +138,31 @@ public class AttributeGlobalDataRule implements IValidationRule {
     private void checkAttributeType(IValidationScope scope, Property prop) {
         Type type = prop.getType();
 
-        // Only deal with Primitive Types
+        /* Sid ACE-2505 - handle max length 400 constraint for enumeration values */
+        if (type instanceof Enumeration) {
+            int maxEnumLength = 0;
+
+            EList<EnumerationLiteral> enumLiterals = ((Enumeration) type).getOwnedLiterals();
+
+            if (enumLiterals != null) {
+                for (EnumerationLiteral literal : enumLiterals) {
+                    String name = literal.getName();
+                    if (name != null) {
+                        maxEnumLength = Math.max(maxEnumLength, name.length());
+                    }
+                }
+            }
+
+            if (maxEnumLength > BDSConstants.CASE_DATA_STORE_DEFAULT_MINIMUM_STRING_LENGTH) {
+                String strLength = Integer.toString(BDSConstants.CASE_DATA_STORE_DEFAULT_MINIMUM_STRING_LENGTH);
+                scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_SEARCHABLE_ENUM_LENGTH,
+                        BOMValidationUtil.getLocation(prop),
+                        prop.eResource().getURIFragment(prop),
+                        Collections.singleton(strLength));
+            }
+        }
+
+        // Else Only deal with Primitive Types
         if (!(type instanceof PrimitiveType)) {
             return;
         }

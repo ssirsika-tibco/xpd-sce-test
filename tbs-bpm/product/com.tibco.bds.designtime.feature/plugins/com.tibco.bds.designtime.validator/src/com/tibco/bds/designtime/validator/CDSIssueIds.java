@@ -118,6 +118,9 @@ public interface CDSIssueIds {
     public static final String ATTRIBUTE_GLOBAL_TYPE_SEARCHABLE_LENGTH =
             "bom.cds.attribute.global.type.searchable.length.issue"; //$NON-NLS-1$
 
+    public static final String ATTRIBUTE_GLOBAL_TYPE_SEARCHABLE_ENUM_LENGTH =
+            "bom.cds.attribute.global.type.searchable.enum.length.issue"; //$NON-NLS-1$
+
     public static final String ATTRIBUTE_GLOBAL_ASSOCIATION_MANDATORY =
             "bom.cds.attribute.global.association.mandatory.issue"; //$NON-NLS-1$
 
