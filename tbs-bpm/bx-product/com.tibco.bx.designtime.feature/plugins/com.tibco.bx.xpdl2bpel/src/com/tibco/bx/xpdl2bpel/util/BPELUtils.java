@@ -432,8 +432,11 @@ public class BPELUtils {
         		for (Object object : extensibilityElements) {
 					if (object instanceof ExtensibilityElement) {
 						ExtensibilityElement extensibilityElement = (ExtensibilityElement)object;
-						if (extensibilityElement.getElement().hasAttribute(nameStr)) {
-							extensibilityElement.getElement().removeAttribute(nameStr);
+						/* Sid ACE-3332 Should check for nulls here in case an extension element doesn't have attributes etc (in which case I don't think it will have an element set. */
+						if (extensibilityElement.getElement() != null) {
+    						if (extensibilityElement.getElement().hasAttribute(nameStr)) {
+    							extensibilityElement.getElement().removeAttribute(nameStr);
+    						}
 						}
 					}
 				}

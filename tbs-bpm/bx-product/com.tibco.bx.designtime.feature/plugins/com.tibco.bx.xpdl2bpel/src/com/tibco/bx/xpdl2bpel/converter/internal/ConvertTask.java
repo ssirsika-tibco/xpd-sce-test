@@ -186,6 +186,12 @@ public class ConvertTask {
                 org.eclipse.bpel.model.Variables variables = context.getVariables(xpdlActivity);
                 scope.setVariables(variables);
                 scope.setActivity(sequence);
+                
+                /*
+                 * Sid ACE-3332 add parameters definitions to the incoming request activity.
+                 */
+                ConvertEventHandlers.addIncomingRequestParameters(xpdlActivity, scope);
+
                 return scope;
             } else {
                 String msg = String.format(Messages.getString("ConvertTask.taskReceiveMsgAndOp"), new Object[]{((Task)taskReceive.eContainer()).getActivity().getName()}); //$NON-NLS-1$

@@ -6315,11 +6315,20 @@ public class Xpdl2ModelUtil {
                             && !(act.eContainer() instanceof ActivitySet)) {
                         result = true;
                     }
+                    /* Sid ACE-3332 In ACE, Start event type non in main process OR event sub-process is an API activity (generic incoming request event handler). */
+                    else if (isEventSubProcessStartEvent(act)) {
+                        result = true;
+                    }
+
                 }
 
             } else if (event instanceof IntermediateEvent) {
                 IntermediateEvent interEv = (IntermediateEvent) event;
-                if (interEv.getTriggerResultMessage() != null) {
+                /* Sid ACE-3332 Intermediate catch type none is an API activity in ACE */
+                if (TriggerType.NONE_LITERAL.equals(((IntermediateEvent) event).getTrigger())) {
+                    result = true;
+
+                } else if (interEv.getTriggerResultMessage() != null) {
                     //
                     // Catch message events are always API events.
                     // (Throw message event is also API activity if it is

@@ -412,6 +412,12 @@ public class ConvertEvent {
         org.eclipse.bpel.model.Variables variables = context.getVariables(xpdlActivity);
         scope.setVariables(variables);
         scope.setActivity(sequence);
+        
+        /*
+         * Sid ACE-3332 add parameters definitions to the incoming request activity.
+         */
+        ConvertEventHandlers.addIncomingRequestParameters(xpdlActivity, scope);
+
         return scope;
     }
     

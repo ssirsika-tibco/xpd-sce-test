@@ -863,7 +863,11 @@ public class ConvertBoundaryEvents {
 	    Scope scope4OnEvent = wrapInScope(context, theMappingActivity, xpdlActivity);
 	    onEvent.setActivity(scope4OnEvent);
 	    
-
+        /*
+         * Sid ACE-3332 add parameters definitions to the incoming request activity.
+         */
+        ConvertEventHandlers.addIncomingRequestParameters(xpdlActivity, theMappingActivity);
+        
 	}
 
 	public static Variable makeFanVariable(ConverterContext context, boolean setInitValue) {

@@ -357,6 +357,12 @@ public class ConvertPick {
         context.syncXpdlId(assign, task.getXpdlActivity());
         BPELUtils.setType(assign, type);	
         BPELUtils.setLabel(assign, task.getXpdlActivity());
+        
+        /*
+         * Sid ACE-3332 add parameters definitions to the incoming request activity.
+         */
+        ConvertEventHandlers.addIncomingRequestParameters(task.getXpdlActivity(), assign);
+        
         ConvertProcess.convertTaskScripts(context, assign, task.getXpdlActivity(), 2);
         onMessage.setActivity(assign);
         task.setBpelReference(assign);

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.wsdl.extensions.ElementExtensible;
 import javax.xml.namespace.QName;
 
 import org.eclipse.bpel.model.Assign;
@@ -267,7 +268,10 @@ public class ConvertEventHandlers {
                 }
             }
             
-            //TODO ???
+            /*
+             * Even though it's an Event Type None - runtime BP wants us to still tag this as a cathc message (to
+             * signify a REST entry point into process I guess.
+             */
             if (eventHandlerTask.getEventHandlerBody().isEventSubProcess()) {
                 BPELUtils.setType(theMappingActivity, N2PEConstants.MESSAGE_START_EVENT_TYPE);
             } else {
@@ -275,6 +279,12 @@ public class ConvertEventHandlers {
             }
             BPELUtils.setLabel(theMappingActivity, xpdlActivity);
             context.syncXpdlId(theMappingActivity, xpdlActivity);
+            
+            /*
+             * Sid ACE-3332 add parameters definitions to the incoming request activity.
+             */
+            addIncomingRequestParameters(xpdlActivity, theMappingActivity);
+            
             // set task scripts
             final int SCRIPT_COMPLETED_ONLY = 2;
             ConvertProcess.convertTaskScripts(context, theMappingActivity, xpdlActivity, SCRIPT_COMPLETED_ONLY);
@@ -338,7 +348,19 @@ public class ConvertEventHandlers {
 		ie.setEventId(eventId);
     	onReceiveEvent.setEventSource(ie);
     	
-    	// add parameter info
+    	// add parameter info - Sid ACE-3332 refactored to reusable function
+        addIncomingRequestParameters(xpdlActivity, onReceiveEvent);
+    	
+		return onReceiveEvent;
+	}
+
+    /**
+     * Add the appropriate parameter set to the given incoming request activity according to the data associations of thye xpdlActivity
+     * 
+     * @param xpdlActivity
+     * @param incomingRequestBpelActivity the BPEL activity to add the bpel <parameters> element to.
+     */
+    public static void addIncomingRequestParameters(Activity xpdlActivity, ElementExtensible incomingRequestBpelActivity) {
         Collection<ActivityInterfaceData> xx = ActivityInterfaceDataUtil.getActivityInterfaceData(xpdlActivity);
         Parameters parameters = ExtensionsFactory.eINSTANCE.createParameters();
         List parametersList = parameters.getParameters();
@@ -353,11 +375,9 @@ public class ConvertEventHandlers {
             parametersList.add(parmDescription);
         }
         if (parametersList.size()>0) {
-        	onReceiveEvent.getExtensibilityElements().add(parameters);
+        	incomingRequestBpelActivity.getExtensibilityElements().add(parameters);
         }
-    	
-		return onReceiveEvent;
-	}
+    }
 
 	private static OnReceiveEvent convertCancelEventHandler(ConverterContext context, AnalyzerTask eventHandlerTask) throws ConversionException {
 		Activity xpdlActivity = eventHandlerTask.getXpdlActivity();

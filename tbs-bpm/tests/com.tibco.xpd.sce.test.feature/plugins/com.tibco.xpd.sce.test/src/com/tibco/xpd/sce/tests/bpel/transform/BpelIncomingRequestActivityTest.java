@@ -116,6 +116,13 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
             assertTrue("Missing assigne of the onMessage of the pick", assign.isPresent());
             // check the tibex type of the assignment
             assertAttrNsValue(assign.get(), TIBEX_NS, "type", "catchMessageIntermediateEvent");
+
+            // Sid ACE-3332 Check parameters are added
+            Optional<Node> paramDesc = findChildElement(assign.get(), "tibex:parameters/parameterDescription");
+            assertTrue("Missing tibex:parameters/parameterDescription", paramDesc.isPresent());
+            assertAttrValue(paramDesc.get(), "name", "Parameter");
+            assertAttrValue(paramDesc.get(), "mode", "In");
+            assertAttrValue(paramDesc.get(), "mandatory", "yes");
         }
         // Check second pick with atrr name="_BX_pick_2"
         {
@@ -138,6 +145,13 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
             assertTrue("Missing assigne of the onMessage of the pick", assign.isPresent());
             // check the tibex type of the assignment
             assertAttrNsValue(assign.get(), TIBEX_NS, "type", "receiveTask");
+
+            // Sid ACE-3332 Check parameters are added
+            Optional<Node> paramDesc = findChildElement(assign.get(), "tibex:parameters/parameterDescription");
+            assertTrue("Missing tibex:parameters/parameterDescription", paramDesc.isPresent());
+            assertAttrValue(paramDesc.get(), "name", "Parameter");
+            assertAttrValue(paramDesc.get(), "mode", "In");
+            assertAttrValue(paramDesc.get(), "mandatory", "yes");
         }
     }
 
@@ -167,6 +181,13 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
                         && hasAttrNsValue(node, TIBEX_NS, "xpdlId", "_fB8G0K1eEemheL-rDtMNiw"));
         assertTrue("Element assign is missing.", assign.isPresent());
         assertAttrNsValue(assign.get(), TIBEX_NS, "type", "messageStartEvent");
+
+        // Sid ACE-3332 Check parameters are added
+        Optional<Node> paramDesc = findChildElement(assign.get(), "tibex:parameters/parameterDescription");
+        assertTrue("Missing tibex:parameters/parameterDescription", paramDesc.isPresent());
+        assertAttrValue(paramDesc.get(), "name", "login");
+        assertAttrValue(paramDesc.get(), "mode", "In");
+        assertAttrValue(paramDesc.get(), "mandatory", "yes");
 
     }
 
@@ -201,6 +222,14 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         assertTrue("Complete sctipt is missing.", completedScript.isPresent());
         assertAttrValue(completedScript.get(), "expressionLanguage", "urn:tibco:wsbpel:2.0:sublang:javascript");
         assertEquals("Script content invalid", "var x = \"complete\";", completedScript.get().getTextContent());
+
+        // Sid ACE-3332 Check parameters are added
+        Optional<Node> paramDesc = findChildElement(assign.get(), "tibex:parameters/parameterDescription");
+        assertTrue("Missing tibex:parameters/parameterDescription", paramDesc.isPresent());
+        assertAttrValue(paramDesc.get(), "name", "login");
+        assertAttrValue(paramDesc.get(), "mode", "In");
+        assertAttrValue(paramDesc.get(), "mandatory", "yes");
+
     }
 
     /**
@@ -234,6 +263,14 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
 
         Optional<Node> assign = findChildElement(scopeElem, "bpws:sequence/bpws:assign");
         assertTrue("Element assign is missing.", assign.isPresent());
+
+        // Sid ACE-3332 Check parameters are added
+        Optional<Node> paramDesc = findChildElement(scopeElem, "tibex:parameters/parameterDescription");
+        assertTrue("Missing tibex:parameters/parameterDescription", paramDesc.isPresent());
+        assertAttrValue(paramDesc.get(), "name", "login");
+        assertAttrValue(paramDesc.get(), "mode", "In");
+        assertAttrValue(paramDesc.get(), "mandatory", "yes");
+
     }
 
     /**
@@ -273,6 +310,13 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         // ACE-2388 check if correlateImmediate is set
         assertAttrNsValue(receive.get(), TIBEX_NS, "correlateImmediate", "yes");
 
+        // Sid ACE-3332 Check parameters are added
+        Optional<Node> paramDesc = findChildElement(receiveTaskScope.get(), "tibex:parameters/parameterDescription");
+        assertTrue("Missing tibex:parameters/parameterDescription", paramDesc.isPresent());
+        assertAttrValue(paramDesc.get(), "name", "login");
+        assertAttrValue(paramDesc.get(), "mode", "In");
+        assertAttrValue(paramDesc.get(), "mandatory", "yes");
+
     }
 
     /**
@@ -302,6 +346,13 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         assertTrue("Missing bpws:assign", assign.isPresent());
         assertAttrNsValue(assign.get(), TIBEX_NS, "type", "boundaryMessageEvent");
         assertAttrValue(assign.get(), "name", "IntermediateEvent");
+
+        // Sid ACE-3332 Check parameters are added
+        Optional<Node> paramDesc = findChildElement(assign.get(), "tibex:parameters/parameterDescription");
+        assertTrue("Missing tibex:parameters/parameterDescription", paramDesc.isPresent());
+        assertAttrValue(paramDesc.get(), "name", "login");
+        assertAttrValue(paramDesc.get(), "mode", "In");
+        assertAttrValue(paramDesc.get(), "mandatory", "yes");
 
         // Checking _BX_fanVariable
         Optional<Node> copyFrom = findChildElement(assign.get(), "bpws:copy/bpws:from");
