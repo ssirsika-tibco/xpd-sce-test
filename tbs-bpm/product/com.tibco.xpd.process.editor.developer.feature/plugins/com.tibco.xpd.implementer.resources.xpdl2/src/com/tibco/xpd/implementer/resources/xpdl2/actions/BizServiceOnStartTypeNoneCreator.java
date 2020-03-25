@@ -14,7 +14,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.implementer.resources.xpdl2.internal.Messages;
-import com.tibco.xpd.processeditor.xpdl2.preCommit.UpdateCallSubProcessMappings;
+import com.tibco.xpd.processeditor.xpdl2.preCommit.AddSubProcInputMappingsFromFieldsCommand;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.processwidget.ProcessWidget.ProcessWidgetType;
 import com.tibco.xpd.processwidget.adapters.TaskType;
@@ -296,7 +296,7 @@ public class BizServiceOnStartTypeNoneCreator extends AbstractProcessCreator {
                     /*
                      * Update call sub-process mappings.
                      */
-                    cmpdCmd.append(new UpdateCallSubProcessMappings(
+                    cmpdCmd.append(new AddSubProcInputMappingsFromFieldsCommand(
                             editingDomain, activity));
 
                     /*
