@@ -30,9 +30,8 @@ public class UpdateMappingsCommandFactory {
             EditingDomain editingDomain, EObject eObj) {
         if (JAVA_SCRIPT.equals(getScriptGrammar(eObj))) {
             return new UpdateJavaScriptMappingsCommand(editingDomain, eObj);
-        } else if (XPATH.equals(getScriptGrammar(eObj))) {
-            return new UpdateXPathMappingCommand(editingDomain, eObj);
         }
+        // Sid ACE-3321: some tidying up of ACE-unsupported stuff
         return null;
     }
 
