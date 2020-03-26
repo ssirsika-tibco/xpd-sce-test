@@ -276,8 +276,25 @@ public class RascExportOperation implements IRunnableWithProgress {
     private IFile getWorkspacePath(IProject project) throws CoreException {
         IFolder workspacePath = project.getFolder(path);
         mkdirs(workspacePath);
-        StringBuilder fileName = new StringBuilder();
+
+        /* Sid ACE-3299: refactored RASC file name building for re-use in non-workspace folder output. */
+        StringBuilder fileName = getRascFileName(project);
+
+        return workspacePath.getFile(fileName.toString());
+    }
+
+    /**
+     * Sid ACE-3299
+     * 
+     * @param project
+     * @return The correct name for the RASC fpr the given project
+     * 
+     * @throws CoreException
+     */
+    public StringBuilder getRascFileName(IProject project) throws CoreException {
         GovernanceStateService gss = new GovernanceStateService();
+
+        StringBuilder fileName = new StringBuilder();
         fileName.append(project.getName());
         fileName.append("-"); //$NON-NLS-1$
         if (gss.isLockedForProduction(project)) {
@@ -303,7 +320,7 @@ public class RascExportOperation implements IRunnableWithProgress {
             }
         }
         fileName.append(".rasc"); //$NON-NLS-1$
-        return workspacePath.getFile(fileName.toString());
+        return fileName;
     }
 
     /**
@@ -338,7 +355,11 @@ public class RascExportOperation implements IRunnableWithProgress {
         if (!parent.exists() && !parent.mkdirs()) {
             throw new CoreException(Status.CANCEL_STATUS);
         }
-        return new File(parent, project.getName() + ".rasc"); //$NON-NLS-1$
+
+        StringBuilder fileName = getRascFileName(project);
+
+        /* Sid ACE-3299: Use governance state and version suffixes for non workspace folder RASCs too. */
+        return new File(parent, fileName.toString()); // $NON-NLS-1$
     }
 
 }
