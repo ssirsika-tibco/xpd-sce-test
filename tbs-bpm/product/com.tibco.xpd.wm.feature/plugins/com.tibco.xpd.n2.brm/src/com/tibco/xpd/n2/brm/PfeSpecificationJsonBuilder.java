@@ -199,6 +199,9 @@ public class PfeSpecificationJsonBuilder {
 
         commonSvcModel.put("processName", process.getName()); //$NON-NLS-1$
 
+        /* Sid ACE-3399: Add process label so that runtime can access it. */
+        commonSvcModel.put("processLabel", Xpdl2ModelUtil.getDisplayNameOrName(process)); //$NON-NLS-1$
+
         if (channelsModel != null && !channelsModel.isEmpty()) {
             commonSvcModel.put("channels", channelsModel); //$NON-NLS-1$
         }
