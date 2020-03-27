@@ -139,26 +139,31 @@ public class AttributeGlobalDataRule implements IValidationRule {
         Type type = prop.getType();
 
         /* Sid ACE-2505 - handle max length 400 constraint for enumeration values */
+        boolean isSearchable = BOMGlobalDataUtils.isSearchable(prop);
+        boolean isStateAttribute = BOMGlobalDataUtils.isCaseState(prop);
+
         if (type instanceof Enumeration) {
-            int maxEnumLength = 0;
+            if (isSearchable || isStateAttribute) {
+                int maxEnumLength = 0;
 
-            EList<EnumerationLiteral> enumLiterals = ((Enumeration) type).getOwnedLiterals();
+                EList<EnumerationLiteral> enumLiterals = ((Enumeration) type).getOwnedLiterals();
 
-            if (enumLiterals != null) {
-                for (EnumerationLiteral literal : enumLiterals) {
-                    String name = literal.getName();
-                    if (name != null) {
-                        maxEnumLength = Math.max(maxEnumLength, name.length());
+                if (enumLiterals != null) {
+                    for (EnumerationLiteral literal : enumLiterals) {
+                        String name = literal.getName();
+                        if (name != null) {
+                            maxEnumLength = Math.max(maxEnumLength, name.length());
+                        }
                     }
                 }
-            }
 
-            if (maxEnumLength > BDSConstants.CASE_DATA_STORE_DEFAULT_MINIMUM_STRING_LENGTH) {
-                String strLength = Integer.toString(BDSConstants.CASE_DATA_STORE_DEFAULT_MINIMUM_STRING_LENGTH);
-                scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_SEARCHABLE_ENUM_LENGTH,
-                        BOMValidationUtil.getLocation(prop),
-                        prop.eResource().getURIFragment(prop),
-                        Collections.singleton(strLength));
+                if (maxEnumLength > BDSConstants.CASE_DATA_STORE_DEFAULT_MINIMUM_STRING_LENGTH) {
+                    String strLength = Integer.toString(BDSConstants.CASE_DATA_STORE_DEFAULT_MINIMUM_STRING_LENGTH);
+                    scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_SEARCHABLE_ENUM_LENGTH,
+                            BOMValidationUtil.getLocation(prop),
+                            prop.eResource().getURIFragment(prop),
+                            Collections.singleton(strLength));
+                }
             }
         }
 
@@ -179,8 +184,7 @@ public class AttributeGlobalDataRule implements IValidationRule {
                     prop.eResource().getURIFragment(prop));
         }
 
-        // Check to see if this attribute is search-able
-        boolean isSearchable = BOMGlobalDataUtils.isSearchable(prop);
+        // Check to see if this attribute is supported type to be search-able
         if (isSearchable) {
             if (PrimitivesUtil.BOM_PRIMITIVE_ID_NAME.equals(primType.getName())) {
                 scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_NOT_SEARCHABLE,
