@@ -177,17 +177,11 @@ public class BRMGenerator {
     private static final String NULL_CHECK_BLOCK_SCRIPT =
             "if(%1s == null) {%n \tbpm.workManager.getWorkItem().workItemAttributes.%2s = null; %n \tLog.write(\"%3s\");%n}"; //$NON-NLS-1$
 
-    private static final String NULL_CHECK_BLOCK_SCRIPT_FOR_INTEGER =
-            "if(%1s == null) {%n \tbpm.workManager.getWorkItem().workItemAttributes.%2s = 0; %n \tLog.write(\"%3s\");%n}"; //$NON-NLS-1$
-
     private static final String LOG_STATEMENT_SCRIPT =
             "%1s/%2s: Info: Work item attribute mapping: mapping from attribute `%3s` was unset because parent element `%4s` of source path `%5s` is null."; //$NON-NLS-1$
 
     private static final String MAPPING_ASSIGNMENT_SCRIPT =
             " bpm.workManager.getWorkItem().workItemAttributes.%1s = %2s; %n"; //$NON-NLS-1$
-
-    private static final String MAPPING_ASSIGNMENT_SCRIPT_INTEGER =
-            "if \t(%1s == null) {%n \t bpm.workManager.getWorkItem().workItemAttributes.%2s = 0; %n} else {%n \tbpm.workManager.getWorkItem().workItemAttributes.%3s = %4s; %n }%n%n"; //$NON-NLS-1$
 
     /** Work list facade runtime model base name. */
     private static final String WLF_MODULE_FILE_NAME_BASE = "workListFacade"; //$NON-NLS-1$
@@ -907,12 +901,11 @@ public class BRMGenerator {
              */
             while (element < elementsInHierarchy - 1) {
                 /*
-                 * XPD-6542: Integer Attributes should be assigned 0 , when Proc
-                 * Data is null
+                 * Sid ACE-3329: For ACE runtime team have requested that we allow integer attributes to be set to null
+                 * rather than forcing them to null (which they always used to be until XPD-6033 where we were requested
+                 * to set them to 0 by runtime team for AMX-BPM)
                  */
-                String nullCheckScriptBlock = (integerAttribute(attributeName))
-                        ? NULL_CHECK_BLOCK_SCRIPT_FOR_INTEGER
-                        : NULL_CHECK_BLOCK_SCRIPT;
+                String nullCheckScriptBlock = NULL_CHECK_BLOCK_SCRIPT;
 
                 script.append(generateNullCheckScriptFor(attributeName,
                         parentElementFullPath.toString(),
@@ -928,22 +921,16 @@ public class BRMGenerator {
 
             }
             String assignmentScript = null;
-            // XPD-6033: Handle Integer Attributes for Null values.
-            if (integerAttribute(attributeName)) {
-                // Append Block for Mapped element Assignment
-                assignmentScript =
-                        String.format(MAPPING_ASSIGNMENT_SCRIPT_INTEGER,
-                                qualifiedNameOfProcessData,
-                                attributeName,
-                                attributeName,
-                                qualifiedNameOfProcessData);
-            } else {
-                // Append Block for Mapped element Assignment
-                assignmentScript = String.format(MAPPING_ASSIGNMENT_SCRIPT,
-                        attributeName,
-                        qualifiedNameOfProcessData);
+            
+            /*
+             * Sid ACE-3329: For ACE runtime team have requested that we allow integer attributes to be set to null
+             * rather than forcing them to null (which they always used to be until XPD-6033 where we were requested to
+             * set them to 0 by runtime team for AMX-BPM)
+             */
 
-            }
+            // Append Block for Mapped element Assignment
+            assignmentScript = String.format(MAPPING_ASSIGNMENT_SCRIPT, attributeName, qualifiedNameOfProcessData);
+
             if (mappingSrcPathElements.length == 1) {
                 return assignmentScript;
             }
