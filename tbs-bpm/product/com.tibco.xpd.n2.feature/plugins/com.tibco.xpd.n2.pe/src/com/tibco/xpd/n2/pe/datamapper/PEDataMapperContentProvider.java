@@ -81,12 +81,12 @@ class PEDataMapperContentProvider extends
             children.add(new StaticContentDataMapperElement("name", //$NON-NLS-1$
                     "Process_Name$", PROCESS_SCRIPT_OBJECT + ".getName()", //$NON-NLS-1$ //$NON-NLS-2$
                     BasicTypeType.STRING_LITERAL, true, processFolder));
-            children.add(new StaticContentDataMapperElement("originator", //$NON-NLS-1$
-                    "Process_originator$", PROCESS_SCRIPT_OBJECT + ".getOriginator()", //$NON-NLS-1$ //$NON-NLS-2$
-                    BasicTypeType.STRING_LITERAL, true, processFolder));
-            children.add(new StaticContentDataMapperElement("originatorName", //$NON-NLS-1$
-                    "Process_originatorName$", PROCESS_SCRIPT_OBJECT + ".getOriginatorName()", //$NON-NLS-1$ //$NON-NLS-2$
-                    BasicTypeType.STRING_LITERAL, true, processFolder));
+            /*
+             * Sid ACE-3397 The getOriginator() and getOriginatorname() properties arwe no longer available in the
+             * JavaScript bpm.process object. Therefore removed from this static Process object in mappings
+             * contributions.
+             */
+
             children.add(new StaticContentDataMapperElement("parentProcessId", //$NON-NLS-1$
                     "Process_parentProcessId$", PROCESS_SCRIPT_OBJECT + ".getParentProcessId()", //$NON-NLS-1$ //$NON-NLS-2$
                     BasicTypeType.STRING_LITERAL, true, processFolder));
