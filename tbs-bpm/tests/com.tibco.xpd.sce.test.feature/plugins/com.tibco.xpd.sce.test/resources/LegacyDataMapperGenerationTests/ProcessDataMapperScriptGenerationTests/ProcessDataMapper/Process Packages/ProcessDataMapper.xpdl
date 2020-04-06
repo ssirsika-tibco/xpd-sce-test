@@ -549,22 +549,6 @@ if (data.TopParam == null) {
 // Map from 'Process.moduleName' to 'TopParam.topAttr'
 data.TopParam.topAttr = bpm.process.getModuleName();
 
-// Create target 'TopParam.middleSingleInst' if it doesn't exist.
-if (data.TopParam.middleSingleInst == null) {
-    data.TopParam.middleSingleInst = factory.com_example_bdp.createMiddle();
-}
-
-// Map from 'Process.originator' to 'TopParam.middleSingleInst.middleAttr'
-data.TopParam.middleSingleInst.middleAttr = bpm.process.getOriginator();
-
-// Create target 'TopParam.middleSingleInst.bottomSingleInst' if it doesn't exist.
-if (data.TopParam.middleSingleInst.bottomSingleInst == null) {
-    data.TopParam.middleSingleInst.bottomSingleInst = factory.com_example_bdp.createBottom();
-}
-
-// Map from 'Process.originatorName' to 'TopParam.middleSingleInst.bottomSingleInst.bottomAttr'
-data.TopParam.middleSingleInst.bottomSingleInst.bottomAttr = bpm.process.getOriginatorName();
-
 // Map from 'IntField' to 'Process.priority'
 if (data != null) {
     bpm.process.priority = data.IntField;
@@ -587,12 +571,6 @@ if (data != null) {
                       </xpdExt:DataMapping>
                       <xpdExt:DataMapping xpdExt:SourceContributorId="ProcessManager.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam.topAttr">
                         <xpdl2:Actual ScriptGrammar="JavaScript">Process_moduleName$</xpdl2:Actual>
-                      </xpdExt:DataMapping>
-                      <xpdExt:DataMapping xpdExt:SourceContributorId="ProcessManager.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam.middleSingleInst.middleAttr">
-                        <xpdl2:Actual ScriptGrammar="JavaScript">Process_originator$</xpdl2:Actual>
-                      </xpdExt:DataMapping>
-                      <xpdExt:DataMapping xpdExt:SourceContributorId="ProcessManager.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam.middleSingleInst.bottomSingleInst.bottomAttr">
-                        <xpdl2:Actual ScriptGrammar="JavaScript">Process_originatorName$</xpdl2:Actual>
                       </xpdExt:DataMapping>
                       <xpdExt:DataMapping xpdExt:SourceContributorId="ProcessManager.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="IntParam">
                         <xpdl2:Actual ScriptGrammar="JavaScript">Process_priority$</xpdl2:Actual>
