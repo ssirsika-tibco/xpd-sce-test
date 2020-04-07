@@ -23,8 +23,6 @@ import org.eclipse.ui.forms.widgets.Section;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
-import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
-import com.tibco.xpd.processwidget.adapters.TaskType;
 import com.tibco.xpd.ui.properties.ExpandableSectionStacker;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
 import com.tibco.xpd.xpdExtension.AssociatedCorrelationField;
@@ -352,10 +350,11 @@ public class AssociatedParameterWithCorrelationSection extends
                                 return true;
                             }
                         }
-                    } else if (TaskType.RECEIVE_LITERAL.equals(TaskObjectUtil
-                            .getTaskTypeStrict(activity))) {
-                        return true;
                     }
+                    /*
+                     * Sid ACE-3392 There is no correlation for receive tasks any more don't show interfac tab with
+                     * correlation data anymore.
+                     */
                 }
             }
         }

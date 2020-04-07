@@ -82,7 +82,7 @@ public class ActivityAssociatedParameterSection extends
         if (toTest instanceof EObject) {
             eo = (EObject) toTest;
         } else if (toTest instanceof IAdaptable) {
-            eo = (EObject) ((IAdaptable) toTest).getAdapter(EObject.class);
+            eo = ((IAdaptable) toTest).getAdapter(EObject.class);
         }
         if (eo != null) {
             if (Xpdl2Package.eINSTANCE.getActivity().isSuperTypeOf(eo.eClass())) {
@@ -173,6 +173,7 @@ public class ActivityAssociatedParameterSection extends
                 case TaskType.NONE:
                 case TaskType.MANUAL:
                 case TaskType.DTABLE:
+                case TaskType.RECEIVE: /* Sid ACE-3392 Show standard interface tab for receive task */
                     return true;
                 default:
                     return false;
