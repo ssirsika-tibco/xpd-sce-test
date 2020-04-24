@@ -134,7 +134,16 @@ public class PfeSpecificationJsonBuilder {
         }
 
         /* Sid CBPM-3600 include whether the business service has parameters or not. */
-        bizSvcModel.put("hasFormalParameters", process.getFormalParameters().size() > 0); //$NON-NLS-1$
+        boolean hasInputParameters = false;
+
+        for (FormalParameter param : process.getFormalParameters()) {
+            if (ModeType.IN_LITERAL.equals(param.getMode()) || ModeType.INOUT_LITERAL.equals(param.getMode())) {
+                hasInputParameters = true;
+                break;
+            }
+        }
+
+        bizSvcModel.put("hasInputParameters", hasInputParameters); //$NON-NLS-1$
 
         return bizSvcModel;
     }

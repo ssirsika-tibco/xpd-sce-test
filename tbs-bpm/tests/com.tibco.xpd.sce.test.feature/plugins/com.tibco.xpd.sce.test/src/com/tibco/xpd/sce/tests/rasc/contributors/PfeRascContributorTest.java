@@ -156,7 +156,7 @@ public class PfeRascContributorTest extends TestCase {
 
         assertEquals("Mobile", bizSvc.get("publishType"));
 
-        assertEquals(false, bizSvc.get("hasFormalParameters"));
+        assertEquals(false, bizSvc.get("hasInputParameters"));
 
         Object channels = bizSvc.get("channels");
         assertNotNull(projectName
@@ -195,7 +195,7 @@ public class PfeRascContributorTest extends TestCase {
         assertEquals("BizAndCaseService/BizAndCaseService2", bizSvc.get("category"));
 
         assertEquals("Desktop", bizSvc.get("publishType"));
-        assertEquals(true, bizSvc.get("hasFormalParameters"));
+        assertEquals(true, bizSvc.get("hasInputParameters"));
 
 
         channels = bizSvc.get("channels");
@@ -227,7 +227,7 @@ public class PfeRascContributorTest extends TestCase {
         assertEquals("BizAndCaseService/BizAndCaseService", bizSvc.get("category"));
 
         assertEquals("Mobile", bizSvc.get("publishType"));
-        assertEquals(false, bizSvc.get("hasFormalParameters"));
+        assertEquals(false, bizSvc.get("hasInputParameters"));
 
         channels = bizSvc.get("channels");
         assertNotNull(projectName
