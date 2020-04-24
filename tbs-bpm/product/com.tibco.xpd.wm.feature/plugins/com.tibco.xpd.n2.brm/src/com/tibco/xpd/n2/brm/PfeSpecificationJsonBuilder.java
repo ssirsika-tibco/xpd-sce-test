@@ -133,6 +133,9 @@ public class PfeSpecificationJsonBuilder {
             bizSvcModel.put("publishType", publishType); //$NON-NLS-1$
         }
 
+        /* Sid CBPM-3600 include whether the business service has parameters or not. */
+        bizSvcModel.put("hasFormalParameters", process.getFormalParameters().size() > 0); //$NON-NLS-1$
+
         return bizSvcModel;
     }
 
@@ -177,6 +180,10 @@ public class PfeSpecificationJsonBuilder {
         if (stateAvailabilityModel != null && !stateAvailabilityModel.isEmpty()) {
             caseSvcModel.put("caseStates", stateAvailabilityModel); //$NON-NLS-1$
         }
+
+        /* Sid ACE-3600 include state attribute name. */
+        Property caseStateAttrib = ProcessUIUtil.getCaseClassCaseState(caseClass);
+        caseSvcModel.put("caseStatePropertyName", caseStateAttrib.getName()); //$NON-NLS-1$
 
         return caseSvcModel;
     }

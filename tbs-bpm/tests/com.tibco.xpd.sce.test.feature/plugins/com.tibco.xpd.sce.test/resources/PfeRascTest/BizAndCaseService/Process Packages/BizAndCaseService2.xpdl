@@ -317,6 +317,15 @@
     </xpdl2:WorkflowProcess>
     <xpdl2:WorkflowProcess Id="_KxO1mdlKEem5EK55kD72Uw" xpdExt:XpdModelType="PageFlow" xpdExt:DisplayName="Case1-Update Case Data" xpdExt:PublishAsBusinessService="true" xpdExt:BusinessServiceCategory="BizAndCaseService/BizAndCaseService2" Name="Case1UpdateCaseData">
       <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_1KhzMIYmEeqcjtCQ85tRfA" Name="Parameter" ReadOnly="false" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
       <xpdl2:DataFields>
         <xpdl2:DataField Id="_KxPcidlKEem5EK55kD72Uw" xpdExt:DisplayName="Error Code" Name="ErrorCode">
           <xpdl2:DataType>

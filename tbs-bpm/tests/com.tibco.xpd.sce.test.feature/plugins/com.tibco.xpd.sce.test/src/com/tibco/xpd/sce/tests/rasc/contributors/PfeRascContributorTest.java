@@ -156,6 +156,8 @@ public class PfeRascContributorTest extends TestCase {
 
         assertEquals("Mobile", bizSvc.get("publishType"));
 
+        assertEquals(false, bizSvc.get("hasFormalParameters"));
+
         Object channels = bizSvc.get("channels");
         assertNotNull(projectName
                 + " RASC serviceModel.up should have a 'channels' property in businessService.Case1CreateCaseData with 1 channel element",
@@ -193,6 +195,8 @@ public class PfeRascContributorTest extends TestCase {
         assertEquals("BizAndCaseService/BizAndCaseService2", bizSvc.get("category"));
 
         assertEquals("Desktop", bizSvc.get("publishType"));
+        assertEquals(true, bizSvc.get("hasFormalParameters"));
+
 
         channels = bizSvc.get("channels");
         assertNotNull(projectName
@@ -223,6 +227,7 @@ public class PfeRascContributorTest extends TestCase {
         assertEquals("BizAndCaseService/BizAndCaseService", bizSvc.get("category"));
 
         assertEquals("Mobile", bizSvc.get("publishType"));
+        assertEquals(false, bizSvc.get("hasFormalParameters"));
 
         channels = bizSvc.get("channels");
         assertNotNull(projectName
@@ -274,6 +279,8 @@ public class PfeRascContributorTest extends TestCase {
 
         assertEquals("Case1Ref", caseSvc.get("caseRefParamName"));
 
+        assertEquals("caseState1", caseSvc.get("caseStatePropertyName"));
+
         Object channels = caseSvc.get("channels");
         assertNotNull(projectName
                 + " RASC serviceModel.up should have a 'channels' property in businessService.Case1ViewCaseData with 1 channel element",
@@ -314,6 +321,8 @@ public class PfeRascContributorTest extends TestCase {
         assertEquals("Case1-Update Case Data2", caseSvc.get("caseActionName"));
 
         assertEquals("Case1Ref", caseSvc.get("caseRefParamName"));
+
+        assertEquals("caseState1", caseSvc.get("caseStatePropertyName"));
 
         channels = caseSvc.get("channels");
         assertNotNull(projectName
