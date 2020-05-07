@@ -44,47 +44,55 @@ public class DataTypeUtil {
      * </element> 
      */
     public static XSDSimpleTypeDefinition getXsdForBasicType(BasicType basicType) throws ConversionException {
-		String xsdType = ""; //$NON-NLS-1$
+        String xsdType = ""; //$NON-NLS-1$
 
-		if (basicType != null) {
-            BasicTypeType  basicTypeType = basicType.getType();
+        if (basicType != null) {
+            BasicTypeType basicTypeType = basicType.getType();
             if (basicTypeType != null) {
-                int  basicTypeTypeValue = basicTypeType.getValue();
+                int basicTypeTypeValue = basicTypeType.getValue();
                 // These String constants should not be translated
                 switch (basicTypeTypeValue) {
-                    case BasicTypeType.BOOLEAN:
-                    	xsdType = "boolean"; //$NON-NLS-1$
+                case BasicTypeType.BOOLEAN:
+                    xsdType = "boolean"; //$NON-NLS-1$
                     break;
-                    case BasicTypeType.DATETIME:
-                    	xsdType = "dateTime"; //$NON-NLS-1$
+                case BasicTypeType.DATETIME:
+                    xsdType = "dateTime"; //$NON-NLS-1$
                     break;
-                    case BasicTypeType.DATE:
-                    	xsdType = "date"; //$NON-NLS-1$
+                case BasicTypeType.DATE:
+                    xsdType = "date"; //$NON-NLS-1$
                     break;
-                    case BasicTypeType.TIME:
-                    	xsdType = "time"; //$NON-NLS-1$
+                case BasicTypeType.TIME:
+                    xsdType = "time"; //$NON-NLS-1$
                     break;
-                    case BasicTypeType.FLOAT:
-                    	xsdType = "double"; //$NON-NLS-1$
+                    
+                case BasicTypeType.FLOAT:
+                    /* Sid ACE-3585 for fixed point zero decimal place numbers, create xsd:integer variables in BPEL. */
+                    if (basicType.getScale() != null && basicType.getScale().getValue() == 0) {
+                        xsdType = "integer";
+
+                    } else {
+                        xsdType = "double"; //$NON-NLS-1$
+                    }
+
                     break;
-                    case BasicTypeType.INTEGER:
-                    	xsdType = basicType.getPrecision() == null || Integer.valueOf(basicType.getPrecision().getValue()) <= 9 ? 
-                    			"integer" : "long"; //$NON-NLS-1$ //$NON-NLS-2$
+                case BasicTypeType.INTEGER:
+                    xsdType = basicType.getPrecision() == null
+                            || Integer.valueOf(basicType.getPrecision().getValue()) <= 9 ? "integer" : "long"; //$NON-NLS-1$ //$NON-NLS-2$
                     break;
-                    case BasicTypeType.PERFORMER:
-                        // performer is a text field
-                    	xsdType = "string"; //$NON-NLS-1$
-                        break;
-                    case BasicTypeType.REFERENCE:
-                    	throw new ConversionException(Messages.getString("ConvertBasicType.cannotCovertReference")); //$NON-NLS-1$
-                    case BasicTypeType.STRING:
-                    	xsdType = "string"; //$NON-NLS-1$
+                case BasicTypeType.PERFORMER:
+                    // performer is a text field
+                    xsdType = "string"; //$NON-NLS-1$
+                    break;
+                case BasicTypeType.REFERENCE:
+                    throw new ConversionException(Messages.getString("ConvertBasicType.cannotCovertReference")); //$NON-NLS-1$
+                case BasicTypeType.STRING:
+                    xsdType = "string"; //$NON-NLS-1$
                     break;
                 }
             }
         }
-        
-		return getXSDPrimitive(xsdType);
+
+        return getXSDPrimitive(xsdType);
     }
 
     public static XSDSimpleTypeDefinition getXsdForClass(Class<?> clazz) {
