@@ -125,9 +125,12 @@ public class UMLPaletteFactory {
         paletteContainer.add(createClass2CreationTool());
         paletteContainer.add(createPrimitiveType3CreationTool());
         paletteContainer.add(createEnumeration4CreationTool());
-        if (!isSubDiagram()) {
-            paletteContainer.add(createPackage1CreationTool());
-        }
+        
+        /* Sid ACE-3537 Hide sub-package creation options as they are not supported in ACE. */ 
+        // if (!isSubDiagram()) {
+        // paletteContainer.add(createPackage1CreationTool());
+        // }
+
         paletteContainer.add(createAssociationClass5CreationTool());
         return paletteContainer;
     }

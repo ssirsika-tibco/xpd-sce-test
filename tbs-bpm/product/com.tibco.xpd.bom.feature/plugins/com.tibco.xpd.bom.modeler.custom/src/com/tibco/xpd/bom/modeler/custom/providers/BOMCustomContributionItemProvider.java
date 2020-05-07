@@ -33,44 +33,45 @@ public class BOMCustomContributionItemProvider extends
             return new RefactorToAssocClassDiagramAction(workbenchPage);
         }
 
-        if (actionId.equals(BOMActionIds.ACTION_ADD_CLASS)) { //$NON-NLS-1$
+        if (actionId.equals(BOMActionIds.ACTION_ADD_CLASS)) {
             return new CreateBOMElementDiagramAction(workbenchPage,
                     BOMActionIds.ACTION_ADD_CLASS, null);
         }
 
-        if (actionId.equals(BOMActionIds.ACTION_ADD_PACKAGE)) { //$NON-NLS-1$
-            return new CreateBOMElementDiagramAction(workbenchPage,
-                    BOMActionIds.ACTION_ADD_PACKAGE, null);
+        if (actionId.equals(BOMActionIds.ACTION_ADD_PACKAGE)) {
+            /* Sid ACE-3537 Hide sub-package creation options as they are not supported in ACE. */
+            // return new CreateBOMElementDiagramAction(workbenchPage, BOMActionIds.ACTION_ADD_PACKAGE, null);
+            return null;
         }
 
-        if (actionId.equals(BOMActionIds.ACTION_ADD_PRIMITIVE_TYPE)) { //$NON-NLS-1$
+        if (actionId.equals(BOMActionIds.ACTION_ADD_PRIMITIVE_TYPE)) {
             return new CreateBOMElementDiagramAction(workbenchPage,
                     BOMActionIds.ACTION_ADD_PRIMITIVE_TYPE, null);
         }
 
-        if (actionId.equals(BOMActionIds.ACTION_ADD_ENUMERATION)) { //$NON-NLS-1$
+        if (actionId.equals(BOMActionIds.ACTION_ADD_ENUMERATION)) {
             return new CreateBOMElementDiagramAction(workbenchPage,
                     BOMActionIds.ACTION_ADD_ENUMERATION, null);
         }
 
-        if (actionId.equals(BOMActionIds.ACTION_ADD_ATTRIBUTE)) { //$NON-NLS-1$
+        if (actionId.equals(BOMActionIds.ACTION_ADD_ATTRIBUTE)) {
             return new CreateBOMElementDiagramAction(workbenchPage,
                     BOMActionIds.ACTION_ADD_ATTRIBUTE, null);
         }
 
-        if (actionId.equals(BOMActionIds.ACTION_ADD_OPERATION)) { //$NON-NLS-1$
+        if (actionId.equals(BOMActionIds.ACTION_ADD_OPERATION)) {
             // ACE-1704: Remove BOM unsupported features from UI.
             // return new CreateBOMElementDiagramAction(workbenchPage, BOMActionIds.ACTION_ADD_OPERATION, null);
             // Returning null will stop it appearing on the menu
             return null;
         }
 
-        if (actionId.equals(BOMActionIds.ACTION_ADD_ENUMERATION_LIT)) { //$NON-NLS-1$
+        if (actionId.equals(BOMActionIds.ACTION_ADD_ENUMERATION_LIT)) {
             return new CreateBOMElementDiagramAction(workbenchPage,
                     BOMActionIds.ACTION_ADD_ENUMERATION_LIT, null);
         }
 
-        if (actionId.equals(BOMActionIds.ACTION_SHOW_HIDE_BADGE)) { //$NON-NLS-1$
+        if (actionId.equals(BOMActionIds.ACTION_SHOW_HIDE_BADGE)) {
             return new ShowHideBadgeDiagramAction(workbenchPage);
         }
 
@@ -87,7 +88,7 @@ public class BOMCustomContributionItemProvider extends
             }
         }
 
-        if (actionId.equals(BOMActionIds.ACTION_ADD_CASE_IDENTIFIER)) { //$NON-NLS-1$
+        if (actionId.equals(BOMActionIds.ACTION_ADD_CASE_IDENTIFIER)) {
             if (isGlobalDataBOM) {
                 return new CreateBOMElementDiagramAction(workbenchPage,
                         BOMActionIds.ACTION_ADD_CASE_IDENTIFIER, null);
@@ -95,21 +96,21 @@ public class BOMCustomContributionItemProvider extends
             // Returning null will stop it appearing on the menu
             return null;
         }
-        if (actionId.equals(BOMActionIds.ACTION_ADD_CASE_CLASS)) { //$NON-NLS-1$
+        if (actionId.equals(BOMActionIds.ACTION_ADD_CASE_CLASS)) {
             if (isGlobalDataBOM) {
                 return new CreateBOMElementDiagramAction(workbenchPage,
                         BOMActionIds.ACTION_ADD_CASE_CLASS, null);
             }
             return null;
         }
-        if (actionId.equals(BOMActionIds.ACTION_ADD_GLOBAL_CLASS)) { //$NON-NLS-1$
+        if (actionId.equals(BOMActionIds.ACTION_ADD_GLOBAL_CLASS)) {
             if (isGlobalDataBOM) {
                 return new CreateBOMElementDiagramAction(workbenchPage,
                         BOMActionIds.ACTION_ADD_GLOBAL_CLASS, null);
             }
             return null;
         }
-        if (actionId.equals(BOMActionIds.ACTION_ADD_CASE_STATE)) { //$NON-NLS-1$
+        if (actionId.equals(BOMActionIds.ACTION_ADD_CASE_STATE)) {
             if (isGlobalDataBOM) {
                 return new CreateBOMElementDiagramAction(workbenchPage,
                         BOMActionIds.ACTION_ADD_CASE_STATE, null);
