@@ -53,8 +53,12 @@ public class PropertyNameDuplicateRule implements IValidationRule {
 
             if (!duplicateAttributes.isEmpty()) {
                 for (NamedElement attribute : duplicateAttributes) {
+                    /*
+                     * Sid ACE-3626 Duplicate nam rule went missing because we're passing getLocation RATHER than name
+                     * and we changed getLocation() to return attribute label not name.
+                     */
                     createIssues(scope,
-                            BOMValidationUtil.getLocation(attribute),
+                            attribute.getName(),
                             ownedAttributes);
                 }
             }
