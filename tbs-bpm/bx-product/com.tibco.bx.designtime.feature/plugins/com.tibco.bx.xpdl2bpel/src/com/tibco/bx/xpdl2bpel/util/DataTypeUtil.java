@@ -66,9 +66,9 @@ public class DataTypeUtil {
                     break;
                     
                 case BasicTypeType.FLOAT:
-                    /* Sid ACE-3585 for fixed point zero decimal place numbers, create xsd:integer variables in BPEL. */
+                    /* Sid ACE-3585 for fixed point zero decimal place numbers, create xsd:long variables in BPEL. */
                     if (basicType.getScale() != null && basicType.getScale().getValue() == 0) {
-                        xsdType = "integer";
+                        xsdType = "long";
 
                     } else {
                         xsdType = "double"; //$NON-NLS-1$
