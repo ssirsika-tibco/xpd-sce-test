@@ -133,7 +133,7 @@ public class PfeSpecificationJsonBuilder {
             bizSvcModel.put("publishType", publishType); //$NON-NLS-1$
         }
 
-        /* Sid CBPM-3600 include whether the business service has parameters or not. */
+        /* Sid ACE-3600 include whether the business service has parameters or not. */
         boolean hasInputParameters = false;
 
         for (FormalParameter param : process.getFormalParameters()) {

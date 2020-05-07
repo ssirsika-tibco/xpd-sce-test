@@ -129,9 +129,10 @@ public class ClassItemProvider extends TypeItemProvider {
                 FirstClassProfileManager.getInstance()
                         .getAppliedFirstClassProfile(cl.getModel());
         if (ext == null || ext.showOperations()) {
-            result.add(new CommandParameter(null, ElementTypeRegistry
-                    .getInstance()
-                    .getElementType(UMLPackage.Literals.OPERATION, cc), null));
+            /* Sid ACE-3625 Remove Add Child -> Operation for classes in project explorer menu */
+            // result.add(new CommandParameter(null, ElementTypeRegistry
+            // .getInstance()
+            // .getElementType(UMLPackage.Literals.OPERATION, cc), null));
 
         }
 
