@@ -53,16 +53,14 @@ import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.resources.util.XpdConsts;
 
 /**
- * Post import task to for importing any XPD related projects and converting the
- * project configuration to be appropriate for the CE run-time destination
+ * Post import task to for importing any XPD related projects and converting the project configuration to be appropriate
+ * for the CE run-time destination
  * 
  * <li>Replaces all destination environments with the "CE" destination</i>
- * <li>Remove all AMX-BPM build folders: .bpm, .bom2Xsd, .bomJars, .processOut,
- * .deModulesOutput</li>
- * <li>Resets all project versions to 1.0.0</li>
+ * <li>Remove all AMX-BPM build folders: .bpm, .bom2Xsd, .bomJars, .processOut, .deModulesOutput</li>
+ * <li>Resets all project versions to <current major version>.0.0</li>
  * <li>Moves generated BOMs to user defined BOM folders</li>
- * <li>Removes unwanted user-visible special folders (Service Descriptors
- * etc)</li>
+ * <li>Removes unwanted user-visible special folders (Service Descriptors etc)</li>
  * <li>Removes unwanted project asset configurations</li>
  * <li>Removes unwanted project natures and builders</li>
  * <li>Removes unsupported presentation channels</li>
@@ -152,9 +150,11 @@ public class Bpm2CeProjectConfigPostImportTask
     }
 
     /**
-     * Reset the version of all projects to 1.0.0.qualifier (in SCE we take full
-     * control of all versions and hence for these new-product projects it makes
-     * sense to reset the version number)
+     * Reset the version of all projects to <current major version>.0.0.qualifier (in SCE we take full control of all
+     * versions and hence for these new-product projects it makes sense to reset the version number)
+     * 
+     * Sid ACE-3548 Decision made to preserve major version (only) due to the use of multiple major versions of
+     * Organisation projects being common practice.
      * 
      * @param projectDetails
      * @param monitor
@@ -164,7 +164,29 @@ public class Bpm2CeProjectConfigPostImportTask
         monitor.subTask(
                 Messages.Bpm2CeProjectConfigPostImportTask_ResetVersion_status);
 
-        projectDetails.setVersion("1.0.0.qualifier"); //$NON-NLS-1$
+        String version = "1.0.0.qualifier"; // Fallback version. //$NON-NLS-1$
+
+        String projectVersion = projectDetails.getVersion();
+
+        if (projectVersion != null) {
+            String[] parts = projectVersion.split("\\."); //$NON-NLS-1$
+
+            if (parts != null && parts.length > 0) {
+                try {
+                    int majorVersion = Integer.parseInt(parts[0]);
+
+                    if (majorVersion > 0) {
+                        version = String.format("%d.0.0.qualifier", majorVersion);
+                    }
+
+                } catch (NumberFormatException e) {
+                    // Ignore bad version (as could have been screwed by user editing previously
+                }
+
+            }
+        }
+
+        projectDetails.setVersion(version);
 
         monitor.subTask(""); //$NON-NLS-1$
         monitor.worked(1);

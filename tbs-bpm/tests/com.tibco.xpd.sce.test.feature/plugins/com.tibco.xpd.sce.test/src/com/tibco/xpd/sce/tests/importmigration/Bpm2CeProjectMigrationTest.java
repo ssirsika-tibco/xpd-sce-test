@@ -103,7 +103,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         ProjectImporter projectImporter = null;
 
         try {
-            projectImporter = doTestProject(projectName);
+            projectImporter = doTestProject(projectName, 1);
 
             assertTrue(projectName
                     + " project should have problem marker 'Business Object assets must be in a Business Data project.'", //$NON-NLS-1$
@@ -119,15 +119,15 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
     // @Test
     public void testOrgProjectMigration() {
         /*
-         * Sid ACE-992 - Org project also as a version of 2.3.4.qualifier so will test that version is reset to
-         * 1.0.0.qualifier
+         * Sid ACE-992 - Org project also as a version of 2.3.4.qualifier so will test that version is reset to <current
+         * major version>.0.0.qualifier
          */
         String projectName = "ProjectMigrationTest_Org"; //$NON-NLS-1$
 
         ProjectImporter projectImporter = null;
 
         try {
-            projectImporter = doTestProject(projectName);
+            projectImporter = doTestProject(projectName, 2);
         } finally {
             if (projectImporter != null) {
                 projectImporter.performDelete();
@@ -142,7 +142,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         ProjectImporter projectImporter = null;
 
         try {
-            projectImporter = doTestProject(projectName);
+            projectImporter = doTestProject(projectName, 1);
 
         /*
          * Check that the specific integer properties/primtives we know about for definite have been changed.
@@ -328,7 +328,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         ProjectImporter projectImporter = null;
 
         try {
-            projectImporter = doTestProject(projectName);
+            projectImporter = doTestProject(projectName, 1);
 
         /*
          * After checking all the standard stuff (like destination set, no non-datamapper related JavaScript mappings,
@@ -557,7 +557,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         ProjectImporter projectImporter = null;
 
         try {
-            projectImporter = doTestProject(projectName);
+            projectImporter = doTestProject(projectName, 1);
 
         assertTrue(projectName
                 + " project should have problem marker 'Organisation assets must be in their own project (not mixed with other asset types such as Process and Business Object etc).'", //$NON-NLS-1$
@@ -582,7 +582,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         ProjectImporter projectImporter = null;
 
         try {
-            projectImporter = doTestProject(projectName);
+            projectImporter = doTestProject(projectName, 1);
         } finally {
             if (projectImporter != null) {
                 projectImporter.performDelete();
@@ -596,7 +596,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         ProjectImporter projectImporter = null;
 
         try {
-            projectImporter = doTestProject(projectName);
+            projectImporter = doTestProject(projectName, 1);
         } finally {
             if (projectImporter != null) {
                 projectImporter.performDelete();
@@ -610,7 +610,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         ProjectImporter projectImporter = null;
 
         try {
-            projectImporter = doTestProject(projectName);
+            projectImporter = doTestProject(projectName, 1);
 
         IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 
@@ -661,7 +661,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         ProjectImporter projectImporter = null;
 
         try {
-            projectImporter = doTestProject(projectName);
+            projectImporter = doTestProject(projectName, 1);
 
         IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
         /*
@@ -734,7 +734,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         ProjectImporter projectImporter = null;
 
         try {
-            projectImporter = doTestProject(projectName);
+            projectImporter = doTestProject(projectName, 1);
 
         IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 
@@ -777,7 +777,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         ProjectImporter projectImporter = null;
 
         try {
-            projectImporter = doTestProject(projectName);
+            projectImporter = doTestProject(projectName, 1);
 
         // Check that we have a Local class
         IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
@@ -814,8 +814,10 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
      * Test the given project.
      * 
      * @param projectName
+     * @param expectedMajorVersion
+     *            the expected major version after import.
      */
-    private ProjectImporter doTestProject(String projectName) {
+    private ProjectImporter doTestProject(String projectName, int expectedMajorVersion) {
         /*
          * Import and mgirate the project
          */
@@ -838,10 +840,12 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         ProjectDetails projectDetails = projectConfig.getProjectDetails();
 
         /*
-         * Check version has been reset to 1.0.0.qualifier
+         * Check version has been reset to <current major version>.0.0.qualifier
          */
-        assertEquals(projectName + " project has not had its version set to 1.0.0.qualifier", //$NON-NLS-1$
-                "1.0.0.qualifier", //$NON-NLS-1$
+        String expectedVersion = String.format("%d.0.0.qualifier", expectedMajorVersion); //$NON-NLS-1$
+
+        assertEquals(projectName + " project has not had its version set to " + expectedVersion, //$NON-NLS-1$
+                expectedVersion,
                 projectDetails.getVersion());
 
         /*
