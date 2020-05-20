@@ -128,6 +128,9 @@ public class AddSubProcInputMappingsFromFieldsCommand extends CompoundCommand {
     private ScriptDataMapper createInputMappingsForActivity(Activity activity) {
         ScriptDataMapper inputMappings = XpdExtensionFactory.eINSTANCE.createScriptDataMapper();
 
+        inputMappings.setMapperContext(ProcessEditorConstants.DATAMAPPER_CONTEXT_PROCESS_TO_SUBPROCESS);
+        inputMappings.setMappingDirection(DirectionType.IN_LITERAL);
+
         /*
          * Generate mappings for the data fields that will have been created for each input parameter.
          */
