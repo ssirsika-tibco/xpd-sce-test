@@ -123,6 +123,11 @@ public class AdhocConfigurationGeneralSection extends
         } else {
             allowMultipleInvocationsCheckBox.setEnabled(true);
         }
+
+        /* Sid ACE-3680 Disallow Manual Ad-Hoc in ACE for now. */
+        manual.setEnabled(false);
+        allowMultipleInvocationsCheckBox.setEnabled(false);
+
     }
 
     /**
@@ -182,6 +187,8 @@ public class AdhocConfigurationGeneralSection extends
         manual.setToolTipText(Messages.AdhocConfigurationGeneralSection_ManualnvocationRadioButton_tooltip);
 
         manageControl(manual);
+
+
         // a dummy label to fill the grid
         toolkit.createLabel(invocationComposite, ""); //$NON-NLS-1$
         // allow multiple invocatio button

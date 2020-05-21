@@ -109,6 +109,9 @@ public class AdhocActivityTaskConfigurationRule extends ProcessValidationRule {
     private final String ISSUE_PRIVILEGE_IN_NON_REFERENCED_PROJ =
             "bx.PrivilegeInNonReferencedProject"; //$NON-NLS-1$
 
+    /** Sid ACE-3680 Disallow Manual Ad-Hoc in ACE for now. */
+    private final String ISSUE_MANUAL_ADHOC_NOT_SUPPORTED = "ace.manual.adhoc.not.supported.yet"; //$NON-NLS-1$
+
     /**
      * @see com.tibco.xpd.validation.xpdl2.rules.ActivityValidationRule#validate(com.tibco.xpd.xpdl2.Activity)
      * 
@@ -341,6 +344,12 @@ public class AdhocActivityTaskConfigurationRule extends ProcessValidationRule {
                 isInvalid = true;
                 addIssue(ISSUE_MULTIINSTANCE_ADHOC_NOT_SUPPORTED, activity);
             }
+        }
+
+        /* Sid ACE-3680 Disallow Manual Ad-Hoc in ACE for now. */
+        if (AdHocExecutionTypeType.MANUAL.equals(adhocConfigType.getAdHocExecutionType())) {
+            isInvalid = true;
+            addIssue(ISSUE_MANUAL_ADHOC_NOT_SUPPORTED, activity);
         }
 
         return isInvalid;
