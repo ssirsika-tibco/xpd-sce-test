@@ -250,6 +250,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         dateMethods.put("setSecond", "setSeconds"); //$NON-NLS-1$ //$NON-NLS-2$
         dateMethods.put("getMillisecond", "getMilliseconds"); //$NON-NLS-1$ //$NON-NLS-2$
         dateMethods.put("setMillisecond", "setMilliseconds"); //$NON-NLS-1$ //$NON-NLS-2$
+        dateMethods.put("getTimezone", "getTimezoneOffset"); //$NON-NLS-1$ //$NON-NLS-2$
         result.add(new MethodNameRefactor(dateMethods));
 
         // enumeration refactors
