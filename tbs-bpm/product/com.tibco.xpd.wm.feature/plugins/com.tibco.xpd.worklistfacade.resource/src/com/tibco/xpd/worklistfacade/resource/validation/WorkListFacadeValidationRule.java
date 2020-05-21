@@ -32,6 +32,8 @@ public class WorkListFacadeValidationRule implements IValidationRule {
     private static final String MULTIPLE_FACADE_FILES_ISSUE =
             "multiple.work.list.facade.issue"; //$NON-NLS-1$
 
+    private static final String AT_LEAST_ONE_LABEL_ISSUE = "attribute.at.least.one.label.issue"; //$NON-NLS-1$
+
     /**
      * @see com.tibco.xpd.validation.rules.IValidationRule#getTargetClass()
      * 
@@ -55,8 +57,16 @@ public class WorkListFacadeValidationRule implements IValidationRule {
         if (o instanceof WorkListFacade) {
 
             WorkListFacade workListFacade = (WorkListFacade) o;
-
+            
             IFile wlfFile = WorkingCopyUtil.getFile(workListFacade);
+
+            /* Sid ACE-3681 Prevent deployment of WLF with no attribute labels. */
+            if (workListFacade.getWorkItemAttributes() == null
+                    || workListFacade.getWorkItemAttributes().getWorkItemAttribute().isEmpty()) {
+                scope.createIssue(AT_LEAST_ONE_LABEL_ISSUE,
+                        wlfFile.getName(),
+                        workListFacade.eResource().getURIFragment(workListFacade));
+            }
 
             Map<String, String> additionalInfo = new HashMap<String, String>();
 

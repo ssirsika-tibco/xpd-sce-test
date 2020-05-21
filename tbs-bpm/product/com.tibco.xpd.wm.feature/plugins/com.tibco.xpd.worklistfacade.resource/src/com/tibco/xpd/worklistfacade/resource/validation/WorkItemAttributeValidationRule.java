@@ -22,9 +22,6 @@ import com.tibco.xpd.worklistfacade.resource.workingcopy.WorkListFacadeWorkingCo
  * @since 26-Nov-2013
  */
 public class WorkItemAttributeValidationRule implements IValidationRule {
-    /**
-     * 
-     */
 
     private static final String ATTRIBUTE_DUPLICATE_ISSUE =
             "duplicate.attribute.display.label.issue"; //$NON-NLS-1$
