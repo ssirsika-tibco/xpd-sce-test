@@ -29,6 +29,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 
+import com.tibco.xpd.analyst.resources.xpdl2.properties.general.UIBasicTypes;
+import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.resources.ui.components.AbstractColumn;
 import com.tibco.xpd.resources.ui.components.BaseTableControl;
 import com.tibco.xpd.resources.ui.components.XpdToolkit;
@@ -767,14 +769,27 @@ public class WorkListFacadeTable extends BaseTableControl {
 
             // Evaluate ONLY if not done so.
             if (lengthRestriction == null) {
-                lengthRestriction =
-                        WorkListFacadeEditorUtil
-                                .getLengthRestriction(physicalAttribute);
+                lengthRestriction = WorkListFacadeEditorUtil.getLengthRestriction(physicalAttribute);
             }
 
-            String typeName =
-                    (physicalAttribute.getType() != null) ? physicalAttribute
-                            .getType().getName() : ""; //$NON-NLS-1$
+            String typeName = (physicalAttribute.getType() != null) ? physicalAttribute.getType().getName() : ""; //$NON-NLS-1$
+
+            /* Sid ACE-352 make label human readable and consistent with data field / attribute naming. */
+            if ("Text".equals(typeName)) { //$NON-NLS-1$
+                typeName = ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.String.getDefaultBasicType());
+
+            } else if ("Integer".equals(typeName)) {
+                typeName = ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.FixedPointNumber.getDefaultBasicType());
+
+            } else if ("Decimal".equals(typeName)) {
+                typeName = ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.FloatingPointNumber.getDefaultBasicType());
+                lengthRestriction = null;
+
+            } else if ("DateTime".equals(typeName)) {
+                typeName = ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.DateTime.getDefaultBasicType());
+
+            }
+
             if (lengthRestriction != null && !lengthRestriction.isEmpty()) {
                 typeName = String.format("%s (%s)", //$NON-NLS-1$
                         typeName,

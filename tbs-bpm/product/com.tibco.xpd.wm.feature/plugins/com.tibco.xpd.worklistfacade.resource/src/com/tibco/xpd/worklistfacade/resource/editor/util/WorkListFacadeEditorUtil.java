@@ -333,27 +333,16 @@ public class WorkListFacadeEditorUtil {
             case DATETIME_LITERAL:
                 break;
             case FLOAT_LITERAL:
-                restrictionProperty =
-                        getRestrictionValue(type,
-                                property,
-                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LENGTH);
-
-                decimalPoint =
-                        getRestrictionValue(type,
-                                property,
-                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES);
-
-                restrictionProperty =
-                        (decimalPoint == null) ? restrictionProperty : String
-                                .format("%s,%s", //$NON-NLS-1$
-                                        restrictionProperty,
-                                        decimalPoint);
+                /* Sid ACE-3582 In ACE floats are JavaScript float equiv (so no fixed decimal specification. */
                 break;
             case INTEGER_LITERAL:
+                /* Sid ACE-3582 In ACE floats are FixedPoint Number (0 decimals) equiv */
                 restrictionProperty =
-                        getRestrictionValue(type,
-                                property,
-                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LENGTH);
+                        getRestrictionValue(type, property, PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LENGTH);
+
+                if (restrictionProperty != null) {
+                    restrictionProperty += ",0"; //$NON-NLS-1$
+                }
 
                 break;
             case STRING_LITERAL:
