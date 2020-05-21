@@ -115,21 +115,32 @@ public class ConvertDataField {
         	}
         	
         	StringBuffer script = new StringBuffer();
-			script.append("importClass(Packages.java.util.ArrayList);\n");
-        	script.append("var ret = new ArrayList();\n");
+        	
+        	/* Sid ACE-3708 in ACE we are now pure JavaScript, so assign arrays as such. */
+        	script.append("var ret = [];\n");
         	for (String val : initialValues.getValue()) {
-				script.append("ret.add(");
+				script.append("ret.push(");
 				
 				switch (basicType.getType()) {
 				case BOOLEAN_LITERAL:
 					script.append(val);
 					break;
 				case DATE_LITERAL:
-					script.append("DateTimeUtil.createDate(\"").append(val).append("\")");
-					break;
+                    /*
+                     * Sid ACE-3708 date/time initial values are disallowed by validation. Disable here because this is
+                     * not the right JS for ACE now.
+                     */
+                    throw new ConversionException("Date fields cannot have initial values.");
+                    // script.append("DateTimeUtil.createDate(\"").append(val).append("\")");
+                    // break;
 				case DATETIME_LITERAL:
-					script.append("DateTimeUtil.createDatetime(\"").append(val).append("\")");
-					break;
+                    /*
+                     * Sid ACE-3708 date/time initial values are disallowed by validation. Disable here because this is
+                     * not the right JS for ACE now.
+                     */
+                    throw new ConversionException("Date fields cannot have initial values.");
+                    // script.append("DateTimeUtil.createDatetime(\"").append(val).append("\")");
+                    // break;
 				case FLOAT_LITERAL:
 					script.append(val);
 					break;
@@ -144,8 +155,13 @@ public class ConvertDataField {
 					script.append("\"").append(val).append("\"");
 					break;
 				case TIME_LITERAL:
-					script.append("DateTimeUtil.createTime(\"").append(val).append("\")");
-					break;
+                    /*
+                     * Sid ACE-3708 date/time initial values are disallowed by validation. Disable here because this is
+                     * not the right JS for ACE now.
+                     */
+                    throw new ConversionException("Date fields cannot have initial values.");
+                    // script.append("DateTimeUtil.createTime(\"").append(val).append("\")");
+                    // break;
 				default:
 					script.append(val);
 					break;
