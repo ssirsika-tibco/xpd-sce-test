@@ -337,13 +337,7 @@ public class WorkListFacadeEditorUtil {
                 break;
             case INTEGER_LITERAL:
                 /* Sid ACE-3582 In ACE floats are FixedPoint Number (0 decimals) equiv */
-                restrictionProperty =
-                        getRestrictionValue(type, property, PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LENGTH);
-
-                if (restrictionProperty != null) {
-                    restrictionProperty += ",0"; //$NON-NLS-1$
-                }
-
+                restrictionProperty = Messages.WorkListFacadeEditorUtil_IntegerTypeSuffix_label;
                 break;
             case STRING_LITERAL:
                 restrictionProperty =

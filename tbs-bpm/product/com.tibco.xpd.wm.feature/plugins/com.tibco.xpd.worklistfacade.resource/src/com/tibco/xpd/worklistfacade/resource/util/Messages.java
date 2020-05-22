@@ -96,6 +96,8 @@ public class Messages extends NLS {
 
     public static String WorkListFacadeEditorUtil_Error_Saving_Facade_Model;
 
+    public static String WorkListFacadeEditorUtil_IntegerTypeSuffix_label;
+
     public static String WorkListFacadeEditorUtil_INVALID_FILE_ISSUE;
 
     public static String WorkListFacadeTable_1;
