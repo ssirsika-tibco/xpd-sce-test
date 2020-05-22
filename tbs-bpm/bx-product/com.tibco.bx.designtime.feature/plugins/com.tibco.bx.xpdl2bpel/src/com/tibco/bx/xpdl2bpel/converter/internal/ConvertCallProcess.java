@@ -65,6 +65,7 @@ public class ConvertCallProcess {
 	private final Collection<ActivityInterfaceData> mainProcessData;
 	private final Collection<ProcessRelevantData> subProcessData;
 	private final Set<String> localVariables = new HashSet<String>();
+    private EObject subProcessOrInterface;
 	
 	public static final String JSCRIPT_LANGUAGE = "urn:tibco:wsbpel:2.0:sublang:javascript";
 
@@ -74,7 +75,7 @@ public class ConvertCallProcess {
 		
 		mainProcessData = ActivityInterfaceDataUtil.getActivityInterfaceData(xpdlActivity);
 		
-		EObject subProcessOrInterface = TaskObjectUtil.getSubProcessOrInterface(xpdlActivity);
+		subProcessOrInterface = TaskObjectUtil.getSubProcessOrInterface(xpdlActivity);
 		if (subProcessOrInterface instanceof ProcessInterface) {
 			ProcessInterface procIf = (ProcessInterface) subProcessOrInterface;
 			subProcessData = new ArrayList<ProcessRelevantData>();
@@ -105,7 +106,15 @@ public class ConvertCallProcess {
             			(XpdModelType.SERVICE_PROCESS.equals(modelType) && context.isPageFlowEngineTarget())) {
 	        		//detached and pageflow or service process deployed to a pageflow engine
             		//set remote engine to indicate if we will be crossing engine boundaries
-                	callProcess.setRemoteEngine(true);
+            	    
+                    /*
+                     * Sid ACE-3820 Make sure we're actually crossing engine boundary before setting the remoteEngine
+                     * property.
+                     */
+                    if (subProcessOrInterface instanceof Process
+                            && Xpdl2ModelUtil.isBusinessProcess((Process) subProcessOrInterface)) {
+                        callProcess.setRemoteEngine(true);
+                    }
             	}
             }
         } else {
