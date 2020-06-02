@@ -136,7 +136,9 @@ public class PfeSpecificationJsonBuilder {
         /* Sid ACE-3600 include whether the business service has parameters or not. */
         boolean hasInputParameters = false;
 
-        for (FormalParameter param : process.getFormalParameters()) {
+        /* Sid ACE-3870 take parameters inherited from implemented process interface. */
+
+        for (FormalParameter param : ProcessInterfaceUtil.getAllFormalParameters(process)) {
             if (ModeType.IN_LITERAL.equals(param.getMode()) || ModeType.INOUT_LITERAL.equals(param.getMode())) {
                 hasInputParameters = true;
                 break;

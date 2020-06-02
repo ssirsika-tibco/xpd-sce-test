@@ -136,9 +136,9 @@ public class PfeRascContributorTest extends TestCase {
     public void checkBusinessServices(String projectName, Map<String, Object> root) {
         List<?> bizServices = (List<?>) root.get("businessServices");
         assertTrue(projectName
-                + " RASC serviceModel.up artifact should have a 3 elements in 'businessServices' array, but has: "
+                + " RASC serviceModel.up artifact should have a 4 elements in 'businessServices' array, but has: "
                 + (bizServices != null ? bizServices.size() : "null"),
-                bizServices != null && bizServices.size() == 3);
+                bizServices != null && bizServices.size() == 4);
 
         /*
          * Business Service: Case1CreateCaseData
@@ -242,6 +242,19 @@ public class PfeRascContributorTest extends TestCase {
         assertNull(projectName
                 + " RASC serviceModel.up should not have a 'privileges' property in businessService.Case1DeleteCaseData",
                 privileges);
+
+        /*
+         * Sid ACE-3870: Business Service: Business Service With Interface Parameters - should have 'hasInputParameters'
+         * set true.
+         */
+        bizSvc = findElement(bizServices, "processName", "BusinessServiceWithInterfaceParameters");
+
+        assertNotNull(projectName
+                + " RASC serviceModel.up artifact should have a businessServices.businessService(processName=BusinessServiceWithInterfaceParameters)",
+                bizSvc);
+
+        assertEquals(true, bizSvc.get("hasInputParameters"));
+
     }
 
 
