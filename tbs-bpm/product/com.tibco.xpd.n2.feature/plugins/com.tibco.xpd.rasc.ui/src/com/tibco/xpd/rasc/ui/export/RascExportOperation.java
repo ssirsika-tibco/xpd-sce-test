@@ -338,7 +338,11 @@ public class RascExportOperation implements IRunnableWithProgress {
                 mkdirs((IFolder) parent);
             }
             folder.create(true, true, null);
-            folder.setDerived(true, null);
+
+            /*
+             * Sid ACE-3886 Don't set the output folder to derived otherwise it won't get included in project exports.
+             */
+            // folder.setDerived(true, null);
         }
     }
 

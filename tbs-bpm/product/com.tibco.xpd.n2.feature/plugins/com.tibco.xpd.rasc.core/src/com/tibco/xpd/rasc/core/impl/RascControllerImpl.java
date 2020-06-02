@@ -136,7 +136,11 @@ public class RascControllerImpl implements RascController {
             try {
                 // refresh the generated file
                 aFile.refreshLocal(IResource.DEPTH_ZERO, aProgressMonitor);
-                aFile.setDerived(true, aProgressMonitor);
+
+                /*
+                 * Sid ACE-3886 Don't set the output file to derived otherwise it won't get included in project exports.
+                 */
+                // aFile.setDerived(true, aProgressMonitor);
             } catch (CoreException ignore) {
             }
         }
