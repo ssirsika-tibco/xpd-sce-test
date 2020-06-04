@@ -39,7 +39,7 @@ public class GenerateRascTaskTest extends TestCase {
      * plug-in but plug-in classes MUST NOT access the tasks or types."
      */
     private static final String DEFAULT_DEST_DIR =
-            "Exports/Deployment Artifacts";
+            "Deployment Artifacts";
 
     public void testExecuteTask() throws Exception {
         ProjectImporter projectImporter = importProjects(

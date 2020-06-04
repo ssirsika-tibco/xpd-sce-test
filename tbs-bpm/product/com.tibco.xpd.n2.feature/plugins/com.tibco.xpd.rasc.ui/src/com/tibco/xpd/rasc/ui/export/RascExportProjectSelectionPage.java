@@ -162,7 +162,7 @@ public class RascExportProjectSelectionPage
      */
     @Override
     protected String getWorkspaceExportFolder() {
-        return "Exports/Deployment Artifacts"; //$NON-NLS-1$
+        return com.tibco.xpd.rasc.core.Messages.RascController_default_deploy_folder; // $NON-NLS-1$
     }
 
     /**

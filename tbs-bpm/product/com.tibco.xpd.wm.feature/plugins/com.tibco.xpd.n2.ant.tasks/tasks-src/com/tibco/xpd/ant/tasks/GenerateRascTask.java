@@ -45,21 +45,18 @@ import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SubProgressMonitorEx;
 
 /**
- * An implementation of an Ant Task to perform the generation of RASC files for
- * a given project, or collection of projects.
+ * An implementation of an Ant Task to perform the generation of RASC files for a given project, or collection of
+ * projects.
  * <p>
- * The ant task uses two properties to determine the output folder to which the
- * RASC is to be written; the ant project's "basedir" and the ant task's
- * "destdir".
+ * The ant task uses two properties to determine the output folder to which the RASC is to be written; the ant project's
+ * "basedir" and the ant task's "destdir".
  * <p>
- * If the "destdir" is not specified, the output folder should default to the
- * "Exports/Deployment Artifacts" folder within the Studio Project Workspace. If
- * the "destdir" specifies an absolute path, that path should be used as-is. If
- * the "destdir" specifies a relative path, it should be prefixed with the
- * "basedir".
+ * If the "destdir" is not specified, the output folder should default to the "Deployment Artifacts" folder within the
+ * Studio Project Workspace. If the "destdir" specifies an absolute path, that path should be used as-is. If the
+ * "destdir" specifies a relative path, it should be prefixed with the "basedir".
  * <p>
- * Note that with no destdir specified then each project should get it’s RASC
- * exported into its Exports/Deployment Artifacts folder.
+ * Note that with no destdir specified then each project should get it’s RASC exported into its Deployment Artifacts
+ * folder.
  *
  * 
  * @author pwatson
@@ -324,7 +321,7 @@ public class GenerateRascTask extends Task {
             // always check for errors - even if we have just done a build
             if (errorsExist(aProjects)) {
                 aMonitor.setTaskName(
-                        "Unable to generate Deployment Artifact(s). There workspace project(s) have problems that need to be resolved first.");
+                        "Unable to generate Deployment Artifact(s). One or more projects have problems that must be resolved first.");
                 return;
             }
 
