@@ -1,28 +1,28 @@
 FROM centos:7.6.1810@sha256:6ae4cddb2b37f889afd576a17a5286b311dcbf10a904409670827f6f9b50065e as installer
 LABEL maintainer="TIBCO Software Inc" \
       image="Installation" \
-      copyright="(c) TIBCO Software Inc 2004 - 2019. All rights reserved."
+      copyright="(c) TIBCO Software Inc 2004 - 2020. All rights reserved."
 
 # install required software
 RUN yum -y -q install unzip  && \
     groupadd -r studio && useradd -r -m -g studio studio  && \
-    mkdir -p /opt/TIBCO/studio-cloud-bpm /tmp/tibco/  && \
-    chown -R studio:studio /opt/TIBCO/studio-cloud-bpm /tmp/tibco/
+    mkdir -p /opt/TIBCO/studio-bpm /tmp/tibco/  && \
+    chown -R studio:studio /opt/TIBCO/studio-bpm /tmp/tibco/
 
 USER studio:studio
 
 # copy and un-zip installer into /tmp/tibco and run installation
-COPY TIB_business-studio-cloud-bpm-edition_?.?.?_linux*.zip /tmp/tibco/TIB_business-studio-cloud-bpm-edition.zip
+COPY TIB_business-studio-bpm-edition_?.?.?_linux*.zip /tmp/tibco/TIB_business-studio-bpm-edition.zip
 COPY docker-studio.silent /tmp/tibco/
 WORKDIR /tmp/tibco
-RUN unzip -q TIB_business-studio-cloud-bpm-edition.zip && \
+RUN unzip -q TIB_business-studio-bpm-edition.zip && \
     ./TIBCOUniversalInstaller-lnx-x86-64.bin -silent -V responseFile="docker-studio.silent"
 
 # the version of the studio build - usage "docker build --build-arg version=5.0"
 ARG version=5.0
 
 # initialize the eclipse configuration - to improve start-up performance
-WORKDIR /opt/TIBCO/studio-cloud-bpm/studio/$version/eclipse
+WORKDIR /opt/TIBCO/studio-bpm/studio/$version/eclipse
 RUN ./TIBCOBusinessStudio -initialize -noSplash -clean
 
 # start a fresh image - in order to reduce final size
@@ -37,35 +37,35 @@ RUN yum -y -q install xorg-x11-server-Xvfb.x86_64 && \
     yum -y -q install gtk3 && \
     yum -y -q install /usr/lib64/libXtst.so.6 && \
     groupadd -r studio && useradd -r -m -g studio studio  && \
-    mkdir -p /opt/TIBCO/studio-cloud-bpm  && \
-    chown -R studio:studio /opt/TIBCO/studio-cloud-bpm && \
+    mkdir -p /opt/TIBCO/studio-bpm  && \
+    chown -R studio:studio /opt/TIBCO/studio-bpm && \
     dbus-uuidgen --ensure
 
 # WORKSPACE_DIR = the folder in which the studio workspace is to be created
 # PROJECTS_DIR  = the folder in which the project to be imported is located
-# EXPORTS_DIR   = the folder in which the generated RASC is to be written
+# RASCS_DIR   = the folder in which the generated deployment artifacts (RASCs) are to be written
 ENV WORKSPACE_DIR=/workspace \
     PROJECTS_DIR=/projects \
-    EXPORTS_DIR=/exports
+    RASCS_DIR=/rascs
 
 RUN mkdir -p "$WORKSPACE_DIR" && chown -R studio:studio "$WORKSPACE_DIR" && chmod 777 "$WORKSPACE_DIR" && \
     mkdir -p "$PROJECTS_DIR"  && chown -R studio:studio "$PROJECTS_DIR"  && chmod 777 "$PROJECTS_DIR"   && \
-    mkdir -p "$EXPORTS_DIR"   && chown -R studio:studio "$EXPORTS_DIR"   && chmod 777 "$EXPORTS_DIR"
+    mkdir -p "$RASCS_DIR"   && chown -R studio:studio "$RASCS_DIR"   && chmod 777 "$RASCS_DIR"
 
 # allow user to supply their own folders (workspace is optional)
-VOLUME $WORKSPACE_DIR $PROJECTS_DIR $EXPORTS_DIR
+VOLUME $WORKSPACE_DIR $PROJECTS_DIR $RASCS_DIR
 
 # copy studio installation from previous image
-COPY --from=installer --chown=studio:studio /opt/TIBCO/studio-cloud-bpm /opt/TIBCO/studio-cloud-bpm
+COPY --from=installer --chown=studio:studio /opt/TIBCO/studio-bpm /opt/TIBCO/studio-bpm
 
 # the version of the studio build - usage "docker build --build-arg version=5.0"
 ARG version=5.0
 
 # copy the ant script with the generateRasc command
-COPY --chown=studio:studio build.xml entrypoint.sh /opt/TIBCO/studio-cloud-bpm/studio/$version/eclipse/
+COPY --chown=studio:studio build.xml entrypoint.sh /opt/TIBCO/studio-bpm/studio/$version/eclipse/
 
 USER studio:studio
-WORKDIR /opt/TIBCO/studio-cloud-bpm/studio/$version/eclipse
+WORKDIR /opt/TIBCO/studio-bpm/studio/$version/eclipse
 
 # run the ant script
 ENTRYPOINT [ "sh", "./entrypoint.sh" ]

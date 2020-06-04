@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generateRASC">
  
-    <target name="importProjects" description="Imports the given project into the workspace.">
-        <echo>Importing project</echo>
+    <target name="importProjects" description="Imports projects from the given location into the workspace.">
+        <echo>Importing projects</echo>
 		<tbs.importProjects dir="${projects.dir}" copyProjects="true"/>       
     </target>
  
-    <target name="generateRASC" depends="importProjects" description="Generates a RASC file in the given location for the workspace project.">
-        <echo>Exporting RASC</echo>
-        <bpm.generateRASC destdir="${exports.dir}"/>
+    <target name="generateRASC" depends="importProjects" description="Generates deployment artifacts in the form of RASC files for the projects in the workspace.">
+        <echo>Generating Deployment RASC Artifacts</echo>
+        <bpm.generateRASC destdir="${rascs.dir}"/>
     </target>
 
 </project>

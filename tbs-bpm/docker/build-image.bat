@@ -1,5 +1,5 @@
 @ECHO OFF
-ECHO Copyright ^(c^) TIBCO Software Inc 2004 - 2019. All rights reserved.
+ECHO Building TIBCO BPM Studio docker image for automated CI/CD...
 ECHO.
 
 REM look for command line parameters and translate into "option<arg>"
@@ -15,7 +15,7 @@ IF DEFINED option-h (
   ECHO Usage: %0 -acceptLGPL [installer-file] [-h]
   ECHO Where:
   ECHO   -acceptLGPL = confirm acceptance of the LGPL license.
-  ECHO   installer-file = full path of the TIBCO Business Studio - Cloud BPM Edition installer.
+  ECHO   installer-file = full path of the TIBCO Business Studio - BPM Edition installer.
   ECHO   -h display this usage message.
   ECHO.
   EXIT /b -1
@@ -30,8 +30,6 @@ IF NOT DEFINED option-acceptLGPL (
   EXIT /b -1
 )
 
-SET installFile
-
 REM was installer supplied on command line args
 IF DEFINED installFile (
   ECHO Copying Studio Installer %!installFile!
@@ -39,20 +37,19 @@ IF DEFINED installFile (
 )
 
 REM does the installer file exist
-IF NOT EXIST .\image_template\TIB_business-studio-cloud-bpm-edition_?.?.?_linux*.zip (
-  ECHO You must provide a Linux version of the TIBCO Business Studio - Cloud BPM Edition installer.
-  ECHO The installer's name follows the pattern TIB_business-studio-cloud-bpm-edition_?.?.?_linux*.zip
+IF NOT EXIST .\image_template\TIB_business-studio-bpm-edition_?.?.?_linux*.zip (
+  ECHO You must provide a Linux version of the TIBCO Business Studio - BPM Edition installer.
+  ECHO The installer's name follows the pattern TIB_business-studio-bpm-edition_?.?.?_linux*.zip
   ECHO and must be copied to the sub-folder image_template.
   ECHO.
   ECHO Alternatively, specify the location of the file on the command line.
   ECHO Usage: %0 -acceptLGPL [installer-file] [-h]
   ECHO Where:
   ECHO   -acceptLGPL = confirm acceptance of the LGPL license.
-  ECHO   installer-file = full path of the TIBCO Business Studio - Cloud BPM Edition installer.
+  ECHO   installer-file = full path of the TIBCO Business Studio - BPM Edition installer.
   ECHO   -h display this usage message.
   ECHO.
   EXIT /b -1
 )
 
-ECHO Building Docker Image
-docker build -t tibco/sce-studio --build-arg version=5.0 .\image_template
+docker build -t tibco/bpm-studio --build-arg version=5.0 .\image_template

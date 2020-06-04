@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-echo Copyright TIBCO Software Inc 2004 - 2019. All rights reserved.
+echo Building TIBCO BPM Studio docker image for automated CI/CD...
 echo
 
 function usage() {
   echo Usage: ${0} -acceptLGPL [installer-file] [-h]
   echo Where:
   echo -e '\t -acceptLGPL = confirm acceptance of the LGPL license.'
-  echo -e '\t installer-path = full path of the TIBCO Business Studio - Cloud BPM Edition installer.'
+  echo -e '\t installer-path = full path of the TIBCO Business Studio - BPM Edition installer.'
   echo -e '\t -h display this usage message.'
   echo
 }
@@ -48,9 +48,9 @@ if [[ ! -z "$installFile" ]] && [[ -n $installFile ]]; then
 fi
 
 # does the installer file exist
-if [ ! -f ./image_template/TIB_business-studio-cloud-bpm-edition_?.?.?_linux*.zip ]; then
-  echo You must provide a Linux version of the TIBCO Business Studio - Cloud BPM Edition installer.
-  echo The installer\'s name follows the pattern TIB_business-studio-cloud-bpm-edition_?.?.?_linux*.zip
+if [ ! -f ./image_template/TIB_business-studio-bpm-edition_?.?.?_linux*.zip ]; then
+  echo You must provide a Linux version of the TIBCO Business Studio - BPM Edition installer.
+  echo The installer\'s name follows the pattern TIB_business-studio-bpm-edition_?.?.?_linux*.zip
   echo and must be copied to the sub-folder image_template.
   echo
   echo Alternatively, specify the location of the file on the command line.
@@ -59,4 +59,4 @@ if [ ! -f ./image_template/TIB_business-studio-cloud-bpm-edition_?.?.?_linux*.zi
 fi
 
 # Building Docker Image
-docker build -t tibco/sce-studio --build-arg version=5.0 ./image_template
+docker build -t tibco/bpm-studio --build-arg version=5.0 ./image_template

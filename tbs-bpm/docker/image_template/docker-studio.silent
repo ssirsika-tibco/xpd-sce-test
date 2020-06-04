@@ -9,11 +9,11 @@
 <!--the root installation directory-->
 <!--if the product does not support multiple instances and TIBCO_HOME has already been set then-->
 <!--this value is ignored and the existing TIBCO_HOME is used as the installation root-->
-<entry key="installationRoot">/opt/TIBCO/studio-cloud-bpm</entry>
+<entry key="installationRoot">/opt/TIBCO/studio-bpm</entry>
 
 <!--If using an existing environment then the installationRoot AND environmentName MUST match a pre-existing environment-->
 <!--If creating a new environment then the installationRoot AND environmentName MUST BE UNIQUE and not match a pre-existing environment-->
-<entry key="environmentName">studio-cloud-bpm</entry>
+<entry key="environmentName">studio-bpm</entry>
 
 <!--Profiles Selection-->
 <!-- The 'selectedProfiles' value is a comma separated list of profiles to install. If a profile is listed which does not exist, then it is ignored. At least one profile must be listed if useInstallProfile is set to true -->
@@ -40,7 +40,7 @@ In order to perform feature based silent installation, set 'useInstallProfile' e
 
 For example:
 
-<entry key="feature_BPM Development Tools_business-studio-cloud-bpm-edition">true</entry>
+<entry key="feature_BPM Development Tools_business-studio-bpm-edition">true</entry>
 -->
 
 </properties>
