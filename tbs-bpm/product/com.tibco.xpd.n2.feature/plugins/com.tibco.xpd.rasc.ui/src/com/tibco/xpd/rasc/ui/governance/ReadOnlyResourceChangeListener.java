@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
@@ -15,6 +16,7 @@ import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ICoreRunnable;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.jobs.Job;
@@ -70,11 +72,14 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
         IResourceDelta delta = event.getDelta();
         if (delta != null) {
             IResourceDelta[] children = delta.getAffectedChildren();
+
             if (children != null) {
                 boolean shouldShowChangeWarning = false;
                 Set<IProject> projects = new HashSet<>();
+
                 for (IResourceDelta child : children) {
                     IResource resource = child.getResource();
+
                     if (resource != null) {
                         IProject project = resource.getProject();
                         try {
@@ -131,7 +136,14 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
                     int kind = delta.getKind();
                     boolean relevantFlags = (flags & RELEVANT_FLAGS) != 0;
                     boolean relevantKind = (kind & RELEVANT_KIND) != 0;
-                    boolean derived = resource.isDerived(IResource.CHECK_ANCESTORS);
+
+                    /*
+                     * Sid ACE-3886 Now that deployment artifacts folder and rascs are not marked as derived (so that
+                     * they are included in project exports) we need to manually ignore them in order to prevent seeing
+                     * generation of rascs as a change to the project.
+                     */
+                    boolean derived = resource.isDerived(IResource.CHECK_ANCESTORS) || shouldTreatAsDerived(resource);
+
                     if ((relevantKind || relevantFlags) && !derived) {
                         changed = true;
                     }
@@ -146,6 +158,45 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
             }
         }
         return changed;
+    }
+
+    /**
+     * Sid ACE-3886 Now that deployment artifacts folder and rascs are not marked as derived (so that they are included
+     * in project exports) we need to manually ignore them in order to prevent seeing generation of rascs as a change to
+     * the project.
+     * 
+     * @param resource
+     * @return <code>true</code> if the given resource should be treated as derived (so can be created/deleted with
+     *         project locked).
+     */
+    private boolean shouldTreatAsDerived(IResource resource) {
+        if (resource != null) {
+            IProject project = resource.getProject();
+
+            if (project != null) {
+                IPath deployArtifactsFolderPath = project
+                        .getFolder(com.tibco.xpd.rasc.core.Messages.RascController_default_deploy_folder).getFullPath();
+
+                IPath resourcePath = resource.getFullPath();
+
+                if (resourcePath != null) {
+                    /* Treat Project/Deployment Artifacts folder as derived (so can be created with project locked). */
+                    if (resource instanceof IFolder && resourcePath.equals(deployArtifactsFolderPath)) {
+                        return true;
+                    }
+
+                    /*
+                     * Treat Project/Deployment Artifacts folder/[*]/*.rasc as derived (so can be created with project
+                     * locked).
+                     */
+                    if ("rasc".equals(resource.getFileExtension()) //$NON-NLS-1$
+                            && deployArtifactsFolderPath.isPrefixOf(resourcePath)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     /**
