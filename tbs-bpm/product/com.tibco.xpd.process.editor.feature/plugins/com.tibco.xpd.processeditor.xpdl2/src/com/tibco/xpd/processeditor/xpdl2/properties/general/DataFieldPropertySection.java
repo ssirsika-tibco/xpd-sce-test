@@ -530,7 +530,27 @@ public class DataFieldPropertySection extends BaseFieldOrParamPropertySection {
                                 .equals(BasicTypeType.PERFORMER_LITERAL)) {
                     section.setExpanded(false);
                     section.setEnabled(false);
-                } else {
+                } 
+                /*
+                 * Sid ACE-3665: For date / time fields disable initial values section (unless there is already an initial value
+                 * in which case have to show it to allow the user to remove it.
+                 */
+                else if (basicType != null && (BasicTypeType.DATETIME_LITERAL.equals(basicType.getType())
+                        || BasicTypeType.DATE_LITERAL.equals(basicType.getType())
+                        || BasicTypeType.TIME_LITERAL.equals(basicType.getType()))) {
+
+                    InitialValues initValues = (InitialValues) Xpdl2ModelUtil.getOtherElement(getDataField(),
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_InitialValues());
+
+                    if (initValues == null || initValues.getValue().isEmpty()) {
+                        section.setExpanded(false);
+                        section.setEnabled(false);
+                    } else {
+                        section.setEnabled(true);
+                    }
+
+                }
+                else {
                     section.setEnabled(true);
                 }
             }

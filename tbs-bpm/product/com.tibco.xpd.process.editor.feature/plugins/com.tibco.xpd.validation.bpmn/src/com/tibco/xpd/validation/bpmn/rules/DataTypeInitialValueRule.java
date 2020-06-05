@@ -5,7 +5,6 @@ package com.tibco.xpd.validation.bpmn.rules;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -160,84 +159,87 @@ public abstract class DataTypeInitialValueRule extends Xpdl2ValidationRule {
                             }
                         }
                     }
-                    if (basicType.getType()
-                            .equals(BasicTypeType.DATETIME_LITERAL)) {
-                        SimpleDateFormat simpleDateFormat =
-                                new SimpleDateFormat();
-                        simpleDateFormat.setLenient(false);
-                        for (String initialValue : initialValues) {
-                            try {
-                                simpleDateFormat.parse(initialValue);
-                            } catch (Exception ex) {
-                                ArrayList<String> arrList =
-                                        new ArrayList<String>();
-                                String localisedPattern =
-                                        new SimpleDateFormat()
-                                                .toLocalizedPattern();
-                                arrList.add(localisedPattern);
-                                addIssue(DATE_FORMAT, pd, arrList);
-                            }
-                        }
-                    }
-                    if (basicType.getType().equals(BasicTypeType.DATE_LITERAL)) {
-                        for (String initialValue : initialValues) {
-                            if (initialValue.trim().length() > 0) {
-                                try {
-                                    SimpleDateFormat simpleDateFormat =
-                                            new SimpleDateFormat();
-                                    simpleDateFormat
-                                            .applyPattern(iso8601DatePattern);
-                                    simpleDateFormat.setLenient(false);
-                                    String alphaStripped =
-                                            initialValue
-                                                    .replaceAll(ALPHA_REGEX, ""); //$NON-NLS-1$
-                                    if (!alphaStripped.equals(initialValue)
-                                            || alphaStripped.indexOf(",") != -1) { //$NON-NLS-1$
-                                        throw new Exception();
-                                    }
-                                } catch (Exception ex) {
-                                    String localisedPattern =
-                                            new SimpleDateFormat("dd/MM/yy").toLocalizedPattern(); //$NON-NLS-1$
-                                    ArrayList<String> arrList =
-                                            new ArrayList<String>();
-                                    arrList.add(localisedPattern);
-                                    addIssue(DATE_FORMAT, pd, arrList);
-                                }
-                            }
-                        }
-                    }
-                    if (basicType != null
-                            && basicType.getType()
-                                    .equals(BasicTypeType.TIME_LITERAL)) {
-                        for (String initialValue : initialValues) {
-                            if (initialValue.trim().length() > 0) {
-                                try {
-                                    localisedTimeFormat.setLenient(false);
-                                    localisedTimeFormat.parse(initialValue);
-                                    initialValue =
-                                            initialValue.toLowerCase()
-                                                    .replaceFirst(" am", ""); //$NON-NLS-1$ //$NON-NLS-2$
-                                    initialValue =
-                                            initialValue.toLowerCase()
-                                                    .replaceFirst(" pm", ""); //$NON-NLS-1$ //$NON-NLS-2$
-                                    String alphaStripped =
-                                            initialValue
-                                                    .replaceAll(ALPHA_REGEX, ""); //$NON-NLS-1$
-                                    if (!alphaStripped.equals(initialValue)
-                                            || alphaStripped.indexOf(",") != -1) { //$NON-NLS-1$
-                                        throw new Exception();
-                                    }
-                                } catch (Exception ex) {
-                                    String localisedPattern =
-                                            new SimpleDateFormat("HH:mm").toLocalizedPattern(); //$NON-NLS-1$
-                                    ArrayList<String> arrList =
-                                            new ArrayList<String>();
-                                    arrList.add(localisedPattern);
-                                    addIssue(DATE_FORMAT, pd, arrList);
-                                }
-                            }
-                        }
-                    }
+
+                    /* Sid ACE-3665 don't validate date-time initial value (this is now disallowed). */
+                    // if (basicType.getType()
+                    // .equals(BasicTypeType.DATETIME_LITERAL)) {
+                    // SimpleDateFormat simpleDateFormat =
+                    // new SimpleDateFormat();
+                    // simpleDateFormat.setLenient(false);
+                    // for (String initialValue : initialValues) {
+                    // try {
+                    // simpleDateFormat.parse(initialValue);
+                    // } catch (Exception ex) {
+                    // ArrayList<String> arrList =
+                    // new ArrayList<String>();
+                    // String localisedPattern =
+                    // new SimpleDateFormat()
+                    // .toLocalizedPattern();
+                    // arrList.add(localisedPattern);
+                    // addIssue(DATE_FORMAT, pd, arrList);
+                    // }
+                    // }
+                    // }
+
+                    // if (basicType.getType().equals(BasicTypeType.DATE_LITERAL)) {
+                    // for (String initialValue : initialValues) {
+                    // if (initialValue.trim().length() > 0) {
+                    // try {
+                    // SimpleDateFormat simpleDateFormat =
+                    // new SimpleDateFormat();
+                    // simpleDateFormat
+                    // .applyPattern(iso8601DatePattern);
+                    // simpleDateFormat.setLenient(false);
+                    // String alphaStripped =
+                    // initialValue
+                    // .replaceAll(ALPHA_REGEX, ""); //$NON-NLS-1$
+                    // if (!alphaStripped.equals(initialValue)
+                    // || alphaStripped.indexOf(",") != -1) { //$NON-NLS-1$
+                    // throw new Exception();
+                    // }
+                    // } catch (Exception ex) {
+                    // String localisedPattern =
+                    // new SimpleDateFormat("dd/MM/yy").toLocalizedPattern(); //$NON-NLS-1$
+                    // ArrayList<String> arrList =
+                    // new ArrayList<String>();
+                    // arrList.add(localisedPattern);
+                    // addIssue(DATE_FORMAT, pd, arrList);
+                    // }
+                    // }
+                    // }
+                    // }
+                    // if (basicType != null
+                    // && basicType.getType()
+                    // .equals(BasicTypeType.TIME_LITERAL)) {
+                    // for (String initialValue : initialValues) {
+                    // if (initialValue.trim().length() > 0) {
+                    // try {
+                    // localisedTimeFormat.setLenient(false);
+                    // localisedTimeFormat.parse(initialValue);
+                    // initialValue =
+                    // initialValue.toLowerCase()
+                    // .replaceFirst(" am", ""); //$NON-NLS-1$ //$NON-NLS-2$
+                    // initialValue =
+                    // initialValue.toLowerCase()
+                    // .replaceFirst(" pm", ""); //$NON-NLS-1$ //$NON-NLS-2$
+                    // String alphaStripped =
+                    // initialValue
+                    // .replaceAll(ALPHA_REGEX, ""); //$NON-NLS-1$
+                    // if (!alphaStripped.equals(initialValue)
+                    // || alphaStripped.indexOf(",") != -1) { //$NON-NLS-1$
+                    // throw new Exception();
+                    // }
+                    // } catch (Exception ex) {
+                    // String localisedPattern =
+                    // new SimpleDateFormat("HH:mm").toLocalizedPattern(); //$NON-NLS-1$
+                    // ArrayList<String> arrList =
+                    // new ArrayList<String>();
+                    // arrList.add(localisedPattern);
+                    // addIssue(DATE_FORMAT, pd, arrList);
+                    // }
+                    // }
+                    // }
+                    // }
                 }
 
             }
