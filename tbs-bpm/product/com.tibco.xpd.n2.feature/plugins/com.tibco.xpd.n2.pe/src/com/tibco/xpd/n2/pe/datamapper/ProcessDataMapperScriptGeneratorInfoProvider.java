@@ -115,10 +115,11 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
          * Single->Array is really for multi-instance sub-proc output (where result single inst parameter is mapped onto
          * a list field in calling process. Hence we do a push.
          * 
-         * Otherwise we will do a straight assign (which is what we always used to do and so we need to continue to do
-         * that straight assign for mgiration backward compatibility's sake.
+         * Otherwise in the case we got called from a script -> array mapping and script returns array then we need to
+         * do a push-all.
          * 
-         * Array.isArray(rhsObjectStatement) ? targetPath = (rhsObjectStatement) : targetPath.push(rhsObjectStatement);
+         * Array.isArray(rhsObjectStatement) ? targetPath.pushAll(rhsObjectStatement) :
+         * targetPath.push(rhsObjectStatement);
          * 
          * 
          */
@@ -126,7 +127,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
         sb.append(rhsObjectStatement);
         sb.append(") ? ");
         sb.append(finalisedPathString);
-        sb.append(" = (");
+        sb.append(".pushAll(");
         sb.append(rhsObjectStatement);
         sb.append(") : ");
 
