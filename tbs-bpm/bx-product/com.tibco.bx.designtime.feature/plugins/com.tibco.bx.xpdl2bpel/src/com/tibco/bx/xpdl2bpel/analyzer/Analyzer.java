@@ -441,28 +441,31 @@ public class Analyzer {
             } else if (total == 1) {
                 if (startEvents.size() == 1 || leadingReceives.size() == 1) {
                     // most common case, just need to save starting point
-                	if (startEvents.size() == 1) {
-                		for (AnalyzerTask task: startEvents) {
-                			if (usesJoinCorrelation(startEvents)) {
-                				addIssue(JOIN_CORRELATIONS_NOT_MATCHING, task.getXpdlActivity());
-                				if (Tracing.ENABLED) Tracing.trace("Validation error: "+task + ": join correlations for multiple starters must match"); //$NON-NLS-1$                    		
-                			} else {
-                				task.setCreateInstance(true);
-                			}
-                		}
-                	} else {
-                        for (AnalyzerTask task: leadingReceives) {
-                            if (XPDLUtils.isLoopActivity(task.getXpdlActivity())) {
-                                addIssue(LOOP_NOT_VALID_HERE, task.getXpdlActivity());
-                                if (Tracing.ENABLED) Tracing.trace("Validation error: "+task + ": loop not valid here"); //$NON-NLS-1$
-                            } else if (usesJoinCorrelation(leadingReceives)) {
-                				addIssue(JOIN_CORRELATIONS_NOT_MATCHING, task.getXpdlActivity());
-                				if (Tracing.ENABLED) Tracing.trace("Validation error: "+task + ": join correlations for multiple starters must match"); //$NON-NLS-1$                    		
-                			} else {
-                                task.setCreateInstance(true);
-                            }
-                        }
-                    }
+                    /*
+                     * Sid ACE-3736 isable join correlation validation as these are no longer applicable in ACE
+                     */
+//                	if (startEvents.size() == 1) {
+//                		for (AnalyzerTask task: startEvents) {
+//                			if (usesJoinCorrelation(startEvents)) {
+//                				addIssue(JOIN_CORRELATIONS_NOT_MATCHING, task.getXpdlActivity());
+//                				if (Tracing.ENABLED) Tracing.trace("Validation error: "+task + ": join correlations for multiple starters must match"); //$NON-NLS-1$                    		
+//                			} else {
+//                				task.setCreateInstance(true);
+//                			}
+//                		}
+//                	} else {
+//                        for (AnalyzerTask task: leadingReceives) {
+//                            if (XPDLUtils.isLoopActivity(task.getXpdlActivity())) {
+//                                addIssue(LOOP_NOT_VALID_HERE, task.getXpdlActivity());
+//                                if (Tracing.ENABLED) Tracing.trace("Validation error: "+task + ": loop not valid here"); //$NON-NLS-1$
+//                            } else if (usesJoinCorrelation(leadingReceives)) {
+//                				addIssue(JOIN_CORRELATIONS_NOT_MATCHING, task.getXpdlActivity());
+//                				if (Tracing.ENABLED) Tracing.trace("Validation error: "+task + ": join correlations for multiple starters must match"); //$NON-NLS-1$                    		
+//                			} else {
+//                                task.setCreateInstance(true);
+//                            }
+//                        }
+//                    }
                 } else if (leadingTasks.size() == 1) {
                     // insert leading none start event
                     insertLeadingStartEvent(leadingTasks, parent, true);
@@ -478,10 +481,13 @@ public class Analyzer {
                     combinedTasks.addAll(leadingReceives);
                     //verify all use join on same correlation(s), else error (means all must be message based too)
                     if (!hasMatchingJoins(combinedTasks)) {
-                        for (AnalyzerTask task: combinedTasks) {
-                        	addIssue(JOIN_CORRELATIONS_NOT_MATCHING, task.getXpdlActivity());
-                        	if (Tracing.ENABLED) Tracing.trace("Validation error: "+parent + ": join correlations for multiple starters must match"); //$NON-NLS-1$
-                        }
+                        /*
+                         * Sid ACE-3736 isable join correlation validation as these are no longer applicable in ACE
+                         */
+//                        for (AnalyzerTask task: combinedTasks) {
+//                        	addIssue(JOIN_CORRELATIONS_NOT_MATCHING, task.getXpdlActivity());
+//                        	if (Tracing.ENABLED) Tracing.trace("Validation error: "+parent + ": join correlations for multiple starters must match"); //$NON-NLS-1$
+//                        }
                     } else {
                     	// Add tokens from a fake starting point so that all the join starters behave as in parallel flow
                     	AnalyzerTask fakeStartPoint = new AnalyzerTask(0);
