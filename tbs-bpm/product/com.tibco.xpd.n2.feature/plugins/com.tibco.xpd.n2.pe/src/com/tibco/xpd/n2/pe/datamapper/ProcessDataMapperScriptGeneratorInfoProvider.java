@@ -109,8 +109,27 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
         /*
          * Generate statement...
          * 
-         * targetPath.push(rhsGetterStatement);
+         * Sid ACE-3763 This function can be called for SCRIPT --> Array mappings (because framework does not know
+         * whether SCRIPT is single or array return.
+         * 
+         * Single->Array is really for multi-instance sub-proc output (where result single inst parameter is mapped onto
+         * a list field in calling process. Hence we do a push.
+         * 
+         * Otherwise we will do a straight assign (which is what we always used to do and so we need to continue to do
+         * that straight assign for mgiration backward compatibility's sake.
+         * 
+         * Array.isArray(rhsObjectStatement) ? targetPath = (rhsObjectStatement) : targetPath.push(rhsObjectStatement);
+         * 
+         * 
          */
+        sb.append("Array.isArray(");
+        sb.append(rhsObjectStatement);
+        sb.append(") ? ");
+        sb.append(finalisedPathString);
+        sb.append(" = (");
+        sb.append(rhsObjectStatement);
+        sb.append(") : ");
+
         sb.append(finalisedPathString);
         sb.append(".push("); //$NON-NLS-1$
         sb.append(rhsObjectStatement);
