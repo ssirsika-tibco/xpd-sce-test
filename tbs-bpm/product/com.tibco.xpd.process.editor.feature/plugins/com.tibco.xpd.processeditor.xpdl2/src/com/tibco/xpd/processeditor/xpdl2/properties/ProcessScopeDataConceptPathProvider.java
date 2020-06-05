@@ -46,8 +46,12 @@ public class ProcessScopeDataConceptPathProvider extends
         List<ConceptPath> processData = new ArrayList<ConceptPath>();
         Process process = (Process) inputElement;
         if (process != null) {
+            /*
+             * Sid ACE-3764 UTB getAllDataDefinedInProcess() which picks up ACTIVITY scope data as well as datafields
+             * and parameters. You cannot use activity scope data for process scope mappings!.
+             */
             createConceptPath(processData,
-                    ProcessInterfaceUtil.getAllDataDefinedInProcess(process));
+                    ProcessInterfaceUtil.getAllProcessRelevantData(process));
 
         }
         ConceptPath[] conceptPath =
