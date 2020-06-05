@@ -135,6 +135,7 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
                         .setImage(PlatformUI.getWorkbench().getSharedImages()
                                 .getImage(exportStatus.getIconName()));
                 pair.getLabel2().setText(message);
+                pair.getLabel2().setToolTipText(message);
             } else {
                 Label name = new Label(statusArea, SWT.FILL);
                 GridData nameGD =
@@ -164,6 +165,7 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
                         new GridData(SWT.FILL, SWT.FILL, true, false);
                 value2.setLayoutData(value2GD);
                 value2.setText(message);
+                value2.setToolTipText(message);
 
                 statusArea.setSize(statusArea
                         .computeSize(statusArea.getSize().x, SWT.DEFAULT));

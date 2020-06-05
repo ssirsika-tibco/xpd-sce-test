@@ -70,6 +70,8 @@ public class Messages extends NLS {
 
     public static String RascExportOperation_CompleteStatus;
 
+    public static String RascExportOperation_DependencyProjectHasProblems_StatusMsg;
+
     public static String RascExportOperation_ErrorStatus;
 
     public static String RascExportOperation_ExportingStatus;

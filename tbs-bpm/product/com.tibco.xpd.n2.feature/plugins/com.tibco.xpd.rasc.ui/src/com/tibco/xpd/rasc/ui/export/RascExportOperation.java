@@ -7,6 +7,7 @@ package com.tibco.xpd.rasc.ui.export;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.eclipse.core.resources.IContainer;
@@ -31,6 +32,7 @@ import com.tibco.xpd.resources.builder.BuildSynchronizerUtil;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
 import com.tibco.xpd.resources.util.GovernanceStateService;
+import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog;
 import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteStatus;
 
@@ -122,24 +124,41 @@ public class RascExportOperation implements IRunnableWithProgress {
 
         // Check that the selected projects are valid for export
         for (IProject project : projects) {
-            listener.setStatus(project,
-                    ExportStatus.RUNNING,
-                    Messages.RascExportOperation_ValidatingStatus);
+            listener.setStatus(project, ExportStatus.RUNNING, Messages.RascExportOperation_ValidatingStatus);
+
             try {
-                int severity = project.findMaxProblemSeverity(null,
-                        true,
-                        IResource.DEPTH_INFINITE);
+                int severity = project.findMaxProblemSeverity(null, true, IResource.DEPTH_INFINITE);
+
                 if (severity == IMarker.SEVERITY_ERROR) {
                     listener.setStatus(project,
                             ExportStatus.FAILED_VALIDATION,
                             Messages.RascExportOperation_ValidationError);
                     valid = false;
-                } else {
-                    listener.setStatus(project,
-                            ExportStatus.RUNNING,
-                            Messages.RascExportOperation_ValidStatus);
 
+                } else {
+
+                    /* Sid ACE-3822 do not allow generation of project(s) if project dependency has errors. */
+                    Set<IProject> dependencyProjects = ProjectUtil.getReferencedProjectsHierarchy(project, null);
+
+                    for (IProject dependencyProject : dependencyProjects) {
+                        int depSeverity =
+                                dependencyProject.findMaxProblemSeverity(null, true, IResource.DEPTH_INFINITE);
+                        if (depSeverity == IMarker.SEVERITY_ERROR) {
+                            listener.setStatus(project,
+                                    ExportStatus.FAILED_VALIDATION,
+                                    String.format(
+                                            Messages.RascExportOperation_DependencyProjectHasProblems_StatusMsg,
+                                            dependencyProject.getName()));
+                            valid = false;
+                            break;
+                        }
+                    }
+
+                    if (valid) {
+                        listener.setStatus(project, ExportStatus.RUNNING, Messages.RascExportOperation_ValidStatus);
+                    }
                 }
+
             } catch (CoreException e) {
                 listener.setStatus(project,
                         ExportStatus.FAILED_VALIDATION,

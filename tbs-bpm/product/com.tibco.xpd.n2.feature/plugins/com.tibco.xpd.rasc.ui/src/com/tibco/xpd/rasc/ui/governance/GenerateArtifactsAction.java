@@ -63,6 +63,7 @@ public class GenerateArtifactsAction extends BaseSelectionListenerAction {
         RascExportWizard wizard = new RascExportWizard(isGeneratingForProduction);
         wizard.init(workbench, selection);
         WizardDialog dialog = new WizardDialog(shell, wizard);
+        dialog.setMinimumPageSize(750, 400);
         dialog.open();
     }
 
