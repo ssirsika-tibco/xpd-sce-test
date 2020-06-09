@@ -1,15 +1,15 @@
 ================================================================================
 Product Name:    TIBCO Business Studio™ - BPM Edition 
 
-Configuring BPM Studio docker for Automated CI/CD
+Configuring Docker for Automated CI/CD
 ================================================================================
-The automated CI/CD features of BPM Studio provide capabilities such as the
-generation of deployment artifacts (RASC files) for a set of BPM 
-Studio projects.
+The automated CI/CD features provide capabilities such as the generation of 
+deployment artifacts (RASC files) for a set of BPM application projects.
 
-This capability is based upon a docker image into which BPM Studio is installed.
-This docker image provides entry points that support automated CI/CD tasks.
-This image must be built locally before it can be used.
+This capability is based upon a docker image into which the Linux version of 
+TIBCO Business Studio™ BPM Edition has been installed. This docker image 
+provides entry points that support automated CI/CD tasks. This docker image 
+must be built locally before it can be used.
 
 
 Prerequisites
@@ -18,8 +18,8 @@ These features require a working Docker environment. For details of how to
 install and set up Docker on the specific operating system, refer to Docker 
 documentation on: https://docs.docker.com.
 
-You will need a zip archive for the current Linux version of the TIBCO Business 
-Studio BPM-Edition installation set, for example...
+You will need a zip archive for the current Linux version of the TIBCO Business
+Studio™ BPM-Edition installation set, for example...
   TIB_business-studio-bpm-edition_5.0.0_linux24gl23_x86_64.zip
 
 This installation set should be added to the folder...
@@ -27,8 +27,8 @@ This installation set should be added to the folder...
   
   Note: this is the default location for the install set. The docker image
         build utility will use this by default (version-insensitive). If
-		desired this can be located elsewhere and supplied as a parameter
-		to the image build utility.
+        desired this can be located elsewhere and supplied as a parameter
+        to the image build utility.
 
 
 Building the automated CI/CD docker image
@@ -44,9 +44,9 @@ Where the local environment is Microsoft Windows, use:
   build-image.bat [<studio-installer>]
 
 where:
-  <studio-installer> is the full path of the Linux TIBCO Business Studio - 
-  BPM Edition Installer file. This is optional if you have already copied the 
-  installation set archive zip file to the image_template folder.
+  <studio-installer> is the full path of the Linux TIBCO Business Studio™ 
+  BPM Edition installer archive file. This is optional if you have already 
+  copied the installation set archive zip file to the image_template folder.
 
 ** IMPORTANT **
   Building the docker image requires the download and installation of software
@@ -58,16 +58,16 @@ where:
 Using the automated CI/CD docker image
 ================================================================================
 After you have built the tibco/bpm-studio docker image you can use it to
-generate deployment artifacts (RASC files) from BPM Studio projects. 
+generate deployment artifacts (RASC files) from BPM application projects. 
 
 To do this you use the 'generate-rascs' docker entry point and provide volume 
-mappings to the local environment or the source BPM Studio projects 
+mappings to the local environment or the source BPM application projects 
 and target generated deployment artifacts folders.
 
 Where the local environment is Linux, use the docker command:
   # Generate artifacts into the local environment folder 
   #    /usr/bpm-app/deployment-artifacts 
-  # for the BPM Studio projects located in the folder
+  # for the BPM application projects located in the folder
   #    /usr/bpm-app/source-projects
 
   docker run --rm -v /usr/bpm-app/source-projects:/projects 
@@ -76,7 +76,7 @@ Where the local environment is Linux, use the docker command:
 Where the local environment is Microsoft Windows, use the docker command:
   # Generate artifacts into the local environment folder 
   #    c:\bpm-app\deployment-artifacts 
-  # for the BPM Studio projects located in the folder
+  # for the BPM application projects located in the folder
   #    c:\bpm-app\source-projects
 
   docker run --rm -v //c/bpm-app/source-projects:/projects 
@@ -85,7 +85,7 @@ Where the local environment is Microsoft Windows, use the docker command:
 
 You can also use the docker image in the following ways...
 -------------------------------------------------------------------------------
-Run the docker image and open a command shell for it; with the source project
+Run the docker image and open a command shell for it, with the source project
 and deployment artifacts folders mapped. This can be useful to verify the
 correct configuration of the mapped folders etc...
 
@@ -93,11 +93,11 @@ correct configuration of the mapped folders etc...
    -v /usr/bpm-app/deployment-artifacts:/rascs --entrypoint sh tibco/bpm-studio
 
 
-Run the BPM Studio UI within the docker image (this will require correct 
-configuration display IP address for you system and so on)...
+Run the TIBCO Business Studio™ BPM Edition UI within the docker image (this 
+will require correct configuration display IP address for your system)...
 
   docker run --rm --name studio -e DISPLAY=10.100.83.72:0.0 
-    -v /usr/bpm-workspace:/workspace tibco/bpm-studio
+        -v /usr/bpm-workspace:/workspace tibco/bpm-studio
 
 
 ================================================================================
