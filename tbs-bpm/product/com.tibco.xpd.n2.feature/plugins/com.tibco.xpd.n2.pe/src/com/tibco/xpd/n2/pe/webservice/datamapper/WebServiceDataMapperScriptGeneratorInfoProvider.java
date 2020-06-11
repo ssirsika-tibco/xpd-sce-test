@@ -18,11 +18,9 @@ import com.tibco.xpd.ui.util.NameUtil;
 public class WebServiceDataMapperScriptGeneratorInfoProvider extends
         ProcessDataMapperScriptGeneratorInfoProvider {
 
-    public static final String ERROR_CODE_VAR =
-            CatchErrorDataMapperScriptGeneratorInfoProvider.ERROR_CODE_VAR;
+    public static final String ERROR_CODE_VAR = "errorCode"; //$NON-NLS-1$
 
-    public static final String ERROR_DETAIL_VAR =
-            CatchErrorDataMapperScriptGeneratorInfoProvider.ERROR_DETAIL_VAR;
+    public static final String ERROR_DETAIL_VAR = "errorDetail"; //$NON-NLS-1$
 
     public static final String ERROR_CODE_TOKEN =
             CatchErrorDataMapperScriptGeneratorInfoProvider.ERROR_CODE_TOKEN;

@@ -85,8 +85,11 @@ public class ConvertCatch {
     public org.eclipse.bpel.model.Activity convertErrorTriggerToCatch(Scope scope, Assign fanOutAssign) throws ConversionException {
 		String errorCode = resultError.getErrorCode();
 		CatchErrorMappings catchErrorMappings = XPDLUtils.getCatchErrorMappings(resultError);
-        Object errorThrower = BpmnCatchableErrorUtil.getErrorThrower(eventAct);
-        Activity attachedToTask = BpmnCatchableErrorUtil.getAttachedToTask(eventAct);
+		
+		//  Sid ACE-3834 no longer requried...
+		// Object errorThrower = BpmnCatchableErrorUtil.getErrorThrower(eventAct);
+        
+		Activity attachedToTask = BpmnCatchableErrorUtil.getAttachedToTask(eventAct);
         boolean isAttachedToGlobalData = XPDLUtils.isGlobalDataTask(attachedToTask);
         boolean isDeclaredFault = false;
         boolean isDataMapperForCatchError=false;
@@ -94,72 +97,12 @@ public class ConvertCatch {
        org.eclipse.bpel.model.Activity theMappingActivity = null;
 
        
-       /*
-        * Sid ACE-194: We don't do web-service any more in ACE - removed/commented WS related code
-        */
-       WebServiceOperationInfo wsoInfo = null; // Preserve to fail some of the conditions below.
-//
-//		WebServiceOperationInfo wsoInfo = getWebServiceOperationInfo();
-//		if (wsoInfo != null) {
-//			//this is a web service fault
-//			javax.wsdl.Fault fault = errorCode != null ? wsoInfo.getFault(errorCode) : null;
-//			if (fault != null) {
-//				//error code is a declared fault
-//				isDeclaredFault = true;
-//		 				
-//				/*
-//	             * Sid XPD-8010. ConvertFaultDataMapping now only returns 'some'
-//	             * kind of activity that does the mapping, which can differ
-//	             * depending on the grammar. So now we get the acutal assign
-//	             * afterwards (for adding the fanVariable copy statement to later.
-//	             */
-//                ConvertFaultDataMapping mappingConverter =
-//                        new ConvertFaultDataMapping(context, eventAct, wsoInfo,
-//                                errorCode);
-//
-//                theMappingActivity =
-//                        mappingConverter
-//                                .convertDataMappingsToAssign(catchErrorMappings
-//                                        .getMessage());
-//                
-//                if (theMappingActivity != null) {
-//                    Assign errDataAssign =
-//                            mappingConverter.getMappingAssignActivity();
-//
-//                    if (errDataAssign != null) {
-//                        faultVariable = null;
-//                        EList<Copy> copies = errDataAssign.getCopy();
-//                        for (Copy copy : copies) {
-//                            From from = copy.getFrom();
-//                            if (from.getVariable() != null) {
-//                                faultVariable =
-//                                        wsoInfo.createFaultVariable(from
-//                                                .getVariable().getName());
-//                                break;
-//                            }
-//                        }
-//                        if (faultVariable == null) {
-//                            faultVariable =
-//                                    wsoInfo.createFaultVariable(errorCode);
-//                        }
-//
-//                        /*
-//                         * Sid XPD-8010 - Add fanVariable copies to mapping assign instead of visa versa.
-//                         * (as the mapping one might be part of a scope/sequence that forms theMappingActivity)
-//                         */
-//                        errDataAssign.getCopy().addAll(fanOutAssign.getCopy());
-//                    }
-//                }
-//			} else {
-//				//this mapping is for an undeclared error (e.g. timeout exception)
-//				
-//			}
-//		} 
-		
+	
 		if (!isDeclaredFault && catchErrorMappings != null && catchErrorMappings.getMessage() != null) {
 
 		    /*
-		     * XPD-8006: Saket: Handle Data Mappings for CATCH ALL and CATCH SUB-PROCESS ERROR.
+		     * XPD-8006: Saket: Handle Data Mappings for CATCH ALL and CATCH SUB-PROCESS ERROR, 
+		     * Sid : (always was) Case-operation and Email service tasks too (although these have no out params so are effectively treated same as catch-all).
 		     */
 		    Message cemMessage = catchErrorMappings.getMessage();
 		    
@@ -168,15 +111,18 @@ public class ConvertCatch {
 		    if(sdmObj instanceof ScriptDataMapper)
 		    {
 		        /*
-		         * DataMapper for Catch-All/Catch Sub-process error.
+		         * DataMapper mappings (only thing supported in ACE V5 
 		         */
 		        isDataMapperForCatchError=true;
 		        
-		        String faultVariableName = FaultNamingConvention.getFaultVariableName(errorCode);
+	            /*
+	             * Sid ACE-3834 faultNameVar and faultDetailsVar are now supplied via the PE-generated "parameters"
+	             * object as $ERROR_CODE and $ERROR_DETAIL properties.
+	             */
+
 		        ScriptDataMapper sdm=(ScriptDataMapper)sdmObj;
 		        
-		        ExtensionActivity scriptActivity =
-		                createDataMapperMappingScript(sdm);
+		        ExtensionActivity scriptActivity = createDataMapperMappingScript(sdm);
 
 		        if (scriptActivity != null) {
 		            
@@ -186,158 +132,28 @@ public class ConvertCatch {
 		            fanOutAssign.setName(context.genUniqueActivityName("assign")); //$NON-NLS-1$
 		            sequence.getActivities().add(fanOutAssign);
 		            sequence.getActivities().add(scriptActivity);
+
+                    /*
+                     * Sid ACE-3834There is no difference here between catch-all, catch specific sub-proc error and
+                     * catch specific case operation task error.
+                     * 
+                     * Since PE now scopes a JSON "parameters" object with all required properties ($ERROR_CODE,
+                     * $ERROR_DETAIL and any other sub-proc output parameters, then we no longer need an extra 'scope'
+                     * to contain temporary _BX_variables as these aren't required anymore (parameters object contains
+                     * these).
+                     * 
+                     * So the following code has been rationalised down to simply this...
+                     */
+                    theMappingActivity = sequence;
 		            
-		            /*
-		             * XPD-8006: Saket: Here we need to decide if we have Catch-All or Catch Sub-Process Error
-		             * because if we have Catch-All, then the mapping activity would be a sequence, whereas, 
-		             * if we have catch error, then the mapping activity is going to be a scope 
-		             * which'd have the sub-process variables defined in it.
-		             */
-		            
-		            /*
-		             * XPD-8174: Saket: Catch SOAP over JMS Service TimeOutException should also be modelled like CatchAll.
-		             */
-		            /*
-		             * Sid ACE-194: We don't do web-service any more in ACE - removed/commented WS related code
-		             */
-
-		            if (errorCode == null || errorCode.length() == 0 || isAttachedToGlobalData /* || CatchWsdlErrorEventUtil
-		                    .isTimeoutExceptionSelectedForSoapJMSConsumer(eventAct) */) {
-		                
-		                /*
-		                 * Catch-All.
-		                 */
-		                
-		                theMappingActivity=sequence;
-		            
-		            }else if(BpmnCatchableErrorUtil.isCatchSubProcessErrorEvent(eventAct)){
-		                
-		                /*
-		                 * Catch Sub-Process error.
-		                 */
-		                
-		                /*
-		                 * Create scope to enclose the sequence and the variables equivalent to each sub-process parameter.
-		                 */
-		                Scope catchSubProcErrorScope = BPELFactory.eINSTANCE.createScope();
-		                catchSubProcErrorScope.setName(context
-		                        .genUniqueActivityName("scope")); //$NON-NLS-1$
-		                
-		                Activity subProcessActivity=BpmnCatchableErrorUtil.getAttachedToTask(eventAct);
-		                
-		                if(subProcessActivity!=null && subProcessActivity.getImplementation() instanceof SubFlow)
-		                {
-
-		                    Object catchTypeOrEndError =
-		                           getCatchTypeOrSpecificErrorEndEvent(eventAct);
-
-		                    if (catchTypeOrEndError instanceof Activity
-		                            || catchTypeOrEndError instanceof InterfaceMethod) {
-		                        
-		                        errorThrower = catchTypeOrEndError;
-
-		                        List<FormalParameter> errorThrowerActivityParameters =
-                                        fetchThrownParameters(errorCode,
-                                                errorThrower);
-		                        
-		                        org.eclipse.bpel.model.Variables variables =
-                                        populateBpelVariablesForThrownParameters(fanOutAssign,
-                                                errorCode,
-                                                subProcessActivity,
-                                                errorThrowerActivityParameters);
-
-		                        catchSubProcErrorScope.setVariables(variables);
-		                        catchSubProcErrorScope.setActivity(sequence);
-		                        theMappingActivity=catchSubProcErrorScope;
-
-		                    }
-		                }
-		            }
 		        }
 
-		        if (errorThrower instanceof Activity) {
-		            faultVariable = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariable();
-		            faultVariable.setName(faultVariableName);
-		            Fault fault = ConvertThrow.getFault(context, (Activity) errorThrower, resultError);
-		            faultVariable.setMessageType((org.eclipse.wst.wsdl.Message) fault.getMessage());
-		        } else if (errorThrower instanceof InterfaceMethod) {
-		            ErrorThrowerInfo errorThrowerInfo = BpmnCatchableErrorUtil.getExtendedErrorThrowerInfo(eventAct);
-		            ProcessInterface throwingProcessInterface = Xpdl2WorkingCopyImpl.locateProcessInterface(errorThrowerInfo.getThrowerContainerId());
-		            faultVariable = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariable();
-		            faultVariable.setName(faultVariableName);
-		            Fault fault = ConvertThrow.getFault(context, throwingProcessInterface, (InterfaceMethod) errorThrower, resultError);
-		            faultVariable.setMessageType((org.eclipse.wst.wsdl.Message) fault.getMessage());
-		        }
+                /* Sid ACE-3834 fault handling is no longer piggy backed on WSDL fault handling - faultVariableName/Type attribute no longer required. */
 
-		    }else if(!cemMessage.getDataMappings().isEmpty()) {
-
-		        String faultVariableName = FaultNamingConvention.getFaultVariableName(errorCode);
-
-		        EList<DataMapping> dataMappings = catchErrorMappings.getMessage().getDataMappings();
-		        if (dataMappings != null) {
-		            Assign errDataAssign = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createAssign();
-		            for (DataMapping dataMapping : dataMappings) {
-		                boolean isXPath = ScriptGrammarFactory.XPATH.equals(DataMappingUtil.getGrammar(dataMapping));
-		                String target = DataMappingUtil.getTarget(dataMapping);
-		                String script = DataMappingUtil.getScript(dataMapping);
-		                ScriptInformation scriptInformation = XPDLUtils.getScriptInformation(dataMapping);
-		                boolean isScript = scriptInformation != null;
-
-		                org.eclipse.bpel.model.From from;
-		                if (isScript) {
-		                    String grammar = DataMappingUtil.getGrammar(dataMapping);
-		                    String faultNameVar = FaultNamingConvention.getFaultVariableName(ConvertThrow.ERROR_CODE_TOKEN);
-		                    String faultDetailVar = FaultNamingConvention.getFaultVariableName(ConvertThrow.ERROR_DETAIL_TOKEN);
-		                    script = script.replaceAll(Matcher.quoteReplacement(ConvertThrow.ERROR_CODE_TOKEN), faultNameVar);
-		                    script = script.replaceAll(Matcher.quoteReplacement(ConvertThrow.ERROR_DETAIL_TOKEN), faultDetailVar);
-		                    from = BPELUtils.createFromScript(script, grammar);
-		                } else {
-		                    if ((wsoInfo != null && !isDeclaredFault) || isAttachedToGlobalData || errorCode == null || errorCode.length() == 0) {
-		                        //no error code means it's CatchAll
-		                        String fromVar = FaultNamingConvention.getFaultVariableName(script);
-		                        from = BPELUtils.createFromVariable(fromVar);
-		                    } else {
-		                        from = BPELUtils.createFromVariable(faultVariableName);
-		                        org.eclipse.wst.wsdl.Part fromPart = org.eclipse.wst.wsdl.WSDLFactory.eINSTANCE.createPart();
-		                        fromPart.setName(ConvertThrow.ERROR_CODE_TOKEN.equals(script) ? "errorCode" : script); //$NON-NLS-1$
-		                        from.setPart(fromPart);
-		                    }
-		                }
-
-		                org.eclipse.bpel.model.To to;
-		                boolean mappingToVariable = isXPath || target.indexOf(".") < 0; //$NON-NLS-1$
-		                if (mappingToVariable) {
-		                    to = BPELUtils.createToVariable(target);
-		                } else {
-		                    to = CDSUtils.createToExpressionWithCDS(eventAct, target, false);
-		                    BPELUtils.addExtensionAttribute(from, "returnVar", "fromReturn"); //$NON-NLS-1$ //$NON-NLS-2$
-		                }
-
-		                org.eclipse.bpel.model.Copy copy = BPELFactory.eINSTANCE.createCopy();
-		                copy.setTo(to);
-		                copy.setFrom(from);
-
-		                errDataAssign.getCopy().add(copy);
-		            }
-		            fanOutAssign.getCopy().addAll(errDataAssign.getCopy());
-
-		        }
-
-		        if (wsoInfo == null) {
-		            if (errorThrower instanceof Activity) {
-		                faultVariable = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariable();
-		                faultVariable.setName(faultVariableName);
-		                Fault fault = ConvertThrow.getFault(context, (Activity) errorThrower, resultError);
-		                faultVariable.setMessageType((org.eclipse.wst.wsdl.Message) fault.getMessage());
-		            } else if (errorThrower instanceof InterfaceMethod) {
-		                ErrorThrowerInfo errorThrowerInfo = BpmnCatchableErrorUtil.getExtendedErrorThrowerInfo(eventAct);
-		                ProcessInterface throwingProcessInterface = Xpdl2WorkingCopyImpl.locateProcessInterface(errorThrowerInfo.getThrowerContainerId());
-		                faultVariable = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariable();
-		                faultVariable.setName(faultVariableName);
-		                Fault fault = ConvertThrow.getFault(context, throwingProcessInterface, (InterfaceMethod) errorThrower, resultError);
-		                faultVariable.setMessageType((org.eclipse.wst.wsdl.Message) fault.getMessage());
-		            }
-		        }
+		    } else if(!cemMessage.getDataMappings().isEmpty()) {
+		        /*
+		         * Sid ACE-3838 - commented code to save confusion, non-datamapper mappings no longer supported.
+		         */
 		    }
 		}
 
@@ -353,45 +169,46 @@ public class ConvertCatch {
             faultHandler = BPELFactory.eINSTANCE.createFaultHandler();
             scope.setFaultHandlers(faultHandler);
         }
+        
 		if (errorCode == null || errorCode.length() == 0) {
+            /*
+             * Catch all on any task type.
+             */
             CatchAll catchAll = BPELFactory.eINSTANCE.createCatchAll();
-			String faultNameVar = FaultNamingConvention.getFaultVariableName(ConvertThrow.ERROR_CODE_TOKEN);
-            BPELUtils.addExtensionAttribute(catchAll, "faultNameVar", faultNameVar); //$NON-NLS-1$
-			String faultDetailVar = FaultNamingConvention.getFaultVariableName(ConvertThrow.ERROR_DETAIL_TOKEN);
-            BPELUtils.addExtensionAttribute(catchAll, "faultDetailsVar", faultDetailVar); //$NON-NLS-1$
+			
+            /*
+             * Sid ACE-3834 faultNameVar and faultDetailsVar are now supplied via the PE-generated "parameters"
+             * object as $ERROR_CODE and $ERROR_DETAIL properties.
+             */
+            
             catchAll.setActivity(theMappingActivity);
             faultHandler.setCatchAll(catchAll);
-		} else if ((wsoInfo != null && !isDeclaredFault) || isAttachedToGlobalData) {
+            
+		}  else {
+            /*
+             * Catch specific (any type)
+             * 
+             * Sid ACE-3834 after removal of all (now) extraneous code, the old handling for WSDL catch-all and
+             * Case-operation service task was exactly the same as the generic catch specific. So there was no need for
+             * a separate else-if for this in the above code.
+             */
             Catch bpelCatch = BPELFactory.eINSTANCE.createCatch();
-			bpelCatch.setFaultName(new QName(errorCode));
-			String faultNameVar = FaultNamingConvention.getFaultVariableName(ConvertThrow.ERROR_CODE_TOKEN);
-            BPELUtils.addExtensionAttribute(bpelCatch, "faultNameVar", faultNameVar); //$NON-NLS-1$
-			String faultDetailVar = FaultNamingConvention.getFaultVariableName(ConvertThrow.ERROR_DETAIL_TOKEN);
-            BPELUtils.addExtensionAttribute(bpelCatch, "faultDetailsVar", faultDetailVar); //$NON-NLS-1$
-            bpelCatch.setActivity(theMappingActivity);
-            faultHandler.getCatch().add(bpelCatch);
-        } else {
-            Catch bpelCatch = BPELFactory.eINSTANCE.createCatch();
-            String tns = wsoInfo != null && faultVariable != null && faultVariable.getMessageType() != null ? 
-            		faultVariable.getMessageType().getEnclosingDefinition().getTargetNamespace() : null;
-			QName faultName = new QName(tns, errorCode);
+            
+            /*
+             * Sid ACE-3834 we no longer need faultVariableName/Type as we don't piggyback on WSDL Catch approach for
+             * catch error. So there can't be any tns anymore.
+             */
+
+	        QName faultName = new QName(errorCode);
+
 			bpelCatch.setFaultName(faultName);
             bpelCatch.setActivity(theMappingActivity);
-            if (faultVariable != null) {
-                bpelCatch.setFaultVariable(faultVariable);
-                bpelCatch.setFaultMessageType(faultVariable.getMessageType());
-            }
-            if(isDataMapperForCatchError)
-            {
-                /*
-                 * XPD-8006 Add var_errorCode and var_errorDetail variables for catch error Data Mapper.
-                 */
-                
-                String faultNameVar = FaultNamingConvention.getFaultVariableName(ConvertThrow.ERROR_CODE_TOKEN);
-                BPELUtils.addExtensionAttribute(bpelCatch, "faultNameVar", faultNameVar); //$NON-NLS-1$
-                String faultDetailVar = FaultNamingConvention.getFaultVariableName(ConvertThrow.ERROR_DETAIL_TOKEN);
-                BPELUtils.addExtensionAttribute(bpelCatch, "faultDetailsVar", faultDetailVar); //$NON-NLS-1$
-            }
+            
+            /*
+             * Sid ACE-3834 fault handling is no longer piggy backed on WSDL fault handling -
+             * faultVariable/faultMessageType/faultDetailsVar attribute no longer required.
+             */
+            
             faultHandler.getCatch().add(bpelCatch);
         }
 		
@@ -413,37 +230,41 @@ public class ConvertCatch {
      * 
      * @throws ConversionException
      */
-    private org.eclipse.bpel.model.Variables populateBpelVariablesForThrownParameters(
-            Assign fanOutAssign, String errorCode, Activity subProcessActivity,
-            List<FormalParameter> errorThrowerActivityParameters)
-            throws ConversionException {
-        org.eclipse.bpel.model.Variables variables = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariables();
-
-        for (FormalParameter eachParam : errorThrowerActivityParameters) {
-
-            String bxVariableName = N2PEConstants.NAME_PREFIX + eachParam.getName();
-
-            /*
-             * Add local variable to the list of variable to be added to the scope.
-             */
-            addLocalVariable(variables, eachParam, bxVariableName, subProcessActivity); 
-
-            /*
-             * Add copy to the fanOutAssign which which configure the BX version of each sub-process parameter.
-             */
-            org.eclipse.bpel.model.From from = BPELUtils.createFromVariableWithPart(FaultNamingConvention.getFaultVariableName(errorCode), eachParam.getName(), null);
-            org.eclipse.bpel.model.To to = BPELUtils.createToVariable(bxVariableName);
-
-            org.eclipse.bpel.model.Copy copy = BPELFactory.eINSTANCE.createCopy();
-            copy.setTo(to);
-            copy.setFrom(from);
-
-            if (copy != null) {
-                fanOutAssign.getCopy().add(copy);
-            }
-        }
-        return variables;
-    }
+    /*
+     * Sid ACE-3834 No longer required. Subproc Thrown error params are scoped in a "parameters" object by PE for
+     * mapping script purposes.
+     */
+//    private org.eclipse.bpel.model.Variables populateBpelVariablesForThrownParameters(
+//            Assign fanOutAssign, String errorCode, Activity subProcessActivity,
+//            List<FormalParameter> errorThrowerActivityParameters)
+//            throws ConversionException {
+//        org.eclipse.bpel.model.Variables variables = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariables();
+//
+//        for (FormalParameter eachParam : errorThrowerActivityParameters) {
+//
+//            String bxVariableName = N2PEConstants.NAME_PREFIX + eachParam.getName();
+//
+//            /*
+//             * Add local variable to the list of variable to be added to the scope.
+//             */
+//            addLocalVariable(variables, eachParam, bxVariableName, subProcessActivity); 
+//
+//            /*
+//             * Add copy to the fanOutAssign which which configure the BX version of each sub-process parameter.
+//             */
+//            org.eclipse.bpel.model.From from = BPELUtils.createFromVariableWithPart(FaultNamingConvention.getFaultVariableName(errorCode), eachParam.getName(), null);
+//            org.eclipse.bpel.model.To to = BPELUtils.createToVariable(bxVariableName);
+//
+//            org.eclipse.bpel.model.Copy copy = BPELFactory.eINSTANCE.createCopy();
+//            copy.setTo(to);
+//            copy.setFrom(from);
+//
+//            if (copy != null) {
+//                fanOutAssign.getCopy().add(copy);
+//            }
+//        }
+//        return variables;
+//    }
 
     /**
      * Get the parameters implicitly/explicitly added to the throw error event of the called sub-process.
@@ -453,55 +274,59 @@ public class ConvertCatch {
      * 
      * @return The parameters implicitly/explicitly added to the throw error event of the called sub-process.
      */
-    private List<FormalParameter> fetchThrownParameters(String errorCode,
-            Object errorThrower) {
-        List<FormalParameter> errorThrowerActivityParameters = new ArrayList<FormalParameter>();
-        
-        if (errorThrower instanceof Activity) {
-            
-            List<FormalParameter> thrownParams =
-                    ProcessInterfaceUtil
-                            .getAssociatedFormalParameters((Activity) errorThrower);
-            
-            if (thrownParams != null && thrownParams.size() > 0) {
-                for (FormalParameter eachThrownParam : thrownParams) {
-                
-                    // Only allow map from OUT/INOUT error thrower params.
-                    if (!ModeType.IN_LITERAL.equals(eachThrownParam.getMode())) {
-                        errorThrowerActivityParameters.add(eachThrownParam);
-                    }
-                }
-            }
-            
-        } else if (errorThrower instanceof InterfaceMethod) {
-            InterfaceMethod method = (InterfaceMethod) errorThrower;
-            ErrorMethod errorMethod = null;
-
-            for (ErrorMethod em : method.getErrorMethods()) {
-                if (errorCode.equals(em.getErrorCode())) {
-                    errorMethod = em;
-                }
-            }
-
-            if (errorMethod != null) {
-
-                List<FormalParameter> thrownParams =
-                        ProcessInterfaceUtil
-                                .getErrorMethodAssociatedFormalParameters(errorMethod);
-                
-                if (thrownParams != null && thrownParams.size() > 0) {
-                    for (FormalParameter tp : thrownParams) {
-                
-                        // Only allow map from OUT/INOUT error thrower params.
-                        if (!ModeType.IN_LITERAL.equals(tp.getMode())) {
-                            errorThrowerActivityParameters.add(tp);
-                        }
-                    }
-                }
-            }
-        }
-        return errorThrowerActivityParameters;
-    }
+    /*
+     * Sid ACE-3834 No longer required. Subproc Thrown error params are scoped in a "parameters" object by PE for
+     * mapping script purposes.
+     */
+//    private List<FormalParameter> fetchThrownParameters(String errorCode,
+//            Object errorThrower) {
+//        List<FormalParameter> errorThrowerActivityParameters = new ArrayList<FormalParameter>();
+//        
+//        if (errorThrower instanceof Activity) {
+//            
+//            List<FormalParameter> thrownParams =
+//                    ProcessInterfaceUtil
+//                            .getAssociatedFormalParameters((Activity) errorThrower);
+//            
+//            if (thrownParams != null && thrownParams.size() > 0) {
+//                for (FormalParameter eachThrownParam : thrownParams) {
+//                
+//                    // Only allow map from OUT/INOUT error thrower params.
+//                    if (!ModeType.IN_LITERAL.equals(eachThrownParam.getMode())) {
+//                        errorThrowerActivityParameters.add(eachThrownParam);
+//                    }
+//                }
+//            }
+//            
+//        } else if (errorThrower instanceof InterfaceMethod) {
+//            InterfaceMethod method = (InterfaceMethod) errorThrower;
+//            ErrorMethod errorMethod = null;
+//
+//            for (ErrorMethod em : method.getErrorMethods()) {
+//                if (errorCode.equals(em.getErrorCode())) {
+//                    errorMethod = em;
+//                }
+//            }
+//
+//            if (errorMethod != null) {
+//
+//                List<FormalParameter> thrownParams =
+//                        ProcessInterfaceUtil
+//                                .getErrorMethodAssociatedFormalParameters(errorMethod);
+//                
+//                if (thrownParams != null && thrownParams.size() > 0) {
+//                    for (FormalParameter tp : thrownParams) {
+//                
+//                        // Only allow map from OUT/INOUT error thrower params.
+//                        if (!ModeType.IN_LITERAL.equals(tp.getMode())) {
+//                            errorThrowerActivityParameters.add(tp);
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        return errorThrowerActivityParameters;
+//    }
     
     /**
      * @param catchErrorEvent
@@ -509,40 +334,44 @@ public class ConvertCatch {
      *         activity (if error thrown by such) or null catch specific but
      *         thrower cannot be found.
      */
-    private Object getCatchTypeOrSpecificErrorEndEvent(
-            Activity catchErrorEvent) {
-        //
-        // Check if it's a catch all, catch by name or catch
-        // specific error thrown by end error event.
-        //
-        ErrorCatchType catchType =
-                BpmnCatchableErrorUtil.getCatchType(catchErrorEvent);
-        if (ErrorCatchType.CATCH_ALL.equals(catchType)
-                || ErrorCatchType.CATCH_BY_NAME.equals(catchType)) {
-            return catchType;
-
-        } else if (ErrorCatchType.CATCH_SPECIFIC.equals(catchType)) {
-            //
-            // If it's catch specific check thrower is end
-            // error.
-            Object thrower =
-                    BpmnCatchableErrorUtil.getErrorThrower(catchErrorEvent);
-            if (thrower instanceof Activity) {
-                Activity throwAct = (Activity) thrower;
-
-                if (throwAct.getEvent() instanceof EndEvent) {
-                    if (ResultType.ERROR_LITERAL.equals(((EndEvent) throwAct
-                            .getEvent()).getResult())) {
-                        return throwAct;
-                    }
-                }
-            } else if (thrower instanceof InterfaceMethod) {
-                return thrower;
-            }
-        }
-
-        return null;
-    }
+    /*
+     * Sid ACE-3834 No longer required. Subproc Thrown error params are scoped in a "parameters" object by PE for
+     * mapping script purposes.
+     */
+//    private Object getCatchTypeOrSpecificErrorEndEvent(
+//            Activity catchErrorEvent) {
+//        //
+//        // Check if it's a catch all, catch by name or catch
+//        // specific error thrown by end error event.
+//        //
+//        ErrorCatchType catchType =
+//                BpmnCatchableErrorUtil.getCatchType(catchErrorEvent);
+//        if (ErrorCatchType.CATCH_ALL.equals(catchType)
+//                || ErrorCatchType.CATCH_BY_NAME.equals(catchType)) {
+//            return catchType;
+//
+//        } else if (ErrorCatchType.CATCH_SPECIFIC.equals(catchType)) {
+//            //
+//            // If it's catch specific check thrower is end
+//            // error.
+//            Object thrower =
+//                    BpmnCatchableErrorUtil.getErrorThrower(catchErrorEvent);
+//            if (thrower instanceof Activity) {
+//                Activity throwAct = (Activity) thrower;
+//
+//                if (throwAct.getEvent() instanceof EndEvent) {
+//                    if (ResultType.ERROR_LITERAL.equals(((EndEvent) throwAct
+//                            .getEvent()).getResult())) {
+//                        return throwAct;
+//                    }
+//                }
+//            } else if (thrower instanceof InterfaceMethod) {
+//                return thrower;
+//            }
+//        }
+//
+//        return null;
+//    }
     
     /**
      * Add local variable pertaining to the specified process relevant data to the list of variables to be added in the scope.
@@ -553,15 +382,19 @@ public class ConvertCatch {
      * @param xpdlActivity
      * @throws ConversionException
      */
-    private void addLocalVariable(org.eclipse.bpel.model.Variables variables,
-            ProcessRelevantData param, String varName, Activity xpdlActivity) throws ConversionException {
-        if (param != null) {
-            org.eclipse.bpel.model.Variable variable = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariable();
-            variable.setName(varName);
-            ConvertDataField.setDataTypeForVariable(xpdlActivity.getProcess(), variable, param.getDataType(), param.isIsArray());
-            variables.getChildren().add(variable);
-        }
-    }
+    /*
+     * Sid ACE-3834 No longer required. Subproc Thrown error params are scoped in a "parameters" object by PE for
+     * mapping script purposes.
+     */
+//    private void addLocalVariable(org.eclipse.bpel.model.Variables variables,
+//            ProcessRelevantData param, String varName, Activity xpdlActivity) throws ConversionException {
+//        if (param != null) {
+//            org.eclipse.bpel.model.Variable variable = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariable();
+//            variable.setName(varName);
+//            ConvertDataField.setDataTypeForVariable(xpdlActivity.getProcess(), variable, param.getDataType(), param.isIsArray());
+//            variables.getChildren().add(variable);
+//        }
+//    }
     
     /**
      * XPD-8010: Convert input mappings in the script data mapper to get a BPEL extension

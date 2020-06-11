@@ -174,40 +174,6 @@ public class BpelSubProcessConversionTest extends AbstractBpelTransformTest {
         assertTrue(mainActivityName + " should have a <bpws:catch> element",
                 catchEl.isPresent());
 
-        /* Ensure still has a <bpws:scope> */
-        Optional<Node> scope =
-                findFirstElement(catchEl.get().getChildNodes(), node -> "scope".equals(node.getLocalName()));
-
-        assertTrue(mainActivityName + " should have a <bpws:scope> element",
-                scope.isPresent());
-
-        /* Ensure still has a <bpws:variables> */
-        Optional<Node> variables =
-                findFirstElement(scope.get().getChildNodes(), node -> "variables".equals(node.getLocalName()));
-
-        assertTrue(mainActivityName + " should have a <bpws:variables> element", variables.isPresent());
-
-        /*
-         * Ensure still has variables declared with _BX_ for parameters
-         * (checking one should suffice).
-         */
-        boolean variableFound = false;
-
-        for (int i = 0; i < variables.get().getChildNodes().getLength(); i++) {
-            Node node = variables.get().getChildNodes().item(i);
-
-            if ("variable".equals(node.getLocalName())) {
-                Node namedItem = node.getAttributes().getNamedItem("name");
-                if (namedItem != null) {
-                    if ("_BX_TextParameter".equals(namedItem.getNodeValue())) {
-                        variableFound = true;
-                        break;
-                    }
-                }
-            }
-        }
-
-        assertTrue(mainActivityName + " should have a <bpws:variable name='_BX_TextParameter> element", variableFound);
 
         /*
          * check assign task <bpws:copy> elements (just one will do.
@@ -215,7 +181,7 @@ public class BpelSubProcessConversionTest extends AbstractBpelTransformTest {
 
         /* Ensure still has a <bpws:sequence> */
         Optional<Node> sequence =
-                findFirstElement(scope.get().getChildNodes(), node -> "sequence".equals(node.getLocalName()));
+                findFirstElement(catchEl.get().getChildNodes(), node -> "sequence".equals(node.getLocalName()));
 
         assertTrue(mainActivityName + " should have a <bpws:sequence> element", sequence.isPresent());
 
@@ -225,47 +191,23 @@ public class BpelSubProcessConversionTest extends AbstractBpelTransformTest {
 
         assertTrue(mainActivityName + " should have a <bpws:assign> element", assign.isPresent());
 
-        /* And assign assigns to _BX_TextParameter from TextParameter. */
-        boolean copyFound = false;
+        /* Ensure still has a <tibex:extensionActivity> */
+        Optional<Node> extensionActivity =
+                findFirstElement(sequence.get().getChildNodes(), node -> "extensionActivity".equals(node.getLocalName()));
 
-        for (int i = 0; i < assign.get().getChildNodes().getLength(); i++) {
-            Node node = assign.get().getChildNodes().item(i);
+        assertTrue(mainActivityName + " should have a <tibex:extensionActivity> element", extensionActivity.isPresent());
 
-            if ("copy".equals(node.getLocalName())) {
-                boolean fromFound = false;
-                boolean toFound = false;
+        /* Ensure still has a <tibex:extActivity> */
+        Optional<Node> extActivity =
+                findFirstElement(extensionActivity.get().getChildNodes(), node -> "extActivity".equals(node.getLocalName()));
 
-                for (int j = 0; j < node.getChildNodes().getLength(); j++) {
-                    Node node2 = node.getChildNodes().item(j);
+        assertTrue(mainActivityName + " should have a <tibex:extActivity> element", extActivity.isPresent());
 
-                    if ("to".equals(node2.getLocalName())) {
-                        Node namedItem = node2.getAttributes().getNamedItem("variable");
-                        if (namedItem != null) {
-                            if ("_BX_TextParameter".equals(namedItem.getNodeValue())) {
-                                toFound = true;
-                            }
-                        }
-                    }
+        /* Ensure still has a <tibex:extActivity> */
+        Optional<Node> script =
+                findFirstElement(extensionActivity.get().getChildNodes(), node -> "script".equals(node.getLocalName()));
 
-                    if ("from".equals(node2.getLocalName())) {
-                        Node namedItem = node2.getAttributes().getNamedItem("part");
-                        if (namedItem != null) {
-                            if ("TextParameter".equals(namedItem.getNodeValue())) {
-                                fromFound = true;
-                            }
-                        }
-                    }
-                }
-
-                if (fromFound && toFound) {
-                    copyFound = true;
-                    break;
-                }
-            }
-        }
-
-        assertTrue(mainActivityName + " should have a <bpws:copy> element with from=TextParameter to=_BX_TextParameter",
-                copyFound);
+        assertTrue(mainActivityName + " should have a <tibex:script> element", script.isPresent());
 
     }
 

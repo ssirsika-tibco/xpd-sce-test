@@ -362,11 +362,11 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                 outputMappingsScript.contains("data.FixedNumberTypeDecl =")); //$NON-NLS-1$
 
         assertTrue(context
-                + ": Should NOT wrap source sub-process parameter in a 'parameters' object, should use old '_BX_paramname' approach.", //$NON-NLS-1$
-                outputMappingsScript.contains("= _BX_NumberParameter;")); //$NON-NLS-1$
+                + ": Should wrap source sub-process parameter in a 'parameters' object.", //$NON-NLS-1$
+                outputMappingsScript.contains("= parameters.NumberParameter;")); //$NON-NLS-1$
 
-        assertTrue(context + ": Should NOT wrap ERROR_CODE parameter in a 'parameters' object.", //$NON-NLS-1$
-                outputMappingsScript.contains("= var_errorCode")); //$NON-NLS-1$
+        assertTrue(context + ": Should wrap ERROR_CODE parameter in a 'parameters' object.", //$NON-NLS-1$
+                outputMappingsScript.contains("= parameters.$ERROR_CODE")); //$NON-NLS-1$
 
     }
 

@@ -83,77 +83,31 @@ public class ConvertThrow {
 			ConverterContext context, Activity xpdlActivity, ResultError resultError) throws ConversionException {
 		String errorCode = resultError.getErrorCode();
 		org.eclipse.bpel.model.Activity bpelActivity;
-        org.eclipse.bpel.model.Activity theMappingActivity = null;
         
         /*
          * Sid ACE-194: We don't do web-service any more in ACE - removed/commented WS related code
          */
-//
-//		com.tibco.xpd.xpdl2.Message faultMessage = XPDLUtils.getFaultMessage(resultError);
-//		if (faultMessage != null) {
-//			//the fault has been defined in the WSDL
-//			String faultName = faultMessage.getFaultName();
-//			WebServiceOperationInfo wsoInfo = getWebServiceOperationInfo(context, xpdlActivity, resultError);
-//			
-//            /*
-//             * Sid XPD-8010. ConvertFaultDataMapping now only returns 'some'
-//             * kind of activity that does the mapping, which can differ
-//             * depending on the grammar. 
-//             */
-//            ConvertFaultDataMapping mappingConverter =
-//                    new ConvertFaultDataMapping(context, xpdlActivity, wsoInfo,
-//                            faultName);
-//            theMappingActivity =
-//                    mappingConverter.convertDataMappingsToAssign(faultMessage);
-//
-// 			bpelActivity = ConvertWebService.convertWebServiceOperationToBPELReplyWithFault(
-//					context, wsoInfo, xpdlActivity, faultMessage);
-//			
-//    	} else
-    	{
-    	    
-    		Set<String> optionalParameters = XPDLUtils.findOptionalVariables(xpdlActivity);
-    		Fault fault = getFault(context, xpdlActivity, resultError);
-    		String faultVariableName = FaultNamingConvention.getFaultVariableName(errorCode);
-            
-            // TODO Sid XPD-8010 - NEED TO HANDLE THROW Sub-Process Error for Datamapper as well as JavaScript PROPERLY
-            // for now am just making work for JavaScript (and code below) by seting theMappingActivity to the assignAct 
-    		// (which is now made local to this use case.
-			Assign assignAct = createFaultAssign(fault, faultVariableName, errorCode, optionalParameters);
-			theMappingActivity = assignAct;
-			
-			XPDLUtils.findReferencedData(context, xpdlActivity, assignAct.getName(), DataReferenceContext.CONTEXT_MAPPING_IN);
-			
-	        Throw throwAct = BPELFactory.eINSTANCE.createThrow();
-	        throwAct.setName("throw_" + errorCode); //$NON-NLS-1$
-			throwAct.setFaultName(new QName(errorCode));
-			if (assignAct != null && !assignAct.getCopy().isEmpty()) {
-				org.eclipse.bpel.model.Variable faultVariable = 
-		        	org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariable();
-				faultVariable.setName(faultVariableName);
-				faultVariable.setMessageType((org.eclipse.wst.wsdl.Message) fault.getMessage());
 
-				throwAct.setFaultVariable(faultVariable);
-				context.addVariable(faultVariable);
-			}
-			bpelActivity = throwAct;
-    	}
+        /*
+         * Sid ACE-3834 In ACE we no longer piggy-back on the WSDL fault mechanism for for sub-process throw error event
+         * 
+         * At runtime PE will implcitly add all the sub-process output parmeters to a "parameters" JOSN object and add
+         * that to the main-process' catch error mapping script scope (including the parameters.$ERROR_CODE property to
+         * propagate the throw event's error-code).
+         * 
+         * Therefore the throw end error no longer needs to map sub-process parameters to fault message attributes.
+         */
+        
+        Throw throwAct = BPELFactory.eINSTANCE.createThrow();
+        throwAct.setName("throw_" + errorCode); //$NON-NLS-1$
+		throwAct.setFaultName(new QName(errorCode));
+
 		
         Scope scope = BPELFactory.eINSTANCE.createScope();
         scope.setName(xpdlActivity.getName());      
-		if (theMappingActivity != null) {
-		    
-	        Sequence seq = BPELFactory.eINSTANCE.createSequence();
-	        seq.setName("sequence_" + errorCode); //$NON-NLS-1$
-	        seq.getActivities().add(theMappingActivity);
-	        seq.getActivities().add(bpelActivity);
-	        scope.setActivity(seq);
-		} else {
-	        scope.setActivity(bpelActivity);
-		}
+
+        scope.setActivity(throwAct);
 		
-        org.eclipse.bpel.model.Variables variables = context.getVariables(xpdlActivity);
-        scope.setVariables(variables);
         return scope;
 	}
 
@@ -190,188 +144,216 @@ public class ConvertThrow {
 //        return null;
 //    }
 
-	private static Assign createFaultAssign(Fault fault, String faultVariableName, String errorCode, Set<String> optionalParameters) {
-		Assign assignAct = BPELFactory.eINSTANCE.createAssign();
-		assignAct.setName("assign_" + errorCode.toLowerCase()); //$NON-NLS-1$
-		Collection<Part> parts = fault.getMessage().getParts().values();
-		for (Part part : parts) {
-			From from = ConvertThrow.ERROR_CODE_VAR.equals(part.getName()) ?
-				BPELUtils.createFromLiteral(errorCode) :
-				BPELUtils.createFromVariable(part.getName());
-			To to = BPELUtils.createToVariableWithPart(faultVariableName, part.getName(), null);
-
-			Copy assignCopy = BPELFactory.eINSTANCE.createCopy();
-			assignCopy.setFrom(from);
-			assignCopy.setTo(to);
-			if (optionalParameters.contains(part.getName())) {
-				assignCopy.setIgnoreMissingFromData(true);
-			}
-			assignAct.getCopy().add(assignCopy);
-		}
-		return assignAct;
-	}
+    /*
+     * Sid ACE-3834 ACE no longer piggy-backs off of WSDL fault mechanism for handling, so we no longer need to create a
+     * WSDL with operation and fault to represent each thrown/caught error event.
+     */
+//	private static Assign createFaultAssign(Fault fault, String faultVariableName, String errorCode, Set<String> optionalParameters) {
+//		Assign assignAct = BPELFactory.eINSTANCE.createAssign();
+//		assignAct.setName("assign_" + errorCode.toLowerCase()); //$NON-NLS-1$
+//		Collection<Part> parts = fault.getMessage().getParts().values();
+//		for (Part part : parts) {
+//			From from = ConvertThrow.ERROR_CODE_VAR.equals(part.getName()) ?
+//				BPELUtils.createFromLiteral(errorCode) :
+//				BPELUtils.createFromVariable(part.getName());
+//			To to = BPELUtils.createToVariableWithPart(faultVariableName, part.getName(), null);
+//
+//			Copy assignCopy = BPELFactory.eINSTANCE.createCopy();
+//			assignCopy.setFrom(from);
+//			assignCopy.setTo(to);
+//			if (optionalParameters.contains(part.getName())) {
+//				assignCopy.setIgnoreMissingFromData(true);
+//			}
+//			assignAct.getCopy().add(assignCopy);
+//		}
+//		return assignAct;
+//	}
 	
-	public static Fault getFault(ConverterContext context, Activity xpdlActivity, ResultError resultError) {
-		String implementsId = XPDLUtils.getImplements(xpdlActivity);
-		if (implementsId != null) {
-            ProcessInterface throwingProcessInterface = ProcessInterfaceUtil.getImplementedProcessInterface(xpdlActivity.getProcess());
-			for (StartMethod method : throwingProcessInterface.getStartMethods()) {
-				for (ErrorMethod errorMethod: method.getErrorMethods()) {
-					if (implementsId.equals(errorMethod.getId())) {
-						return getFault(context, throwingProcessInterface, method, resultError);
-					}
-				}
-			}
-			for (IntermediateMethod method : throwingProcessInterface.getIntermediateMethods()) {
-				for (ErrorMethod errorMethod: method.getErrorMethods()) {
-					if (implementsId.equals(errorMethod.getId())) {
-						return getFault(context, throwingProcessInterface, method, resultError);
-					}
-				}
-			}
-		}
-		
-    	Process process = xpdlActivity.getProcess();
+    /*
+     * Sid ACE-3834 ACE no longer piggy-backs off of WSDL fault mechanism for handling, so we no longer need to create a
+     * WSDL with operation and fault to represent each thrown/caught error event.
+     */
+//	public static Fault getFault(ConverterContext context, Activity xpdlActivity, ResultError resultError) {
+//		String implementsId = XPDLUtils.getImplements(xpdlActivity);
+//		if (implementsId != null) {
+//            ProcessInterface throwingProcessInterface = ProcessInterfaceUtil.getImplementedProcessInterface(xpdlActivity.getProcess());
+//			for (StartMethod method : throwingProcessInterface.getStartMethods()) {
+//				for (ErrorMethod errorMethod: method.getErrorMethods()) {
+//					if (implementsId.equals(errorMethod.getId())) {
+//						return getFault(context, throwingProcessInterface, method, resultError);
+//					}
+//				}
+//			}
+//			for (IntermediateMethod method : throwingProcessInterface.getIntermediateMethods()) {
+//				for (ErrorMethod errorMethod: method.getErrorMethods()) {
+//					if (implementsId.equals(errorMethod.getId())) {
+//						return getFault(context, throwingProcessInterface, method, resultError);
+//					}
+//				}
+//			}
+//		}
+//		
+//    	Process process = xpdlActivity.getProcess();
+//
+//		Definition definition = context.getFaultDefinition(process);
+//		PortType portType = (PortType) definition.getPortType(definition.getQName());
+//		Operation operation = (Operation) portType.getOperation(process.getName(), null, null);
+//		if (operation == null) {
+//			operation = createOperation(portType, process.getName());
+//		}
+//		
+//		String faultName = FaultNamingConvention.getFaultName(resultError.getErrorCode());
+//		Fault fault = (Fault) operation.getFault(faultName);
+//		if (fault == null) {
+//			String faultTypeName = FaultNamingConvention.getFaultTypeName(xpdlActivity);
+//			QName faultMessageName = new QName(portType.getEnclosingDefinition().getTargetNamespace(), faultTypeName);
+//			Message faultMessage = (Message) portType.getEnclosingDefinition().getMessage(faultMessageName);
+//			if (faultMessage == null) {
+//				faultMessage = createFaultMessage(portType.getEnclosingDefinition().getTargetNamespace(), xpdlActivity);
+//				portType.getEnclosingDefinition().addMessage(faultMessage);
+//			}
+//
+//			fault = createFault(operation, faultMessage, faultName);
+//		}
+//		return fault;
+//	}
 
-		Definition definition = context.getFaultDefinition(process);
-		PortType portType = (PortType) definition.getPortType(definition.getQName());
-		Operation operation = (Operation) portType.getOperation(process.getName(), null, null);
-		if (operation == null) {
-			operation = createOperation(portType, process.getName());
-		}
-		
-		String faultName = FaultNamingConvention.getFaultName(resultError.getErrorCode());
-		Fault fault = (Fault) operation.getFault(faultName);
-		if (fault == null) {
-			String faultTypeName = FaultNamingConvention.getFaultTypeName(xpdlActivity);
-			QName faultMessageName = new QName(portType.getEnclosingDefinition().getTargetNamespace(), faultTypeName);
-			Message faultMessage = (Message) portType.getEnclosingDefinition().getMessage(faultMessageName);
-			if (faultMessage == null) {
-				faultMessage = createFaultMessage(portType.getEnclosingDefinition().getTargetNamespace(), xpdlActivity);
-				portType.getEnclosingDefinition().addMessage(faultMessage);
-			}
+    /*
+     * Sid ACE-3834 ACE no longer piggy-backs off of WSDL fault mechanism for handling, so we no longer need to create a
+     * WSDL with operation and fault to represent each thrown/caught error event.
+     */
+//	public static Fault getFault(ConverterContext context, ProcessInterface processInterface, InterfaceMethod interfaceMethod, ResultError resultError) {
+//		Definition definition = context.getFaultDefinition(processInterface);
+//		PortType portType = (PortType) definition.getPortType(definition.getQName());
+//		Operation operation = (Operation) portType.getOperation(processInterface.getName(), null, null);
+//		if (operation == null) {
+//			operation = createOperation(portType, processInterface.getName());
+//		}
+//		
+//		String faultName = FaultNamingConvention.getFaultName(resultError.getErrorCode());
+//		Fault fault = (Fault) operation.getFault(faultName);
+//		if (fault == null) {
+//			String faultTypeName = FaultNamingConvention.getFaultTypeName(interfaceMethod);
+//			QName faultMessageName = new QName(portType.getEnclosingDefinition().getTargetNamespace(), faultTypeName);
+//			Message faultMessage = (Message) portType.getEnclosingDefinition().getMessage(faultMessageName);
+//			if (faultMessage == null) {
+//				faultMessage = createFaultMessage(portType.getEnclosingDefinition().getTargetNamespace(), interfaceMethod);
+//				portType.getEnclosingDefinition().addMessage(faultMessage);
+//			}
+//
+//			fault = createFault(operation, faultMessage, faultName);
+//		}
+//		return fault;
+//	}
 
-			fault = createFault(operation, faultMessage, faultName);
-		}
-		return fault;
-	}
+    /*
+     * Sid ACE-3834 ACE no longer piggy-backs off of WSDL fault mechanism for handling, so we no longer need to create a
+     * WSDL with operation and fault to represent each thrown/caught error event.
+     */
+//	private static Operation createOperation(PortType portType, String operationName) {
+//		Operation operation = WSDLFactory.eINSTANCE.createOperation();
+//		operation.setName(operationName);
+//		portType.addOperation(operation);
+//		return operation;
+//	}
 
-	public static Fault getFault(ConverterContext context, ProcessInterface processInterface, InterfaceMethod interfaceMethod, ResultError resultError) {
-		Definition definition = context.getFaultDefinition(processInterface);
-		PortType portType = (PortType) definition.getPortType(definition.getQName());
-		Operation operation = (Operation) portType.getOperation(processInterface.getName(), null, null);
-		if (operation == null) {
-			operation = createOperation(portType, processInterface.getName());
-		}
-		
-		String faultName = FaultNamingConvention.getFaultName(resultError.getErrorCode());
-		Fault fault = (Fault) operation.getFault(faultName);
-		if (fault == null) {
-			String faultTypeName = FaultNamingConvention.getFaultTypeName(interfaceMethod);
-			QName faultMessageName = new QName(portType.getEnclosingDefinition().getTargetNamespace(), faultTypeName);
-			Message faultMessage = (Message) portType.getEnclosingDefinition().getMessage(faultMessageName);
-			if (faultMessage == null) {
-				faultMessage = createFaultMessage(portType.getEnclosingDefinition().getTargetNamespace(), interfaceMethod);
-				portType.getEnclosingDefinition().addMessage(faultMessage);
-			}
+    /*
+     * Sid ACE-3834 ACE no longer piggy-backs off of WSDL fault mechanism for handling, so we no longer need to create a
+     * WSDL with operation and fault to represent each thrown/caught error event.
+     */
+//	private static Message createFaultMessage(String targetNamespace, Activity xpdlActivity) {
+//		Message faultMessage = WSDLFactory.eINSTANCE.createMessage();
+//		String faultTypeName = FaultNamingConvention.getFaultTypeName(xpdlActivity);
+//		faultMessage.setQName(new QName(targetNamespace, faultTypeName));
+//
+//		Part part = WSDLFactory.eINSTANCE.createPart();
+//		part.setName(ERROR_CODE_VAR);
+//		part.setTypeName(new QName(N2PEConstants.XSD_NAMESPACE_URI, "string")); //$NON-NLS-1$
+//		faultMessage.addPart(part);
+//
+//    	Collection<ActivityInterfaceData> aids = ActivityInterfaceDataUtil.getActivityInterfaceData(xpdlActivity);
+//		for (ActivityInterfaceData aid : aids) {
+//			ProcessRelevantData prd = aid.getData();
+//			if (prd instanceof FormalParameter) {
+//				FormalParameter parameter = (FormalParameter) prd;
+//				switch (parameter.getMode().getValue()) {
+//				case ModeType.OUT:
+//				case ModeType.INOUT:
+//					String dataType = convertDataType2WSDL(parameter.getDataType());
+//					if (dataType != null) {
+//						part = WSDLFactory.eINSTANCE.createPart();
+//						part.setName(parameter.getName().replace(" ", "_")); //$NON-NLS-1$ //$NON-NLS-2$
+//						part.setTypeName(new QName(N2PEConstants.XSD_NAMESPACE_URI, dataType));
+//						faultMessage.addPart(part);
+//					}
+//					break;
+//				default:
+//					break;
+//				}
+//			}
+//		}
+//		
+//		return faultMessage;
+//	}
 
-			fault = createFault(operation, faultMessage, faultName);
-		}
-		return fault;
-	}
+    /*
+     * Sid ACE-3834 ACE no longer piggy-backs off of WSDL fault mechanism for handling, so we no longer need to create a
+     * WSDL with operation and fault to represent each thrown/caught error event.
+     */
+//	private static Message createFaultMessage(String targetNamespace, InterfaceMethod interfaceMethod) {
+//		Message faultMessage = WSDLFactory.eINSTANCE.createMessage();
+//		String faultTypeName = FaultNamingConvention.getFaultTypeName(interfaceMethod);
+//		faultMessage.setQName(new QName(targetNamespace, faultTypeName));
+//
+//		Part part = WSDLFactory.eINSTANCE.createPart();
+//		part.setName(ERROR_CODE_VAR);
+//		part.setTypeName(new QName(N2PEConstants.XSD_NAMESPACE_URI, "string")); //$NON-NLS-1$
+//		faultMessage.addPart(part);
+//
+//		EList<ErrorMethod> errorMethods = interfaceMethod.getErrorMethods();
+//		if (errorMethods != null) {
+//			Map<String, ActivityInterfaceData> interfaceDataMap = new HashMap<String, ActivityInterfaceData>();
+//			for (ErrorMethod errorMethod : errorMethods) {
+//				Collection<ActivityInterfaceData> interfaceEventInterfaceData = ActivityInterfaceDataUtil.getInterfaceEventInterfaceData(errorMethod);
+//		    	if (interfaceEventInterfaceData != null) {
+//		    		for (ActivityInterfaceData aif : interfaceEventInterfaceData) {
+//		    			interfaceDataMap.put(aif.getName(), aif);
+//		    		}
+//		    	}				
+//			}
+//			for (ActivityInterfaceData aif: interfaceDataMap.values()) {
+//    			ModeType mode = aif.getMode();
+//    			switch (mode.getValue()) {
+//    			case ModeType.OUT:
+//    			case ModeType.INOUT:
+//					String dataType = convertDataType2WSDL(aif.getData().getDataType());
+//					if (dataType != null) {
+//	    				part = WSDLFactory.eINSTANCE.createPart();
+//	    				part.setName(aif.getName().replace(" ", "_")); //$NON-NLS-1$ //$NON-NLS-2$
+//	    				part.setTypeName(new QName(N2PEConstants.XSD_NAMESPACE_URI, dataType));
+//	    				faultMessage.addPart(part);
+//					}
+//    				break;
+//    			default:
+//    				break;
+//    			}
+//			}
+//		}
+//		
+//		return faultMessage;
+//	}
 
-	private static Operation createOperation(PortType portType, String operationName) {
-		Operation operation = WSDLFactory.eINSTANCE.createOperation();
-		operation.setName(operationName);
-		portType.addOperation(operation);
-		return operation;
-	}
-
-	private static Message createFaultMessage(String targetNamespace, Activity xpdlActivity) {
-		Message faultMessage = WSDLFactory.eINSTANCE.createMessage();
-		String faultTypeName = FaultNamingConvention.getFaultTypeName(xpdlActivity);
-		faultMessage.setQName(new QName(targetNamespace, faultTypeName));
-
-		Part part = WSDLFactory.eINSTANCE.createPart();
-		part.setName(ERROR_CODE_VAR);
-		part.setTypeName(new QName(N2PEConstants.XSD_NAMESPACE_URI, "string")); //$NON-NLS-1$
-		faultMessage.addPart(part);
-
-    	Collection<ActivityInterfaceData> aids = ActivityInterfaceDataUtil.getActivityInterfaceData(xpdlActivity);
-		for (ActivityInterfaceData aid : aids) {
-			ProcessRelevantData prd = aid.getData();
-			if (prd instanceof FormalParameter) {
-				FormalParameter parameter = (FormalParameter) prd;
-				switch (parameter.getMode().getValue()) {
-				case ModeType.OUT:
-				case ModeType.INOUT:
-					String dataType = convertDataType2WSDL(parameter.getDataType());
-					if (dataType != null) {
-						part = WSDLFactory.eINSTANCE.createPart();
-						part.setName(parameter.getName().replace(" ", "_")); //$NON-NLS-1$ //$NON-NLS-2$
-						part.setTypeName(new QName(N2PEConstants.XSD_NAMESPACE_URI, dataType));
-						faultMessage.addPart(part);
-					}
-					break;
-				default:
-					break;
-				}
-			}
-		}
-		
-		return faultMessage;
-	}
-
-	private static Message createFaultMessage(String targetNamespace, InterfaceMethod interfaceMethod) {
-		Message faultMessage = WSDLFactory.eINSTANCE.createMessage();
-		String faultTypeName = FaultNamingConvention.getFaultTypeName(interfaceMethod);
-		faultMessage.setQName(new QName(targetNamespace, faultTypeName));
-
-		Part part = WSDLFactory.eINSTANCE.createPart();
-		part.setName(ERROR_CODE_VAR);
-		part.setTypeName(new QName(N2PEConstants.XSD_NAMESPACE_URI, "string")); //$NON-NLS-1$
-		faultMessage.addPart(part);
-
-		EList<ErrorMethod> errorMethods = interfaceMethod.getErrorMethods();
-		if (errorMethods != null) {
-			Map<String, ActivityInterfaceData> interfaceDataMap = new HashMap<String, ActivityInterfaceData>();
-			for (ErrorMethod errorMethod : errorMethods) {
-				Collection<ActivityInterfaceData> interfaceEventInterfaceData = ActivityInterfaceDataUtil.getInterfaceEventInterfaceData(errorMethod);
-		    	if (interfaceEventInterfaceData != null) {
-		    		for (ActivityInterfaceData aif : interfaceEventInterfaceData) {
-		    			interfaceDataMap.put(aif.getName(), aif);
-		    		}
-		    	}				
-			}
-			for (ActivityInterfaceData aif: interfaceDataMap.values()) {
-    			ModeType mode = aif.getMode();
-    			switch (mode.getValue()) {
-    			case ModeType.OUT:
-    			case ModeType.INOUT:
-					String dataType = convertDataType2WSDL(aif.getData().getDataType());
-					if (dataType != null) {
-	    				part = WSDLFactory.eINSTANCE.createPart();
-	    				part.setName(aif.getName().replace(" ", "_")); //$NON-NLS-1$ //$NON-NLS-2$
-	    				part.setTypeName(new QName(N2PEConstants.XSD_NAMESPACE_URI, dataType));
-	    				faultMessage.addPart(part);
-					}
-    				break;
-    			default:
-    				break;
-    			}
-			}
-		}
-		
-		return faultMessage;
-	}
-
-	private static Fault createFault(Operation operation, Message faultMessage, String faultName) {
-		Fault fault = WSDLFactory.eINSTANCE.createFault();
-		fault.setName(faultName); 
-		fault.setMessage(faultMessage);
-		operation.addFault(fault);
-		return fault;
-	}
+    /*
+     * Sid ACE-3834 ACE no longer piggy-backs off of WSDL fault mechanism for handling, so we no longer need to create a
+     * WSDL with operation and fault to represent each thrown/caught error event.
+     */
+//	private static Fault createFault(Operation operation, Message faultMessage, String faultName) {
+//		Fault fault = WSDLFactory.eINSTANCE.createFault();
+//		fault.setName(faultName); 
+//		fault.setMessage(faultMessage);
+//		operation.addFault(fault);
+//		return fault;
+//	}
 
 	/**
 	 * convert dataType to wsdl type the result is simple type name,like:
@@ -383,48 +365,52 @@ public class ConvertThrow {
 	 * @param dataType
 	 * @return
 	 */
-	private static String convertDataType2WSDL(DataType dataType) {
-		String result = null;
-		if (dataType != null) {
-			if (dataType instanceof BasicType) {
-				BasicTypeType basicTypeType = ((BasicType) dataType).getType();
-				if (basicTypeType != null) {
-					int basicTypeTypeValue = basicTypeType.getValue();
-					// These String constants should not be translated
-					switch (basicTypeTypeValue) {
-					case BasicTypeType.BOOLEAN:
-						result = "boolean"; //$NON-NLS-1$
-						break;
-					case BasicTypeType.DATETIME:
-						// TODO Becomes dateTime (how does dateTime data map?)
-						result = "dateTime"; //$NON-NLS-1$
-						break;
-					case BasicTypeType.FLOAT:
-						result = "double"; //$NON-NLS-1$
-						break;
-					case BasicTypeType.INTEGER:
-						result = "integer"; //$NON-NLS-1$
-						break;
-					case BasicTypeType.PERFORMER:
-						// TODO this type may be changed
-						result = "string"; //$NON-NLS-1$
-						break;
-					case BasicTypeType.REFERENCE:
-						// throw new
-						// UnsupportedConversionException(ConverterActivator.createWarningStatus(
-						// "Basic type of 'Reference' cannot be converted to
-						// BPEL", null));
-						// TODO this type may be changed
-						result = "IDREF"; //$NON-NLS-1$
-						break;
-					case BasicTypeType.STRING:
-						result = "string"; //$NON-NLS-1$
-						break;
-					}
-				}
-			}
-		}
-		return result;
-	}
+    /*
+     * Sid ACE-3834 ACE no longer piggy-backs off of WSDL fault mechanism for handling, so we no longer need to create a
+     * WSDL with operation and fault to represent each thrown/caught error event.
+     */
+//	private static String convertDataType2WSDL(DataType dataType) {
+//		String result = null;
+//		if (dataType != null) {
+//			if (dataType instanceof BasicType) {
+//				BasicTypeType basicTypeType = ((BasicType) dataType).getType();
+//				if (basicTypeType != null) {
+//					int basicTypeTypeValue = basicTypeType.getValue();
+//					// These String constants should not be translated
+//					switch (basicTypeTypeValue) {
+//					case BasicTypeType.BOOLEAN:
+//						result = "boolean"; //$NON-NLS-1$
+//						break;
+//					case BasicTypeType.DATETIME:
+//						// TODO Becomes dateTime (how does dateTime data map?)
+//						result = "dateTime"; //$NON-NLS-1$
+//						break;
+//					case BasicTypeType.FLOAT:
+//						result = "double"; //$NON-NLS-1$
+//						break;
+//					case BasicTypeType.INTEGER:
+//						result = "integer"; //$NON-NLS-1$
+//						break;
+//					case BasicTypeType.PERFORMER:
+//						// TODO this type may be changed
+//						result = "string"; //$NON-NLS-1$
+//						break;
+//					case BasicTypeType.REFERENCE:
+//						// throw new
+//						// UnsupportedConversionException(ConverterActivator.createWarningStatus(
+//						// "Basic type of 'Reference' cannot be converted to
+//						// BPEL", null));
+//						// TODO this type may be changed
+//						result = "IDREF"; //$NON-NLS-1$
+//						break;
+//					case BasicTypeType.STRING:
+//						result = "string"; //$NON-NLS-1$
+//						break;
+//					}
+//				}
+//			}
+//		}
+//		return result;
+//	}
 	
 }
