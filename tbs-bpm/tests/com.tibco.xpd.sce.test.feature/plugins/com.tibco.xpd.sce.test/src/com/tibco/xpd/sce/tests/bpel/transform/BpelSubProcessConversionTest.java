@@ -205,7 +205,7 @@ public class BpelSubProcessConversionTest extends AbstractBpelTransformTest {
 
         /* Ensure still has a <tibex:extActivity> */
         Optional<Node> script =
-                findFirstElement(extensionActivity.get().getChildNodes(), node -> "script".equals(node.getLocalName()));
+                findFirstElement(extActivity.get().getChildNodes(), node -> "script".equals(node.getLocalName()));
 
         assertTrue(mainActivityName + " should have a <tibex:script> element", script.isPresent());
 
