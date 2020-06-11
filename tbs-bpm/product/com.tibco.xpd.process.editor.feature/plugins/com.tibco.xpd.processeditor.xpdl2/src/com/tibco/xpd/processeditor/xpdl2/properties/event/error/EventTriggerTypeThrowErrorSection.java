@@ -396,6 +396,7 @@ public class EventTriggerTypeThrowErrorSection extends
             Composite container, XpdFormToolkit toolkit) {
         FixedValueFieldProposalProvider proposalProvider =
                 new FixedValueFieldAssistHelper.FixedValueFieldProposalProvider() {
+                    @Override
                     public Object[] getProposals() {
                         if (incomingRequestActivityList != null) {
                             return incomingRequestActivityList.toArray();
@@ -410,6 +411,7 @@ public class EventTriggerTypeThrowErrorSection extends
 
         refTaskHelper
                 .addValueChangedListener(new FixedValueFieldChangedListener() {
+                    @Override
                     public void fixedValueFieldChanged(Object newValue) {
                         doRequestActivityChanged(newValue);
                     }
@@ -433,6 +435,7 @@ public class EventTriggerTypeThrowErrorSection extends
             Composite container, XpdFormToolkit toolkit) {
         FixedValueFieldProposalProvider proposalProvider =
                 new FixedValueFieldAssistHelper.FixedValueFieldProposalProvider() {
+                    @Override
                     public Object[] getProposals() {
                         if (faultMessageNames != null) {
                             return faultMessageNames.toArray();
@@ -447,6 +450,7 @@ public class EventTriggerTypeThrowErrorSection extends
 
         refTaskHelper
                 .addValueChangedListener(new FixedValueFieldChangedListener() {
+                    @Override
                     public void fixedValueFieldChanged(Object newValue) {
                         doFaultMessageChanged(newValue);
                     }
@@ -511,6 +515,7 @@ public class EventTriggerTypeThrowErrorSection extends
             Composite container, XpdFormToolkit toolkit) {
         FixedValueFieldProposalProvider proposalProvider =
                 new FixedValueFieldAssistHelper.FixedValueFieldProposalProvider() {
+                    @Override
                     public Object[] getProposals() {
                         if (existingErrorCodes != null) {
                             return existingErrorCodes.toArray();
@@ -525,6 +530,7 @@ public class EventTriggerTypeThrowErrorSection extends
 
         refTaskHelper
                 .addValueChangedListener(new FixedValueFieldChangedListener() {
+                    @Override
                     public void fixedValueFieldChanged(Object newValue) {
                         doErrorCodeChanged(newValue);
                     }
@@ -858,8 +864,7 @@ public class EventTriggerTypeThrowErrorSection extends
 
         if (ThrowErrorEventUtil.isThrowFaultMessageErrorEvent(activity)) {
             /*
-             * When not configured for throw fault message set controls and
-             * expand section.
+             * When not configured for throw fault message set controls and expand section.
              */
             Image reqActLabelImg = null;
             String reqActLabelTooltip =
@@ -1164,6 +1169,17 @@ public class EventTriggerTypeThrowErrorSection extends
                 needsLayout = true;
             }
 
+            /*
+             * Sid ACE-3895 There are currently no specific incoming message request events in ACE, so you cannot
+             * currently configure throw error end events for specific start events (i.e. for a specific incoming
+             * message request. So hide controls for now unless a migrated process has this currently configured (in
+             * which case show it so the user can see it).
+             */
+            tfmRadioButton.setVisible(true);
+            setEnabled(tfmSelectRequestActivityText.getLayoutControl(), false);
+            setEnabled(tfmForAutoGenErrorCodeText.getLayoutControl(), false);
+            setEnabled(tfmForUserDefOpFaultText.getLayoutControl(), false);
+
         } else {
             /*
              * When not configured for throw fault message unset controls and
@@ -1181,6 +1197,18 @@ public class EventTriggerTypeThrowErrorSection extends
                 expandCollapseContainer(tfmContainer, false);
                 needsLayout = true;
             }
+
+            /*
+             * Sid ACE-3895 There are currently no specific incoming message request events in ACE, so you cannot
+             * currently configure throw error end events for specific start events (i.e. for a specific incoming
+             * message request. So hide controls for now unless a migrated process has this currently configured (in
+             * which case show it so the user can see it).
+             */
+            tfmRadioButton.setVisible(false);
+            if (tfmContainer.getVisible()) {
+                needsLayout = true;
+            }
+            tfmContainer.setVisible(false);
 
         }
 
