@@ -1,5 +1,5 @@
 ================================================================================
-Product Name: TIBCO Business Studio™ - BPM Edition IMAGE_TAG_VERSION
+Product Name: TIBCO Business Studio™ - BPM Edition $$IMAGE_TAG_VERSION$$
  	
 Configuring BPM Studio docker for Automated CI/CD
 ================================================================================
@@ -20,7 +20,7 @@ documentation on: https://docs.docker.com.
 
 You will need a zip archive for the current Linux version of the TIBCO Business 
 Studio BPM-Edition installation set, for example...
-  TIB_business-studio-bpm-edition_IMAGE_TAG_VERSION_linux24gl23_x86_64.zip
+  TIB_business-studio-bpm-edition_$$IMAGE_TAG_VERSION$$_linux24gl23_x86_64.zip
 
 This installation set should be added to the folder...
   <TIBCO Studio Home>/docker_cicd/image_template
@@ -72,7 +72,7 @@ Where the local environment is Linux, use the docker command:
 
   docker run --rm -v /usr/bpm-app/source-projects:/projects 
     -v /usr/bpm-app/deployment-artifacts:/rascs 
-	tibco/bpm-studio:IMAGE_TAG_VERSION generate-rascs
+	tibco/bpm-studio:$$IMAGE_TAG_VERSION$$ generate-rascs
 
 Where the local environment is Microsoft Windows, use the docker command:
   # Generate artifacts into the local environment folder 
@@ -82,7 +82,7 @@ Where the local environment is Microsoft Windows, use the docker command:
 
   docker run --rm -v //c/bpm-app/source-projects:/projects 
     -v //c/bpm-app/deployment-artifacts:/rascs 
-	tibco/bpm-studio:IMAGE_TAG_VERSION generate-rascs
+	tibco/bpm-studio:$$IMAGE_TAG_VERSION$$ generate-rascs
 
 
 You can also use the docker image in the following ways...
@@ -93,14 +93,14 @@ correct configuration of the mapped folders etc...
 
   docker run -it --rm --name studio -v /usr/bpm-app/source-projects:/projects 
    -v /usr/bpm-app/deployment-artifacts:/rascs --entrypoint sh 
-   tibco/bpm-studio:IMAGE_TAG_VERSION
+   tibco/bpm-studio:$$IMAGE_TAG_VERSION$$
 
 
 Run the BPM Studio UI within the docker image (this will require correct 
 configuration display IP address for you system and so on)...
 
   docker run --rm --name studio -e DISPLAY=10.100.83.72:0.0 
-    -v /usr/bpm-workspace:/workspace tibco/bpm-studio:IMAGE_TAG_VERSION
+    -v /usr/bpm-workspace:/workspace tibco/bpm-studio:$$IMAGE_TAG_VERSION$$
 
 
 ================================================================================

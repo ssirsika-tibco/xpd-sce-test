@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-echo Building TIBCO BPM Studio docker image tibco/bpm-studio:IMAGE_TAG_VERSION for automated CI/CD...
+echo Building TIBCO BPM Studio docker image tibco/bpm-studio:$$IMAGE_TAG_VERSION$$ for automated CI/CD...
 echo
 
 function usage() {
@@ -59,7 +59,7 @@ if [ ! -f ./image_template/TIB_business-studio-bpm-edition_?.?.?_linux*.zip ]; t
 fi
 
 # Build Docker Image
-docker build -t tibco/bpm-studio:IMAGE_TAG_VERSION --build-arg version=5.0 ./image_template
+docker build -t tibco/bpm-studio:$$IMAGE_TAG_VERSION$$ --build-arg version=5.0 ./image_template
 
 echo Removing temporary install image...	
 docker rmi $(docker images -q --filter label=maintainer="TIBCO Software Inc" --filter label=image=bpm-studio-installation)
