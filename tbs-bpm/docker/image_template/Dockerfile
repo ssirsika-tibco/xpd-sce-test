@@ -1,7 +1,7 @@
 FROM centos:7.6.1810@sha256:6ae4cddb2b37f889afd576a17a5286b311dcbf10a904409670827f6f9b50065e as installer
 LABEL maintainer="TIBCO Software Inc" \
-      image="Installation" \
-      copyright="(c) TIBCO Software Inc 2004 - 2020. All rights reserved."
+      image="bpm-studio-installation" \
+      copyright="(c) TIBCO Software Inc 2004 - COPYRIGHT_END_YEAR. All rights reserved."
 
 # install required software
 RUN yum -y -q install unzip  && \
@@ -29,7 +29,7 @@ RUN ./TIBCOBusinessStudio -initialize -noSplash -clean
 FROM centos:7.6.1810@sha256:6ae4cddb2b37f889afd576a17a5286b311dcbf10a904409670827f6f9b50065e as production
 LABEL maintainer="TIBCO Software Inc" \
       image="Production" \
-      copyright="(c) TIBCO Software Inc 2004 - 2020. All rights reserved."
+      copyright="(c) TIBCO Software Inc 2004 - COPYRIGHT_END_YEAR. All rights reserved."
 
 # install required software and create studio user
 RUN yum -y -q install xorg-x11-server-Xvfb.x86_64 && \
@@ -66,6 +66,7 @@ COPY --chown=studio:studio build.xml entrypoint.sh /opt/TIBCO/studio-bpm/studio/
 
 USER studio:studio
 WORKDIR /opt/TIBCO/studio-bpm/studio/$version/eclipse
+
 
 # run the ant script
 ENTRYPOINT [ "sh", "./entrypoint.sh" ]

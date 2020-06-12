@@ -11,4 +11,8 @@
         <bpm.generateRASC destdir="${rascs.dir}"/>
     </target>
 
+    <target name="replaceToken">
+    	<replace file="${file}" token="${token}" value="${value}"/>
+    </target>
+
 </project>
