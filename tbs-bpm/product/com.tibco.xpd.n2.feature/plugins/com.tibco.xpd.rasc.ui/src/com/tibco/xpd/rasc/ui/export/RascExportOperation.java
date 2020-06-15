@@ -18,6 +18,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jface.operation.IRunnableWithProgress;
@@ -103,13 +104,15 @@ public class RascExportOperation implements IRunnableWithProgress {
             throws InvocationTargetException, InterruptedException {
 
         /*
-         * Checking for problem marker is going to be very small compared with
-         * actual generation, so we'll say the job is 10 long and make
-         * check-validation just one tick and the generate will be 10 ticks.
+         * Checking for problem marker is going to be very small compared with actual generation, so we'll say the job
+         * for each project is 10 long and make check-validation just one tick and the
+         * generateRelativePath()/generateSystemPath() will be 9 ticks.
+         * 
+         * And we'll allow 1 tick for checking/building projects (or waiting for them to be built)
          */
         SubMonitor monitor = SubMonitor.convert(aProgressMonitor,
                 Messages.RascExportOperation_ProgressTitle,
-                projects.size() * 10);
+                (projects.size() * 10) + projects.size());
         monitor.subTask(Messages.RascExportOperation_ProgressTitle);
 
         for (IProject project : projects) {
@@ -117,7 +120,25 @@ public class RascExportOperation implements IRunnableWithProgress {
         }
         boolean valid = true;
 
-        BuildSynchronizerUtil.waitForBuildsToFinish(monitor);
+        /*
+         * Sid ACE-3467 If build automatically is off, then the old call BuildSynchronizerUtil.waitForBuildsToFinish(),
+         * would not actually do a build, it would just wait for any running build jobs to finish.
+         * 
+         * So instead we use BuildSynchronizerUtil.synchronizedBuild() which should run the build itself and wait for it
+         * to finish (and if build automatically and already run then it will quickly be able to tell that and return).
+         */
+        IStatus synchronizedBuildStatus = BuildSynchronizerUtil
+                .synchronizedBuild(projects,
+                        monitor.split(projects.size()),
+                false);
+
+        if (synchronizedBuildStatus.getSeverity() > IStatus.WARNING) {
+            throw new InterruptedException();
+        }
+
+        if (monitor.isCanceled()) {
+            throw new InterruptedException();
+        }
 
         // Fix the main task name after build synchronizer.
         monitor.setTaskName(Messages.RascExportOperation_ProgressTitle);
