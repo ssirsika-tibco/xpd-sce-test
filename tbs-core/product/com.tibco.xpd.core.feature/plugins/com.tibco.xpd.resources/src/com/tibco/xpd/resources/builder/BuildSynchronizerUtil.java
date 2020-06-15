@@ -4,7 +4,7 @@
 
 package com.tibco.xpd.resources.builder;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspace;
@@ -48,7 +48,7 @@ public class BuildSynchronizerUtil {
      * 
      * @return IStatus the synchronization status
      **/
-    public static IStatus synchronizedBuild(List<IProject> projectList,
+    public static IStatus synchronizedBuild(Collection<IProject> projectList,
             IProgressMonitor monitor, boolean doClean) {
 
         TRACE("** Starting synch build."); //$NON-NLS-1$

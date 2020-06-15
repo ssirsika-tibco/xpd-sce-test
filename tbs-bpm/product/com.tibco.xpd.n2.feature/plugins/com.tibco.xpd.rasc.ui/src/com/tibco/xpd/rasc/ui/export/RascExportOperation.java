@@ -6,6 +6,8 @@ package com.tibco.xpd.rasc.ui.export;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -32,8 +34,10 @@ import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.builder.BuildSynchronizerUtil;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
+import com.tibco.xpd.resources.util.CyclicDependencyException;
 import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.ProjectUtil;
+import com.tibco.xpd.resources.util.ProjectUtil2;
 import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog;
 import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteStatus;
 
@@ -127,9 +131,19 @@ public class RascExportOperation implements IRunnableWithProgress {
          * So instead we use BuildSynchronizerUtil.synchronizedBuild() which should run the build itself and wait for it
          * to finish (and if build automatically and already run then it will quickly be able to tell that and return).
          */
+        Set<IProject> completeProjectSet = null; // Have to do build on complete project set including dependencies
+
+        try {
+            completeProjectSet = ProjectUtil2.getReferencedProjectsHierarchies(new HashSet<IProject>(projects), false);
+            completeProjectSet.addAll(projects);
+        } catch (CyclicDependencyException e1) {
+            /* Can safely ignore this as there would be problem markers alrady for cyclic dependency */
+        }
+
+        Collection<IProject> buildProjects = completeProjectSet != null ? completeProjectSet : projects;
+
         IStatus synchronizedBuildStatus = BuildSynchronizerUtil
-                .synchronizedBuild(projects,
-                        monitor.split(projects.size()),
+                .synchronizedBuild(buildProjects, monitor.split(buildProjects.size()),
                 false);
 
         if (synchronizedBuildStatus.getSeverity() > IStatus.WARNING) {
