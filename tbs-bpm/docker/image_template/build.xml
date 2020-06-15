@@ -11,10 +11,9 @@
         <bpm.generateRASC destdir="${rascs.dir}"/>
     </target>
 
-	<!-- Replace a token with a value in the given file (this target is used by installation to ensure correct versions are applied to scripts and configuration files) -->
+	<!-- Replace a token with a value in the given file (this target is used by installation for post install tasks) -->
     <target name="replaceToken" description="Replace token with a value in files in the given directory">
-		<echo>Replacing ${token} with ${value} in ${dir}</echo>
-    	<replace dir="${dir}" token="${token}" value="${value}"/>
+   	<replace dir="${dir}" token="${token}" value="${value}"/>
     </target>
 
 </project>
