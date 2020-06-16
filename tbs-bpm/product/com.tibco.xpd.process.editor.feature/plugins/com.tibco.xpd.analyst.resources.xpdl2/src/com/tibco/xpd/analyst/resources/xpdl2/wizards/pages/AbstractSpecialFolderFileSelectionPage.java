@@ -12,6 +12,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ILabelProvider;
@@ -42,6 +43,7 @@ import com.tibco.xpd.resources.XpdProjectResourceFactory;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.ui.resources.TypedElementSelectionValidator;
 import com.tibco.xpd.ui.resources.TypedViewerFilter;
@@ -197,7 +199,23 @@ public abstract class AbstractSpecialFolderFileSelectionPage extends
 
         // If the packages folder container or the packages file is null then
         // this page is not complete
-        setPageComplete(packagesFolderContainer != null && packageFile != null);
+        /*
+         * Sid ACE-3341 file selection page should not be tagged as complete if the project is locked for production.
+         * i.e. make sure the page with the 'project is locked' error is shown rather than the next page (which wouldn't
+         * show the error).
+         */
+        boolean pageComplete = false;
+
+        if (packagesFolderContainer != null && packageFile != null) {
+            try {
+                if (!(new GovernanceStateService().isLockedForProduction(packageFile.getProject()))) {
+                    pageComplete = true;
+                }
+            } catch (CoreException e) {
+            }
+        }
+
+        setPageComplete(pageComplete);
     }
 
     /*

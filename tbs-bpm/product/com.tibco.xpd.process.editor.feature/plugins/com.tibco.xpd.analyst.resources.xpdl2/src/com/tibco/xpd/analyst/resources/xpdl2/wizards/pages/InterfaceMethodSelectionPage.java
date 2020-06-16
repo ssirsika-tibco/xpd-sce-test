@@ -82,6 +82,9 @@ public class InterfaceMethodSelectionPage extends PackageSelectionPage {
 
         super.init(selection);
 
+        /* Sid ACE-3341 if super set page incomplete then we should hnour that here too. */
+        boolean superIsComplete = isPageComplete();
+
         if (selection != null && !selection.isEmpty()) {
             Object selectedElement = selection.getFirstElement();
 
@@ -118,8 +121,10 @@ public class InterfaceMethodSelectionPage extends PackageSelectionPage {
             }
         }
 
+        /* Sid ACE-3341 if super set page incomplete then we should honour that here too. */
+
         setPageComplete(packagesFolderContainer != null && packageFile != null
-                && selectedElement != null);
+                && selectedElement != null && superIsComplete);
     }
 
     /*

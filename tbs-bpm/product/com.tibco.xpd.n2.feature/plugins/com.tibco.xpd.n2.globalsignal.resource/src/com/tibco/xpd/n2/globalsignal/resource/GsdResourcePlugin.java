@@ -44,6 +44,16 @@ public class GsdResourcePlugin extends AbstractUIPlugin {
             "icons/obj16/globalSignal.png"; //$NON-NLS-1$
 
     /**
+     * Image for global signal wizard title
+     */
+    public static final String GLOBAL_SIGNAL_WIZARD_IMAGE = "icons/obj16/NewGlobalSignalWizard.png"; //$NON-NLS-1$
+
+    /**
+     * Image for global signal data wizard title
+     */
+    public static final String GLOBAL_PAYLOAD_DATA_WIZARD_IMAGE = "icons/obj16/NewPaylodDataWizard.png"; //$NON-NLS-1$
+
+    /**
      * Global Signal Definition File Extension
      */
     public static final String GSD_FILE_EXTENSION =

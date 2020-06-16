@@ -22,6 +22,7 @@ import com.tibco.xpd.globalSignalDefinition.GlobalSignalDefinitionFactory;
 import com.tibco.xpd.globalSignalDefinition.GlobalSignalDefinitionPackage;
 import com.tibco.xpd.globalSignalDefinition.GlobalSignalDefinitions;
 import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
+import com.tibco.xpd.n2.globalsignal.resource.GsdResourcePlugin;
 import com.tibco.xpd.n2.globalsignal.resource.internal.Messages;
 import com.tibco.xpd.n2.globalsignal.resource.util.GSDModelUtil;
 import com.tibco.xpd.resources.WorkingCopy;
@@ -70,6 +71,10 @@ public class NewGlobalSignalCreationWizard extends CreationWizard implements
         init(this, fileSelectionPage);
 
         setWindowTitle(Messages.NewGlobalSignalWizard_TITLE);
+
+        setDefaultPageImageDescriptor(
+                GsdResourcePlugin.getBundledImageDescriptor(GsdResourcePlugin.GLOBAL_SIGNAL_WIZARD_IMAGE));
+
     }
 
     /**

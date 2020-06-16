@@ -43,7 +43,7 @@ public class Xpdl2ResourcesConsts {
             "icons/wizards/ParticipantWizard.png"; //$NON-NLS-1$
 
     public static final String WIZARD_NEW_DATAFIELD =
-            "icons/wizards/Data Field nxn n p.png"; //$NON-NLS-1$
+            "icons/wizards/DataFieldWizard.png"; //$NON-NLS-1$
 
     public static final String WIZARD_NEW_CORRELATIONDATAFIELD =
             "icons/wizards/CorrelationDataWizard.png"; //$NON-NLS-1$

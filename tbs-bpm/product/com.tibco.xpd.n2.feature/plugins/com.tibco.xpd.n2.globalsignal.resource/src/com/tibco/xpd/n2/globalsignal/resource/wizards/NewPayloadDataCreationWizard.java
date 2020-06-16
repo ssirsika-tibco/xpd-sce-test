@@ -20,6 +20,7 @@ import com.tibco.xpd.globalSignalDefinition.GlobalSignal;
 import com.tibco.xpd.globalSignalDefinition.GlobalSignalDefinitionFactory;
 import com.tibco.xpd.globalSignalDefinition.GlobalSignalDefinitionPackage;
 import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
+import com.tibco.xpd.n2.globalsignal.resource.GsdResourcePlugin;
 import com.tibco.xpd.n2.globalsignal.resource.internal.Messages;
 import com.tibco.xpd.n2.globalsignal.resource.util.GSDModelUtil;
 import com.tibco.xpd.resources.WorkingCopy;
@@ -53,6 +54,10 @@ public class NewPayloadDataCreationWizard extends AbstractNewDataFieldWizard {
 
         /* Set Page Descriptions */
         setPageDescriptions(new String[] { Messages.NewPayloadDataCreationWizard_PageDescription });
+
+        setDefaultPageImageDescriptor(
+                GsdResourcePlugin.getBundledImageDescriptor(GsdResourcePlugin.GLOBAL_PAYLOAD_DATA_WIZARD_IMAGE));
+
     }
 
     /**

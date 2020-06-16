@@ -87,9 +87,13 @@ public class ProcessElementSelectionPage extends PackageSelectionPage {
      * com.tibco.xpd.ui.properties.CreationWizardContainerSelectionPage#init
      * (org.eclipse.jface.viewers.IStructuredSelection)
      */
+    @Override
     public void init(IStructuredSelection selection) {
 
         super.init(selection);
+
+        /* Sid ACE-3341 if super set page incomplete then we should honour that here too. */
+        boolean superIsComplete = isPageComplete();
 
         if (selection != null && !selection.isEmpty()) {
             Object selectedElement = selection.getFirstElement();
@@ -131,8 +135,9 @@ public class ProcessElementSelectionPage extends PackageSelectionPage {
             }
         }
 
+        /* Sid ACE-3341 if super set page incomplete then we should honour that here too. */
         setPageComplete(packagesFolderContainer != null && packageFile != null
-                && selectedElement != null);
+                && selectedElement != null && superIsComplete);
 
         return;
     }
@@ -144,12 +149,14 @@ public class ProcessElementSelectionPage extends PackageSelectionPage {
      * com.tibco.xpd.analyst.resources.xpdl2.wizards.pages.PackageSelectionPage
      * #getEContainer()
      */
+    @Override
     public EObject getEContainer() {
         // Return the selected process
         return selectedElement;
     }
 
     private ModifyListener procOrIfcListener = new ModifyListener() {
+        @Override
         public void modifyText(ModifyEvent e) {
             setPageComplete(validatePage());
         }
@@ -162,6 +169,7 @@ public class ProcessElementSelectionPage extends PackageSelectionPage {
      * PackageOrProcessSelectionPage
      * #createOptionSelection(org.eclipse.swt.widgets.Composite)
      */
+    @Override
     protected void createOptionSelection(Composite parent) {
         // Process selection
         Composite elementContainer = new Composite(parent, SWT.NULL);
@@ -188,6 +196,7 @@ public class ProcessElementSelectionPage extends PackageSelectionPage {
         btnElementBrowse = new Button(elementContainer, SWT.NONE);
         btnElementBrowse.setText(Messages.ProcessSelectionPage_3);
         btnElementBrowse.addSelectionListener(new SelectionAdapter() {
+            @Override
             public void widgetSelected(SelectionEvent e) {
                 browseForProcessElement();
             }
@@ -217,6 +226,7 @@ public class ProcessElementSelectionPage extends PackageSelectionPage {
      * com.tibco.xpd.ui.properties.CreationWizardContainerSelectionPage#validatePage
      * ()
      */
+    @Override
     protected boolean validatePage() {
         // Call the super version to validate the main part of this page
         boolean ret = super.validatePage();
