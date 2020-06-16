@@ -95,8 +95,6 @@ public class ConvertCatch {
         boolean isDataMapperForCatchError=false;
         
        org.eclipse.bpel.model.Activity theMappingActivity = null;
-
-       
 	
 		if (!isDeclaredFault && catchErrorMappings != null && catchErrorMappings.getMessage() != null) {
 
@@ -113,7 +111,7 @@ public class ConvertCatch {
 		        /*
 		         * DataMapper mappings (only thing supported in ACE V5 
 		         */
-		        isDataMapperForCatchError=true;
+		        isDataMapperForCatchError = true;
 		        
 	            /*
 	             * Sid ACE-3834 faultNameVar and faultDetailsVar are now supplied via the PE-generated "parameters"
@@ -121,8 +119,20 @@ public class ConvertCatch {
 	             */
 
 		        ScriptDataMapper sdm=(ScriptDataMapper)sdmObj;
-		        
-		        ExtensionActivity scriptActivity = createDataMapperMappingScript(sdm);
+
+                /*
+                 * Sid ACE-3834 For catch specific sub-proc error use a specific tag name "_BX_SPError_activityname" so
+                 * that runtime can identify and handle it differently
+                 */
+                String scriptActivityName = null;
+
+                if (BpmnCatchableErrorUtil.isCatchSubProcessErrorEvent(eventAct)) {
+                    scriptActivityName = context.generateActivityName("SPError", eventAct.getName(), eventAct.getId());
+                } else {
+                    scriptActivityName = context.genUniqueActivityName("DataMapperScript"); //$NON-NLS-1$
+                }
+                		        
+		        ExtensionActivity scriptActivity = createDataMapperMappingScript(sdm, scriptActivityName);
 
 		        if (scriptActivity != null) {
 		            
@@ -134,7 +144,7 @@ public class ConvertCatch {
 		            sequence.getActivities().add(scriptActivity);
 
                     /*
-                     * Sid ACE-3834There is no difference here between catch-all, catch specific sub-proc error and
+                     * Sid ACE-3834 There is little difference here between catch-all, catch specific sub-proc error and
                      * catch specific case operation task error.
                      * 
                      * Since PE now scopes a JSON "parameters" object with all required properties ($ERROR_CODE,
@@ -145,7 +155,7 @@ public class ConvertCatch {
                      * So the following code has been rationalised down to simply this...
                      */
                     theMappingActivity = sequence;
-		            
+                    
 		        }
 
                 /* Sid ACE-3834 fault handling is no longer piggy backed on WSDL fault handling - faultVariableName/Type attribute no longer required. */
@@ -418,7 +428,7 @@ public class ConvertCatch {
      *         mappings.
      */
     private ExtensionActivity createDataMapperMappingScript(
-            ScriptDataMapper dataMapperInputMappings) {
+            ScriptDataMapper dataMapperInputMappings, String activityName) {
 
         org.eclipse.bpel.model.ExtensionActivity extensionAct = null;
 
@@ -440,8 +450,7 @@ public class ConvertCatch {
                             .createExtensionActivityFromEmfObject(scriptForText,
                                     false);
 
-            extensionAct.setName(context
-                    .genUniqueActivityName("DataMapperScript")); //$NON-NLS-1$
+            extensionAct.setName(activityName);
         }
 
         return extensionAct;

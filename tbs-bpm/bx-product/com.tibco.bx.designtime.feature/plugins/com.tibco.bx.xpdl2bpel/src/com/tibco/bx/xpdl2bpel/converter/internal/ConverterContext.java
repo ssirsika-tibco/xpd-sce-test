@@ -562,7 +562,7 @@ public class ConverterContext {
 
     public String generateActivityName(String part1, String part2, String alternatePart2) {
     	String result = N2PEConstants.NAME_PREFIX + part1;
-    	if (part2 != null) {
+    	if (part2 != null && part2.length() > 0) {
     		result+= '_' + part2;
     		if (result.length() >64) {
     			result = N2PEConstants.NAME_PREFIX + part1 + '_' + alternatePart2;
