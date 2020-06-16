@@ -9,14 +9,14 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 
 import com.tibco.xpd.analyst.resources.xpdl2.errorEvents.BpmnCatchableErrorUtil;
+import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.catcherror.datamapper.AbstractCatchErrorDataMapperContentContributor;
 import com.tibco.xpd.process.datamapper.common.ProcessDataMapperInfoProvider;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
-import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
+import com.tibco.xpd.xpdExtension.InterfaceMethod;
 import com.tibco.xpd.xpdExtension.ProcessInterface;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.Process;
-import com.tibco.xpd.xpdl2.SubFlow;
 
 /**
  * Content Contributor for Catch error for SubProcess. This content contributor
@@ -71,17 +71,25 @@ public class CatchCSPErrorSubProcParamDataMapperContentContributor extends
                     if (BpmnCatchableErrorUtil
                             .isCatchSubProcessErrorEvent(activity)) {
 
-                        Activity act =
-                                BpmnCatchableErrorUtil
-                                        .getAttachedToTask((Activity) mapperInput);
+                        /*
+                         * Sid ACE-3395 for catch sub-process error we need the process that actually throws the error.
+                         * This is NOT necessarily the process of the sub-process task we're attached to. So changed to
+                         * get the error-thrower (which in the case of catch sub-proc error will be the throw error
+                         * event in the sub-proc or process-interface
+                         */
+                        Object errorThrower = BpmnCatchableErrorUtil.getErrorThrower((Activity) mapperInput);
 
-                        if (act != null
-                                && act.getImplementation() instanceof SubFlow) {
-
-                            EObject subProc =
-                                    TaskObjectUtil
-                                            .getSubProcessOrInterface(act);
-
+                        if (errorThrower instanceof EObject) {
+                            EObject subProc = null;
+                            
+                            if (errorThrower instanceof Activity) {
+                                subProc = ((Activity) errorThrower).getProcess();
+                                
+                            } else if (errorThrower instanceof InterfaceMethod) {
+                                subProc =
+                                        ProcessInterfaceUtil.getProcessInterface((InterfaceMethod) errorThrower);
+                            }
+                            
                             if (subProc instanceof Process) {
 
                                 return ConceptUtil
