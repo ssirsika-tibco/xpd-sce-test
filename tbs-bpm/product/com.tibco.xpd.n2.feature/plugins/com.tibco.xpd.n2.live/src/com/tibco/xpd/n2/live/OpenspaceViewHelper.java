@@ -1,5 +1,5 @@
 /*
- * Copyright (c) TIBCO Software Inc 2004, 2014. All rights reserved.
+ * Copyright (c) TIBCO Software Inc 2004, 2020. All rights reserved.
  */
 
 package com.tibco.xpd.n2.live;
@@ -226,10 +226,21 @@ public class OpenspaceViewHelper {
             // remove last & from params
             params = params.substring(0, params.length() - 1);
 
+            /*
+             * Sid / Birju ACE-4008 : Support insertion of query pattern BEFORE # tag routing elements (i.e. where base
+             * URL is /work-views in http://ace-nightly-test.emea.tibco.com/apps/work-manager/#/work-views)
+             */
+            int hashIdx = openspaceUrl.indexOf('#');
+
             StringBuilder completeUrl = new StringBuilder();
-            completeUrl.append(openspaceUrl);
+            completeUrl.append(hashIdx >= 0 ? openspaceUrl.substring(0, hashIdx) : openspaceUrl);
             completeUrl.append("?"); //$NON-NLS-1$
             completeUrl.append(params);
+
+            if (hashIdx >= 0) {
+            	completeUrl.append(openspaceUrl.substring(hashIdx));
+            }
+
             return completeUrl.toString();
         }
 
