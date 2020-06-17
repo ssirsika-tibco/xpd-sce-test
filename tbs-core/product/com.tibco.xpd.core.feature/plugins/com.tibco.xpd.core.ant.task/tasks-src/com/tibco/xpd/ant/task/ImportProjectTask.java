@@ -114,7 +114,7 @@ public class ImportProjectTask extends Task {
         if (!importedProjects.isEmpty()) {
 
             String msg =
-                    getDisplayFormatedProjectList("Successful import of the following projects:", importedProjects); //$NON-NLS-1$
+                    getDisplayFormatedProjectList("Successfully imported the following projects:", importedProjects); //$NON-NLS-1$
             log(msg);
 
             /*
@@ -124,12 +124,83 @@ public class ImportProjectTask extends Task {
                 doBuild(importedProjects);
 
         } else {
-            String msg =
-                    "Some candidate projects could not be imported so none were attempted"; //$NON-NLS-1$ 
+            String msg = getSourceNotFoundDescription();
             log(msg, Project.MSG_WARN);
+
+            // Throw a BuildException to let ant know to stop processing (I think!)
+            throw new BuildException(msg);
         }
 
         super.execute();
+    }
+
+    /**
+     * 
+     * @return An appropriate message for the input project configuration if the importer found no projects to import.
+     */
+    private String getSourceNotFoundDescription() {
+        String msg = ""; //$NON-NLS-1$
+
+        if (isArchiveImport()) {
+            if (isFileAttributeSet()) {
+                msg = "Could not find / import project archive: " + file; //$NON-NLS-1$
+            } else {
+                msg = "Could not find / import project archives from: "; //$NON-NLS-1$
+
+                if (fileSets != null) {
+                    boolean first = false;
+
+                    for (FileSet fileSet : fileSets) {
+                        DirectoryScanner directoryScanner = fileSet.getDirectoryScanner(getProject());
+
+                        if (directoryScanner != null) {
+                            File basedir = directoryScanner.getBasedir();
+
+                            if (basedir != null && basedir.getPath() != null) {
+                                if (!first) {
+                                    msg += ", "; //$NON-NLS-1$
+                                }
+
+                                msg += basedir.getPath();
+
+                                first = false;
+                            }
+                        }
+                    }
+                }
+            }
+
+        } else {
+            if (isDirAttributeSet()) {
+                msg = "Could not find / import project from: " + dir; //$NON-NLS-1$
+            } else {
+                msg = "Could not find / import projects from: "; //$NON-NLS-1$
+
+                if (dirSets != null) {
+                    boolean first = false;
+
+                    for (DirSet dirSet : dirSets) {
+                        DirectoryScanner directoryScanner = dirSet.getDirectoryScanner(getProject());
+
+                        if (directoryScanner != null) {
+                            File basedir = directoryScanner.getBasedir();
+
+                            if (basedir != null && basedir.getPath() != null) {
+                                if (!first) {
+                                    msg += ", "; //$NON-NLS-1$
+                                }
+
+                                msg += basedir.getPath();
+
+                                first = false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return msg;
     }
 
     /**
@@ -459,4 +530,5 @@ public class ImportProjectTask extends Task {
 
         srv = ProjectsImportService.getInstance();
     }
+
 }
