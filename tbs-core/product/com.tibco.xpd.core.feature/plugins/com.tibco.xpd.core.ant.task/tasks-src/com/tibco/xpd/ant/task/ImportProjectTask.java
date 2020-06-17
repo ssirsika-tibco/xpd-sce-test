@@ -148,7 +148,7 @@ public class ImportProjectTask extends Task {
                 msg = "Could not find / import project archives from: "; //$NON-NLS-1$
 
                 if (fileSets != null) {
-                    boolean first = false;
+                    boolean first = true;
 
                     for (FileSet fileSet : fileSets) {
                         DirectoryScanner directoryScanner = fileSet.getDirectoryScanner(getProject());
@@ -177,7 +177,7 @@ public class ImportProjectTask extends Task {
                 msg = "Could not find / import projects from: "; //$NON-NLS-1$
 
                 if (dirSets != null) {
-                    boolean first = false;
+                    boolean first = true;
 
                     for (DirSet dirSet : dirSets) {
                         DirectoryScanner directoryScanner = dirSet.getDirectoryScanner(getProject());
@@ -261,7 +261,7 @@ public class ImportProjectTask extends Task {
         if ((isFileAttributeSet() || Boolean.TRUE.equals(useArchives))
                 && Boolean.TRUE.equals(copyProjects)) {
             String fmtMsg =
-                    "%sThe attribute 'copyProjects' has been set to \"true\" and an archive import will be attempted. As such the 'copyProjects' attribute value is redundant%s"; //$NON-NLS-1$
+                    "%1$sThe attribute 'copyProjects' has been set to \"true\" and an archive import will be attempted. As such the 'copyProjects' attribute value is redundant%1$s"; //$NON-NLS-1$
             log(String.format(fmtMsg, newLn));
         }
 
