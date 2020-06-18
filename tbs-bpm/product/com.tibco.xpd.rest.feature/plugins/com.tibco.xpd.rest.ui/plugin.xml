@@ -183,4 +183,13 @@
          </run>
       </runtime>
    </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="com.tibco.modeling.perspective">
+         <newWizardShortcut
+               id="com.tibco.xpd.rest.wizard.project.new">
+         </newWizardShortcut>
+      </perspectiveExtension>
+   </extension>
 </plugin>
