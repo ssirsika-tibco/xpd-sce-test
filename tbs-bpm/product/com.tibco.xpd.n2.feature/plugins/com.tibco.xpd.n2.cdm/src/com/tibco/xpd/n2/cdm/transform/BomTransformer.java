@@ -137,9 +137,13 @@ public class BomTransformer {
         cdmType.setIsCase(BOMGlobalDataUtils.isCaseClass(bomClass));
 
         // Attributes - only properties with aggregation="composite".
+        /*
+         * Sid ACE-4002 also generate for attributes with AggregationType = NONE (older BOM's do not have aggregation
+         * type set in the model.
+         */
         bomClass.getAttributes().stream()
-                .filter(attr -> AggregationKind.COMPOSITE_LITERAL
-                        .equals(attr.getAggregation()))
+                .filter(attr -> (AggregationKind.COMPOSITE_LITERAL.equals(attr.getAggregation())
+                        || AggregationKind.NONE_LITERAL.equals(attr.getAggregation())))
                 .forEach(attr -> transformAttribute(attr, cdmType));
 
         // Features of StructuredType like: 'stateModel' and
