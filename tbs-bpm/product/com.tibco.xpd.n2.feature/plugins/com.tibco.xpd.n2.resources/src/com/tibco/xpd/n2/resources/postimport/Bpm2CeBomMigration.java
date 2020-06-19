@@ -12,6 +12,7 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.FigureUtilities;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Model;
@@ -61,6 +62,15 @@ public class Bpm2CeBomMigration implements IBOMMigration {
          * Switch integer attributes to Decimals with 0 max decimals.
          */
         c = refactorNumberAttributes(domain, model);
+        if (c != null) {
+            cmd.append(c);
+        }
+
+        /*
+         * Sid ACE-4002 Add missing aggregation="composite" to non-association linkl attributes (these are missing from
+         * very old BOMs)
+         */
+        c = refactorMissingAttributeAggregation(domain, model);
         if (c != null) {
             cmd.append(c);
         }
@@ -433,4 +443,57 @@ public class Bpm2CeBomMigration implements IBOMMigration {
             }
         };
     }
+
+    /**
+     * Some older BOM models (pre V4.0 Studio I think) did not set aggregation="composite" on standard attributes (non
+     * association). This messes up bom->cdm & bom-js transforms and is inconsistent with attributes created in
+     * current/later version.
+     * 
+     * So this function looks for ownedAttribute's that have aggregation=none and no association - these should be
+     * compositions.
+     * 
+     * @param domain
+     * @param model
+     * @return Command or <code>null</code> if no changes to make.
+     */
+    private Command refactorMissingAttributeAggregation(TransactionalEditingDomain domain, Model model) {
+        CompoundCommand cmd = new CompoundCommand();
+
+        /* Get the base Decimal primitive type. */
+        ResourceSet rs = XpdResourcesPlugin.getDefault().getEditingDomain().getResourceSet();
+
+        PrimitiveType decimalType =
+                PrimitivesUtil.getStandardPrimitiveTypeByName(rs, PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME);
+
+        PrimitiveType integerType =
+                PrimitivesUtil.getStandardPrimitiveTypeByName(rs, PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME);
+
+        EList<Element> allOwnedElements = model.allOwnedElements();
+
+        for (Element element : allOwnedElements) {
+            /*
+             * Switch integer properties to FixedPoint with zero decimals.
+             */
+            if (element instanceof Property) {
+                final Property property = (Property) element;
+
+                if (AggregationKind.NONE_LITERAL.equals(property.getAggregation())
+                        && property.getAssociation() == null) {
+                    /*
+                     * Aggregation=none and NOT a case class association so we need to set the plain old attribute as a
+                     * composition.
+                     */
+                    cmd.append(new RecordingCommand(domain) {
+                        @Override
+                        protected void doExecute() {
+                            property.setAggregation(AggregationKind.COMPOSITE_LITERAL);
+                        }
+                    });
+                }
+            }
+        }
+
+        return !cmd.isEmpty() ? cmd : null;
+    }
+
 }

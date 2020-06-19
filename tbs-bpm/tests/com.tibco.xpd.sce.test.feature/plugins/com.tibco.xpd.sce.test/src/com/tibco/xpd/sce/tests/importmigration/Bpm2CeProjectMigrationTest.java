@@ -21,6 +21,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EnumerationLiteral;
@@ -144,181 +145,321 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         try {
             projectImporter = doTestProject(projectName, 1);
 
-        /*
-         * Check that the specific integer properties/primtives we know about for definite have been changed.
-         */
-        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+            /*
+             * Check that the specific integer properties/primtives we know about for definite have been changed.
+             */
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 
-        IFile testBomFile = project.getFile("Business Objects/NumberRefactoring.bom"); //$NON-NLS-1$
-        WorkingCopy testWC = WorkingCopyUtil.getWorkingCopy(testBomFile);
-        Model model = (Model) testWC.getRootElement();
+            IFile testBomFile = project.getFile("Business Objects/NumberRefactoring.bom"); //$NON-NLS-1$
+            WorkingCopy testWC = WorkingCopyUtil.getWorkingCopy(testBomFile);
+            Model model = (Model) testWC.getRootElement();
 
-        EList<Element> allOwnedElements = model.allOwnedElements();
+            EList<Element> allOwnedElements = model.allOwnedElements();
 
-        PrimitiveType decimalType = PrimitivesUtil.getStandardPrimitiveTypeByName(
-                XpdResourcesPlugin.getDefault().getEditingDomain().getResourceSet(),
-                PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME);
+            PrimitiveType decimalType = PrimitivesUtil.getStandardPrimitiveTypeByName(
+                    XpdResourcesPlugin.getDefault().getEditingDomain().getResourceSet(),
+                    PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME);
 
-        for (Element element : allOwnedElements) {
-            if (element instanceof Property && "integerAttribute" //$NON-NLS-1$
-                    .equals(((Property) element).getName())) {
-                Property property = (Property) element;
+            for (Element element : allOwnedElements) {
+                if (element instanceof Property && "integerAttribute" //$NON-NLS-1$
+                        .equals(((Property) element).getName())) {
+                    Property property = (Property) element;
 
-                assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                        + property.getName() + "' should have been converted from Integer to Decimal", //$NON-NLS-1$
-                        (decimalType.equals(property.getType())));
+                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + property.getName() + "' should have been converted from Integer to Decimal", //$NON-NLS-1$
+                            (decimalType.equals(property.getType())));
 
-                Object facetPropertyValue = PrimitivesUtil.getFacetPropertyValue((PrimitiveType) property.getType(),
-                        PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
-                        property);
+                    Object facetPropertyValue = PrimitivesUtil.getFacetPropertyValue((PrimitiveType) property.getType(),
+                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
+                            property);
 
-                assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                        + property.getName() + "' should have been converted to Decimal Subtype FixedPoint", //$NON-NLS-1$
-                        facetPropertyValue instanceof EnumerationLiteral && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
-                                .equals((((EnumerationLiteral) facetPropertyValue).getName())));
+                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + property.getName() + "' should have been converted to Decimal Subtype FixedPoint", //$NON-NLS-1$
+                            facetPropertyValue instanceof EnumerationLiteral
+                                    && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
+                                            .equals((((EnumerationLiteral) facetPropertyValue).getName())));
 
-                facetPropertyValue = PrimitivesUtil.getFacetPropertyValue((PrimitiveType) property.getType(),
-                        PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES,
-                        property);
+                    facetPropertyValue = PrimitivesUtil.getFacetPropertyValue((PrimitiveType) property.getType(),
+                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES,
+                            property);
 
-                assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                        + property.getName()
-                        + "' should have been converted to Decimal, FixedPoint with ZERO decimal places", //$NON-NLS-1$
-                        facetPropertyValue != null && new Integer(0).equals(facetPropertyValue));
-
-                /*
-                 * In the 2nd class the integerAttribute has default values that should have been carried over to the
-                 * decimals equivalent. (And should have had the integer constriants removed.
-                 */
-                if ("NumberAttributes2withconstraints" //$NON-NLS-1$
-                        .equals(property.getClass_().getName())) {
                     assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
                             + property.getName()
-                            + "' Should have carried over it's integerDefaultValue as decimalDefaultValue (123)", //$NON-NLS-1$
-                            "123".equals( //$NON-NLS-1$
-                                    PrimitivesUtil.getFacetPropertyValue((PrimitiveType) property.getType(),
-                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_DEFAULT_VALUE,
-                                            property)));
+                            + "' should have been converted to Decimal, FixedPoint with ZERO decimal places", //$NON-NLS-1$
+                            facetPropertyValue != null && new Integer(0).equals(facetPropertyValue));
 
-                    facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
-                            (PrimitiveType) property.getType(),
-                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_DEFAULT_VALUE,
-                            property);
-                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                            + property.getName() + "' Should have removed its integerDefaultValue", //$NON-NLS-1$
-                            facetPropertyValue == null || "".equals(facetPropertyValue)); //$NON-NLS-1$
+                    /*
+                     * In the 2nd class the integerAttribute has default values that should have been carried over to
+                     * the decimals equivalent. (And should have had the integer constriants removed.
+                     */
+                    if ("NumberAttributes2withconstraints" //$NON-NLS-1$
+                            .equals(property.getClass_().getName())) {
+                        assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                                + property.getName()
+                                + "' Should have carried over it's integerDefaultValue as decimalDefaultValue (123)", //$NON-NLS-1$
+                                "123".equals( //$NON-NLS-1$
+                                        PrimitivesUtil.getFacetPropertyValue((PrimitiveType) property.getType(),
+                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_DEFAULT_VALUE,
+                                                property)));
 
-                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                            + property.getName() + "' Should have carried over its integerLower as decimalLower (111)", //$NON-NLS-1$
-                            "111".equals( //$NON-NLS-1$
-                                    PrimitivesUtil.getFacetPropertyValue((PrimitiveType) property.getType(),
-                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LOWER,
-                                            property)));
+                        facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
+                                (PrimitiveType) property.getType(),
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_DEFAULT_VALUE,
+                                property);
+                        assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                                + property.getName() + "' Should have removed its integerDefaultValue", //$NON-NLS-1$
+                                facetPropertyValue == null || "".equals(facetPropertyValue)); //$NON-NLS-1$
 
-                    facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
-                            (PrimitiveType) property.getType(),
-                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LOWER,
-                            property);
-                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                            + property.getName() + "' Should have removed its integerLower", //$NON-NLS-1$
-                            facetPropertyValue == null || "".equals(facetPropertyValue)); //$NON-NLS-1$
+                        assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                                + property.getName()
+                                + "' Should have carried over its integerLower as decimalLower (111)", //$NON-NLS-1$
+                                "111".equals( //$NON-NLS-1$
+                                        PrimitivesUtil.getFacetPropertyValue((PrimitiveType) property.getType(),
+                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LOWER,
+                                                property)));
 
-                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                            + property.getName() + "' Should have carried over its integerUpper as decimalUpper (999)", //$NON-NLS-1$
-                            "999".equals( //$NON-NLS-1$
-                                    PrimitivesUtil.getFacetPropertyValue((PrimitiveType) property.getType(),
-                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_UPPER,
-                                            property)));
+                        facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
+                                (PrimitiveType) property.getType(),
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LOWER,
+                                property);
+                        assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                                + property.getName() + "' Should have removed its integerLower", //$NON-NLS-1$
+                                facetPropertyValue == null || "".equals(facetPropertyValue)); //$NON-NLS-1$
 
-                    facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
-                            (PrimitiveType) property.getType(),
-                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_UPPER,
-                            property);
-                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                            + property.getName() + "' Should have removed its integerUpper", //$NON-NLS-1$
-                            facetPropertyValue == null || "".equals(facetPropertyValue)); //$NON-NLS-1$
+                        assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                                + property.getName()
+                                + "' Should have carried over its integerUpper as decimalUpper (999)", //$NON-NLS-1$
+                                "999".equals( //$NON-NLS-1$
+                                        PrimitivesUtil.getFacetPropertyValue((PrimitiveType) property.getType(),
+                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_UPPER,
+                                                property)));
+
+                        facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
+                                (PrimitiveType) property.getType(),
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_UPPER,
+                                property);
+                        assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                                + property.getName() + "' Should have removed its integerUpper", //$NON-NLS-1$
+                                facetPropertyValue == null || "".equals(facetPropertyValue)); //$NON-NLS-1$
+                    }
+
+                } else if (element instanceof PrimitiveType && ("MyIntegerPrimitive" //$NON-NLS-1$
+                        .equals(((PrimitiveType) element).getName())
+                        || "MyIntegerPrimitiveWithConstraints" //$NON-NLS-1$
+                                .equals(((PrimitiveType) element).getName()))) {
+                    PrimitiveType primitiveType = (PrimitiveType) element;
+
+                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + primitiveType.getName() + "' should have been converted from Integer to Decimal", //$NON-NLS-1$
+                            decimalType.equals(primitiveType.getGenerals().get(0)));
+
+                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + primitiveType.getName() + "' should have been converted to Decimal Subtype FixedPoint", //$NON-NLS-1$
+                            PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
+                                    .equals(((EnumerationLiteral) PrimitivesUtil.getFacetPropertyValue(primitiveType,
+                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE)).getName()));
+
+                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + primitiveType.getName()
+                            + "' should have been converted to Decimal, FixedPoint with ZERO decimal places", //$NON-NLS-1$
+                            new Integer(0).equals(PrimitivesUtil.getFacetPropertyValue(primitiveType,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES)));
+
+                    /*
+                     * In the 2nd class the integerAttribute has default values that should have been carried over to
+                     * the decimals equivalent. (And should have had the integer constriants removed.
+                     */
+                    if ("MyIntegerPrimitiveWithConstraints" //$NON-NLS-1$
+                            .equals(primitiveType.getName())) {
+                        assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                                + primitiveType.getName()
+                                + "' Should have carried over its integerDefaultValue as decimalDefaultValue (123)", //$NON-NLS-1$
+                                "123".equals(PrimitivesUtil //$NON-NLS-1$
+                                        .getFacetPropertyValue(primitiveType,
+                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_DEFAULT_VALUE)));
+
+                        Object facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
+                                primitiveType,
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_DEFAULT_VALUE);
+                        assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                                + primitiveType.getName() + "' Should have removed its integerDefaultValue", //$NON-NLS-1$
+                                facetPropertyValue == null || "".equals(facetPropertyValue)); //$NON-NLS-1$
+
+                        assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                                + primitiveType.getName()
+                                + "' Should have carried over its integerLower as decimalLower (111)", //$NON-NLS-1$
+                                "111".equals( //$NON-NLS-1$
+                                        PrimitivesUtil.getFacetPropertyValue(primitiveType,
+                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LOWER)));
+
+                        facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
+                                primitiveType,
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LOWER);
+                        assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                                + primitiveType.getName() + "' Should have removed its integerLower", //$NON-NLS-1$
+                                facetPropertyValue == null || "".equals(facetPropertyValue)); //$NON-NLS-1$
+
+                        assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                                + primitiveType.getName()
+                                + "' Should have carried over its integerUpper as decimalUpper (999)", //$NON-NLS-1$
+                                "999".equals( //$NON-NLS-1$
+                                        PrimitivesUtil.getFacetPropertyValue(primitiveType,
+                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_UPPER)));
+
+                        facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
+                                primitiveType,
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_UPPER);
+                        assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                                + primitiveType.getName() + "' Should have removed its integerUpper", //$NON-NLS-1$
+                                facetPropertyValue == null || "".equals(facetPropertyValue)); //$NON-NLS-1$
+                    }
+
                 }
-
-            } else if (element instanceof PrimitiveType && ("MyIntegerPrimitive" //$NON-NLS-1$
-                    .equals(((PrimitiveType) element).getName())
-                    || "MyIntegerPrimitiveWithConstraints" //$NON-NLS-1$
-                            .equals(((PrimitiveType) element).getName()))) {
-                PrimitiveType primitiveType = (PrimitiveType) element;
-
-                assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                        + primitiveType.getName() + "' should have been converted from Integer to Decimal", //$NON-NLS-1$
-                        decimalType.equals(primitiveType.getGenerals().get(0)));
-
-                assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                        + primitiveType.getName() + "' should have been converted to Decimal Subtype FixedPoint", //$NON-NLS-1$
-                        PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
-                                .equals(((EnumerationLiteral) PrimitivesUtil.getFacetPropertyValue(primitiveType,
-                                        PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE)).getName()));
-
-                assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                        + primitiveType.getName()
-                        + "' should have been converted to Decimal, FixedPoint with ZERO decimal places", //$NON-NLS-1$
-                        new Integer(0).equals(PrimitivesUtil.getFacetPropertyValue(primitiveType,
-                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES)));
-
-                /*
-                 * In the 2nd class the integerAttribute has default values that should have been carried over to the
-                 * decimals equivalent. (And should have had the integer constriants removed.
-                 */
-                if ("MyIntegerPrimitiveWithConstraints" //$NON-NLS-1$
-                        .equals(primitiveType.getName())) {
-                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                            + primitiveType.getName()
-                            + "' Should have carried over its integerDefaultValue as decimalDefaultValue (123)", //$NON-NLS-1$
-                            "123".equals(PrimitivesUtil //$NON-NLS-1$
-                                    .getFacetPropertyValue(primitiveType,
-                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_DEFAULT_VALUE)));
-
-                    Object facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
-                            primitiveType,
-                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_DEFAULT_VALUE);
-                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                            + primitiveType.getName() + "' Should have removed its integerDefaultValue", //$NON-NLS-1$
-                            facetPropertyValue == null || "".equals(facetPropertyValue)); //$NON-NLS-1$
-
-                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                            + primitiveType.getName()
-                            + "' Should have carried over its integerLower as decimalLower (111)", //$NON-NLS-1$
-                            "111".equals( //$NON-NLS-1$
-                                    PrimitivesUtil.getFacetPropertyValue(primitiveType,
-                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LOWER)));
-
-                    facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
-                            primitiveType,
-                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LOWER);
-                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                            + primitiveType.getName() + "' Should have removed its integerLower", //$NON-NLS-1$
-                            facetPropertyValue == null || "".equals(facetPropertyValue)); //$NON-NLS-1$
-
-                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                            + primitiveType.getName()
-                            + "' Should have carried over its integerUpper as decimalUpper (999)", //$NON-NLS-1$
-                            "999".equals( //$NON-NLS-1$
-                                    PrimitivesUtil.getFacetPropertyValue(primitiveType,
-                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_UPPER)));
-
-                    facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
-                            primitiveType,
-                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_UPPER);
-                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-                            + primitiveType.getName() + "' Should have removed its integerUpper", //$NON-NLS-1$
-                            facetPropertyValue == null || "".equals(facetPropertyValue)); //$NON-NLS-1$
-                }
-
             }
-        }
 
-        /* Clean up. */
+            /* Clean up. */
         } finally {
             if (projectImporter != null) {
                 projectImporter.performDelete();
             }
         }
+    }
+
+    /**
+     * Some older BOM models (pre V4.0 Studio I think) did not set aggregation="composite" on standard attributes (non
+     * association). This messes up bom->cdm & bom-js transforms and is inconsistent with attributes created in
+     * current/later version.
+     * 
+     * So this function looks for ownedAttribute's that have aggregation=none and no association - these should be
+     * compositions.
+     */
+    @Test
+    public void testMissingCompositeAggregationDataProjectMigration() {
+        String projectName = "MissingCompositeAggregationData"; //$NON-NLS-1$
+
+        ProjectImporter projectImporter = null;
+
+        try {
+            projectImporter = doTestProject(projectName, 1);
+
+
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+
+            IFile testBomFile = project.getFile("Business Objects/MissingCompositeAggregation.bom"); //$NON-NLS-1$
+            WorkingCopy testWC = WorkingCopyUtil.getWorkingCopy(testBomFile);
+            Model model = (Model) testWC.getRootElement();
+
+            EList<Element> allOwnedElements = model.allOwnedElements();
+
+            /*
+             * Customer should have 3 properties autoCaseIdnetifier1 (aggregation=composite already set), rating
+             * (aggregation=composite NOT set, should be added) and Person (association link so should NOT have
+             * aggregation=composite added).
+             */
+            Class clazz = (Class) model.getPackagedElement("Customer"); //$NON-NLS-1$
+            assertNotNull("Expected to find a Customer class", clazz);
+
+            assertEquals("Customer class should have 3 attributes", 3, clazz.getAttributes().size());
+
+            Property attr = getAttribute(clazz, "autoCaseIdentifier1");
+            assertNotNull("Customer.autoCaseIdentifier1 property should exist", attr);
+            assertEquals("Customer.autoCaseIdentifier1 should have kept aggregation=composite",
+                    AggregationKind.COMPOSITE_LITERAL,
+                    attr.getAggregation());
+
+            attr = getAttribute(clazz, "person");
+            assertNotNull("Customer.person property should exist", attr);
+            assertEquals("Customer.person case link should NOT have had aggregation=composite added",
+                    AggregationKind.NONE_LITERAL,
+                    attr.getAggregation());
+
+            attr = getAttribute(clazz, "rating");
+            assertNotNull("Customer.rating property should exist", attr);
+            assertEquals("Customer.rating should have had aggregation=composite added",
+                    AggregationKind.COMPOSITE_LITERAL,
+                    attr.getAggregation());
+
+            /*
+             * Person class should have 4 attributes autoCaseIdentifier1(aggregation=composite already set), name
+             * (aggregation=composite NOT set, should be added), Customer (association link so should NOT have
+             * aggregation=composite added) and Address (composite association)
+             */
+            clazz = (Class) model.getPackagedElement("Person"); //$NON-NLS-1$
+            assertNotNull("Expected to find a Person class", clazz);
+
+            assertEquals("Person class should have 4 attributes", 4, clazz.getAttributes().size());
+
+            attr = getAttribute(clazz, "autoCaseIdentifier1");
+            assertNotNull("Person.autoCaseIdentifier1 property should exist", attr);
+            assertEquals("Person.autoCaseIdentifier1 should have kept aggregation=composite",
+                    AggregationKind.COMPOSITE_LITERAL,
+                    attr.getAggregation());
+
+            attr = getAttribute(clazz, "customer");
+            assertNotNull("Person.customer property should exist", attr);
+            assertEquals("Person.customer case link should NOT have had aggregation=composite added",
+                    AggregationKind.NONE_LITERAL,
+                    attr.getAggregation());
+
+            attr = getAttribute(clazz, "name");
+            assertNotNull("Person.name property should exist", attr);
+            assertEquals("Person.name should have had aggregation=composite added",
+                    AggregationKind.COMPOSITE_LITERAL,
+                    attr.getAggregation());
+
+            attr = getAttribute(clazz, "address");
+            assertNotNull("Person.address property should exist", attr);
+            assertEquals("Person.address should have kept aggregation=composite",
+                    AggregationKind.COMPOSITE_LITERAL,
+                    attr.getAggregation());
+            
+            /*
+             * Address class should have 3 attributes line1, line2, postcode (all of which have aggregation=composite
+             * NOT set, should be added)
+             */
+            clazz = (Class) model.getPackagedElement("Address"); //$NON-NLS-1$
+            assertNotNull("Expected to find a Address class", clazz);
+
+            assertEquals("Address class should have 3 attributes", 3, clazz.getAttributes().size());
+
+            attr = getAttribute(clazz, "line1");
+            assertNotNull("Address.line1 property should exist", attr);
+            assertEquals("Address.line1 should have had aggregation=composite added",
+                    AggregationKind.COMPOSITE_LITERAL,
+                    attr.getAggregation());
+
+            attr = getAttribute(clazz, "line2");
+            assertNotNull("Address.line2 property should exist", attr);
+            assertEquals("Address.line2 should have had aggregation=composite added",
+                    AggregationKind.COMPOSITE_LITERAL,
+                    attr.getAggregation());
+
+            attr = getAttribute(clazz, "postcode");
+            assertNotNull("Address.postcode property should exist", attr);
+            assertEquals("Address.postcode should have had aggregation=composite added",
+                    AggregationKind.COMPOSITE_LITERAL,
+                    attr.getAggregation());
+
+        } finally {
+            /* Clean up. */
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
+        }
+    }
+
+    /**
+     * @param clazz
+     * @param attrName
+     * @return
+     */
+    private Property getAttribute(Class clazz, String attrName) {
+        for (Property p : clazz.getAttributes()) {
+            if (attrName.equals(p.getName())) {
+                return p;
+            }
+        }
+        return null;
     }
 
     @Test
@@ -330,217 +471,222 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         try {
             projectImporter = doTestProject(projectName, 1);
 
-        /*
-         * After checking all the standard stuff (like destination set, no non-datamapper related JavaScript mappings,
-         * we'll do some extra checking on this particular Projects which has specific DataMapper mapping grammar
-         * processes to test they still has all of the datamappings that we expect to be persisted thru mgiration (i.e.
-         * that we have not deleted them accidentally).
-         */
-        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+            /*
+             * After checking all the standard stuff (like destination set, no non-datamapper related JavaScript
+             * mappings, we'll do some extra checking on this particular Projects which has specific DataMapper mapping
+             * grammar processes to test they still has all of the datamappings that we expect to be persisted thru
+             * mgiration (i.e. that we have not deleted them accidentally).
+             */
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 
-        IFile dataMapperXpdl = project.getFile("Process Packages/ProjectMigrationTest_DataMapper_DataMappings.xpdl"); //$NON-NLS-1$
-        WorkingCopy testWC = WorkingCopyUtil.getWorkingCopy(dataMapperXpdl);
-        Package pkg = (Package) testWC.getRootElement();
+            IFile dataMapperXpdl =
+                    project.getFile("Process Packages/ProjectMigrationTest_DataMapper_DataMappings.xpdl"); //$NON-NLS-1$
+            WorkingCopy testWC = WorkingCopyUtil.getWorkingCopy(dataMapperXpdl);
+            Package pkg = (Package) testWC.getRootElement();
 
-        /* Get the right process. */
-        Process dataMapperProcess = null;
+            /* Get the right process. */
+            Process dataMapperProcess = null;
 
-        for (Process process : pkg.getProcesses()) {
-            if ("ProjectMigrationTest_DataMapper-DataMappings-Process" //$NON-NLS-1$
-                    .equals(Xpdl2ModelUtil.getDisplayName(process))) {
-                dataMapperProcess = process;
-                break;
-            }
-        }
-
-        /* Check the specific activity mappings. */
-        int numChecked = 0;
-
-        Collection<Activity> allActivitiesInProc = Xpdl2ModelUtil.getAllActivitiesInProc(dataMapperProcess);
-
-        for (Activity activity : allActivitiesInProc) {
-            String displayName = Xpdl2ModelUtil.getDisplayName(activity);
-
-            EStructuralFeature mappingFeature1 = null;
-            OtherElementsContainer mappingParent1 = null;
-            EStructuralFeature mappingFeature2 = null;
-            OtherElementsContainer mappingParent2 = null;
-
-            if ("Send Task mappings".equals(displayName)) { //$NON-NLS-1$
-                mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
-                mappingParent1 = ((Task) activity.getImplementation()).getTaskSend().getMessage();
-
-            } else if ("Web-service task mappings".equals(displayName)) { //$NON-NLS-1$
-                mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
-                mappingParent1 = ((Task) activity.getImplementation()).getTaskService().getMessageIn();
-                mappingFeature2 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings();
-                mappingParent2 = ((Task) activity.getImplementation()).getTaskService().getMessageOut();
-
-            } else if ("Error Event Web-service error mappings" //$NON-NLS-1$
-                    .equals(displayName)) {
-                mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings();
-                mappingParent1 = ((CatchErrorMappings) Xpdl2ModelUtil.getOtherElement(
-                        ((ResultError) activity.getEvent().getEventTriggerTypeNode()),
-                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_CatchErrorMappings())).getMessage();
-
-            } else if ("Throw message mappings".equals(displayName)) { //$NON-NLS-1$
-                mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
-                mappingParent1 = ((TriggerResultMessage) activity.getEvent().getEventTriggerTypeNode()).getMessage();
-
-            } else if ("Start Event User defined WSDL".equals(displayName)) { //$NON-NLS-1$
-                mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings();
-                mappingParent1 = ((TriggerResultMessage) activity.getEvent().getEventTriggerTypeNode()).getMessage();
-
-            } else if ("Reply To: Start Event User defined WSDL" //$NON-NLS-1$
-                    .equals(displayName)) {
-                mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
-                mappingParent1 = ((TriggerResultMessage) activity.getEvent().getEventTriggerTypeNode()).getMessage();
-
-            } else if ("SubProcess mappings".equals(displayName)) { //$NON-NLS-1$
-                mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
-                mappingParent1 = ((SubFlow) activity.getImplementation());
-                mappingFeature2 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings();
-                mappingParent2 = ((SubFlow) activity.getImplementation());
-
-            } else if ("Error Event SubProcess Error mappings" //$NON-NLS-1$
-                    .equals(displayName)) {
-                mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings();
-                mappingParent1 = ((CatchErrorMappings) Xpdl2ModelUtil.getOtherElement(
-                        ((ResultError) activity.getEvent().getEventTriggerTypeNode()),
-                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_CatchErrorMappings())).getMessage();
-
-            } else if ("Error Event".equals(displayName)) { //$NON-NLS-1$
-                mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
-                mappingParent1 = ((Message) Xpdl2ModelUtil.getOtherElement(
-                        ((ResultError) activity.getEvent().getEventTriggerTypeNode()),
-                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_FaultMessage()));
-
-            } else if ("Receive Task".equals(displayName)) { //$NON-NLS-1$
-                mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings();
-                mappingParent1 = ((Task) activity.getImplementation()).getTaskReceive().getMessage();
-
-            } else if ("Reply To: Receive Task".equals(displayName)) { //$NON-NLS-1$
-                mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
-                mappingParent1 = ((Task) activity.getImplementation()).getTaskSend().getMessage();
-
-            } else if ("Error Event 2".equals(displayName)) { //$NON-NLS-1$
-                mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
-                mappingParent1 = ((Message) Xpdl2ModelUtil.getOtherElement(
-                        ((ResultError) activity.getEvent().getEventTriggerTypeNode()),
-                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_FaultMessage()));
-
-            } else if ("Method1 - PUT Resource1".equals(displayName)) { //$NON-NLS-1$
-                mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_ScriptDataMapper();
-                mappingParent1 = ((Task) activity.getImplementation()).getTaskService().getMessageIn();
-                mappingFeature2 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_ScriptDataMapper();
-                mappingParent2 = ((Task) activity.getImplementation()).getTaskService().getMessageOut();
-
+            for (Process process : pkg.getProcesses()) {
+                if ("ProjectMigrationTest_DataMapper-DataMappings-Process" //$NON-NLS-1$
+                        .equals(Xpdl2ModelUtil.getDisplayName(process))) {
+                    dataMapperProcess = process;
+                    break;
+                }
             }
 
-            if (mappingFeature1 != null || mappingFeature2 != null) {
-                numChecked++;
-                if (mappingFeature1 != null) {
-                    Object mappingContainer1 = Xpdl2ModelUtil.getOtherElement(mappingParent1, mappingFeature1);
+            /* Check the specific activity mappings. */
+            int numChecked = 0;
+
+            Collection<Activity> allActivitiesInProc = Xpdl2ModelUtil.getAllActivitiesInProc(dataMapperProcess);
+
+            for (Activity activity : allActivitiesInProc) {
+                String displayName = Xpdl2ModelUtil.getDisplayName(activity);
+
+                EStructuralFeature mappingFeature1 = null;
+                OtherElementsContainer mappingParent1 = null;
+                EStructuralFeature mappingFeature2 = null;
+                OtherElementsContainer mappingParent2 = null;
+
+                if ("Send Task mappings".equals(displayName)) { //$NON-NLS-1$
+                    mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
+                    mappingParent1 = ((Task) activity.getImplementation()).getTaskSend().getMessage();
+
+                } else if ("Web-service task mappings".equals(displayName)) { //$NON-NLS-1$
+                    mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
+                    mappingParent1 = ((Task) activity.getImplementation()).getTaskService().getMessageIn();
+                    mappingFeature2 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings();
+                    mappingParent2 = ((Task) activity.getImplementation()).getTaskService().getMessageOut();
+
+                } else if ("Error Event Web-service error mappings" //$NON-NLS-1$
+                        .equals(displayName)) {
+                    mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings();
+                    mappingParent1 = ((CatchErrorMappings) Xpdl2ModelUtil.getOtherElement(
+                            ((ResultError) activity.getEvent().getEventTriggerTypeNode()),
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_CatchErrorMappings())).getMessage();
+
+                } else if ("Throw message mappings".equals(displayName)) { //$NON-NLS-1$
+                    mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
+                    mappingParent1 =
+                            ((TriggerResultMessage) activity.getEvent().getEventTriggerTypeNode()).getMessage();
+
+                } else if ("Start Event User defined WSDL".equals(displayName)) { //$NON-NLS-1$
+                    mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings();
+                    mappingParent1 =
+                            ((TriggerResultMessage) activity.getEvent().getEventTriggerTypeNode()).getMessage();
+
+                } else if ("Reply To: Start Event User defined WSDL" //$NON-NLS-1$
+                        .equals(displayName)) {
+                    mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
+                    mappingParent1 =
+                            ((TriggerResultMessage) activity.getEvent().getEventTriggerTypeNode()).getMessage();
+
+                } else if ("SubProcess mappings".equals(displayName)) { //$NON-NLS-1$
+                    mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
+                    mappingParent1 = ((SubFlow) activity.getImplementation());
+                    mappingFeature2 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings();
+                    mappingParent2 = ((SubFlow) activity.getImplementation());
+
+                } else if ("Error Event SubProcess Error mappings" //$NON-NLS-1$
+                        .equals(displayName)) {
+                    mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings();
+                    mappingParent1 = ((CatchErrorMappings) Xpdl2ModelUtil.getOtherElement(
+                            ((ResultError) activity.getEvent().getEventTriggerTypeNode()),
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_CatchErrorMappings())).getMessage();
+
+                } else if ("Error Event".equals(displayName)) { //$NON-NLS-1$
+                    mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
+                    mappingParent1 = ((Message) Xpdl2ModelUtil.getOtherElement(
+                            ((ResultError) activity.getEvent().getEventTriggerTypeNode()),
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_FaultMessage()));
+
+                } else if ("Receive Task".equals(displayName)) { //$NON-NLS-1$
+                    mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings();
+                    mappingParent1 = ((Task) activity.getImplementation()).getTaskReceive().getMessage();
+
+                } else if ("Reply To: Receive Task".equals(displayName)) { //$NON-NLS-1$
+                    mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
+                    mappingParent1 = ((Task) activity.getImplementation()).getTaskSend().getMessage();
+
+                } else if ("Error Event 2".equals(displayName)) { //$NON-NLS-1$
+                    mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings();
+                    mappingParent1 = ((Message) Xpdl2ModelUtil.getOtherElement(
+                            ((ResultError) activity.getEvent().getEventTriggerTypeNode()),
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_FaultMessage()));
+
+                } else if ("Method1 - PUT Resource1".equals(displayName)) { //$NON-NLS-1$
+                    mappingFeature1 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_ScriptDataMapper();
+                    mappingParent1 = ((Task) activity.getImplementation()).getTaskService().getMessageIn();
+                    mappingFeature2 = XpdExtensionPackage.eINSTANCE.getDocumentRoot_ScriptDataMapper();
+                    mappingParent2 = ((Task) activity.getImplementation()).getTaskService().getMessageOut();
+
+                }
+
+                if (mappingFeature1 != null || mappingFeature2 != null) {
+                    numChecked++;
+                    if (mappingFeature1 != null) {
+                        Object mappingContainer1 = Xpdl2ModelUtil.getOtherElement(mappingParent1, mappingFeature1);
+
+                        assertTrue(dataMapperXpdl.getName() + "::" //$NON-NLS-1$
+                                + Xpdl2ModelUtil.getDisplayName(Xpdl2ModelUtil.getProcess(activity)) + ":" //$NON-NLS-1$
+                                + Xpdl2ModelUtil.getDisplayName(activity)
+                                + " - 1st DataMapper mappings container is missing or empty", //$NON-NLS-1$
+                                (mappingContainer1 instanceof ScriptDataMapper)
+                                        && !((ScriptDataMapper) mappingContainer1).getDataMappings().isEmpty());
+                    }
+
+                    if (mappingFeature2 != null) {
+                        Object mappingContainer2 = Xpdl2ModelUtil.getOtherElement(mappingParent2, mappingFeature2);
+
+                        assertTrue(dataMapperXpdl.getName() + "::" //$NON-NLS-1$
+                                + Xpdl2ModelUtil.getDisplayName(Xpdl2ModelUtil.getProcess(activity)) + ":" //$NON-NLS-1$
+                                + Xpdl2ModelUtil.getDisplayName(activity)
+                                + " - 2nd DataMapper mappings container is missing or empty", //$NON-NLS-1$
+                                (mappingContainer2 instanceof ScriptDataMapper)
+                                        && !((ScriptDataMapper) mappingContainer2).getDataMappings().isEmpty());
+                    }
+
+                } else if ("Script Task".equals(displayName)) { //$NON-NLS-1$
+                    numChecked++;
+                    /*
+                     * Script task is a special case as it the Script DataMapper is contained in an Expression.
+                     */
+                    ScriptDataMapper scriptDataMapper = DataMapperUtils.getExistingScriptDataMapper(
+                            ((Task) activity.getImplementation()).getTaskScript().getScript());
 
                     assertTrue(dataMapperXpdl.getName() + "::" //$NON-NLS-1$
                             + Xpdl2ModelUtil.getDisplayName(Xpdl2ModelUtil.getProcess(activity)) + ":" //$NON-NLS-1$
                             + Xpdl2ModelUtil.getDisplayName(activity)
-                            + " - 1st DataMapper mappings container is missing or empty", //$NON-NLS-1$
-                            (mappingContainer1 instanceof ScriptDataMapper)
-                                    && !((ScriptDataMapper) mappingContainer1).getDataMappings().isEmpty());
-                }
+                            + " - Script Task DataMapper mappings are missing or empty", //$NON-NLS-1$
+                            (scriptDataMapper != null) && !scriptDataMapper.getDataMappings().isEmpty());
 
-                if (mappingFeature2 != null) {
-                    Object mappingContainer2 = Xpdl2ModelUtil.getOtherElement(mappingParent2, mappingFeature2);
+                } else if ("Task Script".equals(displayName)) { //$NON-NLS-1$
+                    numChecked++;
+                    /*
+                     * Task scripts are a special case as it the Script DataMapper is contained in an Expression.
+                     */
+                    Audit audit = (Audit) Xpdl2ModelUtil.getOtherElement(activity,
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_Audit());
+
+                    ScriptDataMapper scriptDataMapper =
+                            DataMapperUtils.getExistingScriptDataMapper(audit.getAuditEvent().get(0).getInformation());
 
                     assertTrue(dataMapperXpdl.getName() + "::" //$NON-NLS-1$
                             + Xpdl2ModelUtil.getDisplayName(Xpdl2ModelUtil.getProcess(activity)) + ":" //$NON-NLS-1$
                             + Xpdl2ModelUtil.getDisplayName(activity)
-                            + " - 2nd DataMapper mappings container is missing or empty", //$NON-NLS-1$
-                            (mappingContainer2 instanceof ScriptDataMapper)
-                                    && !((ScriptDataMapper) mappingContainer2).getDataMappings().isEmpty());
+                            + " - Task Initiate Script DataMapper mappings are missing or empty", //$NON-NLS-1$
+                            (scriptDataMapper != null) && !scriptDataMapper.getDataMappings().isEmpty());
+
                 }
-
-            } else if ("Script Task".equals(displayName)) { //$NON-NLS-1$
-                numChecked++;
-                /*
-                 * Script task is a special case as it the Script DataMapper is contained in an Expression.
-                 */
-                ScriptDataMapper scriptDataMapper = DataMapperUtils
-                        .getExistingScriptDataMapper(((Task) activity.getImplementation()).getTaskScript().getScript());
-
-                assertTrue(dataMapperXpdl.getName() + "::" //$NON-NLS-1$
-                        + Xpdl2ModelUtil.getDisplayName(Xpdl2ModelUtil.getProcess(activity)) + ":" //$NON-NLS-1$
-                        + Xpdl2ModelUtil.getDisplayName(activity)
-                        + " - Script Task DataMapper mappings are missing or empty", //$NON-NLS-1$
-                        (scriptDataMapper != null) && !scriptDataMapper.getDataMappings().isEmpty());
-
-            } else if ("Task Script".equals(displayName)) { //$NON-NLS-1$
-                numChecked++;
-                /*
-                 * Task scripts are a special case as it the Script DataMapper is contained in an Expression.
-                 */
-                Audit audit = (Audit) Xpdl2ModelUtil.getOtherElement(activity,
-                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_Audit());
-
-                ScriptDataMapper scriptDataMapper =
-                        DataMapperUtils.getExistingScriptDataMapper(audit.getAuditEvent().get(0).getInformation());
-
-                assertTrue(dataMapperXpdl.getName() + "::" //$NON-NLS-1$
-                        + Xpdl2ModelUtil.getDisplayName(Xpdl2ModelUtil.getProcess(activity)) + ":" //$NON-NLS-1$
-                        + Xpdl2ModelUtil.getDisplayName(activity)
-                        + " - Task Initiate Script DataMapper mappings are missing or empty", //$NON-NLS-1$
-                        (scriptDataMapper != null) && !scriptDataMapper.getDataMappings().isEmpty());
-
             }
-        }
 
-        assertTrue("Number of dataMapper mapping scenarios was " + numChecked //$NON-NLS-1$
-                + " but expected 15", //$NON-NLS-1$
-                numChecked == 15);
+            assertTrue("Number of dataMapper mapping scenarios was " + numChecked //$NON-NLS-1$
+                    + " but expected 15", //$NON-NLS-1$
+                    numChecked == 15);
 
-        /*
-         * Sid ACE-2024 Check that web-service related content has been removed.
-         */
-        IFile receiveTaskXpdl = project.getFile("Process Packages/ProjectMigrationTest_ReceiveTask.xpdl"); //$NON-NLS-1$
-        testWC = WorkingCopyUtil.getWorkingCopy(receiveTaskXpdl);
-        pkg = (Package) testWC.getRootElement();
-        Process process = pkg.getProcess("_A3Sika1dEemL6f5sRm58aQ"); //$NON-NLS-1$
+            /*
+             * Sid ACE-2024 Check that web-service related content has been removed.
+             */
+            IFile receiveTaskXpdl = project.getFile("Process Packages/ProjectMigrationTest_ReceiveTask.xpdl"); //$NON-NLS-1$
+            testWC = WorkingCopyUtil.getWorkingCopy(receiveTaskXpdl);
+            pkg = (Package) testWC.getRootElement();
+            Process process = pkg.getProcess("_A3Sika1dEemL6f5sRm58aQ"); //$NON-NLS-1$
 
-        Activity receiveActivity = process.getActivity("_Gz1Zga1dEemL6f5sRm58aQ"); //$NON-NLS-1$
+            Activity receiveActivity = process.getActivity("_Gz1Zga1dEemL6f5sRm58aQ"); //$NON-NLS-1$
 
-        assertNull("xpdExt:CorrelationTimeout should have been removed from receivetask xpdl2:Activity", //$NON-NLS-1$
-                Xpdl2ModelUtil.getOtherElement(receiveActivity,
-                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelationTimeout()));
+            assertNull("xpdExt:CorrelationTimeout should have been removed from receivetask xpdl2:Activity", //$NON-NLS-1$
+                    Xpdl2ModelUtil.getOtherElement(receiveActivity,
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelationTimeout()));
 
-        TaskReceive taskReceive = ((Task) receiveActivity.getImplementation()).getTaskReceive();
+            TaskReceive taskReceive = ((Task) receiveActivity.getImplementation()).getTaskReceive();
 
-        assertEquals("xpdExt:ImplementationType attribute should have been set to 'Unspecified' on xpdl2:TaskReceive.", //$NON-NLS-1$
-                "Unspecified", //$NON-NLS-1$
-                Xpdl2ModelUtil.getOtherAttribute(taskReceive,
-                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_ImplementationType()));
+            assertEquals(
+                    "xpdExt:ImplementationType attribute should have been set to 'Unspecified' on xpdl2:TaskReceive.", //$NON-NLS-1$
+                    "Unspecified", //$NON-NLS-1$
+                    Xpdl2ModelUtil.getOtherAttribute(taskReceive,
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_ImplementationType()));
 
-        assertEquals("Implementation attribute should have been set to 'Unspecified' on xpdl2:TaskReceive.", //$NON-NLS-1$
-                "Unspecified", //$NON-NLS-1$
-                taskReceive.getImplementation().getLiteral());
+            assertEquals("Implementation attribute should have been set to 'Unspecified' on xpdl2:TaskReceive.", //$NON-NLS-1$
+                    "Unspecified", //$NON-NLS-1$
+                    taskReceive.getImplementation().getLiteral());
 
-        assertNull("xpdExt:Generated attribute should have been removed from xpdl2:TaskReceive.", //$NON-NLS-1$
-                Xpdl2ModelUtil.getOtherAttribute(taskReceive,
-                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_Generated()));
+            assertNull("xpdExt:Generated attribute should have been removed from xpdl2:TaskReceive.", //$NON-NLS-1$
+                    Xpdl2ModelUtil.getOtherAttribute(taskReceive,
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_Generated()));
 
-        assertNull("xpdExt:CorrelateImmediately attribute should have been removed from xpdl2:TaskReceive.", //$NON-NLS-1$
-                Xpdl2ModelUtil.getOtherAttribute(taskReceive,
-                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelateImmediately()));
+            assertNull("xpdExt:CorrelateImmediately attribute should have been removed from xpdl2:TaskReceive.", //$NON-NLS-1$
+                    Xpdl2ModelUtil.getOtherAttribute(taskReceive,
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelateImmediately()));
 
-        assertNull("xpdl2:WebServiceOperation attribute should have been removed from xpdl2:TaskReceive.", //$NON-NLS-1$
-                taskReceive.getWebServiceOperation());
+            assertNull("xpdl2:WebServiceOperation attribute should have been removed from xpdl2:TaskReceive.", //$NON-NLS-1$
+                    taskReceive.getWebServiceOperation());
 
-        assertNull("xpdExt:PortTypeOperation attribute should have been removed from xpdl2:TaskReceive.", //$NON-NLS-1$
-                Xpdl2ModelUtil.getOtherElement(taskReceive,
-                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_PortTypeOperation()));
+            assertNull("xpdExt:PortTypeOperation attribute should have been removed from xpdl2:TaskReceive.", //$NON-NLS-1$
+                    Xpdl2ModelUtil.getOtherElement(taskReceive,
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_PortTypeOperation()));
 
-        assertTrue("DataMappings should have been removed from xpdl2:TaskReceive/xpdl2:Message.", //$NON-NLS-1$
-                taskReceive.getMessage() == null || taskReceive.getMessage().getDataMappings().isEmpty());
+            assertTrue("DataMappings should have been removed from xpdl2:TaskReceive/xpdl2:Message.", //$NON-NLS-1$
+                    taskReceive.getMessage() == null || taskReceive.getMessage().getDataMappings().isEmpty());
 
         } finally {
             if (projectImporter != null) {
@@ -559,15 +705,15 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         try {
             projectImporter = doTestProject(projectName, 1);
 
-        assertTrue(projectName
-                + " project should have problem marker 'Organisation assets must be in their own project (not mixed with other asset types such as Process and Business Object etc).'", //$NON-NLS-1$
-                hasProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject(projectName),
-                        "ace.org.asset.must.be.alone")); //$NON-NLS-1$
+            assertTrue(projectName
+                    + " project should have problem marker 'Organisation assets must be in their own project (not mixed with other asset types such as Process and Business Object etc).'", //$NON-NLS-1$
+                    hasProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject(projectName),
+                            "ace.org.asset.must.be.alone")); //$NON-NLS-1$
 
-        assertTrue(projectName
-                + " project should have problem marker 'Business Object assets must be alone in their own Business Data project (not mixed with other asset types such as Process and Organisation etc).'", //$NON-NLS-1$
-                hasProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject(projectName),
-                        "ace.bom.asset.must.be.alone")); //$NON-NLS-1$
+            assertTrue(projectName
+                    + " project should have problem marker 'Business Object assets must be alone in their own Business Data project (not mixed with other asset types such as Process and Organisation etc).'", //$NON-NLS-1$
+                    hasProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject(projectName),
+                            "ace.bom.asset.must.be.alone")); //$NON-NLS-1$
 
         } finally {
             if (projectImporter != null) {
@@ -612,41 +758,41 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         try {
             projectImporter = doTestProject(projectName, 1);
 
-        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 
-        /*
-         * Check that the expected BOMs are in new location and not in old location.
-         */
-        assertTrue(
-                "Generated BOM 'Generated Business Objects/org.example.NewWSDLFile.bom' should not be in generated BOM folder", //$NON-NLS-1$
-                !project.getFile("Generated Business Objects/org.example.NewWSDLFile.bom") //$NON-NLS-1$
-                        .exists());
+            /*
+             * Check that the expected BOMs are in new location and not in old location.
+             */
+            assertTrue(
+                    "Generated BOM 'Generated Business Objects/org.example.NewWSDLFile.bom' should not be in generated BOM folder", //$NON-NLS-1$
+                    !project.getFile("Generated Business Objects/org.example.NewWSDLFile.bom") //$NON-NLS-1$
+                            .exists());
 
-        assertTrue(
-                "Generated BOM 'Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should not be in generated BOM folder", //$NON-NLS-1$
-                !project.getFile("Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom") //$NON-NLS-1$
-                        .exists());
+            assertTrue(
+                    "Generated BOM 'Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should not be in generated BOM folder", //$NON-NLS-1$
+                    !project.getFile("Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom") //$NON-NLS-1$
+                            .exists());
 
-        IFile newWSDLFilebom = project.getFile("Business Objects/org.example.NewWSDLFile.bom"); //$NON-NLS-1$
-        assertTrue(
-                "Generated BOM 'Business Objects/org.example.NewWSDLFile.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
-                newWSDLFilebom.exists());
+            IFile newWSDLFilebom = project.getFile("Business Objects/org.example.NewWSDLFile.bom"); //$NON-NLS-1$
+            assertTrue(
+                    "Generated BOM 'Business Objects/org.example.NewWSDLFile.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
+                    newWSDLFilebom.exists());
 
-        IFile subNewWsdlFile1bom = project.getFile("Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom"); //$NON-NLS-1$
-        assertTrue(
-                "Generated BOM 'Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
-                subNewWsdlFile1bom.exists());
+            IFile subNewWsdlFile1bom = project.getFile("Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom"); //$NON-NLS-1$
+            assertTrue(
+                    "Generated BOM 'Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
+                    subNewWsdlFile1bom.exists());
 
-        /*
-         * Check that moved boms have had the 'global data capability' added
-         */
-        assertTrue(
-                "Generated BOM 'Business Objects/org.example.NewWSDLFile.bom' should have had global data capability added", //$NON-NLS-1$
-                BOMGlobalDataUtils.isGlobalDataBOM(newWSDLFilebom));
+            /*
+             * Check that moved boms have had the 'global data capability' added
+             */
+            assertTrue(
+                    "Generated BOM 'Business Objects/org.example.NewWSDLFile.bom' should have had global data capability added", //$NON-NLS-1$
+                    BOMGlobalDataUtils.isGlobalDataBOM(newWSDLFilebom));
 
-        assertTrue(
-                "Generated BOM 'Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should have had global data capability added", //$NON-NLS-1$
-                BOMGlobalDataUtils.isGlobalDataBOM(subNewWsdlFile1bom));
+            assertTrue(
+                    "Generated BOM 'Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should have had global data capability added", //$NON-NLS-1$
+                    BOMGlobalDataUtils.isGlobalDataBOM(subNewWsdlFile1bom));
 
         } finally {
             if (projectImporter != null) {
@@ -663,61 +809,61 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         try {
             projectImporter = doTestProject(projectName, 1);
 
-        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
-        /*
-         * Check that the expected BOMs are in new location and not in old location.
-         */
-        assertTrue(
-                "Generated BOM 'Generated Business Objectsorg.example.ShouldMigrateToUserDefWSDL.bom' should not be in generated BOM folder", //$NON-NLS-1$
-                !project.getFile("Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom") //$NON-NLS-1$
-                        .exists());
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+            /*
+             * Check that the expected BOMs are in new location and not in old location.
+             */
+            assertTrue(
+                    "Generated BOM 'Generated Business Objectsorg.example.ShouldMigrateToUserDefWSDL.bom' should not be in generated BOM folder", //$NON-NLS-1$
+                    !project.getFile("Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom") //$NON-NLS-1$
+                            .exists());
 
-        assertTrue(
-                "Generated BOM 'Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom' should not be in generated BOM folder", //$NON-NLS-1$
-                !project.getFile("Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom") //$NON-NLS-1$
-                        .exists());
+            assertTrue(
+                    "Generated BOM 'Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom' should not be in generated BOM folder", //$NON-NLS-1$
+                    !project.getFile("Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom") //$NON-NLS-1$
+                            .exists());
 
-        IFile shouldMigrateToUserdDefWSDLbom =
-                project.getFile("Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom"); //$NON-NLS-1$
-        assertTrue(
-                "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
-                shouldMigrateToUserdDefWSDLbom.exists());
+            IFile shouldMigrateToUserdDefWSDLbom =
+                    project.getFile("Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom"); //$NON-NLS-1$
+            assertTrue(
+                    "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
+                    shouldMigrateToUserdDefWSDLbom.exists());
 
-        IFile shouldMigrateToUserDefWSDL2bom =
-                project.getFile("Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom"); //$NON-NLS-1$
-        assertTrue(
-                "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
-                shouldMigrateToUserDefWSDL2bom.exists());
+            IFile shouldMigrateToUserDefWSDL2bom =
+                    project.getFile("Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom"); //$NON-NLS-1$
+            assertTrue(
+                    "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
+                    shouldMigrateToUserDefWSDL2bom.exists());
 
-        /*
-         * Check that moved boms have had the 'global data capability' added
-         */
-        assertTrue(
-                "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have had global data capability added", //$NON-NLS-1$
-                BOMGlobalDataUtils.isGlobalDataBOM(shouldMigrateToUserdDefWSDLbom));
+            /*
+             * Check that moved boms have had the 'global data capability' added
+             */
+            assertTrue(
+                    "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have had global data capability added", //$NON-NLS-1$
+                    BOMGlobalDataUtils.isGlobalDataBOM(shouldMigrateToUserdDefWSDLbom));
 
-        assertTrue(
-                "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have had global data capability added", //$NON-NLS-1$
-                BOMGlobalDataUtils.isGlobalDataBOM(shouldMigrateToUserDefWSDL2bom));
+            assertTrue(
+                    "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have had global data capability added", //$NON-NLS-1$
+                    BOMGlobalDataUtils.isGlobalDataBOM(shouldMigrateToUserDefWSDL2bom));
 
-        /* Check that special folder has been added. */
-        ProjectConfig projectConfig = XpdResourcesPlugin.getDefault().getProjectConfig(project);
+            /* Check that special folder has been added. */
+            ProjectConfig projectConfig = XpdResourcesPlugin.getDefault().getProjectConfig(project);
 
-        boolean found = false;
-        for (SpecialFolder specialFolder : projectConfig.getSpecialFolders()
-                .getFoldersOfKind(BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND)) {
-            if (specialFolder.getGenerated() == null) {
-                if (specialFolder.getFolder().exists()) {
-                    if ("Business Objects" //$NON-NLS-1$
-                            .equals(specialFolder.getFolder().getName())) {
-                        found = true;
+            boolean found = false;
+            for (SpecialFolder specialFolder : projectConfig.getSpecialFolders()
+                    .getFoldersOfKind(BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND)) {
+                if (specialFolder.getGenerated() == null) {
+                    if (specialFolder.getFolder().exists()) {
+                        if ("Business Objects" //$NON-NLS-1$
+                                .equals(specialFolder.getFolder().getName())) {
+                            found = true;
+                        }
                     }
                 }
             }
-        }
 
-        assertTrue("User defined 'Business Objects' folder is not configured as a Special Folder", //$NON-NLS-1$
-                found);
+            assertTrue("User defined 'Business Objects' folder is not configured as a Special Folder", //$NON-NLS-1$
+                    found);
 
         } finally {
             if (projectImporter != null) {
@@ -736,29 +882,29 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         try {
             projectImporter = doTestProject(projectName, 1);
 
-        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 
-        PresentationManager pm = PresentationManager.getInstance();
+            PresentationManager pm = PresentationManager.getInstance();
 
-        Channels channelContainer = pm.getChannels(project);
-        if (channelContainer != null && pm.isProjectChannels(channelContainer, project)) {
+            Channels channelContainer = pm.getChannels(project);
+            if (channelContainer != null && pm.isProjectChannels(channelContainer, project)) {
 
-            for (Channel channel : channelContainer.getChannels()) {
+                for (Channel channel : channelContainer.getChannels()) {
 
-                for (TypeAssociation typeAssociation : channel.getTypeAssociations()) {
+                    for (TypeAssociation typeAssociation : channel.getTypeAssociations()) {
 
-                    ChannelType channelType = typeAssociation.getChannelType();
-                    if (channelType != null) {
-                        assertFalse(projectName + " should have had 'Workspace General Interface' channel removed", //$NON-NLS-1$
-                                PresentationManager.GI_GI_PULL.equals(channelType.getId()));
-                        assertFalse(projectName + " should have had 'Workspace Google Web Toolkit' channel removed", //$NON-NLS-1$
-                                PresentationManager.GI_GWT_PULL.equals(channelType.getId()));
-                        assertFalse(projectName + " should have had 'Workspace Email' channel removed", //$NON-NLS-1$
-                                PresentationManager.EMAIL_GI_PUSH.equals(channelType.getId()));
+                        ChannelType channelType = typeAssociation.getChannelType();
+                        if (channelType != null) {
+                            assertFalse(projectName + " should have had 'Workspace General Interface' channel removed", //$NON-NLS-1$
+                                    PresentationManager.GI_GI_PULL.equals(channelType.getId()));
+                            assertFalse(projectName + " should have had 'Workspace Google Web Toolkit' channel removed", //$NON-NLS-1$
+                                    PresentationManager.GI_GWT_PULL.equals(channelType.getId()));
+                            assertFalse(projectName + " should have had 'Workspace Email' channel removed", //$NON-NLS-1$
+                                    PresentationManager.EMAIL_GI_PUSH.equals(channelType.getId()));
+                        }
                     }
                 }
             }
-        }
 
         } finally {
             if (projectImporter != null) {
@@ -779,29 +925,29 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         try {
             projectImporter = doTestProject(projectName, 1);
 
-        // Check that we have a Local class
-        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+            // Check that we have a Local class
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 
-        Collection<IResource> bomFiles = SpecialFolderUtil.getAllDeepResourcesInSpecialFolderOfKind(project,
-                BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND,
-                BOMResourcesPlugin.BOM_FILE_EXTENSION,
-                false);
+            Collection<IResource> bomFiles = SpecialFolderUtil.getAllDeepResourcesInSpecialFolderOfKind(project,
+                    BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND,
+                    BOMResourcesPlugin.BOM_FILE_EXTENSION,
+                    false);
 
-        // Should only be one
-        assertEquals(1, bomFiles.size());
+            // Should only be one
+            assertEquals(1, bomFiles.size());
 
-        // Get the model
-        IResource bomFile = bomFiles.iterator().next();
-        WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(bomFile);
-        Model model = (Model) wc.getRootElement();
+            // Get the model
+            IResource bomFile = bomFiles.iterator().next();
+            WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(bomFile);
+            Model model = (Model) wc.getRootElement();
 
-        // Check that we don't have any global classes
-        for (Element element : model.allOwnedElements()) {
-            if (element instanceof Class) {
-                Class clazz = (Class) element;
-                assertFalse(BOMGlobalDataUtils.isGlobalClass(clazz));
+            // Check that we don't have any global classes
+            for (Element element : model.allOwnedElements()) {
+                if (element instanceof Class) {
+                    Class clazz = (Class) element;
+                    assertFalse(BOMGlobalDataUtils.isGlobalClass(clazz));
+                }
             }
-        }
 
         } finally {
             if (projectImporter != null) {
