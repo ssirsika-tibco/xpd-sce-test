@@ -142,14 +142,37 @@ public class BomTransformer {
          * type set in the model.
          */
         bomClass.getAttributes().stream()
-                .filter(attr -> (AggregationKind.COMPOSITE_LITERAL.equals(attr.getAggregation())
-                        || AggregationKind.NONE_LITERAL.equals(attr.getAggregation())))
+                .filter(attr -> isCompositeAttribute(attr))
                 .forEach(attr -> transformAttribute(attr, cdmType));
 
         // Features of StructuredType like: 'stateModel' and
         // 'identifierInitialisationInfo' are set in attribute
         // transformation as they depend on specific attributes.
         return cdmType;
+    }
+
+    /**
+     * Check if the given attribute is a composite aggregation.
+     * 
+     * This is true if the aggregation is actually SET to composite OR for earlier versions of Studio if it is set to
+     * NONE (default for not present in model).
+     * 
+     * But if NONE then we don't want to pick up association (case class links).
+     * 
+     * @param attr
+     * 
+     * @return true if the attribute should be considered a composite aggregation.
+     */
+    public boolean isCompositeAttribute(Property attr) {
+        if (AggregationKind.COMPOSITE_LITERAL.equals(attr.getAggregation())) {
+            return true;
+
+        } else if (AggregationKind.NONE_LITERAL.equals(attr.getAggregation())) {
+            if (attr.getAssociation() == null) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
