@@ -114,14 +114,6 @@ public class StructuredTypesCdmTransformTest
 
         assertAttribute(classB, "classC", "ClassC", !mandatory, array);
 
-        /*
-         * Sid ACE-4002 make sure that older boms (pre 4.0) that do not have aggregation="composite" set on the
-         * attribute definition still function correctly). (aggregation is defined on ClassA.a but NOT on Class.b) prior
-         * to ACE-4002 this would have failed because CalssB.b would have been ignored as not explciitly defined as
-         * Aggregation=composites
-         */
-        assertAttribute(classB, "b", "base:Text", !mandatory, !array);
-
     }
 
 }
