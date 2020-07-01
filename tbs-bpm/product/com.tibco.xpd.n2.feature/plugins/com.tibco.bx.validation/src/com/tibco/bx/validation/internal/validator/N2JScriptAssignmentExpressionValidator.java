@@ -15,6 +15,7 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
 import com.tibco.bx.validation.internal.Messages;
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.n2.cds.utils.CDSUtils;
 import com.tibco.xpd.n2.pe.util.PEN2Utils;
@@ -336,8 +337,31 @@ public class N2JScriptAssignmentExpressionValidator
     @SuppressWarnings("restriction")
     protected void validateAllowedValues(IValidateResult lhsValidateResult,
             IValidateResult rhsValidateResult, Token token) {
+
         AST astLhsExpr = getASTExpr(lhsValidateResult);
         if (astLhsExpr != null) {
+            /*
+             * Sid ACE-4093 for ACE astLhsExpr will be the '.' from 'data.param'. So check if it is and we'll skep to
+             * first property after data.
+             */
+            if (astLhsExpr.getType() == JScriptTokenTypes.DOT) {
+                /*
+                 * Is the thing in front of initial 'dot' is the top level "data" object?
+                 */
+                AST maybeDataNode = astLhsExpr.getFirstChild();
+
+                if (maybeDataNode != null && maybeDataNode.getType() == JScriptTokenTypes.IDENT
+                        && maybeDataNode.getFirstChild() == null
+                        && ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME.equals(maybeDataNode.getText())) {
+
+                    /*
+                     * The thing after "data" could be the parameter field we're looking for. So use that and allow it
+                     * to fall thru below.
+                     */
+                    astLhsExpr = maybeDataNode.getNextSibling();
+                }
+            }
+
             // Check if it is a parameter
             if (astLhsExpr.getType() == JScriptTokenTypes.IDENT
                     && astLhsExpr.getFirstChild() == null) {
@@ -378,13 +402,28 @@ public class N2JScriptAssignmentExpressionValidator
                                                                         .length()
                                                                         - 1);
                                             }
+
                                             for (String allowedValue : paramAllowedValues) {
-                                                if (allowedValue != null
-                                                        && allowedValue.equals(
-                                                                literalRHS)) {
-                                                    return;
+                                                /*
+                                                 * Sid ACE-4093 discount quotes in allowed values (which are now
+                                                 * required there since XPD-8195) when checking length.
+                                                 */
+                                                if (allowedValue != null) {
+                                                    String normalisedValue = allowedValue;
+                                                    if (normalisedValue.startsWith("\"")) { //$NON-NLS-1$
+                                                        normalisedValue = normalisedValue.substring(1);
+                                                    }
+                                                    if (normalisedValue.endsWith("\"")) { //$NON-NLS-1$
+                                                        normalisedValue = normalisedValue.substring(0,
+                                                                normalisedValue.length() - 1);
+                                                    }
+
+                                                    if (normalisedValue.equals(literalRHS)) {
+                                                        return;
+                                                    }
                                                 }
                                             }
+
                                             // Not allowed value
                                             List<String> additionalAttributes =
                                                     new ArrayList<String>();

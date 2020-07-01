@@ -14,6 +14,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.validation.xpdl2.rules.Xpdl2ValidationRule;
 import com.tibco.xpd.xpdl2.BasicType;
 import com.tibco.xpd.xpdl2.BasicTypeType;
+import com.tibco.xpd.xpdl2.FormalParameter;
 import com.tibco.xpd.xpdl2.Length;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
 
@@ -66,8 +67,10 @@ public abstract class DataTypeInitialValueRule extends Xpdl2ValidationRule {
                             && basicType.getType()
                                     .equals(BasicTypeType.STRING_LITERAL)) {
                         for (String initialValue : initialValues) {
+                            /* Sid ACE-4093 allow for leading / terminating quotes. */
                             if (initialValue != null
-                                    && initialValue.length() > getDataFieldOrParamLength(basicType)) {
+                                    && getTextInitialValueLength(pd,
+                                            initialValue) > getDataFieldOrParamLength(basicType)) {
                                 addIssue(INVALID_LENGTH, pd);
                             }
                         }
@@ -244,6 +247,37 @@ public abstract class DataTypeInitialValueRule extends Xpdl2ValidationRule {
 
             }
         }
+    }
+
+    /**
+     * Sid ACE-4093 allow for leading / terminating quotes (which should not be counted for formal parameter allowed
+     * values as these are a requirement for correct functioning (since XPD-8195).
+     * 
+     * @param pd
+     * 
+     * @param initialValue
+     * 
+     * @return The length of the text initial value
+     */
+    public int getTextInitialValueLength(ProcessRelevantData pd, String initialValue) {
+        if (initialValue == null) {
+            return 0;
+        }
+
+        int len = initialValue.length();
+
+        if (!(pd instanceof FormalParameter)) {
+            return len;
+        }
+
+        if (initialValue.startsWith("\"")) { //$NON-NLS-1$
+            len--;
+        }
+
+        if (initialValue.endsWith("\"")) { //$NON-NLS-1$
+            len--;
+        }
+        return len;
     }
 
     /**
