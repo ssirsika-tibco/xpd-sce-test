@@ -563,10 +563,6 @@
                class="com.tibco.bx.validation.rules.process.EventHandlersCannotInvokeHandlersRule">
          </rule>
          <rule
-               class="com.tibco.bx.validation.rules.process.CyclicReusableSubProcessValidationRule">
-         </rule>
-
-         <rule
                class="com.tibco.bx.validation.rules.activity.SubProcessWithMessageStartRule">
          </rule>
 
@@ -1768,18 +1764,6 @@
             message="%bx.eventHandlerFlowMayNotJoinOthers"
             severity="ERROR">
       </issue>
-      <issue
-            id="bx.subProcessTaskCausedXpdlRefCycle"
-            message="%bx.subProcessTaskCausedXpdlRefCycle"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.implementedInterfaceCausedXpdlRefCycle"
-            message="%bx.implementedInterfaceCausedXpdlRefCycle"
-            severity="ERROR">
-      </issue>
-      
-     
       
       <issue
             id="bx.superTypeToSubType.warning"
