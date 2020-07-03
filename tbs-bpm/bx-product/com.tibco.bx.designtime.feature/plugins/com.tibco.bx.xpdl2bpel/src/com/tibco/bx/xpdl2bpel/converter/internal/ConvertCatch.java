@@ -187,9 +187,12 @@ public class ConvertCatch {
             CatchAll catchAll = BPELFactory.eINSTANCE.createCatchAll();
 			
             /*
-             * Sid ACE-3834 faultNameVar and faultDetailsVar are now supplied via the PE-generated "parameters"
-             * object as $ERROR_CODE and $ERROR_DETAIL properties.
+             * Sid ACE-4110 Reinstated faultNameVar and faultDetailsVar 
              */
+            String faultNameVar = FaultNamingConvention.getFaultVariableName(ConvertThrow.ERROR_CODE_TOKEN);
+            BPELUtils.addExtensionAttribute(catchAll, "faultNameVar", faultNameVar); //$NON-NLS-1$
+            String faultDetailVar = FaultNamingConvention.getFaultVariableName(ConvertThrow.ERROR_DETAIL_TOKEN);
+            BPELUtils.addExtensionAttribute(catchAll, "faultDetailsVar", faultDetailVar); //$NON-NLS-1$
             
             catchAll.setActivity(theMappingActivity);
             faultHandler.setCatchAll(catchAll);
@@ -215,9 +218,15 @@ public class ConvertCatch {
             bpelCatch.setActivity(theMappingActivity);
             
             /*
-             * Sid ACE-3834 fault handling is no longer piggy backed on WSDL fault handling -
-             * faultVariable/faultMessageType/faultDetailsVar attribute no longer required.
+             * Sid ACE-4110 Reinstated faultNameVar and faultDetailsVar (for catch specific sub-proc, not for catch REST
+             * fault.
              */
+            if (BpmnCatchableErrorUtil.isCatchSubProcessErrorEvent(eventAct)) {
+                String faultNameVar = FaultNamingConvention.getFaultVariableName(ConvertThrow.ERROR_CODE_TOKEN);
+                BPELUtils.addExtensionAttribute(bpelCatch, "faultNameVar", faultNameVar); //$NON-NLS-1$
+                String faultDetailVar = FaultNamingConvention.getFaultVariableName(ConvertThrow.ERROR_DETAIL_TOKEN);
+                BPELUtils.addExtensionAttribute(bpelCatch, "faultDetailsVar", faultDetailVar); //$NON-NLS-1$
+            }
             
             faultHandler.getCatch().add(bpelCatch);
         }

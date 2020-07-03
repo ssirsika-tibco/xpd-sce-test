@@ -4,7 +4,6 @@
 
 package com.tibco.xpd.n2.pe.catcherror.datamapper;
 
-import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.n2.pe.datamapper.ProcessDataMapperScriptGeneratorInfoProvider;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 
@@ -17,14 +16,11 @@ import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 public class CatchErrorDataMapperScriptGeneratorInfoProvider extends
         ProcessDataMapperScriptGeneratorInfoProvider {
 
-    /*
-     * Sid ACE-3834 error code / details are now wrapped in an implicitly scoped "parameters" object as
-     * "parameters.$ERROR_CODE" and "parameters.$ERROR_DETAILS" respectively
-     */
+    /* Sid ACE-4110 reverted to original top level variables "var_errorCode" / "var_errorDetail" */
 
-    public static final String ERROR_CODE_VAR = "$ERROR_CODE"; //$NON-NLS-1$
+    public static final String ERROR_CODE_VAR = "errorCode"; //$NON-NLS-1$
 
-    public static final String ERROR_DETAIL_VAR = "$ERROR_DETAILS"; //$NON-NLS-1$
+    public static final String ERROR_DETAIL_VAR = "errorDetail"; //$NON-NLS-1$
 
     public static final String ERROR_CODE_TOKEN = "$ERRORCODE"; //$NON-NLS-1$
 
@@ -44,19 +40,15 @@ public class CatchErrorDataMapperScriptGeneratorInfoProvider extends
             String pathOrJsVarAlias) {
 
         if (pathOrJsVarAlias == null || pathOrJsVarAlias.length() == 0) {
-            return ReservedWords.SUBPROCESS_PARAMS_WRAPPER_OBJECT_NAME + ConceptPath.CONCEPTPATH_SEPARATOR
-                    + ERROR_CODE_VAR;
+            return "var_" + ERROR_CODE_VAR; //$NON-NLS-1$ 
         }
         if (ERROR_CODE_TOKEN.equals(pathOrJsVarAlias)) {
-            return ReservedWords.SUBPROCESS_PARAMS_WRAPPER_OBJECT_NAME + ConceptPath.CONCEPTPATH_SEPARATOR
-                    + ERROR_CODE_VAR;
+            return "var_" + ERROR_CODE_VAR; //$NON-NLS-1$ 
         }
         if (ERROR_DETAIL_TOKEN.equals(pathOrJsVarAlias)) {
-            return ReservedWords.SUBPROCESS_PARAMS_WRAPPER_OBJECT_NAME + ConceptPath.CONCEPTPATH_SEPARATOR
-                    + ERROR_DETAIL_VAR;
+            return "var_" + ERROR_DETAIL_VAR; //$NON-NLS-1$ 
         }
-        return ReservedWords.SUBPROCESS_PARAMS_WRAPPER_OBJECT_NAME + ConceptPath.CONCEPTPATH_SEPARATOR
-                + pathOrJsVarAlias;
+        return "var_" + pathOrJsVarAlias; //$NON-NLS-1$ 
 
     }
 }
