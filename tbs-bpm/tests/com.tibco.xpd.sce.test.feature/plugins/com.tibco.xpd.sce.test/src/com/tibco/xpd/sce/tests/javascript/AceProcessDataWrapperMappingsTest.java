@@ -365,8 +365,8 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                 + ": Should wrap source sub-process parameter in a 'parameters' object.", //$NON-NLS-1$
                 outputMappingsScript.contains("= parameters.NumberParameter;")); //$NON-NLS-1$
 
-        assertTrue(context + ": Should wrap ERROR_CODE parameter in a 'parameters' object.", //$NON-NLS-1$
-                outputMappingsScript.contains("= parameters.$ERROR_CODE")); //$NON-NLS-1$
+        assertTrue(context + ": Should use original var_errorCode", //$NON-NLS-1$
+                outputMappingsScript.contains("= var_errorCode")); //$NON-NLS-1$
 
     }
 
