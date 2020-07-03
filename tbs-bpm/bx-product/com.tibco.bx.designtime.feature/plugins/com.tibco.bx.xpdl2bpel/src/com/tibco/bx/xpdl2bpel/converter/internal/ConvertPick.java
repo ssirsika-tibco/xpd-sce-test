@@ -333,6 +333,10 @@ public class ConvertPick {
             String type, boolean isReplyImmediately) throws ConversionException {
 
         OnMessage onMessage = BPELFactory.eINSTANCE.createOnMessage();
+        
+        /* Sid ACE-4118 add event activity name to OnMessage element so that runtime can correlate it with incoming request. */
+        BPELUtils.addExtensionAttribute(onMessage, "name", task.getXpdlActivity().getName()); //$NON-NLS-1$
+                
         // SCE: Default message correlation timeout is no longer configurable by the user.
         // See: XPDLUtils.getMessageTimeout(xpdlActivity);
         BPELUtils.addExtensionAttribute(onMessage, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
