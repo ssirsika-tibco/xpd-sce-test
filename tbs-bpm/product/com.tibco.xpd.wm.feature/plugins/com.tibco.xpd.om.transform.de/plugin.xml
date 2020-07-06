@@ -66,10 +66,6 @@
    <extension point="com.tibco.xpd.om.resources.systemActions">
       <component id="BRM" name="%component_BRM_label"> </component>
       <actions componentId="BRM">
-         <action default="false" id="scheduleWorkItem" name="%sysAction_scheduleWorkItem_label"> </action>
-         <action default="false" id="rescheduleWorkItem" name="%sysAction_rescheduleWorkItem_label"> </action>
-         <action default="true" id="cancelWorkItem" name="%sysAction_cancelWorkItem_label"> </action>
-         <action default="false" id="suspendWorkItem" name="%sysAction_suspendWorkItem_label"> </action>
          <action default="false" id="viewWorkList" name="%sysAction_viewWorkList_label">
             <appliesTo class="com.tibco.xpd.om.core.om.OrgModel"> </appliesTo>
             <appliesTo class="com.tibco.xpd.om.core.om.Organization"> </appliesTo>
@@ -130,19 +126,14 @@
    <extension point="com.tibco.xpd.om.resources.systemActions">
       <component id="PE" name="%component_PE_label"> </component>
       <actions componentId="PE">
-         <action default="false" id="resumeProcessInstance" name="%sysAction_resumeProcessInstance_label"> </action>
-         <action default="false" id="suspendProcessInstance" name="%sysAction_suspendProcessInstance_label"> </action>
-         <action default="false" id="cancelProcessInstance" name="%sysAction_cancelProcessInstance_label"> </action>
-         <action default="false" id="purgeProcessInstances" name="%sysAction_purgeProcessInstance_label"> </action>
-         <action default="false" id="bulkResumeProcessInstances" name="%sysAction_bulkResumeProcessInstance_label"> </action>
-         <action default="false" id="bulkSuspendProcessInstances" name="%sysAction_bulkSuspendProcessInstance_label"> </action>
-         <action default="false" id="bulkCancelProcessInstances" name="%sysAction_bulkCancelProcessInstance_label"> </action>
-         <action default="false" id="bulkPurgeProcessInstances" name="%sysAction_bulkPurgeProcessInstance_label"> </action>
+         <action default="false" id="resumeSuspendProcessInstance" name="%sysAction_resumeSuspendProcessInstance_label"> </action>
+         <action default="false" id="cancelPurgeProcessInstance" name="%sysAction_cancelPurgeProcessInstance_label"> </action>
+         <action default="false" id="bulkResumeSuspendProcessInstances" name="%sysAction_bulkResumeSuspendProcessInstance_label"> </action>
+         <action default="false" id="bulkCancelPurgeProcessInstances" name="%sysAction_bulkCancelPurgeProcessInstance_label"> </action>
          <action default="true" id="startprocess" name="%sysAction_startProcess_label"> </action>
-         <action default="true" id="queryProcessInstance" name="%sysAction_QueryProcessInstance_label"> </action>
+         <action default="true" id="queryProcess" name="%sysAction_QueryProcess_label"> </action>
          <action default="false" id="setPriority" name="%sysAction_setPriority_label"> </action>
          <action default="false" id="setDeadlineExpiration" name="%sysAction_setDeadlineExp_label"> </action>
-         <action default="true" id="queryProcessTemplate" name="%sysAction_queryProcessTemplate_label"> </action>
          <action default="false" id="handleProcessMigration" name="%sysAction_handleProcessMigration_label"> </action>
          <action default="false" id="haltedProcessAdministration" name="%sysAction_haltedProcessAdministration_label2"> </action>
          <action default="true" id="startAndCancelAdHocActivity" name="%sysAction_startAndCancelAdhocActivities_label"> </action>
@@ -164,17 +155,9 @@
       </actions>
    </extension>
    <extension point="com.tibco.xpd.om.resources.systemActions">
-      <component id="OS" name="%component_openspace_label"> </component>
-      <actions componentId="OS">
-         <action default="true" id="contributeApp" name="%sysAction_contributeApp_label"> </action>
-      </actions>
-   </extension>
-   <extension point="com.tibco.xpd.om.resources.systemActions">
       <component id="CDM" name="%component_caseData_label"> </component>
       <actions componentId="CDM">
-         <action default="true" id="createCase" name="%sysAction_createCaseData_label"> </action>
-         <action default="true" id="updateCase" name="%sysAction_updateCaseData_label"> </action>
-         <action default="false" id="deleteCase" name="%sysAction_deleteCaseData_label"> </action>
+         <action default="true" id="createUpdateDeleteCase" name="%sysAction_createUpdateDeleteCaseData_label"> </action>
          <action default="true" id="readCase" name="%sysAction_readCaseData_label"> </action>
          <action default="true" id="readTypes" name="%sysAction_CaseDocumentReadTypes_label"> </action>
       </actions>
@@ -188,7 +171,6 @@
    <extension point="com.tibco.xpd.om.resources.systemActions">
       <component id="BIZSVC" name="%component_BIZSVC_label"> </component>
       <actions componentId="BIZSVC">
-         <action default="true" id="executeBusinessService" name="%sysAction_executeBusinessService_label"> </action>
          <action default="true" id="listBusinessServices" name="%sysAction_listBusinessServices_label"> </action>
       </actions>
    </extension>
@@ -197,9 +179,7 @@
       <actions componentId="APPDEV">
          <action default="true" id="canViewRoles" name="%sysAction_canViewRoles_label"> </action>
          <action default="false" id="canEditRoles" name="%sysAction_canEditRoles_label"> </action>
-         <action default="false" id="canEditLocales" name="%sysAction_canEditLocales_label"> </action>
-         <action default="false" id="canEditApplication" name="%sysAction_canEditApplication_label"> </action>
-         <action default="false" id="canPublishApplication" name="%sysAction_canPublishApplication_label"> </action>
+         <action default="false" id="appDev" name="%sysAction_appDev_label"> </action>
          <action default="true" id="useCaseDocument" name="%sysAction_CaseDocumentUser_label"> </action>
          <action default="false" id="administerCaseDocument" name="%sysAction_CaseDocumentAdministration_label"> </action>
       </actions>

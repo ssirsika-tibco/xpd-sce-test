@@ -79,19 +79,19 @@ public class SystemActionMigrationTest extends TestCase {
             { "OS", "openspaceFeatureSetB" }, //
             { "OS", "openspaceFeatureSetC" }, //
 
+            { "OS", "openspaceFeatureSetC" }, //
+
             { "WSB", "startBusinessService" }, //
             { "WSB", "applicationConfiguration" } //
     };
 
     // the new actions that are migrated from older actions during migration
     private static final String[][] ADDITIONAL_ACTIONS = { //
-            { "CDM", "createCase" }, //
-            { "CDM", "updateCase" }, //
-            { "CDM", "deleteCase" }, //
+            { "CDM", "createUpdateDeleteCase" }, //
             { "CDM", "readCase" }, //
             { "APPDEV", "useCaseDocument" }, //
             { "APPDEV", "administerCaseDocument" }, //
-            { "OS", "contributeApp" } //
+            { "APPDEV", "appDev" } //
     };
 
     // @Test

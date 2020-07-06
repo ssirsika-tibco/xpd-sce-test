@@ -54,8 +54,6 @@ public class Messages extends NLS {
 
     public static String ParticipantsSection_SetExternalReference_menu;
 
-    public static String BusinessServicePrivilegesSection_PrivilegesToStartBusinessService_label;
-
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);

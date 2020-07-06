@@ -46,18 +46,56 @@ public class SystemActionMigration {
             MigrationAction.delete("EC", "showProcessInstanceAuditTrail"), //
             MigrationAction.delete("EC", "openWorkItemAuditTrail"), //
 
-            MigrationAction.reasign("BDS", "createGlobalData", "CDM", "createCase"), //
-            MigrationAction.reasign("BDS", "updateGlobalData", "CDM", "updateCase"), //
-            MigrationAction.reasign("BDS", "deleteGlobalData", "CDM", "deleteCase"), //
+            /**
+             * Sid ACE-4122 There are 2 separate sets for AMX BPM case data related system actions.
+             */
+            /*
+             * Those AMX BPM ones that HAVE NOT already been migrated to earlier V5.0.0 version...
+             */
+            MigrationAction.reasign("BDS", "createGlobalData", "CDM", "createUpdateDeleteCase"), //
+            MigrationAction.reasign("BDS", "updateGlobalData", "CDM", "createUpdateDeleteCase"), //
+            MigrationAction.reasign("BDS", "deleteGlobalData", "CDM", "createUpdateDeleteCase"), //
+
+            /*
+             * Sid ACE-4122 and another separate set here for pre V5.0.0 V115 actions THAT HAVE already been migrated to
+             * V5...
+             */
+            MigrationAction.reasign("CDM", "createCase", "CDM", "createUpdateDeleteCase"), //
+            MigrationAction.reasign("CDM", "updateCase", "CDM", "createUpdateDeleteCase"), //
+            MigrationAction.reasign("CDM", "deleteCase", "CDM", "createUpdateDeleteCase"), //
+            /**
+             * ----------
+             */
             MigrationAction.reasign("BDS", "readGlobalData", "CDM", "readCase"), //
+
             MigrationAction.reasign("BDS", "cmisUser", "APPDEV", "useCaseDocument"), //
             MigrationAction.reasign("BDS", "cmisAdmin", "APPDEV", "administerCaseDocument"), //
+            MigrationAction.reasign("APPDEV", "canEditLocales", "APPDEV", "appDev"), //
+            MigrationAction.reasign("APPDEV", "canEditApplication", "APPDEV", "appDev"), //
+            MigrationAction.reasign("APPDEV", "canPublishApplication", "APPDEV", "appDev"), //
+
 
             MigrationAction.delete("BDS", "manageDataViews"), //
             MigrationAction.delete("BDS", "accessGlobalDataScripts"), //
             MigrationAction.delete("BDS", "administerGlobalDataScripts"), //
 
-            MigrationAction.reasign("OS", "contributeGadget", "OS", "contributeApp"), //
+            /**
+             * Sid ACE-4122 There are 2 separate sets for AMX BPM contributeGadget actions.
+             */
+            /*
+             * Those AMX BPM ones that HAVE NOT already been migrated to earlier V5.0.0 version...
+             */
+            MigrationAction.reasign("OS", "contributeGadget", "APPDEV", "appDev"), //
+
+            /*
+             * Sid ACE-4122 and another separate set here for pre V5.0.0 V115 actions THAT HAVE already been migrated to
+             * V5...
+             */
+            MigrationAction.reasign("OS", "contributeApp", "APPDEV", "appDev"), //
+            /**
+             * ----------
+             */
+
             MigrationAction.delete("OS", "manageGadgets"), //
             MigrationAction.delete("OS", "viewHubPolicy"), //
             MigrationAction.delete("OS", "editHubPolicy"), //
@@ -66,7 +104,28 @@ public class SystemActionMigration {
             MigrationAction.delete("OS", "openspaceFeatureSetC"), //
 
             MigrationAction.delete("WSB", "startBusinessService"), //
-            MigrationAction.delete("WSB", "applicationConfiguration") //
+            MigrationAction.delete("WSB", "applicationConfiguration"), //
+
+            MigrationAction.delete("DE", "authenticatedUser"), //
+
+            MigrationAction.delete("BRM", "scheduleWorkItem"), //
+            MigrationAction.delete("BRM", "cancelWorkItem"), //
+            MigrationAction.delete("BRM", "suspendWorkItem"), //
+            MigrationAction.delete("BRM", "rescheduleWorkItem"), //
+            MigrationAction.delete("BRM", "enableWorkItem"), //
+
+            MigrationAction.reasign("PE", "resumeProcessInstance", "PE", "resumeSuspendProcessInstance"), //
+            MigrationAction.reasign("PE", "suspendProcessInstance", "PE", "resumeSuspendProcessInstance"), //
+            MigrationAction.reasign("PE", "cancelProcessInstance", "PE", "cancelPurgeProcessInstance"), //
+            MigrationAction.reasign("PE", "purgeProcessInstances", "PE", "cancelPurgeProcessInstance"), //
+            MigrationAction.reasign("PE", "bulkResumeProcessInstances", "PE", "bulkResumeSuspendProcessInstances"), //
+            MigrationAction.reasign("PE", "bulkSuspendProcessInstances", "PE", "bulkResumeSuspendProcessInstances"), //
+            MigrationAction.reasign("PE", "bulkCancelProcessInstances", "PE", "bulkCancelPurgeProcessInstances"), //
+            MigrationAction.reasign("PE", "bulkPurgeProcessInstances", "PE", "bulkCancelPurgeProcessInstances"), //
+            MigrationAction.reasign("PE", "queryProcessInstance", "PE", "queryProcess"), //
+            MigrationAction.reasign("PE", "queryProcessTemplate", "PE", "queryProcess"), //
+
+            MigrationAction.delete("BIZSVC", "executeBusinessService") //
 
     };
 
