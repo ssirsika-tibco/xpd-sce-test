@@ -81,6 +81,8 @@ public class SystemActionMigrationTest extends TestCase {
 
             { "OS", "openspaceFeatureSetC" }, //
 
+            { "BIZSVC", "executeBusinessService" }, //
+
             { "WSB", "startBusinessService" }, //
             { "WSB", "applicationConfiguration" } //
     };
@@ -254,7 +256,9 @@ public class SystemActionMigrationTest extends TestCase {
 
                 // this should now have enum values merged from EC - Query Statistics action
                 EList<PrivilegeAssociation> associations = action.getPrivilegeAssociations();
-                assertEquals(expected.length, associations.size());
+                assertEquals("Unexpected number of privilege association for 'queryAudit' system action",
+                        expected.length,
+                        associations.size());
                 for (PrivilegeAssociation privAssoc : associations) {
                     boolean found = false;
 
@@ -267,10 +271,81 @@ public class SystemActionMigrationTest extends TestCase {
 
                     if (!found)
                     {
-                        fail("Unexpected privilege assignment: " + privAssoc.getPrivilege().getName());
+                        fail("Unexpected privilege association for 'queryAudit' system action: "
+                                + privAssoc.getPrivilege().getName());
                     }
                 }
             }
+
+            // test for merged privileges with BDS createCase, updateCase, deleteCase into createUpdateDeleteCase
+            if ((Objects.equals("CDM", action.getComponent()))
+                    && (Objects.equals("createUpdateDeleteCase", action.getActionId()))) {
+                // The createUpdateDeleteCase action has privileges from a merged createCase, updateCase, deleteCase
+                // action
+                ExpectedPrivAssoc[] expected = { //
+                        new ExpectedPrivAssoc("CreateGlobalData"), //
+                        new ExpectedPrivAssoc("DeleteGlobalData"), //
+                        new ExpectedPrivAssoc("UpdateGlobalData") //
+                };
+
+                // this should now have enum values merged from EC - Query Statistics action
+                EList<PrivilegeAssociation> associations = action.getPrivilegeAssociations();
+                assertEquals("Unexpected number of privilege association for 'createUpdateDeleteCase' system action",
+                        expected.length,
+                        associations.size());
+                for (PrivilegeAssociation privAssoc : associations) {
+                    boolean found = false;
+
+                    for (ExpectedPrivAssoc expect : expected) {
+                        if (expect.compare(privAssoc)) {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        fail("Unexpected privilege association for 'createUpdateDeleteCase' system action: "
+                                + privAssoc.getPrivilege().getName());
+                    }
+                }
+            }
+
+            // test for merged privileges with APPDEV canEditLocales, canEditApplication, canPublishApplication,
+            // contributeGadget into appDev
+            if ((Objects.equals("APPDEV", action.getComponent())) && (Objects.equals("appDev", action.getActionId()))) {
+                // The appDev action has privileges from a merged canEditLocales, canEditApplication,
+                // canPublishApplication,
+                // contributeGadget
+                ExpectedPrivAssoc[] expected = { //
+                        new ExpectedPrivAssoc("CanEditLocales"), //
+                        new ExpectedPrivAssoc("CanEditApplication"), //
+                        new ExpectedPrivAssoc("CanPublishApplication"), //
+                        new ExpectedPrivAssoc("ContributeGadget") //
+                };
+
+                // this should now have enum values merged from EC - Query Statistics action
+                EList<PrivilegeAssociation> associations = action.getPrivilegeAssociations();
+                assertEquals("Unexpected number of privilege association for 'appDev' system action",
+                        expected.length,
+                        associations.size());
+                for (PrivilegeAssociation privAssoc : associations) {
+                    boolean found = false;
+
+                    for (ExpectedPrivAssoc expect : expected) {
+                        if (expect.compare(privAssoc)) {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        fail("Unexpected privilege association for 'appDev' system action: "
+                                + privAssoc.getPrivilege().getName());
+                    }
+                }
+            }
+
+
         }
 
         assertTrue(failures.toString(), failures.isEmpty());
