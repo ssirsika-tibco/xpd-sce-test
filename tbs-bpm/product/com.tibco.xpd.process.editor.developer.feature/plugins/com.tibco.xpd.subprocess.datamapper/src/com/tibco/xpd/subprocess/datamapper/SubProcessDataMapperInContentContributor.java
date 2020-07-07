@@ -4,6 +4,8 @@
 
 package com.tibco.xpd.subprocess.datamapper;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
@@ -14,13 +16,12 @@ import com.tibco.xpd.process.datamapper.common.ProcessDataMapperInfoProvider;
 import com.tibco.xpd.processeditor.xpdl2.ProcessEditorConstants;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
+import com.tibco.xpd.processeditor.xpdl2.util.SubProcUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.validation.bpmn.rules.baserules.ProcessDataMappingRuleInfoProvider;
 import com.tibco.xpd.xpdExtension.ProcessInterface;
 import com.tibco.xpd.xpdl2.Activity;
-import com.tibco.xpd.xpdl2.FormalParameter;
 import com.tibco.xpd.xpdl2.Process;
-import com.tibco.xpd.xpdl2.ProcessRelevantData;
 import com.tibco.xpd.xpdl2.SubFlow;
 
 /**
@@ -32,6 +33,12 @@ import com.tibco.xpd.xpdl2.SubFlow;
  */
 public class SubProcessDataMapperInContentContributor extends
         AbstractProcessDataMapperContentContributor {
+
+    /**
+     * Sid ACE-4024 only set after initial getElements() from contentProvider. Map of concept path to mandatory flag for
+     * sub-process start event associated parameters.
+     */
+    private Map<ConceptPath, Boolean> paramCPToMandatoryMap;
 
     /**
      * @param direction
@@ -57,7 +64,35 @@ public class SubProcessDataMapperInContentContributor extends
      */
     @Override
     protected ITreeContentProvider createItemProvider() {
-        return new SubProcessDataMapperContentProvider(MappingDirection.IN);
+        return new SubProcessDataMapperContentProvider(MappingDirection.IN) {
+            /**
+             * Sid ACE-4024 Preserve the map of concept path to 'is mandatory' once when the validation framework asks
+             * us for the top level elements at the start of mapping validation.
+             * 
+             * This can then be used by our info provider's 'getMinimumInstances()' method to determine if a sub-process
+             * parameter is mandatory or not **depending on whether it is implcitily mandatory OR has bee explicitly
+             * promoted to mandatory in the sub-process start-event's data associations.
+             * 
+             * @see com.tibco.xpd.process.datamapper.common.ProcessDataMapperConceptPathProvider#getElements(java.lang.Object)
+             *
+             * @param inputElement
+             * @return
+             */
+            @Override
+            public Object[] getElements(Object inputElement) {
+                paramCPToMandatoryMap = null;
+
+                if (inputElement instanceof Activity) {
+                    paramCPToMandatoryMap =
+                            SubProcUtil.getSubProcessParametersAndMandatory(
+                                    TaskObjectUtil.getSubProcessOrInterface((Activity) inputElement),
+                                    MappingDirection.IN);
+                }
+
+                return super.getElements(inputElement);
+            }
+        };
+
     }
 
     /**
@@ -134,19 +169,21 @@ public class SubProcessDataMapperInContentContributor extends
                                 ConceptPath conceptPath =
                                         (ConceptPath) objectInTree;
 
-                                Object item = conceptPath.getItem();
-                                if (item instanceof ProcessRelevantData) {
-                                    ProcessRelevantData prd =
-                                            (ProcessRelevantData) item;
+                                /*
+                                 * Sid ACE-4024 We need to use the overriding explicit data association on the start
+                                 * event if there is one (else if param is optional but associated as mandatory then we
+                                 * must treat it as mandatory.
+                                 * 
+                                 * Only interested in top level parameter elements though, otherwise we should fall thru
+                                 * and use the default for custom type child content
+                                 */
+                                if (conceptPath.getParent() == null && paramCPToMandatoryMap != null) {
+                                    Boolean mandatory = paramCPToMandatoryMap.get(conceptPath);
 
-                                    if (prd instanceof FormalParameter) {
-                                        FormalParameter fp =
-                                                (FormalParameter) prd;
-
-                                        if (fp.isRequired()) {
-                                            return 1;
-                                        }
+                                    if (mandatory != null && mandatory) {
+                                        return 1;
                                     }
+                                    return 0;
                                 }
 
                             }
