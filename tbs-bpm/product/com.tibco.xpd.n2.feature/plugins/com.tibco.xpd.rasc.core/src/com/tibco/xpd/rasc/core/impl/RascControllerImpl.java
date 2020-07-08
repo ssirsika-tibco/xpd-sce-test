@@ -251,7 +251,7 @@ public class RascControllerImpl implements RascController {
                                             0,
                                             mergedValues,
                                             currentValues.length,
-                                            mergedValues.length);
+                                            aValues.length);
 
                                     aValues = mergedValues;
                                 }
