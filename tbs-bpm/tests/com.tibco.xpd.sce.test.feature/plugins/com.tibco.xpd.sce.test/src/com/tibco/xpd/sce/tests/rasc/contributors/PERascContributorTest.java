@@ -17,6 +17,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 
 import com.tibco.bpm.dt.rasc.MicroService;
+import com.tibco.bpm.dt.rasc.PropertyValue;
 import com.tibco.bpm.dt.rasc.Version;
 import com.tibco.bpm.dt.rasc.VersionRange;
 import com.tibco.xpd.core.test.util.TestResourceInfo;
@@ -269,6 +270,12 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
             }
             assertTrue("Unexpected artifact: " + artifact.getFullPath(), found);
         }
+
+        // Sid ACE-4134 check new asset-categories attribute was added.
+        PropertyValue[] assetCategories = writer.getManifestAttribute("Asset-Categories");
+        assertNotNull(assetCategories);
+        assertEquals(1, writer.getManifestAttribute("Asset-Categories").length);
+        assertEquals("com.tibco.asset.process", writer.getManifestAttribute("Asset-Categories")[0].getValue());
 
     }
 

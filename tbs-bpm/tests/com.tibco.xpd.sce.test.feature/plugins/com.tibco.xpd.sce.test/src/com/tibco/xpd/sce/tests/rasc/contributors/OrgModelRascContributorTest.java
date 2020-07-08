@@ -10,6 +10,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 
 import com.tibco.bpm.dt.rasc.MicroService;
+import com.tibco.bpm.dt.rasc.PropertyValue;
 import com.tibco.bpm.dt.rasc.Version;
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.om.transform.de.OrgModelRascContributor;
@@ -120,6 +121,12 @@ public class OrgModelRascContributorTest extends TestCase {
                         + " project OrganizationModel.de artifact should have version set to '"
                         + version.toString() + "')",
                 contentString.contains(expectedVersionAttribute));
+
+        // Sid ACE-4134 check new asset-categories attribute was added.
+        PropertyValue[] assetCategories = writer.getManifestAttribute("Asset-Categories");
+        assertNotNull(assetCategories);
+        assertEquals(1, assetCategories.length);
+        assertEquals("com.tibco.asset.organization", assetCategories[0].getValue());
 
     }
 }

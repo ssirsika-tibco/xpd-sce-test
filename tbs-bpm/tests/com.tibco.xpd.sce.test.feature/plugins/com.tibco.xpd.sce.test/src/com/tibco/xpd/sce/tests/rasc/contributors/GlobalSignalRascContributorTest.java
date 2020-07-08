@@ -10,6 +10,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 
 import com.tibco.bpm.dt.rasc.MicroService;
+import com.tibco.bpm.dt.rasc.PropertyValue;
 import com.tibco.bpm.dt.rasc.Version;
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.n2.globalsignal.transform.GlobalSignalRascContributor;
@@ -105,6 +106,13 @@ public class GlobalSignalRascContributorTest extends TestCase {
             assertTrue(projectName
                     + " project globalSignal.gsd artifact should contain '" + expectedWorkTypeVersionRange + "'",
                     contentString.contains(expectedWorkTypeVersionRange));
+
+            // Sid ACE-4134 check new asset-categories attribute was added.
+            PropertyValue[] assetCategories = writer.getManifestAttribute("Asset-Categories");
+            assertNotNull(assetCategories);
+            assertEquals(1, assetCategories.length);
+            assertEquals("com.tibco.asset.globalsignal", assetCategories[0].getValue());
+
         } finally {
             if (projectImporter != null) {
                 projectImporter.performDelete();

@@ -13,6 +13,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 
 import com.tibco.bpm.dt.rasc.MicroService;
+import com.tibco.bpm.dt.rasc.PropertyValue;
 import com.tibco.xpd.core.test.util.AbstractBuildingBaseResourceTest;
 import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.n2.cdm.rasc.CdmRascContributor;
@@ -106,5 +107,12 @@ public class CdmRascContributorTest extends AbstractBuildingBaseResourceTest {
 
         // some data was written to the artifact
         assertTrue(artifact.getContent().size() > 0);
+
+        // Sid ACE-4134 check new asset-categories attribute was added.
+        PropertyValue[] assetCategories = writer.getManifestAttribute("Asset-Categories");
+        assertNotNull(assetCategories);
+        assertEquals(1, writer.getManifestAttribute("Asset-Categories").length);
+        assertEquals("com.tibco.asset.data", writer.getManifestAttribute("Asset-Categories")[0].getValue());
+
     }
 }
