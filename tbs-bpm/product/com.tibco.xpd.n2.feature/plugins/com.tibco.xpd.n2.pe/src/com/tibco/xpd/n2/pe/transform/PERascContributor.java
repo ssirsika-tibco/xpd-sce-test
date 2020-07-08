@@ -73,6 +73,7 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @since 19 Mar 2019
  */
 public class PERascContributor implements RascContributor {
+
     /**
      * The unique identifier for this RascContribution implementation.
      */
@@ -143,6 +144,11 @@ public class PERascContributor implements RascContributor {
             { MicroService.BP };
 
     /**
+     * Sid ACE-4134 For Asset-Categories property if any processes added to the RASC.
+     */
+    private static final String PROCESS_RASC_ASSET_ID = "com.tibco.asset.process"; //$NON-NLS-1$
+
+    /**
      * @see com.tibco.xpd.rasc.core.RascContributor#getId()
      */
     @Override
@@ -201,10 +207,11 @@ public class PERascContributor implements RascContributor {
             return;
         }
 
-        addBpelToRasc(monitor.split(1),
-                aWriter,
-                bpelBuilder,
-                aContext.getVersion());
+        /* Sid ACE-4134 add to Asset-Categories property if any processes added to the RASC. */
+        if (addBpelToRasc(monitor.split(1), aWriter, bpelBuilder, aContext.getVersion())) {
+            aWriter.setManifestAttribute(ASSET_CATEGORIES_PROPERTY_NAME,
+                    new PropertyValue[] { new PropertyValue(PROCESS_RASC_ASSET_ID) });
+        }
 
         // add the shared-resource references to the RASC
         addSharedResources(aWriter, getSharedResources(aProject));
@@ -224,10 +231,14 @@ public class PERascContributor implements RascContributor {
      * @param bpelBuilder
      * @param version
      * @throws CoreException
+     * 
+     * @return <code>true</code> if any processes added to the RASC
      */
-    private void addBpelToRasc(IProgressMonitor aProgressMonitor,
+    private boolean addBpelToRasc(IProgressMonitor aProgressMonitor,
             final RascWriter aWriter, BPELOnDemandBuilder bpelBuilder,
             Version version) throws CoreException {
+        boolean processesAdded = false;
+
         /*
          * Get the target derived file info - we will then output content to the
          * RASC according to these
@@ -273,6 +284,8 @@ public class PERascContributor implements RascContributor {
                                     destinations,
                                     version);
                             
+                            processesAdded = true;
+
                             // add process's package to package collection
                             IContainer location = targetResource.getParent();
                             Package pkg = sourceProcess.getPackage();
@@ -299,6 +312,8 @@ public class PERascContributor implements RascContributor {
             monitor.subTask(""); //$NON-NLS-1$
             monitor.done();
         }
+
+        return processesAdded;
     }
 
     /**

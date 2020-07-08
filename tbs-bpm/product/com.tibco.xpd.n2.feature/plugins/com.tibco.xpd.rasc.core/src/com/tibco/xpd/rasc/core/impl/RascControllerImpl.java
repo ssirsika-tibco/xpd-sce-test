@@ -236,7 +236,32 @@ public class RascControllerImpl implements RascController {
                         @Override
                         public void setManifestAttribute(String aAttrName,
                                 PropertyValue[] aValues) {
-                            deployment.setProperties(aAttrName, aValues);
+                            /*
+                             * Sid ACE-4134 when contributor writes properties then preserve existing properties.
+                             */
+                            try {
+                                PropertyValue[] currentValues = deployment.getProperties(aAttrName);
+
+                                if (currentValues != null && currentValues.length > 0) {
+                                    PropertyValue[] mergedValues =
+                                            new PropertyValue[currentValues.length + aValues.length];
+
+                                    System.arraycopy(currentValues, 0, mergedValues, 0, currentValues.length);
+                                    System.arraycopy(aValues,
+                                            0,
+                                            mergedValues,
+                                            currentValues.length,
+                                            mergedValues.length);
+
+                                    aValues = mergedValues;
+                                }
+
+                                deployment.setProperties(aAttrName, aValues);
+
+                            } catch (RuntimeApplicationException e) {
+                                throw new RuntimeException(e);
+                            }
+
                         }
                     };
 
