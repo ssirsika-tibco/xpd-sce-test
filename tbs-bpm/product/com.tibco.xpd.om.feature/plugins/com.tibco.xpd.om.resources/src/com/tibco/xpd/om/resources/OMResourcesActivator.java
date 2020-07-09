@@ -34,8 +34,11 @@ public class OMResourcesActivator extends Plugin {
      * 
      * <li>1002 - Studio Container Edition 5.0.0 (V115) - additional system action removal/merge</i>
      * 
+     * <li>1003 - Studio Container Edition 5.0.0 (V115) - runtime changed there mind about creatUpdateDeleteCase
+     * (switched to separate createUpdateCase and deleteCase)</li>
+     * 
      */
-    public static final int OM_FILE_VERSION = 1002;
+    public static final int OM_FILE_VERSION = 1003;
 
     // The shared instance
     private static OMResourcesActivator plugin;

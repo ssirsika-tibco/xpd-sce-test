@@ -89,7 +89,8 @@ public class SystemActionMigrationTest extends TestCase {
 
     // the new actions that are migrated from older actions during migration
     private static final String[][] ADDITIONAL_ACTIONS = { //
-            { "CDM", "createUpdateDeleteCase" }, //
+            { "CDM", "createUpdateCase" }, //
+            { "CDM", "deleteCase" }, //
             { "CDM", "readCase" }, //
             { "APPDEV", "useCaseDocument" }, //
             { "APPDEV", "administerCaseDocument" }, //
@@ -277,20 +278,19 @@ public class SystemActionMigrationTest extends TestCase {
                 }
             }
 
-            // test for merged privileges with BDS createCase, updateCase, deleteCase into createUpdateDeleteCase
+            // test for merged privileges with BDS createCase, updateCase into createUpdateCase
             if ((Objects.equals("CDM", action.getComponent()))
-                    && (Objects.equals("createUpdateDeleteCase", action.getActionId()))) {
+                    && (Objects.equals("createUpdateCase", action.getActionId()))) {
                 // The createUpdateDeleteCase action has privileges from a merged createCase, updateCase, deleteCase
                 // action
                 ExpectedPrivAssoc[] expected = { //
                         new ExpectedPrivAssoc("CreateGlobalData"), //
-                        new ExpectedPrivAssoc("DeleteGlobalData"), //
                         new ExpectedPrivAssoc("UpdateGlobalData") //
                 };
 
                 // this should now have enum values merged from EC - Query Statistics action
                 EList<PrivilegeAssociation> associations = action.getPrivilegeAssociations();
-                assertEquals("Unexpected number of privilege association for 'createUpdateDeleteCase' system action",
+                assertEquals("Unexpected number of privilege association for 'createUpdateCase' system action",
                         expected.length,
                         associations.size());
                 for (PrivilegeAssociation privAssoc : associations) {
@@ -304,7 +304,7 @@ public class SystemActionMigrationTest extends TestCase {
                     }
 
                     if (!found) {
-                        fail("Unexpected privilege association for 'createUpdateDeleteCase' system action: "
+                        fail("Unexpected privilege association for 'createUpdateCase' system action: "
                                 + privAssoc.getPrivilege().getName());
                     }
                 }

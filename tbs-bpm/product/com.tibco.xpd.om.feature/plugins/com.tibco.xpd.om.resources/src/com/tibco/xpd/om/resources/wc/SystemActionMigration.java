@@ -48,21 +48,36 @@ public class SystemActionMigration {
 
             /**
              * Sid ACE-4122 There are 2 separate sets for AMX BPM case data related system actions.
+             * 
+             * Arrrgh runtime multi-mind-changing...
+             * 
+             * Changed once (preV115) from createGlobalData->createCase, updateGlobalData->updateCase,
+             * deleteGlobalData->deleteCase
+             * 
+             * Changed again at start of V115 createCase, updateCase, deleteCase merged to createUpdateDeleteCase
+             * 
+             * Changed AGAIN mid-V115 - createUpdateDeleteCase removed and createCase, updateCase now merged to
+             * createUpdateCase and deleteGlobalData renamed as deleteCase again.
+             * 
              */
             /*
              * Those AMX BPM ones that HAVE NOT already been migrated to earlier V5.0.0 version...
              */
-            MigrationAction.reasign("BDS", "createGlobalData", "CDM", "createUpdateDeleteCase"), //
-            MigrationAction.reasign("BDS", "updateGlobalData", "CDM", "createUpdateDeleteCase"), //
-            MigrationAction.reasign("BDS", "deleteGlobalData", "CDM", "createUpdateDeleteCase"), //
+            MigrationAction.reasign("BDS", "createGlobalData", "CDM", "createUpdateCase"), //
+            MigrationAction.reasign("BDS", "updateGlobalData", "CDM", "createUpdateCase"), //
+            MigrationAction.reasign("BDS", "deleteGlobalData", "CDM", "deleteCase"), //
 
             /*
              * Sid ACE-4122 and another separate set here for pre V5.0.0 V115 actions THAT HAVE already been migrated to
              * V5...
              */
-            MigrationAction.reasign("CDM", "createCase", "CDM", "createUpdateDeleteCase"), //
-            MigrationAction.reasign("CDM", "updateCase", "CDM", "createUpdateDeleteCase"), //
-            MigrationAction.reasign("CDM", "deleteCase", "CDM", "createUpdateDeleteCase"), //
+            MigrationAction.reasign("CDM", "createCase", "CDM", "createUpdateCase"), //
+            MigrationAction.reasign("CDM", "updateCase", "CDM", "createUpdateCase"), //
+            /*
+             * And another set to remove createUpdateDeleteCase which was introduced at start of V115 and then changed
+             * to createUpdateCase and separate deleteCase mid-V115
+             */
+            MigrationAction.delete("CDM", "createUpdateDeleteCase"), //
             /**
              * ----------
              */

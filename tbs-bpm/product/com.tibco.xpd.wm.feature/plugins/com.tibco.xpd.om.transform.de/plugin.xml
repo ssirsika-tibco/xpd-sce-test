@@ -157,7 +157,8 @@
    <extension point="com.tibco.xpd.om.resources.systemActions">
       <component id="CDM" name="%component_caseData_label"> </component>
       <actions componentId="CDM">
-         <action default="true" id="createUpdateDeleteCase" name="%sysAction_createUpdateDeleteCaseData_label"> </action>
+         <action default="true" id="createUpdateCase" name="%sysAction_createUpdateCaseData_label"> </action>
+         <action default="false" id="deleteCase" name="%sysAction_deleteCaseData_label"> </action>
          <action default="true" id="readCase" name="%sysAction_readCaseData_label"> </action>
          <action default="true" id="readTypes" name="%sysAction_CaseDocumentReadTypes_label"> </action>
       </actions>
@@ -179,7 +180,7 @@
       <actions componentId="APPDEV">
          <action default="true" id="canViewRoles" name="%sysAction_canViewRoles_label"> </action>
          <action default="false" id="canEditRoles" name="%sysAction_canEditRoles_label"> </action>
-         <action default="false" id="appDev" name="%sysAction_appDev_label"> </action>
+         <action default="true" id="appDev" name="%sysAction_appDev_label"> </action>
          <action default="true" id="useCaseDocument" name="%sysAction_CaseDocumentUser_label"> </action>
          <action default="false" id="administerCaseDocument" name="%sysAction_CaseDocumentAdministration_label"> </action>
       </actions>
