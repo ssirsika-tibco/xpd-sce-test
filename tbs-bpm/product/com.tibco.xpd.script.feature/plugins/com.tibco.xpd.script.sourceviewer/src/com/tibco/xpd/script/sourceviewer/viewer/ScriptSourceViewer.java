@@ -559,6 +559,12 @@ public class ScriptSourceViewer implements ISiteProvider, ScriptEditor {
          */
         private IContextService contextService;
 
+        /**
+         * Sid ACE-2915 Need to track the action handlers we replace with Script Editor ones so that we can replce them
+         * back on defocus.
+         */
+        private Map<String, IHandler> cmdIdToOriginalHandlerMap = new HashMap<String, IHandler>();
+
         /*
          * @see VerifyKeyListener#verifyKey(org.eclipse.swt.events.VerifyEvent)
          */
@@ -617,10 +623,10 @@ public class ScriptSourceViewer implements ISiteProvider, ScriptEditor {
                 IWorkbenchPartSite site = getWorkbenchPartSite();
                 if (site != null) {
                     bindingService =
-                            (IBindingService) site
+                            site
                                     .getService(org.eclipse.ui.keys.IBindingService.class);
                     contextService =
-                            (IContextService) site
+                            site
                                     .getService(IContextService.class);
                     fIsInstalled = true;
                 }
@@ -672,8 +678,17 @@ public class ScriptSourceViewer implements ISiteProvider, ScriptEditor {
                     ParameterizedCommand pc = binding.getParameterizedCommand();
                     if (pc != null) {
                         Command cmd = pc.getCommand();
-                        if (cmd != null)
+                        if (cmd != null) {
+                            /*
+                             * Sid ACE-2915 preserve the original handler so that we can restore it later when we
+                             * unregister our action.
+                             */
+                            String cmdId = pc.getId();
+                            IHandler originalHandler = cmd.getHandler();
+
+                            cmdIdToOriginalHandlerMap.put(cmdId, originalHandler);
                             cmd.setHandler(handler);
+                        }
                     }
                 }
             }
@@ -698,8 +713,18 @@ public class ScriptSourceViewer implements ISiteProvider, ScriptEditor {
                     ParameterizedCommand pc = binding.getParameterizedCommand();
                     if (pc != null) {
                         Command cmd = pc.getCommand();
-                        if (cmd != null)
-                            cmd.setHandler(null);
+                        if (cmd != null) {
+                            String cmdId = cmd.getId();
+
+                            IHandler originalHandler = null;
+
+                            if (cmdIdToOriginalHandlerMap.containsKey(cmdId)) {
+                                originalHandler = cmdIdToOriginalHandlerMap.get(cmdId);
+                                cmdIdToOriginalHandlerMap.remove(cmdId);
+                            }
+
+                            cmd.setHandler(originalHandler);
+                        }
                     }
                 }
             }
@@ -712,19 +737,11 @@ public class ScriptSourceViewer implements ISiteProvider, ScriptEditor {
                 return;
             }
             for (IAction action : values) {
-                TriggerSequence triggerSequence =
-                        bindingService.getBestActiveBindingFor(action
-                                .getActionDefinitionId());
-                Binding binding =
-                        bindingService.getPerfectMatch(triggerSequence);
-                if (binding != null) {
-                    ParameterizedCommand pc = binding.getParameterizedCommand();
-                    if (pc != null) {
-                        Command cmd = pc.getCommand();
-                        if (cmd != null)
-                            cmd.setHandler(null);
-                    }
-                }
+                /*
+                 * Sid ACE-2915 Code was a copy of what unregisterActionFromKeyActivation() so should call that (as it's
+                 * now changed).
+                 */
+                unregisterActionFromKeyActivation(action);
             }
         }
 
