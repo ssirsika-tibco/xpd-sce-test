@@ -115,7 +115,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             if (eo instanceof Expression) {
                 Expression expression = (Expression) eo;
 
-                if (ScriptGrammarFactory.JAVASCRIPT.equals(expression.getScriptGrammar())) {
+                if (ScriptGrammarFactory.JAVASCRIPT.equalsIgnoreCase(expression.getScriptGrammar())) {
                     numScripts++;
 
                     if (!ignoreScript(expression)) {
