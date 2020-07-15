@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.osgi.framework.Version;
 
 import com.tibco.bpm.dt.rasc.MicroService;
-import com.tibco.bpm.dt.rasc.PropertyValue;
 import com.tibco.bx.core.model.BxGlobalSignalModel;
 import com.tibco.bx.core.model.GlobalSignalDataType;
 import com.tibco.bx.core.model.GlobalSignalDefinition;
@@ -167,10 +166,6 @@ public class GlobalSignalRascContributor implements RascContributor {
                     GlobalSignalRascContributor.GSD_DESTINATION_SERVICES);
             try {
                 writeModel(model, output);
-
-                /* Sid ACE-4134 add to Asset-Categories property for data added to the RASC. */
-                aWriter.setManifestAttribute(ASSET_CATEGORIES_PROPERTY_NAME,
-                        new PropertyValue[] { new PropertyValue(SIGNAL_RASC_ASSET_ID) });
 
             } finally {
                 output.close();

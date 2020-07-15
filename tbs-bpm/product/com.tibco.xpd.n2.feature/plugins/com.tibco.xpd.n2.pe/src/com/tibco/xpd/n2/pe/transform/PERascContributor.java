@@ -208,10 +208,7 @@ public class PERascContributor implements RascContributor {
         }
 
         /* Sid ACE-4134 add to Asset-Categories property if any processes added to the RASC. */
-        if (addBpelToRasc(monitor.split(1), aWriter, bpelBuilder, aContext.getVersion())) {
-            aWriter.setManifestAttribute(ASSET_CATEGORIES_PROPERTY_NAME,
-                    new PropertyValue[] { new PropertyValue(PROCESS_RASC_ASSET_ID) });
-        }
+        addBpelToRasc(monitor.split(1), aWriter, bpelBuilder, aContext.getVersion());
 
         // add the shared-resource references to the RASC
         addSharedResources(aWriter, getSharedResources(aProject));

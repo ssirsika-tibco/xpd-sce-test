@@ -29,12 +29,6 @@ public interface RascContributor {
     public static final Charset DEFAULT_ENCODING = StandardCharsets.UTF_8;
 
     /**
-     * Sid ACE-4134 The name of the 'Asset-Categories' property for contributors to state the assets they've added to
-     * the RASC.
-     */
-    public static final String ASSET_CATEGORIES_PROPERTY_NAME = "Asset-Categories"; //$NON-NLS-1$
-
-    /**
      * A unique identifier of this RASC contributor. Used to identify contributor dependencies.
      * 
      * @return the unique identifier for this contributor implementation.

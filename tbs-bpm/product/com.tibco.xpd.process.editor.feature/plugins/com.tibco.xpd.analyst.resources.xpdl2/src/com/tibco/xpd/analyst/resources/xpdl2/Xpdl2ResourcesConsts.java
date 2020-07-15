@@ -76,6 +76,8 @@ public class Xpdl2ResourcesConsts {
 
     public static final String FORMS_SPECIAL_FOLDER_KIND = "forms"; //$NON-NLS-1$
 
+    public static final String FORMS_FILE_EXTENSION = "form"; //$NON-NLS-1$
+
     // SID NOTE: This should n't really be here as I wanted to have task
     // libraries completely separate HOWEVER, certain things like teh New Type
     // Declaration wizard demand that the type declaration is added to a file

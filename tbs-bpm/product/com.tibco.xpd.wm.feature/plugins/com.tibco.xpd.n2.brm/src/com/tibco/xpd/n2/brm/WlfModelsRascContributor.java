@@ -12,7 +12,6 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import com.tibco.bpm.dt.rasc.MicroService;
-import com.tibco.bpm.dt.rasc.PropertyValue;
 import com.tibco.bpm.dt.rasc.Version;
 import com.tibco.xpd.n2.brm.internal.Messages;
 import com.tibco.xpd.n2.resources.util.N2Utils;
@@ -129,10 +128,6 @@ public class WlfModelsRascContributor implements RascContributor {
 
                 // output the rasc model to the rasc artifact
                 wlfResource.save(output, N2Utils.getDefaultXMLSaveOptions());
-
-                /* Sid ACE-4134 add to Asset-Categories property for facade added to the RASC. */
-                aWriter.setManifestAttribute(ASSET_CATEGORIES_PROPERTY_NAME,
-                        new PropertyValue[] { new PropertyValue(FACADE_RASC_ASSET_ID) });
 
             }
 

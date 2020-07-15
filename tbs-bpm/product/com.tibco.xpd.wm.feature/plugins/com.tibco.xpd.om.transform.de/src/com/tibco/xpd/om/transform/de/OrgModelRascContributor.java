@@ -17,7 +17,6 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EObject;
 
 import com.tibco.bpm.dt.rasc.MicroService;
-import com.tibco.bpm.dt.rasc.PropertyValue;
 import com.tibco.n2.directory.model.de.ModelType;
 import com.tibco.xpd.om.core.om.OrgModel;
 import com.tibco.xpd.om.core.om.util.OMUtil;
@@ -153,10 +152,6 @@ public class OrgModelRascContributor implements RascContributor {
             // output the rasc org-model to the rasc artifact
             OrgModelRascContributor.MODEL_WRITER.write(output,
                     Arrays.asList(transformOrgModel));
-
-            /* Sid ACE-4134 add to Asset-Categories property for data added to the RASC. */
-            aWriter.setManifestAttribute(ASSET_CATEGORIES_PROPERTY_NAME,
-                    new PropertyValue[] { new PropertyValue(ORG_RASC_ASSET_ID) });
 
         }
 

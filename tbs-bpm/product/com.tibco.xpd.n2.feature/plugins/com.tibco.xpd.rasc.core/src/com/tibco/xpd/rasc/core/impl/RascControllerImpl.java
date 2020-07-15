@@ -48,6 +48,7 @@ import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
 import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.ProjectUtil2;
+import com.tibco.xpd.resources.util.SpecialFolderUtil;
 
 /**
  * Implements RascController to co-ordinate the generation of deployment RASCs
@@ -73,6 +74,11 @@ public class RascControllerImpl implements RascController {
      * The ID of the model asset type for Rest Serice projects.
      */
     private static final String REST_ASSET_TYPE = "com.tibco.xpd.rest.asset"; //$NON-NLS-1$
+
+    /**
+     * The name for project type manifest property.
+     */
+    private static final String PROJECT_TYPE_PROPERTY_NAME = "Project-Type"; //$NON-NLS-1$
 
     /**
      * Used to look-up the implementations of the RascContributor interface.
@@ -291,6 +297,11 @@ public class RascControllerImpl implements RascController {
                         }
                     }
 
+                    /*
+                     * Sid ACE-4134 Set the project type (derived from the project assets)
+                     */
+                    setProjectType(aProject, deployment);
+
                     // write manifest and close stream
                     setManifest(aProject, deployment, context.getAppSummary());
                     deployment.close();
@@ -316,8 +327,7 @@ public class RascControllerImpl implements RascController {
      * @param aManifest
      *            the manifest to be updated.
      * @param aAppSummary
-     *            the summary of the application whose properties are to be
-     *            copied.
+     *            the summary of the application whose properties are to be copied.
      * @throws RascGenerationException
      *             if the project cannot be introspected for some reason.
      */
@@ -351,8 +361,99 @@ public class RascControllerImpl implements RascController {
     }
 
     /**
-     * An implementation of the RascContext that is based on a given IProject
-     * reference.
+     * Sid ACE-4134 Set the project type (derived from the project assets)
+     * 
+     * RascController should really be agnostic of project types and therefore not do this derivation directly. HOWEVER,
+     * it is the only sensible place this can be done (until and unless we do introduce a ACTUAL project type (as
+     * opposed to the project creation wizards being a simple facade over 'what ssets are added to this project).
+     * 
+     * @param aProject
+     * @param deployment
+     * @throws RascGenerationException
+     */
+    private void setProjectType(IProject aProject, DeploymentWriter deployment) throws RascGenerationException {
+        DeploymenProjectType projectType = null;
+        /*
+         * Has processes?  If so we'll say it's process type project
+         */
+        if (hasAssets(aProject, 
+                ACEAssetDefinitions.PROCESSES_SPECIAL_FOLDER_KIND,
+                ACEAssetDefinitions.XPDL_EXTENSION)) {
+            projectType = DeploymenProjectType.process;
+            
+        } else if (hasAssets(aProject,
+                ACEAssetDefinitions.BOM_SPECIAL_FOLDER_KIND,
+                ACEAssetDefinitions.BOM_FILE_EXTENSION)) {
+            projectType = DeploymenProjectType.data;
+            
+        } else if (hasAssets(aProject,
+                ACEAssetDefinitions.OM_SPECIAL_FOLDER_KIND,
+                ACEAssetDefinitions.OM_FILE_EXTENSION)) {
+            projectType = DeploymenProjectType.organization;
+            
+        } else if (hasAssets(aProject,
+                ACEAssetDefinitions.WLF_SPECIAL_FOLDER_KIND,
+                ACEAssetDefinitions.WLF_FILE_EXTENSION)) {
+            projectType = DeploymenProjectType.worklistfacade;
+            
+        } else if (hasAssets(aProject,
+                ACEAssetDefinitions.GSD_SPECIAL_FOLDER_KIND,
+                ACEAssetDefinitions.GSD_FILE_EXTENSION)) {
+            projectType = DeploymenProjectType.globalsignal;
+            
+        } else if (hasAssets(aProject,
+                ACEAssetDefinitions.FORMS_SPECIAL_FOLDER_KIND,
+                ACEAssetDefinitions.FORMS_FILE_EXTENSION)) {
+            projectType = DeploymenProjectType.forms;
+
+        }
+
+        if (projectType != null) {
+            try {
+                deployment.setProperties(PROJECT_TYPE_PROPERTY_NAME,
+                        new PropertyValue[] { new PropertyValue(projectType.name()) });
+            } catch (RuntimeApplicationException e) {
+                throw new RascInternalException(
+                        "Failed adding project type to MANIFEST.MF (" + projectType.name() + ")", e); //$NON-NLS-1$ //$NON-NLS-2$
+            }
+        }
+
+    }
+
+    /**
+     * Sid ACE-4134 check if project has assets of the given kind.
+     * 
+     * @param aProject
+     * @param specialFolderKind
+     * @param fileExtension
+     * 
+     * @return <code>true</code> project has processes.
+     */
+    public boolean hasAssets(IProject aProject, String specialFolderKind, String fileExtension) {
+        List<IResource> resources = SpecialFolderUtil
+                .getAllDeepResourcesInSpecialFolderOfKind(aProject,
+                        specialFolderKind,
+                        fileExtension,
+                        false);
+
+        if ((resources != null) && (!resources.isEmpty())) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Enumeration of project types.
+     *
+     * @author aallway
+     * @since 15 Jul 2020
+     */
+    private enum DeploymenProjectType {
+        process, data, organization, globalsignal, worklistfacade, forms
+    }
+
+    /**
+     * An implementation of the RascContext that is based on a given IProject reference.
      */
     private static class RascContextImpl implements RascContext {
         private final RascAppSummary summary;

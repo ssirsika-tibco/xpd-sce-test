@@ -22,7 +22,6 @@ import org.eclipse.uml2.uml.Model;
 
 import com.tibco.bpm.da.dm.api.DataModel;
 import com.tibco.bpm.dt.rasc.MicroService;
-import com.tibco.bpm.dt.rasc.PropertyValue;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
@@ -144,10 +143,6 @@ public class CdmRascContributor implements RascContributor {
                         bomFile.getFullPath()));
             }
         }
-
-        /* Sid ACE-4134 add to Asset-Categories property for data added to the RASC. */
-        aWriter.setManifestAttribute(ASSET_CATEGORIES_PROPERTY_NAME,
-                new PropertyValue[] { new PropertyValue(DATA_RASC_ASSET_ID) });
 
         monitor.subTask(""); //$NON-NLS-1$
         monitor.done();
