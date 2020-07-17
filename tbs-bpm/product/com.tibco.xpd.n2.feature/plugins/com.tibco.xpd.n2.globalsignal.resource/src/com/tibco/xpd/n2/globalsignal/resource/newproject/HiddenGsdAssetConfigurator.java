@@ -7,7 +7,9 @@ package com.tibco.xpd.n2.globalsignal.resource.newproject;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 
+import com.tibco.xpd.n2.globalsignal.resource.GsdResourcePlugin;
 import com.tibco.xpd.resources.projectconfig.projectassets.IAssetConfigurator;
+import com.tibco.xpd.resources.projectconfig.projectassets.IProjectAssetVersionProvider;
 import com.tibco.xpd.resources.util.ProjectUtil;
 
 /**
@@ -20,7 +22,7 @@ import com.tibco.xpd.resources.util.ProjectUtil;
  * @author sajain
  * @since Apr 25, 2015
  */
-public class HiddenGsdAssetConfigurator implements IAssetConfigurator {
+public class HiddenGsdAssetConfigurator implements IAssetConfigurator, IProjectAssetVersionProvider {
 
     /*
      * (non-Javadoc)
@@ -38,6 +40,17 @@ public class HiddenGsdAssetConfigurator implements IAssetConfigurator {
          */
         ProjectUtil.addNature(project, GsdProjectNature.ID);
 
+    }
+
+    /**
+     * @see com.tibco.xpd.resources.projectconfig.projectassets.IProjectAssetVersionProvider#getVersion(org.eclipse.core.resources.IProject)
+     *
+     * @param project
+     * @return
+     */
+    @Override
+    public int getVersion(IProject project) {
+        return Integer.parseInt(GsdResourcePlugin.FORMAT_VERSION);
     }
 
 }

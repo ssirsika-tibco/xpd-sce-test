@@ -5,10 +5,10 @@ package com.tibco.xpd.resources.ui.internal.importexport;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -16,7 +16,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
@@ -56,11 +55,14 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.events.TraverseEvent;
 import org.eclipse.swt.events.TraverseListener;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
@@ -69,7 +71,6 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.internal.ide.StatusUtil;
 import org.eclipse.ui.internal.wizards.datatransfer.ArchiveFileManipulations;
 import org.eclipse.ui.internal.wizards.datatransfer.ILeveledImportStructureProvider;
-import org.eclipse.ui.internal.wizards.datatransfer.TarEntry;
 import org.eclipse.ui.internal.wizards.datatransfer.TarException;
 import org.eclipse.ui.internal.wizards.datatransfer.TarFile;
 import org.eclipse.ui.internal.wizards.datatransfer.TarLeveledStructureProvider;
@@ -119,152 +120,6 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
      */
     private ILeveledImportStructureProvider structureProvider;
 
-    /**
-     * Class declared public only for test suite.
-     * 
-     */
-    public class ProjectRecord {
-        File projectSystemFile;
-
-        Object projectArchiveFile;
-
-        String projectName;
-
-        Object parent;
-
-        int level;
-
-        IProjectDescription description;
-
-        /**
-         * Create a record for a project based on the info in the file.
-         * 
-         * @param file
-         */
-        ProjectRecord(File file) {
-            projectSystemFile = file;
-            setProjectName();
-        }
-
-        /**
-         * @param file
-         *            The Object representing the .project file
-         * @param parent
-         *            The parent folder of the .project file
-         * @param level
-         *            The number of levels deep in the provider the file is
-         */
-        ProjectRecord(Object file, Object parent, int level) {
-            this.projectArchiveFile = file;
-            this.parent = parent;
-            this.level = level;
-            setProjectName();
-        }
-
-        /**
-         * Set the name of the project based on the projectFile.
-         */
-        private void setProjectName() {
-            try {
-                if (projectArchiveFile != null) {
-                    InputStream stream =
-                            structureProvider.getContents(projectArchiveFile);
-
-                    // If we can get a description pull the name from there
-                    if (stream == null) {
-                        if (projectArchiveFile instanceof ZipEntry) {
-                            IPath path =
-                                    new Path(
-                                            ((ZipEntry) projectArchiveFile)
-                                                    .getName());
-                            projectName = path.segment(path.segmentCount() - 2);
-                        } else if (projectArchiveFile instanceof TarEntry) {
-                            IPath path =
-                                    new Path(
-                                            ((TarEntry) projectArchiveFile)
-                                                    .getName());
-                            projectName = path.segment(path.segmentCount() - 2);
-                        }
-                    } else {
-                        description =
-                                IDEWorkbenchPlugin.getPluginWorkspace()
-                                        .loadProjectDescription(stream);
-                        stream.close();
-                        projectName = description.getName();
-                    }
-
-                }
-
-                // If we don't have the project name try again
-                if (projectName == null) {
-                    IPath path = new Path(projectSystemFile.getPath());
-                    // if the file is in the default location, use the directory
-                    // name as the project name
-                    if (isDefaultLocation(path)) {
-                        projectName = path.segment(path.segmentCount() - 2);
-                        description =
-                                IDEWorkbenchPlugin.getPluginWorkspace()
-                                        .newProjectDescription(projectName);
-                    } else {
-                        description =
-                                IDEWorkbenchPlugin.getPluginWorkspace()
-                                        .loadProjectDescription(path);
-                        projectName = description.getName();
-                    }
-
-                }
-            } catch (CoreException e) {
-                // no good couldn't get the name
-            } catch (IOException e) {
-                // no good couldn't get the name
-            }
-        }
-
-        /**
-         * Returns whether the given project description file path is in the
-         * default location for a project
-         * 
-         * @param path
-         *            The path to examine
-         * @return Whether the given path is the default location for a project
-         */
-        private boolean isDefaultLocation(IPath path) {
-            // The project description file must at least be within the project,
-            // which is within the workspace location
-            if (path.segmentCount() < 2)
-                return false;
-            return path.removeLastSegments(2).toFile()
-                    .equals(Platform.getLocation().toFile());
-        }
-
-        /**
-         * Get the name of the project
-         * 
-         * @return String
-         */
-        public String getProjectName() {
-            return projectName;
-        }
-
-        /**
-         * Gets the label to be used when rendering this project record in the
-         * UI.
-         * 
-         * @return String the label
-         * @since 3.4
-         */
-        public String getProjectLabel() {
-            if (description == null)
-                return projectName;
-
-            String path =
-                    projectSystemFile == null ? structureProvider
-                            .getLabel(parent) : projectSystemFile.getParent();
-
-            return String.format("%s (%s)", projectName, path); //$NON-NLS-1$
-        }
-    }
-
     // dialog store id constants
     private final static String STORE_COPY_PROJECT_ID =
             "WizardProjectsImportPage.STORE_COPY_PROJECT_ID"; //$NON-NLS-1$
@@ -313,6 +168,16 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
     // to mimize searches
     private long lastModified;
 
+    private Button refreshBtn;
+
+    private Button deselectAllBtn;
+
+    private Button selectAllBtn;
+
+    private Button selectOnlyValidBtn;
+
+    private Composite buttonsComposite;
+
     /**
      * Creates a new project creation wizard page.
      * 
@@ -345,18 +210,33 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
 
         initializeDialogUnits(parent);
 
+
         Composite workArea = new Composite(parent, SWT.NONE);
         setControl(workArea);
 
         workArea.setLayout(new GridLayout());
-        workArea.setLayoutData(new GridData(GridData.FILL_BOTH
-                | GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL));
+        workArea.setLayoutData(new GridData(GridData.FILL_BOTH | GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL));
 
-        createProjectsRoot(workArea);
-        createProjectsList(workArea);
-        createOptionsArea(workArea);
+        Composite minSz = new Composite(workArea, SWT.NONE);
+        GridLayout gl = new GridLayout();
+        gl.marginLeft = gl.marginRight = gl.marginTop = gl.marginBottom = 0;
+        minSz.setLayout(gl);
+
+        GridData gd = new GridData(GridData.FILL_BOTH
+                | GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL);
+
+        if (Display.getDefault() != null) {
+            gd.minimumWidth = Math.min(800, (int) (Display.getDefault().getClientArea().width * 0.8));
+            gd.minimumHeight = Math.min(500, (int) (Display.getDefault().getClientArea().height * 0.8));
+        }
+
+        minSz.setLayoutData(gd);
+
+        createProjectsRoot(minSz);
+        createProjectsList(minSz);
+        createOptionsArea(minSz);
         restoreWidgetValues();
-        Dialog.applyDialogFont(workArea);
+        Dialog.applyDialogFont(minSz);
 
     }
 
@@ -520,7 +400,7 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
      * @param listComposite
      */
     private void createSelectionButtons(Composite listComposite) {
-        Composite buttonsComposite = new Composite(listComposite, SWT.NONE);
+        buttonsComposite = new Composite(listComposite, SWT.NONE);
         GridLayout layout = new GridLayout();
         layout.marginWidth = 0;
         layout.marginHeight = 0;
@@ -538,21 +418,39 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
 
         };
 
-        Button selectAll = new Button(buttonsComposite, SWT.PUSH);
-        selectAll.setText(Messages.ProjectsImportPage_selectAll_button);
-        selectAll.addSelectionListener(new SelectionAdapter() {
+        selectOnlyValidBtn = new Button(buttonsComposite, SWT.PUSH);
+        selectOnlyValidBtn.setText(Messages.ProjectsImportPage_SelectValidProjects_button);
+        selectOnlyValidBtn.setBackground(new Color(null, new RGB(255, 120, 0)));
+        selectOnlyValidBtn.setForeground(new Color(null, new RGB(255, 255, 255)));
+        selectOnlyValidBtn.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                /* Get the list of projects that can be imported not including those that require migration and do not have their dependencies already in workspace. */
+                Collection<ProjectRecord> projectsThatAreSafeToImport = ProjectsImportMigrationValidator.getDefault()
+                        .getProjectsThatAreSafeToImport(Arrays.asList(getValidProjects()));
+
+                projectsList.setCheckedElements(projectsThatAreSafeToImport.toArray());
+            }
+        });
+        selectOnlyValidBtn.addSelectionListener(selectionListenerRefresh);
+        Dialog.applyDialogFont(selectOnlyValidBtn);
+        showHideButton(selectOnlyValidBtn, false);
+
+        selectAllBtn = new Button(buttonsComposite, SWT.PUSH);
+        selectAllBtn.setText(Messages.ProjectsImportPage_selectAll_button);
+        selectAllBtn.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
                 projectsList.setCheckedElements(selectedProjects);
             }
         });
-        selectAll.addSelectionListener(selectionListenerRefresh);
-        Dialog.applyDialogFont(selectAll);
-        setButtonLayoutData(selectAll);
+        selectAllBtn.addSelectionListener(selectionListenerRefresh);
+        Dialog.applyDialogFont(selectAllBtn);
+        showHideButton(selectAllBtn, true);
 
-        Button deselectAll = new Button(buttonsComposite, SWT.PUSH);
-        deselectAll.setText(Messages.ProjectsImportPage_deselectAll_button);
-        deselectAll.addSelectionListener(new SelectionAdapter() {
+        deselectAllBtn = new Button(buttonsComposite, SWT.PUSH);
+        deselectAllBtn.setText(Messages.ProjectsImportPage_deselectAll_button);
+        deselectAllBtn.addSelectionListener(new SelectionAdapter() {
             /*
              * (non-Javadoc)
              * 
@@ -565,13 +463,13 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
                 projectsList.setCheckedElements(new Object[0]);
             }
         });
-        deselectAll.addSelectionListener(selectionListenerRefresh);
-        Dialog.applyDialogFont(deselectAll);
-        setButtonLayoutData(deselectAll);
+        deselectAllBtn.addSelectionListener(selectionListenerRefresh);
+        Dialog.applyDialogFont(deselectAllBtn);
+        showHideButton(deselectAllBtn, true);
 
-        Button refresh = new Button(buttonsComposite, SWT.PUSH);
-        refresh.setText(Messages.ProjectsImportPage_refresh_button);
-        refresh.addSelectionListener(new SelectionAdapter() {
+        refreshBtn = new Button(buttonsComposite, SWT.PUSH);
+        refreshBtn.setText(Messages.ProjectsImportPage_refresh_button);
+        refreshBtn.addSelectionListener(new SelectionAdapter() {
             /*
              * (non-Javadoc)
              * 
@@ -588,14 +486,16 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
                 }
             }
         });
-        refresh.addSelectionListener(selectionListenerRefresh);
-        Dialog.applyDialogFont(refresh);
-        setButtonLayoutData(refresh);
+        refreshBtn.addSelectionListener(selectionListenerRefresh);
+        Dialog.applyDialogFont(refreshBtn);
+        showHideButton(refreshBtn, true);
 
         // referenced projects button
         selectReferncedProjectsBtn = new Button(buttonsComposite, SWT.PUSH);
         selectReferncedProjectsBtn
                 .setText(Messages.InputOutputSelectionWizardPage_selectReferenced_btnDesc);
+        showHideButton(selectReferncedProjectsBtn, true);
+
         selectReferncedProjectsBtn.addSelectionListener(new SelectionAdapter() {
 
             @Override
@@ -620,6 +520,8 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
         selectReferencingProjectsBtn = new Button(buttonsComposite, SWT.NONE);
         selectReferencingProjectsBtn
                 .setText(Messages.InputOutputSelectionWizardPage_selectReferencing_btnDesc);
+        showHideButton(selectReferencingProjectsBtn, true);
+
         selectReferencingProjectsBtn
                 .addSelectionListener(new SelectionAdapter() {
 
@@ -656,8 +558,29 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
     }
 
     /**
-     * Refresh those UI controls that should reflect the status any
-     * selected/unselected associated projects
+     * @param selectOnlyValid
+     * @param show
+     */
+    private void showHideButton(Button button, boolean show) {
+        setButtonLayoutData(button);
+        
+        if (!show) {
+            Object ld = button.getLayoutData();
+            
+            if (ld instanceof GridData) {
+                ((GridData) ld).heightHint = 0;
+                ((GridData) ld).verticalIndent = 0;
+                ((GridData) ld).minimumHeight = 0;
+
+            }
+
+        }
+
+        button.setVisible(show);
+    }
+
+    /**
+     * Refresh those UI controls that should reflect the status any selected/unselected associated projects
      * 
      * @param viewer
      */
@@ -700,45 +623,72 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
         // Associated projects checks
         Set<ProjectRecord> selectedProjects = getSelectedProjects(projectsList);
 
+        boolean showSelectValidOnlyButton = false;
+
         if (!selectedProjects.isEmpty()) {
             try {
-                Set<String> hangingReferencedProjects = new HashSet<String>();
-                Set<ProjectRecord> nonSelectedReferencedProjects =
-                        getAllAssociatedProjects(ProjectAssociationEnum.REFERENCED,
-                                hangingReferencedProjects);
+                /*
+                 * Sid ACE-???? Check if there are projects that require migration whose dependent projects are no
+                 * already in the workspace (and any other migration considerations).
+                 */
+                IStatus validMigrationStatus = ProjectsImportMigrationValidator.getDefault()
+                        .validateProjectImportMigration(selectedProjects);
 
-                nonSelectedReferencedProjects.removeAll(selectedProjects);
-                if (!nonSelectedReferencedProjects.isEmpty()) {
-                    setMessage(Messages.InputOutputSelectionWizardPage_availableReferencedProjectsUnselected_warning_shortdesc,
-                            DialogPage.WARNING);
-                } else if (!hangingReferencedProjects.isEmpty()) {
-                    String msg =
-                            Messages.InputOutputSelectionWizardPage_unavailableReferencedProjects_warning_shortdesc;
+                if (!validMigrationStatus.isOK()) {
+                    setErrorMessage(validMigrationStatus.getMessage());
 
-                    // Construct arg for issue msg
-                    final String SEPARATOR = " / "; //$NON-NLS-1$
-                    StringBuilder sb = new StringBuilder();
-                    for (String token : hangingReferencedProjects) {
-                        sb.append(token).append(SEPARATOR);
-                    }
-                    sb.setLength(sb.lastIndexOf(SEPARATOR));
+                    showSelectValidOnlyButton = true;
 
-                    setMessage(String.format(msg, sb.toString()),
-                            DialogPage.WARNING);
                 } else {
-                    Set<ProjectRecord> nonSelectedReferencingProjects =
-                            getAllAssociatedProjects(ProjectAssociationEnum.REFERENCING);
-                    nonSelectedReferencingProjects.removeAll(selectedProjects);
-                    if (!nonSelectedReferencingProjects.isEmpty()) {
-                        setMessage(Messages.InputOutputSelectionWizardPage_availableReferencingProjectsUnselected_warning_shortdesc);
+
+                    Set<String> hangingReferencedProjects = new HashSet<String>();
+                    Set<ProjectRecord> nonSelectedReferencedProjects =
+                            getAllAssociatedProjects(ProjectAssociationEnum.REFERENCED, hangingReferencedProjects);
+
+                    nonSelectedReferencedProjects.removeAll(selectedProjects);
+                    if (!nonSelectedReferencedProjects.isEmpty()) {
+                        setMessage(
+                                Messages.InputOutputSelectionWizardPage_availableReferencedProjectsUnselected_warning_shortdesc,
+                                DialogPage.WARNING);
+                    } else if (!hangingReferencedProjects.isEmpty()) {
+                        String msg =
+                                Messages.InputOutputSelectionWizardPage_unavailableReferencedProjects_warning_shortdesc;
+
+                        // Construct arg for issue msg
+                        final String SEPARATOR = " / "; //$NON-NLS-1$
+                        StringBuilder sb = new StringBuilder();
+                        for (String token : hangingReferencedProjects) {
+                            sb.append(token).append(SEPARATOR);
+                        }
+                        sb.setLength(sb.lastIndexOf(SEPARATOR));
+
+                        setMessage(String.format(msg, sb.toString()), DialogPage.WARNING);
+                    } else {
+                        Set<ProjectRecord> nonSelectedReferencingProjects =
+                                getAllAssociatedProjects(ProjectAssociationEnum.REFERENCING);
+                        nonSelectedReferencingProjects.removeAll(selectedProjects);
+                        if (!nonSelectedReferencingProjects.isEmpty()) {
+                            setMessage(
+                                    Messages.InputOutputSelectionWizardPage_availableReferencingProjectsUnselected_warning_shortdesc);
+                        }
                     }
+                    ret = true;
                 }
-                ret = true;
+
             } catch (CyclicDependencyException e) {
                 setErrorMessage(Messages.InputOutputSelectionWizardPage_cyclicalReferencing_message);
             }
         }
 
+        showHideButton(selectOnlyValidBtn, showSelectValidOnlyButton);
+        showHideButton(selectAllBtn, !showSelectValidOnlyButton);
+        showHideButton(deselectAllBtn, true);
+        showHideButton(refreshBtn, true);
+        showHideButton(selectReferencingProjectsBtn, !showSelectValidOnlyButton);
+        showHideButton(selectReferncedProjectsBtn, !showSelectValidOnlyButton);
+
+        buttonsComposite.layout(true);
+        
         return ret;
     }
 
@@ -1072,7 +1022,7 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
         Set<IProjectDescription> ret = new HashSet<IProjectDescription>();
 
         for (ProjectRecord proj : projects)
-            ret.add(proj.description);
+            ret.add(proj.getProjectDescription());
 
         return ret;
     }
@@ -1103,7 +1053,7 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
 
         Map<String, ProjectRecord> ret = new HashMap<String, ProjectRecord>();
         for (ProjectRecord proj : selectedProjects) {
-            String key = proj.description.getName();
+            String key = proj.getProjectDescription().getName();
             ret.put(key, proj);
         }
 
@@ -1242,9 +1192,15 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
                         int index = 0;
                         monitor.worked(50);
                         monitor.subTask(Messages.ProjectsImportPage_processingResults_monitor_shortdesc);
+
                         while (filesIterator.hasNext()) {
                             File file = (File) filesIterator.next();
-                            selectedProjects[index] = new ProjectRecord(file);
+
+                            String projectFilePath = file.getPath();
+                            String configFilePath =
+                                    projectFilePath.replace(IProjectDescription.DESCRIPTION_FILE_NAME, ".config"); //$NON-NLS-1$
+
+                            selectedProjects[index] = new ProjectRecord(file, new File(configFilePath));
                             index++;
                         }
                     } else {
@@ -1268,7 +1224,8 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
         } else {
             setMessage(Messages.ProjectsImportPage_selectDirForProject_shortdesc);
         }
-        setPageComplete(projectsList.getCheckedElements().length > 0);
+
+        setPageComplete(projectsList.getCheckedElements().length > 0 && validatePage());
     }
 
     /**
@@ -1439,7 +1396,15 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
             }
             String elementLabel = structureProvider.getLabel(child);
             if (elementLabel.equals(IProjectDescription.DESCRIPTION_FILE_NAME)) {
-                files.add(new ProjectRecord(child, entry, level));
+
+                Object configFile = null;
+                for (Object c : children) {
+                    if (".config".equals(structureProvider.getLabel(c))) { //$NON-NLS-1$
+                        configFile = c;
+                    }
+                }
+
+                files.add(new ProjectRecord(structureProvider, child, entry, level, configFile));
             }
         }
         return true;
@@ -1598,24 +1563,23 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
             final IProject project =
                     workspace.getRoot().getProject(projectName);
 
-            if (record.description == null) {
+            if (record.getProjectDescription() == null) {
                 // error case
-                record.description =
-                        workspace.newProjectDescription(projectName);
+                record.setProjectDescription(workspace.newProjectDescription(projectName));
                 IPath locationPath =
-                        new Path(record.projectSystemFile.getAbsolutePath());
+                        new Path(record.getProjectSystemFile().getAbsolutePath());
 
                 // If it is under the root use the default location
                 if (Platform.getLocation().isPrefixOf(locationPath)) {
-                    record.description.setLocation(null);
+                    record.getProjectDescription().setLocation(null);
                 } else {
-                    record.description.setLocation(locationPath);
+                    record.getProjectDescription().setLocation(locationPath);
                 }
             } else {
-                record.description.setName(projectName);
+                record.getProjectDescription().setName(projectName);
             }
 
-            if (record.projectArchiveFile != null) {
+            if (record.getProjectArchiveFile() != null) {
                 // import from archive
                 importFromArchive(record,
                         project,
@@ -1661,7 +1625,7 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
                 // import project from location copying files - use default
                 // project
                 // location for this workspace
-                URI locationURI = record.description.getLocationURI();
+                URI locationURI = record.getProjectDescription().getLocationURI();
                 // if location is null, project already exists in this location
                 // or
                 // some error condition occured.
@@ -1669,18 +1633,19 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
                     importSource = new File(locationURI);
                     IProjectDescription desc =
                             workspace.newProjectDescription(projectName);
-                    desc.setBuildSpec(record.description.getBuildSpec());
-                    desc.setComment(record.description.getComment());
-                    desc.setDynamicReferences(record.description
+                    desc.setBuildSpec(record.getProjectDescription().getBuildSpec());
+                    desc.setComment(record.getProjectDescription().getComment());
+                    desc.setDynamicReferences(record.getProjectDescription()
                             .getDynamicReferences());
-                    desc.setNatureIds(record.description.getNatureIds());
-                    desc.setReferencedProjects(record.description
+                    desc.setNatureIds(record.getProjectDescription().getNatureIds());
+                    desc.setReferencedProjects(record.getProjectDescription()
                             .getReferencedProjects());
-                    record.description = desc;
+                    record.setProjectDescription(desc);
                 }
             }
 
-            project.create(record.description, SubProgressMonitorEx
+            project.create(record.getProjectDescription(),
+                    SubProgressMonitorEx
                     .createSubTaskProgressMonitor(monitor, 20));
 
             project.open(IResource.BACKGROUND_REFRESH, SubProgressMonitorEx
@@ -1727,8 +1692,8 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
     private void importFromArchive(final ProjectRecord record,
             final IProject project, IProgressMonitor monitor)
             throws InvocationTargetException, InterruptedException {
-        List fileSystemObjects = structureProvider.getChildren(record.parent);
-        structureProvider.setStrip(record.level);
+        List fileSystemObjects = structureProvider.getChildren(record.getParent());
+        structureProvider.setStrip(record.getLevel());
         StudioImportOperation operation =
                 new StudioImportOperation(project.getFullPath(),
                         structureProvider.getRoot(), structureProvider, this,
@@ -1942,7 +1907,7 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
             this.selectedProjects = selectedProjects;
 
             for (ProjectRecord rec : selectedProjects) {
-                String projName = rec.description.getName();
+                String projName = rec.getProjectDescription().getName();
                 projectsSet.put(projName, rec);
                 projectsPendingCreation.add(projName);
             }
@@ -2038,7 +2003,7 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
                 IProgressMonitor monitor) throws InvocationTargetException,
                 InterruptedException {
 
-            IProject[] references = projRec.description.getReferencedProjects();
+            IProject[] references = projRec.getProjectDescription().getReferencedProjects();
 
             /* If user has cancelled then stop */
             if (monitor.isCanceled()) {
@@ -2057,14 +2022,14 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
             }
 
             // create current project
-            if (projectsPendingCreation.contains(projRec.description.getName())) {
+            if (projectsPendingCreation.contains(projRec.getProjectDescription().getName())) {
 
                 IProject createdProj =
                         createProject(projRec,
                                 SubProgressMonitorEx
                                         .createMainProgressMonitor(monitor, 1));
                 if (createdProj != null) {
-                    projectsPendingCreation.remove(projRec.description
+                    projectsPendingCreation.remove(projRec.getProjectDescription()
                             .getName());
                     importedProjects.add(createdProj);
                 }

@@ -48,6 +48,8 @@ public class XpdResourcesUIConstants {
     public static final String PROJECT_WIZARD_PAGE =
             "icons/ProjectWizardPage.png"; //$NON-NLS-1$
 
+    public static final String PROJECT_WIZARD_PAGE_LARGE = "icons/ProjectWizardPageLarge.png"; //$NON-NLS-1$
+
     /**
      * Export wizard page images
      */
@@ -135,6 +137,6 @@ public class XpdResourcesUIConstants {
             IMG_SELECTALL_ICON, IMAGE_ADD, IMAGE_DELETE, IMAGE_UP, IMAGE_DOWN,
             IMAGE_EDIT, QUICKFIX_ACTION_ICON, ICON_COMPARATOR_FOLDER_NODE,
             ICON_DEFAULT_COMPARATOR_NODE, ICON_BLANK16,
-            ICON_STUDIO_FOR_MAA_FILE, ICON_LOCKED, ICON_UNLOCKED };
+            ICON_STUDIO_FOR_MAA_FILE, ICON_LOCKED, ICON_UNLOCKED, PROJECT_WIZARD_PAGE_LARGE };
 
 }

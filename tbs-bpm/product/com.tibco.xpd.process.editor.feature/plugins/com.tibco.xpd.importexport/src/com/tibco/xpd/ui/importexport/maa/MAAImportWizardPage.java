@@ -6,16 +6,15 @@ package com.tibco.xpd.ui.importexport.maa;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
@@ -52,11 +51,14 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.TraverseEvent;
 import org.eclipse.swt.events.TraverseListener;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
@@ -66,13 +68,14 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.internal.ide.StatusUtil;
 import org.eclipse.ui.internal.wizards.datatransfer.ArchiveFileManipulations;
-import org.eclipse.ui.internal.wizards.datatransfer.DataTransferMessages;
 import org.eclipse.ui.internal.wizards.datatransfer.ILeveledImportStructureProvider;
 import org.eclipse.ui.internal.wizards.datatransfer.ZipLeveledStructureProvider;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.eclipse.ui.wizards.datatransfer.ImportOperation;
 
 import com.tibco.xpd.importexport.internal.Messages;
+import com.tibco.xpd.resources.ui.internal.importexport.ProjectRecord;
+import com.tibco.xpd.resources.ui.internal.importexport.ProjectsImportMigrationValidator;
 import com.tibco.xpd.resources.ui.util.PostImportUtil;
 import com.tibco.xpd.resources.util.SubProgressMonitorEx;
 import com.tibco.xpd.ui.dialogs.AbstractXpdWizardPage;
@@ -98,158 +101,7 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
      * 
      * @since 3.4
      */
-    private ILeveledImportStructureProvider structureProvider;
-
-    /**
-     * Class declared public only for test suite.
-     * 
-     */
-    public class ProjectRecord {
-        File projectSystemFile;
-
-        Object projectArchiveFile;
-
-        String projectName;
-
-        Object parent;
-
-        int level;
-
-        IProjectDescription description;
-
-        ILeveledImportStructureProvider structureProvider;
-
-        /**
-         * Create a record for a project based on the info in the file.
-         * 
-         * @param file
-         */
-        ProjectRecord(File file) {
-            projectSystemFile = file;
-            setProjectName();
-        }
-
-        /**
-         * @param file
-         *            The Object representing the .project file
-         * @param parent
-         *            The parent folder of the .project file
-         * @param level
-         *            The number of levels deep in the provider the file is
-         * @param structureProvider
-         */
-        ProjectRecord(Object file, Object parent, int level,
-                ILeveledImportStructureProvider structureProvider) {
-            this.projectArchiveFile = file;
-            this.parent = parent;
-            this.level = level;
-            this.structureProvider = structureProvider;
-            setProjectName();
-        }
-
-        /**
-         * Set the name of the project based on the projectFile.
-         */
-        private void setProjectName() {
-            try {
-                if (projectArchiveFile != null) {
-                    InputStream stream =
-                            structureProvider.getContents(projectArchiveFile);
-
-                    // If we can get a description pull the name from there
-                    if (stream == null) {
-                        if (projectArchiveFile instanceof ZipEntry) {
-                            IPath path =
-                                    new Path(
-                                            ((ZipEntry) projectArchiveFile)
-                                                    .getName());
-                            projectName = path.segment(path.segmentCount() - 2);
-                        }
-                    } else {
-                        description =
-                                IDEWorkbenchPlugin.getPluginWorkspace()
-                                        .loadProjectDescription(stream);
-                        stream.close();
-                        projectName = description.getName();
-                    }
-
-                }
-
-                // If we don't have the project name try again
-                if (projectName == null) {
-                    IPath path = new Path(projectSystemFile.getPath());
-                    // if the file is in the default location, use the directory
-                    // name as the project name
-                    if (isDefaultLocation(path)) {
-                        projectName = path.segment(path.segmentCount() - 1);
-                        description =
-                                IDEWorkbenchPlugin.getPluginWorkspace()
-                                        .newProjectDescription(projectName);
-                    } else {
-                        description =
-                                IDEWorkbenchPlugin.getPluginWorkspace()
-                                        .loadProjectDescription(path);
-                        projectName = description.getName();
-                    }
-
-                }
-            } catch (CoreException e) {
-                // no good couldn't get the name
-            } catch (IOException e) {
-                // no good couldn't get the name
-            }
-        }
-
-        /**
-         * Returns whether the given project description file path is in the
-         * default location for a project
-         * 
-         * @param path
-         *            The path to examine
-         * @return Whether the given path is the default location for a project
-         */
-        private boolean isDefaultLocation(IPath path) {
-            // The project description file must at least be within the project,
-            // which is within the workspace location
-            if (path.segmentCount() < 2)
-                return false;
-            return path.removeLastSegments(2).toFile()
-                    .equals(Platform.getLocation().toFile());
-        }
-
-        /**
-         * Get the name of the project
-         * 
-         * @return String
-         */
-        public String getProjectName() {
-            return projectName;
-        }
-
-        /**
-         * Gets the label to be used when rendering this project record in the
-         * UI.
-         * 
-         * @return String the label
-         * @since 3.4
-         */
-        public String getProjectLabel() {
-            if (description == null)
-                return projectName;
-            String zipName =
-                    ((ZipLeveledStructureProvider) structureProvider)
-                            .getZipFile().getName();
-
-            String path =
-                    projectSystemFile == null ? zipName : projectSystemFile
-                            .getParent();
-
-            return NLS
-                    .bind(DataTransferMessages.WizardProjectsImportPage_projectLabel,
-                            projectName,
-                            path);
-        }
-    }
+    // private ILeveledImportStructureProvider structureProvider;
 
     // dialog store id constants
     private final static String STORE_COPY_PROJECT_ID =
@@ -294,6 +146,16 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
     // to mimize searches
     private long lastModified;
 
+    private Button selectAll;
+
+    private Button deselectAll;
+
+    private Button refresh;
+
+    private Composite buttonsComposite;
+
+    private Button selectOnlyValidBtn;
+
     /**
      * Creates a new project creation wizard page.
      * 
@@ -318,33 +180,73 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
         setMessage(null);
         setErrorMessage(null);
 
-        ArrayList<String> names = new ArrayList<String>();
-        ArrayList<String> duplicates = new ArrayList<String>();
+        Set<ProjectRecord> checkedProjects = getSelectedProjects(projectsList);
 
-        for (Object object : projectsList.getCheckedElements()) {
-            if (object instanceof ProjectRecord) {
-                ProjectRecord projectRecord = (ProjectRecord) object;
-                if (!names.contains(projectRecord.projectName)) {
-                    names.add(projectRecord.projectName);
-                } else {
-                    if (!duplicates.contains(projectRecord.projectName)) {
-                        duplicates.add(projectRecord.projectName);
+        /*
+         * Sid ACE-???? Check if there are projects that require migration whose dependent projects are no already in
+         * the workspace (and any other migration considerations).
+         */
+        boolean showSelectValidOnlyButton = false;
+
+        IStatus validMigrationStatus =
+                ProjectsImportMigrationValidator.getDefault().validateProjectImportMigration(checkedProjects);
+
+        if (!validMigrationStatus.isOK()) {
+            setErrorMessage(validMigrationStatus.getMessage());
+            showSelectValidOnlyButton = true;
+
+        } else {
+
+            ArrayList<String> names = new ArrayList<String>();
+            ArrayList<String> duplicates = new ArrayList<String>();
+
+            for (Object object : projectsList.getCheckedElements()) {
+                if (object instanceof ProjectRecord) {
+                    ProjectRecord projectRecord = (ProjectRecord) object;
+                    if (!names.contains(projectRecord.getProjectName())) {
+                        names.add(projectRecord.getProjectName());
+                    } else {
+                        if (!duplicates.contains(projectRecord.getProjectName())) {
+                            duplicates.add(projectRecord.getProjectName());
+                        }
+                    }
+                }
+            }
+
+            for (Object object : projectsList.getCheckedElements()) {
+                if (object instanceof ProjectRecord) {
+                    ProjectRecord projectRecord = (ProjectRecord) object;
+                    if (duplicates.contains(projectRecord.getProjectName())) {
+                        setErrorMessage(Messages.MaaImportWizardPage_DuplicateFileError_message);
+                        return false;
                     }
                 }
             }
         }
 
-        for (Object object : projectsList.getCheckedElements()) {
-            if (object instanceof ProjectRecord) {
-                ProjectRecord projectRecord = (ProjectRecord) object;
-                if (duplicates.contains(projectRecord.projectName)) {
-                    setErrorMessage(Messages.MaaImportWizardPage_DuplicateFileError_message);
-                    return false;
-                }
+        showHideButton(selectOnlyValidBtn, showSelectValidOnlyButton);
+        showHideButton(selectAll, !showSelectValidOnlyButton);
+        showHideButton(deselectAll, true);
+        showHideButton(refresh, true);
+
+        buttonsComposite.layout(true);
+        return true;
+    }
+
+    /**
+     * @return Set of ProjectRecords corresponding to checked items in a CheckboxTreeViewer
+     */
+    private Set<ProjectRecord> getSelectedProjects(CheckboxTreeViewer viewer) {
+
+        Set<ProjectRecord> selectedProjects = new HashSet<ProjectRecord>();
+        for (Object obj : viewer.getCheckedElements()) {
+            if (obj instanceof ProjectRecord) {
+                selectedProjects.add((ProjectRecord) obj);
+            } else {
+                // assert failure
             }
         }
-
-        return true;
+        return selectedProjects;
     }
 
     /*
@@ -366,10 +268,24 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
         workArea.setLayoutData(new GridData(GridData.FILL_BOTH
                 | GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL));
 
-        createProjectsRoot(workArea);
-        createProjectsList(workArea);
+        Composite minSz = new Composite(workArea, SWT.NONE);
+        GridLayout gl = new GridLayout();
+        gl.marginLeft = gl.marginRight = gl.marginTop = gl.marginBottom = 0;
+        minSz.setLayout(gl);
+
+        GridData gd = new GridData(GridData.FILL_BOTH | GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL);
+
+        if (Display.getDefault() != null) {
+            gd.minimumWidth = Math.min(800, (int) (Display.getDefault().getClientArea().width * 0.8));
+            gd.minimumHeight = Math.min(500, (int) (Display.getDefault().getClientArea().height * 0.8));
+        }
+
+        minSz.setLayoutData(gd);
+
+        createProjectsRoot(minSz);
+        createProjectsList(minSz);
         restoreWidgetValues();
-        Dialog.applyDialogFont(workArea);
+        Dialog.applyDialogFont(minSz);
 
     }
 
@@ -513,7 +429,7 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
      * @param listComposite
      */
     private void createSelectionButtons(Composite listComposite) {
-        Composite buttonsComposite = new Composite(listComposite, SWT.NONE);
+        buttonsComposite = new Composite(listComposite, SWT.NONE);
         GridLayout layout = new GridLayout();
         layout.marginWidth = 0;
         layout.marginHeight = 0;
@@ -522,7 +438,29 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
         buttonsComposite.setLayoutData(new GridData(
                 GridData.VERTICAL_ALIGN_BEGINNING));
 
-        Button selectAll = new Button(buttonsComposite, SWT.PUSH);
+        selectOnlyValidBtn = new Button(buttonsComposite, SWT.PUSH);
+        selectOnlyValidBtn.setText(Messages.MAAImportWizardPage_SelectValidProjects_button);
+        selectOnlyValidBtn.setBackground(new Color(null, new RGB(255, 120, 0)));
+        selectOnlyValidBtn.setForeground(new Color(null, new RGB(255, 255, 255)));
+        selectOnlyValidBtn.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                /*
+                 * Get the list of projects that can be imported not including those that require migration and do not
+                 * have their dependencies already in workspace.
+                 */
+                Collection<ProjectRecord> projectsThatAreSafeToImport = ProjectsImportMigrationValidator.getDefault()
+                        .getProjectsThatAreSafeToImport(Arrays.asList(getValidProjects()));
+
+                projectsList.setCheckedElements(projectsThatAreSafeToImport.toArray());
+
+                setPageComplete(validatePage());
+            }
+        });
+        Dialog.applyDialogFont(selectOnlyValidBtn);
+        showHideButton(selectOnlyValidBtn, false);
+
+        selectAll = new Button(buttonsComposite, SWT.PUSH);
         selectAll.setText(Messages.MaaImportWizardPage_selectAll);
         selectAll.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -534,9 +472,9 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
             }
         });
         Dialog.applyDialogFont(selectAll);
-        setButtonLayoutData(selectAll);
+        showHideButton(selectAll, true);
 
-        Button deselectAll = new Button(buttonsComposite, SWT.PUSH);
+        deselectAll = new Button(buttonsComposite, SWT.PUSH);
         deselectAll.setText(Messages.MaaImportWizardPage_deselectAll);
         deselectAll.addSelectionListener(new SelectionAdapter() {
             /*
@@ -554,9 +492,9 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
             }
         });
         Dialog.applyDialogFont(deselectAll);
-        setButtonLayoutData(deselectAll);
+        showHideButton(deselectAll, true);
 
-        Button refresh = new Button(buttonsComposite, SWT.PUSH);
+        refresh = new Button(buttonsComposite, SWT.PUSH);
         refresh.setText(Messages.MaaImportWizardPage_refresh);
         refresh.addSelectionListener(new SelectionAdapter() {
             /*
@@ -576,7 +514,29 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
             }
         });
         Dialog.applyDialogFont(refresh);
-        setButtonLayoutData(refresh);
+        showHideButton(refresh, true);
+    }
+
+    /**
+     * @param selectOnlyValid
+     * @param show
+     */
+    private void showHideButton(Button button, boolean show) {
+        setButtonLayoutData(button);
+
+        if (!show) {
+            Object ld = button.getLayoutData();
+
+            if (ld instanceof GridData) {
+                ((GridData) ld).heightHint = 0;
+                ((GridData) ld).verticalIndent = 0;
+                ((GridData) ld).minimumHeight = 0;
+
+            }
+
+        }
+
+        button.setVisible(show);
     }
 
     /**
@@ -855,14 +815,16 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
                         if (sourceFile == null) {
                             return;
                         }
-                        structureProvider =
+
+                        ILeveledImportStructureProvider structureProvider =
                                 new ZipLeveledStructureProvider(sourceFile);
                         Object child = structureProvider.getRoot();
 
                         if (!collectProjectFilesFromProvider(files,
                                 child,
                                 0,
-                                monitor)) {
+                                monitor,
+                                structureProvider)) {
                             return;
                         }
                         Iterator filesIterator = files.iterator();
@@ -897,7 +859,7 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
                                 if (sourceFile == null) {
                                     return;
                                 }
-                                structureProvider =
+                                ILeveledImportStructureProvider structureProvider =
                                         new ZipLeveledStructureProvider(
                                                 sourceFile);
                                 Object child = structureProvider.getRoot();
@@ -905,7 +867,8 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
                                 if (!collectProjectFilesFromProvider(zipFiles,
                                         child,
                                         0,
-                                        monitor)) {
+                                        monitor,
+                                        structureProvider)) {
                                     return;
                                 }
                             } catch (IOException e) {
@@ -944,9 +907,8 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
         } else {
             setMessage(Messages.MaaImportWizardPage_ImportProjectsDescription);
         }
-        if (projectsList.getCheckedElements().length > 0) {
-            setPageComplete(validatePage());
-        }
+
+        setPageComplete(projectsList.getCheckedElements().length > 0 && validatePage());
     }
 
     /**
@@ -1045,10 +1007,11 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
      * @param files
      * @param monitor
      *            The monitor to report to
+     * @param structureProvider
      * @return boolean <code>true</code> if the operation was completed.
      */
     private boolean collectProjectFilesFromProvider(Collection files,
-            Object entry, int level, IProgressMonitor monitor) {
+            Object entry, int level, IProgressMonitor monitor, ILeveledImportStructureProvider structureProvider) {
 
         if (monitor.isCanceled()) {
             return false;
@@ -1066,12 +1029,19 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
                 collectProjectFilesFromProvider(files,
                         child,
                         level + 1,
-                        monitor);
+                        monitor,
+                        structureProvider);
             }
             String elementLabel = structureProvider.getLabel(child);
             if (elementLabel.equals(IProjectDescription.DESCRIPTION_FILE_NAME)) {
-                files.add(new ProjectRecord(child, entry, level,
-                        structureProvider));
+                Object configFile = null;
+                for (Object c : children) {
+                    if (".config".equals(structureProvider.getLabel(c))) { //$NON-NLS-1$
+                        configFile = c;
+                    }
+                }
+
+                files.add(new ProjectRecord(structureProvider, child, entry, level, configFile));
             }
         }
         return true;
@@ -1190,8 +1160,10 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
             ErrorDialog.openError(getShell(), message, null, status);
             return false;
         }
-        ArchiveFileManipulations.closeStructureProvider(structureProvider,
-                getShell());
+
+        for (ProjectRecord projectRecord : selectedProjects) {
+            ArchiveFileManipulations.closeStructureProvider(projectRecord.getStructureProvider(), getShell());
+        }
         return true;
     }
 
@@ -1199,8 +1171,9 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
      * Performs clean-up if the user cancels the wizard without doing anything
      */
     public void performCancel() {
-        ArchiveFileManipulations.closeStructureProvider(structureProvider,
-                getShell());
+        for (ProjectRecord projectRecord : selectedProjects) {
+            ArchiveFileManipulations.closeStructureProvider(projectRecord.getStructureProvider(), getShell());
+        }
     }
 
     /**
@@ -1216,29 +1189,29 @@ public class MAAImportWizardPage extends AbstractXpdWizardPage implements
         String projectName = record.getProjectName();
         final IWorkspace workspace = ResourcesPlugin.getWorkspace();
         final IProject project = workspace.getRoot().getProject(projectName);
-        if (record.description == null) {
+        if (record.getProjectDescription() == null) {
             // error case
-            record.description = workspace.newProjectDescription(projectName);
+            record.setProjectDescription(workspace.newProjectDescription(projectName));
             IPath locationPath =
-                    new Path(record.projectSystemFile.getAbsolutePath());
+                    new Path(record.getProjectSystemFile().getAbsolutePath());
             // If it is under the root use the default location
             if (Platform.getLocation().isPrefixOf(locationPath)) {
-                record.description.setLocation(null);
+                record.getProjectDescription().setLocation(null);
             } else {
-                record.description.setLocation(locationPath);
+                record.getProjectDescription().setLocation(locationPath);
             }
         } else {
-            record.description.setName(projectName);
+            record.getProjectDescription().setName(projectName);
         }
-        if (record.projectArchiveFile != null) {
+        if (record.getProjectArchiveFile() != null) {
             // import from archive
             List fileSystemObjects =
-                    record.structureProvider.getChildren(record.parent);
-            record.structureProvider.setStrip(record.level);
+                    record.getStructureProvider().getChildren(record.getParent());
+            record.getStructureProvider().setStrip(record.getLevel());
             ImportOperation operation =
                     new ImportOperation(project.getFullPath(),
-                            record.structureProvider.getRoot(),
-                            record.structureProvider, this, fileSystemObjects);
+                            record.getStructureProvider().getRoot(), record.getStructureProvider(), this,
+                            fileSystemObjects);
             operation.setContext(getShell());
             operation.run(monitor);
 

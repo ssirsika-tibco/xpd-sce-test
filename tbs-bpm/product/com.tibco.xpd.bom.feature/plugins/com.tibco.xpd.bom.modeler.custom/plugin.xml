@@ -1038,6 +1038,12 @@
                id="com.tibco.xpd.bom.resources.businessDataProjectNature">
          </nature>
       </bindings>
+      <dynamicVersion
+            versionProvider="com.tibco.xpd.bom.modeler.custom.internal.projectasset.BusinessDataAssetConfigurator">
+      </dynamicVersion>
+      <assetMigration
+            class="com.tibco.xpd.bom.modeler.custom.internal.projectasset.BusinessDataAssetMigration">
+      </assetMigration>
    </asset>
 </extension>
 <!-- ACE-2011: Remove Unsupported features.(Generic "Analysis Project")

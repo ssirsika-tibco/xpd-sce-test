@@ -3,6 +3,7 @@
  */
 package com.tibco.xpd.resources.ui.internal.importexport;
 
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
@@ -11,6 +12,7 @@ import org.eclipse.ui.IWorkbench;
 
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.ui.XpdResourcesUIActivator;
+import com.tibco.xpd.resources.ui.XpdResourcesUIConstants;
 import com.tibco.xpd.resources.ui.internal.Messages;
 
 /**
@@ -58,7 +60,8 @@ public class StudioImportProjectWizard extends Wizard implements IImportWizard {
 
     @Override
     public void init(IWorkbench workbench, IStructuredSelection selection) {
-        // Nothing to do here
+        setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(XpdResourcesUIActivator
+                .getDefault().getImageRegistry().get(XpdResourcesUIConstants.PROJECT_WIZARD_PAGE_LARGE)));
     }
 
     @Override

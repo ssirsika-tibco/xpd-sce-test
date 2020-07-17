@@ -266,5 +266,9 @@ public class Messages extends NLS {
 
     public static String MAAFromImportExportWizard_DestinationExistsDialog_title;
 
+    public static String MAAImportWizardPage_SelectValidProjects_button;
+
     public static String MAAInputOutputSelectionWizardPage_newMAA_fileDialog_title;
+
+    public static String Question;
 }

@@ -558,6 +558,8 @@ public class Messages extends NLS {
 
     public static String ProjectExportPage_toArchiveFile_label;
 
+    public static String ProjectsImportMigrationValidator_ImportDependenciesFirstForMigration_message;
+
     public static String ProjectsImportPage_browse_button;
 
     public static String ProjectsImportPage_cannotReadSrcFile_error_shortdesc;
@@ -611,6 +613,8 @@ public class Messages extends NLS {
     public static String ProjectsImportPage_selectProjectRootDirDlg_title;
 
     public static String ProjectsImportPage_selectRootDir_button;
+
+    public static String ProjectsImportPage_SelectValidProjects_button;
 
     public static String ProjectsImportPage_title;
 

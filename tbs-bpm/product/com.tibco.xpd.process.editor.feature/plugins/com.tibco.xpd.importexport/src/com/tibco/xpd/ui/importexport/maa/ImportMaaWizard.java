@@ -4,13 +4,15 @@
 
 package com.tibco.xpd.ui.importexport.maa;
 
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 
 import com.tibco.xpd.importexport.internal.Messages;
+import com.tibco.xpd.resources.ui.XpdResourcesUIActivator;
+import com.tibco.xpd.resources.ui.XpdResourcesUIConstants;
 
 /**
  * Imports Modelled Application Archive (MAA) file into workspace
@@ -57,9 +59,8 @@ public class ImportMaaWizard extends Wizard implements IImportWizard {
      */
     @Override
     public void init(IWorkbench workbench, IStructuredSelection selection) {
-        setDefaultPageImageDescriptor(IDEWorkbenchPlugin
-                .getIDEImageDescriptor("wizban/importproj_wiz.png")); //$NON-NLS-1$
-
+        setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(XpdResourcesUIActivator
+                .getDefault().getImageRegistry().get(XpdResourcesUIConstants.PROJECT_WIZARD_PAGE_LARGE)));
     }
 
 }

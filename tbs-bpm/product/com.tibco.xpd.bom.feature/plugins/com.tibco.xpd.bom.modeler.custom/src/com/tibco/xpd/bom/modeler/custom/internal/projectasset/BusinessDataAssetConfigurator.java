@@ -25,6 +25,7 @@ import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.projectassets.IAssetConfigurator;
+import com.tibco.xpd.resources.projectconfig.projectassets.IProjectAssetVersionProvider;
 import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.UnprotectedWriteOperation;
@@ -35,7 +36,7 @@ import com.tibco.xpd.resources.util.WorkingCopyUtil;
  * 
  * @author njpatel
  */
-public class BusinessDataAssetConfigurator implements IAssetConfigurator {
+public class BusinessDataAssetConfigurator implements IAssetConfigurator, IProjectAssetVersionProvider {
 
     @Override
     public void configure(IProject project, Object configuration)
@@ -126,6 +127,17 @@ public class BusinessDataAssetConfigurator implements IAssetConfigurator {
         }
 
         return false;
+    }
+
+    /**
+     * @see com.tibco.xpd.resources.projectconfig.projectassets.IProjectAssetVersionProvider#getVersion(org.eclipse.core.resources.IProject)
+     *
+     * @param project
+     * @return
+     */
+    @Override
+    public int getVersion(IProject project) {
+        return Integer.parseInt(BOMResourcesPlugin.BOM_VERSION);
     }
 
 }
