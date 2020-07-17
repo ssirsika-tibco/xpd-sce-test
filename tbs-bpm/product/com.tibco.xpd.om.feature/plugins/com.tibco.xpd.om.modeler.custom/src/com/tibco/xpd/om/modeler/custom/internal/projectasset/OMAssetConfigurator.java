@@ -97,7 +97,7 @@ public class OMAssetConfigurator extends AbstractSpecialFolderAssetConfigurator
                             } catch (PartInitException ex) {
                                 OrganizationModelDiagramEditorPlugin
                                         .getInstance()
-                                        .logError("Unable to open editor", ex); //$NON-NLS-1$
+                                        .logError("Unable to open editor.", ex); //$NON-NLS-1$
                             }
 
                         }
