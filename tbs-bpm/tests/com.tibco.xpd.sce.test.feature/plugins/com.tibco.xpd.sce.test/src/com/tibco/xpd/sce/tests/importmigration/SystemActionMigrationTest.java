@@ -84,7 +84,19 @@ public class SystemActionMigrationTest extends TestCase {
             { "BIZSVC", "executeBusinessService" }, //
 
             { "WSB", "startBusinessService" }, //
-            { "WSB", "applicationConfiguration" } //
+            { "WSB", "applicationConfiguration" }, //
+
+            { "PE", "resumeProcessInstance" }, //
+            { "PE", "suspendProcessInstance" }, //
+            { "PE", "cancelProcessInstance" }, //
+            { "PE", "purgeProcessInstances" }, //
+            { "PE", "bulkResumeProcessInstances" }, //
+            { "PE", "bulkSuspendProcessInstances" }, //
+            { "PE", "bulkCancelProcessInstances" }, //
+            { "PE", "bulkPurgeProcessInstances" }, //
+            { "PE", "queryProcessInstance" }, //
+            { "PE", "queryProcessTemplate" }, //
+            { "PE", "haltedProcessAdministration" } //
     };
 
     // the new actions that are migrated from older actions during migration
@@ -94,7 +106,13 @@ public class SystemActionMigrationTest extends TestCase {
             { "CDM", "readCase" }, //
             { "APPDEV", "useCaseDocument" }, //
             { "APPDEV", "administerCaseDocument" }, //
-            { "APPDEV", "appDev" } //
+            { "APPDEV", "appDev" }, //
+            { "PE", "resumeSuspendProcessInstance" }, //
+            { "PE", "cancelPurgeProcessInstance" }, //
+            { "PE", "bulkResumeSuspendProcessInstances" }, //
+            { "PE", "bulkCancelPurgeProcessInstances" }, //
+            { "PE", "queryProcess" } //
+
     };
 
     // @Test
@@ -247,108 +265,109 @@ public class SystemActionMigrationTest extends TestCase {
             }
 
             // test for merged privileges with EC - Query Audit
-            if ((Objects.equals("EC", action.getComponent())) && (Objects.equals("queryAudit", action.getActionId()))) {
-                // The queryAudit action has privileges from a merged queryStatitics action with qualifiers
-                // this will ensure that the qualifiers are merged correctly
-                ExpectedPrivAssoc[] expected = { //
-                        new ExpectedPrivAssoc("QueryAudit", "Value1", "Value2", "Value3", "Value4"), //
-                        new ExpectedPrivAssoc("QueryStatistics", "Value1", "Value2") //
-                };
-
-                // this should now have enum values merged from EC - Query Statistics action
-                EList<PrivilegeAssociation> associations = action.getPrivilegeAssociations();
-                assertEquals("Unexpected number of privilege association for 'queryAudit' system action",
-                        expected.length,
-                        associations.size());
-                for (PrivilegeAssociation privAssoc : associations) {
-                    boolean found = false;
-
-                    for (ExpectedPrivAssoc expect : expected) {
-                        if (expect.compare(privAssoc)) {
-                            found = true;
-                            break;
-                        }
-                    }
-
-                    if (!found)
-                    {
-                        fail("Unexpected privilege association for 'queryAudit' system action: "
-                                + privAssoc.getPrivilege().getName());
-                    }
-                }
-            }
+            checkMergedPrivileges(action,
+                    "EC",
+                    "queryAudit",
+                    new ExpectedPrivAssoc[] { //
+                            new ExpectedPrivAssoc("QueryAudit", "Value1", "Value2", "Value3", "Value4"), //
+                            new ExpectedPrivAssoc("QueryStatistics", "Value1", "Value2") //
+                    });
 
             // test for merged privileges with BDS createCase, updateCase into createUpdateCase
-            if ((Objects.equals("CDM", action.getComponent()))
-                    && (Objects.equals("createUpdateCase", action.getActionId()))) {
-                // The createUpdateDeleteCase action has privileges from a merged createCase, updateCase, deleteCase
-                // action
-                ExpectedPrivAssoc[] expected = { //
-                        new ExpectedPrivAssoc("CreateGlobalData"), //
-                        new ExpectedPrivAssoc("UpdateGlobalData") //
-                };
-
-                // this should now have enum values merged from EC - Query Statistics action
-                EList<PrivilegeAssociation> associations = action.getPrivilegeAssociations();
-                assertEquals("Unexpected number of privilege association for 'createUpdateCase' system action",
-                        expected.length,
-                        associations.size());
-                for (PrivilegeAssociation privAssoc : associations) {
-                    boolean found = false;
-
-                    for (ExpectedPrivAssoc expect : expected) {
-                        if (expect.compare(privAssoc)) {
-                            found = true;
-                            break;
-                        }
-                    }
-
-                    if (!found) {
-                        fail("Unexpected privilege association for 'createUpdateCase' system action: "
-                                + privAssoc.getPrivilege().getName());
-                    }
-                }
-            }
+            checkMergedPrivileges(action,
+                    "CDM",
+                    "createUpdateCase",
+                    new ExpectedPrivAssoc[] { //
+                            new ExpectedPrivAssoc("CreateGlobalData"), //
+                            new ExpectedPrivAssoc("UpdateGlobalData") //
+                    });
 
             // test for merged privileges with APPDEV canEditLocales, canEditApplication, canPublishApplication,
             // contributeGadget into appDev
-            if ((Objects.equals("APPDEV", action.getComponent())) && (Objects.equals("appDev", action.getActionId()))) {
-                // The appDev action has privileges from a merged canEditLocales, canEditApplication,
-                // canPublishApplication,
-                // contributeGadget
-                ExpectedPrivAssoc[] expected = { //
-                        new ExpectedPrivAssoc("CanEditLocales"), //
-                        new ExpectedPrivAssoc("CanEditApplication"), //
-                        new ExpectedPrivAssoc("CanPublishApplication"), //
-                        new ExpectedPrivAssoc("ContributeGadget") //
-                };
+            checkMergedPrivileges(action,
+                    "APPDEV",
+                    "appDev",
+                    new ExpectedPrivAssoc[] { //
+                            new ExpectedPrivAssoc("CanEditLocales"), //
+                            new ExpectedPrivAssoc("CanEditApplication"), //
+                            new ExpectedPrivAssoc("CanPublishApplication"), //
+                            new ExpectedPrivAssoc("ContributeGadget") //
+                    });
 
-                // this should now have enum values merged from EC - Query Statistics action
-                EList<PrivilegeAssociation> associations = action.getPrivilegeAssociations();
-                assertEquals("Unexpected number of privilege association for 'appDev' system action",
-                        expected.length,
-                        associations.size());
-                for (PrivilegeAssociation privAssoc : associations) {
-                    boolean found = false;
 
-                    for (ExpectedPrivAssoc expect : expected) {
-                        if (expect.compare(privAssoc)) {
-                            found = true;
-                            break;
-                        }
-                    }
+            /*
+             * test for merged privileges with PE resumeProcessInstance, suspendProcessInstance, cancelProcessInstance,
+             * purgeProcessInstances, bulkResumeProcessInstances, bulkSuspendProcessInstances,
+             * bulkCancelProcessInstances, bulkPurgeProcessInstances, queryProcessInstance, queryProcessTemplate,
+             * haltedProcessAdministration into various
+             */
+            checkMergedPrivileges(action,
+                    "PE",
+                    "resumeSuspendProcessInstance",
+                    new ExpectedPrivAssoc[] { //
+                            new ExpectedPrivAssoc("ResumeProcessInstance"), //
+                            new ExpectedPrivAssoc("SuspendProcessInstance"),
+                            new ExpectedPrivAssoc("HaltedProcessAdministration") });
 
-                    if (!found) {
-                        fail("Unexpected privilege association for 'appDev' system action: "
-                                + privAssoc.getPrivilege().getName());
-                    }
-                }
-            }
+            checkMergedPrivileges(action,
+                    "PE",
+                    "cancelPurgeProcessInstance",
+                    new ExpectedPrivAssoc[] { //
+                            new ExpectedPrivAssoc("CancelProcessInstance"), //
+                            new ExpectedPrivAssoc("PurgeProcessInstances") });
 
+            checkMergedPrivileges(action,
+                    "PE",
+                    "bulkResumeSuspendProcessInstances",
+                    new ExpectedPrivAssoc[] { //
+                            new ExpectedPrivAssoc("BulkResumeProcessInstances"), //
+                            new ExpectedPrivAssoc("BulkSuspendProcessInstances") });
+
+            checkMergedPrivileges(action,
+                    "PE",
+                    "bulkCancelPurgeProcessInstances",
+                    new ExpectedPrivAssoc[] { //
+                            new ExpectedPrivAssoc("BulkCancelProcessInstances"), //
+                            new ExpectedPrivAssoc("BulkPurgeProcessInstances") });
+
+            checkMergedPrivileges(action,
+                    "PE",
+                    "queryProcess",
+                    new ExpectedPrivAssoc[] { //
+                            new ExpectedPrivAssoc("QueryProcessInstance"), //
+                            new ExpectedPrivAssoc("QueryProcessTemplate") });
 
         }
 
         assertTrue(failures.toString(), failures.isEmpty());
+    }
+
+    private void checkMergedPrivileges(SystemAction action, String targetComponent, String targetAction,
+            ExpectedPrivAssoc[] expected) {
+        if ((Objects.equals(targetComponent, action.getComponent()))
+                && (Objects.equals(targetAction, action.getActionId()))) {
+
+            // this should now have enum values merged from EC - Query Statistics action
+            EList<PrivilegeAssociation> associations = action.getPrivilegeAssociations();
+            assertEquals("Unexpected number of privilege association for '" + targetAction + "' system action",
+                    expected.length,
+                    associations.size());
+            for (PrivilegeAssociation privAssoc : associations) {
+                boolean found = false;
+
+                for (ExpectedPrivAssoc expect : expected) {
+                    if (expect.compare(privAssoc)) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found) {
+                    fail("Unexpected privilege association for '" + targetAction + "' system action: "
+                            + privAssoc.getPrivilege().getName());
+                }
+            }
+        }
     }
 
 

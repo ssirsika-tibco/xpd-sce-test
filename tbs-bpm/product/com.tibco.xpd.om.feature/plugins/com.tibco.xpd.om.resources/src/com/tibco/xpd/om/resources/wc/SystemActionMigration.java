@@ -140,6 +140,12 @@ public class SystemActionMigration {
             MigrationAction.reasign("PE", "queryProcessInstance", "PE", "queryProcess"), //
             MigrationAction.reasign("PE", "queryProcessTemplate", "PE", "queryProcess"), //
 
+            /*
+             * Sid ACE-4238 merge haltedProcessAdministration into resumeSuspendProcessInstance (as the admin of halted
+             * processes is simply a simple resume)
+             */
+            MigrationAction.reasign("PE", "haltedProcessAdministration", "PE", "resumeSuspendProcessInstance"), //
+
             MigrationAction.delete("BIZSVC", "executeBusinessService") //
 
     };
