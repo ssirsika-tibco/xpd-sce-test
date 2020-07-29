@@ -19,6 +19,7 @@ import org.eclipse.bpel.model.To;
 import org.eclipse.bpel.model.Variable;
 import org.eclipse.emf.common.util.EList;
 
+import com.tibco.bx.xpdl2bpel.N2PEConstants;
 import com.tibco.bx.xpdl2bpel.analyzer.Analyzer;
 import com.tibco.bx.xpdl2bpel.analyzer.AnalyzerLink;
 import com.tibco.bx.xpdl2bpel.analyzer.AnalyzerParentTask;
@@ -84,7 +85,9 @@ public class ConvertControlFlow {
                 
                 // add link with fan condition from newStart to target
                 Condition condition = BPELFactory.eINSTANCE.createCondition();
-                condition.setBody((Object)"$"+fanVar.getName()+"="+fanNumber); //$NON-NLS-1$ //$NON-NLS-2$
+                /* Sid ACE-4344 all expressions need to be in JavaScript now */
+                condition.setExpressionLanguage(N2PEConstants.JSCRIPT_LANGUAGE);
+                condition.setBody(fanVar.getName()+"=="+fanNumber); //$NON-NLS-1$ //$NON-NLS-2$
                 createLink(context, newStart, entryPoint, condition, bpelFlow);
 
                 // for each link crossing in to this target, insert assign to fan number and redirect to flow
@@ -151,7 +154,9 @@ public class ConvertControlFlow {
 
                 // add link with fan condition from flow to next point
                 Condition condition = BPELFactory.eINSTANCE.createCondition();
-                condition.setBody((Object)"$"+fanVar.getName()+"="+fanNumber); //$NON-NLS-1$ //$NON-NLS-2$
+                /* Sid ACE-4344 all expressions need to be in JavaScript now */
+                condition.setExpressionLanguage(N2PEConstants.JSCRIPT_LANGUAGE);
+                condition.setBody(fanVar.getName()+"=="+fanNumber); //$NON-NLS-1$ //$NON-NLS-2$
                 createLink(context, bpelFlow, nextPoint, condition, parentBpelFlow);
                 // build setup activity to set var for controlling which exit is taken
                 Assign setUpActivity = makeFanAssignActivity(fanVar, Integer.toString(fanNumber));

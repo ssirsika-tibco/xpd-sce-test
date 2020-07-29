@@ -281,8 +281,13 @@ public class ConvertLoops {
 
         forEach.setCounterName(var);
         forEach.setActivity(scope);
+        
         org.eclipse.bpel.model.Expression startCounterValue = BPELFactory.eINSTANCE.createExpression();
+        
+        // Sid ACE-4344 runtime engine now requires JavaScript grammar on all expressions.
+        startCounterValue.setExpressionLanguage(N2PEConstants.JSCRIPT_LANGUAGE);
         startCounterValue.setBody(1);
+        
         org.eclipse.bpel.model.Expression finalCounterValue = BPELFactory.eINSTANCE.createExpression();
         finalCounterValue.setExpressionLanguage(N2PEConstants.JSCRIPT_LANGUAGE);
         finalCounterValue.setBody(condition);
