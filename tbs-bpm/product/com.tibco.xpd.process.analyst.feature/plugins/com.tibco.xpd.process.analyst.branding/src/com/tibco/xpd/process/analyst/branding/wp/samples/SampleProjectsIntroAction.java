@@ -20,7 +20,8 @@ import com.tibco.xpd.process.analyst.branding.wp.samples.SampleProjects.Project;
 
 public class SampleProjectsIntroAction implements IIntroAction {
 	
-	public void run(final IIntroSite site, final Properties params) {
+	@Override
+    public void run(final IIntroSite site, final Properties params) {
 		if(params.getProperty("projectId")==null){ //$NON-NLS-1$
 			throw new IllegalArgumentException(Messages.SampleProjectsIntroAction_ProjectIdParamMissing_message);
 		}
@@ -29,6 +30,7 @@ public class SampleProjectsIntroAction implements IIntroAction {
 		}
 		
         Runnable r = new Runnable() {
+            @Override
             public void run() {
             	
             	Project project = SampleProjects.INSTANCE.getProject(params.getProperty("projectId")); //$NON-NLS-1$
@@ -45,7 +47,7 @@ public class SampleProjectsIntroAction implements IIntroAction {
 						step.execute(site);
 					}
                 } else {
-                	System.out.println();
+                    // System.out.println();
                 }
 				
             }
@@ -70,7 +72,8 @@ public class SampleProjectsIntroAction implements IIntroAction {
 			return attribs.get(key);
 		}
 
-		public Project getProject() {
+		@Override
+        public Project getProject() {
 			return project;
 		}
 

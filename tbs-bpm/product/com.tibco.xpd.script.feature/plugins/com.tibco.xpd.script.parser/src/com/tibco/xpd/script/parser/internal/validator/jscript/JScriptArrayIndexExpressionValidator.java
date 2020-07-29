@@ -3,15 +3,15 @@
  */
 package com.tibco.xpd.script.parser.internal.validator.jscript;
 
-import antlr.Token;
-import antlr.collections.AST;
-
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.script.model.jscript.JScriptUtils;
 import com.tibco.xpd.script.parser.antlr.JScriptTokenTypes;
 import com.tibco.xpd.script.parser.internal.expr.IExpr;
 import com.tibco.xpd.script.parser.internal.validator.IValidateResult;
+
+import antlr.Token;
+import antlr.collections.AST;
 
 /**
  * @author mtorres
@@ -36,7 +36,6 @@ public class JScriptArrayIndexExpressionValidator extends AbstractExpressionVali
                 AST astExpression = (AST) expr;
                 switch (astExpression.getType()) {
                 case JScriptTokenTypes.INDEX_OP:
-                    System.out.println();
                     break;
                 default:
                     break;

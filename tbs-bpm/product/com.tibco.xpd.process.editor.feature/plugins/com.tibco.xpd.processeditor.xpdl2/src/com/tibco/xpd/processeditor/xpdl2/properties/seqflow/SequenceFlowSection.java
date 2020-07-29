@@ -472,7 +472,6 @@ public class SequenceFlowSection extends SashDividedNamedElementSection {
     private void setSequenceFlowTypePageInput(SequenceFlowType flowType) {
         // Set the input for task type specific page
         // and unset all others (by giving them empty selection.
-        System.out.println();
         for (SequenceTypeSection tts : sequenceTypeSections) {
             if (tts.sequenceFlowType.equals(flowType)) {
                 tts.section.setInput(getPart(), getSelection());

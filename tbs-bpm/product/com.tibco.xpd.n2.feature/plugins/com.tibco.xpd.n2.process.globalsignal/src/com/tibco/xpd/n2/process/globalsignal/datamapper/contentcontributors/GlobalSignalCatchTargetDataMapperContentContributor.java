@@ -26,7 +26,6 @@ public class GlobalSignalCatchTargetDataMapperContentContributor extends
      * @param direction
      */
     public GlobalSignalCatchTargetDataMapperContentContributor() {
-        System.out.println();
     }
     
     /**

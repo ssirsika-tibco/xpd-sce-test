@@ -371,9 +371,20 @@ public class ScriptSourceViewer implements ISiteProvider, ScriptEditor {
             fLineStyleListener.dispose();
             fLineStyleListener = null;
         }
-        if (fActivationCodeTrigger != null) {
-            fActivationCodeTrigger.uninstall();
-        }
+
+        /*
+         * Sid ACE-2915 uninstalling the action trigger on refresh caused issues because if we get a refresh (for
+         * instance if model changes on undo/redo) then we clear some fields in the action cdoe trigger that are
+         * required for correct clearing down of the action's binding to the action binding service when we lose focus.
+         * 
+         * GIVEN that we do fActivationCodeTrigger.install() as part of focusGained() (via other functions) THEN we
+         * really should do fActivationCodeTrigger.uninstall() DURING focusLost().
+         * 
+         */
+        // if (fActivationCodeTrigger != null) {
+        // fActivationCodeTrigger.uninstall();
+        // }
+
         if (fTextListener != null) {
             scriptViewer.removeTextListener(fTextListener);
             fTextListener = null;
@@ -686,6 +697,12 @@ public class ScriptSourceViewer implements ISiteProvider, ScriptEditor {
                             String cmdId = pc.getId();
                             IHandler originalHandler = cmd.getHandler();
 
+//                            System.out.println(String.format("%s: Preserving cmd %s (%s) for %s",
+//                                    this.getClass().getSimpleName(),
+//                                    cmdId,
+//                                    originalHandler,
+//                                    action));
+                            
                             cmdIdToOriginalHandlerMap.put(cmdId, originalHandler);
                             cmd.setHandler(handler);
                         }
@@ -718,9 +735,24 @@ public class ScriptSourceViewer implements ISiteProvider, ScriptEditor {
 
                             IHandler originalHandler = null;
 
+                            /*
+                             * Sid CBPM-2915 restore the original handler into the command.
+                             */
                             if (cmdIdToOriginalHandlerMap.containsKey(cmdId)) {
                                 originalHandler = cmdIdToOriginalHandlerMap.get(cmdId);
                                 cmdIdToOriginalHandlerMap.remove(cmdId);
+
+//                                System.out.println(String.format("%s: Restoring cmd %s (%s) (action: %s)",
+//                                        this.getClass().getSimpleName(),
+//                                        cmdId,
+//                                        originalHandler,
+//                                        action));
+//
+                            } else {
+//                                System.out.println(String.format("%s: cmd %s not in preserved map",
+//                                        this.getClass().getSimpleName(),
+//                                        cmdId));
+
                             }
 
                             cmd.setHandler(originalHandler);
@@ -728,6 +760,7 @@ public class ScriptSourceViewer implements ISiteProvider, ScriptEditor {
                     }
                 }
             }
+
         }
 
         public void unregisterAllActionFromKeyActivation() {
