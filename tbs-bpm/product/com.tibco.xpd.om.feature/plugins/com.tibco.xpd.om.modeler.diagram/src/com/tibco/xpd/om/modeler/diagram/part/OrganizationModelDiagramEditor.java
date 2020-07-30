@@ -220,7 +220,16 @@ public class OrganizationModelDiagramEditor extends DiagramDocumentEditor
                             .getWorkingCopy(getEditorInput());
 
             if (wc instanceof TransactionalWorkingCopy) {
-                return ((TransactionalWorkingCopy) wc).getUndoContext();
+                /*
+                 * Sid ACE-4179 during close-n-dispose because file deleted, WC won't have an undo-context anymore. This
+                 * would have caused us to return null here, which in turn would make superclass dispose procedure fail
+                 * and throw exception. Dropping thru to the default implementation ensures that undo context will not
+                 * be null as it always returns a result.
+                 */
+                IUndoContext uc = ((TransactionalWorkingCopy) wc).getUndoContext();
+                if (uc != null) {
+                    return uc;
+                }
             }
         }
         return super.getUndoContext();
