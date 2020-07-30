@@ -25,7 +25,7 @@ import com.tibco.xpd.resources.ui.components.XpdToolkit;
 public class AdminUrlPropertyPanel extends Composite {
 
     private static final String DEFAULT_URL =
-            "https://<domain>/apps/admin/#/deploy-manager"; //$NON-NLS-1$
+            "http://<domain>/apps/admin/#/deploy-manager"; //$NON-NLS-1$
 
     private Combo adminUrl;
 
