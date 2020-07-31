@@ -226,8 +226,8 @@ public class ProjectsImportPage extends AbstractXpdWizardPage implements IOverwr
                 | GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL);
 
         if (Display.getDefault() != null) {
-            gd.minimumWidth = Math.min(800, (int) (Display.getDefault().getClientArea().width * 0.8));
-            gd.minimumHeight = Math.min(500, (int) (Display.getDefault().getClientArea().height * 0.8));
+            gd.widthHint = Math.min(800, (int) (Display.getDefault().getClientArea().width * 0.8));
+            gd.heightHint = Math.min(500, (int) (Display.getDefault().getClientArea().height * 0.8));
         }
 
         minSz.setLayoutData(gd);
