@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -134,6 +135,20 @@ public class PostImportUtil {
                                 project.getName()),
                         postImportTasks.size());
 
+                /*
+                 * Sid ACE-4365 Refresh project completely before performing post import tasks to make sure that when we
+                 * do import from folder 'DON'T copy into workspace', then the workspace project is properly synched
+                 * with the file-system
+                 */
+                try {
+                    project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
+
+                } catch (CoreException e2) {
+                    XpdResourcesPlugin.getDefault().getLogger().error(e2,
+                            String.format("There is a problem refreshing project '%s' prior to post-import tasks.", //$NON-NLS-1$
+                                    project.getName()));
+                }
+
                 for (PostImportTask task : postImportTasks) {
 
                     /*
@@ -149,7 +164,8 @@ public class PostImportUtil {
                                 .getDefault()
                                 .getLogger()
                                 .error(e1,
-                                        String.format("There is a problem checking the 'appliesTo' on post-import task '%s'.",
+                                        String.format(
+                                                "There is a problem checking the 'appliesTo' on post-import task '%s'.", //$NON-NLS-1$
                                                 task.getId()));
                     }
 
@@ -159,7 +175,6 @@ public class PostImportUtil {
                     }
 
                     try {
-
                         task.getTask()
                                 .runPostImportTask(project,
                                         SubProgressMonitorEx

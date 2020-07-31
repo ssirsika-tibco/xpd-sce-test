@@ -270,7 +270,7 @@ public class ProjectRecord {
         if (configArchiveFile != null) {
             return structureProvider.getContents(configArchiveFile);
 
-        } else if (configSystemFile != null) {
+        } else if (configSystemFile != null && configSystemFile.exists()) {
             try {
                 return new BufferedInputStream(new FileInputStream(configSystemFile));
 
