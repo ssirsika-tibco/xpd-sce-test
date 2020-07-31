@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -76,18 +77,37 @@ public class SystemActionItemProvider extends ItemProviderAdapter implements
     @Override
     protected Command createRemoveCommand(EditingDomain domain, EObject owner,
             EStructuralFeature feature, Collection<?> collection) {
+
         /*
-         * If all privilege associations from a System Action are being removed
-         * then remove the System Action itself from its parent
+         * Sid ACE-4180 We have to remove all the Privilege associations from the system action before removing the
+         * system action record itself (when we're deleting all associations) OTHERWISE they remain in the
+         * cross-reference adapters with the system action as their parent and then the privileges themselves cannot be
+         * deleted because the system thinks they are still referenced.
+         * 
+         * So always delete the privilege associations and THEN delete the system action if thses are the only ones.
+         */
+        Command removePrivAssocCmd = super.createRemoveCommand(domain, owner, feature, collection);
+
+        if (removePrivAssocCmd == null) {
+            return null;
+        }
+
+        CompoundCommand cmd = new CompoundCommand();
+        cmd.append(removePrivAssocCmd);
+
+        /*
+         * If all privilege associations from a System Action are being removed then remove the System Action itself
+         * from its parent
          */
         if (owner instanceof SystemAction
                 && ((SystemAction) owner).getPrivilegeAssociations().size() == collection
                         .size()) {
-            return RemoveCommand.create(domain, owner.eContainer(), owner
-                    .eContainingFeature(), owner);
+
+
+            cmd.append(RemoveCommand.create(domain, owner.eContainer(), owner.eContainingFeature(), owner));
         }
 
-        return super.createRemoveCommand(domain, owner, feature, collection);
+        return cmd;
     }
 
     /**
