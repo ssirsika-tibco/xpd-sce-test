@@ -151,7 +151,7 @@ public class PeSharedResourceContributorTest extends TestCase {
             PropertyValue[] manifestAttrs = writer.getManifestAttribute(
                     PERascContributor.SHARED_RESOURCE_MANIFEST_ATTR);
             assertNotNull(manifestAttrs);
-            assertEquals(2, manifestAttrs.length);
+            assertEquals(3, manifestAttrs.length);
 
             String[][] expectedValues = {
                     { "SimpleProc/Participants/SimpleServicesService_Consumer",
@@ -275,7 +275,7 @@ public class PeSharedResourceContributorTest extends TestCase {
             PropertyValue[] manifestAttrs = writer.getManifestAttribute(
                     PERascContributor.SHARED_RESOURCE_MANIFEST_ATTR);
             assertNotNull(manifestAttrs);
-            assertEquals(2, manifestAttrs.length);
+            assertEquals(3, manifestAttrs.length);
 
         } finally {
             if (projectImporter != null) {
@@ -350,7 +350,7 @@ public class PeSharedResourceContributorTest extends TestCase {
             PropertyValue[] manifestAttrs = writer.getManifestAttribute(
                     PERascContributor.SHARED_RESOURCE_MANIFEST_ATTR);
             assertNotNull(manifestAttrs);
-            assertEquals(2, manifestAttrs.length);
+            assertEquals(3, manifestAttrs.length);
 
         } finally {
             if (projectImporter != null) {

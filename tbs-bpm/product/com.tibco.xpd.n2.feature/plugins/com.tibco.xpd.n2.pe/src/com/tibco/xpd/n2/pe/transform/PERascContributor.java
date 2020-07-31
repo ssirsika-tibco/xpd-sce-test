@@ -574,28 +574,42 @@ public class PERascContributor implements RascContributor {
         }
 
         // create a list of RASC manifest PropertyValues for each resource
+        /*
+         * Sid ACE-4005 only output one resource dependency per resource name. For each resource instance we will create
+         * a key 'type::name' and ensure that we only add a resource-dependency of given type and name once.
+         */
+        Set<String> alreadyDone = new HashSet<String>();
+
         ArrayList<PropertyValue> attrValue = new ArrayList<>();
         for (ParticipantSharedResource sharedResource : aSharedResources) {
+
             RestServiceResource restService = sharedResource.getRestService();
             if (restService != null) {
-                PropertyValue property = new PropertyValue();
-                property.setValue(restService.getResourceName());
-                property.setAttribute(SHARED_RSRC_TYPE_PROP,
-                        REST_SERVICE_SHARED_RSRC_TYPE);
-                property.setAttribute(SHARED_RSRC_DESC_PROP,
-                        restService.getDescription());
-                attrValue.add(property);
-                continue;
+                String key = REST_SERVICE_SHARED_RSRC_TYPE + "::" + restService.getResourceName();
+                if (!alreadyDone.contains(key)) {
+                    alreadyDone.add(key);
+
+                    PropertyValue property = new PropertyValue();
+                    property.setValue(restService.getResourceName());
+                    property.setAttribute(SHARED_RSRC_TYPE_PROP, REST_SERVICE_SHARED_RSRC_TYPE);
+                    property.setAttribute(SHARED_RSRC_DESC_PROP, restService.getDescription());
+                    attrValue.add(property);
+                    continue;
+                }
             }
 
             EmailResource email = sharedResource.getEmail();
             if (email != null) {
-                PropertyValue property = new PropertyValue();
-                property.setValue(email.getInstanceName());
-                property.setAttribute(SHARED_RSRC_TYPE_PROP,
-                        EMAIL_SERVICE_SHARED_RSRC_TYPE);
-                attrValue.add(property);
-                continue;
+                String key = EMAIL_SERVICE_SHARED_RSRC_TYPE + "::" + email.getInstanceName();
+                if (!alreadyDone.contains(key)) {
+                    alreadyDone.add(key);
+
+                    PropertyValue property = new PropertyValue();
+                    property.setValue(email.getInstanceName());
+                    property.setAttribute(SHARED_RSRC_TYPE_PROP, EMAIL_SERVICE_SHARED_RSRC_TYPE);
+                    attrValue.add(property);
+                    continue;
+                }
             }
         }
 
