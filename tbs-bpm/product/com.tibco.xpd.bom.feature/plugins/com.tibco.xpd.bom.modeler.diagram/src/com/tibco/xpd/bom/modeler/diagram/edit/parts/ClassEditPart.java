@@ -571,10 +571,19 @@ public class ClassEditPart extends ShapeNodeEditPart {
 			// Generalisation removed, clean up any diagram elements
 			ClassFigure figure = this.getCustFigure();
 
-			Generalization value = (Generalization) notification.getOldValue();
+            /*
+             * Sid ACE-4424 Used to check if deletion was of a generalization in the same resource (and hence worth
+             * refreshing) *by looking at the oldValue.getGeneral().eResource()* - of course, the old value may NO
+             * LONGER be related to a physical uml.General model if the generalisation has been removed. So you could
+             * get an NPE here.
+             * 
+             * So instead we should use the notifier of the notification (which will be the Class element that the
+             * generalisation is being removed from.
+             */
+            Object notifier = notification.getNotifier();
 
-			if (elem.eResource() == value.getGeneral().eResource()
-					&& notification.getEventType() == Notification.REMOVE) {
+            if (notification.getEventType() == Notification.REMOVE && notifier instanceof EObject
+                    && ((EObject) notifier).eResource() == elem.eResource()) {
 				// If we're removing the base type make sure we remove any relevant
 				// generalisation arrows
 				figure.rebuildFigureWithSuperClass(true);
