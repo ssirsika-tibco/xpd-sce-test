@@ -96,7 +96,11 @@ public class SystemActionMigrationTest extends TestCase {
             { "PE", "bulkPurgeProcessInstances" }, //
             { "PE", "queryProcessInstance" }, //
             { "PE", "queryProcessTemplate" }, //
-            { "PE", "haltedProcessAdministration" } //
+            { "PE", "haltedProcessAdministration" }, //
+
+            { "APPDEV", "canViewRoles" }, //
+            { "APPDEV", "canEditRoles" } //
+
     };
 
     // the new actions that are migrated from older actions during migration

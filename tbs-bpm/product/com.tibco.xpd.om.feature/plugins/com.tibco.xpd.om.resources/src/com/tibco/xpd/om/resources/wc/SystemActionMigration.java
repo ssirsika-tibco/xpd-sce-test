@@ -88,7 +88,8 @@ public class SystemActionMigration {
             MigrationAction.reasign("APPDEV", "canEditLocales", "APPDEV", "appDev"), //
             MigrationAction.reasign("APPDEV", "canEditApplication", "APPDEV", "appDev"), //
             MigrationAction.reasign("APPDEV", "canPublishApplication", "APPDEV", "appDev"), //
-
+            MigrationAction.delete("APPDEV", "canViewRoles"), //
+            MigrationAction.delete("APPDEV", "canEditRoles"), //
 
             MigrationAction.delete("BDS", "manageDataViews"), //
             MigrationAction.delete("BDS", "accessGlobalDataScripts"), //
