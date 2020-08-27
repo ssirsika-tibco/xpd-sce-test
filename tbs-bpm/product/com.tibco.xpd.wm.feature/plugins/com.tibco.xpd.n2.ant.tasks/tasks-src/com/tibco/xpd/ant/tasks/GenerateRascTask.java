@@ -357,8 +357,9 @@ public class GenerateRascTask extends Task {
                     if ((result == null)
                             || (result.getSeverity() > IStatus.WARNING)) {
                         aMonitor.setTaskName(
-                                "Deployment Artifact generation failed for project: "
-                                        + thisName);
+                                String.format("Deployment Artifact generation failed for project: %s", thisName));
+                        aMonitor.setTaskName("  Cause: " + result.getMessage());
+
                         ep.end(thisName, Result.FAILURE.toString());
                         failed = true;
                         continue;
@@ -416,8 +417,9 @@ public class GenerateRascTask extends Task {
                 } catch (Exception e) {
                     return new Status(IStatus.ERROR,
                             XpdResourcesPlugin.ID_PLUGIN, 1,
-                            "Exception was thrown while generating Deployment Artifact for "
-                                    + aProject.getName(),
+                            String.format("Exception was thrown while generating Deployment Artifact for project %s (%s)",
+                                    aProject.getName(),
+                                    e.getMessage()),
                             e);
                 }
                 return new Status(IStatus.OK, XpdResourcesPlugin.ID_PLUGIN,
@@ -471,7 +473,7 @@ public class GenerateRascTask extends Task {
 
     private static String statusToString(IStatus status) {
         StringBuilder sb = new StringBuilder();
-        appendStatus(sb, status, "");
+        appendStatus(sb, status, "  ");
         return sb.toString();
     }
 
