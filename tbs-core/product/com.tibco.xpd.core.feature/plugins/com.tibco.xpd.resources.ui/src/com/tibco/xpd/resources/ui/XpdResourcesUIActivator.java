@@ -95,17 +95,17 @@ public class XpdResourcesUIActivator extends AbstractUIPlugin {
      */
     @Override
     public void stop(BundleContext context) throws Exception {
-        PerspectiveLifecycleManager.getInstance().dispose();
-        if (activityManagerListener != null) {
-            if (PlatformUI.isWorkbenchRunning()) {
-                if (PlatformUI.getWorkbench() != null
-                        && PlatformUI.getWorkbench().getActivitySupport() != null
-                        && PlatformUI.getWorkbench().getActivitySupport()
-                                .getActivityManager() != null) {
-                    PlatformUI
-                            .getWorkbench()
-                            .getActivitySupport()
-                            .getActivityManager()
+        /*
+         * Sid ACE-4455 Noticed that when doing headless ant builds we were getting GTK No More Handles exceptions. That
+         * is because we were disposing things in the perspective manager without the UIO running. So rearragned
+         * function to not do so.
+         */
+        if (PlatformUI.isWorkbenchRunning()) {
+            PerspectiveLifecycleManager.getInstance().dispose();
+            if (activityManagerListener != null) {
+                if (PlatformUI.getWorkbench() != null && PlatformUI.getWorkbench().getActivitySupport() != null
+                        && PlatformUI.getWorkbench().getActivitySupport().getActivityManager() != null) {
+                    PlatformUI.getWorkbench().getActivitySupport().getActivityManager()
                             .removeActivityManagerListener(activityManagerListener);
                 }
             }
