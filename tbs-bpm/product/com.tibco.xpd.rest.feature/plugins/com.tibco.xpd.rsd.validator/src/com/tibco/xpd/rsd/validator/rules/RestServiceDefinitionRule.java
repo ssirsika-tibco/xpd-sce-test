@@ -100,6 +100,14 @@ public class RestServiceDefinitionRule implements IValidationRule {
     private static final String DUPLICATE_PARAMETER_NAME =
             "rest.duplicateParameterName"; //$NON-NLS-1$
 
+    /*
+     * Sid XPD-8517 disallow user-defined Content-Type and Accept header
+     * parameters (these are modelled in the service properties themselves.
+     */
+    private static final String CONTENTTYPE_HEADERPARAM_RESERVED = "rest.contentTypeHeaderParamReserved"; //$NON-NLS-1$
+
+    private static final String ACCEPT_HEADERPARAM_RESERVED = "rest.acceptHeaderParamReserved"; //$NON-NLS-1$
+
     /**
      * @see com.tibco.xpd.validation.rules.IValidationRule#getTargetClass()
      * 
@@ -464,7 +472,22 @@ public class RestServiceDefinitionRule implements IValidationRule {
                                     : INVALID_REQUEST_HEADER_PARAMETERS,
                             parent,
                             messages);
+                    
                 }
+                /*
+                 * Sid XPD-8517 disallow user-defined Content-Type and Accept
+                 * header parameters (these are modelled in the service
+                 * properties themselves.
+                 */
+                else if (container instanceof Request && "Content-Type".equalsIgnoreCase(name)) {
+                    addIssue(scope, CONTENTTYPE_HEADERPARAM_RESERVED, parent, Collections.EMPTY_LIST);
+
+                } else if (container instanceof Response && "Accept".equalsIgnoreCase(name)) {
+                    addIssue(scope, ACCEPT_HEADERPARAM_RESERVED, parent, Collections.EMPTY_LIST);
+
+                }
+                
+                
             } else if (ParameterStyle.QUERY.equals(paramStyle)) {
                 if (!isValidHeaderName(name)) {
                     Collection<String> messages = new ArrayList<>();
