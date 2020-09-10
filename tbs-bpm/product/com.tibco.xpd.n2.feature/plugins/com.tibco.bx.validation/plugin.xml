@@ -743,6 +743,10 @@
          <rule
                class="com.tibco.bx.validation.rules.datamapper.CatchLocalSignalEventDataMapperMappingRule">
          </rule>  
+         <rule
+               class="com.tibco.bx.validation.rules.SequenceFlowValidationRule"
+               validateOnSaveOnly="false">
+         </rule>
       </provider>
        <preferenceGroup
              id="com.tibco.bx.validation.processManagerProblems"
@@ -2654,6 +2658,11 @@
                 canApplyToMultiple="true"
                 id="datamapper.arrayMapping.setAsAppend">
           </resolution>
+       </issue>
+       <issue
+             id="bx.flowNameToLong"
+             message="%bx.flowNameToLong"
+             severity="ERROR">
        </issue>
    </extension>
    <extension
