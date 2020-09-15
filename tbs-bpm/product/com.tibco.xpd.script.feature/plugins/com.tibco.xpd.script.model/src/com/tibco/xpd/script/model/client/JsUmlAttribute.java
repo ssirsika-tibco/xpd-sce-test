@@ -11,8 +11,10 @@ import org.eclipse.uml2.uml.Type;
  *
  * @author nwilson
  * @since 20 Sep 2019
+ * 
+ *        Sid ACE-4574 changed to implemtn extended JsAttribute
  */
-public interface JsUmlAttribute extends JsAttribute {
+public interface JsUmlAttribute extends JsAttributeEx {
     /**
      * Returns the UML type for the JsAttribute
      * 

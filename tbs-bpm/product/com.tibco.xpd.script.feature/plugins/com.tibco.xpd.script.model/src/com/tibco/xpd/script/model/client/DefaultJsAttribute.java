@@ -216,7 +216,26 @@ public class DefaultJsAttribute extends DefaultMultipleJsClassResolver
         return getDataType();
     }
 
-    /** {@inheritDoc}. */
+    /**
+     * @see com.tibco.xpd.script.model.client.JsAttributeEx#getScriptRelevantDataEx(boolean)
+     *
+     *      Sid ACE-4574
+     *
+     * @param isMultiple
+     * @return
+     */
+    @Override
+    public IScriptRelevantData getScriptRelevantDataEx(boolean isMultiple) {
+        return null;
+    }
+
+    /**
+     * {@inheritDoc}.
+     * 
+     * @deprecated Sid ACE-4574 Superseded by JsAttributeEx.getScriptRelevantDataEx() which will be used in preference
+     *             to this function when present.
+     */
+    @Deprecated
     @Override
     public IScriptRelevantData getScriptRelevantData() {
         return null;
@@ -251,4 +270,5 @@ public class DefaultJsAttribute extends DefaultMultipleJsClassResolver
         }
         return false;
     }
+
 }

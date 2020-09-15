@@ -62,10 +62,15 @@ public interface JsAttribute extends ContentAssistElement{
 	JsDataType getDataTypeForJSExpression(JsExpression jsExpression, List<JsClass> supportedJsClasses);
 
 	/**
-     * Returns an appropriate script relevant data for the property type.
-     * Provided to support dynamic type checking in TIBCO Form product. The default implementation returns null.
+     * Returns an appropriate script relevant data for the property type. Provided to support dynamic type checking in
+     * TIBCO Form product. The default implementation returns null.
+     * 
      * @return Appropriate script relevant data for the property type.
      * @since 3.x.
+     * @deprecated Sid ACE-4574 Superseded by JsAttributeEx.getScriptRelevantDataEx() which will be used in preference
+     *             to this function when present.
      */
+    @Deprecated
 	public IScriptRelevantData getScriptRelevantData();
+
 }

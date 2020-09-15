@@ -52,6 +52,7 @@ import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.script.model.client.ITypeResolver;
 import com.tibco.xpd.script.model.client.IUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.JsAttribute;
+import com.tibco.xpd.script.model.client.JsAttributeEx;
 import com.tibco.xpd.script.model.client.JsClass;
 import com.tibco.xpd.script.model.client.JsClassDefinitionReader;
 import com.tibco.xpd.script.model.client.JsMethod;
@@ -403,9 +404,19 @@ public abstract class AbstractTibcoContentAssistProcessor
                 new ArrayList<IScriptRelevantData>();
         if (propertyName != null && dataType != null) {
             // Script Editor enhancements for TIBCO Forms
-            IScriptRelevantData scriptRelevantData = jsAttribute == null ? null
-                    : jsAttribute.getScriptRelevantData();
-
+            /*
+             * Sid ACE-4574 If JsAttributeEx is in use then use then use the extended get script relevant data taht
+             * supports 'want completions for array fields'
+             */
+            IScriptRelevantData scriptRelevantData = null;
+            
+            if (jsAttribute instanceof JsAttributeEx) {
+                scriptRelevantData = ((JsAttributeEx)jsAttribute).getScriptRelevantDataEx(isArray);
+                
+            } else if (jsAttribute != null) {
+                scriptRelevantData = jsAttribute.getScriptRelevantData();
+            }
+            
             if (scriptRelevantData != null) {
                 resolvedTypes.add(scriptRelevantData);
             }
