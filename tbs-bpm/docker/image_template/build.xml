@@ -8,7 +8,7 @@
  
     <target name="generateRASC" depends="importProjects" description="Generates deployment artifacts in the form of RASC files for the projects in the workspace.">
         <echo>Generating Deployment RASC Artifacts</echo>
-        <bpm.generateRASC destdir="${rascs.dir}"/>
+        <bpm.generateRASC destdir="${rascs.dir}" failonerror="true"/>
     </target>
 
 	<!-- Replace a token with a value in the given file (this target is used by installation for post install tasks) -->
