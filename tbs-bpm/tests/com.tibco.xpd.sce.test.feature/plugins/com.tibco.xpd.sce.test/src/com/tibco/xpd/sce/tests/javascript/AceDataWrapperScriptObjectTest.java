@@ -4,6 +4,8 @@
 
 package com.tibco.xpd.sce.tests.javascript;
 
+import java.util.Collections;
+
 import org.eclipse.core.resources.ResourcesPlugin;
 
 import com.tibco.xpd.core.test.util.TestUtil;
@@ -27,11 +29,21 @@ public class AceDataWrapperScriptObjectTest extends TestCase {
         ProjectImporter projectImporter = importMainTestProjects();
 
         try {
+            /*
+             * Sid - FORMs import intermittently doesn't migrate/auto-resolve its asset / nature configuration so you
+             * occasionally get the problem marker...
+             * 
+             * Forms Resources 11.x : The project natures, builders, special folders etc. do not match the asset
+             * configuration
+             * 
+             * So we need to allow for that.
+             */
             assertFalse("DataWrappingTests" //$NON-NLS-1$
                     + " project should not have any ERROR level problem markers", //$NON-NLS-1$
                     TestUtil.hasErrorProblemMarker(
                             ResourcesPlugin.getWorkspace().getRoot().getProject("DataWrappingTests"), //$NON-NLS-1$
                             true,
+                            Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured"),
                             "testDataIsWrappedInAllScriptScenarios")); //$NON-NLS-1$
 
         } finally {

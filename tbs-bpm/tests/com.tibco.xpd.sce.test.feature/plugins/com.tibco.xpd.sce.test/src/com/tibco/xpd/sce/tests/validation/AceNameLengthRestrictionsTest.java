@@ -3,6 +3,8 @@
  */
 package com.tibco.xpd.sce.tests.validation;
 
+import java.util.Collections;
+
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -71,13 +73,26 @@ public class AceNameLengthRestrictionsTest extends AbstractN2BaseValidationTest 
          */
         assertFalse("NameLimitsOKBOMTest" //$NON-NLS-1$
                 + " project should not have any ERROR level problem markers", //$NON-NLS-1$
-                hasErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject("NameLimitsOKBOMTest"))); //$NON-NLS-1$
+                TestUtil.hasErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot()
+                        .getProject("NameLimitsOKBOMTest"), true, "NameLimitsOKBOMTest"));
 
+        /*
+         * Sid - FORMs import intermittently doesn't migrate/auto-resolve its asset / nature configuration so you
+         * occasionally get the problem marker...
+         * 
+         * Forms Resources 11.x : The project natures, builders, special folders etc. do not match the asset
+         * configuration
+         * 
+         * So we need to allow for that.
+         */
         assertFalse(
                 "NameLimitsOKProcess_012345678901234567890123456789012345678901234567890123456789012345678901234_Test" //$NON-NLS-1$
                         + " project should not have any ERROR level problem markers", //$NON-NLS-1$
-                hasErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject(
-                        "NameLimitsOKProcess_012345678901234567890123456789012345678901234567890123456789012345678901234_Test"))); //$NON-NLS-1$
+                TestUtil.hasErrorProblemMarker(
+                        ResourcesPlugin.getWorkspace().getRoot().getProject("NameLimitsOKBOMTest"),
+                        true,
+                        Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured"),
+                        "NameLimitsOKProcess_012345678901234567890123456789012345678901234567890123456789012345678901234_Test"));
 
         return;
 	}
@@ -174,32 +189,6 @@ public class AceNameLengthRestrictionsTest extends AbstractN2BaseValidationTest 
         return testResources;
     }
 
-    /**
-     * 
-     * @param resource
-     * @param markerId
-     * @return <code>true</code> if given resource has any error problem marker
-     *         raised on it.
-     */
-    private boolean hasErrorProblemMarker(IResource resource) {
-        try {
-            IMarker[] markers = resource.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_INFINITE);
-
-            if (markers != null) {
-                for (IMarker marker : markers) {
-                    if (marker.getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR) {
-                        return true;
-                    }
-                }
-
-            }
-
-        } catch (CoreException e) {
-            e.printStackTrace();
-        }
-
-        return false;
-    }
 
     /**
      * 

@@ -4,6 +4,7 @@
 
 package com.tibco.xpd.sce.tests.javascript;
 
+import java.util.Collections;
 import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
@@ -58,8 +59,20 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
 
             assertTrue("DataWrappingMapperTests project exists", mapperProject.isAccessible()); //$NON-NLS-1$
 
+            /*
+             * Sid - FORMs import intermittently doesn't migrate/auto-resolve its asset / nature configuration so you
+             * occasionally get the problem marker...
+             * 
+             * Forms Resources 11.x : The project natures, builders, special folders etc. do not match the asset
+             * configuration
+             * 
+             * So we need to allow for that.
+             */
             assertFalse("DataWrappingMapperTests project has no error level problem markers.", //$NON-NLS-1$
-                    TestUtil.hasErrorProblemMarker(mapperProject, true, "testDataIsWrappedInAllScriptScenarios"));
+                    TestUtil.hasErrorProblemMarker(mapperProject,
+                            true,
+                            Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured"),
+                            "testDataIsWrappedInAllScriptScenarios"));
 
             Process process = ProcessUIUtil.getProcesById("_9JPIoIheEemL0JNuli1Mqw"); //$NON-NLS-1$
 

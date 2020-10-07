@@ -4,6 +4,8 @@
 
 package com.tibco.xpd.sce.tests.validation;
 
+import java.util.Collections;
+
 import org.eclipse.core.resources.ResourcesPlugin;
 
 import com.tibco.xpd.core.test.util.TestUtil;
@@ -33,11 +35,21 @@ public class AceIncomingRequestActivityTest extends TestCase {
     public void testIncomingRequestActivityScenarios() {
         ProjectImporter projectImporter = importMainTestProjects();
         try {
+            /*
+             * Sid - FORMs import intermittently doesn't migrate/auto-resolve its asset / nature configuration so you
+             * occasionally get the problem marker...
+             * 
+             * Forms Resources 11.x : The project natures, builders, special folders etc. do not match the asset
+             * configuration
+             * 
+             * So we need to allow for that.
+             */
             assertFalse("IncomingRequestAct" //$NON-NLS-1$
                     + " project should not have any ERROR level problem markers", //$NON-NLS-1$
                     TestUtil.hasErrorProblemMarker(
                             ResourcesPlugin.getWorkspace().getRoot().getProject("IncomingRequestAct"), //$NON-NLS-1$
                             true,
+                            Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured"),
                             "testIncomingRequestActivityScenarios"));
 
         } finally {
