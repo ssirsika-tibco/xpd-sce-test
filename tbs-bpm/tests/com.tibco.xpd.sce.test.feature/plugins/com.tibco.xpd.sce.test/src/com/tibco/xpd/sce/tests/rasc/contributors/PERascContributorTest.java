@@ -104,8 +104,20 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
         IProject project =
                 ResourcesPlugin.getWorkspace().getRoot().getProject("RASC");
 
+        /*
+         * Sid - FORMs import intermittently doesn't migrate/auto-resolve its asset / nature configuration so you
+         * occasionally get the problem marker...
+         * 
+         * Forms Resources 11.x : The project natures, builders, special folders etc. do not match the asset
+         * configuration
+         * 
+         * So we need to allow for that.
+         */
         assertFalse("Project RASC should not have error problem markers",
-                TestUtil.hasErrorProblemMarker(project, true, "PERascContributorTest.testProcess"));
+                TestUtil.hasErrorProblemMarker(project,
+                        true,
+                        Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured"),
+                        "PERascContributorTest.testProcess"));
 
         // call the contributor's process() method
         RascContributor fixture = new PERascContributor();
