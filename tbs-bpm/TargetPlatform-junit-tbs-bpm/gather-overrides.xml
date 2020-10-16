@@ -15,6 +15,12 @@
         <isset property="autobuild.spin.port" />
     </condition>
 
+    <condition property="reldist.update.site.old"
+        value="http://reldist.na.tibco.com:${autobuild.spin.port}/reldist-old/${site.type}"
+        else="http://reldist.na.tibco.com/reldist-old/${site.type}">
+        <isset property="autobuild.spin.port" />
+    </condition>
+
     <updatesites id="gatherer.update-sites.list">
 		
 		<!-- test framework should now come from spin-->
@@ -22,6 +28,7 @@
 		<!-- update site for com.tibco.n2.common.model.feature -->
         <!--updatesite url="http://n2build2003/shared-builds/site.xml"/-->		
         <updatesite url="${reldist.update.site}"/>
+        <updatesite url="${reldist.update.site.old}"/>
 		<!-- for getting svn features -->
 		<!-- JA: Should not be necessary for now. Uncomment later.
 		<updatesite url="http://spin.tibco.com/ganymede/thirdparty/site.xml"/>
