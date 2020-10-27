@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_EmjwEBhmEeuTmOZVr9wSkw" xpdExt:DisplayName="RepeatingParameterTestInvalidProcess" Name="RepeatingParameterTestInvalidProcess">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2020-10-27</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_EmjwERhmEeuTmOZVr9wSkw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_EmjwExhmEeuTmOZVr9wSkw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_EmjwEhhmEeuTmOZVr9wSkw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_EmjwExhmEeuTmOZVr9wSkw" xpdExt:DisplayName="InvalidUsage" Name="InvalidUsage">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_EmjwGRhmEeuTmOZVr9wSkw" xpdExt:DisplayName="DifferentArrays" Name="DifferentArrays">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="RepeatingParameterTestData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_9iKAkBhiEeuTmOZVr9wSkw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_EmjwGhhmEeuTmOZVr9wSkw" xpdExt:DisplayName="TextArrayField" Name="TextArrayField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_EmjwGxhmEeuTmOZVr9wSkw" xpdExt:DisplayName="NumField1" Name="NumField1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_EmjwHBhmEeuTmOZVr9wSkw" xpdExt:DisplayName="NumField2" Name="NumField2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_EmjwFBhmEeuTmOZVr9wSkw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_EmjwEhhmEeuTmOZVr9wSkw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_EmjwFRhmEeuTmOZVr9wSkw" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_EmjwEhhmEeuTmOZVr9wSkw" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_EmjwFhhmEeuTmOZVr9wSkw" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// ACE-4863 array.splice(num, num, 0...n) used to be a problem so test that first.&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice());&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, &quot;ab&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, new Date(), &quot;abc&quot;));&#xD;
+&#xD;
+// Confidence test validation of all out other repeating params configurations&#xD;
+&#xD;
+// Fixed min and max repeating params (1 - 7)&#xD;
+var d = Date.UTC();&#xD;
+d = Date.UTC(1967, data.NumField1, 29, 3, 15, 30, data.NumField2, 5);&#xD;
+d = Date.UTC(1967, data.NumField1, 29, 3, 15, &quot;abc&quot;, data.NumField2);&#xD;
+&#xD;
+// Fixed min, unlimited max (2 - *)&#xD;
+data.NumField1 = Math.max();&#xD;
+data.NumField1 = Math.max(data.NumField1);&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_EmjwEhhmEeuTmOZVr9wSkw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="210.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_EmjwFxhmEeuTmOZVr9wSkw" Name="" From="_EmjwFhhmEeuTmOZVr9wSkw" To="_EmjwFRhmEeuTmOZVr9wSkw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_EmjwGBhmEeuTmOZVr9wSkw" xpdExt:DisplayName="" Name="" From="_EmjwFBhmEeuTmOZVr9wSkw" To="_EmjwFhhmEeuTmOZVr9wSkw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

@@ -1923,55 +1923,83 @@ public class JScriptUtils {
         return null;
     }
 
-    public static boolean hasRepeatingInputParameters(JsMethod jsMethod) {
+    /**
+     * Sid ACE-4683 Get the repeating parameter from the method parameters (if any).
+     * 
+     * @param jsMethod
+     * @return The the repeating parameter from the method parameters, if any, else <code>null</code>
+     */
+    public static JsMethodParam getRepeatingParameter(JsMethod jsMethod) {
         if (jsMethod != null) {
             List<JsMethodParam> parameterType = jsMethod.getParameterType();
             if (parameterType != null && !parameterType.isEmpty()) {
-                JsMethodParam jsMethodParam = parameterType.iterator().next();
-                if (jsMethodParam != null
-                        && jsMethodParam.getUMLParameter() != null) {
-                    Parameter parameter = jsMethodParam.getUMLParameter();
-                    ValueSpecification upperValue = parameter.getUpperValue();
-                    if (upperValue instanceof Interval) {
-                        return true;
+
+                /*
+                 * Sid ACE-4683 We used to only look a FIRST parameter to see if it was a repeating one. That's no good
+                 * for methods like array.splice(n,n,p...). So check ALL the parameters.
+                 */
+                for (JsMethodParam jsMethodParam : parameterType) {
+                    if (isRepeatingParameter(jsMethodParam)) {
+                        return jsMethodParam;
                     }
                 }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Sid ACE-4683 check if given parameter is a repeating-param
+     * 
+     * @param jsMethodParam
+     * 
+     * @return <code>true</code> if given parameter is a repeating-param
+     */
+    public static boolean isRepeatingParameter(JsMethodParam jsMethodParam) {
+        if (jsMethodParam != null && jsMethodParam.getUMLParameter() != null) {
+            Parameter parameter = jsMethodParam.getUMLParameter();
+            ValueSpecification upperValue = parameter.getUpperValue();
+            if (upperValue instanceof Interval) {
+                return true;
             }
         }
         return false;
     }
 
+    public static boolean hasRepeatingInputParameters(JsMethod jsMethod) {
+        /*
+         * Sid ACE-4683 We used to only look a FIRST parameter to see if it was a repeating one. That's no good for
+         * methods like array.splice(n,n,p...). So check ALL the parameters.
+         */
+        return getRepeatingParameter(jsMethod) != null;
+    }
+
     public static int getUpperMaxRepeatingInputParameters(JsMethod jsMethod) {
         int upperMaxRepeatingParams = 0;
         if (jsMethod != null) {
-            List<JsMethodParam> parameterType = jsMethod.getParameterType();
-            if (parameterType != null && !parameterType.isEmpty()) {
-                JsMethodParam jsMethodParam = parameterType.iterator().next();
-                if (jsMethodParam != null
-                        && jsMethodParam.getUMLParameter() != null) {
-                    Parameter parameter = jsMethodParam.getUMLParameter();
-                    ValueSpecification upperValue = parameter.getUpperValue();
-                    if (upperValue instanceof Interval) {
-                        Interval upperInterval = (Interval) upperValue;
-                        String name = upperInterval.getName();
-                        if (name != null) {
-                            if (name.equals("*")) {//$NON-NLS-1$
-                                return -1;
-                            } else {
-                                try {
-                                    int upperIntervalInt =
-                                            Integer.parseInt(name);
-                                    upperMaxRepeatingParams =
-                                            upperMaxRepeatingParams
-                                                    + upperIntervalInt;
-                                } catch (NumberFormatException e) {
+            /* Get the repeating parameter no matter WHICH param that is - DON'T assume it's always the first one! */
+            JsMethodParam jsMethodParam = getRepeatingParameter(jsMethod);
+            if (jsMethodParam != null && jsMethodParam.getUMLParameter() != null) {
+                Parameter parameter = jsMethodParam.getUMLParameter();
+                ValueSpecification upperValue = parameter.getUpperValue();
+                if (upperValue instanceof Interval) {
+                    Interval upperInterval = (Interval) upperValue;
+                    String name = upperInterval.getName();
+                    if (name != null) {
+                        if (name.equals("*")) {//$NON-NLS-1$
+                            return -1;
+                        } else {
+                            try {
+                                int upperIntervalInt = Integer.parseInt(name);
+                                upperMaxRepeatingParams = upperMaxRepeatingParams + upperIntervalInt;
+                            } catch (NumberFormatException e) {
 
-                                }
                             }
                         }
                     }
                 }
             }
+
         }
         return upperMaxRepeatingParams;
     }
@@ -1979,24 +2007,20 @@ public class JScriptUtils {
     public static int getLowerRepeatingInputParameters(JsMethod jsMethod) {
         int lowerRepeatingParams = 0;
         if (jsMethod != null) {
-            List<JsMethodParam> parameterType = jsMethod.getParameterType();
-            if (parameterType != null && !parameterType.isEmpty()) {
-                JsMethodParam jsMethodParam = parameterType.iterator().next();
-                if (jsMethodParam != null
-                        && jsMethodParam.getUMLParameter() != null) {
-                    Parameter parameter = jsMethodParam.getUMLParameter();
-                    ValueSpecification upperValue = parameter.getLowerValue();
-                    if (upperValue instanceof Interval) {
-                        Interval upperInterval = (Interval) upperValue;
-                        String name = upperInterval.getName();
-                        if (name != null) {
-                            try {
-                                int lowerIntervalInt = Integer.parseInt(name);
-                                lowerRepeatingParams =
-                                        lowerRepeatingParams + lowerIntervalInt;
-                            } catch (NumberFormatException e) {
+            /* Get the repeating parameter no matter WHICH param that is - DON'T assume it's always the first one! */
+            JsMethodParam jsMethodParam = getRepeatingParameter(jsMethod);
+            if (jsMethodParam != null && jsMethodParam.getUMLParameter() != null) {
+                Parameter parameter = jsMethodParam.getUMLParameter();
+                ValueSpecification upperValue = parameter.getLowerValue();
+                if (upperValue instanceof Interval) {
+                    Interval upperInterval = (Interval) upperValue;
+                    String name = upperInterval.getName();
+                    if (name != null) {
+                        try {
+                            int lowerIntervalInt = Integer.parseInt(name);
+                            lowerRepeatingParams = lowerRepeatingParams + lowerIntervalInt;
+                        } catch (NumberFormatException e) {
 
-                            }
                         }
                     }
                 }

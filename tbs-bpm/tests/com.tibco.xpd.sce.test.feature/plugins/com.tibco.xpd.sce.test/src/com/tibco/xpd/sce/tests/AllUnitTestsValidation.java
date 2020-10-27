@@ -24,6 +24,7 @@ import com.tibco.xpd.sce.tests.validation.AcePropertyLimitValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceSearchableArrayResolutionTest;
 import com.tibco.xpd.sce.tests.validation.AceSummaryArrayResolutionTest;
 import com.tibco.xpd.sce.tests.validation.AceTemporalDefaultValueRuleTest;
+import com.tibco.xpd.sce.tests.validation.RepeatingScriptFunctionParameterTest;
 import com.tibco.xpd.sce.tests.validation.SearchSummaryValidationTest;
 import com.tibco.xpd.sce.tests.validation.ServiceProcessTimerEventValidationTest;
 import com.tibco.xpd.sce.tests.validation.TerminalStateValidationTest;
@@ -69,6 +70,8 @@ public class AllUnitTestsValidation {
         suite.addTestSuite(AceSearchableArrayResolutionTest.class);
         suite.addTestSuite(AceSummaryArrayResolutionTest.class);
         suite.addTestSuite(ServiceProcessTimerEventValidationTest.class);
+
+        suite.addTestSuite(RepeatingScriptFunctionParameterTest.class);
         return suite;
     }
 }

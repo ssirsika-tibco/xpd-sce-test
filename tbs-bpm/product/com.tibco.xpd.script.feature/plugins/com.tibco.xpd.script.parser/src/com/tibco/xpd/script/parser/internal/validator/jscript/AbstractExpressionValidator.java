@@ -1810,13 +1810,36 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                             .getUpperMaxRepeatingInputParameters(jsMethod);
                     int lowerRepeatingInputParameters = JScriptUtils
                             .getLowerRepeatingInputParameters(jsMethod);
+
+                    /*
+                     * Sid ACE-4683 we need to take into account that there may be other non-repeating parameters.
+                     * 
+                     * So assuming that there can only ever be a max of 1 repeating-param definition we can add the
+                     * non-repeating param to the lower and upper limit.
+                     */
+                    int lowerNumParamsLimit = lowerRepeatingInputParameters;
+                    int upperNumParamsLimit = upperMaxRepeatingInputParameters;
+
+                    List<JsMethodParam> parameterTypes = jsMethod.getParameterType();
+                    if (parameterTypes != null && parameterTypes.size() > 1) {
+                        lowerNumParamsLimit += parameterTypes.size() - 1;
+                    }
+
+                    if (upperNumParamsLimit != -1) {
+                        /*
+                         * If we have a non unlimited upper then add non-repeating param number to the upper params
+                         * limit.
+                         */
+                        upperNumParamsLimit += parameterTypes.size() - 1;
+                    }
+
                     boolean validUpperNumber = false;
                     boolean validLowerNumber = false;
                     if (upperMaxRepeatingInputParameters == -1
                             || upperMaxRepeatingInputParameters >= parametersNumber) {
                         validUpperNumber = true;
                     }
-                    if (lowerRepeatingInputParameters <= parametersNumber) {
+                    if (lowerNumParamsLimit <= parametersNumber) {
                         validLowerNumber = true;
                     }
                     if (validUpperNumber && validLowerNumber) {
@@ -1849,28 +1872,47 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
             for (int i = 0; i < methodList.size(); i++) {
                 JsMethod matchingParamMethod = methodList.get(i);
                 if (matchingParamMethod != null) {
-                    if (JScriptUtils
-                            .hasRepeatingInputParameters(matchingParamMethod)) {
-                        List<JsMethodParam> parameterType =
-                                matchingParamMethod.getParameterType();
-                        if (parameterType != null && !parameterType.isEmpty()) {
-                            // Get the first param
-                            JsMethodParam firstParam =
-                                    parameterType.iterator().next();
-                            int paramsSize = parameters.size();
-                            if (paramsSize != 0) {
-                                List<JsMethodParam> dynamicParams =
-                                        new ArrayList<JsMethodParam>();
-                                for (int j = 0; j < paramsSize; j++) {
-                                    dynamicParams.add(firstParam);
-                                }
-                                if (isMatchingParamMethod(dynamicParams,
-                                        parameters,
-                                        contextType)) {
-                                    compatibleMethods.add(matchingParamMethod);
+                    JsMethod jsMethod;
+                    /*
+                     * Sid ACE-4683 Can't assume that the repeating parameter is the first parameter, thre may be other
+                     * non-repeating parameters before it.
+                     */
+                    JsMethodParam repeatingParameter = JScriptUtils.getRepeatingParameter(matchingParamMethod);
+
+                    if (repeatingParameter != null) {
+                        int paramsSize = parameters.size();
+
+                        if (paramsSize != 0) {
+                            List<JsMethodParam> dynamicParams = new ArrayList<JsMethodParam>();
+
+                            /* Add non-repeating parameters first. */
+                            for (JsMethodParam jsMethodParam : matchingParamMethod.getParameterType()) {
+                                if (!JScriptUtils.isRepeatingParameter(jsMethodParam)) {
+                                    dynamicParams.add(jsMethodParam);
+                                    /*
+                                     * Discount non-repeating parameters leaving us with the numbner of repeating params
+                                     * in paramSize
+                                     */
+                                    paramsSize--;
+
+                                } else {
+                                    /* Assume repeating parameter HAS to be the last. */
+                                    break;
                                 }
                             }
+
+                            /*
+                             * For all params left after the non-repeating params, add the repeating param definition.
+                             */
+                            for (int j = 0; j < paramsSize; j++) {
+                                dynamicParams.add(repeatingParameter);
+                            }
+
+                            if (isMatchingParamMethod(dynamicParams, parameters, contextType)) {
+                                compatibleMethods.add(matchingParamMethod);
+                            }
                         }
+
                     } else {
                         if (matchingParamMethod != null
                                 && matchingParamMethod
