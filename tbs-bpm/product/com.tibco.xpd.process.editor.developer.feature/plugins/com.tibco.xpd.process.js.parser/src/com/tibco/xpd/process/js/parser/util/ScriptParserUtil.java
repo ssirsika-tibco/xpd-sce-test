@@ -239,7 +239,7 @@ public class ScriptParserUtil {
         
         Map<String, List<ErrorMessage>> errorMap = ProcessValidationUtil.getErrorMap(parser);
         
-        if(strScript.startsWith("// VALID")) {
+        if (strScript.startsWith("// VALID")) {
             for (List<ErrorMessage> errors : errorMap.values()) {
                 for (ErrorMessage errorMessage : errors) {
                     errorMessage.setErrorMessage(errorMessage.getErrorMessage()+"\n\n=================================\n"+strScript);

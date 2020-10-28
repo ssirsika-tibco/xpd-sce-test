@@ -71,8 +71,9 @@ public class RepeatingScriptFunctionParameterTest extends AbstractN2BaseValidati
 
         for (ValidationsTestProblemMarkerInfo markerInfo : problemMarkers) {
             assertFalse(
-                    "ValidProcess.xpdl should not have error level problem markers (has at least one): " //$NON-NLS-1$
-                            + markerInfo.getProblemText(), markerInfo.getSourceMarker().getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR);
+                    "RepeatingParameterTestValidProcess.xpdl should not have error level problem markers (has at least one): " //$NON-NLS-1$
+                            + markerInfo.getProblemText().replaceAll("\n", "\\n"),
+                    markerInfo.getSourceMarker().getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR);
 
         }
 
