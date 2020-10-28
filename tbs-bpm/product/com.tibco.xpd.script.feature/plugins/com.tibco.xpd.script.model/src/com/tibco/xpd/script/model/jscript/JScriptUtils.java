@@ -2011,10 +2011,10 @@ public class JScriptUtils {
             JsMethodParam jsMethodParam = getRepeatingParameter(jsMethod);
             if (jsMethodParam != null && jsMethodParam.getUMLParameter() != null) {
                 Parameter parameter = jsMethodParam.getUMLParameter();
-                ValueSpecification upperValue = parameter.getLowerValue();
-                if (upperValue instanceof Interval) {
-                    Interval upperInterval = (Interval) upperValue;
-                    String name = upperInterval.getName();
+                ValueSpecification lowerValue = parameter.getLowerValue();
+                if (lowerValue instanceof Interval) {
+                    Interval lowerInterval = (Interval) lowerValue;
+                    String name = lowerInterval.getName();
                     if (name != null) {
                         try {
                             int lowerIntervalInt = Integer.parseInt(name);

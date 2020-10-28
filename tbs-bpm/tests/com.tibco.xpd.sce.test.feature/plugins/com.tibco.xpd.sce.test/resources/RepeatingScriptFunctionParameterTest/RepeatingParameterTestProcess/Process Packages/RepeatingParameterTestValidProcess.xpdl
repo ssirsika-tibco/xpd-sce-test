@@ -86,10 +86,240 @@
           <xpdl2:Implementation>
             <xpdl2:Task>
               <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// VALID&#xD;
+&#xD;
+// ACE-4863 array.splice(num, num, 0...n) used to be a problem so test that first.&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0));&#xD;
+// and again for bom attributes&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1));&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1, &quot;a&quot;));&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
+&#xD;
+// Confidence test validation of all out other repeating params configurations&#xD;
+// Fixed min and max repeating params (1 - 7)&#xD;
+var d = Date.UTC(data.NumField1);&#xD;
+d = Date.UTC(data.NumField1, 5);&#xD;
+d = Date.UTC(data.NumField1, 5, data.NumField2);&#xD;
+d = Date.UTC(1967, data.NumField1, 29, 3, 15, 30, data.NumField2);&#xD;
+// and again for bom attributes&#xD;
+var d = Date.UTC(data.DifferentArrays.number1);&#xD;
+d = Date.UTC(data.DifferentArrays.number1, 5);&#xD;
+d = Date.UTC(data.DifferentArrays.number1, 5, data.DifferentArrays.number2);&#xD;
+d = Date.UTC(1967, data.DifferentArrays.number1, 29, 3, 15, 30, data.DifferentArrays.number2);&#xD;
+&#xD;
+// Fixed min, unlimited max (2 - *)&#xD;
+data.NumField1 = Math.max(1, data.NumField1);&#xD;
+data.NumField1 = Math.max(data.NumField1, 2, data.NumField2);&#xD;
+data.NumField1 = Math.max(1, data.NumField1, 3, 4, data.NumField2, 6);&#xD;
+// and again for bom attributes&#xD;
+data.DifferentArrays.number1 = Math.max(1, data.NumField1);&#xD;
+data.DifferentArrays.number1 = Math.max(data.DifferentArrays.number1, 2, data.DifferentArrays.number2);&#xD;
+data.DifferentArrays.number1 = Math.max(1, data.DifferentArrays.number1, 3, 4, data.DifferentArrays.number2, 6);&#xD;
+&#xD;
+&#xD;
+// ACE-4863 array.splice(num, num, 0...n) used to be a problem so test that first.&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0));&#xD;
+// and again for bom attributes&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1));&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1, &quot;a&quot;));&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
+&#xD;
+// Confidence test validation of all out other repeating params configurations&#xD;
+&#xD;
+// Fixed min and max repeating params (1 - 7)&#xD;
+var d = Date.UTC(data.NumField1);&#xD;
+d = Date.UTC(data.NumField1, 5);&#xD;
+d = Date.UTC(data.NumField1, 5, data.NumField2);&#xD;
+d = Date.UTC(1967, data.NumField1, 29, 3, 15, 30, data.NumField2);&#xD;
+// and again for bom attributes&#xD;
+var d = Date.UTC(data.DifferentArrays.number1);&#xD;
+d = Date.UTC(data.DifferentArrays.number1, 5);&#xD;
+d = Date.UTC(data.DifferentArrays.number1, 5, data.DifferentArrays.number2);&#xD;
+d = Date.UTC(1967, data.DifferentArrays.number1, 29, 3, 15, 30, data.DifferentArrays.number2);&#xD;
+&#xD;
+// Fixed min, unlimited max (2 - *)&#xD;
+data.NumField1 = Math.max(1, data.NumField1);&#xD;
+data.NumField1 = Math.max(data.NumField1, 2, data.NumField2);&#xD;
+data.NumField1 = Math.max(1, data.NumField1, 3, 4, data.NumField2, 6);&#xD;
+// and again for bom attributes&#xD;
+data.DifferentArrays.number1 = Math.max(1, data.NumField1);&#xD;
+data.DifferentArrays.number1 = Math.max(data.DifferentArrays.number1, 2, data.DifferentArrays.number2);&#xD;
+data.DifferentArrays.number1 = Math.max(1, data.DifferentArrays.number1, 3, 4, data.DifferentArrays.number2, 6);&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+// ACE-4863 array.splice(num, num, 0...n) used to be a problem so test that first.&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0));&#xD;
+// and again for bom attributes&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1));&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1, &quot;a&quot;));&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
+&#xD;
+// Confidence test validation of all out other repeating params configurations&#xD;
+&#xD;
+// Fixed min and max repeating params (1 - 7)&#xD;
+var d = Date.UTC(data.NumField1);&#xD;
+d = Date.UTC(data.NumField1, 5);&#xD;
+d = Date.UTC(data.NumField1, 5, data.NumField2);&#xD;
+d = Date.UTC(1967, data.NumField1, 29, 3, 15, 30, data.NumField2);&#xD;
+// and again for bom attributes&#xD;
+var d = Date.UTC(data.DifferentArrays.number1);&#xD;
+d = Date.UTC(data.DifferentArrays.number1, 5);&#xD;
+d = Date.UTC(data.DifferentArrays.number1, 5, data.DifferentArrays.number2);&#xD;
+d = Date.UTC(1967, data.DifferentArrays.number1, 29, 3, 15, 30, data.DifferentArrays.number2);&#xD;
+&#xD;
+// Fixed min, unlimited max (2 - *)&#xD;
+data.NumField1 = Math.max(1, data.NumField1);&#xD;
+data.NumField1 = Math.max(data.NumField1, 2, data.NumField2);&#xD;
+data.NumField1 = Math.max(1, data.NumField1, 3, 4, data.NumField2, 6);&#xD;
+// and again for bom attributes&#xD;
+data.DifferentArrays.number1 = Math.max(1, data.NumField1);&#xD;
+data.DifferentArrays.number1 = Math.max(data.DifferentArrays.number1, 2, data.DifferentArrays.number2);&#xD;
+data.DifferentArrays.number1 = Math.max(1, data.DifferentArrays.number1, 3, 4, data.DifferentArrays.number2, 6);&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+// ACE-4863 array.splice(num, num, 0...n) used to be a problem so test that first.&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0));&#xD;
+// and again for bom attributes&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1));&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1, &quot;a&quot;));&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
+&#xD;
+// Confidence test validation of all out other repeating params configurations&#xD;
+&#xD;
+// Fixed min and max repeating params (1 - 7)&#xD;
+var d = Date.UTC(data.NumField1);&#xD;
+d = Date.UTC(data.NumField1, 5);&#xD;
+d = Date.UTC(data.NumField1, 5, data.NumField2);&#xD;
+d = Date.UTC(1967, data.NumField1, 29, 3, 15, 30, data.NumField2);&#xD;
+// and again for bom attributes&#xD;
+var d = Date.UTC(data.DifferentArrays.number1);&#xD;
+d = Date.UTC(data.DifferentArrays.number1, 5);&#xD;
+d = Date.UTC(data.DifferentArrays.number1, 5, data.DifferentArrays.number2);&#xD;
+d = Date.UTC(1967, data.DifferentArrays.number1, 29, 3, 15, 30, data.DifferentArrays.number2);&#xD;
+&#xD;
+// Fixed min, unlimited max (2 - *)&#xD;
+data.NumField1 = Math.max(1, data.NumField1);&#xD;
+data.NumField1 = Math.max(data.NumField1, 2, data.NumField2);&#xD;
+data.NumField1 = Math.max(1, data.NumField1, 3, 4, data.NumField2, 6);&#xD;
+// and again for bom attributes&#xD;
+data.DifferentArrays.number1 = Math.max(1, data.NumField1);&#xD;
+data.DifferentArrays.number1 = Math.max(data.DifferentArrays.number1, 2, data.DifferentArrays.number2);&#xD;
+data.DifferentArrays.number1 = Math.max(1, data.DifferentArrays.number1, 3, 4, data.DifferentArrays.number2, 6);&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+// ACE-4863 array.splice(num, num, 0...n) used to be a problem so test that first.&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0));&#xD;
+// and again for bom attributes&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1));&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1, &quot;a&quot;));&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
+&#xD;
+// Confidence test validation of all out other repeating params configurations&#xD;
+&#xD;
+// Fixed min and max repeating params (1 - 7)&#xD;
+var d = Date.UTC(data.NumField1);&#xD;
+d = Date.UTC(data.NumField1, 5);&#xD;
+d = Date.UTC(data.NumField1, 5, data.NumField2);&#xD;
+d = Date.UTC(1967, data.NumField1, 29, 3, 15, 30, data.NumField2);&#xD;
+// and again for bom attributes&#xD;
+var d = Date.UTC(data.DifferentArrays.number1);&#xD;
+d = Date.UTC(data.DifferentArrays.number1, 5);&#xD;
+d = Date.UTC(data.DifferentArrays.number1, 5, data.DifferentArrays.number2);&#xD;
+d = Date.UTC(1967, data.DifferentArrays.number1, 29, 3, 15, 30, data.DifferentArrays.number2);&#xD;
+&#xD;
+// Fixed min, unlimited max (2 - *)&#xD;
+data.NumField1 = Math.max(1, data.NumField1);&#xD;
+data.NumField1 = Math.max(data.NumField1, 2, data.NumField2);&#xD;
+data.NumField1 = Math.max(1, data.NumField1, 3, 4, data.NumField2, 6);&#xD;
+// and again for bom attributes&#xD;
+data.DifferentArrays.number1 = Math.max(1, data.NumField1);&#xD;
+data.DifferentArrays.number1 = Math.max(data.DifferentArrays.number1, 2, data.DifferentArrays.number2);&#xD;
+data.DifferentArrays.number1 = Math.max(1, data.DifferentArrays.number1, 3, 4, data.DifferentArrays.number2, 6);&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+// ACE-4863 array.splice(num, num, 0...n) used to be a problem so test that first.&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0));&#xD;
+// and again for bom attributes&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1));&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1, &quot;a&quot;));&#xD;
+data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
+&#xD;
+// Confidence test validation of all out other repeating params configurations&#xD;
+&#xD;
+// Fixed min and max repeating params (1 - 7)&#xD;
+var d = Date.UTC(data.NumField1);&#xD;
+d = Date.UTC(data.NumField1, 5);&#xD;
+d = Date.UTC(data.NumField1, 5, data.NumField2);&#xD;
+d = Date.UTC(1967, data.NumField1, 29, 3, 15, 30, data.NumField2);&#xD;
+// and again for bom attributes&#xD;
+var d = Date.UTC(data.DifferentArrays.number1);&#xD;
+d = Date.UTC(data.DifferentArrays.number1, 5);&#xD;
+d = Date.UTC(data.DifferentArrays.number1, 5, data.DifferentArrays.number2);&#xD;
+d = Date.UTC(1967, data.DifferentArrays.number1, 29, 3, 15, 30, data.DifferentArrays.number2);&#xD;
+&#xD;
+// Fixed min, unlimited max (2 - *)&#xD;
+data.NumField1 = Math.max(1, data.NumField1);&#xD;
+data.NumField1 = Math.max(data.NumField1, 2, data.NumField2);&#xD;
+data.NumField1 = Math.max(1, data.NumField1, 3, 4, data.NumField2, 6);&#xD;
+// and again for bom attributes&#xD;
+data.DifferentArrays.number1 = Math.max(1, data.NumField1);&#xD;
+data.DifferentArrays.number1 = Math.max(data.DifferentArrays.number1, 2, data.DifferentArrays.number2);&#xD;
+data.DifferentArrays.number1 = Math.max(1, data.DifferentArrays.number1, 3, 4, data.DifferentArrays.number2, 6);&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_5f9WcRhiEeuTmOZVr9wSkw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="210.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_f8a1QBknEeuDFu33iMIy8w" Name="ScriptTask2" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task 2">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
                 <xpdl2:Script ScriptGrammar="JavaScript">// ACE-4863 array.splice(num, num, 0...n) used to be a problem so test that first.&#xD;
 data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1));&#xD;
 data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;));&#xD;
 data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0));&#xD;
 // and again for bom attributes&#xD;
 data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1));&#xD;
 data.TextArrayField.pushAll(data.DifferentArrays.textArray.splice(0, 1, &quot;a&quot;));&#xD;
@@ -126,7 +356,7 @@ data.DifferentArrays.number1 = Math.max(1, data.DifferentArrays.number1, 3, 4, d
           </xpdl2:Implementation>
           <xpdl2:NodeGraphicsInfos>
             <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_5f9WcRhiEeuTmOZVr9wSkw" Width="96.0">
-              <xpdl2:Coordinates XCoordinate="210.0" YCoordinate="155.0"/>
+              <xpdl2:Coordinates XCoordinate="434.0" YCoordinate="155.0"/>
             </xpdl2:NodeGraphicsInfo>
           </xpdl2:NodeGraphicsInfos>
           <xpdl2:Extensions/>
@@ -136,13 +366,18 @@ data.DifferentArrays.number1 = Math.max(1, data.DifferentArrays.number1, 3, 4, d
         </xpdl2:Activity>
       </xpdl2:Activities>
       <xpdl2:Transitions>
-        <xpdl2:Transition Id="_5f9WdBhiEeuTmOZVr9wSkw" Name="" From="_hXdP8RhjEeuTmOZVr9wSkw" To="_5f9WcxhiEeuTmOZVr9wSkw">
+        <xpdl2:Transition Id="_5f9WdBhiEeuTmOZVr9wSkw" Name="" From="_f8a1QBknEeuDFu33iMIy8w" To="_5f9WcxhiEeuTmOZVr9wSkw">
           <xpdl2:ConnectorGraphicsInfos>
             <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
             <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
           </xpdl2:ConnectorGraphicsInfos>
         </xpdl2:Transition>
         <xpdl2:Transition Id="_hXiIcBhjEeuTmOZVr9wSkw" xpdExt:DisplayName="" Name="" From="_5f9WchhiEeuTmOZVr9wSkw" To="_hXdP8RhjEeuTmOZVr9wSkw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_f8_dABknEeuDFu33iMIy8w" xpdExt:DisplayName="" Name="" From="_hXdP8RhjEeuTmOZVr9wSkw" To="_f8a1QBknEeuDFu33iMIy8w">
           <xpdl2:ConnectorGraphicsInfos>
             <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
           </xpdl2:ConnectorGraphicsInfos>
