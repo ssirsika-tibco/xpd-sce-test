@@ -134,12 +134,14 @@ public class RepeatingScriptFunctionParameterTest extends AbstractN2BaseValidati
 			    		""), //$NON-NLS-1$ 
 			    		
 			
-			    new ValidationsTestProblemMarkerInfo(
-			    		"/RepeatingParameterTestProcess/Process Packages/RepeatingParameterTestInvalidProcess.xpdl", //$NON-NLS-1$ 
-			    		"bx.validateScriptTask", //$NON-NLS-1$ 
-			    		"_EmjwFhhmEeuTmOZVr9wSkw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:3 column:70, Method splice is not applicable for the provided number of arguments  (InvalidUsage:ScriptTask)", //$NON-NLS-1$ 
-			    		""), //$NON-NLS-1$ 
+                // new ValidationsTestProblemMarkerInfo(
+                // "/RepeatingParameterTestProcess/Process Packages/RepeatingParameterTestInvalidProcess.xpdl",
+                // //$NON-NLS-1$
+                // "bx.validateScriptTask", //$NON-NLS-1$
+                // "_EmjwFhhmEeuTmOZVr9wSkw", //$NON-NLS-1$
+                // "BPM : At Line:3 column:70, Method splice is not applicable for the provided number of arguments
+                // (InvalidUsage:ScriptTask)", //$NON-NLS-1$
+                // ""), //$NON-NLS-1$
 			    		
 			
 			    new ValidationsTestProblemMarkerInfo(
