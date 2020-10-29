@@ -1835,8 +1835,7 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
 
                     boolean validUpperNumber = false;
                     boolean validLowerNumber = false;
-                    if (upperMaxRepeatingInputParameters == -1
-                            || upperMaxRepeatingInputParameters >= parametersNumber) {
+                    if (upperNumParamsLimit == -1 || upperNumParamsLimit >= parametersNumber) {
                         validUpperNumber = true;
                     }
                     if (lowerNumParamsLimit <= parametersNumber) {
