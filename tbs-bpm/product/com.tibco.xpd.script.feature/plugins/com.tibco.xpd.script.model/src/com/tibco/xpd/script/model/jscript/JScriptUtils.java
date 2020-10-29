@@ -1969,7 +1969,9 @@ public class JScriptUtils {
     public static boolean hasRepeatingInputParameters(JsMethod jsMethod) {
         /*
          * Sid ACE-4683 We used to only look a FIRST parameter to see if it was a repeating one. That's no good for
-         * methods like array.splice(n,n,p...). So check ALL the parameters.
+         * methods like array.splice(n,n,p...).
+         * 
+         * So check ALL the parameters.
          */
         return getRepeatingParameter(jsMethod) != null;
     }

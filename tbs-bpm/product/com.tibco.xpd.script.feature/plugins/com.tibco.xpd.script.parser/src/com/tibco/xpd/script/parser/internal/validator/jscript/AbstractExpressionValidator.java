@@ -1816,6 +1816,7 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                      * 
                      * So assuming that there can only ever be a max of 1 repeating-param definition we can add the
                      * non-repeating param to the lower and upper limit.
+                     * 
                      */
                     int lowerNumParamsLimit = lowerRepeatingInputParameters;
                     int upperNumParamsLimit = upperMaxRepeatingInputParameters;
