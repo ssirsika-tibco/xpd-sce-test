@@ -88,6 +88,7 @@
               <xpdl2:TaskScript>
                 <xpdl2:Script ScriptGrammar="JavaScript">// ACE-4863 array.splice(num, num, 0...n) used to be a problem so test that first.&#xD;
 data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice());&#xD;
+&#xD;
 data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, &quot;ab&quot;));&#xD;
 data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, new Date(), &quot;abc&quot;));&#xD;
 &#xD;
