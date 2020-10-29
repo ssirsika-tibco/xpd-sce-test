@@ -89,7 +89,7 @@
                 <xpdl2:Script ScriptGrammar="JavaScript">// VALID&#xD;
 &#xD;
 // ACE-4863 array.splice(num, num, 0...n) used to be a problem so test that first.&#xD;
-data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice());&#xD;
+data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0));&#xD;
 data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;));&#xD;
 data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0, 1, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;));&#xD;
 data.DifferentArrays.textArray.pushAll(data.TextArrayField.splice(0));&#xD;

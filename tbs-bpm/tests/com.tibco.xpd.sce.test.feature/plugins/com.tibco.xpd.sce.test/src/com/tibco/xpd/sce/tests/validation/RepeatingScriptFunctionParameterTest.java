@@ -3,10 +3,7 @@
  */
 package com.tibco.xpd.sce.tests.validation;
 
-import java.util.List;
-
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.ResourcesPlugin;
 
 import com.tibco.xpd.core.test.util.TestResourceInfo;
@@ -67,14 +64,9 @@ public class RepeatingScriptFunctionParameterTest extends AbstractN2BaseValidati
         IFile validXpdl = ResourcesPlugin.getWorkspace().getRoot().getProject("RepeatingParameterTestProcess")
                 .getFolder("Process Packages").getFile("RepeatingParameterTestValidProcess.xpdl");
 
-        List<ValidationsTestProblemMarkerInfo> problemMarkers = getProblemMarkers(validXpdl);
-
-        for (ValidationsTestProblemMarkerInfo markerInfo : problemMarkers) {
-            assertFalse(
-                    "RepeatingParameterTestValidProcess.xpdl should not have error level problem markers (has at least one): " //$NON-NLS-1$
-                            + markerInfo.getProblemText().replaceAll("\n", "\\n"),
-                    markerInfo.getSourceMarker().getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR);
-
+        if (TestUtil.hasErrorProblemMarker(validXpdl, true, "RepeatingScriptFunctionParameterTest")) {
+            fail("RepeatingParameterTestValidProcess.xpdl should not have error level problem markers but has:\n" //$NON-NLS-1$
+                            + TestUtil.markersToString(TestUtil.getErrorMarkers(validXpdl)));
         }
 
         /* And one should have problems. */

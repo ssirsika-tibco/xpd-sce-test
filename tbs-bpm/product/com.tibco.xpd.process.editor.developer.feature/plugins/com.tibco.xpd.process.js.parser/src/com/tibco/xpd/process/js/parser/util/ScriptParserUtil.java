@@ -237,17 +237,7 @@ public class ScriptParserUtil {
             validationWarningMap = new HashMap<String, List<ErrorMessage>>();
         }
         
-        Map<String, List<ErrorMessage>> errorMap = ProcessValidationUtil.getErrorMap(parser);
-        
-        if (strScript.startsWith("// VALID")) {
-            for (List<ErrorMessage> errors : errorMap.values()) {
-                for (ErrorMessage errorMessage : errors) {
-                    errorMessage.setErrorMessage(errorMessage.getErrorMessage()+"\n\n=================================\n"+strScript);
-                }
-            }
-        }
-        
-        validationErrorMap.putAll(errorMap);
+        validationErrorMap.putAll(ProcessValidationUtil.getErrorMap(parser));
         validationWarningMap
                 .putAll(ProcessValidationUtil.getWarningMap(parser));
         return parser;
