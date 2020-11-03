@@ -51,9 +51,7 @@
 		<echo>Downloading assemblies to: ${assemblies.download.dir}</echo>
 		<echo>Assembly(ies): ${assemblies.list}</echo>
 		<input message="Please enter reldist username:" addproperty="reldist.user" defaultvalue="jarciuch" />
-		<input message="Please enter password for ${reldist.user}:" addproperty="reldist.password">
-			<handler type="secure" />
-		</input>
+		<input message="Please enter password for ${reldist.user}:" addproperty="reldist.password"/>
 		<mkdir dir="${assemblies.download.dir}"/>
 		<for list="${assemblies.list}" param="fileName">
 			<sequential>
