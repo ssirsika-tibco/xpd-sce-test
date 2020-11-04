@@ -34,6 +34,7 @@ import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.builder.ondemand.AbstractOnDemandBuilder;
 import com.tibco.xpd.resources.builder.ondemand.BuildSourceSet;
 import com.tibco.xpd.resources.builder.ondemand.BuildTargetSet;
+import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.rsd.ui.RsdUIPlugin;
@@ -331,10 +332,7 @@ public class BPELOnDemandBuilder extends AbstractOnDemandBuilder {
             }
 
             /*
-             * The source set must contain all of the files that derived targets
-             * depend upon.
-             * 
-             * In this case all working copy dependencies that are WSDL or BOM
+             * The source set must contain all of the files that derived targets depend upon.
              */
             List<IResource> dependencies = wc.getDependency();
 
@@ -346,7 +344,6 @@ public class BPELOnDemandBuilder extends AbstractOnDemandBuilder {
                      * Sid ACE-180: We should never be asked for WebServices any
                      * more in ACE
                      */
-
                     if (BOMResourcesPlugin.BOM_FILE_EXTENSION
                                     .equalsIgnoreCase(fileExtension)
                             || OMResourcesActivator.OM_FILE_EXTENSION
@@ -358,6 +355,46 @@ public class BPELOnDemandBuilder extends AbstractOnDemandBuilder {
                     }
                 }
             }
+
+            /*
+             * Sid ACE-4801 As sub-process references can contain project version ranges, we need to rebuild BPEL if the
+             * parent project version of any referenced sub-process xpdl changes.
+             * 
+             * In order to do this we will add the .config file of the parent and all referenced projects to ensure that
+             * the BPEL is built.
+             */
+            Set<IResource> projectConfigs = getProjectConfigs(xpdlFile);
+
+            if (projectConfigs != null && !projectConfigs.isEmpty()) {
+                for (IResource config : projectConfigs) {
+                    addSourceResource(config);
+                }
+            }
+
+        }
+
+        /**
+         * Return a list of the project .config files for the parent project AND all referenced projects.
+         * 
+         * @param file
+         * @return list of .config resources
+         */
+        private Set<IResource> getProjectConfigs(IFile file) {
+            Set<IProject> projects =
+                    ProjectUtil.getReferencedProjectsHierarchy(file.getProject(), new HashSet<IProject>(), true);
+            projects.add(file.getProject());
+
+            Set<IResource> configs = new HashSet<IResource>();
+
+            for (IProject project : projects) {
+                IResource config = project.findMember(XpdResourcesPlugin.PROJECTCONFIGFILE);
+
+                if (config != null && config.isAccessible()) {
+                    configs.add(config);
+                }
+            }
+
+            return configs;
         }
 
         /**
