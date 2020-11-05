@@ -361,7 +361,7 @@ public class BPELOnDemandBuilder extends AbstractOnDemandBuilder {
              * parent project version of any referenced sub-process xpdl changes.
              * 
              * In order to do this we will add the .config file of the parent and all referenced projects to ensure that
-             * the BPEL is built...
+             * the BPEL is built.
              */
             Set<IResource> projectConfigs = getProjectConfigs(xpdlFile);
 
