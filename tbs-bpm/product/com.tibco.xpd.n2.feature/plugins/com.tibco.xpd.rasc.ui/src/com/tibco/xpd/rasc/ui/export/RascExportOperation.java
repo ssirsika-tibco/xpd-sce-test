@@ -18,6 +18,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -142,13 +143,30 @@ public class RascExportOperation implements IRunnableWithProgress {
 
         Collection<IProject> buildProjects = completeProjectSet != null ? completeProjectSet : projects;
 
-        IStatus synchronizedBuildStatus = BuildSynchronizerUtil
-                .synchronizedBuild(buildProjects, monitor.split(buildProjects.size()),
-                false);
+        /*
+         * Sid ACE-4824 If wokspace auto-build is on then don't try and force an incremental build of all the projects
+         * using BuildSynchonizerUtil, BECAUSE this seems to confuse the build system and you end up with the
+         * AutoBuildJob permanently left in Job.SLEEPING state and that causes the 'wait for builds to complete' to sit
+         * and wait forever as the AutoBuildJob never gets out of sleeping state.
+         * 
+         * It is very hard to reproduce reliably so this is just educated guess work. It is difficult to tell the exact
+         * cause why the AutoBuildJob gets stuck in sleeping state.
+         * 
+         * So if workspace is autobuilding then we'll just wait for any current build to complete. IF there were unsaved
+         * resources when generate-artifacts was called then the user electing to save those will cause an auto-build
+         * anyway)
+         */
+        if (!ResourcesPlugin.getWorkspace().isAutoBuilding()) {
+            IStatus synchronizedBuildStatus =
+                    BuildSynchronizerUtil.synchronizedBuild(buildProjects, monitor.split(buildProjects.size()), false);
 
-        if (synchronizedBuildStatus.getSeverity() > IStatus.WARNING) {
-            throw new InterruptedException();
+            if (synchronizedBuildStatus.getSeverity() > IStatus.WARNING) {
+                throw new InterruptedException();
+            }
+        } else {
+            BuildSynchronizerUtil.waitForBuildsToFinish(monitor.split(buildProjects.size()));
         }
+
 
         if (monitor.isCanceled()) {
             throw new InterruptedException();
