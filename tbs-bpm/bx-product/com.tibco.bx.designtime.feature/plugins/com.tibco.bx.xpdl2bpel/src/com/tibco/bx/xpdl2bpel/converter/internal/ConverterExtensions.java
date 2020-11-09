@@ -210,6 +210,13 @@ public class ConverterExtensions {
 		} else if (extVar.getType() instanceof NamedElement) {
             String className = BOMWorkingCopy.getQualifiedClassName((NamedElement) extVar.getType());
 			BPELUtils.addExtensionAttribute(var, "class", className); //$NON-NLS-1
+			
+            /*
+             * Sid ACE-4840 include tibx:classVersion in field definitions (required by runtime when initialising
+             * script engine.
+             */
+            String bomClassVersion = XPDLUtils.getBomClassMajorVersion((NamedElement) extVar.getType());
+            BPELUtils.addExtensionAttribute(var, "classVersion", bomClassVersion);
 		}
         if (extVar.isArray()) {
         	BPELUtils.addExtensionAttribute(var, "array", "yes"); //$NON-NLS-1 //$NON-NLS-2

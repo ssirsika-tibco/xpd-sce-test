@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.NamedElement;
 import org.osgi.framework.Version;
 import org.w3c.dom.Element;
 
@@ -797,6 +798,31 @@ public class XPDLUtils {
             EObject eo = root.eResource().getEObject(reference.getXref());
             if (eo instanceof Class) {
                 return BOMWorkingCopy.getQualifiedClassName((Class) eo);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Sid ACE-4840 get the major version of the project for the given BOM element reference.
+     * 
+     * @param bomObject
+     * @return A string with the major version of the data project or null if invalid reference.
+     */
+    public static String getBomClassMajorVersion(NamedElement bomObject) {
+        if (bomObject != null) {
+            IProject bomProject = WorkingCopyUtil.getProjectFor(bomObject);
+            
+            if (bomProject != null && bomProject.isAccessible()) {
+                String projectVersion = ProjectUtil.getProjectVersion(bomProject);
+                
+                if (projectVersion != null) {
+                    String[] parts = projectVersion.split("\\."); //$NON-NLS-1$
+
+                    if (parts != null && parts.length > 0) {
+                        return parts[0];
+                    }
+                }
             }
         }
         return null;

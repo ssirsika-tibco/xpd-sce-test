@@ -32,12 +32,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.n2.common.datamodel.impl.ComplexSpecTypeImpl#getValue <em>Value</em>}</li>
  *   <li>{@link com.tibco.n2.common.datamodel.impl.ComplexSpecTypeImpl#getClassName <em>Class Name</em>}</li>
  *   <li>{@link com.tibco.n2.common.datamodel.impl.ComplexSpecTypeImpl#getGoRefId <em>Go Ref Id</em>}</li>
+ *   <li>{@link com.tibco.n2.common.datamodel.impl.ComplexSpecTypeImpl#getClassVersion <em>Class Version</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -91,6 +92,26 @@ public class ComplexSpecTypeImpl extends EObjectImpl implements ComplexSpecType 
      * @ordered
      */
     protected String goRefId = GO_REF_ID_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getClassVersion() <em>Class Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getClassVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final String CLASS_VERSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getClassVersion() <em>Class Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getClassVersion()
+     * @generated
+     * @ordered
+     */
+    protected String classVersion = CLASS_VERSION_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -170,6 +191,27 @@ public class ComplexSpecTypeImpl extends EObjectImpl implements ComplexSpecType 
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getClassVersion() {
+        return classVersion;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setClassVersion(String newClassVersion) {
+        String oldClassVersion = classVersion;
+        classVersion = newClassVersion;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DatamodelPackage.COMPLEX_SPEC_TYPE__CLASS_VERSION, oldClassVersion, classVersion));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -193,6 +235,8 @@ public class ComplexSpecTypeImpl extends EObjectImpl implements ComplexSpecType 
                 return getClassName();
             case DatamodelPackage.COMPLEX_SPEC_TYPE__GO_REF_ID:
                 return getGoRefId();
+            case DatamodelPackage.COMPLEX_SPEC_TYPE__CLASS_VERSION:
+                return getClassVersion();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -216,6 +260,9 @@ public class ComplexSpecTypeImpl extends EObjectImpl implements ComplexSpecType 
             case DatamodelPackage.COMPLEX_SPEC_TYPE__GO_REF_ID:
                 setGoRefId((String)newValue);
                 return;
+            case DatamodelPackage.COMPLEX_SPEC_TYPE__CLASS_VERSION:
+                setClassVersion((String)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -237,6 +284,9 @@ public class ComplexSpecTypeImpl extends EObjectImpl implements ComplexSpecType 
             case DatamodelPackage.COMPLEX_SPEC_TYPE__GO_REF_ID:
                 setGoRefId(GO_REF_ID_EDEFAULT);
                 return;
+            case DatamodelPackage.COMPLEX_SPEC_TYPE__CLASS_VERSION:
+                setClassVersion(CLASS_VERSION_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -255,6 +305,8 @@ public class ComplexSpecTypeImpl extends EObjectImpl implements ComplexSpecType 
                 return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
             case DatamodelPackage.COMPLEX_SPEC_TYPE__GO_REF_ID:
                 return GO_REF_ID_EDEFAULT == null ? goRefId != null : !GO_REF_ID_EDEFAULT.equals(goRefId);
+            case DatamodelPackage.COMPLEX_SPEC_TYPE__CLASS_VERSION:
+                return CLASS_VERSION_EDEFAULT == null ? classVersion != null : !CLASS_VERSION_EDEFAULT.equals(classVersion);
         }
         return super.eIsSet(featureID);
     }
@@ -268,11 +320,13 @@ public class ComplexSpecTypeImpl extends EObjectImpl implements ComplexSpecType 
     public String toString() {
         if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (className: ");
         result.append(className);
         result.append(", goRefId: ");
         result.append(goRefId);
+        result.append(", classVersion: ");
+        result.append(classVersion);
         result.append(')');
         return result.toString();
     }

@@ -154,13 +154,22 @@ public interface DatamodelPackage extends EPackage {
     int COMPLEX_SPEC_TYPE__GO_REF_ID = 2;
 
     /**
+     * The feature id for the '<em><b>Class Version</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPLEX_SPEC_TYPE__CLASS_VERSION = 3;
+
+    /**
      * The number of structural features of the '<em>Complex Spec Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COMPLEX_SPEC_TYPE_FEATURE_COUNT = 3;
+    int COMPLEX_SPEC_TYPE_FEATURE_COUNT = 4;
 
     /**
      * The meta object id for the '{@link com.tibco.n2.common.datamodel.impl.DataModelImpl <em>Data Model</em>}' class.
@@ -640,6 +649,17 @@ public interface DatamodelPackage extends EPackage {
      * @generated
      */
     EAttribute getComplexSpecType_GoRefId();
+
+    /**
+     * Returns the meta object for the attribute '{@link com.tibco.n2.common.datamodel.ComplexSpecType#getClassVersion <em>Class Version</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Class Version</em>'.
+     * @see com.tibco.n2.common.datamodel.ComplexSpecType#getClassVersion()
+     * @see #getComplexSpecType()
+     * @generated
+     */
+    EAttribute getComplexSpecType_ClassVersion();
 
     /**
      * Returns the meta object for class '{@link com.tibco.n2.common.datamodel.DataModel <em>Data Model</em>}'.
@@ -1132,6 +1152,14 @@ public interface DatamodelPackage extends EPackage {
          * @generated
          */
         EAttribute COMPLEX_SPEC_TYPE__GO_REF_ID = eINSTANCE.getComplexSpecType_GoRefId();
+
+        /**
+         * The meta object literal for the '<em><b>Class Version</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute COMPLEX_SPEC_TYPE__CLASS_VERSION = eINSTANCE.getComplexSpecType_ClassVersion();
 
         /**
          * The meta object literal for the '{@link com.tibco.n2.common.datamodel.impl.DataModelImpl <em>Data Model</em>}' class.

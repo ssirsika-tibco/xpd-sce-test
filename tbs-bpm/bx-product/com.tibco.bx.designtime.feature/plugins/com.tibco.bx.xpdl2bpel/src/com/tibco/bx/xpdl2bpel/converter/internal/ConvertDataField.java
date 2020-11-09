@@ -269,6 +269,11 @@ public class ConvertDataField {
 		} else if (dataType instanceof ExternalReference) {
 			String bomClassName = XPDLUtils.getBomClassName((ExternalReference) dataType);
 			BPELUtils.addExtensionAttribute(variable, "class", bomClassName); //$NON-NLS-1
+			
+			/* Sid ACE-4840 include tibx:classVersion in field definitions (required by runtime when initialising script engine. */
+			String bomClassVersion = XPDLUtils.getBomClassMajorVersion(XPDLUtils.getBomClass((ExternalReference) dataType));
+			BPELUtils.addExtensionAttribute(variable, "classVersion", bomClassVersion);
+			
 		} else if (dataType instanceof BasicType) {
 			BasicType basicType = (BasicType) dataType;
 			XSDSimpleTypeDefinition xsdSimpleTypeDefinition = DataTypeUtil.getXsdForBasicType(basicType);		

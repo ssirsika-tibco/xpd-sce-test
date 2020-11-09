@@ -21,12 +21,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.n2.common.datamodel.ComplexSpecType#getValue <em>Value</em>}</li>
  *   <li>{@link com.tibco.n2.common.datamodel.ComplexSpecType#getClassName <em>Class Name</em>}</li>
  *   <li>{@link com.tibco.n2.common.datamodel.ComplexSpecType#getGoRefId <em>Go Ref Id</em>}</li>
+ *   <li>{@link com.tibco.n2.common.datamodel.ComplexSpecType#getClassVersion <em>Class Version</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.n2.common.datamodel.DatamodelPackage#getComplexSpecType()
  * @model extendedMetaData="name='complexSpec_._type' kind='elementOnly'"
@@ -105,5 +106,31 @@ public interface ComplexSpecType extends EObject {
      * @generated
      */
     void setGoRefId(String value);
+
+    /**
+     * Returns the value of the '<em><b>Class Version</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * The major version number of the project containing the referenced BOM type
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Class Version</em>' attribute.
+     * @see #setClassVersion(String)
+     * @see com.tibco.n2.common.datamodel.DatamodelPackage#getComplexSpecType_ClassVersion()
+     * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+     *        extendedMetaData="kind='attribute' name='classVersion'"
+     * @generated
+     */
+    String getClassVersion();
+
+    /**
+     * Sets the value of the '{@link com.tibco.n2.common.datamodel.ComplexSpecType#getClassVersion <em>Class Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Class Version</em>' attribute.
+     * @see #getClassVersion()
+     * @generated
+     */
+    void setClassVersion(String value);
 
 } // ComplexSpecType

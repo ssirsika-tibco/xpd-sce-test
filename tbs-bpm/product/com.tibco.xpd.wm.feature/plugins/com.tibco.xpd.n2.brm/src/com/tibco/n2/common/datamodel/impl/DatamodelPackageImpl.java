@@ -18,6 +18,8 @@ import com.tibco.n2.common.api.exception.ExceptionPackage;
 
 import com.tibco.n2.common.api.exception.impl.ExceptionPackageImpl;
 
+import com.tibco.n2.common.attributefacade.AttributefacadePackage;
+import com.tibco.n2.common.attributefacade.impl.AttributefacadePackageImpl;
 import com.tibco.n2.common.datamodel.AliasType;
 import com.tibco.n2.common.datamodel.AliasTypeType;
 import com.tibco.n2.common.datamodel.ComplexSpecType;
@@ -190,7 +192,7 @@ public class DatamodelPackageImpl extends EPackageImpl implements DatamodelPacka
 
     /**
      * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-     * 
+     *
      * <p>This method is used to initialize {@link DatamodelPackage#eINSTANCE} when that field is accessed.
      * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
      * <!-- begin-user-doc -->
@@ -204,7 +206,8 @@ public class DatamodelPackageImpl extends EPackageImpl implements DatamodelPacka
         if (isInited) return (DatamodelPackage)EPackage.Registry.INSTANCE.getEPackage(DatamodelPackage.eNS_URI);
 
         // Obtain or create and register package
-        DatamodelPackageImpl theDatamodelPackage = (DatamodelPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DatamodelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DatamodelPackageImpl());
+        Object registeredDatamodelPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+        DatamodelPackageImpl theDatamodelPackage = registeredDatamodelPackage instanceof DatamodelPackageImpl ? (DatamodelPackageImpl)registeredDatamodelPackage : new DatamodelPackageImpl();
 
         isInited = true;
 
@@ -212,37 +215,44 @@ public class DatamodelPackageImpl extends EPackageImpl implements DatamodelPacka
         XMLTypePackage.eINSTANCE.eClass();
 
         // Obtain or create and register interdependencies
-        N2BRMPackageImpl theN2BRMPackage = (N2BRMPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(N2BRMPackage.eNS_URI) instanceof N2BRMPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(N2BRMPackage.eNS_URI) : N2BRMPackage.eINSTANCE);
-        ExceptionPackageImpl theExceptionPackage = (ExceptionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExceptionPackage.eNS_URI) instanceof ExceptionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExceptionPackage.eNS_URI) : ExceptionPackage.eINSTANCE);
-        OrganisationPackageImpl theOrganisationPackage = (OrganisationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(OrganisationPackage.eNS_URI) instanceof OrganisationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(OrganisationPackage.eNS_URI) : OrganisationPackage.eINSTANCE);
-        DescriptorPackageImpl theDescriptorPackage = (DescriptorPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DescriptorPackage.eNS_URI) instanceof DescriptorPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DescriptorPackage.eNS_URI) : DescriptorPackage.eINSTANCE);
-        WorkmodelPackageImpl theWorkmodelPackage = (WorkmodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(WorkmodelPackage.eNS_URI) instanceof WorkmodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(WorkmodelPackage.eNS_URI) : WorkmodelPackage.eINSTANCE);
-        WorktypePackageImpl theWorktypePackage = (WorktypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(WorktypePackage.eNS_URI) instanceof WorktypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(WorktypePackage.eNS_URI) : WorktypePackage.eINSTANCE);
-        PageactivitymodelPackageImpl thePageactivitymodelPackage = (PageactivitymodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PageactivitymodelPackage.eNS_URI) instanceof PageactivitymodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PageactivitymodelPackage.eNS_URI) : PageactivitymodelPackage.eINSTANCE);
+        Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(N2BRMPackage.eNS_URI);
+        N2BRMPackageImpl theN2BRMPackage = (N2BRMPackageImpl)(registeredPackage instanceof N2BRMPackageImpl ? registeredPackage : N2BRMPackage.eINSTANCE);
+        registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExceptionPackage.eNS_URI);
+        ExceptionPackageImpl theExceptionPackage = (ExceptionPackageImpl)(registeredPackage instanceof ExceptionPackageImpl ? registeredPackage : ExceptionPackage.eINSTANCE);
+        registeredPackage = EPackage.Registry.INSTANCE.getEPackage(OrganisationPackage.eNS_URI);
+        OrganisationPackageImpl theOrganisationPackage = (OrganisationPackageImpl)(registeredPackage instanceof OrganisationPackageImpl ? registeredPackage : OrganisationPackage.eINSTANCE);
+        registeredPackage = EPackage.Registry.INSTANCE.getEPackage(WorkmodelPackage.eNS_URI);
+        WorkmodelPackageImpl theWorkmodelPackage = (WorkmodelPackageImpl)(registeredPackage instanceof WorkmodelPackageImpl ? registeredPackage : WorkmodelPackage.eINSTANCE);
+        registeredPackage = EPackage.Registry.INSTANCE.getEPackage(WorktypePackage.eNS_URI);
+        WorktypePackageImpl theWorktypePackage = (WorktypePackageImpl)(registeredPackage instanceof WorktypePackageImpl ? registeredPackage : WorktypePackage.eINSTANCE);
+        registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PageactivitymodelPackage.eNS_URI);
+        PageactivitymodelPackageImpl thePageactivitymodelPackage = (PageactivitymodelPackageImpl)(registeredPackage instanceof PageactivitymodelPackageImpl ? registeredPackage : PageactivitymodelPackage.eINSTANCE);
+        registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AttributefacadePackage.eNS_URI);
+        AttributefacadePackageImpl theAttributefacadePackage = (AttributefacadePackageImpl)(registeredPackage instanceof AttributefacadePackageImpl ? registeredPackage : AttributefacadePackage.eINSTANCE);
 
         // Create package meta-data objects
         theDatamodelPackage.createPackageContents();
         theN2BRMPackage.createPackageContents();
         theExceptionPackage.createPackageContents();
         theOrganisationPackage.createPackageContents();
-        theDescriptorPackage.createPackageContents();
         theWorkmodelPackage.createPackageContents();
         theWorktypePackage.createPackageContents();
         thePageactivitymodelPackage.createPackageContents();
+        theAttributefacadePackage.createPackageContents();
 
         // Initialize created meta-data
         theDatamodelPackage.initializePackageContents();
         theN2BRMPackage.initializePackageContents();
         theExceptionPackage.initializePackageContents();
         theOrganisationPackage.initializePackageContents();
-        theDescriptorPackage.initializePackageContents();
         theWorkmodelPackage.initializePackageContents();
         theWorktypePackage.initializePackageContents();
         thePageactivitymodelPackage.initializePackageContents();
+        theAttributefacadePackage.initializePackageContents();
 
         // Register package validator
         EValidator.Registry.INSTANCE.put
-            (theDatamodelPackage, 
+            (theDatamodelPackage,
              new EValidator.Descriptor() {
                  public EValidator getEValidator() {
                      return DatamodelValidator.INSTANCE;
@@ -252,7 +262,6 @@ public class DatamodelPackageImpl extends EPackageImpl implements DatamodelPacka
         // Mark meta-data to indicate it can't be changed
         theDatamodelPackage.freeze();
 
-  
         // Update the registry and return the package
         EPackage.Registry.INSTANCE.put(DatamodelPackage.eNS_URI, theDatamodelPackage);
         return theDatamodelPackage;
@@ -337,6 +346,15 @@ public class DatamodelPackageImpl extends EPackageImpl implements DatamodelPacka
      */
     public EAttribute getComplexSpecType_GoRefId() {
         return (EAttribute)complexSpecTypeEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getComplexSpecType_ClassVersion() {
+        return (EAttribute)complexSpecTypeEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -701,6 +719,7 @@ public class DatamodelPackageImpl extends EPackageImpl implements DatamodelPacka
         createEReference(complexSpecTypeEClass, COMPLEX_SPEC_TYPE__VALUE);
         createEAttribute(complexSpecTypeEClass, COMPLEX_SPEC_TYPE__CLASS_NAME);
         createEAttribute(complexSpecTypeEClass, COMPLEX_SPEC_TYPE__GO_REF_ID);
+        createEAttribute(complexSpecTypeEClass, COMPLEX_SPEC_TYPE__CLASS_VERSION);
 
         dataModelEClass = createEClass(DATA_MODEL);
         createEReference(dataModelEClass, DATA_MODEL__INPUTS);
@@ -791,6 +810,7 @@ public class DatamodelPackageImpl extends EPackageImpl implements DatamodelPacka
         initEReference(getComplexSpecType_Value(), ecorePackage.getEObject(), null, "value", null, 0, -1, ComplexSpecType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getComplexSpecType_ClassName(), theXMLTypePackage.getString(), "className", null, 0, 1, ComplexSpecType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getComplexSpecType_GoRefId(), theXMLTypePackage.getString(), "goRefId", null, 0, 1, ComplexSpecType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getComplexSpecType_ClassVersion(), theXMLTypePackage.getString(), "classVersion", null, 0, 1, ComplexSpecType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dataModelEClass, DataModel.class, "DataModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getDataModel_Inputs(), this.getFieldType(), null, "inputs", null, 0, -1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -867,322 +887,329 @@ public class DatamodelPackageImpl extends EPackageImpl implements DatamodelPacka
      * @generated
      */
     protected void createExtendedMetaDataAnnotations() {
-        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
+        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
         addAnnotation
-          (aliasDescriptionTypeEDataType, 
-           source, 
+          (aliasDescriptionTypeEDataType,
+           source,
            new String[] {
-             "name", "aliasDescription_._type",
-             "baseType", "http://www.eclipse.org/emf/2003/XMLType#string",
-             "maxLength", "256"
-           });		
+               "name", "aliasDescription_._type",
+               "baseType", "http://www.eclipse.org/emf/2003/XMLType#string",
+               "maxLength", "256"
+           });
         addAnnotation
-          (aliasNameTypeEDataType, 
-           source, 
+          (aliasNameTypeEDataType,
+           source,
            new String[] {
-             "name", "aliasName_._type",
-             "baseType", "http://www.eclipse.org/emf/2003/XMLType#string",
-             "maxLength", "64"
-           });			
+               "name", "aliasName_._type",
+               "baseType", "http://www.eclipse.org/emf/2003/XMLType#string",
+               "maxLength", "64"
+           });
         addAnnotation
-          (aliasTypeEClass, 
-           source, 
+          (aliasTypeEClass,
+           source,
            new String[] {
-             "name", "AliasType",
-             "kind", "empty"
-           });		
+               "name", "AliasType",
+               "kind", "empty"
+           });
         addAnnotation
-          (getAliasType_AliasDescription(), 
-           source, 
+          (getAliasType_AliasDescription(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "aliasDescription"
-           });			
+               "kind", "attribute",
+               "name", "aliasDescription"
+           });
         addAnnotation
-          (getAliasType_AliasName(), 
-           source, 
+          (getAliasType_AliasName(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "aliasName"
-           });			
+               "kind", "attribute",
+               "name", "aliasName"
+           });
         addAnnotation
-          (getAliasType_AliasType(), 
-           source, 
+          (getAliasType_AliasType(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "aliasType"
-           });			
+               "kind", "attribute",
+               "name", "aliasType"
+           });
         addAnnotation
-          (getAliasType_FacadeName(), 
-           source, 
+          (getAliasType_FacadeName(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "facadeName"
-           });		
+               "kind", "attribute",
+               "name", "facadeName"
+           });
         addAnnotation
-          (aliasTypeTypeEEnum, 
-           source, 
+          (aliasTypeTypeEEnum,
+           source,
            new String[] {
-             "name", "aliasType_._type"
-           });		
+               "name", "aliasType_._type"
+           });
         addAnnotation
-          (aliasTypeTypeObjectEDataType, 
-           source, 
+          (aliasTypeTypeObjectEDataType,
+           source,
            new String[] {
-             "name", "aliasType_._type:Object",
-             "baseType", "aliasType_._type"
-           });			
+               "name", "aliasType_._type:Object",
+               "baseType", "aliasType_._type"
+           });
         addAnnotation
-          (complexSpecTypeEClass, 
-           source, 
+          (complexSpecTypeEClass,
+           source,
            new String[] {
-             "name", "complexSpec_._type",
-             "kind", "elementOnly"
-           });			
+               "name", "complexSpec_._type",
+               "kind", "elementOnly"
+           });
         addAnnotation
-          (getComplexSpecType_Value(), 
-           source, 
+          (getComplexSpecType_Value(),
+           source,
            new String[] {
-             "kind", "element",
-             "name", "value"
-           });			
+               "kind", "element",
+               "name", "value"
+           });
         addAnnotation
-          (getComplexSpecType_ClassName(), 
-           source, 
+          (getComplexSpecType_ClassName(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "className"
-           });			
+               "kind", "attribute",
+               "name", "className"
+           });
         addAnnotation
-          (getComplexSpecType_GoRefId(), 
-           source, 
+          (getComplexSpecType_GoRefId(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "goRefId"
-           });			
+               "kind", "attribute",
+               "name", "goRefId"
+           });
         addAnnotation
-          (dataModelEClass, 
-           source, 
+          (getComplexSpecType_ClassVersion(),
+           source,
            new String[] {
-             "name", "DataModel",
-             "kind", "elementOnly"
-           });			
+               "kind", "attribute",
+               "name", "classVersion"
+           });
         addAnnotation
-          (getDataModel_Inputs(), 
-           source, 
+          (dataModelEClass,
+           source,
            new String[] {
-             "kind", "element",
-             "name", "inputs"
-           });			
+               "name", "DataModel",
+               "kind", "elementOnly"
+           });
         addAnnotation
-          (getDataModel_Outputs(), 
-           source, 
+          (getDataModel_Inputs(),
+           source,
            new String[] {
-             "kind", "element",
-             "name", "outputs"
-           });			
+               "kind", "element",
+               "name", "inputs"
+           });
         addAnnotation
-          (getDataModel_Inouts(), 
-           source, 
+          (getDataModel_Outputs(),
+           source,
            new String[] {
-             "kind", "element",
-             "name", "inouts"
-           });		
+               "kind", "element",
+               "name", "outputs"
+           });
         addAnnotation
-          (facadeNameTypeEDataType, 
-           source, 
+          (getDataModel_Inouts(),
+           source,
            new String[] {
-             "name", "facadeName_._type",
-             "baseType", "http://www.eclipse.org/emf/2003/XMLType#string",
-             "maxLength", "64"
-           });			
+               "kind", "element",
+               "name", "inouts"
+           });
         addAnnotation
-          (fieldTypeEClass, 
-           source, 
+          (facadeNameTypeEDataType,
+           source,
            new String[] {
-             "name", "FieldType",
-             "kind", "elementOnly"
-           });			
+               "name", "facadeName_._type",
+               "baseType", "http://www.eclipse.org/emf/2003/XMLType#string",
+               "maxLength", "64"
+           });
         addAnnotation
-          (getFieldType_SimpleSpec(), 
-           source, 
+          (fieldTypeEClass,
+           source,
            new String[] {
-             "kind", "element",
-             "name", "simpleSpec"
-           });			
+               "name", "FieldType",
+               "kind", "elementOnly"
+           });
         addAnnotation
-          (getFieldType_ComplexSpec(), 
-           source, 
+          (getFieldType_SimpleSpec(),
+           source,
            new String[] {
-             "kind", "element",
-             "name", "complexSpec"
-           });			
+               "kind", "element",
+               "name", "simpleSpec"
+           });
         addAnnotation
-          (getFieldType_Array(), 
-           source, 
+          (getFieldType_ComplexSpec(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "array"
-           });			
+               "kind", "element",
+               "name", "complexSpec"
+           });
         addAnnotation
-          (getFieldType_Name(), 
-           source, 
+          (getFieldType_Array(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "name"
-           });			
+               "kind", "attribute",
+               "name", "array"
+           });
         addAnnotation
-          (getFieldType_Optional(), 
-           source, 
+          (getFieldType_Name(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "optional"
-           });			
+               "kind", "attribute",
+               "name", "name"
+           });
         addAnnotation
-          (getFieldType_Type(), 
-           source, 
+          (getFieldType_Optional(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "type"
-           });		
+               "kind", "attribute",
+               "name", "optional"
+           });
         addAnnotation
-          (simpleSpecTypeEClass, 
-           source, 
+          (getFieldType_Type(),
+           source,
            new String[] {
-             "name", "simpleSpec_._type",
-             "kind", "elementOnly"
-           });			
+               "kind", "attribute",
+               "name", "type"
+           });
         addAnnotation
-          (getSimpleSpecType_Value(), 
-           source, 
+          (simpleSpecTypeEClass,
+           source,
            new String[] {
-             "kind", "element",
-             "name", "value"
-           });			
+               "name", "simpleSpec_._type",
+               "kind", "elementOnly"
+           });
         addAnnotation
-          (getSimpleSpecType_Decimal(), 
-           source, 
+          (getSimpleSpecType_Value(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "decimal"
-           });			
+               "kind", "element",
+               "name", "value"
+           });
         addAnnotation
-          (getSimpleSpecType_Length(), 
-           source, 
+          (getSimpleSpecType_Decimal(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "length"
-           });		
+               "kind", "attribute",
+               "name", "decimal"
+           });
         addAnnotation
-          (typeTypeEEnum, 
-           source, 
+          (getSimpleSpecType_Length(),
+           source,
            new String[] {
-             "name", "type_._type"
-           });		
+               "kind", "attribute",
+               "name", "length"
+           });
         addAnnotation
-          (typeTypeObjectEDataType, 
-           source, 
+          (typeTypeEEnum,
+           source,
            new String[] {
-             "name", "type_._type:Object",
-             "baseType", "type_._type"
-           });			
+               "name", "type_._type"
+           });
         addAnnotation
-          (workTypeEClass, 
-           source, 
+          (typeTypeObjectEDataType,
+           source,
            new String[] {
-             "name", "WorkType",
-             "kind", "elementOnly"
-           });			
+               "name", "type_._type:Object",
+               "baseType", "type_._type"
+           });
         addAnnotation
-          (getWorkType_WorkTypeID(), 
-           source, 
+          (workTypeEClass,
+           source,
            new String[] {
-             "kind", "element",
-             "name", "workTypeID"
-           });			
+               "name", "WorkType",
+               "kind", "elementOnly"
+           });
         addAnnotation
-          (getWorkType_WorkTypeUID(), 
-           source, 
+          (getWorkType_WorkTypeID(),
+           source,
            new String[] {
-             "kind", "element",
-             "name", "workTypeUID"
-           });			
+               "kind", "element",
+               "name", "workTypeID"
+           });
         addAnnotation
-          (getWorkType_WorkTypeDescription(), 
-           source, 
+          (getWorkType_WorkTypeUID(),
+           source,
            new String[] {
-             "kind", "element",
-             "name", "workTypeDescription"
-           });			
+               "kind", "element",
+               "name", "workTypeUID"
+           });
         addAnnotation
-          (getWorkType_DataModel(), 
-           source, 
+          (getWorkType_WorkTypeDescription(),
+           source,
            new String[] {
-             "kind", "element",
-             "name", "dataModel"
-           });			
+               "kind", "element",
+               "name", "workTypeDescription"
+           });
         addAnnotation
-          (getWorkType_TypePiled(), 
-           source, 
+          (getWorkType_DataModel(),
+           source,
            new String[] {
-             "kind", "element",
-             "name", "typePiled"
-           });			
+               "kind", "element",
+               "name", "dataModel"
+           });
         addAnnotation
-          (getWorkType_PilingLimit(), 
-           source, 
+          (getWorkType_TypePiled(),
+           source,
            new String[] {
-             "kind", "element",
-             "name", "pilingLimit"
-           });			
+               "kind", "element",
+               "name", "typePiled"
+           });
         addAnnotation
-          (getWorkType_IgnoreIncomingData(), 
-           source, 
+          (getWorkType_PilingLimit(),
+           source,
            new String[] {
-             "kind", "element",
-             "name", "ignoreIncomingData"
-           });			
+               "kind", "element",
+               "name", "pilingLimit"
+           });
         addAnnotation
-          (getWorkType_ReofferOnClose(), 
-           source, 
+          (getWorkType_IgnoreIncomingData(),
+           source,
            new String[] {
-             "kind", "element",
-             "name", "reofferOnClose"
-           });			
+               "kind", "element",
+               "name", "ignoreIncomingData"
+           });
         addAnnotation
-          (getWorkType_ReofferOnCancel(), 
-           source, 
+          (getWorkType_ReofferOnClose(),
+           source,
            new String[] {
-             "kind", "element",
-             "name", "reofferOnCancel"
-           });			
+               "kind", "element",
+               "name", "reofferOnClose"
+           });
         addAnnotation
-          (workTypeSpecEClass, 
-           source, 
+          (getWorkType_ReofferOnCancel(),
+           source,
            new String[] {
-             "name", "WorkTypeSpec",
-             "kind", "empty"
-           });			
+               "kind", "element",
+               "name", "reofferOnCancel"
+           });
         addAnnotation
-          (getWorkTypeSpec_Version(), 
-           source, 
+          (workTypeSpecEClass,
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "version"
-           });			
+               "name", "WorkTypeSpec",
+               "kind", "empty"
+           });
         addAnnotation
-          (getWorkTypeSpec_WorkTypeDescription(), 
-           source, 
+          (getWorkTypeSpec_Version(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "workTypeDescription"
-           });			
+               "kind", "attribute",
+               "name", "version"
+           });
         addAnnotation
-          (getWorkTypeSpec_WorkTypeID(), 
-           source, 
+          (getWorkTypeSpec_WorkTypeDescription(),
+           source,
            new String[] {
-             "kind", "attribute",
-             "name", "workTypeID"
+               "kind", "attribute",
+               "name", "workTypeDescription"
+           });
+        addAnnotation
+          (getWorkTypeSpec_WorkTypeID(),
+           source,
+           new String[] {
+               "kind", "attribute",
+               "name", "workTypeID"
            });
     }
 

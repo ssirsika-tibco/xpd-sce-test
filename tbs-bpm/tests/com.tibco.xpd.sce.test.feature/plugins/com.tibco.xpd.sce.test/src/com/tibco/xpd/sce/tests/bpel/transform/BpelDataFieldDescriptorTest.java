@@ -49,7 +49,7 @@ public class BpelDataFieldDescriptorTest extends AbstractBpelTransformTest {
      */
     @Override
     protected Collection<String> getTestProcessDescriptors() {
-        return Arrays.asList("DataFieldDescriptor.xpdl/MainProcess");
+        return Arrays.asList("DataFieldDescriptor.xpdl/MainProcess", "AceDataTypesTest.xpdl/MainProcess");
     }
 
     /**
@@ -251,5 +251,45 @@ public class BpelDataFieldDescriptorTest extends AbstractBpelTransformTest {
                 Optional.of(
                         "com.tibco.ace.datafielddescriptor.test.Datafielddescriptor.MainProcess.NestedEmbeddedSubProcess"));
 
+        /* Sid ACE-4840 check variable definition of a complex type field has class and classVersion attributes */
+        checkComplexVariables(documentMap);
+    }
+
+    /**
+     * Sid ACE-4840 check variable definition of a complex type field has class and classVersion attributes
+     * 
+     * @param documentMap
+     */
+    private void checkComplexVariables(Map<String, Document> documentMap) {
+        Document document = documentMap.get("AceDataTypesTest.xpdl/MainProcess");
+        // Check REST task shared resources
+        NodeList processElems = document.getElementsByTagNameNS(BPWS_NS, "process");
+        assertEquals("One process element.", 1, processElems.getLength());
+        Node processElem = processElems.item(0);
+        
+        
+       NodeList variablesElement = document.getElementsByTagNameNS(BPWS_NS, "variables");
+        assertEquals("One variables element.", 1, variablesElement.getLength());
+
+        Optional<Node> complexField = findFirstElement(variablesElement.item(0).getChildNodes(),
+                node -> node.getAttributes().getNamedItem("name") != null //
+                        && "ComplexField".equals(node.getAttributes().getNamedItem("name").getNodeValue()));
+
+        assertTrue("There is a ComplexField variable in the process.", complexField.isPresent());
+
+        assertAttr(complexField.get(), Optional.of(TIBEX_NS), "class", Optional.of("com.example.data.Class1"));
+
+        assertAttr(complexField.get(), Optional.of(TIBEX_NS), "classVersion", Optional.of("1"));
+
+        Optional<Node> complexParameter = findFirstElement(variablesElement.item(0).getChildNodes(),
+                node -> node.getAttributes().getNamedItem("name") != null //
+                        && "ComplexParameter".equals(node.getAttributes().getNamedItem("name").getNodeValue()));
+
+        assertTrue("There is a ComplexField variable in the process.", complexParameter.isPresent());
+
+        assertAttr(complexField.get(), Optional.of(TIBEX_NS), "class", Optional.of("com.example.data.Class1"));
+
+        assertAttr(complexField.get(), Optional.of(TIBEX_NS), "classVersion", Optional.of("1"));
+        
     }
 }

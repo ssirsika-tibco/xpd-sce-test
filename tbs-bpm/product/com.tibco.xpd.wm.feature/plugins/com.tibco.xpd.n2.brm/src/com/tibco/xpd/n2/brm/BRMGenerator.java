@@ -83,6 +83,7 @@ import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.processwidget.adapters.TaskType;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.logger.Logger;
+import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.ui.complexdatatype.ComplexDataTypeExtPointHelper;
@@ -1193,6 +1194,23 @@ public class BRMGenerator {
                 String qualifiedName = element.getQualifiedName();
                 qualifiedName = qualifiedName.replaceAll("::", "."); //$NON-NLS-1$ //$NON-NLS-2$
                 complexSpecType.setClassName(qualifiedName);
+
+                /*
+                 * Sid ACE-4840 include tibx:classVersion in field definitions (required by runtime when initialising
+                 * script engine.
+                 */
+                IProject bomProject = WorkingCopyUtil.getProjectFor(element);
+                if (bomProject != null && bomProject.isAccessible()) {
+                    String projectVersion = ProjectUtil.getProjectVersion(bomProject);
+
+                    if (projectVersion != null) {
+                        String[] parts = projectVersion.split("\\."); //$NON-NLS-1$
+
+                        if (parts != null && parts.length > 0) {
+                            complexSpecType.setClassVersion(parts[0]);
+                        }
+                    }
+                }
             }
 
             fieldType.setComplexSpec(complexSpecType);

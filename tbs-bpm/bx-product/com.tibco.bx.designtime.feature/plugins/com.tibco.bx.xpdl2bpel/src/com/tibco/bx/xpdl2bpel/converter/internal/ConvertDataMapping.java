@@ -51,6 +51,7 @@ import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.DataMapping;
 import com.tibco.xpd.xpdl2.DirectionType;
 import com.tibco.xpd.xpdl2.Expression;
+import com.tibco.xpd.xpdl2.ExternalReference;
 import com.tibco.xpd.xpdl2.Message;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
 import com.tibco.xpd.xpdl2.resolvers.DataReferenceContext;
@@ -1426,6 +1427,14 @@ public class ConvertDataMapping {
                         .addExtensionAttribute(variable,
                                 "class", bomClass.getPackage().getName() + "." + bomClass.getName()); //$NON-NLS-1$ //$NON-NLS-2$
 
+                /*
+                 * Sid ACE-4840 include tibx:classVersion in field definitions (required by runtime when initialising
+                 * script engine. Note that this area of the code is not currently used (as it is WSDL related), but
+                 * updating it for completeness and in case we re-introduce WSDL capabilities.
+                 */
+                String bomClassVersion = XPDLUtils.getBomClassMajorVersion(bomClass);
+                BPELUtils.addExtensionAttribute(variable, "classVersion", bomClassVersion);
+                
             } else {
                 /*
                  * Else check for simple type definition and set the type
