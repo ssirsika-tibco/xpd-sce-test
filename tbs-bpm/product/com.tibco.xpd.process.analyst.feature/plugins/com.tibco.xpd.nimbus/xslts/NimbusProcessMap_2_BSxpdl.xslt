@@ -21,7 +21,7 @@ Schemas:
 
 Author: Sid.
 
-Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.
+Copyright (c) TIBCO Software Inc 2004, 2020. All rights reserved.
 ===================================================================================================
 -->
 <xsl:stylesheet 
@@ -1003,7 +1003,9 @@ Output a xpdl2:Participant for each uniquely named activity resource in diagram.
 
 				<xsl:call-template name="addLabelAndName"><xsl:with-param name="label" select="$resource/text()"/></xsl:call-template>
 
-				<xpdl2:ParticipantType Type="ROLE"/>
+				<!-- Sid ACE-4851 switch to creating empty external ref instead of ROLE as ROLE that isn't supported in BPME  -->
+				<xpdl2:ParticipantType Type="RESOURCE"/>
+				<xpdl2:ExternalReference/>
 
 			</xpdl2:Participant>
 		</xsl:for-each>

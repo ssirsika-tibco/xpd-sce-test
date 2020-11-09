@@ -30,12 +30,15 @@ import com.tibco.xpd.nimbus.XpdNimbusPlugin;
 import com.tibco.xpd.nimbus.internal.Messages;
 import com.tibco.xpd.nimbus.layoutprocess.ImportNimbusProcessAutoLayout;
 import com.tibco.xpd.nimbus.layoutprocess.ImportNimbusProcessAutoLayout.LayoutException;
-import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
+import com.tibco.xpd.processeditor.xpdl2.ProcessEditorConstants;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.ui.importexport.importwizard.PostImportTask;
+import com.tibco.xpd.xpdExtension.ScriptDataMapper;
+import com.tibco.xpd.xpdExtension.XpdExtensionFactory;
+import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.DataMapping;
 import com.tibco.xpd.xpdl2.DirectionType;
@@ -200,36 +203,62 @@ public class ImportNimbusPostImportSubTask implements PostImportTask {
                 if (procOrIfc instanceof Process) {
                     Process subProcess = (Process) procOrIfc;
 
-                    for (FormalParameter parameter : subProcess
-                            .getFormalParameters()) {
+                    /**
+                     * Sid ACE-4851 create DataMapper grammar mappings.
+                     */
+                    if (subProcess.getFormalParameters().size() > 0) {
+                        ScriptDataMapper inDataMapper = null;
+                        ScriptDataMapper outDataMapper = null;
 
-                        String localDataName =
-                                findCaseInsensitive(localDataNames,
-                                        parameter.getName());
+                        for (FormalParameter parameter : subProcess.getFormalParameters()) {
 
-                        if (localDataName != null) {
-                            ModeType paramMode = parameter.getMode();
+                            String localDataName = findCaseInsensitive(localDataNames, parameter.getName());
 
-                            if (ModeType.IN_LITERAL.equals(paramMode)
-                                    || ModeType.INOUT_LITERAL.equals(paramMode)) {
+                            if (localDataName != null) {
+                                ModeType paramMode = parameter.getMode();
 
-                                DataMapping dataMapping =
-                                        createDataMapping(DirectionType.IN_LITERAL,
-                                                parameter.getName(),
-                                                localDataName);
+                                if (ModeType.IN_LITERAL.equals(paramMode) || ModeType.INOUT_LITERAL.equals(paramMode)) {
+                                    if (inDataMapper == null) {
+                                        inDataMapper = XpdExtensionFactory.eINSTANCE.createScriptDataMapper();
+                                        inDataMapper.setMappingDirection(DirectionType.IN_LITERAL);
+                                        inDataMapper.setMapperContext(
+                                                ProcessEditorConstants.DATAMAPPER_CONTEXT_PROCESS_TO_SUBPROCESS);
 
-                                subFlow.getDataMappings().add(dataMapping);
-                            }
+                                        Xpdl2ModelUtil.addOtherElement(subFlow,
+                                                XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings(),
+                                                inDataMapper);
+                                    }
 
-                            if (ModeType.OUT_LITERAL.equals(paramMode)
-                                    || ModeType.INOUT_LITERAL.equals(paramMode)) {
+                                    DataMapping dataMapping = createDataMapping(DirectionType.IN_LITERAL,
+                                            parameter.getName(),
+                                            localDataName,
+                                            ProcessEditorConstants.DATAMAPPER_ACTIVITY_INTERFACE_CONTRIBUTOR_ID,
+                                            ProcessEditorConstants.DATAMAPPER_PROCESS_TO_SUBPROCESS_CONTRIBUTOR_ID);
 
-                                DataMapping dataMapping =
-                                        createDataMapping(DirectionType.OUT_LITERAL,
-                                                parameter.getName(),
-                                                localDataName);
+                                    inDataMapper.getDataMappings().add(dataMapping);
+                                }
 
-                                subFlow.getDataMappings().add(dataMapping);
+                                if (ModeType.OUT_LITERAL.equals(paramMode)
+                                        || ModeType.INOUT_LITERAL.equals(paramMode)) {
+                                    if (outDataMapper == null) {
+                                        outDataMapper = XpdExtensionFactory.eINSTANCE.createScriptDataMapper();
+                                        outDataMapper.setMappingDirection(DirectionType.OUT_LITERAL);
+                                        outDataMapper.setMapperContext(
+                                                ProcessEditorConstants.DATAMAPPER_CONTEXT_SUBPROCESS_TO_PROCESS);
+
+                                        Xpdl2ModelUtil.addOtherElement(subFlow,
+                                                XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings(),
+                                                outDataMapper);
+                                    }
+
+                                    DataMapping dataMapping = createDataMapping(DirectionType.OUT_LITERAL,
+                                            localDataName,
+                                            parameter.getName(),
+                                            ProcessEditorConstants.DATAMAPPER_SUBPROCESS_TO_PROCESS_CONTRIBUTOR_ID,
+                                            ProcessEditorConstants.DATAMAPPER_ACTIVITY_INTERFACE_CONTRIBUTOR_ID);
+
+                                    outDataMapper.getDataMappings().add(dataMapping);
+                                }
                             }
                         }
                     }
@@ -239,20 +268,29 @@ public class ImportNimbusPostImportSubTask implements PostImportTask {
     }
 
     /**
+     * Sid ACE-4851 create DataMapper grammar mappings.
+     * 
      * @param direction
      * @param parameterName
      * @param localDataName
+     * @param sourceContributorId
+     * @param targetContributorId
      * @return data mapping for the given direction and source/target.
      */
     private DataMapping createDataMapping(DirectionType direction,
-            String parameterName, String localDataName) {
+            String parameterName, String localDataName, String sourceContributorId, String targetContributorId) {
         DataMapping dataMapping = Xpdl2Factory.eINSTANCE.createDataMapping();
 
         dataMapping.setDirection(direction);
         dataMapping.setFormal(parameterName);
+        Xpdl2ModelUtil.setOtherAttribute(dataMapping,
+                XpdExtensionPackage.eINSTANCE.getDocumentRoot_SourceContributorId(),
+                sourceContributorId);
+        Xpdl2ModelUtil.setOtherAttribute(dataMapping,
+                XpdExtensionPackage.eINSTANCE.getDocumentRoot_TargetContributorId(),
+                targetContributorId);
 
         Expression actual = Xpdl2ModelUtil.createExpression(localDataName);
-        actual.setScriptGrammar(ScriptGrammarFactory.JAVASCRIPT);
 
         dataMapping.setActual(actual);
         return dataMapping;
