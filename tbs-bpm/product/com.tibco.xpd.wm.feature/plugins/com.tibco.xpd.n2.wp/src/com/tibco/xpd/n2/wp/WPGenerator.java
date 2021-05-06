@@ -258,7 +258,19 @@ public class WPGenerator {
          * 'if there are any process packages then there's a chance of some
          * contribution'
          */
-        return !BRMUtils.getN2ProcessPackages(aProject).isEmpty();
+        /*
+         * Sid CBPM-5179 Need to be a bit more fussy and only say we have contributions if there are actually processes
+         * (otherwise we'll pick up process-interface-only projects)
+         */
+        Collection<Package> processPackages = BRMUtils.getN2ProcessPackages(aProject);
+
+        for (Package pkg : processPackages) {
+            if (!pkg.getProcesses().isEmpty()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

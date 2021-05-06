@@ -346,14 +346,18 @@ public class RascControllerImpl implements RascController {
             for (RascAppSummary dependency : aAppSummary
                     .getReferencedProjects()) {
 
+                /*
+                 * Sid ACE-5179 instead of ignoring specific asset types as dependencies, we now do not include
+                 * dependencies if they contain no contributions (e.g. empty projects).
+                 */
                 // ignore REST service projects
-                if (dependency
-                        .hasAssetType(RascControllerImpl.REST_ASSET_TYPE)) {
-                    continue;
+                // if (dependency
+                // .hasAssetType(RascControllerImpl.REST_ASSET_TYPE)) {
+                // continue;
+                // }
+                if (hasContributionsFor(dependency.getProject())) {
+                    aManifest.addDependency(dependency.getInternalName(), dependency.getDependencyRange());
                 }
-
-                aManifest.addDependency(dependency.getInternalName(),
-                        dependency.getDependencyRange());
             }
         } catch (CoreException e) {
             throw new RascInternalException(e.getMessage(), e);
@@ -608,6 +612,18 @@ public class RascControllerImpl implements RascController {
 
             RascAppSummary other = (RascAppSummary) obj;
             return Objects.equals(getInternalName(), other.getInternalName());
+        }
+
+        /**
+         * @see com.tibco.xpd.rasc.core.RascAppSummary#getProject()
+         * 
+         *      Sid ACE-5179
+         * 
+         * @return The source project for this app.
+         */
+        @Override
+        public IProject getProject() {
+            return project;
         }
     }
 }

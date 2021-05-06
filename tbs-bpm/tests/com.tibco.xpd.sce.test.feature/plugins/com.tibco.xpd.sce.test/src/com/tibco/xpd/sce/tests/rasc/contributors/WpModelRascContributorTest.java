@@ -144,7 +144,32 @@ public class WpModelRascContributorTest extends TestCase {
 
             IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 
-            assertFalse(projectName + " project should not have WP RASC contributions",
+            assertFalse(projectName + " project with no process nature should not have WP RASC contributions",
+                    fixture.hasContributionsFor(project));
+
+        } finally {
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
+        }
+    }
+
+    /**
+     * Check that a process project process packages BUT NO actual processes, does not have claim to have contributions
+     * "OnlyProcessInterfaces"
+     * 
+     * @throws Exception
+     */
+    public void testProjectWithoutContributions2() throws Exception {
+        String projectName = "OnlyProcessInterfaces";
+
+        ProjectImporter projectImporter = importProject(projectName);
+        try {
+            RascContributor fixture = new WpModelsRascContributor();
+
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+
+            assertFalse(projectName + " project with no processes should not have WP RASC contributions",
                     fixture.hasContributionsFor(project));
 
         } finally {
@@ -162,11 +187,14 @@ public class WpModelRascContributorTest extends TestCase {
     private ProjectImporter importMainTestProjects() {
         /*
          * Import and mgirate the project
+         * 
+         * Sid ACE-5179 added process interface only project for tests
          */
+
         mainTestProjectName = "WpRascTestProject";
         ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
                 new String[] { "resources/WpRascTest/" + "WpRascTestDataProject" + "/",
-                        "resources/WpRascTest/" + mainTestProjectName + "/" }, //$NON-NLS-1$ //$NON-NLS-2$
+                        "resources/WpRascTest/" + mainTestProjectName + "/" },
                 new String[] { "WpRascTestDataProject", mainTestProjectName });
 
         assertTrue("Failed to load projects from \"resources/WpRascTest/" //$NON-NLS-1$

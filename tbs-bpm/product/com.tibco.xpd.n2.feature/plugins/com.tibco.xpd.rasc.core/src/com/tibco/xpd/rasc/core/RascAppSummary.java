@@ -6,6 +6,7 @@ package com.tibco.xpd.rasc.core;
 
 import java.util.Collection;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 
 import com.tibco.bpm.dt.rasc.Version;
@@ -71,4 +72,11 @@ public interface RascAppSummary {
      *         asset of the given ID.
      */
     public boolean hasAssetType(String aAssetTypeId);
+
+    /**
+     * Sid ACE-5179 allow caller to get the project this was constructured for.
+     * 
+     * @return The source project for this RASC app summary
+     */
+    public IProject getProject();
 }

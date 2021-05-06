@@ -158,6 +158,16 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
             public VersionRange getDependencyRange() {
                 return null;
             }
+
+            /**
+             * @see com.tibco.xpd.rasc.core.RascAppSummary#getProject()
+             *
+             * @return
+             */
+            @Override
+            public IProject getProject() {
+                return null;
+            }
         };
 
         RascContext rascContext = new RascContext() {
@@ -285,6 +295,45 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
     }
 
     /**
+     * Test project with only process interfaces - should not claim to have any contributions for PE (process interfaces
+     * are not deployed top runtime, so project with only process interfaces and no actual processes should not have any
+     * RASC contributions).
+     * 
+     * Sid ACE-5179 added process interface only project for tests
+     * 
+     * @throws Exception
+     */
+    public void testProcessInterfaceOnlyProject() throws Exception {
+
+        // create a mock writer to capture contributor's output
+        MockRascWriter writer = new MockRascWriter();
+
+        // find the project in which the test data resides
+        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("OnlyProcessInterfaces");
+
+        /*
+         * Sid - FORMs import intermittently doesn't migrate/auto-resolve its asset / nature configuration so you
+         * occasionally get the problem marker...
+         * 
+         * Forms Resources 11.x : The project natures, builders, special folders etc. do not match the asset
+         * configuration
+         * 
+         * So we need to allow for that.
+         */
+        assertFalse("Project OnlyProcessInterfaces should not have error problem markers",
+                TestUtil.hasErrorProblemMarker(project,
+                        true,
+                        Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured"),
+                        "PERascContributorTest.testProcessInterfaceOnlyProject"));
+
+        // call the contributor's process() method
+        RascContributor fixture = new PERascContributor();
+
+        // Should have no contributions.
+        assertFalse(fixture.hasContributionsFor(project));
+    }
+
+    /**
      * Import all projects from test plugin resources for the main test
      * 
      * @return the project importer
@@ -292,11 +341,12 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
     private ProjectImporter importMainTestProjects() {
         /*
          * Import and mgirate the project
+         * 
+         * Sid ACE-5179 added process interface only project for tests
          */
-
         ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
-                new String[] { "resources/BpelRascTest/RASC/" }, //$NON-NLS-1$
-                new String[] { "RASC" }); //$NON-NLS-1$
+                new String[] { "resources/BpelRascTest/RASC/", "resources/BpelRascTest/OnlyProcessInterfaces/" }, //$NON-NLS-1$
+                new String[] { "RASC", "OnlyProcessInterfaces" }); //$NON-NLS-1$
 
         assertTrue("Failed to load projects from resources/BpelRascTest/", //$NON-NLS-1$
                 projectImporter != null);

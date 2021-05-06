@@ -35,6 +35,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 import com.google.gson.Gson;
 import com.tibco.bpm.dt.rasc.MicroService;
@@ -167,7 +169,28 @@ public class PERascContributor implements RascContributor {
                         N2PENamingUtils.XPDL_FILE_EXTENSION,
                         false);
         if ((xpdlResources != null) && (!xpdlResources.isEmpty())) {
-            return true;
+            /*
+             * Sid ACE-5179 No need for RASCs for process projects with no processes in (for example, process-interfaces
+             * only)
+             */
+            boolean hasProcesses = false;
+
+            for (IResource xpdlResource : xpdlResources) {
+                WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(xpdlResource);
+
+                if (wc != null) {
+                    EObject root = wc.getRootElement();
+
+                    if (root instanceof Package) {
+                        EList<Process> processes = ((Package) root).getProcesses();
+
+                        hasProcesses = !processes.isEmpty();
+                        break;
+                    }
+                }
+            }
+
+            return hasProcesses;
         }
 
         return false;
