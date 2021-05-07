@@ -4,7 +4,10 @@ import java.util.Collections;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 
+import com.tibco.bx.validation.BxValidationPlugin;
+import com.tibco.bx.validation.MixedAssetProjectNature;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.ui.Activator;
 import com.tibco.xpd.om.core.om.util.OMUtil;
@@ -62,20 +65,34 @@ public class AceProjectRules implements
                     .getProjectConfig(project);
 
             /*
+             * Sid ACE-5185 Nominally in SCE (BPME Studio) we validate against the use of certain assets in combination
+             * with other assets. Adding this nature to a project switches off that validation so that projects with
+             * multiple assets (such as process, data and org) can be used and have RASC generated as a single project
+             */
+            boolean hasMultiAssetNature = false;
+
+            try {
+                hasMultiAssetNature = project.getNature(MixedAssetProjectNature.NATURE_ID) != null;
+            } catch (CoreException e) {
+                BxValidationPlugin.getDefault().getLogger().error(e, "Error getting mixed asset nature from project"); //$NON-NLS-1$
+            }
+
+            /*
              * Organisation assets must be in their own project
              */
-            boolean hasOrgAsset =
-                    hasAssetTypeAndFiles(project,
-                            projectConfig,
-                            "com.tibco.xpd.asset.om", //$NON-NLS-1$
-                            OMUtil.OM_SPECIAL_FOLDER_KIND,
-                            OMUtil.OM_FILE_EXTENSION);
+            if (!hasMultiAssetNature) {
+                boolean hasOrgAsset = hasAssetTypeAndFiles(project,
+                        projectConfig,
+                        "com.tibco.xpd.asset.om", //$NON-NLS-1$
+                        OMUtil.OM_SPECIAL_FOLDER_KIND,
+                        OMUtil.OM_FILE_EXTENSION);
 
-            if (hasOrgAsset) {
-                if (projectConfig.getAssetTypes().size() != 1) {
-                    scope.createIssue(ACE_ISSUE_ORG_ASSET_MUST_BE_ALONE,
-                            project.getName(),
-                            project.getProjectRelativePath().toString());
+                if (hasOrgAsset) {
+                    if (projectConfig.getAssetTypes().size() != 1) {
+                        scope.createIssue(ACE_ISSUE_ORG_ASSET_MUST_BE_ALONE,
+                                project.getName(),
+                                project.getProjectRelativePath().toString());
+                    }
                 }
             }
 
@@ -83,28 +100,29 @@ public class AceProjectRules implements
              * Business Objects assets must be in their own project and it must
              * be a business data project
              */
-            boolean hasBomAsset =
-                    hasAssetTypeAndFiles(project,
-                            projectConfig,
-                            Activator.BOM_ASSET_ID,
-                            BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND,
-                            BOMResourcesPlugin.BOM_FILE_EXTENSION);
+            if (!hasMultiAssetNature) {
 
-            if (hasBomAsset) {
-                /* Must be in a business data project. */
-                boolean hasBizDataProjectAsset = hasAssetType(projectConfig,
-                        "com.tibco.xpd.asset.businessdata.bom"); //$NON-NLS-1$
+                boolean hasBomAsset = hasAssetTypeAndFiles(project,
+                        projectConfig,
+                        Activator.BOM_ASSET_ID,
+                        BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND,
+                        BOMResourcesPlugin.BOM_FILE_EXTENSION);
 
-                if (!hasBizDataProjectAsset
-                        && projectConfig.getAssetTypes().size() == 1) {
-                    scope.createIssue(ACE_ISSUE_BOM_ASSET_MUST_BE_BIZDATA,
-                            project.getName(),
-                            project.getProjectRelativePath().toString());
+                if (hasBomAsset) {
+                    /* Must be in a business data project. */
+                    boolean hasBizDataProjectAsset =
+                            hasAssetType(projectConfig, "com.tibco.xpd.asset.businessdata.bom"); //$NON-NLS-1$
 
-                } else if (projectConfig.getAssetTypes().size() != 2) {
-                    scope.createIssue(ACE_ISSUE_BOM_ASSET_MUST_BE_ALONE,
-                            project.getName(),
-                            project.getProjectRelativePath().toString());
+                    if (!hasBizDataProjectAsset && projectConfig.getAssetTypes().size() == 1) {
+                        scope.createIssue(ACE_ISSUE_BOM_ASSET_MUST_BE_BIZDATA,
+                                project.getName(),
+                                project.getProjectRelativePath().toString());
+
+                    } else if (projectConfig.getAssetTypes().size() != 2) {
+                        scope.createIssue(ACE_ISSUE_BOM_ASSET_MUST_BE_ALONE,
+                                project.getName(),
+                                project.getProjectRelativePath().toString());
+                    }
                 }
             }
 

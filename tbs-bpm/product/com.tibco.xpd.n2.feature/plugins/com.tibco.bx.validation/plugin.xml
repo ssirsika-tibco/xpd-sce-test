@@ -5142,5 +5142,14 @@ s         <scriptContribution
       </issue>
 	</extension>
 
+   <!-- Sid ACE-5185 New nature for switching off validations against mixed asset projects. -->
+   <extension
+         id="mixedAssetProjectNature"
+         name="%ace.mixedAssetProjectNature.natureTitle"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run class="com.tibco.bx.validation.MixedAssetProjectNature"/>
+      </runtime>
+    </extension>
 </plugin>
 
