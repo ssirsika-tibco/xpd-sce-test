@@ -20,7 +20,7 @@ documentation on: https://docs.docker.com.
 
 You will need a zip archive for the current Linux version of the TIBCO Business 
 Studio BPM-Edition installation set, for example...
-  TIB_business-studio-bpm-edition_$$IMAGE_TAG_VERSION$$_linux24gl23_x86_64.zip
+  TIB_business-studio-bpm-edition_$$IMAGE_TAG_VERSION$$_linux_x86_64.zip
 
 This installation set should be added to the folder...
   <TIBCO Studio Home>/docker_cicd/image_template
