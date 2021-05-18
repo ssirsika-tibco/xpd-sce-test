@@ -5,11 +5,13 @@
 package com.tibco.xpd.ant.tasks;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.NotDirectoryException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -67,6 +69,8 @@ public class GenerateRascTask extends Task {
     public static final String DEFAULT_DEST_DIR =
             Messages.RascController_default_deploy_folder;
 
+    private static final String DEPLOY_MANIFEST = "deploy.manifest";
+
     private String destDir;
 
     private boolean buildBeforeGenerating;
@@ -112,16 +116,34 @@ public class GenerateRascTask extends Task {
      *             if the directory does not exist and cannot be created.
      */
     private File getDestination(IProject aProject) throws IOException {
-        File result;
+        File result = null;
 
-        // if no destination is specified
         String dir = getDestDir();
-        if ((dir == null) || (dir.isEmpty())) {
+        
+        /* Sid ACE-3156 Handle calls that must use absolute base folder (only valid for single output folder - so no specific project supplied */ 
+        if (aProject == null) {
+            File tmpResult = null;
+
+            if (dir != null && dir.length() > 0) {
+                tmpResult = new File(dir);
+
+                // if this is a relative path
+                if (tmpResult.isAbsolute()) {
+                    result = tmpResult;
+                }
+            }
+
+            if (result == null) {
+                return null; // not setup to output all rascs to single folder.
+            }
+        }
+        
+        // if no destination is specified
+        else if ((dir == null) || (dir.isEmpty())) {
             // use the project folder and default sub-dir
             result = new File(getProjectFolder(aProject),
                     GenerateRascTask.DEFAULT_DEST_DIR);
-        }
-
+        } 
         // use the specified destdir
         else {
             result = new File(dir);
@@ -149,6 +171,18 @@ public class GenerateRascTask extends Task {
         }
 
         return result;
+    }
+
+    /**
+     * Sid ACE-3156 Return the destination folder BUT only if the folder is a single folder with absolute path (i.e. if
+     * the destination is a single folder for all RASCS)
+     * 
+     * @return Single destination folder or <code>null</code> if configured target is not a single target folder for all
+     *         rascs.
+     * @throws IOException
+     */
+    private File getAbsoluteSingleDestination() throws IOException {
+        return getDestination(null);
     }
 
     private File getProjectFolder(IProject aProject) {
@@ -296,6 +330,67 @@ public class GenerateRascTask extends Task {
     }
 
     /**
+     * Sid CBPM-3156 Create the deploy.manifest file that tracks the output projects and the deployment order.
+     * 
+     * Example Content:
+     * 
+     * <pre>
+     * Creation-Date: 2021-05-13T09:51:34.698Z
+     * Projects: Data.rasc,Org.rasc,SubProcesses.rasc,Processes.rasc
+     * </pre>
+     * 
+     * @param projectsWithRasc
+     * @param aMonitor
+     * @throws IOException
+     *             Destination folder or deploy.manifest file could not be created.
+     * @throws CoreException
+     *             Cyclic project dependency error.
+     */
+    private void createDeployManifest(Set<IProject> projectsWithRasc, IProgressMonitor aMonitor)
+            throws IOException, CoreException {
+        /*
+         * Only output manifest if all rascs are going to the same folder (no point in manifest for each-rasc in
+         * different folder).
+         */
+        File destinationFolder = getAbsoluteSingleDestination();
+
+        if (destinationFolder != null && destinationFolder.exists()) {
+            File deployManifestFile = new File(destinationFolder, DEPLOY_MANIFEST);
+            
+            aMonitor.setTaskName(String.format("Generating deployment manifest '%s'.", DEPLOY_MANIFEST));
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.append("Creation-Date: ");
+            sb.append(new Date().toString());
+            sb.append("\n");
+
+            /* Get projects in dependency order (lowest level projects first). */
+            List<IProject> sortedProjects = ProjectUtil.getDependencySortedProjects(projectsWithRasc);
+            
+            sb.append("Projects: ");
+            
+            boolean first = true;
+            
+            for (IProject project : sortedProjects) {
+                if (!first) {
+                    sb.append(",");
+                } else {
+                    first = false;
+                }
+                
+                sb.append(getRascFilename(project));
+            }
+            sb.append("\n");
+            
+            FileOutputStream os = new FileOutputStream(deployManifestFile);
+            os.write(sb.toString().getBytes());
+
+            os.close();
+        }
+    }
+
+    /**
      * Generate RASCs for the given projects.
      * 
      * @param studioProjectNames
@@ -325,9 +420,14 @@ public class GenerateRascTask extends Task {
                 return;
             }
 
+            // Generate the RASC for each project.
             EventProcessor ep = new EventProcessor(new SummaryEventHandler());
             RascController controller = new RascControllerImpl();
 
+            
+            // Sid CBPM-3156 Track projects with runtime content
+            Set<IProject> projectsWithRasc = new HashSet<IProject>();
+                        
             boolean failed = false;
             for (IProject nextProject : aProjects) {
                 String thisName = nextProject.getName();
@@ -345,6 +445,9 @@ public class GenerateRascTask extends Task {
                         ep.end(thisName, Result.SKIPPED.toString());
                         continue;
                     }
+                    
+                    // Sid CBPM-3156 Track projects with runtime content
+                    projectsWithRasc.add(nextProject);
 
                     // Generate.
                     aMonitor.setTaskName(
@@ -382,10 +485,17 @@ public class GenerateRascTask extends Task {
                 }
             }
             ep.event(SummaryEventHandler.PRINT_SUMMARY);
+
             if (failed && isFailOnError()) {
                 throw new BuildException(
                         "Deployment Artifact generation failed for (at least) one of the requested projects.");
             }
+            
+            /*
+             * Sid CBPM-3156 Create the deploy.manifest file that tracks the output projects and the deployment order.
+             */
+            createDeployManifest(projectsWithRasc, aMonitor);
+
         } finally {
             aMonitor.done();
         }
@@ -445,7 +555,15 @@ public class GenerateRascTask extends Task {
      *             if the output directory does not exist and cannot be created.
      */
     private File getOutputFile(IProject aProject) throws IOException {
-        return new File(getDestination(aProject), aProject.getName() + ".rasc");
+        return new File(getDestination(aProject), getRascFilename(aProject));
+    }
+
+    /**
+     * @param aProject
+     * @return The RASC file name for the given project.
+     */
+    public String getRascFilename(IProject aProject) {
+        return aProject.getName() + ".rasc";
     }
 
     /**

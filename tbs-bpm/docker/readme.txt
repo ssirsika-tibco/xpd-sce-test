@@ -57,6 +57,9 @@ where:
 
 Using the automated CI/CD docker image
 ================================================================================
+
+Generating deployment-artifact (RASC) files
+-------------------------------------------------------------------------------
 After you have built the tibco/bpm-studio docker image you can use it to
 generate deployment artifacts (RASC files) from BPM Studio projects. 
 
@@ -83,6 +86,35 @@ Where the local environment is Microsoft Windows, use the docker command:
   docker run --rm -v //c/bpm-app/source-projects:/projects 
     -v //c/bpm-app/deployment-artifacts:/rascs 
 	tibco/bpm-studio:$$IMAGE_TAG_VERSION$$ generate-rascs
+
+
+Deploying deployment-artifacts to BPM Enterprise Edition runtime
+-------------------------------------------------------------------------------
+On installations using basic authentication you can deploy RASC files
+previously generated with the generate-rascs command described above.
+
+To do this you use the 'deploy-rascs' docker entry point and provide volume 
+mappings to generated deployment artifacts folders, and specify the 
+BPME Edition runtime host URL and username:password as parameters...
+ 
+  docker run -it --rm --name studio -v <generate rascs folder>:/rascs 
+    tibco/bpm-studio:$$IMAGE_TAG_VERSION$$ deploy-rascs <host URL> <username>:<password>
+
+For example...
+  docker run -it --rm --name studio -v /usr/bpm-app/deployment-artifacts:/rascs 
+    tibco/bpm-studio:$$IMAGE_TAG_VERSION$$ deploy-rascs http://mydomain.bpme.com tibco-admin:secret
+	
+	
+In order to support SSL security requirements of your CI/CD pipleline and 
+installation, the self-contained deployrascs.sh script included in this CI/CD
+feature.
+
+This can be found in the <TIBCO Studio Home>/docker_cicd/image_template folder.
+
+This script uses cURL commands to send deployment requests to the BPME Deployment 
+Manager, ensures that the rasc deployment-artifacts are deployed in the correct 
+dependency order and then parses the result appropriately to show progress 
+and report success or failures appropriately.
 
 
 You can also use the docker image in the following ways...
