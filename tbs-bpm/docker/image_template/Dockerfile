@@ -62,7 +62,7 @@ COPY --from=installer --chown=studio:studio /opt/TIBCO/studio-bpm /opt/TIBCO/stu
 ARG version=5.0
 
 # copy the ant script with the generateRasc command
-COPY --chown=studio:studio build.xml entrypoint.sh /opt/TIBCO/studio-bpm/studio/$version/eclipse/
+COPY --chown=studio:studio build.xml entrypoint.sh deployrascs.sh /opt/TIBCO/studio-bpm/studio/$version/eclipse/
 
 USER studio:studio
 WORKDIR /opt/TIBCO/studio-bpm/studio/$version/eclipse
