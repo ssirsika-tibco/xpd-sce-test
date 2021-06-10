@@ -3,8 +3,11 @@
  */
 package com.tibco.xpd.validation.bpmn.developer.rules;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -32,6 +35,8 @@ public class SignalThrowCatchRule extends ProcessValidationRule {
     private static final String ISSUE_NOTHROW =
             "bpmn.dev.errorNoThrowSignalEvent"; //$NON-NLS-1$
 
+    private static final String ISSUE_DUPLICATE_CATCH_LOCAL = "bpmn.dev.errorDuplicateCatchLocal"; //$NON-NLS-1$
+
     @Override
     protected void validateFlowContainer(Process process,
             EList<Activity> activities, EList<Transition> transitions) {
@@ -41,6 +46,13 @@ public class SignalThrowCatchRule extends ProcessValidationRule {
     @Override
     public void validate(Process process) {
 
+        /*
+         * Sid ACE-5132 Track individual local signals attached to given tasks.
+         * 
+         * Map of <activity-id>_<signal-name> -> Catch signal that catches that signal name
+         */
+        Map<String, Activity> taskAndAttachedSignalIds = new HashMap<String, Activity>();
+        
         Collection<Activity> catchEvents =
                 EventObjectUtil.getProcessSignalEvents(process,
                         ReturnCatchThrowTypes.CATCH_ONLY);
@@ -80,6 +92,29 @@ public class SignalThrowCatchRule extends ProcessValidationRule {
                                     Collections.singletonList(Xpdl2ModelUtil
                                             .getDisplayNameOrName(catchEvent)));
 
+                        }
+                    }
+
+                } else if (signalName != null && !signalName.isEmpty()) {
+                    /* Sid ACE-5132 check for duplicate signal catch on same task boundary. */
+                    String taskId = EventObjectUtil.getTaskIdAttachedTo(catchEvent);
+
+                    if (taskId != null && !taskId.isEmpty()) {
+                        /* Check if there is already a catch for same event. */
+                        String taskAndSignalId = taskId + "_" + signalName; //$NON-NLS-1$
+
+                        Activity existingCatchEvent = taskAndAttachedSignalIds.get(taskAndSignalId);
+
+                        if (taskAndAttachedSignalIds.containsKey(taskAndSignalId)) {
+                            addIssue(ISSUE_DUPLICATE_CATCH_LOCAL,
+                                    catchEvent,
+                                    Arrays.asList(new String[] {
+                                            signalName,
+                                            Xpdl2ModelUtil.getDisplayNameOrName(existingCatchEvent) }));
+
+                        } else {
+                            /* Track this task catching this signal. */
+                            taskAndAttachedSignalIds.put(taskAndSignalId, catchEvent);
                         }
                     }
                 }

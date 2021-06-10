@@ -4,6 +4,7 @@
 
 package com.tibco.xpd.sce.tests;
 
+import com.tibco.xpd.sce.tests.validation.Ace5132DuplicateCatchSignalValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceAllowCrossClassTypeAndCrosssProjectReferenceTest;
 import com.tibco.xpd.sce.tests.validation.AceBomFactoryValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceBomMigrationValidationsTest;
@@ -47,6 +48,7 @@ public class AllUnitTestsValidation {
         /*
          * Validations
          */
+        suite.addTestSuite(Ace5132DuplicateCatchSignalValidationTest.class);
         suite.addTestSuite(AceAllowCrossClassTypeAndCrosssProjectReferenceTest.class);
         suite.addTestSuite(AceBomMigrationValidationsTest.class);
         suite.addTestSuite(AceCaseAttributesValidationTest.class);
