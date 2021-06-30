@@ -7,13 +7,16 @@ package com.tibco.xpd.n2.resources.postimport;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.script.parser.antlr.JScriptParser;
 import com.tibco.xpd.script.parser.antlr.JScriptTokenTypes;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
+import com.tibco.xpd.xpdl2.RecordType;
 
 import antlr.Token;
 import antlr.TokenStreamException;
@@ -27,6 +30,9 @@ import antlr.TokenStreamException;
 class TopLevelFieldIdRefactor implements ScriptRefactorRule {
     private final Map<String, String> oldIdentMap = new HashMap<>();
 
+    // Sid ACE-4914 Keep a List of case ref fields names
+    private final Set<String> caseRefFields;
+
     public TopLevelFieldIdRefactor(DataFieldResolver aResolver) {
         Collection<ProcessRelevantData> inScopeData = aResolver.getInScopeData();
 
@@ -37,6 +43,15 @@ class TopLevelFieldIdRefactor implements ScriptRefactorRule {
             // rule for OldProcessFieldName to bpm.OldProcessFieldName
             oldIdentMap.put(fieldName,
                     ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + ConceptPath.CONCEPTPATH_SEPARATOR + fieldName);
+        }
+
+        /* Sid ACE-4914 Create a map of case ref field names to field defs. */
+        caseRefFields = new HashSet<String>();
+
+        for (ProcessRelevantData data : aResolver.getInScopeData()) {
+            if (data.getDataType() instanceof RecordType) {
+                caseRefFields.add(data.getName());
+            }
         }
     }
 
@@ -88,7 +103,7 @@ class TopLevelFieldIdRefactor implements ScriptRefactorRule {
      * Such method calls are, for example:
      * 
      * <pre>
-     * caseRefField.read(xxx)
+     * caseRefField.readXXXX()
      * caseRefField.navigateByCriteriaToXxxxx()
      * </pre>
      */
@@ -96,27 +111,38 @@ class TopLevelFieldIdRefactor implements ScriptRefactorRule {
         // look for the method name
         Token dotToken = aParser.LT(aIndex + 1);
         Token methodToken = aParser.LT(aIndex + 2);
+        Token methodParentObject = aParser.LT(aIndex);
+
         if ((dotToken != null) && (dotToken.getType() == JScriptTokenTypes.DOT) && (methodToken != null)
-                && (methodToken.getType() == JScriptTokenTypes.IDENT)) {
+                && (methodToken.getType() == JScriptTokenTypes.IDENT) && (methodParentObject != null)
+                && methodParentObject.getType() == JScriptTokenTypes.IDENT) {
 
             // is method name one that is replaced by CaseAccessRefactor
-
-            // the read() method
+            // the readXXXX () method
             String methodName = methodToken.getText();
-            if (methodName.equals(CaseAccessRefactor.READ_REF_METHOD)) {
-                return true;
-            }
 
-            // the navigateByCriteriaToXxxx - with string DQL expression
-            if (methodName.startsWith(CaseAccessRefactor.NAVIGATE_METHOD)) {
-                Token openParen = aParser.LT(aIndex + 3);
-                Token paramToken = aParser.LT(aIndex + 4);
-                Token closeParen = aParser.LT(aIndex + 5);
-                // only if it's a string literal parameter
-                if ((openParen != null) && (openParen.getType() == JScriptTokenTypes.LPAREN) //
-                        && (paramToken != null) && (paramToken.getType() == JScriptTokenTypes.STRING_LITERAL) //
-                        && (closeParen != null) && (closeParen.getType() == JScriptTokenTypes.RPAREN)) {
+            /*
+             * Sid ACE-4914 original impl' for CaseRef.readCaseDataType() calls didn't work as it used EQUALS methodname
+             * not startsWith, but the method name would always be suffixed with case data type. So to be on the safe
+             * side we also now check that it is some a readXXX on an actual case ref field.
+             */
+            if (caseRefFields.contains(methodParentObject.getText())) {
+
+                if (methodName.startsWith(CaseAccessRefactor.READ_REF_METHOD_PREFIX)) {
                     return true;
+                }
+
+                // the navigateByCriteriaToXxxx - with string DQL expression
+                if (methodName.startsWith(CaseAccessRefactor.NAVIGATE_METHOD_PREFIX)) {
+                    Token openParen = aParser.LT(aIndex + 3);
+                    Token paramToken = aParser.LT(aIndex + 4);
+                    Token closeParen = aParser.LT(aIndex + 5);
+                    // only if it's a string literal parameter
+                    if ((openParen != null) && (openParen.getType() == JScriptTokenTypes.LPAREN) //
+                            && (paramToken != null) && (paramToken.getType() == JScriptTokenTypes.STRING_LITERAL) //
+                            && (closeParen != null) && (closeParen.getType() == JScriptTokenTypes.RPAREN)) {
+                        return true;
+                    }
                 }
             }
         }

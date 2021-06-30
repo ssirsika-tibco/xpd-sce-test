@@ -8,12 +8,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.uml2.uml.Class;
 
 import com.tibco.xpd.script.parser.antlr.JScriptParser;
 import com.tibco.xpd.script.parser.antlr.JScriptTokenTypes;
+import com.tibco.xpd.xpdl2.ProcessRelevantData;
+import com.tibco.xpd.xpdl2.RecordType;
 
 import antlr.Token;
 import antlr.TokenStreamException;
@@ -35,13 +39,16 @@ class CaseAccessRefactor implements ScriptRefactorRule {
     private static final String READ_METHOD = "read"; //$NON-NLS-1$
 
     // original read by case-ref method
-    public static final String READ_REF_METHOD = "readCaseData"; //$NON-NLS-1$
+    public static final String READ_REF_METHOD_PREFIX = "read"; //$NON-NLS-1$
 
     // original navigate by case-ref and query - leading text
-    public static final String NAVIGATE_METHOD = "navigateByCriteriaTo"; //$NON-NLS-1$
+    public static final String NAVIGATE_METHOD_PREFIX = "navigateByCriteriaTo"; //$NON-NLS-1$
 
     // map of BOM classes keyed on their case-access names
     private final Map<String, Class> mappings;
+
+    // Sid ACE-4914 Keep a List of case ref fields names
+    private final Set<String> caseRefFields;
 
     public CaseAccessRefactor(DataFieldResolver aResolver) {
         Collection<Class> bomClasses = aResolver.getBOMDataTypes(Class.class);
@@ -61,6 +68,15 @@ class CaseAccessRefactor implements ScriptRefactorRule {
                     .append(clazz.getName());
 
             mappings.put(classRef.toString(), clazz);
+        }
+
+        /* Sid ACE-4914 Create a map of case ref field names to field defs. */
+        caseRefFields = new HashSet<String>();
+
+        for (ProcessRelevantData data : aResolver.getInScopeData()) {
+            if (data.getDataType() instanceof RecordType) {
+                caseRefFields.add(data.getName());
+            }
         }
     }
 
@@ -234,7 +250,7 @@ class CaseAccessRefactor implements ScriptRefactorRule {
         String method = aToken.getText();
     
         // caseDataRef.navigateByCriteriaToOrderRef("attribute1 = 1");
-        if (method.startsWith(CaseAccessRefactor.NAVIGATE_METHOD)) {
+        if (method.startsWith(CaseAccessRefactor.NAVIGATE_METHOD_PREFIX)) {
             Token paramToken = aParser.LT(aIndex + 2);
             Token closeParen = aParser.LT(aIndex + 3);
             // only support string literal parameter
@@ -242,20 +258,28 @@ class CaseAccessRefactor implements ScriptRefactorRule {
                     || (closeParen == null) || (closeParen.getType() != JScriptTokenTypes.RPAREN)) {
                 return false;
             }
-    
-            return true;
         }
     
         // caseDataRef.readCaseData();
-        if (method.equals(CaseAccessRefactor.READ_REF_METHOD)) {
+        /*
+         * Sid ACE-4914 - The read data from case ref (CaseRefField.read<CasedataTypeName> isn't a fixed-name method, so
+         * need to check starts with 'read' instead and ensure that the object that the method is being called on is
+         * case reference field.
+         */
+        else if (method.startsWith(CaseAccessRefactor.READ_REF_METHOD_PREFIX)) {
             Token closeParen = aParser.LT(aIndex + 2);
             if ((closeParen == null) || (closeParen.getType() != JScriptTokenTypes.RPAREN)) {
                 return false;
             }
-    
+        }
+
+        // Check that method is called on a case-ref field.
+        Token methodObjectToken = aParser.LT(aIndex - 2);
+
+        if (methodObjectToken != null && caseRefFields.contains(methodObjectToken.getText())) {
             return true;
         }
-    
+
         // bpm.caseData.navigateAll(CaseReference,String,Number,Number)
         // bpm.caseData.navigateByCriteria(CaseReference,String,String,Number,Number)
         // bpm.caseData.navigateBySimpleSearch(CaseReference,String,String,Number,Number)
@@ -291,9 +315,9 @@ class CaseAccessRefactor implements ScriptRefactorRule {
         String method = aToken.getText();
         
         // caseDataRef.navigateByCriteriaToOrderRef("attribute1 = 1");
-        if (method.startsWith(CaseAccessRefactor.NAVIGATE_METHOD)) {
+        if (method.startsWith(CaseAccessRefactor.NAVIGATE_METHOD_PREFIX)) {
             // get the case link name and remove "Ref" suffix
-            String linkName = getCaseRefLinkName(method.substring(CaseAccessRefactor.NAVIGATE_METHOD.length()));
+            String linkName = getCaseRefLinkName(method.substring(CaseAccessRefactor.NAVIGATE_METHOD_PREFIX.length()));
             
             // only support string literal parameter
 
@@ -304,7 +328,12 @@ class CaseAccessRefactor implements ScriptRefactorRule {
         }
     
         // caseDataRef.readCaseData();
-        else if (method.equals(CaseAccessRefactor.READ_REF_METHOD)) {
+        /*
+         * Sid ACE-4914 - The read data from case ref (CaseRefField.read<CasedataTypeName>() isn't a fixed-name method,
+         * so need to check starts with 'read' instead and ensure that the object that the method is being called on is
+         * case reference field.
+         */
+        else if (method.startsWith(CaseAccessRefactor.READ_REF_METHOD_PREFIX)) {
     
             // bpm.caseData.read(CaseReference)
             result.add(new ScriptItemReplacementRef(aToken, "read(data.")); //$NON-NLS-1$
@@ -337,4 +366,6 @@ class CaseAccessRefactor implements ScriptRefactorRule {
 
         return result.toString();
     }
+
+
 }

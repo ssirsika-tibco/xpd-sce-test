@@ -213,7 +213,13 @@ public class ScriptMigrationTests extends TestCase {
                     "BPM  : At Line:14 column:61, Method navigateByCriteriaToOrderRef is invalid for the current context (simpleprocProcess:ScriptTask)",
 
                     // bpm.caseData.navigateByCriteria(data.caseDataRef, "order", "attribute1 = 1");
-                    "BPM  : At Line:15 column:77, Method navigateByCriteria is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)" };
+                    "BPM  : At Line:15 column:77, Method navigateByCriteria is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)",
+
+                    // data.OrderField = bpm.caseData.navigateByCriteria(data.caseDataRef, "order", "attribute1 =
+                    // 1",1,2).readOrder();
+                    "BPM  : At Line:24 column:107, Method navigateByCriteria is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)"
+
+            };
 
             if (errorMarkers.size() != expectedFailures.length) {
                 TestUtil.outputErrorMarkers(project, true);

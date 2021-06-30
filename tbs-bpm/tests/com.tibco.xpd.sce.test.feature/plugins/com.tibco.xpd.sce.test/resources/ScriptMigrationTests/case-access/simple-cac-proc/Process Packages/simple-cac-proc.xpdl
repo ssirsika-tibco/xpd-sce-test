@@ -116,6 +116,22 @@
           </xpdl2:DataType>
           <xpdl2:InitialValue/>
         </xpdl2:DataField>
+        <xpdl2:DataField Id="_3utlQNjTEeupAt1ShhpTBA" xpdExt:DisplayName="Order Case Ref" Name="OrderCaseRef" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="simple-cac-data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_uLkxELnjEemBUvCBmOeFLw"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-4YWoNjTEeupAt1ShhpTBA" xpdExt:DisplayName="Order Field" Name="OrderField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="simple-cac-data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_uLkxELnjEemBUvCBmOeFLw"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
       </xpdl2:DataFields>
       <xpdl2:Activities>
         <xpdl2:Activity Id="_urQUMmXEEemfO4aFU8QTbw" Name="StartEvent" xpdExt:DisplayName="Start Event">
@@ -159,6 +175,13 @@ caseDataRef.navigateByCriteriaToOrderRef(orderCriteria);&#xD;
 caseDataRef.navigateByCriteriaToOrderRef(&quot;attribute1 = 1&quot;);&#xD;
 caseDataRef.readCaseData();&#xD;
 &#xD;
+// Sid ACE-4914 addition more comprehensive tests for caseDataRef.readXXX()&#xD;
+// original impl' and test' assumed that case data type was ALWAYS xcalled 'CaseData'&#xD;
+// which is not correct.&#xD;
+OrderField = OrderCaseRef.readOrder();&#xD;
+OrderField = OrderCaseRef.readOrder(/* ensure retain this */);&#xD;
+&#xD;
+OrderField = caseDataRef.navigateByCriteriaToOrderRef(&quot;attribute1 = 1&quot;).readOrder();&#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>
@@ -177,9 +200,9 @@ caseDataRef.readCaseData();&#xD;
       </xpdl2:Activities>
       <xpdl2:Transitions>
         <xpdl2:Transition Id="_urQUNWXEEemfO4aFU8QTbw" xpdExt:DisplayName="" From="_urQUMmXEEemfO4aFU8QTbw" To="_CSAJwKxwEemo5ojJL23NnA"/>
-        <xpdl2:Transition Id="_urQUNmXEEemfO4aFU8QTbw" xpdExt:DisplayName="" From="_CSAJwKxwEemo5ojJL23NnA" To="_urQUNGXEEemfO4aFU8QTbw">
+        <xpdl2:Transition Id="_wtjaMNjUEeupAt1ShhpTBA" xpdExt:DisplayName="" Name="" From="_CSAJwKxwEemo5ojJL23NnA" To="_urQUNGXEEemfO4aFU8QTbw">
           <xpdl2:ConnectorGraphicsInfos>
-            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
           </xpdl2:ConnectorGraphicsInfos>
         </xpdl2:Transition>
       </xpdl2:Transitions>
