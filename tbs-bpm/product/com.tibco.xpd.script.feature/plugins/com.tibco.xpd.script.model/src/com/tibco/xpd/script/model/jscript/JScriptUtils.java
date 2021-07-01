@@ -2111,7 +2111,7 @@ public class JScriptUtils {
      * @return The JavaScript UML element's content assist comment
      */
     public static String getUmlElementComment(NamedElement element) {
-        String toReturn;
+        String toReturn = null;
 
         /*
          * Look at element label alone, UML will load from resource bundle
@@ -2163,10 +2163,15 @@ public class JScriptUtils {
                     }
                 }
 
-                toReturn = MyUML2Util.myGetString(operation, msgKey, "", true); //$NON-NLS-1$
+                /*
+                 * Sid ACE-5310 toReturn was being unset inside following condition which meant that for operations
+                 * (which do have a label set same as name) we never got the fall back option of UML comments. Use a
+                 * separate label variable instead so that 'toReturn == null' is our tag to say 'no comment yet'.
+                 */
+                String msg = MyUML2Util.myGetString(operation, msgKey, "", true); //$NON-NLS-1$
 
-                if (toReturn != null && toReturn.length() > 0) {
-                    return toReturn;
+                if (msg != null && msg.length() > 0) {
+                    return msg;
                 }
             }
 
