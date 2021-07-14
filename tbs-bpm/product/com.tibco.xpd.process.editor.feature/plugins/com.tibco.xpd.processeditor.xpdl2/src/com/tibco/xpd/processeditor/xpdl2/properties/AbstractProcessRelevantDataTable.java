@@ -1353,6 +1353,19 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
                             (Composite) viewer.getControl());
         }
 
+        /**
+         * Set the BOM type filter employed by this data picker.
+         * 
+         * The default is BOMTypeQuery.CLASS_TYPE, BOMTypeQuery.PRIMITIVE_TYPE, BOMTypeQuery.ENUMERATION_TYPE,
+         * BOMTypeQuery.CASE_CLASS_TYPE, BOMTypeQuery.GLOBAL_CLASS_TYPE
+         * 
+         * @param bomTypeFilter
+         *            Set of string constants as defined in {@link BOMTypeQuery} of each type to appear on picker.
+         */
+        public void setBOMTypeFilter(String[] bomTypeFilter) {
+            editor.setBOMTypeFilter(bomTypeFilter);
+        }
+
         /*
          * (non-Javadoc)
          * 
@@ -1792,8 +1805,25 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
     private class ExternalRefPickerCellEditor extends DialogCellEditor {
         private ComplexDataTypesMergedInfo _complexTypesInfo = null;
 
+        /* Sid ACE-5361 allow consumer to set filter. */
+        private String[] bomTypeFilter = { BOMTypeQuery.CLASS_TYPE, BOMTypeQuery.PRIMITIVE_TYPE,
+                BOMTypeQuery.ENUMERATION_TYPE, BOMTypeQuery.CASE_CLASS_TYPE, BOMTypeQuery.GLOBAL_CLASS_TYPE };
+
         public ExternalRefPickerCellEditor(Composite parent) {
             super(parent);
+        }
+
+        /**
+         * Set the BOM type filter employed by this data picker.
+         * 
+         * The default is BOMTypeQuery.CLASS_TYPE, BOMTypeQuery.PRIMITIVE_TYPE, BOMTypeQuery.ENUMERATION_TYPE,
+         * BOMTypeQuery.CASE_CLASS_TYPE, BOMTypeQuery.GLOBAL_CLASS_TYPE
+         * 
+         * @param bomTypeFilter
+         *            Set of string constants as defined in {@link BOMTypeQuery} of each type to appear on picker.
+         */
+        public void setBOMTypeFilter(String[] bomTypeFilter) {
+            this.bomTypeFilter = bomTypeFilter;
         }
 
         /*
@@ -1810,14 +1840,10 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
             ComplexDataTypeReference newComplexDataTypeRef = null;
             IProject project = WorkingCopyUtil.getProjectFor(getInput());
             ComplexDataTypesMergedInfo complexTypesInfo = getComplexTypesInfo();
-
-            PickerTypeQuery[] queries =
-                    new PickerTypeQuery[] { new BOMTypeQuery(project,
-                            BOMTypeQuery.CLASS_TYPE,
-                            BOMTypeQuery.PRIMITIVE_TYPE,
-                            BOMTypeQuery.ENUMERATION_TYPE,
-                            BOMTypeQuery.CASE_CLASS_TYPE,
-                            BOMTypeQuery.GLOBAL_CLASS_TYPE) };
+            
+            /* Sid ACE-5361 allow consumer to set filter. */
+            PickerTypeQuery[] queries = new PickerTypeQuery[] { new BOMTypeQuery(project, bomTypeFilter) };
+            
             // XPD-3129:using project filter , restricts the picker to Classes
             // from BOMs in same Project only, which is not desired.
             IFilter[] filters = new IFilter[] {};

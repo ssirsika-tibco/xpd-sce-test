@@ -1409,9 +1409,11 @@ public abstract class BaseTypeSection extends
                 toolkit.createCLabel(parent,
                         Messages.BaseTypeSection_bomType_label);
         setExtRefLabelLayoutData();
+
+        /* Sid ACE-5361 allow subclass to set filter. */
         bomTypePickerCtrl =
                 new BOMTypePicker(parent, SWT.NONE, toolkit,
-                        getEditingDomain(), getSectionContainerType()) {
+                        getEditingDomain(), getSectionContainerType(), getBOMTypeFilter()) {
 
                     /**
                      * @see com.tibco.xpd.analyst.resources.xpdl2.properties.general.BaseTypeSection.BOMTypePicker#getProject()
@@ -1757,6 +1759,23 @@ public abstract class BaseTypeSection extends
     }
 
     /**
+     * Sid ACE-5361 allow subclass to set filter.
+     * 
+     * Get the BOM type filter employed by this data picker.
+     * 
+     * The default is BOMTypeQuery.CLASS_TYPE, BOMTypeQuery.PRIMITIVE_TYPE, BOMTypeQuery.ENUMERATION_TYPE,
+     * BOMTypeQuery.CASE_CLASS_TYPE, BOMTypeQuery.GLOBAL_CLASS_TYPE
+     * 
+     * @return String[] bomTypeFilter Set of string constants as defined in {@link BOMTypeQuery} of each type to appear
+     *         on picker.
+     */
+    protected String[] getBOMTypeFilter() {
+        /* Sid ACE-5361 allow subclass to set filter. */
+        return new String[] { BOMTypeQuery.CLASS_TYPE, BOMTypeQuery.PRIMITIVE_TYPE, BOMTypeQuery.ENUMERATION_TYPE,
+                BOMTypeQuery.CASE_CLASS_TYPE, BOMTypeQuery.GLOBAL_CLASS_TYPE };
+    }
+
+    /**
      * Picker control to set the external reference.
      * 
      * @author njpatel
@@ -1772,9 +1791,11 @@ public abstract class BaseTypeSection extends
 
         private ComplexDataTypesMergedInfo complexTypesInfo = null;
 
+        private String[] bomTypeFilter;
+
         public BOMTypePicker(Composite parent, int style,
                 XpdFormToolkit toolkit, EditingDomain editingDomain,
-                ContainerType containerType) {
+                ContainerType containerType, String[] bomTypeFilter) {
             super(parent, style, toolkit, editingDomain, false);
             errIcon =
                     Xpdl2UiPlugin.getDefault().getImageRegistry()
@@ -1788,6 +1809,9 @@ public abstract class BaseTypeSection extends
             });
             // Only allow hyperlink in properties view
             setHyperlinkActive(containerType == ContainerType.PROPERTYVIEW);
+
+            /* Sid ACE-5361 allow subclass to set filter. */
+            this.bomTypeFilter = bomTypeFilter;
         }
 
         /**
@@ -1803,13 +1827,11 @@ public abstract class BaseTypeSection extends
             Shell shell = control.getShell();
             ComplexDataTypeReference theResult = null;
             IProject project = getProject();
+
+            /* Sid ACE-5361 allow subclass to set filter. */
             PickerTypeQuery[] queries =
                     new PickerTypeQuery[] { new BOMTypeQuery(project,
-                            BOMTypeQuery.CLASS_TYPE,
-                            BOMTypeQuery.PRIMITIVE_TYPE,
-                            BOMTypeQuery.ENUMERATION_TYPE,
-                            BOMTypeQuery.CASE_CLASS_TYPE,
-                            BOMTypeQuery.GLOBAL_CLASS_TYPE) };
+                            bomTypeFilter) };
 
             // XPD-3129:using project filter,restricts the picker to Type from
             // BOMs in same Project only, which is not desired.
@@ -2070,7 +2092,7 @@ public abstract class BaseTypeSection extends
                 XpdFormToolkit toolkit, EditingDomain editingDomain,
                 ContainerType containerType) {
 
-            super(parent, style, toolkit, editingDomain, containerType);
+            super(parent, style, toolkit, editingDomain, containerType, new String[] { BOMTypeQuery.CASE_CLASS_TYPE });
             setBrowseTooltip(Messages.BaseTypeSection_selectCaseTypeReference_browse_tooltip);
         }
 

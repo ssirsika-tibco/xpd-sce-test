@@ -17,6 +17,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.internal.impl.UMLPackageImpl;
 
 import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
@@ -108,6 +109,11 @@ public class PayloadDataRule implements IValidationRule {
      */
     private static final String CORRELATION_FIELD_BASIC_NON_ARRAY_ISSUE =
             "gsd.correlationDataMustBeNonArrayBasicType"; //$NON-NLS-1$
+
+    /**
+     * Sid ACE-5361 - Enumeration Types cannot be used for global signal payload parameters
+     */
+    private static final String ENUMERATION_TYPE_NOT_SUPPORTED_ISSUE = "gsd.enumerationDataTypeNotSupported"; //$NON-NLS-1$
 
     @Override
     public Class<?> getTargetClass() {
@@ -331,6 +337,26 @@ public class PayloadDataRule implements IValidationRule {
                     IProject project = getProject(validateItem);
 
                     if (project != null) {
+
+                        /* Sid ACE-5361 Validate against use of enumeration types. */
+                        ComplexDataTypesMergedInfo compMergeInfo =
+                                ComplexDataTypeExtPointHelper.getAllComplexDataTypesMergedInfo();
+
+                        if (compMergeInfo != null) {
+
+                            Object typeDefinition =
+                                    compMergeInfo.getComplexDataTypeFromReference(complexDataTypeRef,
+                                    project);
+
+                            if (typeDefinition instanceof Enumeration) {
+                                addIssue(ENUMERATION_TYPE_NOT_SUPPORTED_ISSUE,
+                                        validateItem,
+                                        Collections.EMPTY_LIST,
+                                        null,
+                                        scope);
+                                return;
+                            }
+                        }
 
                         /*
                          * Check if the namespace of extRef matches the

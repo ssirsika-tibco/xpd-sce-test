@@ -30,6 +30,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 
 import com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.actions.DeleteAction;
+import com.tibco.xpd.bom.resources.ui.commonpicker.BOMTypeQuery;
 import com.tibco.xpd.globalSignalDefinition.GlobalSignal;
 import com.tibco.xpd.globalSignalDefinition.GlobalSignalDefinitionFactory;
 import com.tibco.xpd.globalSignalDefinition.GlobalSignalDefinitionPackage;
@@ -348,9 +349,22 @@ public class PayloadDataTable extends DataFieldTable {
         new LengthColumn(super.getEditingDomain(), viewer);
         new DecimalPlacesColumn(super.getEditingDomain(), viewer);
         new ArrayColumn(super.getEditingDomain(), viewer);
-        new ExternalReferenceColumn(super.getEditingDomain(), viewer, "", 90); //$NON-NLS-1$
+        
+        /* Sid ACE-5361 Global signal payload does not support enumeration types. */
+        ExternalReferenceColumn extRefColumn = new ExternalReferenceColumn(super.getEditingDomain(), viewer, "", 90); //$NON-NLS-1$
+        
+        extRefColumn.setBOMTypeFilter(new String[] { BOMTypeQuery.CLASS_TYPE, BOMTypeQuery.PRIMITIVE_TYPE,
+                BOMTypeQuery.CASE_CLASS_TYPE, BOMTypeQuery.GLOBAL_CLASS_TYPE });
+        
+        
         new CaseRefTypeColumn(super.getEditingDomain(), viewer);
-        new TypeDeclarationColumn(super.getEditingDomain(), viewer);
+
+        /*
+         * Sid ACE-5361 - Noticed that we have a type declaration selection column, but there are no type declarations
+         * in global signals. So removed the column
+         */
+        // new TypeDeclarationColumn(super.getEditingDomain(), viewer);
+
         new MandatoryColumn(super.getEditingDomain(), viewer);
         new UseForSignalCorrelationColumn(super.getEditingDomain(), viewer);
 
@@ -365,7 +379,7 @@ public class PayloadDataTable extends DataFieldTable {
                 0.075f, // Is array
                 0.1f, // External Reference
                 0.1f, // Case Ref Type
-                0.1f, // Type declaration
+                // 0.1f, // Type declaration
                 0.060f, // Mandatory
                 0.12f,// Use for signal correlation
         });
