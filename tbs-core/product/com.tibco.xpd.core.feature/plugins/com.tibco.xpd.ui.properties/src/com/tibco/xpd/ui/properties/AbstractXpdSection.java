@@ -1217,6 +1217,13 @@ public abstract class AbstractXpdSection extends AbstractPropertySection
             text.removeVerifyListener(rejectInputVerifyListener);
             text.addVerifyListener(rejectInputVerifyListener);
 
+        } else if (control instanceof StyledText) {
+            StyledText text = (StyledText) control;
+
+            /* Remove and re-add so we don't end up with loads in there. */
+            text.removeVerifyListener(rejectInputVerifyListener);
+            text.addVerifyListener(rejectInputVerifyListener);
+
         } else if (control instanceof ToolBar) {
             ToolBar toolbar = (ToolBar) control;
             toolbar.setEnabled(false);
