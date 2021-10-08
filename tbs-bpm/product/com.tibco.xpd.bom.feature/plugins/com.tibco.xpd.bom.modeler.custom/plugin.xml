@@ -42,17 +42,20 @@
              label="%tab_profiles_label">
        </propertyTab>
        <propertyTab
-             afterTab="com.tibco.xpd.bom.propertyTabs.operations"
+             afterTab="com.tibco.xpd.bom.propertyTabs.attributes"
              category="general"
              id="property.tab.stereotypes"
              label="%tab_stereotypes_label">
        </propertyTab>
+
+<!-- Sid ACE-5402 - elide the operations tab. For BPME there's no use for operations on Classes
        <propertyTab
              afterTab="com.tibco.xpd.bom.propertyTabs.attributes"
              category="general"
              id="com.tibco.xpd.bom.propertyTabs.operations"
              label="%tab_operations_label">
        </propertyTab>
+-->
        <propertyTab
              afterTab="property.tab.description"
              category="general"
@@ -692,6 +695,8 @@
             id="com.tibco.xpd.bom.modeler.custom.section.general.fetching"
             tab="property.tab.general">
       </propertySection> -->
+      
+<!-- Sid ACE-5402 - elide the operations tab. For BPME there's no use for operations on Classes      
       <propertySection
             afterSection="com.tibco.xpd.bom.modeler.custom.section.general.namedElement"
             class="com.tibco.xpd.bom.modeler.custom.internal.propertysection.general.OperationSection"
@@ -700,6 +705,7 @@
             id="com.tibco.xpd.bom.modeler.custom.section.general.operation"
             tab="property.tab.general">
       </propertySection>
+-->      
       <propertySection
             afterSection="com.tibco.xpd.bom.modeler.custom.section.general.namedElement"
             class="com.tibco.xpd.bom.modeler.custom.internal.propertysection.general.AssociatonSection"
@@ -744,6 +750,7 @@
             id="com.tibco.xpd.bom.modeler.custom.section.stereotypes"
             tab="property.tab.stereotypes">
       </propertySection>
+<!-- Sid ACE-5402 - elide the operations tab. For BPME there's no use for operations on Classes      
       <propertySection
             class="com.tibco.xpd.bom.modeler.custom.internal.propertysection.OperationsTabSection"
             enablesFor="1"
@@ -751,6 +758,7 @@
             id="com.tibco.xpd.bom.modeler.custom.section.operations"
             tab="property.tab.operations">
       </propertySection>
+-->
       <propertySection
             class="com.tibco.xpd.bom.modeler.custom.internal.propertysection.AttributesTabSection"
             enablesFor="1"
@@ -952,6 +960,8 @@
             id="com.tibco.xpd.bom.modeler.custom.explorer.section.stereotypes"
             tab="property.tab.stereotypes">
       </propertySection>
+      
+      <!-- Sid ACE-5402 - elide the operations tab. For BPME there's no use for operations on Classes
       <propertySection
             class="com.tibco.xpd.bom.modeler.custom.internal.propertysection.OperationsTabSection"
             enablesFor="1"
@@ -959,6 +969,7 @@
             id="com.tibco.xpd.bom.modeler.custom.explorer.section.operations"
             tab="com.tibco.xpd.bom.propertyTabs.operations">
       </propertySection>
+      -->
       <propertySection
             class="com.tibco.xpd.bom.modeler.custom.internal.propertysection.AttributesTabSection"
             enablesFor="1"

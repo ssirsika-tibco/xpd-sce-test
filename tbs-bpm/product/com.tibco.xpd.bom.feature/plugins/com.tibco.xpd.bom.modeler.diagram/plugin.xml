@@ -225,7 +225,7 @@ Copyright (c) TIBCO Software Inc 2007. All rights reserved.
       <?gmfgen generated="false"?>   
       <propertyTabs contributorId="com.tibco.xpd.bom.modeler.diagram">
          <propertyTab
-               afterTab="property.tab.operations"
+               afterTab="property.tab.summary"
                category="bom.category.general"
                id="property.tab.stereotypes"
                label="%tab_stereotypes_label">
@@ -240,12 +240,16 @@ Copyright (c) TIBCO Software Inc 2007. All rights reserved.
                id="property.tab.attributes"
                label="%tab_attributes_label">
          </propertyTab>
+         
+         
+         <!-- Sid ACE-5402 - elide the operations tab. For BPME there's no use for operations on Classes
           <propertyTab
                 afterTab="property.tab.summary"
                 category="bom.category.general"
                 id="property.tab.operations"
                 label="%tab_operations_label">
           </propertyTab>
+          -->
           <propertyTab
                 category="bom.category.general"
                 id="property.tab.literals"
