@@ -47,7 +47,6 @@ import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.PublicationStatusType;
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
 import com.tibco.xpd.xpdl2.edit.ui.Xpdl2UiPlugin;
-import com.tibco.xpd.xpdl2.edit.ui.contentassist.CurrencyCodeContentProposalProvider;
 import com.tibco.xpd.xpdl2.edit.ui.contentassist.LanguageContentProposalProvider;
 import com.tibco.xpd.xpdl2.edit.util.FieldAssistUtil;
 import com.tibco.xpd.xpdl2.edit.util.LocaleUtils;
@@ -102,8 +101,6 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
     private Text packageDesc;
 
     private Text documentation;
-
-    private Text costUnitText;
 
     private Text languageText;
 
@@ -238,18 +235,6 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
     }
 
     /**
-     * Get the Cost Unit.
-     * 
-     * @return
-     */
-    public String getCostUnit() {
-        if (costUnitText != null) {
-            return costUnitText.getText();
-        }
-        return null;
-    }
-
-    /**
      * Get the Language.
      * 
      * @return
@@ -354,19 +339,6 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
                 }
             }
         };
-
-        // Cost Unit
-        costUnitText =
-                addTextControl(grpHeader,
-                        Messages.PackageInformationPage_12,
-                        COSTUNIT);
-        costUnitText.setTextLimit(3);
-        ContentAssistCommandAdapter codesContentAssistCommandAdapter =
-                new ContentAssistCommandAdapter(costUnitText,
-                        textContentAdapter,
-                        new CurrencyCodeContentProposalProvider(LocaleUtils
-                                .getCurrencyCodes()), null,
-                        FieldAssistUtil.getAlphaNumericChars());
 
         // Language
         languageText =
@@ -644,13 +616,6 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
         if (costUnit == null) {
             costUnit = Xpdl2Factory.eINSTANCE.createCostUnit();
         }
-
-        if (getCostUnit() != null) {
-            costUnit.setValue(getCostUnit());
-        } else {
-            costUnit.setValue(COSTUNIT);
-        }
-        processPackage.getPackageHeader().setCostUnit(costUnit);
 
         // if we can't find a match then set to default locale isa code
         String tempLocaleIsaCode =

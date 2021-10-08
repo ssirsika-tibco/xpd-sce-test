@@ -24,7 +24,6 @@ import org.eclipse.ui.fieldassist.ContentAssistCommandAdapter;
 import com.tibco.xpd.ui.properties.AbstractFilteredTransactionalSection;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
-import com.tibco.xpd.xpdl2.CostUnit;
 import com.tibco.xpd.xpdl2.Description;
 import com.tibco.xpd.xpdl2.Documentation;
 import com.tibco.xpd.xpdl2.Package;
@@ -32,7 +31,6 @@ import com.tibco.xpd.xpdl2.PackageHeader;
 import com.tibco.xpd.xpdl2.RedefinableHeader;
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
 import com.tibco.xpd.xpdl2.Xpdl2Package;
-import com.tibco.xpd.xpdl2.edit.ui.contentassist.CurrencyCodeContentProposalProvider;
 import com.tibco.xpd.xpdl2.edit.ui.contentassist.LanguageContentProposalProvider;
 import com.tibco.xpd.xpdl2.edit.ui.internal.Messages;
 import com.tibco.xpd.xpdl2.edit.util.FieldAssistUtil;
@@ -52,8 +50,6 @@ public class PackageInformationSection extends
     private Text descriptionText;
 
     private Text documentationText;
-
-    private Text costUnitText;
 
     private Text languageText;
 
@@ -134,24 +130,6 @@ public class PackageInformationSection extends
                 }
             }
         };
-
-        label =
-                toolkit.createLabel(composite,
-                        Messages.PackageInformationSection_costunit_label);
-        label.setLayoutData(new GridData());
-
-        costUnitText =
-                toolkit.createText(composite, (String) Xpdl2Package.eINSTANCE
-                        .getPackageHeader_CostUnit().getDefaultValue());
-        costUnitText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-        costUnitText.setTextLimit(3);
-        manageControl(costUnitText);
-        ContentAssistCommandAdapter codesContentAssistCommandAdapter =
-                new ContentAssistCommandAdapter(costUnitText,
-                        textContentAdapter,
-                        new CurrencyCodeContentProposalProvider(LocaleUtils
-                                .getCurrencyCodes()), null, FieldAssistUtil
-                                .getAlphaNumericChars(), true);
 
         label =
                 toolkit.createLabel(composite,
@@ -254,20 +232,6 @@ public class PackageInformationSection extends
                         .setLabel(Messages.PackageInformationSection_SetDocumentation_menu);
             }
 
-        } else if (obj == costUnitText) {
-            CostUnit costUnit = Xpdl2Factory.eINSTANCE.createCostUnit();
-            costUnit.setValue(costUnitText.getText());
-
-            if (packageHeader.eContainer() == null) {
-                packageHeader.setCostUnit(costUnit);
-            } else {
-                command.append(SetCommand.create(getEditingDomain(),
-                        packageHeader,
-                        Xpdl2Package.eINSTANCE.getPackageHeader_CostUnit(),
-                        costUnit));
-                command
-                        .setLabel(Messages.PackageInformationSection_SetCostUnit_menu);
-            }
         } else if (obj == languageText) {
             String tempLocaleIsaCode =
                     LocaleUtils.getLocaleISOFromDisplayName(languageText
@@ -324,9 +288,9 @@ public class PackageInformationSection extends
         }
         // updateCCombo(publicationStatusCombo, statusText);
 
-        updateText(createdText, LocaleUtils.getLocalisedDateTime(packageHeader
-                .getCreated(), DateFormat.FULL, DateFormat.MEDIUM));
         if (packageHeader != null) {
+            updateText(createdText,
+                    LocaleUtils.getLocalisedDateTime(packageHeader.getCreated(), DateFormat.FULL, DateFormat.MEDIUM));
             if (createdText.getText().length() == 0
                     && packageHeader.getCreated() != null) {
                 updateText(createdText, packageHeader.getCreated());
@@ -337,12 +301,7 @@ public class PackageInformationSection extends
             } else {
                 updateText(descriptionText, ""); //$NON-NLS-1$
             }
-            CostUnit costUnit = packageHeader.getCostUnit();
-            if (costUnit != null) {
-                updateText(costUnitText, costUnit.getValue());
-            } else {
-                updateText(costUnitText, ""); //$NON-NLS-1$
-            }
+
             String language =
                     (String) Xpdl2ModelUtil.getOtherAttribute(packageHeader,
                             XpdExtensionPackage.eINSTANCE
@@ -365,7 +324,6 @@ public class PackageInformationSection extends
             }
         } else {
             updateText(descriptionText, ""); //$NON-NLS-1$
-            updateText(costUnitText, ""); //$NON-NLS-1$
             updateText(languageText, ""); //$NON-NLS-1$
             updateText(documentationText, ""); //$NON-NLS-1$
         }

@@ -1683,8 +1683,6 @@ public class Messages extends NLS {
 
     public static String PackageInformationPage_11;
 
-    public static String PackageInformationPage_12;
-
     public static String PackageInformationPage_13;
 
     public static String PackageTemplateSelectionPage_TITLE;
