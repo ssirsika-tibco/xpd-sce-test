@@ -828,6 +828,11 @@ public class TaskObjectUtil extends
                 Participant participant =
                         Xpdl2Factory.eINSTANCE.createParticipant();
 
+                /* Sid ACE-5461: Need to set ParticipantType on participants when creating them. */
+                ParticipantTypeElem particType = Xpdl2Factory.eINSTANCE.createParticipantTypeElem();
+                particType.setType(ParticipantType.RESOURCE_LITERAL);
+                participant.setParticipantType(particType);
+
                 ExternalReference externalReference =
                         Xpdl2Factory.eINSTANCE.createExternalReference();
                 participant.setExternalReference(externalReference);
