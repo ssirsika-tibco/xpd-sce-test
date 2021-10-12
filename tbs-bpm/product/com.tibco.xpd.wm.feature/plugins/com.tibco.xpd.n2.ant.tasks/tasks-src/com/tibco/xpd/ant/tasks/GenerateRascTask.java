@@ -7,13 +7,16 @@ package com.tibco.xpd.ant.tasks;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.NotDirectoryException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.tools.ant.BuildException;
@@ -33,6 +36,9 @@ import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 
+import com.google.gson.Gson;
+import com.tibco.xpd.analyst.resources.xpdl2.indexing.ProcessParticipantResourceIndexProvider;
+import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.destinations.GlobalDestinationUtil;
 import com.tibco.xpd.n2.resources.util.N2Utils;
 import com.tibco.xpd.rasc.core.Messages;
@@ -40,6 +46,7 @@ import com.tibco.xpd.rasc.core.RascController;
 import com.tibco.xpd.rasc.core.impl.RascControllerImpl;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.builder.BuildSynchronizerUtil;
+import com.tibco.xpd.resources.indexer.IndexerItem;
 import com.tibco.xpd.resources.logger.events.CorrelatingEventHandler;
 import com.tibco.xpd.resources.logger.events.EventProcessor;
 import com.tibco.xpd.resources.logger.events.EventProcessor.Event;
@@ -70,6 +77,8 @@ public class GenerateRascTask extends Task {
             Messages.RascController_default_deploy_folder;
 
     private static final String DEPLOY_MANIFEST = "deploy.manifest";
+
+    private static final String DEPLOY_INFO = "deploy.info";
 
     private String destDir;
 
@@ -391,6 +400,117 @@ public class GenerateRascTask extends Task {
     }
 
     /**
+     * Sid ACE-5646 Create the deploy.info file.
+     * 
+     * @param projectsWithRasc
+     * @param aMonitor
+     * @throws IOException
+     * @throws CoreException
+     */
+    private void createDeployInfo(Set<IProject> projectsWithRasc, IProgressMonitor aMonitor)
+            throws IOException, CoreException {
+        /*
+         * Only output manifest if all rascs are going to the same folder (no point in manifest for each-rasc in
+         * different folder).
+         */
+        File destinationFolder = getAbsoluteSingleDestination();
+
+        if (destinationFolder != null && destinationFolder.exists()) {
+            File deployManifestFile = new File(destinationFolder, DEPLOY_INFO);
+
+            aMonitor.setTaskName(String.format("Generating deployment info '%s'.", DEPLOY_INFO));
+
+            /* Map of top level JSON propeties. */
+            Map<String, Collection<?>> jsonMap = new HashMap<>();
+
+            /*
+             * sharedResources: The set of all shared-resource definitions in all projects.
+             */
+            jsonMap.put("dataProjectDependencies", getSharedResourcesInfo(aMonitor)); //$NON-NLS-1$
+
+            /*
+             * Marshal to JSON
+             */
+            FileOutputStream os = new FileOutputStream(deployManifestFile);
+
+            String json = new Gson().toJson(jsonMap);
+            os.write(json.getBytes(StandardCharsets.UTF_8));
+
+            os.close();
+        }
+    }
+
+    /**
+     * Create the info for the deploy.info file sharedResources JSON property
+     * 
+     * @param aMonitor
+     * 
+     * @param aMonitor
+     * 
+     * @return map of shared resource definitions
+     */
+    public Collection<Map<String, String>> getSharedResourcesInfo(IProgressMonitor aMonitor) {
+        aMonitor.setTaskName("---------------------- REQUIRED SHARED RESOURCES ----------------------\n");
+
+        /* The return map of sharedResources (in format suitd to Gson marshalling */
+        Collection<Map<String, String>> sharedResources = new ArrayList<>();
+
+        /* The set of all participants in all projects in the workspace */
+        Collection<IndexerItem> participantRecords = ProcessUIUtil.getAllParticipantIndexerItems();
+
+        /* Set of resource item-type's already processed (uses string with <TYPE>_<NAME>) to prevent duplicates. */
+        Set<String> alreadyDoneKeys = new HashSet<String>();
+
+        for (IndexerItem participantRecord : participantRecords) {
+            Map<String, String> entry = new HashMap<>();
+
+            String resourceName =
+                    participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME);
+            String resourceDesc =
+                    participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_DESCRIPTION);
+
+            String resourceType =
+                    participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_TYPE);
+
+            // Check not already added
+            String resourceKey = resourceType + "_" + resourceName;
+            if (alreadyDoneKeys.contains(resourceKey)) {
+                continue;
+            }
+            alreadyDoneKeys.add(resourceKey);
+
+            if (ProcessParticipantResourceIndexProvider.ResourceType.EMAIL.equals(resourceType)) {
+                resourceType = "EMAIL";
+                aMonitor.setTaskName(String.format("| EMAIL: %s\n", resourceName, resourceDesc));
+
+            } else if (ProcessParticipantResourceIndexProvider.ResourceType.REST_SERVICE.equals(resourceType)) {
+                resourceType = "REST";
+                aMonitor.setTaskName(String.format("| REST: %s (%s)\n", resourceName, resourceDesc));
+
+            } else {
+                continue; // unrecognised resource type.
+            }
+
+            /*
+             * Add the shared resource info.
+             */
+            entry.put("name", resourceName); //$NON-NLS-1$
+            entry.put("type", resourceType); //$NON-NLS-1$
+            entry.put("description", resourceDesc); //$NON-NLS-1$
+
+            sharedResources.add(entry);
+        }
+
+        if (alreadyDoneKeys.size() == 0) {
+            aMonitor.setTaskName("| n/a");
+        }
+
+        aMonitor.setTaskName("-----------------------------------------------------------------------\n");
+
+        return sharedResources;
+    }
+
+    /**
      * Generate RASCs for the given projects.
      * 
      * @param studioProjectNames
@@ -453,6 +573,7 @@ public class GenerateRascTask extends Task {
                     aMonitor.setTaskName(
                             "Starting Deployment Artifact generation for project: "
                                     + thisName);
+
                     IStatus result = generateRASC(controller,
                             nextProject,
                             SubProgressMonitorEx
@@ -492,9 +613,14 @@ public class GenerateRascTask extends Task {
             }
             
             /*
-             * Sid CBPM-3156 Create the deploy.manifest file that tracks the output projects and the deployment order.
+             * Sid ACE-3156 Create the deploy.manifest file that tracks the output projects and the deployment order.
              */
             createDeployManifest(projectsWithRasc, aMonitor);
+
+            /*
+             * Sid ACE-5646 Create the deploy.info file.
+             */
+            createDeployInfo(projectsWithRasc, aMonitor);
 
         } finally {
             aMonitor.done();
@@ -727,6 +853,7 @@ public class GenerateRascTask extends Task {
                             endResult,
                             elapsed));
                 }
+
                 sb.append(
                         "-----------------------------------------------------------------------\n");
                 System.out.println(sb.toString());
