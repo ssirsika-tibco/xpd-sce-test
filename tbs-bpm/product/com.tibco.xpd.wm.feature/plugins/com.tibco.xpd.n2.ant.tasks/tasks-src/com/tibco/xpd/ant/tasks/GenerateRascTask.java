@@ -428,7 +428,7 @@ public class GenerateRascTask extends Task {
             /*
              * sharedResources: The set of all shared-resource definitions in all projects.
              */
-            jsonMap.put("dataProjectDependencies", getSharedResourcesInfo(aMonitor)); //$NON-NLS-1$
+            jsonMap.put("sharedResources", getSharedResourcesInfo(aMonitor)); //$NON-NLS-1$
 
             /*
              * Marshal to JSON
@@ -454,7 +454,7 @@ public class GenerateRascTask extends Task {
      * @return map of shared resource definitions
      */
     public Collection<Map<String, String>> getSharedResourcesInfo(IProgressMonitor aMonitor) {
-        aMonitor.setTaskName("---------------------- REQUIRED SHARED RESOURCES ----------------------\n");
+        aMonitor.setTaskName("---------------------- REQUIRED SHARED RESOURCES ----------------------");
 
         /* The return map of sharedResources (in format suitd to Gson marshalling */
         Collection<Map<String, String>> sharedResources = new ArrayList<>();
@@ -468,17 +468,15 @@ public class GenerateRascTask extends Task {
         for (IndexerItem participantRecord : participantRecords) {
             Map<String, String> entry = new HashMap<>();
 
-            String resourceName =
-                    participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME);
-            String resourceDesc =
-                    participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_DESCRIPTION);
-
             String resourceType =
                     participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_TYPE);
 
-            if (resourceName == null || resourceName.isEmpty() || resourceType == null || resourceType.isEmpty()) {
+            if (resourceType == null || resourceType.isEmpty()) {
                 continue; // Not a system resource with shared resource definition.
             }
+
+            String resourceName = null;
+            String resourceDesc = null;
 
             // Check not already added
             String resourceKey = resourceType + "_" + resourceName;
@@ -489,15 +487,27 @@ public class GenerateRascTask extends Task {
 
             if (ProcessParticipantResourceIndexProvider.ResourceType.EMAIL.toString().equals(resourceType)) {
                 resourceType = "EMAIL";
-                aMonitor.setTaskName(String.format("| EMAIL: %s\n", resourceName, resourceDesc));
+                resourceName =
+                        participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_EMAIL_INSTANCE_NAME);
+
+                aMonitor.setTaskName(String.format("| EMAIL: %s", resourceName, resourceDesc));
 
             } else if (ProcessParticipantResourceIndexProvider.ResourceType.REST_SERVICE.toString()
                     .equals(resourceType)) {
                 resourceType = "REST";
-                aMonitor.setTaskName(String.format("| REST: %s (%s)\n", resourceName, resourceDesc));
+
+                resourceName = participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME);
+                resourceDesc =
+                        participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_DESCRIPTION);
+
+                aMonitor.setTaskName(String.format("| REST: %s (%s)", resourceName, resourceDesc));
 
             } else {
                 continue; // unrecognised resource type.
+            }
+
+            if (resourceName == null || resourceName.isEmpty()) {
+                continue; // Unreferenced participants aren't validated to have names - so must ignore
             }
 
             /*
@@ -516,7 +526,7 @@ public class GenerateRascTask extends Task {
             aMonitor.setTaskName("| n/a");
         }
 
-        aMonitor.setTaskName("-----------------------------------------------------------------------\n");
+        aMonitor.setTaskName("-----------------------------------------------------------------------");
 
         return sharedResources;
     }
