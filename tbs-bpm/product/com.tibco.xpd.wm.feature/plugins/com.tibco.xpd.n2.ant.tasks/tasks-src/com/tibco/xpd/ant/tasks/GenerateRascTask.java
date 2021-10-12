@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -422,8 +422,10 @@ public class GenerateRascTask extends Task {
 
             aMonitor.setTaskName(String.format("Generating deployment info '%s'.", DEPLOY_INFO));
 
-            /* Map of top level JSON propeties. */
-            Map<String, Collection<?>> jsonMap = new HashMap<>();
+            /*
+             * Map of top level JSON propeties (use LinkedHashMap for consistency of results (1st in 1st out)).
+             */
+            Map<String, Collection<?>> jsonMap = new LinkedHashMap<>();
 
             /*
              * sharedResources: The set of all shared-resource definitions in all projects.
@@ -456,18 +458,19 @@ public class GenerateRascTask extends Task {
     public Collection<Map<String, String>> getSharedResourcesInfo(IProgressMonitor aMonitor) {
         aMonitor.setTaskName("---------------------- REQUIRED SHARED RESOURCES ----------------------");
 
-        /* The return map of sharedResources (in format suitd to Gson marshalling */
-        Collection<Map<String, String>> sharedResources = new ArrayList<>();
+        /* Set of resource item-type's already processed (uses string with <TYPE>_<NAME>) to prevent duplicates. */
+        Set<String> alreadyDoneKeys = new HashSet<String>();
+
+        /* Array of shared resource info that we can sort by type and name. */
+        List<SharedResourceInfo> resourceInfos = new ArrayList<GenerateRascTask.SharedResourceInfo>();
 
         /* The set of all participants in all projects in the workspace */
         Collection<IndexerItem> participantRecords = ProcessUIUtil.getAllParticipantIndexerItems();
 
-        /* Set of resource item-type's already processed (uses string with <TYPE>_<NAME>) to prevent duplicates. */
-        Set<String> alreadyDoneKeys = new HashSet<String>();
-
+        /*
+         * Gather the unique set of name/type shred resource definitions into a single list.
+         */
         for (IndexerItem participantRecord : participantRecords) {
-            Map<String, String> entry = new HashMap<>();
-
             String resourceType =
                     participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_TYPE);
 
@@ -478,29 +481,19 @@ public class GenerateRascTask extends Task {
             String resourceName = null;
             String resourceDesc = null;
 
-            // Check not already added
-            String resourceKey = resourceType + "_" + resourceName;
-            if (alreadyDoneKeys.contains(resourceKey)) {
-                continue;
-            }
-            alreadyDoneKeys.add(resourceKey);
-
             if (ProcessParticipantResourceIndexProvider.ResourceType.EMAIL.toString().equals(resourceType)) {
                 resourceType = "EMAIL";
                 resourceName =
                         participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_EMAIL_INSTANCE_NAME);
-
-                aMonitor.setTaskName(String.format("| EMAIL: %s", resourceName, resourceDesc));
+                resourceDesc =
+                        participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_DESCRIPTION);
 
             } else if (ProcessParticipantResourceIndexProvider.ResourceType.REST_SERVICE.toString()
                     .equals(resourceType)) {
                 resourceType = "REST";
-
                 resourceName = participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME);
                 resourceDesc =
                         participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_DESCRIPTION);
-
-                aMonitor.setTaskName(String.format("| REST: %s (%s)", resourceName, resourceDesc));
 
             } else {
                 continue; // unrecognised resource type.
@@ -510,13 +503,46 @@ public class GenerateRascTask extends Task {
                 continue; // Unreferenced participants aren't validated to have names - so must ignore
             }
 
+            // Check not already added
+            String resourceKey = resourceType + "_" + resourceName;
+            if (alreadyDoneKeys.contains(resourceKey)) {
+                continue;
+            }
+            alreadyDoneKeys.add(resourceKey);
+
+            // Save the info
+            resourceInfos.add(new SharedResourceInfo(resourceName, resourceType, resourceDesc));
+        }
+
+        /*
+         * Output the unique set of shared resource info
+         */
+
+        // Sort the list by type then name for consistent output.
+        Collections.sort(resourceInfos);
+
+        // The return map of sharedResources (in format suited to Gson marshalling)
+        Collection<Map<String, String>> sharedResources = new ArrayList<>();
+
+        for (SharedResourceInfo resourceInfo : resourceInfos) {
+            /* Map of properties in this JSON object (use LinkedHashMap for consistency of results (1st in 1st out)) */
+            Map<String, String> entry = new LinkedHashMap<>();
+
+            // Log it
+            if (resourceInfo.description != null && !resourceInfo.description.isEmpty()) {
+                aMonitor.setTaskName(
+                        String.format("| %s: %s (%s)", resourceInfo.type, resourceInfo.name, resourceInfo.description));
+            } else {
+                aMonitor.setTaskName(String.format("| %s: %s", resourceInfo.type, resourceInfo.name));
+            }
+
             /*
              * Add the shared resource info.
              */
-            entry.put("name", resourceName);
-            entry.put("type", resourceType);
-            if (resourceDesc != null) {
-                entry.put("description", resourceDesc);
+            entry.put("name", resourceInfo.name);
+            entry.put("type", resourceInfo.type);
+            if (resourceInfo.description != null) {
+                entry.put("description", resourceInfo.description);
             }
 
             sharedResources.add(entry);
@@ -1046,5 +1072,51 @@ public class GenerateRascTask extends Task {
         }
 
         return job.getResult();
+    }
+
+    /**
+     * Simple shared resource information pojo class.
+     *
+     * @author aallway
+     * @since 12 Oct 2021
+     */
+    private static class SharedResourceInfo implements Comparable<SharedResourceInfo> {
+        String name;
+
+        String type;
+
+        String description;
+
+        /**
+         * @param name
+         * @param type
+         * @param description
+         */
+        public SharedResourceInfo(String name, String type, String description) {
+            super();
+            this.name = name;
+            this.type = type;
+            this.description = description;
+        }
+
+        /**
+         * Sort by type then name.
+         * 
+         * @see java.lang.Comparable#compareTo(java.lang.Object)
+         *
+         * @param o
+         * @return
+         */
+        @Override
+        public int compareTo(SharedResourceInfo o) {
+
+            int typeComp = this.type.compareTo(o.type);
+            if (typeComp != 0) {
+                return typeComp;
+            }
+
+            return this.name.compareTo(o.name);
+        }
+
     }
 }
