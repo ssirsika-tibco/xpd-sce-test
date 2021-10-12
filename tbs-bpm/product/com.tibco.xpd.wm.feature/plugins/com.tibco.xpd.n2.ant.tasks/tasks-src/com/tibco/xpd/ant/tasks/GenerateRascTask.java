@@ -397,6 +397,8 @@ public class GenerateRascTask extends Task {
 
             os.close();
         }
+
+        aMonitor.setTaskName("");
     }
 
     /**
@@ -438,6 +440,8 @@ public class GenerateRascTask extends Task {
 
             os.close();
         }
+
+        aMonitor.setTaskName("");
     }
 
     /**
@@ -472,6 +476,10 @@ public class GenerateRascTask extends Task {
             String resourceType =
                     participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_TYPE);
 
+            if (resourceName == null || resourceName.isEmpty() || resourceType == null || resourceType.isEmpty()) {
+                continue; // Not a system resource with shared resource definition.
+            }
+
             // Check not already added
             String resourceKey = resourceType + "_" + resourceName;
             if (alreadyDoneKeys.contains(resourceKey)) {
@@ -479,11 +487,12 @@ public class GenerateRascTask extends Task {
             }
             alreadyDoneKeys.add(resourceKey);
 
-            if (ProcessParticipantResourceIndexProvider.ResourceType.EMAIL.equals(resourceType)) {
+            if (ProcessParticipantResourceIndexProvider.ResourceType.EMAIL.toString().equals(resourceType)) {
                 resourceType = "EMAIL";
                 aMonitor.setTaskName(String.format("| EMAIL: %s\n", resourceName, resourceDesc));
 
-            } else if (ProcessParticipantResourceIndexProvider.ResourceType.REST_SERVICE.equals(resourceType)) {
+            } else if (ProcessParticipantResourceIndexProvider.ResourceType.REST_SERVICE.toString()
+                    .equals(resourceType)) {
                 resourceType = "REST";
                 aMonitor.setTaskName(String.format("| REST: %s (%s)\n", resourceName, resourceDesc));
 
@@ -494,9 +503,11 @@ public class GenerateRascTask extends Task {
             /*
              * Add the shared resource info.
              */
-            entry.put("name", resourceName); //$NON-NLS-1$
-            entry.put("type", resourceType); //$NON-NLS-1$
-            entry.put("description", resourceDesc); //$NON-NLS-1$
+            entry.put("name", resourceName);
+            entry.put("type", resourceType);
+            if (resourceDesc != null) {
+                entry.put("description", resourceDesc);
+            }
 
             sharedResources.add(entry);
         }
