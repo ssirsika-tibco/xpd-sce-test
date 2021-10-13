@@ -87,6 +87,20 @@ Where the local environment is Microsoft Windows, use the docker command:
     -v //c/bpm-app/deployment-artifacts:/rascs 
 	tibco/bpm-studio:$$IMAGE_TAG_VERSION$$ generate-rascs
 
+On successful completion, the target deployment artifacts folder will contain 
+the deployment artifacts for all projects in the source folder that require deployment.
+
+The target deployment artifacts folder will also contain the following files:
+  deploy.manifest  - Lists the generated deployment artifacts in the order that
+                     they must be deployed.
+
+  deploy.info      - Additional information gathered during the generation of
+                     deployment artifacts (in JSON format)...
+                     - The shared-resource definitions that are required on any
+                       BPM Enterprise Edition runtime that you wish to deploy
+                       the artifacts to. Each entry details the name and type
+                       of the required shared-resource definition.
+  
 
 Deploying deployment-artifacts to BPM Enterprise Edition runtime
 -------------------------------------------------------------------------------
