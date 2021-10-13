@@ -471,17 +471,19 @@ public class GenerateRascTask extends Task {
          * Gather the unique set of name/type shred resource definitions into a single list.
          */
         for (IndexerItem participantRecord : participantRecords) {
-            String resourceType =
+            String resourceType = null;
+
+            String indexResourceType =
                     participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_TYPE);
 
-            if (resourceType == null || resourceType.isEmpty()) {
+            if (indexResourceType == null || indexResourceType.isEmpty()) {
                 continue; // Not a system resource with shared resource definition.
             }
 
             String resourceName = null;
             String resourceDesc = null;
 
-            if (ProcessParticipantResourceIndexProvider.ResourceType.EMAIL.toString().equals(resourceType)) {
+            if (ProcessParticipantResourceIndexProvider.ResourceType.EMAIL.toString().equals(indexResourceType)) {
                 resourceType = "EMAIL";
                 resourceName =
                         participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_EMAIL_INSTANCE_NAME);
@@ -489,7 +491,7 @@ public class GenerateRascTask extends Task {
                         participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_DESCRIPTION);
 
             } else if (ProcessParticipantResourceIndexProvider.ResourceType.REST_SERVICE.toString()
-                    .equals(resourceType)) {
+                    .equals(indexResourceType)) {
                 resourceType = "REST";
                 resourceName = participantRecord.get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME);
                 resourceDesc =
