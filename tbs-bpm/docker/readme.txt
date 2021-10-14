@@ -64,8 +64,13 @@ After you have built the tibco/bpm-studio docker image you can use it to
 generate deployment artifacts (RASC files) from BPM Studio projects. 
 
 To do this you use the 'generate-rascs' docker entry point and provide volume 
-mappings to the local environment or the source BPM Studio projects 
+mappings to the docker host environment for the source BPM Studio projects 
 and target generated deployment artifacts folders.
+
+** The target generated deployment artifacts folders should be pre-created on the 
+   docker host environment with the appropriate permissions *before* the 
+   command is executed. Failure to do so can cause docker to create the folder
+   automatically with incorrect permissions.
 
 Where the local environment is Linux, use the docker command:
   # Generate artifacts into the local environment folder 
@@ -149,4 +154,22 @@ configuration display IP address for you system and so on)...
     -v /usr/bpm-workspace:/workspace tibco/bpm-studio:$$IMAGE_TAG_VERSION$$
 
 
+Troubleshooting
 ================================================================================
+
+generate-rascs: Permission denied error whilst writing deployment artifact.
+-------------------------------------------------------------------------------
+  The following error is seen when executing a generate-rascs command...
+    [bpm.generateRASC] Deployment Artifact generation failed for project: Processes
+    [bpm.generateRASC]   Cause: Exception was thrown while generating Deployment Artifact for project Processes (/rascs/Processes.rasc (Permission denied))
+	
+  This can  occur when the target deployment artifacts folder is not pre-created in
+  the docker host environment prior to running a generate-rascs command. The folder
+  on the docker host is created by the docker with incorrect permissions.
+  
+  Solution: Remove the target deployment artifacts folder on the docker host and
+            re-create the folder on the docker host with the correct permissions.
+
+
+================================================================================
+
