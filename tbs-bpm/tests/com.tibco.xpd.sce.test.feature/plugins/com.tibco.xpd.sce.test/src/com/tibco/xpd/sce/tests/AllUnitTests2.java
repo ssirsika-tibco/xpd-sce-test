@@ -4,6 +4,7 @@
 
 package com.tibco.xpd.sce.tests;
 
+import com.tibco.xpd.ant.tasks.GenerateRascTaskSharedResourcesTest;
 import com.tibco.xpd.ant.tasks.GenerateRascTaskTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelCaseDataOperationActivityTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelDataFieldDescriptorTest;
@@ -44,6 +45,7 @@ public class AllUnitTests2 {
         suite.addTestSuite(ScriptMigrationTests.class);
         suite.addTestSuite(NewCeProjectsTest.class);
         suite.addTestSuite(GenerateRascTaskTest.class);
+        suite.addTestSuite(GenerateRascTaskSharedResourcesTest.class);
         suite.addTestSuite(SystemActionMigrationTest.class);
         suite.addTestSuite(GlobalSignalMigrationTest.class);
         suite.addTestSuite(JsToDataMapperMigrationsTest.class);
