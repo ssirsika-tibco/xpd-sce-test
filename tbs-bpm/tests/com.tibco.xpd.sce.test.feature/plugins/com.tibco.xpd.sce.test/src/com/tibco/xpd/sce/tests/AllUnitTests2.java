@@ -41,11 +41,11 @@ public class AllUnitTests2 {
         /*
          * AMX BPM project migration
          */
+        suite.addTestSuite(GenerateRascTaskTest.class);
+        suite.addTestSuite(GenerateRascTaskSharedResourcesTest.class);
         suite.addTestSuite(Bpm2CeProjectMigrationTest.class);
         suite.addTestSuite(ScriptMigrationTests.class);
         suite.addTestSuite(NewCeProjectsTest.class);
-        suite.addTestSuite(GenerateRascTaskTest.class);
-        suite.addTestSuite(GenerateRascTaskSharedResourcesTest.class);
         suite.addTestSuite(SystemActionMigrationTest.class);
         suite.addTestSuite(GlobalSignalMigrationTest.class);
         suite.addTestSuite(JsToDataMapperMigrationsTest.class);
