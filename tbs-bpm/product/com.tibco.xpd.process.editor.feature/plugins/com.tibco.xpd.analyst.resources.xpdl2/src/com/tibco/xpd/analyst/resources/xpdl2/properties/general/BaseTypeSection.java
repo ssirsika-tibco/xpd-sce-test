@@ -1771,7 +1771,11 @@ public abstract class BaseTypeSection extends
      */
     protected String[] getBOMTypeFilter() {
         /* Sid ACE-5361 allow subclass to set filter. */
-        return new String[] { BOMTypeQuery.CLASS_TYPE, BOMTypeQuery.PRIMITIVE_TYPE, BOMTypeQuery.ENUMERATION_TYPE,
+        /*
+         * Sid ACE-5387 enumeration type selection is not supported in datafields, parameters, type-declarations or
+         * payload parameters.
+         */
+        return new String[] { BOMTypeQuery.CLASS_TYPE, BOMTypeQuery.PRIMITIVE_TYPE,
                 BOMTypeQuery.CASE_CLASS_TYPE, BOMTypeQuery.GLOBAL_CLASS_TYPE };
     }
 

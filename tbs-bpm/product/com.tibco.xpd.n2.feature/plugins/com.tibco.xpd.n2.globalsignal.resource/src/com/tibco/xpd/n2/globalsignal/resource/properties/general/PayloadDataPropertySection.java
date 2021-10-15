@@ -15,7 +15,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 
-import com.tibco.xpd.bom.resources.ui.commonpicker.BOMTypeQuery;
 import com.tibco.xpd.globalSignalDefinition.GlobalSignalDefinitionPackage;
 import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
 import com.tibco.xpd.globalSignalDefinition.impl.PayloadDataFieldImpl;
@@ -320,15 +319,10 @@ public class PayloadDataPropertySection extends DataFieldPropertySection {
     }
 
     /**
-     * Sid ACE-5361 Disallow selection of enumeation type for global signal data.
+     * Sid ACE-5361 Disallow selection of enumeration type for global signal data.
      * 
-     * @retrun String[] bomTypeFilter Set of string constants as defined in {@link BOMTypeQuery} of each type to appear
-     *         on picker.
+     * Sid ACE-5387 Moved up into BaseTypeSection as enumeration type selection is not supported in datafields,
+     * parameters, type-declarations or payload parameters.
      */
-    @Override
-    protected String[] getBOMTypeFilter() {
-        /* Sid ACE-5361 allow subclass to set filter. */
-        return new String[] { BOMTypeQuery.CLASS_TYPE, BOMTypeQuery.PRIMITIVE_TYPE, 
-                BOMTypeQuery.CASE_CLASS_TYPE, BOMTypeQuery.GLOBAL_CLASS_TYPE };
-    }
+
 }

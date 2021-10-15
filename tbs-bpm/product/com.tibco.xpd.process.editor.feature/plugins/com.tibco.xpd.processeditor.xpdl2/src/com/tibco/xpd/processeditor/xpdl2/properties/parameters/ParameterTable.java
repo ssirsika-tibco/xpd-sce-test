@@ -32,6 +32,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 
 import com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.actions.DeleteAction;
+import com.tibco.xpd.bom.resources.ui.commonpicker.BOMTypeQuery;
 import com.tibco.xpd.processeditor.xpdl2.properties.dataFields.DataFieldTable;
 import com.tibco.xpd.processeditor.xpdl2.properties.messages.Messages;
 import com.tibco.xpd.resources.ui.components.AbstractColumn;
@@ -167,7 +168,16 @@ public class ParameterTable extends DataFieldTable {
         new LengthColumn(editingDomain, viewer);
         new DecimalPlacesColumn(editingDomain, viewer);
         new ArrayColumn(editingDomain, viewer);
-        new ExternalReferenceColumn(editingDomain, viewer, "", 90); //$NON-NLS-1$
+
+        /*
+         * Sid ACE-5387 enumeration type selection is not supported in datafields, parameters, type-declarations or
+         * payload parameters.
+         */
+        ExternalReferenceColumn extRefColumn = new ExternalReferenceColumn(editingDomain, viewer, "", 90); //$NON-NLS-1$
+
+        extRefColumn.setBOMTypeFilter(new String[] { BOMTypeQuery.CLASS_TYPE, BOMTypeQuery.PRIMITIVE_TYPE,
+                BOMTypeQuery.CASE_CLASS_TYPE, BOMTypeQuery.GLOBAL_CLASS_TYPE });
+
         new CaseRefTypeColumn(editingDomain, viewer);
         new TypeDeclarationColumn(editingDomain, viewer);
 
