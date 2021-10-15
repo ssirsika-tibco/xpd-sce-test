@@ -37,6 +37,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.tibco.xpd.analyst.resources.xpdl2.indexing.ProcessParticipantResourceIndexProvider;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.destinations.GlobalDestinationUtil;
@@ -437,7 +438,9 @@ public class GenerateRascTask extends Task {
              */
             FileOutputStream os = new FileOutputStream(deployManifestFile);
 
-            String json = new Gson().toJson(jsonMap);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+            String json = gson.toJson(jsonMap);
             os.write(json.getBytes(StandardCharsets.UTF_8));
 
             os.close();

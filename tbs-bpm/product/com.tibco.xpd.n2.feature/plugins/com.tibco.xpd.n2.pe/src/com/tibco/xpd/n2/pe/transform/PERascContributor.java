@@ -39,6 +39,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.tibco.bpm.dt.rasc.MicroService;
 import com.tibco.bpm.dt.rasc.PropertyValue;
 import com.tibco.bpm.dt.rasc.Version;
@@ -852,7 +853,9 @@ public class PERascContributor implements RascContributor {
         Map<String, Collection<?>> jsonMap = new HashMap<>();
         jsonMap.put("dataProjectDependencies", references); //$NON-NLS-1$
 
-        String json = new Gson().toJson(jsonMap);
+        // SId ACE-5646 Pretty print for consistency across all JOSN files
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(jsonMap);
         aOutput.write(json.getBytes(StandardCharsets.UTF_8));
     }
 

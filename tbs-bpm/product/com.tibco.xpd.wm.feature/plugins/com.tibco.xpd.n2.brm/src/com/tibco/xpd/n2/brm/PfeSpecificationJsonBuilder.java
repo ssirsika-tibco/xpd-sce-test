@@ -21,6 +21,7 @@ import org.eclipse.uml2.uml.Property;
 import org.osgi.framework.Version;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.tibco.bx.xpdl2bpel.N2PEConstants;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
@@ -100,7 +101,9 @@ public class PfeSpecificationJsonBuilder {
         }
 
         if (!Model.isEmpty()) {
-            String json = new Gson().toJson(Model);
+            // SId ACE-5646 Pretty print for consistency across all JOSN files
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String json = gson.toJson(Model);
             return json;
         }
         return null;
