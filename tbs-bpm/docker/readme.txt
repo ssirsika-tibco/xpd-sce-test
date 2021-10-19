@@ -99,10 +99,10 @@ The target deployment artifacts folder will also contain the following files:
   deploy.manifest  - Lists the generated deployment artifacts in the order that
                      they must be deployed.
 
-  deploy.info      - Additional information gathered during the generation of
-                     deployment artifacts (in JSON format)...
-                     - The shared-resource definitions that are required on any
-                       BPM Enterprise Edition runtime that you wish to deploy
+  deploy.info      - Contains additional information gathered during the generation
+                     of deployment artifacts (in JSON format)...
+                     - Lists the shared-resource definitions that are required on
+                       any BPM Enterprise Edition runtime that you wish to deploy
                        the artifacts to. Each entry details the name and type
                        of the required shared-resource definition.
   
