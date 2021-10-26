@@ -1,0 +1,239 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.42">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.9.2"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.9.2">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description>This pipeline job performs following stages&#xd;
+-- Checkout the BPME projects present in the SVN&#xd;
+-- Clear the destination deployment-artifacts (RASC) folder&#xd;
+-- Generate the deployment-artifacts (RASC) files by executing the script by doing &apos;ssh&apos; to the machine which hosts the &apos;bpm-studio&apos; container&#xd;
+-- Deploy the deployment-artifacts to BPM Enterprise Edition runtime </description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>2</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>SRC_REPO</name>
+          <description> SVN location of the source BPME projects </description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SRC_REPO_USER</name>
+          <description> Build User used for the checkout of the source projects</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SRC_REPO_PWD</name>
+          <description>Build user&apos;s password</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SRC_PRJ_DIR</name>
+          <description>Source project directory where BPME projects are present on Docker host.</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DEST_RASC_DIR</name>
+          <description>Folder which contains generated RASCs</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DOCKER_USER</name>
+          <description>DockerHost user name</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DOCKER_HOST</name>
+          <description>DockerHost hostname/ip address</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>STUDIO_VERSION</name>
+          <description> Version tag of CI/CD docker image (tibco/bpm-studio) present on Docker Host</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>BPME_HOST</name>
+          <description>BPME Edition runtime host</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>BPME_ADMIN_USER</name>
+          <description>BPME Edition Admin user&apos;s username</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>BPME_ADMIN_PWD</name>
+          <description>BPME Edition Admin user&apos;s password</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.94">
+    <script>/*
+ Jenkinsfile is a simple Jenkins pipeline configuration file that provides a template to create a CI/CD pipeline. 
+ The CI/CD pipeline template allows you to create and deploy &apos;deployment-artifacts&apos; (RASC files).
+ 
+ Use the required job parameters and this Jenkins pipeline configuration file to set up a Jenkins job. 
+ For more information about the required job parameters, see the &apos;environment&apos; section of this file.
+
+ This file is configured to execute shell commands on a Docker host machine that contains a BPM Studio docker image
+ (see ../readme.txt for more information)..
+
+ Prerequisites --
+  --- The automated CI/CD docker image (tibco/bpm-studio) must have been built on the Docker host 
+     (see ../readme.txt for more information).
+  --- Jenkins must be able to connect to Docker Host machine via ssh (without passing password).
+  --- The user configured by the &apos;SRC_REPO_USER&apos; and &apos;SRC_REPO_PWD&apos; parameters should have access 
+      to source project&apos;s SVN location configured using &apos;SRC_REPO&apos; parameter.
+  --- BPM Enterprise Edition runtime should be running with administrator credentials defined by
+     &apos;BPME_ADMIN_USER&apos; and &apos;BPME_ADMIN_PWD&apos; job parameters.
+
+ @since Nov 2021
+*/
+pipeline {
+    agent any
+    environment {
+        // SVN location of the source BPME projects
+        SRC_REPO=getValue(env.SRC_REPO, &apos;https://svn-location-of-source-bpme-projects&apos;)
+        // Build User used for the checkout of source projects
+        SRC_REPO_USER=getValue(env.SRC_REPO_USER, &apos;svn-user-name&apos;)
+        // Build user&apos;s password
+        SRC_REPO_PWD=getValue(env.SRC_REPO_PWD, &apos;svn-user-password&apos;)
+        // Source project directory where BPME projects are present on Docker host. Default value is provided for Linux.
+        SRC_PRJ_DIR=getValue(env.SRC_PRJ_DIR, &apos;~/BPME-data/source-projects&apos;)
+        // Folder which contains generated RASCs. Default value is provided for Linux.
+        DEST_RASC_DIR=getValue(env.DEST_RASC_DIR, &apos;~/BPME-data/deployment-artifacts&apos;)
+        // DockerHost user name
+        DOCKER_USER=getValue(env.DOCKER_USER, &apos;docker-host-user-name&apos;)
+        // DockerHost hostname/ip address
+        DOCKER_HOST=getValue(env.DOCKER_HOST, &apos;docker-host-machine-address&apos;)
+        // Version tag of CI/CD docker image (tibco/bpm-studio) present on docker host
+        STUDIO_VERSION=getValue(env.STUDIO_VERSION, &apos;5.1.0&apos;)
+        // BPME Edition runtime host
+        BPME_HOST=getValue(env.BPME_HOST, &apos;http://bpme-runtime-host-name-or-ip&apos;)
+        // BPME Edition Admin user&apos;s username
+        BPME_ADMIN_USER=getValue(env.BPME_ADMIN_USER, &apos;tibco-admin&apos;)
+        // BPME Edition Admin user&apos;s password
+        BPME_ADMIN_PWD=getValue(env.BPME_ADMIN_PWD, &apos;secret&apos;)
+    }
+
+    stages {
+        stage(&apos;Checkout source projects&apos;) {
+            when {
+                allOf {
+                    expression { DOCKER_USER != null}
+                    expression { SRC_PRJ_DIR != null}
+                    expression { SRC_REPO != null}
+                    expression { SRC_REPO_USER != null}
+                    expression { SRC_REPO_PWD != null}
+                    expression { DEST_RASC_DIR != null}
+                }
+            }
+            steps {
+                // Checkout the source code and clear the output directory
+                    echo &quot;Checking out source projects ...&quot;
+                    sh &apos;&apos;&apos;
+                            ssh -tt ${DOCKER_USER}@${DOCKER_HOST} &quot;
+                            set -e
+                            mkdir -p -m 777 ${SRC_PRJ_DIR}
+                            cd ${SRC_PRJ_DIR}
+
+                            echo &quot;Checking out the source project to ${SRC_PRJ_DIR} from ${SRC_REPO}&quot;
+                            svn co ${SRC_REPO} --username ${SRC_REPO_USER} --password ${SRC_REPO_PWD}
+
+                            echo &quot;Creating destination folder at ${DEST_RASC_DIR}&quot;
+                            rm -r -f ${DEST_RASC_DIR}; mkdir -m 777 ${DEST_RASC_DIR}
+                            &quot;
+                    &apos;&apos;&apos;
+            }
+        }
+
+        stage(&apos;Generate deployment-artifact (RASC) files&apos;) {
+            when {
+                allOf {
+                    expression { DOCKER_USER != null}
+                    expression { DOCKER_HOST != null}
+                    expression { SRC_PRJ_DIR != null}
+                    expression { DEST_RASC_DIR != null}
+                    expression { STUDIO_VERSION != null}
+                }
+            }
+            steps {
+                echo &quot;Generating RASC files ...&quot;
+                // The target deployment-artifacts must be pre-created and have permissions open for the &quot;studio&quot; user in the bpm-studio docker container
+                sh &apos;&apos;&apos;
+                        ssh -tt ${DOCKER_USER}@${DOCKER_HOST} &quot;
+                        docker run --rm -v ${SRC_PRJ_DIR}:/projects -v ${DEST_RASC_DIR}:/rascs tibco/bpm-studio:${STUDIO_VERSION} generate-rascs
+                        &quot;
+                &apos;&apos;&apos;
+            }
+        }
+
+    /*
+        Uncomment and modify following stage definition to create the referenced shared resources identified while creating the deployment-artifacts (RASC).
+        The &apos;sharedResources&apos; property in the &apos;deploy.info&apos; JSON formatted file, created in the ${DEST_RASC_DIR} folder by the generate-rascs, lists the shared resources (REST
+        service and Email end-point definitions) that must exist in the BPM Enterprise Edition runtime before the projects can be successfully deployed.
+
+        To create the shared resources, you can use the REST APIs exposed by the &apos;BPM Enterprise Edition runtime&apos;.
+        The REST API specification can be accessed at ${BPME_HOST}/apps/api-explorer/index.html#!/swaggerUi?feature=..%2Fyaml%2Fadmin-configuration_v01.yaml.
+
+        stage(&apos;Create referenced shared resources&apos;) {
+            steps {
+                // Add REST API calls to create referenced shared resources.
+            }
+        }
+    */
+
+        stage(&apos;Deploying deployment-artifacts to BPM Enterprise Edition runtime&apos;) {
+            when {
+                allOf {
+                    expression { DOCKER_USER != null}
+                    expression { DOCKER_HOST != null}
+                    expression { DEST_RASC_DIR != null}
+                    expression { STUDIO_VERSION != null}
+                    expression { BPME_HOST != null}
+                    expression { BPME_ADMIN_USER != null}
+                    expression { BPME_ADMIN_PWD != null}
+                }
+            }
+
+            steps {
+                echo &quot;Deploying RASC files ...&quot;
+                sh &apos;&apos;&apos;
+                        ssh -tt ${DOCKER_USER}@${DOCKER_HOST} &quot;
+                        docker run -it --rm --name studio -v ${DEST_RASC_DIR}:/rascs tibco/bpm-studio:${STUDIO_VERSION} deploy-rascs ${BPME_HOST} ${BPME_ADMIN_USER}:${BPME_ADMIN_PWD}
+                        &quot;
+                &apos;&apos;&apos;
+            }
+        }
+    }
+}
+
+// Return the default value if variable is not set. If variable is set then return the variable.
+def getValue(var, value){
+    if(var){
+        return var
+    }
+    return value
+}</script>
+    <sandbox>false</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

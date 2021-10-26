@@ -1,0 +1,147 @@
+/*
+ Jenkinsfile is a simple Jenkins pipeline configuration file that provides a template to create a CI/CD pipeline. 
+ The CI/CD pipeline template allows you to create and deploy 'deployment-artifacts' (RASC files).
+ 
+ Use the required job parameters and this Jenkins pipeline configuration file to set up a Jenkins job. 
+ For more information about the required job parameters, see the 'environment' section of this file.
+
+ This file is configured to execute shell commands on a Docker host machine that contains a BPM Studio 
+ docker image (see ../readme.txt for more information)..
+
+Prerequisites --
+ --- The automated CI/CD docker image (tibco/bpm-studio) must have been built on the Docker host 
+     (see ../readme.txt for more information).
+ --- Jenkins must be able to connect to Docker Host machine via ssh (without passing password).
+ --- The user configured by the 'SRC_REPO_USER' and 'SRC_REPO_PWD' parameters should have access 
+     to source project's SVN location configured using the 'SRC_REPO' parameter.
+ --- BPM Enterprise Edition runtime should be running with administrator credentials defined by the
+     'BPME_ADMIN_USER' and 'BPME_ADMIN_PWD' job parameters.
+
+ @since Nov 2021
+*/
+pipeline {
+    agent any
+    environment {
+        // SVN location of the source BPME projects
+        SRC_REPO=getValue(env.SRC_REPO, 'https://svn-location-of-source-bpme-projects')
+        // Build User used for the checkout of source projects
+        SRC_REPO_USER=getValue(env.SRC_REPO_USER, 'svn-user-name')
+        // Build user's password
+        SRC_REPO_PWD=getValue(env.SRC_REPO_PWD, 'svn-user-password')
+        // Source project directory where BPME projects are present on Docker host. Default value is provided for Linux.
+        SRC_PRJ_DIR=getValue(env.SRC_PRJ_DIR, '~/BPME-data/source-projects')
+        // Folder which contains generated RASCs. Default value is provided for Linux.
+        DEST_RASC_DIR=getValue(env.DEST_RASC_DIR, '~/BPME-data/deployment-artifacts')
+        // DockerHost user name
+        DOCKER_USER=getValue(env.DOCKER_USER, 'docker-host-user-name')
+        // DockerHost hostname/ip address
+        DOCKER_HOST=getValue(env.DOCKER_HOST, 'docker-host-machine-address')
+        // Version tag of CI/CD docker image (tibco/bpm-studio) present on docker host
+        STUDIO_VERSION=getValue(env.STUDIO_VERSION, '5.1.0')
+        // BPME Edition runtime host
+        BPME_HOST=getValue(env.BPME_HOST, 'http://bpme-runtime-host-name-or-ip')
+        // BPME Edition Admin user's username
+        BPME_ADMIN_USER=getValue(env.BPME_ADMIN_USER, 'tibco-admin')
+        // BPME Edition Admin user's password
+        BPME_ADMIN_PWD=getValue(env.BPME_ADMIN_PWD, 'secret')
+    }
+
+    stages {
+        stage('Checkout source projects') {
+            when {
+                allOf {
+                    expression { DOCKER_USER != null}
+                    expression { SRC_PRJ_DIR != null}
+                    expression { SRC_REPO != null}
+                    expression { SRC_REPO_USER != null}
+                    expression { SRC_REPO_PWD != null}
+                    expression { DEST_RASC_DIR != null}
+                }
+            }
+            steps {
+                // Checkout the source code and clear the output directory
+                    echo "Checking out source projects ..."
+                    sh '''
+                            ssh -tt ${DOCKER_USER}@${DOCKER_HOST} "
+                            set -e
+                            mkdir -p -m 777 ${SRC_PRJ_DIR}
+                            cd ${SRC_PRJ_DIR}
+
+                            echo "Checking out the source project to ${SRC_PRJ_DIR} from ${SRC_REPO}"
+                            svn co ${SRC_REPO} --username ${SRC_REPO_USER} --password ${SRC_REPO_PWD}
+
+                            echo "Creating destination folder at ${DEST_RASC_DIR}"
+                            rm -r -f ${DEST_RASC_DIR}; mkdir -m 777 ${DEST_RASC_DIR}
+                            "
+                    '''
+            }
+        }
+
+        stage('Generate deployment-artifact (RASC) files') {
+            when {
+                allOf {
+                    expression { DOCKER_USER != null}
+                    expression { DOCKER_HOST != null}
+                    expression { SRC_PRJ_DIR != null}
+                    expression { DEST_RASC_DIR != null}
+                    expression { STUDIO_VERSION != null}
+                }
+            }
+            steps {
+                echo "Generating RASC files ..."
+                // The target deployment-artifacts must be pre-created and have permissions open for the "studio" user in the bpm-studio docker container
+                sh '''
+                        ssh -tt ${DOCKER_USER}@${DOCKER_HOST} "
+                        docker run --rm -v ${SRC_PRJ_DIR}:/projects -v ${DEST_RASC_DIR}:/rascs tibco/bpm-studio:${STUDIO_VERSION} generate-rascs
+                        "
+                '''
+            }
+        }
+
+    /*
+        Uncomment and modify following stage definition to create the referenced shared resources identified while creating the deployment-artifacts (RASC).
+        The 'sharedResources' property in the 'deploy.info' JSON formatted file, created in the ${DEST_RASC_DIR} folder by the generate-rascs, lists the shared resources (REST
+        service and Email end-point definitions) that must exist in the BPM Enterprise Edition runtime before the projects can be successfully deployed.
+
+        To create the shared resources, you can use the REST APIs exposed by the 'BPM Enterprise Edition runtime'.
+        The REST API specification can be accessed at ${BPME_HOST}/apps/api-explorer/index.html#!/swaggerUi?feature=..%2Fyaml%2Fadmin-configuration_v01.yaml.
+
+        stage('Create referenced shared resources') {
+            steps {
+                // Add REST API calls to create referenced shared resources.
+            }
+        }
+    */
+
+        stage('Deploying deployment-artifacts to BPM Enterprise Edition runtime') {
+            when {
+                allOf {
+                    expression { DOCKER_USER != null}
+                    expression { DOCKER_HOST != null}
+                    expression { DEST_RASC_DIR != null}
+                    expression { STUDIO_VERSION != null}
+                    expression { BPME_HOST != null}
+                    expression { BPME_ADMIN_USER != null}
+                    expression { BPME_ADMIN_PWD != null}
+                }
+            }
+
+            steps {
+                echo "Deploying RASC files ..."
+                sh '''
+                        ssh -tt ${DOCKER_USER}@${DOCKER_HOST} "
+                        docker run -it --rm --name studio -v ${DEST_RASC_DIR}:/rascs tibco/bpm-studio:${STUDIO_VERSION} deploy-rascs ${BPME_HOST} ${BPME_ADMIN_USER}:${BPME_ADMIN_PWD}
+                        "
+                '''
+            }
+        }
+    }
+}
+
+// Return the default value if variable is not set. If variable is set then return the variable.
+def getValue(var, value){
+    if(var){
+        return var
+    }
+    return value
+}

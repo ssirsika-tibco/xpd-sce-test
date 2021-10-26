@@ -11,6 +11,10 @@ This capability is based upon a docker image into which BPM Studio is installed.
 This docker image provides entry points that support automated CI/CD tasks.
 This image must be built locally before it can be used.
 
+The sample_deploy_pipeline folder contains an example Jenkins pipeline script
+and example Jenkins job that shows how to checkout BPM Studio projects
+generate the deployment artifacts for them and then deploy them in a single
+repeatable pipeline. See sample_deploy_pipeline/readme.txt for more information.
 
 Prerequisites
 -------------------------------------------------------------------------------
