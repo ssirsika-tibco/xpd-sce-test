@@ -37,7 +37,7 @@ pipeline {
         // DockerHost hostname/ip address
         DOCKER_HOST=getValue(env.DOCKER_HOST, 'docker-host-machine-address')
         // Version tag of CI/CD docker image (tibco/bpm-studio) present on docker host
-        STUDIO_VERSION=getValue(env.STUDIO_VERSION, '5.1.0')
+        STUDIO_VERSION=getValue(env.STUDIO_VERSION, '$$IMAGE_TAG_VERSION$$')
         // BPME Edition runtime host
         BPME_HOST=getValue(env.BPME_HOST, 'http://bpme-runtime-host-name-or-ip')
         // BPME Edition Admin user's username

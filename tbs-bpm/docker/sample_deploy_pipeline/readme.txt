@@ -2,8 +2,6 @@
 Product Name: TIBCO Business Studio™ - BPM Edition $$IMAGE_TAG_VERSION$$
  	
 Jenkins pipeline job template configurations
-
-@since Nov 2021
 ==================================================================================
 
 <TIBCO Studio Home>/docker_cicd/sample_deploy_pipeline folder contains template 
