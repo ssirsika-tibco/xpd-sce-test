@@ -29,56 +29,67 @@
         <hudson.model.StringParameterDefinition>
           <name>SRC_REPO</name>
           <description> SVN location of the source BPME projects </description>
+          <defaultValue>https://svn-location-of-source-bpme-projects</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>SRC_REPO_USER</name>
           <description> Build User used for the checkout of the source projects</description>
+          <defaultValue>svn-user-name</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>SRC_REPO_PWD</name>
           <description>Build user&apos;s password</description>
+          <defaultValue>svn-user-password</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>SRC_PRJ_DIR</name>
           <description>Source project directory where BPME projects are present on Docker host.</description>
+          <defaultValue>~/BPME-data/source-projects</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>DEST_RASC_DIR</name>
           <description>Folder which contains generated RASCs</description>
+          <defaultValue>~/BPME-data/deployment-artifacts</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>DOCKER_USER</name>
           <description>DockerHost user name</description>
+          <defaultValue>docker-host-user-name</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>DOCKER_HOST</name>
           <description>DockerHost hostname/ip address</description>
+          <defaultValue>docker-host-machine-address</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>STUDIO_VERSION</name>
           <description> Version tag of CI/CD docker image (tibco/bpm-studio) present on Docker Host</description>
+          <defaultValue>$$IMAGE_TAG_VERSION$$</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>BPME_HOST</name>
           <description>BPME Edition runtime host</description>
+          <defaultValue>http://bpme-runtime-host-name-or-ip</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>BPME_ADMIN_USER</name>
           <description>BPME Edition Admin user&apos;s username</description>
+          <defaultValue>tibco-admin</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>BPME_ADMIN_PWD</name>
           <description>BPME Edition Admin user&apos;s password</description>
+          <defaultValue>secret</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
