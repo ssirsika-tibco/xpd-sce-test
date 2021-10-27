@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 echo Building TIBCO BPM Studio docker image tibco/bpm-studio:$$IMAGE_TAG_VERSION$$ for automated CI/CD...
 echo
 
