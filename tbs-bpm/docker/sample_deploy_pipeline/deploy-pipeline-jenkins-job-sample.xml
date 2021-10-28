@@ -9,7 +9,7 @@
       <options/>
     </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
   </actions>
-  <description>&lt;p&gt;This pipeline job contains following stages&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Checkout the BPME projects present in the SVN&lt;/li&gt;&lt;li&gt;Clear the destination deployment-artifacts (RASC) folder&lt;/li&gt;&lt;li&gt;Generate the deployment-artifacts (RASC) files by executing the script by doing &apos;ssh&apos; to the machine which hosts the &apos;bpm-studio&apos; container&lt;/li&gt;&lt;li&gt;Deploy the deployment-artifacts to BPM Enterprise Edition runtime&lt;/li&gt;&lt;/ul&gt;</description>
+  <description>&lt;p&gt;This Jenkins (Linux) pipeline job contains following stages&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Checkout the BPME projects present in the SVN&lt;/li&gt;&lt;li&gt;Clear the destination deployment-artifacts (RASC) folder&lt;/li&gt;&lt;li&gt;Generate the deployment-artifacts (RASC) files by executing the script by doing &apos;ssh&apos; to the machine which hosts the &apos;bpm-studio&apos; container&lt;/li&gt;&lt;li&gt;Deploy the deployment-artifacts to BPM Enterprise Edition runtime&lt;/li&gt;&lt;/ul&gt;</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <jenkins.model.BuildDiscarderProperty>
@@ -93,7 +93,7 @@
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.94">
     <script>/*
- Jenkinsfile is a simple Jenkins pipeline configuration file that provides a template to create a CI/CD pipeline. 
+ This is a simple Jenkins (Linux) pipeline configuration script that provides a template to create a CI/CD pipeline. 
  The CI/CD pipeline template allows you to create and deploy &apos;deployment-artifacts&apos; (RASC files).
  
  Use the required job parameters and this Jenkins pipeline configuration file to set up a Jenkins job. 

@@ -1,5 +1,5 @@
 /*
- Jenkinsfile is a simple Jenkins pipeline configuration file that provides a template to create a CI/CD pipeline. 
+ This is a simple Jenkins (Linux) pipeline configuration script that provides a template to create a CI/CD pipeline. 
  The CI/CD pipeline template allows you to create and deploy 'deployment-artifacts' (RASC files).
  
  Use the required job parameters and this Jenkins pipeline configuration file to set up a Jenkins job. 
@@ -16,8 +16,6 @@ Prerequisites --
      to source project's SVN location configured using the 'SRC_REPO' parameter.
  --- BPM Enterprise Edition runtime should be running with administrator credentials defined by the
      'BPME_ADMIN_USER' and 'BPME_ADMIN_PWD' job parameters.
-
- @since Nov 2021
 */
 pipeline {
     agent any

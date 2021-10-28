@@ -6,7 +6,8 @@ Jenkins pipeline job template configurations
 
 <TIBCO Studio Home>/docker_cicd/sample_deploy_pipeline folder contains template 
 files to create CI/CD Jenkins a pipeline job for that can build and deploy BPM 
-applications. The 'deploy-pipeline-jenkins-job-sample.xml' file contains a job 
+applications. The pipeline script is designed for use with Jenkins running on
+a Linux system. The 'deploy-pipeline-jenkins-job-sample.xml' file contains a job 
 template with pipeline configurations that can be imported into Jenkins. The 
 significant variables for the pipeline are parameterized in this job.
 
