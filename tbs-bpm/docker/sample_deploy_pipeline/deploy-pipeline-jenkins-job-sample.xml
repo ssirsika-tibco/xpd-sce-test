@@ -9,11 +9,7 @@
       <options/>
     </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
   </actions>
-  <description>This pipeline job performs following stages&#xd;
--- Checkout the BPME projects present in the SVN&#xd;
--- Clear the destination deployment-artifacts (RASC) folder&#xd;
--- Generate the deployment-artifacts (RASC) files by executing the script by doing &apos;ssh&apos; to the machine which hosts the &apos;bpm-studio&apos; container&#xd;
--- Deploy the deployment-artifacts to BPM Enterprise Edition runtime </description>
+  <description>&lt;p&gt;This pipeline job contains following stages&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Checkout the BPME projects present in the SVN&lt;/li&gt;&lt;li&gt;Clear the destination deployment-artifacts (RASC) folder&lt;/li&gt;&lt;li&gt;Generate the deployment-artifacts (RASC) files by executing the script by doing &apos;ssh&apos; to the machine which hosts the &apos;bpm-studio&apos; container&lt;/li&gt;&lt;li&gt;Deploy the deployment-artifacts to BPM Enterprise Edition runtime&lt;/li&gt;&lt;/ul&gt;</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <jenkins.model.BuildDiscarderProperty>
