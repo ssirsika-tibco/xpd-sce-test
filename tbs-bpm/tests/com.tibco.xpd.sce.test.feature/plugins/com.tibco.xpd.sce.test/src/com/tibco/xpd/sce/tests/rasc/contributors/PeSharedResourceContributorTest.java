@@ -146,6 +146,13 @@ public class PeSharedResourceContributorTest extends TestCase {
             when(rascContext.getVersion()).thenReturn(version);
             when(rascContext.getAppSummary()).thenReturn(appSummary);
 
+            TestUtil.buildAndWait();
+
+            if (TestUtil.hasErrorProblemMarker(project, true, "PeSharedResourceContributorTest")) {
+                fail(project.getName() + " has error markers (before generate): "
+                        + TestUtil.getErrorProblemMarkerList(project, true));
+            }
+
             fixture.process(project, rascContext, null, writer);
 
             // these artifacts should have been added to the writer
@@ -229,6 +236,13 @@ public class PeSharedResourceContributorTest extends TestCase {
             RascContext rascContext = mock(RascContext.class);
             when(rascContext.getVersion()).thenReturn(version);
             when(rascContext.getAppSummary()).thenReturn(appSummary);
+
+            TestUtil.buildAndWait();
+
+            if (TestUtil.hasErrorProblemMarker(project, true, "PeSharedResourceContributorTest")) {
+                fail(project.getName() + " has error markers (before generate): "
+                        + TestUtil.getErrorProblemMarkerList(project, true));
+            }
 
             // call the rasc contribution
             fixture.process(project, rascContext, null, writer);
@@ -337,6 +351,13 @@ public class PeSharedResourceContributorTest extends TestCase {
             RascContext rascContext = mock(RascContext.class);
             when(rascContext.getVersion()).thenReturn(version);
             when(rascContext.getAppSummary()).thenReturn(appSummary);
+
+            TestUtil.buildAndWait();
+
+            if (TestUtil.hasErrorProblemMarker(project, true, "PeSharedResourceContributorTest")) {
+                fail(project.getName() + " has error markers (before generate): "
+                        + TestUtil.getErrorProblemMarkerList(project, true));
+            }
 
             // call the rasc contribution
             fixture.process(project, rascContext, null, writer);
