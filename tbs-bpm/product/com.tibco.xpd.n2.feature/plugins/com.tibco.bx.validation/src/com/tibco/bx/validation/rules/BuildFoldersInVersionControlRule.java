@@ -49,6 +49,7 @@ public class BuildFoldersInVersionControlRule implements
      * @param scope
      * @param resource
      */
+    @Override
     public void validate(IValidationScope scope, IResource resource) {
         if (resource instanceof IProject) {
             IProject project = (IProject) resource;
@@ -64,7 +65,7 @@ public class BuildFoldersInVersionControlRule implements
 
                     for (IFolder buildFolder : buildFolders) {
                         try {
-                            if (repoSubscriber.isSupervised(buildFolder)) {
+                            if (buildFolder.exists() && repoSubscriber.isSupervised(buildFolder)) {
                                 scope.createIssue(ISSUE,
                                         project.getName(),
                                         project.getName(),
@@ -93,7 +94,6 @@ public class BuildFoldersInVersionControlRule implements
 
         folders.add(project.getFolder(".bpm")); //$NON-NLS-1$
         folders.add(project.getFolder(".processOut")); //$NON-NLS-1$
-        folders.add(project.getFolder(".bom2Xsd")); //$NON-NLS-1$
         folders.add(project.getFolder(".forms")); //$NON-NLS-1$
         folders.add(project.getFolder(".tmp")); //$NON-NLS-1$
 
@@ -106,6 +106,7 @@ public class BuildFoldersInVersionControlRule implements
      * 
      * @param project
      */
+    @Override
     public void setProject(IProject project) {
         this.project = project;
     }
