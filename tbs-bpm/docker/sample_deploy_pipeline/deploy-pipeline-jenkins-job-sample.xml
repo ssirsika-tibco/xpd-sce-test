@@ -9,7 +9,13 @@
       <options/>
     </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
   </actions>
-  <description>&lt;p&gt;This Jenkins (Linux) pipeline job contains following stages&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Checkout the BPME projects present in the SVN&lt;/li&gt;&lt;li&gt;Clear the destination deployment-artifacts (RASC) folder&lt;/li&gt;&lt;li&gt;Generate the deployment-artifacts (RASC) files by executing the script by doing &apos;ssh&apos; to the machine which hosts the &apos;bpm-studio&apos; container&lt;/li&gt;&lt;li&gt;Deploy the deployment-artifacts to BPM Enterprise Edition runtime&lt;/li&gt;&lt;/ul&gt;</description>
+  <description>
+This Jenkins (Linux) pipeline job contains following stages...
+ - Checkout the BPME projects present in the SVN
+ - Clear the destination deployment-artifacts (RASC) folder
+ - Generate the deployment-artifacts (RASC) files by executing the script by doing 'ssh' to the machine which hosts the 'bpm-studio' container
+ - Deploy the deployment-artifacts to BPM Enterprise Edition runtime
+  </description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.model.ParametersDefinitionProperty>
