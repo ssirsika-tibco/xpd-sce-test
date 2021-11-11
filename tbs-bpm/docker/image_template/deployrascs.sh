@@ -88,6 +88,12 @@ for RASC in $(echo $DEPLOY_LIST | tr "," " "); do
 		    # Duplicate deployment is an error we can ignore (just means the given rasc is already deployed)
 			echo " Already deployed at this version";
 			
+	    elif [[ "$ERROR_CODE" == "DEM_SHARED_RESOURCE_MISSING" ]]; then
+		    # Missing shared resource error
+			MISSING_RES=$(cat ./.deploy_output | python -c "import sys, json; print json.load(sys.stdin)['contextAttributes'][0]['value']" 2> /dev/null);
+			MISSING_RES_TYPE=$(cat ./.deploy_output | python -c "import sys, json; print json.load(sys.stdin)['contextAttributes'][1]['value']" 2> /dev/null);
+			echo " At least one shared resource does not exist on target system: $MISSING_RES ($MISSING_RES_TYPE)";
+			exit 4
 		else
 			# Fatal error - stop deploying
 			if [[ "$ERROR_MSG" != "" ]]; then
