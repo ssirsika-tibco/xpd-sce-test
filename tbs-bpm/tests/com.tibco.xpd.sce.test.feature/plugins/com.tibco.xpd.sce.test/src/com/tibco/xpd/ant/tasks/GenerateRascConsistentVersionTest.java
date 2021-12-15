@@ -81,14 +81,14 @@ public class GenerateRascConsistentVersionTest extends TestCase {
             //
             runLaunch("AntProject", "project/build.xml");
 
-            IFolder folder = workspaceRoot.getProject("AntProject")
+            IFolder rascOutFolder = workspaceRoot.getProject("AntProject")
                     .getFolder("project").getFolder("RascOut");
-            folder.refreshLocal(2, null);
+            rascOutFolder.refreshLocal(2, null);
 
-            IFile productionRascFile = folder.getFile("Sid_Tester_Data.rasc");
+            IFile productionRascFile = rascOutFolder.getFile("Sid_Tester_Data.rasc");
             assertTrue(productionRascFile.exists());
 
-            IFile draftRascFile = folder.getFile("Sid_Tester_Process.rasc");
+            IFile draftRascFile = rascOutFolder.getFile("Sid_Tester_Process.rasc");
             assertTrue(draftRascFile.exists());
 
 
@@ -112,6 +112,8 @@ public class GenerateRascConsistentVersionTest extends TestCase {
             // Regenerate RASCS
             //
             runLaunch("AntProject", "project/build.xml");
+
+            rascOutFolder.refreshLocal(2, null);
 
             assertTrue(productionRascFile.exists());
             assertTrue(draftRascFile.exists());
