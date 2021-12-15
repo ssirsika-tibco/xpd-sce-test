@@ -32,14 +32,12 @@ import java.util.Collection;
  * end-user-doc -->
  * @generated
  */
-public class ProjectConfigFactoryImpl extends EFactoryImpl implements
-        ProjectConfigFactory {
+public class ProjectConfigFactoryImpl extends EFactoryImpl implements ProjectConfigFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Creates the default factory implementation.
@@ -50,8 +48,7 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
     public static ProjectConfigFactory init() {
         try {
             ProjectConfigFactory theProjectConfigFactory =
-                    (ProjectConfigFactory) EPackage.Registry.INSTANCE
-                            .getEFactory("http://www.tibco.com/XPD/projectConfig");
+                    (ProjectConfigFactory) EPackage.Registry.INSTANCE.getEFactory(ProjectConfigPackage.eNS_URI);
             if (theProjectConfigFactory != null) {
                 return theProjectConfigFactory;
             }
@@ -94,9 +91,12 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
             return createDestination();
         case ProjectConfigPackage.DESTINATIONS:
             return createDestinations();
+        case ProjectConfigPackage.CUSTOM_PROPERTY:
+            return createCustomProperty();
+        case ProjectConfigPackage.CUSTOM_PROPERTIES:
+            return createCustomProperties();
         default:
-            throw new IllegalArgumentException("The class '" + eClass.getName()
-                    + "' is not a valid classifier");
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
@@ -120,8 +120,7 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
         case ProjectConfigPackage.COLLECTION:
             return createCollectionFromString(eDataType, initialValue);
         default:
-            throw new IllegalArgumentException("The datatype '"
-                    + eDataType.getName() + "' is not a valid classifier");
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
     }
 
@@ -145,8 +144,7 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
         case ProjectConfigPackage.COLLECTION:
             return convertCollectionToString(eDataType, instanceValue);
         default:
-            throw new IllegalArgumentException("The datatype '"
-                    + eDataType.getName() + "' is not a valid classifier");
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
     }
 
@@ -221,13 +219,31 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public ProjectStatus createProjectStatusFromString(EDataType eDataType,
-            String initialValue) {
+    public CustomProperty createCustomProperty() {
+        CustomPropertyImpl customProperty = new CustomPropertyImpl();
+        return customProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CustomProperties createCustomProperties() {
+        CustomPropertiesImpl customProperties = new CustomPropertiesImpl();
+        return customProperties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ProjectStatus createProjectStatusFromString(EDataType eDataType, String initialValue) {
         ProjectStatus result = ProjectStatus.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue
-                    + "' is not a valid enumerator of '" + eDataType.getName()
-                    + "'");
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
         return result;
     }
 
@@ -236,8 +252,7 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertProjectStatusToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertProjectStatusToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -254,8 +269,7 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public IProject createIProjectFromString(EDataType eDataType,
-            String initialValue) {
+    public IProject createIProjectFromString(EDataType eDataType, String initialValue) {
         return (IProject) super.createFromString(eDataType, initialValue);
     }
 
@@ -263,8 +277,7 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertIProjectToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertIProjectToString(EDataType eDataType, Object instanceValue) {
         return super.convertToString(eDataType, instanceValue);
     }
 
@@ -272,8 +285,7 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public IFolder createIFolderFromString(EDataType eDataType,
-            String initialValue) {
+    public IFolder createIFolderFromString(EDataType eDataType, String initialValue) {
         return (IFolder) super.createFromString(eDataType, initialValue);
     }
 
@@ -281,8 +293,7 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertIFolderToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertIFolderToString(EDataType eDataType, Object instanceValue) {
         return super.convertToString(eDataType, instanceValue);
     }
 
@@ -290,8 +301,7 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public IResource createIResourceFromString(EDataType eDataType,
-            String initialValue) {
+    public IResource createIResourceFromString(EDataType eDataType, String initialValue) {
         return (IResource) super.createFromString(eDataType, initialValue);
     }
 
@@ -299,8 +309,7 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertIResourceToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertIResourceToString(EDataType eDataType, Object instanceValue) {
         return super.convertToString(eDataType, instanceValue);
     }
 
@@ -309,10 +318,8 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public ISpecialFolderModel createISpecialFolderModelFromString(
-            EDataType eDataType, String initialValue) {
-        return (ISpecialFolderModel) super.createFromString(eDataType,
-                initialValue);
+    public ISpecialFolderModel createISpecialFolderModelFromString(EDataType eDataType, String initialValue) {
+        return (ISpecialFolderModel) super.createFromString(eDataType, initialValue);
     }
 
     /**
@@ -320,8 +327,7 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertISpecialFolderModelToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertISpecialFolderModelToString(EDataType eDataType, Object instanceValue) {
         return super.convertToString(eDataType, instanceValue);
     }
 
@@ -330,8 +336,7 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public Collection<?> createCollectionFromString(EDataType eDataType,
-            String initialValue) {
+    public Collection<?> createCollectionFromString(EDataType eDataType, String initialValue) {
         return (Collection<?>) super.createFromString(initialValue);
     }
 
@@ -340,8 +345,7 @@ public class ProjectConfigFactoryImpl extends EFactoryImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertCollectionToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertCollectionToString(EDataType eDataType, Object instanceValue) {
         return super.convertToString(instanceValue);
     }
 

@@ -34,15 +34,13 @@ import com.tibco.xpd.resources.projectconfig.specialfolders.extpoint.SpecialFold
  * <!-- end-user-doc -->
  * @generated
  */
-public class SpecialFolderItemProvider extends UniqueIdContainerItemProvider
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class SpecialFolderItemProvider extends UniqueIdContainerItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -67,6 +65,7 @@ public class SpecialFolderItemProvider extends UniqueIdContainerItemProvider
 
             addKindPropertyDescriptor(object);
             addLocationPropertyDescriptor(object);
+            addGeneratedPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -78,16 +77,20 @@ public class SpecialFolderItemProvider extends UniqueIdContainerItemProvider
      * @generated
      */
     protected void addKindPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_SpecialFolder_kind_feature"), getString(
-                        "_UI_PropertyDescriptor_description",
-                        "_UI_SpecialFolder_kind_feature",
-                        "_UI_SpecialFolder_type"),
-                ProjectConfigPackage.Literals.SPECIAL_FOLDER__KIND, true,
-                false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_SpecialFolder_kind_feature"),
+                        getString("_UI_PropertyDescriptor_description",
+                                "_UI_SpecialFolder_kind_feature",
+                                "_UI_SpecialFolder_type"),
+                        ProjectConfigPackage.Literals.SPECIAL_FOLDER__KIND,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -97,16 +100,43 @@ public class SpecialFolderItemProvider extends UniqueIdContainerItemProvider
      * @generated
      */
     protected void addLocationPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_SpecialFolder_location_feature"), getString(
-                        "_UI_PropertyDescriptor_description",
-                        "_UI_SpecialFolder_location_feature",
-                        "_UI_SpecialFolder_type"),
-                ProjectConfigPackage.Literals.SPECIAL_FOLDER__LOCATION, true,
-                false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_SpecialFolder_location_feature"),
+                        getString("_UI_PropertyDescriptor_description",
+                                "_UI_SpecialFolder_location_feature",
+                                "_UI_SpecialFolder_type"),
+                        ProjectConfigPackage.Literals.SPECIAL_FOLDER__LOCATION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
+    }
+
+    /**
+     * This adds a property descriptor for the Generated feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addGeneratedPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_SpecialFolder_generated_feature"),
+                        getString("_UI_PropertyDescriptor_description",
+                                "_UI_SpecialFolder_generated_feature",
+                                "_UI_SpecialFolder_type"),
+                        ProjectConfigPackage.Literals.SPECIAL_FOLDER__GENERATED,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -123,8 +153,7 @@ public class SpecialFolderItemProvider extends UniqueIdContainerItemProvider
         if (object instanceof SpecialFolder) {
             SpecialFolder sf = (SpecialFolder) object;
 
-            ISpecialFolderModel info = SpecialFoldersExtensionPoint
-                    .getInstance().getExtensionByKind(sf.getKind());
+            ISpecialFolderModel info = SpecialFoldersExtensionPoint.getInstance().getExtensionByKind(sf.getKind());
 
             if (info != null) {
                 ImageDescriptor icon = info.getIcon();
@@ -135,8 +164,7 @@ public class SpecialFolderItemProvider extends UniqueIdContainerItemProvider
             }
         }
 
-        return overlayImage(object, getResourceLocator().getImage(
-                "full/obj16/SpecialFolder")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/SpecialFolder")); //$NON-NLS-1$
     }
 
     /**
@@ -165,8 +193,8 @@ public class SpecialFolderItemProvider extends UniqueIdContainerItemProvider
         switch (notification.getFeatureID(SpecialFolder.class)) {
         case ProjectConfigPackage.SPECIAL_FOLDER__KIND:
         case ProjectConfigPackage.SPECIAL_FOLDER__LOCATION:
-            fireNotifyChanged(new ViewerNotification(notification, notification
-                    .getNotifier(), false, true));
+        case ProjectConfigPackage.SPECIAL_FOLDER__GENERATED:
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -180,8 +208,7 @@ public class SpecialFolderItemProvider extends UniqueIdContainerItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

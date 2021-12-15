@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="projectconfig"
-    nsURI="http://www.tibco.com/XPD/projectConfig" nsPrefix="config">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="projectconfig" nsURI="http://www.tibco.com/XPD/projectConfig"
+    nsPrefix="config">
   <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
     <details key="qualified" value="true"/>
   </eAnnotations>
@@ -255,8 +254,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="1.0.0.qualifier"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" lowerBound="1"
-        eType="#//ProjectStatus" defaultValueLiteral="0"/>
+        eType="#//ProjectStatus" defaultValueLiteral="underRevision"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="globalDestinations" eType="#//Destinations"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customProperties" eType="#//CustomProperties"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Destination">
@@ -282,5 +283,19 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Collection" instanceClassName="java.util.Collection">
     <eTypeParameters name="String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomProperty">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A custom property (name value pair)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomProperties">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Customer name value pair properties"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customProperty" lowerBound="1"
+        upperBound="-1" eType="#//CustomProperty" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

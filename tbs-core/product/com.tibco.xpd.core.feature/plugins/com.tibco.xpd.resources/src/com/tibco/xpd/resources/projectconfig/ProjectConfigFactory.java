@@ -22,8 +22,7 @@ public interface ProjectConfigFactory extends EFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The singleton instance of the factory.
@@ -31,9 +30,7 @@ public interface ProjectConfigFactory extends EFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    ProjectConfigFactory eINSTANCE =
-            com.tibco.xpd.resources.projectconfig.impl.ProjectConfigFactoryImpl
-                    .init();
+    ProjectConfigFactory eINSTANCE = com.tibco.xpd.resources.projectconfig.impl.ProjectConfigFactoryImpl.init();
 
     /**
      * Returns a new object of class '<em>Document Root</em>'.
@@ -97,6 +94,24 @@ public interface ProjectConfigFactory extends EFactory {
      * @generated
      */
     Destinations createDestinations();
+
+    /**
+     * Returns a new object of class '<em>Custom Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Custom Property</em>'.
+     * @generated
+     */
+    CustomProperty createCustomProperty();
+
+    /**
+     * Returns a new object of class '<em>Custom Properties</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Custom Properties</em>'.
+     * @generated
+     */
+    CustomProperties createCustomProperties();
 
     /**
      * Returns a new object of class '<em>Asset Type</em>'.

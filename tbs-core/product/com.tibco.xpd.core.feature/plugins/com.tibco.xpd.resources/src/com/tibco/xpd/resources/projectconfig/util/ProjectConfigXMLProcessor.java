@@ -27,8 +27,7 @@ public class ProjectConfigXMLProcessor extends XMLProcessor {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Public constructor to instantiate the helper.
@@ -51,10 +50,8 @@ public class ProjectConfigXMLProcessor extends XMLProcessor {
     protected Map<String, Resource.Factory> getRegistrations() {
         if (registrations == null) {
             super.getRegistrations();
-            registrations.put(XML_EXTENSION,
-                    new ProjectConfigResourceFactoryImpl());
-            registrations.put(STAR_EXTENSION,
-                    new ProjectConfigResourceFactoryImpl());
+            registrations.put(XML_EXTENSION, new ProjectConfigResourceFactoryImpl());
+            registrations.put(STAR_EXTENSION, new ProjectConfigResourceFactoryImpl());
         }
         return registrations;
     }

@@ -34,15 +34,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DestinationsItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DestinationsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved.";
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.";
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -78,12 +77,10 @@ public class DestinationsItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(ProjectConfigPackage.Literals.DESTINATIONS__DESTINATION);
+            childrenFeatures.add(ProjectConfigPackage.Literals.DESTINATIONS__DESTINATION);
         }
         return childrenFeatures;
     }
@@ -109,8 +106,7 @@ public class DestinationsItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage(
-                "full/obj16/Destinations"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Destinations"));
     }
 
     /**
@@ -137,8 +133,7 @@ public class DestinationsItemProvider extends ItemProviderAdapter implements
 
         switch (notification.getFeatureID(Destinations.class)) {
         case ProjectConfigPackage.DESTINATIONS__DESTINATION:
-            fireNotifyChanged(new ViewerNotification(notification, notification
-                    .getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -152,12 +147,10 @@ public class DestinationsItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                ProjectConfigPackage.Literals.DESTINATIONS__DESTINATION,
+        newChildDescriptors.add(createChildParameter(ProjectConfigPackage.Literals.DESTINATIONS__DESTINATION,
                 ProjectConfigFactory.eINSTANCE.createDestination()));
     }
 

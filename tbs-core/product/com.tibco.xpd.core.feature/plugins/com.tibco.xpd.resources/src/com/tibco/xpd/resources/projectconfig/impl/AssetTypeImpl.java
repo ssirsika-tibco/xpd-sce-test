@@ -19,11 +19,11 @@ import com.tibco.xpd.resources.projectconfig.ProjectConfigPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.AssetTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.AssetTypeImpl#getVersion <em>Version</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -32,8 +32,7 @@ public class AssetTypeImpl extends EObjectImpl implements AssetType {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
@@ -108,8 +107,7 @@ public class AssetTypeImpl extends EObjectImpl implements AssetType {
         String oldId = id;
         id = newId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.ASSET_TYPE__ID, oldId, id));
+            eNotify(new ENotificationImpl(this, Notification.SET, ProjectConfigPackage.ASSET_TYPE__ID, oldId, id));
     }
 
     /**
@@ -130,8 +128,7 @@ public class AssetTypeImpl extends EObjectImpl implements AssetType {
         int oldVersion = version;
         version = newVersion;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.ASSET_TYPE__VERSION, oldVersion,
+            eNotify(new ENotificationImpl(this, Notification.SET, ProjectConfigPackage.ASSET_TYPE__VERSION, oldVersion,
                     version));
     }
 
@@ -208,7 +205,7 @@ public class AssetTypeImpl extends EObjectImpl implements AssetType {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (id: ");
         result.append(id);
         result.append(", version: ");

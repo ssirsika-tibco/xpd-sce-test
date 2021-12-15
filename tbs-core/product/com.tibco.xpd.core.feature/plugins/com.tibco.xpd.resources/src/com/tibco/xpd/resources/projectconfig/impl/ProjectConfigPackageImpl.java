@@ -22,6 +22,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 import com.tibco.xpd.resources.projectconfig.AssetType;
+import com.tibco.xpd.resources.projectconfig.CustomProperties;
+import com.tibco.xpd.resources.projectconfig.CustomProperty;
 import com.tibco.xpd.resources.projectconfig.Destination;
 import com.tibco.xpd.resources.projectconfig.Destinations;
 import com.tibco.xpd.resources.projectconfig.DocumentRoot;
@@ -43,15 +45,13 @@ import java.util.Collection;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProjectConfigPackageImpl extends EPackageImpl implements
-        ProjectConfigPackage {
+public class ProjectConfigPackageImpl extends EPackageImpl implements ProjectConfigPackage {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * <!-- begin-user-doc -->
@@ -135,6 +135,20 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass customPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass customPropertiesEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EEnum projectStatusEEnum = null;
 
     /**
@@ -200,7 +214,7 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
 
     /**
      * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-     * 
+     *
      * <p>This method is used to initialize {@link ProjectConfigPackage#eINSTANCE} when that field is accessed.
      * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
      * <!-- begin-user-doc -->
@@ -212,14 +226,14 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
      */
     public static ProjectConfigPackage init() {
         if (isInited)
-            return (ProjectConfigPackage) EPackage.Registry.INSTANCE
-                    .getEPackage(ProjectConfigPackage.eNS_URI);
+            return (ProjectConfigPackage) EPackage.Registry.INSTANCE.getEPackage(ProjectConfigPackage.eNS_URI);
 
         // Obtain or create and register package
+        Object registeredProjectConfigPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
         ProjectConfigPackageImpl theProjectConfigPackage =
-                (ProjectConfigPackageImpl) (EPackage.Registry.INSTANCE
-                        .get(eNS_URI) instanceof ProjectConfigPackageImpl ? EPackage.Registry.INSTANCE
-                        .get(eNS_URI) : new ProjectConfigPackageImpl());
+                registeredProjectConfigPackage instanceof ProjectConfigPackageImpl
+                        ? (ProjectConfigPackageImpl) registeredProjectConfigPackage
+                        : new ProjectConfigPackageImpl();
 
         isInited = true;
 
@@ -236,8 +250,7 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
         theProjectConfigPackage.freeze();
 
         // Update the registry and return the package
-        EPackage.Registry.INSTANCE.put(ProjectConfigPackage.eNS_URI,
-                theProjectConfigPackage);
+        EPackage.Registry.INSTANCE.put(ProjectConfigPackage.eNS_URI, theProjectConfigPackage);
         return theProjectConfigPackage;
     }
 
@@ -391,8 +404,7 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
      * @generated
      */
     public EReference getSpecialFolders_Folders() {
-        return (EReference) specialFoldersEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) specialFoldersEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -401,8 +413,7 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
      * @generated
      */
     public EReference getSpecialFolders_Config() {
-        return (EReference) specialFoldersEClass.getEStructuralFeatures()
-                .get(1);
+        return (EReference) specialFoldersEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -429,8 +440,7 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
      * @generated
      */
     public EAttribute getUniqueIdContainer_Id() {
-        return (EAttribute) uniqueIdContainerEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) uniqueIdContainerEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -484,8 +494,7 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
      * @generated
      */
     public EAttribute getProjectDetails_Id() {
-        return (EAttribute) projectDetailsEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) projectDetailsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -494,8 +503,7 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
      * @generated
      */
     public EAttribute getProjectDetails_Version() {
-        return (EAttribute) projectDetailsEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) projectDetailsEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -504,8 +512,7 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
      * @generated
      */
     public EAttribute getProjectDetails_Status() {
-        return (EAttribute) projectDetailsEClass.getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) projectDetailsEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -514,8 +521,16 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
      * @generated
      */
     public EReference getProjectDetails_GlobalDestinations() {
-        return (EReference) projectDetailsEClass.getEStructuralFeatures()
-                .get(3);
+        return (EReference) projectDetailsEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getProjectDetails_CustomProperties() {
+        return (EReference) projectDetailsEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -552,6 +567,51 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
      */
     public EReference getDestinations_Destination() {
         return (EReference) destinationsEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCustomProperty() {
+        return customPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCustomProperty_Name() {
+        return (EAttribute) customPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCustomProperty_Value() {
+        return (EAttribute) customPropertyEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCustomProperties() {
+        return customPropertiesEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getCustomProperties_CustomProperty() {
+        return (EReference) customPropertiesEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -674,14 +734,21 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
         createEAttribute(projectDetailsEClass, PROJECT_DETAILS__ID);
         createEAttribute(projectDetailsEClass, PROJECT_DETAILS__VERSION);
         createEAttribute(projectDetailsEClass, PROJECT_DETAILS__STATUS);
-        createEReference(projectDetailsEClass,
-                PROJECT_DETAILS__GLOBAL_DESTINATIONS);
+        createEReference(projectDetailsEClass, PROJECT_DETAILS__GLOBAL_DESTINATIONS);
+        createEReference(projectDetailsEClass, PROJECT_DETAILS__CUSTOM_PROPERTIES);
 
         destinationEClass = createEClass(DESTINATION);
         createEAttribute(destinationEClass, DESTINATION__TYPE);
 
         destinationsEClass = createEClass(DESTINATIONS);
         createEReference(destinationsEClass, DESTINATIONS__DESTINATION);
+
+        customPropertyEClass = createEClass(CUSTOM_PROPERTY);
+        createEAttribute(customPropertyEClass, CUSTOM_PROPERTY__NAME);
+        createEAttribute(customPropertyEClass, CUSTOM_PROPERTY__VALUE);
+
+        customPropertiesEClass = createEClass(CUSTOM_PROPERTIES);
+        createEReference(customPropertiesEClass, CUSTOM_PROPERTIES__CUSTOM_PROPERTY);
 
         // Create enums
         projectStatusEEnum = createEEnum(PROJECT_STATUS);
@@ -721,8 +788,7 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
 
         // Obtain other dependent packages
         XMLTypePackage theXMLTypePackage =
-                (XMLTypePackage) EPackage.Registry.INSTANCE
-                        .getEPackage(XMLTypePackage.eNS_URI);
+                (XMLTypePackage) EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 
         // Create type parameters
         addETypeParameter(collectionEDataType, "String");
@@ -895,45 +961,13 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
                 !IS_DERIVED,
                 IS_ORDERED);
 
-        addEOperation(projectConfigEClass,
-                null,
-                "saveWorkingCopy",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        addEOperation(projectConfigEClass, null, "saveWorkingCopy", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        EOperation op =
-                addEOperation(projectConfigEClass,
-                        null,
-                        "addAssetTask",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                theXMLTypePackage.getString(),
-                "id",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        EOperation op = addEOperation(projectConfigEClass, null, "addAssetTask", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theXMLTypePackage.getString(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op =
-                addEOperation(projectConfigEClass,
-                        null,
-                        "addAssetTypes",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                theXMLTypePackage.getString(),
-                "ids",
-                0,
-                -1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        op = addEOperation(projectConfigEClass, null, "addAssetTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theXMLTypePackage.getString(), "ids", 0, -1, IS_UNIQUE, IS_ORDERED);
 
         addEOperation(projectConfigEClass,
                 this.getIProjectAsset(),
@@ -943,37 +977,17 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
                 IS_UNIQUE,
                 IS_ORDERED);
 
-        op =
-                addEOperation(projectConfigEClass,
-                        this.getIProjectAsset(),
-                        "getAssetById",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                theXMLTypePackage.getString(),
-                "id",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        op = addEOperation(projectConfigEClass, this.getIProjectAsset(), "getAssetById", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theXMLTypePackage.getString(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op =
-                addEOperation(projectConfigEClass,
-                        theXMLTypePackage.getBoolean(),
-                        "hasAssetType",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                theXMLTypePackage.getString(),
-                "assetId",
+        op = addEOperation(projectConfigEClass,
+                theXMLTypePackage.getBoolean(),
+                "hasAssetType",
                 0,
                 1,
                 IS_UNIQUE,
                 IS_ORDERED);
+        addEParameter(op, theXMLTypePackage.getString(), "assetId", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         initEClass(assetTypeEClass,
                 AssetType.class,
@@ -1064,21 +1078,9 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
                 !IS_DERIVED,
                 IS_ORDERED);
 
-        addEOperation(specialFolderEClass,
-                this.getIProject(),
-                "getProject",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        addEOperation(specialFolderEClass, this.getIProject(), "getProject", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        addEOperation(specialFolderEClass,
-                this.getIFolder(),
-                "getFolder",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        addEOperation(specialFolderEClass, this.getIFolder(), "getFolder", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         initEClass(specialFoldersEClass,
                 SpecialFolders.class,
@@ -1121,181 +1123,46 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
                 IS_DERIVED,
                 IS_ORDERED);
 
-        op =
-                addEOperation(specialFoldersEClass,
-                        null,
-                        "getFoldersOfKind",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                theXMLTypePackage.getString(),
-                "kind",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        op = addEOperation(specialFoldersEClass, null, "getFoldersOfKind", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theXMLTypePackage.getString(), "kind", 0, 1, IS_UNIQUE, IS_ORDERED);
         EGenericType g1 = createEGenericType(ecorePackage.getEEList());
         EGenericType g2 = createEGenericType(this.getSpecialFolder());
         g1.getETypeArguments().add(g2);
         initEOperation(op, g1);
 
-        op =
-                addEOperation(specialFoldersEClass,
-                        this.getSpecialFolder(),
-                        "getFolder",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                this.getIFolder(),
-                "folder",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        op = addEOperation(specialFoldersEClass, this.getSpecialFolder(), "getFolder", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getIFolder(), "folder", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op =
-                addEOperation(specialFoldersEClass,
-                        this.getSpecialFolder(),
-                        "getFolder",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                this.getIFolder(),
-                "folder",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
-        addEParameter(op,
-                theXMLTypePackage.getString(),
-                "kind",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        op = addEOperation(specialFoldersEClass, this.getSpecialFolder(), "getFolder", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getIFolder(), "folder", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theXMLTypePackage.getString(), "kind", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op =
-                addEOperation(specialFoldersEClass,
-                        this.getSpecialFolder(),
-                        "getFolderContainer",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                this.getIResource(),
-                "resource",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
-
-        op =
-                addEOperation(specialFoldersEClass,
-                        this.getSpecialFolder(),
-                        "addFolder",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                this.getIFolder(),
-                "folder",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
-        addEParameter(op,
-                theXMLTypePackage.getString(),
-                "kind",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
-
-        op =
-                addEOperation(specialFoldersEClass,
-                        null,
-                        "addFolder",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                this.getIFolder(),
-                "folders",
-                0,
-                -1,
-                IS_UNIQUE,
-                IS_ORDERED);
-        addEParameter(op,
-                theXMLTypePackage.getString(),
-                "kind",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
-
-        op =
-                addEOperation(specialFoldersEClass,
-                        null,
-                        "removeFolder",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
+        op = addEOperation(specialFoldersEClass,
                 this.getSpecialFolder(),
-                "specialFolder",
+                "getFolderContainer",
                 0,
                 1,
                 IS_UNIQUE,
                 IS_ORDERED);
+        addEParameter(op, this.getIResource(), "resource", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op =
-                addEOperation(specialFoldersEClass,
-                        null,
-                        "removeFolder",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                this.getSpecialFolder(),
-                "specialFolders",
-                0,
-                -1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        op = addEOperation(specialFoldersEClass, this.getSpecialFolder(), "addFolder", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getIFolder(), "folder", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theXMLTypePackage.getString(), "kind", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op =
-                addEOperation(specialFoldersEClass,
-                        this.getSpecialFolder(),
-                        "changeFolder",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                this.getSpecialFolder(),
-                "specialFolder",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
-        addEParameter(op,
-                this.getIFolder(),
-                "folder",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        op = addEOperation(specialFoldersEClass, null, "addFolder", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getIFolder(), "folders", 0, -1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theXMLTypePackage.getString(), "kind", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+        op = addEOperation(specialFoldersEClass, null, "removeFolder", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getSpecialFolder(), "specialFolder", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+        op = addEOperation(specialFoldersEClass, null, "removeFolder", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getSpecialFolder(), "specialFolders", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+        op = addEOperation(specialFoldersEClass, this.getSpecialFolder(), "changeFolder", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getSpecialFolder(), "specialFolder", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getIFolder(), "folder", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         addEOperation(specialFoldersEClass,
                 this.getISpecialFolderModel(),
@@ -1305,90 +1172,32 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
                 IS_UNIQUE,
                 IS_ORDERED);
 
-        op =
-                addEOperation(specialFoldersEClass,
-                        this.getISpecialFolderModel(),
-                        "getFolderKindInfo",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                theXMLTypePackage.getString(),
-                "kind",
+        op = addEOperation(specialFoldersEClass,
+                this.getISpecialFolderModel(),
+                "getFolderKindInfo",
                 0,
                 1,
                 IS_UNIQUE,
                 IS_ORDERED);
+        addEParameter(op, theXMLTypePackage.getString(), "kind", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op =
-                addEOperation(specialFoldersEClass,
-                        this.getIFolder(),
-                        "getEclipseIFoldersOfKind",
-                        0,
-                        -1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                theXMLTypePackage.getString(),
-                "kind",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
-
-        op =
-                addEOperation(specialFoldersEClass,
-                        this.getSpecialFolder(),
-                        "addFolder",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
+        op = addEOperation(specialFoldersEClass,
                 this.getIFolder(),
-                "folder",
+                "getEclipseIFoldersOfKind",
                 0,
-                1,
+                -1,
                 IS_UNIQUE,
                 IS_ORDERED);
-        addEParameter(op,
-                theXMLTypePackage.getString(),
-                "kind",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
-        addEParameter(op,
-                theXMLTypePackage.getString(),
-                "generated",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        addEParameter(op, theXMLTypePackage.getString(), "kind", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op =
-                addEOperation(specialFoldersEClass,
-                        null,
-                        "markAsGenerated",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                this.getSpecialFolder(),
-                "specialFolder",
-                1,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
-        addEParameter(op,
-                theXMLTypePackage.getString(),
-                "generated",
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        op = addEOperation(specialFoldersEClass, this.getSpecialFolder(), "addFolder", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getIFolder(), "folder", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theXMLTypePackage.getString(), "kind", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theXMLTypePackage.getString(), "generated", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+        op = addEOperation(specialFoldersEClass, null, "markAsGenerated", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getSpecialFolder(), "specialFolder", 1, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theXMLTypePackage.getString(), "generated", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         initEClass(uniqueIdContainerEClass,
                 UniqueIdContainer.class,
@@ -1465,7 +1274,7 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
         initEAttribute(getProjectDetails_Status(),
                 this.getProjectStatus(),
                 "status",
-                "0",
+                "underRevision",
                 1,
                 1,
                 ProjectDetails.class,
@@ -1494,22 +1303,32 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
                 IS_UNIQUE,
                 !IS_DERIVED,
                 IS_ORDERED);
+        initEReference(getProjectDetails_CustomProperties(),
+                this.getCustomProperties(),
+                null,
+                "customProperties",
+                null,
+                0,
+                1,
+                ProjectDetails.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE,
+                IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
 
-        op =
-                addEOperation(projectDetailsEClass,
-                        ecorePackage.getEBoolean(),
-                        "isGlobalDestinationEnabled",
-                        0,
-                        1,
-                        IS_UNIQUE,
-                        IS_ORDERED);
-        addEParameter(op,
-                ecorePackage.getEString(),
-                "globalDestinationId",
+        op = addEOperation(projectDetailsEClass,
+                ecorePackage.getEBoolean(),
+                "isGlobalDestinationEnabled",
                 0,
                 1,
                 IS_UNIQUE,
                 IS_ORDERED);
+        addEParameter(op, ecorePackage.getEString(), "globalDestinationId", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         addEOperation(projectDetailsEClass,
                 ecorePackage.getEString(),
@@ -1565,6 +1384,67 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
                 !IS_DERIVED,
                 IS_ORDERED);
 
+        initEClass(customPropertyEClass,
+                CustomProperty.class,
+                "CustomProperty",
+                !IS_ABSTRACT,
+                !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getCustomProperty_Name(),
+                ecorePackage.getEString(),
+                "name",
+                null,
+                0,
+                1,
+                CustomProperty.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                !IS_UNSETTABLE,
+                !IS_ID,
+                IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
+        initEAttribute(getCustomProperty_Value(),
+                ecorePackage.getEString(),
+                "value",
+                null,
+                0,
+                1,
+                CustomProperty.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                !IS_UNSETTABLE,
+                !IS_ID,
+                IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
+
+        initEClass(customPropertiesEClass,
+                CustomProperties.class,
+                "CustomProperties",
+                !IS_ABSTRACT,
+                !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getCustomProperties_CustomProperty(),
+                this.getCustomProperty(),
+                null,
+                "customProperty",
+                null,
+                1,
+                -1,
+                CustomProperties.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE,
+                IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
+
         // Initialize enums and add enum literals
         initEEnum(projectStatusEEnum, ProjectStatus.class, "ProjectStatus");
         addEEnumLiteral(projectStatusEEnum, ProjectStatus.UNDER_REVISION);
@@ -1572,21 +1452,9 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
         addEEnumLiteral(projectStatusEEnum, ProjectStatus.RELEASED);
 
         // Initialize data types
-        initEDataType(iProjectEDataType,
-                IProject.class,
-                "IProject",
-                IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS);
-        initEDataType(iFolderEDataType,
-                IFolder.class,
-                "IFolder",
-                IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS);
-        initEDataType(iResourceEDataType,
-                IResource.class,
-                "IResource",
-                IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS);
+        initEDataType(iProjectEDataType, IProject.class, "IProject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+        initEDataType(iFolderEDataType, IFolder.class, "IFolder", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+        initEDataType(iResourceEDataType, IResource.class, "IResource", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
         initEDataType(iSpecialFolderModelEDataType,
                 ISpecialFolderModel.class,
                 "ISpecialFolderModel",
@@ -1615,48 +1483,38 @@ public class ProjectConfigPackageImpl extends EPackageImpl implements
     protected void createExtendedMetaDataAnnotations() {
         String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
         addAnnotation(this, source, new String[] { "qualified", "true" });
-        addAnnotation(documentRootEClass, source, new String[] { "name", "",
-                "kind", "mixed" });
-        addAnnotation(getDocumentRoot_Mixed(), source, new String[] { "kind",
-                "elementWildcard", "name", ":mixed" });
-        addAnnotation(getDocumentRoot_XMLNSPrefixMap(), source, new String[] {
-                "kind", "attribute", "name", "xmlns:prefix" });
+        addAnnotation(documentRootEClass, source, new String[] { "name", "", "kind", "mixed" });
+        addAnnotation(getDocumentRoot_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" });
+        addAnnotation(getDocumentRoot_XMLNSPrefixMap(),
+                source,
+                new String[] { "kind", "attribute", "name", "xmlns:prefix" });
         addAnnotation(getDocumentRoot_XSISchemaLocation(),
                 source,
-                new String[] { "kind", "attribute", "name",
-                        "xsi:schemaLocation" });
-        addAnnotation(getDocumentRoot_ProjectConfig(), source, new String[] {
-                "kind", "element", "name", "ProjectConfig", "namespace",
-                "##targetNamespace" });
-        addAnnotation(projectConfigEClass, source, new String[] { "name",
-                "ProjectConfig", "kind", "elementOnly" });
-        addAnnotation(getProjectConfig_AssetTypes(), source, new String[] {
-                "kind", "element", "name", "assetTypes", "namespace",
-                "##targetNamespace" });
-        addAnnotation(getProjectConfig_SpecialFolders(), source, new String[] {
-                "kind", "element", "name", "specialFolders", "namespace",
-                "##targetNamespace" });
-        addAnnotation(getProjectConfig_ProjectType(), source, new String[] {
-                "kind", "attribute", "name", "projectType" });
-        addAnnotation(getAssetType_Id(), source, new String[] { "kind",
-                "attribute", "name", "id" });
-        addAnnotation(specialFolderEClass, source, new String[] { "name",
-                "SpecialFolder", "kind", "elementOnly" });
-        addAnnotation(getSpecialFolder_Kind(), source, new String[] { "kind",
-                "attribute", "name", "kind" });
-        addAnnotation(getSpecialFolder_Location(), source, new String[] {
-                "kind", "attribute", "name", "location" });
-        addAnnotation(getSpecialFolder_Generated(), source, new String[] {
-                "kind", "attribute", "name", "generated" });
-        addAnnotation(specialFoldersEClass, source, new String[] { "name",
-                "SpecialFolders", "kind", "elementOnly" });
-        addAnnotation(getSpecialFolders_Folders(), source, new String[] {
-                "kind", "element", "name", "folder", "namespace",
-                "##targetNamespace" });
-        addAnnotation(getSpecialFolders_Config(), source, new String[] {
-                "kind", "attribute", "name", "config" });
-        addAnnotation(getUniqueIdContainer_Id(), source, new String[] { "kind",
-                "attribute", "name", "id" });
+                new String[] { "kind", "attribute", "name", "xsi:schemaLocation" });
+        addAnnotation(getDocumentRoot_ProjectConfig(),
+                source,
+                new String[] { "kind", "element", "name", "ProjectConfig", "namespace", "##targetNamespace" });
+        addAnnotation(projectConfigEClass, source, new String[] { "name", "ProjectConfig", "kind", "elementOnly" });
+        addAnnotation(getProjectConfig_AssetTypes(),
+                source,
+                new String[] { "kind", "element", "name", "assetTypes", "namespace", "##targetNamespace" });
+        addAnnotation(getProjectConfig_SpecialFolders(),
+                source,
+                new String[] { "kind", "element", "name", "specialFolders", "namespace", "##targetNamespace" });
+        addAnnotation(getProjectConfig_ProjectType(),
+                source,
+                new String[] { "kind", "attribute", "name", "projectType" });
+        addAnnotation(getAssetType_Id(), source, new String[] { "kind", "attribute", "name", "id" });
+        addAnnotation(specialFolderEClass, source, new String[] { "name", "SpecialFolder", "kind", "elementOnly" });
+        addAnnotation(getSpecialFolder_Kind(), source, new String[] { "kind", "attribute", "name", "kind" });
+        addAnnotation(getSpecialFolder_Location(), source, new String[] { "kind", "attribute", "name", "location" });
+        addAnnotation(getSpecialFolder_Generated(), source, new String[] { "kind", "attribute", "name", "generated" });
+        addAnnotation(specialFoldersEClass, source, new String[] { "name", "SpecialFolders", "kind", "elementOnly" });
+        addAnnotation(getSpecialFolders_Folders(),
+                source,
+                new String[] { "kind", "element", "name", "folder", "namespace", "##targetNamespace" });
+        addAnnotation(getSpecialFolders_Config(), source, new String[] { "kind", "attribute", "name", "config" });
+        addAnnotation(getUniqueIdContainer_Id(), source, new String[] { "kind", "attribute", "name", "id" });
     }
 
 } //ProjectConfigPackageImpl

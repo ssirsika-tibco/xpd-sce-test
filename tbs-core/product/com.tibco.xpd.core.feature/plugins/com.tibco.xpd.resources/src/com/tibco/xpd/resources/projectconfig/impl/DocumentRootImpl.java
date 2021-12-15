@@ -29,13 +29,13 @@ import com.tibco.xpd.resources.projectconfig.ProjectConfigPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.DocumentRootImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.DocumentRootImpl#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.DocumentRootImpl#getProjectConfig <em>Project Config</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -45,8 +45,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
@@ -104,9 +103,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public FeatureMap getMixed() {
         if (mixed == null) {
-            mixed =
-                    new BasicFeatureMap(this,
-                            ProjectConfigPackage.DOCUMENT_ROOT__MIXED);
+            mixed = new BasicFeatureMap(this, ProjectConfigPackage.DOCUMENT_ROOT__MIXED);
         }
         return mixed;
     }
@@ -118,12 +115,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public EMap<String, String> getXMLNSPrefixMap() {
         if (xMLNSPrefixMap == null) {
-            xMLNSPrefixMap =
-                    new EcoreEMap<String, String>(
-                            EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
-                            EStringToStringMapEntryImpl.class,
-                            this,
-                            ProjectConfigPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
+            xMLNSPrefixMap = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
+                    EStringToStringMapEntryImpl.class, this, ProjectConfigPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
         }
         return xMLNSPrefixMap;
     }
@@ -135,12 +128,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public EMap<String, String> getXSISchemaLocation() {
         if (xSISchemaLocation == null) {
-            xSISchemaLocation =
-                    new EcoreEMap<String, String>(
-                            EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
-                            EStringToStringMapEntryImpl.class,
-                            this,
-                            ProjectConfigPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
+            xSISchemaLocation = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
+                    EStringToStringMapEntryImpl.class, this, ProjectConfigPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
         }
         return xSISchemaLocation;
     }
@@ -151,9 +140,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     public ProjectConfig getProjectConfig() {
-        return (ProjectConfig) getMixed()
-                .get(ProjectConfigPackage.Literals.DOCUMENT_ROOT__PROJECT_CONFIG,
-                        true);
+        return (ProjectConfig) getMixed().get(ProjectConfigPackage.Literals.DOCUMENT_ROOT__PROJECT_CONFIG, true);
     }
 
     /**
@@ -161,12 +148,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetProjectConfig(
-            ProjectConfig newProjectConfig, NotificationChain msgs) {
+    public NotificationChain basicSetProjectConfig(ProjectConfig newProjectConfig, NotificationChain msgs) {
         return ((FeatureMap.Internal) getMixed())
-                .basicAdd(ProjectConfigPackage.Literals.DOCUMENT_ROOT__PROJECT_CONFIG,
-                        newProjectConfig,
-                        msgs);
+                .basicAdd(ProjectConfigPackage.Literals.DOCUMENT_ROOT__PROJECT_CONFIG, newProjectConfig, msgs);
     }
 
     /**
@@ -175,9 +159,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     public void setProjectConfig(ProjectConfig newProjectConfig) {
-        ((FeatureMap.Internal) getMixed())
-                .set(ProjectConfigPackage.Literals.DOCUMENT_ROOT__PROJECT_CONFIG,
-                        newProjectConfig);
+        ((FeatureMap.Internal) getMixed()).set(ProjectConfigPackage.Literals.DOCUMENT_ROOT__PROJECT_CONFIG,
+                newProjectConfig);
     }
 
     /**
@@ -186,17 +169,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ProjectConfigPackage.DOCUMENT_ROOT__MIXED:
             return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
         case ProjectConfigPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-            return ((InternalEList<?>) getXMLNSPrefixMap())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
         case ProjectConfigPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-            return ((InternalEList<?>) getXSISchemaLocation())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getXSISchemaLocation()).basicRemove(otherEnd, msgs);
         case ProjectConfigPackage.DOCUMENT_ROOT__PROJECT_CONFIG:
             return basicSetProjectConfig(null, msgs);
         }
@@ -309,7 +289,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (mixed: ");
         result.append(mixed);
         result.append(')');

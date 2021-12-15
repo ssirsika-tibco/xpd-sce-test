@@ -47,31 +47,24 @@ import com.tibco.xpd.resources.util.WorkingCopyUtil;
  * <em><b>Special Folders</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>
- * {@link com.tibco.xpd.resources.projectconfig.impl.SpecialFoldersImpl#getFolders
- * <em>Folders</em>}</li>
- * <li>
- * {@link com.tibco.xpd.resources.projectconfig.impl.SpecialFoldersImpl#getConfig
- * <em>Config</em>}</li>
- * </ul>
  * </p>
- * 
+ * <ul>
+ *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.SpecialFoldersImpl#getFolders <em>Folders</em>}</li>
+ *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.SpecialFoldersImpl#getConfig <em>Config</em>}</li>
+ * </ul>
+ *
  * @generated
  */
 public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
-     * The cached value of the '{@link #getFolders() <em>Folders</em>}'
-     * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getFolders() <em>Folders</em>}' containment reference list.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getFolders()
      * @generated
      * @ordered
@@ -80,7 +73,6 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected SpecialFoldersImpl() {
@@ -89,7 +81,6 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -105,23 +96,21 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
     @Override
     public EList getFolders() {
         if (folders == null) {
-            folders =
-                    new EObjectContainmentEList(SpecialFolder.class, this,
-                            ProjectConfigPackage.SPECIAL_FOLDERS__FOLDERS);
+            folders = new EObjectContainmentEList(SpecialFolder.class, this,
+                    ProjectConfigPackage.SPECIAL_FOLDERS__FOLDERS);
         }
         return folders;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ProjectConfig getConfig() {
         if (eContainerFeatureID() != ProjectConfigPackage.SPECIAL_FOLDERS__CONFIG)
             return null;
-        return (ProjectConfig) eContainer();
+        return (ProjectConfig) eInternalContainer();
     }
 
     /**
@@ -143,11 +132,9 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
 
                 if (allFolders != null && !allFolders.isEmpty()) {
                     // Filter the list for the given kind
-                    for (Iterator<?> iter = allFolders.iterator(); iter
-                            .hasNext();) {
+                    for (Iterator<?> iter = allFolders.iterator(); iter.hasNext();) {
                         Object obj = iter.next();
-                        if (obj instanceof SpecialFolder
-                                && ((SpecialFolder) obj).getKind().equals(kind)) {
+                        if (obj instanceof SpecialFolder && ((SpecialFolder) obj).getKind().equals(kind)) {
                             folders.add(obj);
                         }
                     }
@@ -174,24 +161,20 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
             // Check if the folder is from the same project as this object
             if (folder.getProject().equals(getConfig().getProject())) {
                 if (getFolders() != null) {
-                    String projRelativePath =
-                            folder.getProjectRelativePath().toString();
+                    String projRelativePath = folder.getProjectRelativePath().toString();
                     EList sFolders = getFolders();
 
-                    for (Iterator<?> iter = sFolders.iterator(); iter.hasNext()
-                            && ret == null;) {
+                    for (Iterator<?> iter = sFolders.iterator(); iter.hasNext() && ret == null;) {
                         SpecialFolder sf = (SpecialFolder) iter.next();
 
-                        if (sf != null
-                                && sf.getLocation().equals(projRelativePath)) {
+                        if (sf != null && sf.getLocation().equals(projRelativePath)) {
                             ret = sf;
                         }
                     }
                 }
             } else {
                 // Folder is not from the same project as this config
-                throw new IllegalArgumentException(
-                        "Folder does not belong to this project."); //$NON-NLS-1$
+                throw new IllegalArgumentException("Folder does not belong to this project."); //$NON-NLS-1$
             }
 
         } else {
@@ -245,8 +228,7 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
                 if (sFolders != null && !sFolders.isEmpty()) {
                     IPath projRelativePath = resource.getProjectRelativePath();
 
-                    for (Iterator<?> iter = sFolders.iterator(); iter.hasNext()
-                            && ret == null;) {
+                    for (Iterator<?> iter = sFolders.iterator(); iter.hasNext() && ret == null;) {
                         SpecialFolder sf = (SpecialFolder) iter.next();
 
                         if (sf != null) {
@@ -262,8 +244,7 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
                     }
                 }
             } else {
-                throw new IllegalArgumentException(
-                        "Resource does not belong to this project."); //$NON-NLS-1$
+                throw new IllegalArgumentException("Resource does not belong to this project."); //$NON-NLS-1$
             }
         } else {
             throw new NullPointerException("resource is null"); //$NON-NLS-1$
@@ -332,8 +313,7 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
                     // exception
 
                     if (folders.size() > 1) {
-                        String foldersLst =
-                                getDisplayLstOfSpecialfolders(folders);
+                        String foldersLst = getDisplayLstOfSpecialfolders(folders);
 
                         throw new IllegalArgumentException(
                                 String.format(Messages.SpecialFoldersImpl_onlyOneSpecialFolder_longdesc1,
@@ -348,8 +328,7 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
                     EList<?> foldersOfKind = getFoldersOfKind(kind);
 
                     if (foldersOfKind.size() > 0) {
-                        String foldersLst =
-                                getDisplayLstOfSpecialfolders(foldersOfKind);
+                        String foldersLst = getDisplayLstOfSpecialfolders(foldersOfKind);
 
                         throw new IllegalArgumentException(
                                 String.format(Messages.SpecialFoldersImpl_onlyOneSpecialFolder_longdesc1,
@@ -360,8 +339,7 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
                 EditingDomain ed = WorkingCopyUtil.getEditingDomain(this);
 
                 if (ed != null) {
-                    List<SpecialFolder> sFoldersToAdd =
-                            new ArrayList<SpecialFolder>();
+                    List<SpecialFolder> sFoldersToAdd = new ArrayList<SpecialFolder>();
 
                     /*
                      * Process each folder in the list - if a SpecialFolder
@@ -390,29 +368,22 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
                                  * SpecialFolder doesn't exist for the folder so
                                  * create the SpecialFolder and add it to list
                                  */
-                                sf =
-                                        ProjectConfigFactory.eINSTANCE
-                                                .createSpecialFolder();
+                                sf = ProjectConfigFactory.eINSTANCE.createSpecialFolder();
                                 sf.setKind(kind);
-                                sf.setLocation(folder.getProjectRelativePath()
-                                        .toString());
+                                sf.setLocation(folder.getProjectRelativePath().toString());
                                 sf.setGenerated(generated);
                                 sFoldersToAdd.add(sf);
 
                             } else {
                                 if (!sf.getKind().equals(kind)) {
                                     throw new IllegalArgumentException(
-                                            MessageFormat
-                                                    .format("Special folder with location ''{0}'' already exists.", //$NON-NLS-1$
-                                                            new Object[] { folder
-                                                                    .getProject()
-                                                                    .toString() }));
+                                            MessageFormat.format("Special folder with location ''{0}'' already exists.", //$NON-NLS-1$
+                                                    new Object[] { folder.getProject().toString() }));
                                 }
                             }
 
                         } else {
-                            throw new IllegalArgumentException(
-                                    "Expected IFolder objects in the list"); //$NON-NLS-1$
+                            throw new IllegalArgumentException("Expected IFolder objects in the list"); //$NON-NLS-1$
                         }
                     }
 
@@ -422,12 +393,10 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
                     if (!sFoldersToAdd.isEmpty()) {
                         // Add all create special folder objects to the
                         // config
-                        Command cmd =
-                                AddCommand.create(ed,
-                                        this,
-                                        ProjectConfigPackage.eINSTANCE
-                                                .getSpecialFolders_Folders(),
-                                        sFoldersToAdd);
+                        Command cmd = AddCommand.create(ed,
+                                this,
+                                ProjectConfigPackage.eINSTANCE.getSpecialFolders_Folders(),
+                                sFoldersToAdd);
 
                         if (cmd.canExecute()) {
                             ed.getCommandStack().execute(cmd);
@@ -442,8 +411,7 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
                 }
             }
         } else {
-            throw new IllegalArgumentException(
-                    String.format("Special folder of kind '%s' not found.", kind)); //$NON-NLS-1$
+            throw new IllegalArgumentException(String.format("Special folder of kind '%s' not found.", kind)); //$NON-NLS-1$
         }
     }
 
@@ -460,8 +428,7 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
         final String separator = ", "; //$NON-NLS-1$
         for (Object folder : foldersOfKind) {
             if (folder instanceof SpecialFolder) {
-                sb.append(((SpecialFolder) folder).getFolder())
-                        .append(separator);
+                sb.append(((SpecialFolder) folder).getFolder()).append(separator);
             }
         }
         int newLength = sb.length() - separator.length();
@@ -505,12 +472,10 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
                 EditingDomain ed = WorkingCopyUtil.getEditingDomain(this);
 
                 if (ed != null) {
-                    Command cmd =
-                            RemoveCommand.create(ed,
-                                    this,
-                                    ProjectConfigPackage.eINSTANCE
-                                            .getSpecialFolders_Folders(),
-                                    specialFolders);
+                    Command cmd = RemoveCommand.create(ed,
+                            this,
+                            ProjectConfigPackage.eINSTANCE.getSpecialFolders_Folders(),
+                            specialFolders);
 
                     if (cmd != null && cmd.canExecute()) {
                         ed.getCommandStack().execute(cmd);
@@ -537,8 +502,7 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
      * @generated NOT
      */
     @Override
-    public SpecialFolder changeFolder(SpecialFolder specialFolder,
-            IFolder folder) {
+    public SpecialFolder changeFolder(SpecialFolder specialFolder, IFolder folder) {
         SpecialFolder ret = null;
 
         if (specialFolder != null && folder != null) {
@@ -549,19 +513,16 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
              */
             validateFolder(folder);
 
-            if (!specialFolder.getLocation().equals(folder
-                    .getProjectRelativePath().toString())) {
+            if (!specialFolder.getLocation().equals(folder.getProjectRelativePath().toString())) {
                 // Update the location of this special folder
                 EditingDomain ed = WorkingCopyUtil.getEditingDomain(this);
 
                 if (ed != null) {
                     // Run command to update the location
-                    Command cmd =
-                            SetCommand.create(ed,
-                                    specialFolder,
-                                    ProjectConfigPackage.eINSTANCE
-                                            .getSpecialFolder_Location(),
-                                    folder.getProjectRelativePath().toString());
+                    Command cmd = SetCommand.create(ed,
+                            specialFolder,
+                            ProjectConfigPackage.eINSTANCE.getSpecialFolder_Location(),
+                            folder.getProjectRelativePath().toString());
 
                     if (cmd.canExecute()) {
                         ed.getCommandStack().execute(cmd);
@@ -598,8 +559,7 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
     public EList getFolderKindInfo() {
         EList ret = new BasicEList();
 
-        ISpecialFolderModel[] extensions =
-                SpecialFoldersExtensionPoint.getInstance().getExtensions();
+        ISpecialFolderModel[] extensions = SpecialFoldersExtensionPoint.getInstance().getExtensions();
 
         if (extensions.length > 0) {
             ret.addAll(Arrays.asList(extensions));
@@ -620,9 +580,7 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
         ISpecialFolderModel info = null;
 
         if (kind != null) {
-            info =
-                    SpecialFoldersExtensionPoint.getInstance()
-                            .getExtensionByKind(kind);
+            info = SpecialFoldersExtensionPoint.getInstance().getExtensionByKind(kind);
         } else {
             throw new NullPointerException("kind is null."); //$NON-NLS-1$
         }
@@ -646,8 +604,7 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
                 if (allFolders != null) {
                     for (SpecialFolder specialFolder : allFolders) {
                         // Filter the list for the given kind
-                        if (specialFolder.getKind().equals(kind)
-                                && specialFolder.getFolder() != null) {
+                        if (specialFolder.getKind().equals(kind) && specialFolder.getFolder() != null) {
                             folders.add(specialFolder.getFolder());
                         }
                     }
@@ -702,11 +659,11 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
             if (ed != null) {
                 // Execute command to update the generated attribute and save
                 // working copy
-                ed.getCommandStack().execute(SetCommand.create(ed,
-                        specialFolder,
-                        ProjectConfigPackage.eINSTANCE
-                                .getSpecialFolder_Generated(),
-                        generated));
+                ed.getCommandStack()
+                        .execute(SetCommand.create(ed,
+                                specialFolder,
+                                ProjectConfigPackage.eINSTANCE.getSpecialFolder_Generated(),
+                                generated));
                 getConfig().saveWorkingCopy();
             }
         }
@@ -714,51 +671,40 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ProjectConfigPackage.SPECIAL_FOLDERS__CONFIG:
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
-            return eBasicSetContainer(otherEnd,
-                    ProjectConfigPackage.SPECIAL_FOLDERS__CONFIG,
-                    msgs);
+            return eBasicSetContainer(otherEnd, ProjectConfigPackage.SPECIAL_FOLDERS__CONFIG, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ProjectConfigPackage.SPECIAL_FOLDERS__FOLDERS:
-            return ((InternalEList<?>) getFolders())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getFolders()).basicRemove(otherEnd, msgs);
         case ProjectConfigPackage.SPECIAL_FOLDERS__CONFIG:
-            return eBasicSetContainer(null,
-                    ProjectConfigPackage.SPECIAL_FOLDERS__CONFIG,
-                    msgs);
+            return eBasicSetContainer(null, ProjectConfigPackage.SPECIAL_FOLDERS__CONFIG, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(
-            NotificationChain msgs) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
         case ProjectConfigPackage.SPECIAL_FOLDERS__CONFIG:
             return eInternalContainer().eInverseRemove(this,
@@ -771,7 +717,6 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -787,7 +732,6 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -804,7 +748,6 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -819,7 +762,6 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -869,46 +811,34 @@ public class SpecialFoldersImpl extends EObjectImpl implements SpecialFolders {
                             EList sFolders = getFolders();
 
                             if (sFolders != null) {
-                                IPath projRelPath =
-                                        folder.getProjectRelativePath();
+                                IPath projRelPath = folder.getProjectRelativePath();
 
-                                for (Iterator<?> iter = sFolders.iterator(); iter
-                                        .hasNext() && msg == null;) {
-                                    SpecialFolder sf =
-                                            (SpecialFolder) iter.next();
+                                for (Iterator<?> iter = sFolders.iterator(); iter.hasNext() && msg == null;) {
+                                    SpecialFolder sf = (SpecialFolder) iter.next();
 
-                                    if (sf != null
-                                            && sf.getFolder() != null
-                                            && projRelPath.isPrefixOf(sf
-                                                    .getFolder()
-                                                    .getProjectRelativePath())) {
+                                    if (sf != null && sf.getFolder() != null
+                                            && projRelPath.isPrefixOf(sf.getFolder().getProjectRelativePath())) {
                                         // The folder contains a special folder
-                                        msg =
-                                                Messages.SpecialFoldersImpl_containsSpecialFolder_longdesc;
+                                        msg = Messages.SpecialFoldersImpl_containsSpecialFolder_longdesc;
                                     }
                                 }
                             }
                         } else {
-                            msg =
-                                    Messages.SpecialFoldersImpl_isContainedInSpecialFolder_longdesc;
+                            msg = Messages.SpecialFoldersImpl_isContainedInSpecialFolder_longdesc;
                         }
                     } else {
-                        msg =
-                                Messages.SpecialFoldersImpl_isNotAccessible_longdesc;
+                        msg = Messages.SpecialFoldersImpl_isNotAccessible_longdesc;
                     }
                 } else {
-                    msg =
-                            Messages.SpecialFoldersImpl_alreadyMarkedAsSpecialFolder_longdesc;
+                    msg = Messages.SpecialFoldersImpl_alreadyMarkedAsSpecialFolder_longdesc;
                 }
             } else {
-                msg =
-                        Messages.SpecialFoldersImpl_doesNotBelongTpProject_longdesc;
+                msg = Messages.SpecialFoldersImpl_doesNotBelongTpProject_longdesc;
             }
 
             // If there is a message created then throw exception
             if (msg != null) {
-                throw new IllegalArgumentException(String.format(msg,
-                        folder.getProjectRelativePath()));
+                throw new IllegalArgumentException(String.format(msg, folder.getProjectRelativePath()));
             }
 
         }

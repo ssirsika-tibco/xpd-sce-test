@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.DocumentRoot#getMixed <em>Mixed</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.DocumentRoot#getProjectConfig <em>Project Config</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.resources.projectconfig.ProjectConfigPackage#getDocumentRoot()
  * @model extendedMetaData="name='' kind='mixed'"
@@ -35,8 +35,7 @@ public interface DocumentRoot extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Mixed</b></em>' attribute list.
@@ -67,7 +66,7 @@ public interface DocumentRoot extends EObject {
      * <!-- end-user-doc -->
      * @return the value of the '<em>XMLNS Prefix Map</em>' map.
      * @see com.tibco.xpd.resources.projectconfig.ProjectConfigPackage#getDocumentRoot_XMLNSPrefixMap()
-     * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>" transient="true"
+     * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;" transient="true"
      *        extendedMetaData="kind='attribute' name='xmlns:prefix'"
      * @generated
      */
@@ -85,7 +84,7 @@ public interface DocumentRoot extends EObject {
      * <!-- end-user-doc -->
      * @return the value of the '<em>XSI Schema Location</em>' map.
      * @see com.tibco.xpd.resources.projectconfig.ProjectConfigPackage#getDocumentRoot_XSISchemaLocation()
-     * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>" transient="true"
+     * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;" transient="true"
      *        extendedMetaData="kind='attribute' name='xsi:schemaLocation'"
      * @generated
      */

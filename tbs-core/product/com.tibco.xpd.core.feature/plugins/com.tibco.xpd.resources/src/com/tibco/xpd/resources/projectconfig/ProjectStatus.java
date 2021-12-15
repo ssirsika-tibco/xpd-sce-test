@@ -56,8 +56,7 @@ public enum ProjectStatus implements Enumerator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Under Revision</b></em>' literal value.
@@ -111,20 +110,20 @@ public enum ProjectStatus implements Enumerator {
      * 
      * @generated
      */
-    private static final ProjectStatus[] VALUES_ARRAY = new ProjectStatus[] {
-            UNDER_REVISION, UNDER_TEST, RELEASED, };
+    private static final ProjectStatus[] VALUES_ARRAY = new ProjectStatus[] { UNDER_REVISION, UNDER_TEST, RELEASED, };
 
     /**
      * A public read-only list of all the '<em><b>Project Status</b></em>' enumerators.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final List<ProjectStatus> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<ProjectStatus> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Project Status</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ProjectStatus get(String literal) {
@@ -140,6 +139,8 @@ public enum ProjectStatus implements Enumerator {
     /**
      * Returns the '<em><b>Project Status</b></em>' literal with the specified name.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ProjectStatus getByName(String name) {
@@ -155,6 +156,8 @@ public enum ProjectStatus implements Enumerator {
     /**
      * Returns the '<em><b>Project Status</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ProjectStatus get(int value) {

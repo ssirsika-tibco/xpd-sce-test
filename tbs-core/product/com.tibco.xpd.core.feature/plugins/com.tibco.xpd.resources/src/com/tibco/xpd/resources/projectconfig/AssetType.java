@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.AssetType#getId <em>Id</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.AssetType#getVersion <em>Version</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.resources.projectconfig.ProjectConfigPackage#getAssetType()
  * @model
@@ -31,8 +31,7 @@ public interface AssetType extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Id</b></em>' attribute.

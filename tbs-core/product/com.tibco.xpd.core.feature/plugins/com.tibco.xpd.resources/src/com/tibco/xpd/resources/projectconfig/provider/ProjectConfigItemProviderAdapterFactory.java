@@ -37,15 +37,14 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProjectConfigItemProviderAdapterFactory extends
-        ProjectConfigAdapterFactory implements ComposeableAdapterFactory,
-        IChangeNotifier, IDisposable {
+public class ProjectConfigItemProviderAdapterFactory extends ProjectConfigAdapterFactory
+        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory.
@@ -247,6 +246,52 @@ public class ProjectConfigItemProviderAdapterFactory extends
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link com.tibco.xpd.resources.projectconfig.CustomProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CustomPropertyItemProvider customPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link com.tibco.xpd.resources.projectconfig.CustomProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createCustomPropertyAdapter() {
+        if (customPropertyItemProvider == null) {
+            customPropertyItemProvider = new CustomPropertyItemProvider(this);
+        }
+
+        return customPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link com.tibco.xpd.resources.projectconfig.CustomProperties} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CustomPropertiesItemProvider customPropertiesItemProvider;
+
+    /**
+     * This creates an adapter for a {@link com.tibco.xpd.resources.projectconfig.CustomProperties}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createCustomPropertiesAdapter() {
+        if (customPropertiesItemProvider == null) {
+            customPropertiesItemProvider = new CustomPropertiesItemProvider(this);
+        }
+
+        return customPropertiesItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link com.tibco.xpd.resources.projectconfig.AssetType} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -276,8 +321,7 @@ public class ProjectConfigItemProviderAdapterFactory extends
      * @generated
      */
     public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory
-                .getRootAdapterFactory();
+        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
     }
 
     /**
@@ -286,8 +330,7 @@ public class ProjectConfigItemProviderAdapterFactory extends
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setParentAdapterFactory(
-            ComposedAdapterFactory parentAdapterFactory) {
+    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
@@ -321,8 +364,7 @@ public class ProjectConfigItemProviderAdapterFactory extends
     public Object adapt(Object object, Object type) {
         if (isFactoryForType(type)) {
             Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class)
-                    || (((Class<?>) type).isInstance(adapter))) {
+            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
         }
@@ -387,6 +429,10 @@ public class ProjectConfigItemProviderAdapterFactory extends
             destinationItemProvider.dispose();
         if (destinationsItemProvider != null)
             destinationsItemProvider.dispose();
+        if (customPropertyItemProvider != null)
+            customPropertyItemProvider.dispose();
+        if (customPropertiesItemProvider != null)
+            customPropertiesItemProvider.dispose();
     }
 
 }

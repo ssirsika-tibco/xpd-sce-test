@@ -32,15 +32,14 @@ import com.tibco.xpd.resources.projectconfig.SpecialFolders;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SpecialFoldersItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class SpecialFoldersItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -76,12 +75,10 @@ public class SpecialFoldersItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(ProjectConfigPackage.Literals.SPECIAL_FOLDERS__FOLDERS);
+            childrenFeatures.add(ProjectConfigPackage.Literals.SPECIAL_FOLDERS__FOLDERS);
         }
         return childrenFeatures;
     }
@@ -107,8 +104,7 @@ public class SpecialFoldersItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage(
-                "full/obj16/SpecialFolders"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/SpecialFolders"));
     }
 
     /**
@@ -135,8 +131,7 @@ public class SpecialFoldersItemProvider extends ItemProviderAdapter implements
 
         switch (notification.getFeatureID(SpecialFolders.class)) {
         case ProjectConfigPackage.SPECIAL_FOLDERS__FOLDERS:
-            fireNotifyChanged(new ViewerNotification(notification, notification
-                    .getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -150,12 +145,10 @@ public class SpecialFoldersItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                ProjectConfigPackage.Literals.SPECIAL_FOLDERS__FOLDERS,
+        newChildDescriptors.add(createChildParameter(ProjectConfigPackage.Literals.SPECIAL_FOLDERS__FOLDERS,
                 ProjectConfigFactory.eINSTANCE.createSpecialFolder()));
     }
 

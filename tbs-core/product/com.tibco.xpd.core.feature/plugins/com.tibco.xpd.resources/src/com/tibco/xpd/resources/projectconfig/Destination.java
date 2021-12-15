@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.Destination#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.resources.projectconfig.ProjectConfigPackage#getDestination()
  * @model
@@ -33,8 +33,7 @@ public interface Destination extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.";
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.";
 
     /**
      * Returns the value of the '<em><b>Type</b></em>' attribute.

@@ -32,15 +32,14 @@ import com.tibco.xpd.resources.projectconfig.UniqueIdContainer;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UniqueIdContainerItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class UniqueIdContainerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -75,16 +74,20 @@ public class UniqueIdContainerItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_UniqueIdContainer_id_feature"), getString(
-                        "_UI_PropertyDescriptor_description",
-                        "_UI_UniqueIdContainer_id_feature",
-                        "_UI_UniqueIdContainer_type"),
-                ProjectConfigPackage.Literals.UNIQUE_ID_CONTAINER__ID, false,
-                false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_UniqueIdContainer_id_feature"),
+                        getString("_UI_PropertyDescriptor_description",
+                                "_UI_UniqueIdContainer_id_feature",
+                                "_UI_UniqueIdContainer_type"),
+                        ProjectConfigPackage.Literals.UNIQUE_ID_CONTAINER__ID,
+                        false,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -113,8 +116,7 @@ public class UniqueIdContainerItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(UniqueIdContainer.class)) {
         case ProjectConfigPackage.UNIQUE_ID_CONTAINER__ID:
-            fireNotifyChanged(new ViewerNotification(notification, notification
-                    .getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -128,8 +130,7 @@ public class UniqueIdContainerItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

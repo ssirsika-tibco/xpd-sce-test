@@ -41,8 +41,7 @@ public class ProjectConfigSwitch<T> {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached model package
@@ -87,8 +86,7 @@ public class ProjectConfigSwitch<T> {
             return doSwitch(theEClass.getClassifierID(), theEObject);
         } else {
             List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? defaultCase(theEObject)
-                    : doSwitch(eSuperTypes.get(0), theEObject);
+            return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -141,9 +139,22 @@ public class ProjectConfigSwitch<T> {
             return result;
         }
         case ProjectConfigPackage.UNIQUE_ID_CONTAINER: {
-            UniqueIdContainer uniqueIdContainer =
-                    (UniqueIdContainer) theEObject;
+            UniqueIdContainer uniqueIdContainer = (UniqueIdContainer) theEObject;
             T result = caseUniqueIdContainer(uniqueIdContainer);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case ProjectConfigPackage.ADADPTABLE: {
+            IAdaptable adadptable = (IAdaptable) theEObject;
+            T result = caseAdadptable(adadptable);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case ProjectConfigPackage.IPROJECT_ASSET: {
+            IProjectAsset iProjectAsset = (IProjectAsset) theEObject;
+            T result = caseIProjectAsset(iProjectAsset);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -165,6 +176,20 @@ public class ProjectConfigSwitch<T> {
         case ProjectConfigPackage.DESTINATIONS: {
             Destinations destinations = (Destinations) theEObject;
             T result = caseDestinations(destinations);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case ProjectConfigPackage.CUSTOM_PROPERTY: {
+            CustomProperty customProperty = (CustomProperty) theEObject;
+            T result = caseCustomProperty(customProperty);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case ProjectConfigPackage.CUSTOM_PROPERTIES: {
+            CustomProperties customProperties = (CustomProperties) theEObject;
+            T result = caseCustomProperties(customProperties);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -336,6 +361,36 @@ public class ProjectConfigSwitch<T> {
      * @generated
      */
     public T caseDestinations(Destinations object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Custom Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Custom Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCustomProperty(CustomProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Custom Properties</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Custom Properties</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCustomProperties(CustomProperties object) {
         return null;
     }
 

@@ -36,8 +36,7 @@ public class ProjectConfigAdapterFactory extends AdapterFactoryImpl {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached model package.
@@ -84,68 +83,77 @@ public class ProjectConfigAdapterFactory extends AdapterFactoryImpl {
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ProjectConfigSwitch<Adapter> modelSwitch =
-            new ProjectConfigSwitch<Adapter>() {
-                @Override
-                public Adapter caseDocumentRoot(DocumentRoot object) {
-                    return createDocumentRootAdapter();
-                }
+    protected ProjectConfigSwitch<Adapter> modelSwitch = new ProjectConfigSwitch<Adapter>() {
+        @Override
+        public Adapter caseDocumentRoot(DocumentRoot object) {
+            return createDocumentRootAdapter();
+        }
 
-                @Override
-                public Adapter caseProjectConfig(ProjectConfig object) {
-                    return createProjectConfigAdapter();
-                }
+        @Override
+        public Adapter caseProjectConfig(ProjectConfig object) {
+            return createProjectConfigAdapter();
+        }
 
-                @Override
-                public Adapter caseAssetType(AssetType object) {
-                    return createAssetTypeAdapter();
-                }
+        @Override
+        public Adapter caseAssetType(AssetType object) {
+            return createAssetTypeAdapter();
+        }
 
-                @Override
-                public Adapter caseSpecialFolder(SpecialFolder object) {
-                    return createSpecialFolderAdapter();
-                }
+        @Override
+        public Adapter caseSpecialFolder(SpecialFolder object) {
+            return createSpecialFolderAdapter();
+        }
 
-                @Override
-                public Adapter caseSpecialFolders(SpecialFolders object) {
-                    return createSpecialFoldersAdapter();
-                }
+        @Override
+        public Adapter caseSpecialFolders(SpecialFolders object) {
+            return createSpecialFoldersAdapter();
+        }
 
-                @Override
-                public Adapter caseUniqueIdContainer(UniqueIdContainer object) {
-                    return createUniqueIdContainerAdapter();
-                }
+        @Override
+        public Adapter caseUniqueIdContainer(UniqueIdContainer object) {
+            return createUniqueIdContainerAdapter();
+        }
 
-                @Override
-                public Adapter caseAdadptable(IAdaptable object) {
-                    return createAdadptableAdapter();
-                }
+        @Override
+        public Adapter caseAdadptable(IAdaptable object) {
+            return createAdadptableAdapter();
+        }
 
-                @Override
-                public Adapter caseIProjectAsset(IProjectAsset object) {
-                    return createIProjectAssetAdapter();
-                }
+        @Override
+        public Adapter caseIProjectAsset(IProjectAsset object) {
+            return createIProjectAssetAdapter();
+        }
 
-                @Override
-                public Adapter caseProjectDetails(ProjectDetails object) {
-                    return createProjectDetailsAdapter();
-                }
+        @Override
+        public Adapter caseProjectDetails(ProjectDetails object) {
+            return createProjectDetailsAdapter();
+        }
 
-                @Override
-                public Adapter caseDestination(Destination object) {
-                    return createDestinationAdapter();
-                }
+        @Override
+        public Adapter caseDestination(Destination object) {
+            return createDestinationAdapter();
+        }
 
-                @Override
-                public Adapter caseDestinations(Destinations object) {
-                    return createDestinationsAdapter();
-                }
+        @Override
+        public Adapter caseDestinations(Destinations object) {
+            return createDestinationsAdapter();
+        }
 
-                @Override
-                public Adapter defaultCase(EObject object) {
-                    return createEObjectAdapter();
-                }
-            };
+        @Override
+        public Adapter caseCustomProperty(CustomProperty object) {
+            return createCustomPropertyAdapter();
+        }
+
+        @Override
+        public Adapter caseCustomProperties(CustomProperties object) {
+            return createCustomPropertiesAdapter();
+        }
+
+        @Override
+        public Adapter defaultCase(EObject object) {
+            return createEObjectAdapter();
+        }
+    };
 
     /**
      * Creates an adapter for the <code>target</code>.
@@ -311,6 +319,34 @@ public class ProjectConfigAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createDestinationsAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link com.tibco.xpd.resources.projectconfig.CustomProperty <em>Custom Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see com.tibco.xpd.resources.projectconfig.CustomProperty
+     * @generated
+     */
+    public Adapter createCustomPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link com.tibco.xpd.resources.projectconfig.CustomProperties <em>Custom Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see com.tibco.xpd.resources.projectconfig.CustomProperties
+     * @generated
+     */
+    public Adapter createCustomPropertiesAdapter() {
         return null;
     }
 

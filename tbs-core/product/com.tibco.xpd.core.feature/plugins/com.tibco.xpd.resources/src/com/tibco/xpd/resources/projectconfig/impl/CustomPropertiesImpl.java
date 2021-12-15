@@ -1,12 +1,10 @@
 /**
- * Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved.
- *
- * $Id$
+ * Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.
  */
 package com.tibco.xpd.resources.projectconfig.impl;
 
-import com.tibco.xpd.resources.projectconfig.Destination;
-import com.tibco.xpd.resources.projectconfig.Destinations;
+import com.tibco.xpd.resources.projectconfig.CustomProperties;
+import com.tibco.xpd.resources.projectconfig.CustomProperty;
 import com.tibco.xpd.resources.projectconfig.ProjectConfigPackage;
 
 import java.util.Collection;
@@ -25,18 +23,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Destinations</b></em>'.
+ * An implementation of the model object '<em><b>Custom Properties</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.DestinationsImpl#getDestination <em>Destination</em>}</li>
+ *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.CustomPropertiesImpl#getCustomProperty <em>Custom Property</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DestinationsImpl extends EObjectImpl implements Destinations {
+public class CustomPropertiesImpl extends EObjectImpl implements CustomProperties {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -45,21 +43,21 @@ public class DestinationsImpl extends EObjectImpl implements Destinations {
     public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.";
 
     /**
-     * The cached value of the '{@link #getDestination() <em>Destination</em>}' containment reference list.
+     * The cached value of the '{@link #getCustomProperty() <em>Custom Property</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getDestination()
+     * @see #getCustomProperty()
      * @generated
      * @ordered
      */
-    protected EList<Destination> destination;
+    protected EList<CustomProperty> customProperty;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DestinationsImpl() {
+    protected CustomPropertiesImpl() {
         super();
     }
 
@@ -70,7 +68,7 @@ public class DestinationsImpl extends EObjectImpl implements Destinations {
      */
     @Override
     protected EClass eStaticClass() {
-        return ProjectConfigPackage.Literals.DESTINATIONS;
+        return ProjectConfigPackage.Literals.CUSTOM_PROPERTIES;
     }
 
     /**
@@ -78,12 +76,12 @@ public class DestinationsImpl extends EObjectImpl implements Destinations {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Destination> getDestination() {
-        if (destination == null) {
-            destination = new EObjectContainmentEList<Destination>(Destination.class, this,
-                    ProjectConfigPackage.DESTINATIONS__DESTINATION);
+    public EList<CustomProperty> getCustomProperty() {
+        if (customProperty == null) {
+            customProperty = new EObjectContainmentEList<CustomProperty>(CustomProperty.class, this,
+                    ProjectConfigPackage.CUSTOM_PROPERTIES__CUSTOM_PROPERTY);
         }
-        return destination;
+        return customProperty;
     }
 
     /**
@@ -94,8 +92,8 @@ public class DestinationsImpl extends EObjectImpl implements Destinations {
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-        case ProjectConfigPackage.DESTINATIONS__DESTINATION:
-            return ((InternalEList<?>) getDestination()).basicRemove(otherEnd, msgs);
+        case ProjectConfigPackage.CUSTOM_PROPERTIES__CUSTOM_PROPERTY:
+            return ((InternalEList<?>) getCustomProperty()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -108,8 +106,8 @@ public class DestinationsImpl extends EObjectImpl implements Destinations {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-        case ProjectConfigPackage.DESTINATIONS__DESTINATION:
-            return getDestination();
+        case ProjectConfigPackage.CUSTOM_PROPERTIES__CUSTOM_PROPERTY:
+            return getCustomProperty();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -123,9 +121,9 @@ public class DestinationsImpl extends EObjectImpl implements Destinations {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-        case ProjectConfigPackage.DESTINATIONS__DESTINATION:
-            getDestination().clear();
-            getDestination().addAll((Collection<? extends Destination>) newValue);
+        case ProjectConfigPackage.CUSTOM_PROPERTIES__CUSTOM_PROPERTY:
+            getCustomProperty().clear();
+            getCustomProperty().addAll((Collection<? extends CustomProperty>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -139,8 +137,8 @@ public class DestinationsImpl extends EObjectImpl implements Destinations {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-        case ProjectConfigPackage.DESTINATIONS__DESTINATION:
-            getDestination().clear();
+        case ProjectConfigPackage.CUSTOM_PROPERTIES__CUSTOM_PROPERTY:
+            getCustomProperty().clear();
             return;
         }
         super.eUnset(featureID);
@@ -154,10 +152,10 @@ public class DestinationsImpl extends EObjectImpl implements Destinations {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-        case ProjectConfigPackage.DESTINATIONS__DESTINATION:
-            return destination != null && !destination.isEmpty();
+        case ProjectConfigPackage.CUSTOM_PROPERTIES__CUSTOM_PROPERTY:
+            return customProperty != null && !customProperty.isEmpty();
         }
         return super.eIsSet(featureID);
     }
 
-} //DestinationsImpl
+} //CustomPropertiesImpl

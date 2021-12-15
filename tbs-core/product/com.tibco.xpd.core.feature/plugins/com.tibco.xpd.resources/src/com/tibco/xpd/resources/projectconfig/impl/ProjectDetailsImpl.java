@@ -5,6 +5,7 @@
  */
 package com.tibco.xpd.resources.projectconfig.impl;
 
+import com.tibco.xpd.resources.projectconfig.CustomProperties;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -25,13 +26,14 @@ import com.tibco.xpd.resources.projectconfig.ProjectStatus;
  * <em><b>Project Details</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.ProjectDetailsImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.ProjectDetailsImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.ProjectDetailsImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.ProjectDetailsImpl#getGlobalDestinations <em>Global Destinations</em>}</li>
+ *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.ProjectDetailsImpl#getCustomProperties <em>Custom Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -40,8 +42,7 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.";
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.";
 
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
@@ -88,8 +89,7 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
      * @generated
      * @ordered
      */
-    protected static final ProjectStatus STATUS_EDEFAULT =
-            ProjectStatus.UNDER_REVISION;
+    protected static final ProjectStatus STATUS_EDEFAULT = ProjectStatus.UNDER_REVISION;
 
     /**
      * The cached value of the '{@link #getStatus() <em>Status</em>}' attribute.
@@ -109,6 +109,16 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
      * @ordered
      */
     protected Destinations globalDestinations;
+
+    /**
+     * The cached value of the '{@link #getCustomProperties() <em>Custom Properties</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getCustomProperties()
+     * @generated
+     * @ordered
+     */
+    protected CustomProperties customProperties;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -143,8 +153,7 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
         String oldId = id;
         id = newId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.PROJECT_DETAILS__ID, oldId, id));
+            eNotify(new ENotificationImpl(this, Notification.SET, ProjectConfigPackage.PROJECT_DETAILS__ID, oldId, id));
     }
 
     /**
@@ -163,9 +172,8 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
         String oldVersion = version;
         version = newVersion;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.PROJECT_DETAILS__VERSION, oldVersion,
-                    version));
+            eNotify(new ENotificationImpl(this, Notification.SET, ProjectConfigPackage.PROJECT_DETAILS__VERSION,
+                    oldVersion, version));
     }
 
     /**
@@ -184,9 +192,8 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
         ProjectStatus oldStatus = status;
         status = newStatus == null ? STATUS_EDEFAULT : newStatus;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.PROJECT_DETAILS__STATUS, oldStatus,
-                    status));
+            eNotify(new ENotificationImpl(this, Notification.SET, ProjectConfigPackage.PROJECT_DETAILS__STATUS,
+                    oldStatus, status));
     }
 
     /**
@@ -201,17 +208,13 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetGlobalDestinations(
-            Destinations newGlobalDestinations, NotificationChain msgs) {
+    public NotificationChain basicSetGlobalDestinations(Destinations newGlobalDestinations, NotificationChain msgs) {
         Destinations oldGlobalDestinations = globalDestinations;
         globalDestinations = newGlobalDestinations;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS,
-                            oldGlobalDestinations, newGlobalDestinations);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS, oldGlobalDestinations,
+                    newGlobalDestinations);
             if (msgs == null)
                 msgs = notification;
             else
@@ -228,28 +231,76 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
         if (newGlobalDestinations != globalDestinations) {
             NotificationChain msgs = null;
             if (globalDestinations != null)
-                msgs =
-                        ((InternalEObject) globalDestinations)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) globalDestinations).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS,
+                        null,
+                        msgs);
             if (newGlobalDestinations != null)
-                msgs =
-                        ((InternalEObject) newGlobalDestinations)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newGlobalDestinations).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS,
+                        null,
+                        msgs);
             msgs = basicSetGlobalDestinations(newGlobalDestinations, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS,
-                    newGlobalDestinations, newGlobalDestinations));
+                    ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS, newGlobalDestinations,
+                    newGlobalDestinations));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CustomProperties getCustomProperties() {
+        return customProperties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetCustomProperties(CustomProperties newCustomProperties, NotificationChain msgs) {
+        CustomProperties oldCustomProperties = customProperties;
+        customProperties = newCustomProperties;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    ProjectConfigPackage.PROJECT_DETAILS__CUSTOM_PROPERTIES, oldCustomProperties, newCustomProperties);
+            if (msgs == null)
+                msgs = notification;
+            else
+                msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setCustomProperties(CustomProperties newCustomProperties) {
+        if (newCustomProperties != customProperties) {
+            NotificationChain msgs = null;
+            if (customProperties != null)
+                msgs = ((InternalEObject) customProperties).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - ProjectConfigPackage.PROJECT_DETAILS__CUSTOM_PROPERTIES,
+                        null,
+                        msgs);
+            if (newCustomProperties != null)
+                msgs = ((InternalEObject) newCustomProperties).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - ProjectConfigPackage.PROJECT_DETAILS__CUSTOM_PROPERTIES,
+                        null,
+                        msgs);
+            msgs = basicSetCustomProperties(newCustomProperties, msgs);
+            if (msgs != null)
+                msgs.dispatch();
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    ProjectConfigPackage.PROJECT_DETAILS__CUSTOM_PROPERTIES, newCustomProperties, newCustomProperties));
     }
 
     /**
@@ -274,8 +325,7 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
      */
     public EList<String> getEnabledGlobalDestinationIds() {
         EList<String> destinations = new BasicEList<String>();
-        if (getGlobalDestinations() != null
-                && getGlobalDestinations().getDestination() != null) {
+        if (getGlobalDestinations() != null && getGlobalDestinations().getDestination() != null) {
             for (Destination d : getGlobalDestinations().getDestination()) {
                 destinations.add(d.getType());
             }
@@ -288,11 +338,12 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS:
             return basicSetGlobalDestinations(null, msgs);
+        case ProjectConfigPackage.PROJECT_DETAILS__CUSTOM_PROPERTIES:
+            return basicSetCustomProperties(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -312,6 +363,8 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
             return getStatus();
         case ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS:
             return getGlobalDestinations();
+        case ProjectConfigPackage.PROJECT_DETAILS__CUSTOM_PROPERTIES:
+            return getCustomProperties();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -334,6 +387,9 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
             return;
         case ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS:
             setGlobalDestinations((Destinations) newValue);
+            return;
+        case ProjectConfigPackage.PROJECT_DETAILS__CUSTOM_PROPERTIES:
+            setCustomProperties((CustomProperties) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -358,6 +414,9 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
         case ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS:
             setGlobalDestinations((Destinations) null);
             return;
+        case ProjectConfigPackage.PROJECT_DETAILS__CUSTOM_PROPERTIES:
+            setCustomProperties((CustomProperties) null);
+            return;
         }
         super.eUnset(featureID);
     }
@@ -372,12 +431,13 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
         case ProjectConfigPackage.PROJECT_DETAILS__ID:
             return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
         case ProjectConfigPackage.PROJECT_DETAILS__VERSION:
-            return VERSION_EDEFAULT == null ? version != null
-                    : !VERSION_EDEFAULT.equals(version);
+            return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
         case ProjectConfigPackage.PROJECT_DETAILS__STATUS:
             return status != STATUS_EDEFAULT;
         case ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS:
             return globalDestinations != null;
+        case ProjectConfigPackage.PROJECT_DETAILS__CUSTOM_PROPERTIES:
+            return customProperties != null;
         }
         return super.eIsSet(featureID);
     }
@@ -391,7 +451,7 @@ public class ProjectDetailsImpl extends EObjectImpl implements ProjectDetails {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (id: ");
         result.append(id);
         result.append(", version: ");

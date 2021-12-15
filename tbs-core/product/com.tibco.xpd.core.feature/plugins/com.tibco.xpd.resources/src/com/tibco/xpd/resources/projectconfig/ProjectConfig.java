@@ -23,6 +23,7 @@ import com.tibco.xpd.resources.projectconfig.projectassets.IProjectAsset;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.ProjectConfig#getAssetTypes <em>Asset Types</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.ProjectConfig#getSpecialFolders <em>Special Folders</em>}</li>
@@ -30,7 +31,6 @@ import com.tibco.xpd.resources.projectconfig.projectassets.IProjectAsset;
  *   <li>{@link com.tibco.xpd.resources.projectconfig.ProjectConfig#getProjectType <em>Project Type</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.ProjectConfig#getProjectDetails <em>Project Details</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.resources.projectconfig.ProjectConfigPackage#getProjectConfig()
  * @model extendedMetaData="name='ProjectConfig' kind='elementOnly'"
@@ -42,8 +42,7 @@ public interface ProjectConfig extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Asset Types</b></em>' containment reference list.

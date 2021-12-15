@@ -25,35 +25,25 @@ import com.tibco.xpd.resources.projectconfig.SpecialFolders;
  * <em><b>Special Folder</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>
- * {@link com.tibco.xpd.resources.projectconfig.impl.SpecialFolderImpl#getKind
- * <em>Kind</em>}</li>
- * <li>
- * {@link com.tibco.xpd.resources.projectconfig.impl.SpecialFolderImpl#getLocation
- * <em>Location</em>}</li>
- * <li>
- * {@link com.tibco.xpd.resources.projectconfig.impl.SpecialFolderImpl#getGenerated
- * <em>Generated</em>}</li>
- * </ul>
  * </p>
- * 
+ * <ul>
+ *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.SpecialFolderImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.SpecialFolderImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.SpecialFolderImpl#getGenerated <em>Generated</em>}</li>
+ * </ul>
+ *
  * @generated
  */
-public class SpecialFolderImpl extends UniqueIdContainerImpl implements
-        SpecialFolder {
+public class SpecialFolderImpl extends UniqueIdContainerImpl implements SpecialFolder {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @see #getKind()
      * @generated
      * @ordered
@@ -63,7 +53,6 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
     /**
      * The cached value of the '{@link #getKind() <em>Kind</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @see #getKind()
      * @generated
      * @ordered
@@ -71,9 +60,8 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
     protected String kind = KIND_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getLocation() <em>Location</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getLocation()
      * @generated
      * @ordered
@@ -81,9 +69,8 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
     protected static final String LOCATION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getLocation() <em>Location</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getLocation()
      * @generated
      * @ordered
@@ -91,9 +78,8 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
     protected String location = LOCATION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getGenerated() <em>Generated</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The default value of the '{@link #getGenerated() <em>Generated</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getGenerated()
      * @generated
      * @ordered
@@ -101,9 +87,8 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
     protected static final String GENERATED_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getGenerated() <em>Generated</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getGenerated() <em>Generated</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getGenerated()
      * @generated
      * @ordered
@@ -117,7 +102,6 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected SpecialFolderImpl() {
@@ -126,7 +110,6 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -136,7 +119,6 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -146,7 +128,6 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -154,13 +135,12 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
         String oldKind = kind;
         kind = newKind;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.SPECIAL_FOLDER__KIND, oldKind, kind));
+            eNotify(new ENotificationImpl(this, Notification.SET, ProjectConfigPackage.SPECIAL_FOLDER__KIND, oldKind,
+                    kind));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -182,14 +162,12 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
         project = null;
 
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.SPECIAL_FOLDER__LOCATION, oldLocation,
-                    location));
+            eNotify(new ENotificationImpl(this, Notification.SET, ProjectConfigPackage.SPECIAL_FOLDER__LOCATION,
+                    oldLocation, location));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -208,7 +186,6 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
      * persist the value to the .config file.
      * </p>
      * folder. <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -216,8 +193,7 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
         String oldGenerated = generated;
         generated = newGenerated;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.SPECIAL_FOLDER__GENERATED,
+            eNotify(new ENotificationImpl(this, Notification.SET, ProjectConfigPackage.SPECIAL_FOLDER__GENERATED,
                     oldGenerated, generated));
     }
 
@@ -287,7 +263,6 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -305,7 +280,6 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -326,7 +300,6 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -347,28 +320,23 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case ProjectConfigPackage.SPECIAL_FOLDER__KIND:
-            return KIND_EDEFAULT == null ? kind != null : !KIND_EDEFAULT
-                    .equals(kind);
+            return KIND_EDEFAULT == null ? kind != null : !KIND_EDEFAULT.equals(kind);
         case ProjectConfigPackage.SPECIAL_FOLDER__LOCATION:
-            return LOCATION_EDEFAULT == null ? location != null
-                    : !LOCATION_EDEFAULT.equals(location);
+            return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
         case ProjectConfigPackage.SPECIAL_FOLDER__GENERATED:
-            return GENERATED_EDEFAULT == null ? generated != null
-                    : !GENERATED_EDEFAULT.equals(generated);
+            return GENERATED_EDEFAULT == null ? generated != null : !GENERATED_EDEFAULT.equals(generated);
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -376,7 +344,7 @@ public class SpecialFolderImpl extends UniqueIdContainerImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (kind: ");
         result.append(kind);
         result.append(", location: ");

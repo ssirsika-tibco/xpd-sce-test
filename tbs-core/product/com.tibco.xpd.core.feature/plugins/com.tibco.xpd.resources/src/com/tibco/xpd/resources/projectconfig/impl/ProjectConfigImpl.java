@@ -47,6 +47,7 @@ import com.tibco.xpd.resources.util.WorkingCopyUtil;
  * <em><b>Project Config</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.ProjectConfigImpl#getAssetTypes <em>Asset Types</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.ProjectConfigImpl#getSpecialFolders <em>Special Folders</em>}</li>
@@ -54,7 +55,6 @@ import com.tibco.xpd.resources.util.WorkingCopyUtil;
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.ProjectConfigImpl#getProjectType <em>Project Type</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.ProjectConfigImpl#getProjectDetails <em>Project Details</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -63,8 +63,7 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getAssetTypes() <em>Asset Types</em>}' containment reference list.
@@ -154,10 +153,8 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
      */
     public EList<AssetType> getAssetTypes() {
         if (assetTypes == null) {
-            assetTypes =
-                    new EObjectContainmentEList<AssetType>(AssetType.class,
-                            this,
-                            ProjectConfigPackage.PROJECT_CONFIG__ASSET_TYPES);
+            assetTypes = new EObjectContainmentEList<AssetType>(AssetType.class, this,
+                    ProjectConfigPackage.PROJECT_CONFIG__ASSET_TYPES);
         }
         return assetTypes;
     }
@@ -174,17 +171,12 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetSpecialFolders(
-            SpecialFolders newSpecialFolders, NotificationChain msgs) {
+    public NotificationChain basicSetSpecialFolders(SpecialFolders newSpecialFolders, NotificationChain msgs) {
         SpecialFolders oldSpecialFolders = specialFolders;
         specialFolders = newSpecialFolders;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            ProjectConfigPackage.PROJECT_CONFIG__SPECIAL_FOLDERS,
-                            oldSpecialFolders, newSpecialFolders);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    ProjectConfigPackage.PROJECT_CONFIG__SPECIAL_FOLDERS, oldSpecialFolders, newSpecialFolders);
             if (msgs == null)
                 msgs = notification;
             else
@@ -201,23 +193,16 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
         if (newSpecialFolders != specialFolders) {
             NotificationChain msgs = null;
             if (specialFolders != null)
-                msgs =
-                        ((InternalEObject) specialFolders).eInverseRemove(this,
-                                ProjectConfigPackage.SPECIAL_FOLDERS__CONFIG,
-                                SpecialFolders.class,
-                                msgs);
+                msgs = ((InternalEObject) specialFolders)
+                        .eInverseRemove(this, ProjectConfigPackage.SPECIAL_FOLDERS__CONFIG, SpecialFolders.class, msgs);
             if (newSpecialFolders != null)
-                msgs =
-                        ((InternalEObject) newSpecialFolders).eInverseAdd(this,
-                                ProjectConfigPackage.SPECIAL_FOLDERS__CONFIG,
-                                SpecialFolders.class,
-                                msgs);
+                msgs = ((InternalEObject) newSpecialFolders)
+                        .eInverseAdd(this, ProjectConfigPackage.SPECIAL_FOLDERS__CONFIG, SpecialFolders.class, msgs);
             msgs = basicSetSpecialFolders(newSpecialFolders, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.PROJECT_CONFIG__SPECIAL_FOLDERS,
+            eNotify(new ENotificationImpl(this, Notification.SET, ProjectConfigPackage.PROJECT_CONFIG__SPECIAL_FOLDERS,
                     newSpecialFolders, newSpecialFolders));
     }
 
@@ -237,9 +222,8 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
         IProject oldProject = project;
         project = newProject;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.PROJECT_CONFIG__PROJECT, oldProject,
-                    project));
+            eNotify(new ENotificationImpl(this, Notification.SET, ProjectConfigPackage.PROJECT_CONFIG__PROJECT,
+                    oldProject, project));
     }
 
     /**
@@ -258,8 +242,7 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
         String oldProjectType = projectType;
         projectType = newProjectType;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.PROJECT_CONFIG__PROJECT_TYPE,
+            eNotify(new ENotificationImpl(this, Notification.SET, ProjectConfigPackage.PROJECT_CONFIG__PROJECT_TYPE,
                     oldProjectType, projectType));
     }
 
@@ -275,17 +258,12 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetProjectDetails(
-            ProjectDetails newProjectDetails, NotificationChain msgs) {
+    public NotificationChain basicSetProjectDetails(ProjectDetails newProjectDetails, NotificationChain msgs) {
         ProjectDetails oldProjectDetails = projectDetails;
         projectDetails = newProjectDetails;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            ProjectConfigPackage.PROJECT_CONFIG__PROJECT_DETAILS,
-                            oldProjectDetails, newProjectDetails);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    ProjectConfigPackage.PROJECT_CONFIG__PROJECT_DETAILS, oldProjectDetails, newProjectDetails);
             if (msgs == null)
                 msgs = notification;
             else
@@ -302,27 +280,20 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
         if (newProjectDetails != projectDetails) {
             NotificationChain msgs = null;
             if (projectDetails != null)
-                msgs =
-                        ((InternalEObject) projectDetails)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - ProjectConfigPackage.PROJECT_CONFIG__PROJECT_DETAILS,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) projectDetails).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - ProjectConfigPackage.PROJECT_CONFIG__PROJECT_DETAILS,
+                        null,
+                        msgs);
             if (newProjectDetails != null)
-                msgs =
-                        ((InternalEObject) newProjectDetails)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - ProjectConfigPackage.PROJECT_CONFIG__PROJECT_DETAILS,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newProjectDetails).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - ProjectConfigPackage.PROJECT_CONFIG__PROJECT_DETAILS,
+                        null,
+                        msgs);
             msgs = basicSetProjectDetails(newProjectDetails, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.PROJECT_CONFIG__PROJECT_DETAILS,
+            eNotify(new ENotificationImpl(this, Notification.SET, ProjectConfigPackage.PROJECT_CONFIG__PROJECT_DETAILS,
                     newProjectDetails, newProjectDetails));
     }
 
@@ -378,8 +349,7 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
         if (ids != null) {
             EList<AssetType> newAssetTypes = new BasicEList<AssetType>();
             Set<String> addedIds = new HashSet<String>();
-            IProjectAssetManager assetManager =
-                    ProjectAssetManager.getProjectAssetMenager();
+            IProjectAssetManager assetManager = ProjectAssetManager.getProjectAssetMenager();
 
             // Build a list of all asset types already installed so they are not
             // installed again
@@ -401,20 +371,16 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
                     if (!addedIds.contains(id)) {
 
                         // Check if this is a valid asset id
-                        ProjectAssetElement assetElement =
-                                assetManager.getAssetById(id);
+                        ProjectAssetElement assetElement = assetManager.getAssetById(id);
                         if (assetElement == null) {
                             // No asset type with this id is registered
-                            throw new IllegalArgumentException(
-                                    String.format("Asset with id '%s' not found.", id)); //$NON-NLS-1$
+                            throw new IllegalArgumentException(String.format("Asset with id '%s' not found.", id)); //$NON-NLS-1$
                         }
 
                         addedIds.add(id);
 
                         // Asset not installed so do so
-                        AssetType aType =
-                                ProjectConfigFactory.eINSTANCE
-                                        .createAssetType();
+                        AssetType aType = ProjectConfigFactory.eINSTANCE.createAssetType();
                         aType.setId(id);
                         aType.setVersion(assetElement.getVersion(getProject()));
                         newAssetTypes.add(aType);
@@ -427,12 +393,10 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
                 EditingDomain ed = WorkingCopyUtil.getEditingDomain(this);
 
                 if (ed != null) {
-                    Command cmd =
-                            AddCommand.create(ed,
-                                    this,
-                                    ProjectConfigPackage.eINSTANCE
-                                            .getProjectConfig_AssetTypes(),
-                                    newAssetTypes);
+                    Command cmd = AddCommand.create(ed,
+                            this,
+                            ProjectConfigPackage.eINSTANCE.getProjectConfig_AssetTypes(),
+                            newAssetTypes);
 
                     if (cmd.canExecute()) {
                         ed.getCommandStack().execute(cmd);
@@ -460,9 +424,7 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
         EList list = null;
 
         // Get all registered extension points
-        list =
-                new BasicEList(Arrays.asList(ProjectAssetManager
-                        .getProjectAssetMenager().getAssets()));
+        list = new BasicEList(Arrays.asList(ProjectAssetManager.getProjectAssetMenager().getAssets()));
 
         return list;
     }
@@ -490,8 +452,7 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
             EList<?> types = getAssetTypes();
 
             if (types != null && !types.isEmpty()) {
-                for (Iterator<?> iter = types.iterator(); iter.hasNext()
-                        && !ret;) {
+                for (Iterator<?> iter = types.iterator(); iter.hasNext() && !ret;) {
                     AssetType asset = (AssetType) iter.next();
 
                     ret = asset.getId().equals(assetId);
@@ -509,18 +470,14 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ProjectConfigPackage.PROJECT_CONFIG__SPECIAL_FOLDERS:
             if (specialFolders != null)
-                msgs =
-                        ((InternalEObject) specialFolders)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - ProjectConfigPackage.PROJECT_CONFIG__SPECIAL_FOLDERS,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) specialFolders).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - ProjectConfigPackage.PROJECT_CONFIG__SPECIAL_FOLDERS,
+                        null,
+                        msgs);
             return basicSetSpecialFolders((SpecialFolders) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -531,12 +488,10 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ProjectConfigPackage.PROJECT_CONFIG__ASSET_TYPES:
-            return ((InternalEList<?>) getAssetTypes()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getAssetTypes()).basicRemove(otherEnd, msgs);
         case ProjectConfigPackage.PROJECT_CONFIG__SPECIAL_FOLDERS:
             return basicSetSpecialFolders(null, msgs);
         case ProjectConfigPackage.PROJECT_CONFIG__PROJECT_DETAILS:
@@ -632,11 +587,9 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
         case ProjectConfigPackage.PROJECT_CONFIG__SPECIAL_FOLDERS:
             return specialFolders != null;
         case ProjectConfigPackage.PROJECT_CONFIG__PROJECT:
-            return PROJECT_EDEFAULT == null ? project != null
-                    : !PROJECT_EDEFAULT.equals(project);
+            return PROJECT_EDEFAULT == null ? project != null : !PROJECT_EDEFAULT.equals(project);
         case ProjectConfigPackage.PROJECT_CONFIG__PROJECT_TYPE:
-            return PROJECT_TYPE_EDEFAULT == null ? projectType != null
-                    : !PROJECT_TYPE_EDEFAULT.equals(projectType);
+            return PROJECT_TYPE_EDEFAULT == null ? projectType != null : !PROJECT_TYPE_EDEFAULT.equals(projectType);
         case ProjectConfigPackage.PROJECT_CONFIG__PROJECT_DETAILS:
             return projectDetails != null;
         }
@@ -652,7 +605,7 @@ public class ProjectConfigImpl extends EObjectImpl implements ProjectConfig {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (project: ");
         result.append(project);
         result.append(", projectType: ");

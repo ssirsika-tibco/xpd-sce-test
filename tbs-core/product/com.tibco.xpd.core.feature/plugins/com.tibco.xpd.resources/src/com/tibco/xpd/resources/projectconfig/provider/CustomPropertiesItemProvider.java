@@ -1,13 +1,9 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.
  */
 package com.tibco.xpd.resources.projectconfig.provider;
 
-import com.tibco.xpd.resources.internal.Messages;
-import com.tibco.xpd.resources.projectconfig.DocumentRoot;
+import com.tibco.xpd.resources.projectconfig.CustomProperties;
 import com.tibco.xpd.resources.projectconfig.ProjectConfigFactory;
 import com.tibco.xpd.resources.projectconfig.ProjectConfigPackage;
 
@@ -20,9 +16,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.FeatureMapUtil;
-
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -34,19 +27,19 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.tibco.xpd.resources.projectconfig.DocumentRoot} object.
+ * This is the item provider adapter for a {@link com.tibco.xpd.resources.projectconfig.CustomProperties} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DocumentRootItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class CustomPropertiesItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
         IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.";
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -54,7 +47,7 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
      * <!-- end-user-doc -->
      * @generated
      */
-    public DocumentRootItemProvider(AdapterFactory adapterFactory) {
+    public CustomPropertiesItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -85,7 +78,7 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
     public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(ProjectConfigPackage.Literals.DOCUMENT_ROOT__PROJECT_CONFIG);
+            childrenFeatures.add(ProjectConfigPackage.Literals.CUSTOM_PROPERTIES__CUSTOM_PROPERTY);
         }
         return childrenFeatures;
     }
@@ -104,14 +97,14 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
     }
 
     /**
-     * This returns DocumentRoot.gif.
+     * This returns CustomProperties.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/DocumentRoot"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/CustomProperties"));
     }
 
     /**
@@ -122,7 +115,7 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
      */
     @Override
     public String getText(Object object) {
-        return getString("_UI_DocumentRoot_type");
+        return getString("_UI_CustomProperties_type");
     }
 
     /**
@@ -136,8 +129,8 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
     public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
-        switch (notification.getFeatureID(DocumentRoot.class)) {
-        case ProjectConfigPackage.DOCUMENT_ROOT__PROJECT_CONFIG:
+        switch (notification.getFeatureID(CustomProperties.class)) {
+        case ProjectConfigPackage.CUSTOM_PROPERTIES__CUSTOM_PROPERTY:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
@@ -155,8 +148,8 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(ProjectConfigPackage.Literals.DOCUMENT_ROOT__PROJECT_CONFIG,
-                ProjectConfigFactory.eINSTANCE.createProjectConfig()));
+        newChildDescriptors.add(createChildParameter(ProjectConfigPackage.Literals.CUSTOM_PROPERTIES__CUSTOM_PROPERTY,
+                ProjectConfigFactory.eINSTANCE.createCustomProperty()));
     }
 
     /**

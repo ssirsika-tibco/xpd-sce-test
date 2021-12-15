@@ -20,6 +20,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.DefaultJsClass;
 import com.tibco.xpd.script.model.client.DefaultUMLScriptRelevantData;
@@ -149,9 +150,15 @@ public class AceScriptProcessDataWrapperFactory {
                             wrapperObjectName,
                             false, jsClass);
 
-            scriptData.setIcon(
+            /*
+             * Sid ACE-5814 Noticed this throws exception for RASC generation command line (as we're running in headless
+             * mode and accessing UI components) - so conditionalised.
+             */
+            if (!XpdResourcesPlugin.isInHeadlessMode()) {
+                scriptData.setIcon(
                     Xpdl2ResourcesPlugin.getDefault().getImageRegistry()
                             .get(Xpdl2ResourcesConsts.IMG_DATAFIELD_EXTERNALREFERENCE));
+            }
 
             return scriptData;
 

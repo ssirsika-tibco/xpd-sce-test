@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.UniqueIdContainer#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.resources.projectconfig.ProjectConfigPackage#getUniqueIdContainer()
  * @model abstract="true"
@@ -30,8 +30,7 @@ public interface UniqueIdContainer extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Id</b></em>' attribute.

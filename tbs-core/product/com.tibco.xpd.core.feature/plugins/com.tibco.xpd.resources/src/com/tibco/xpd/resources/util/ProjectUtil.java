@@ -3,6 +3,7 @@
  */
 package com.tibco.xpd.resources.util;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -45,11 +46,15 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
+import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.internal.Messages;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.projectconfig.AssetType;
+import com.tibco.xpd.resources.projectconfig.CustomProperties;
+import com.tibco.xpd.resources.projectconfig.CustomProperty;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
+import com.tibco.xpd.resources.projectconfig.ProjectConfigFactory;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
 import com.tibco.xpd.resources.util.DependencySorter.Arc;
 
@@ -1341,6 +1346,120 @@ public final class ProjectUtil {
                     }
                 }
             }
+        }
+
+        return false;
+    }
+
+    /**
+     * Get custom property by name from projectConfig/projectDetails/customProperties
+     * 
+     * Sid ACE-5814
+     * 
+     * @param project
+     *            The project
+     * @param propertyName
+     *            Name of custom property to fetch.
+     * 
+     * @return String value of custom property or null if not defined.
+     */
+    public static String getCustomProperty(IProject project, String propertyName) {
+        ProjectDetails projectDetails = getProjectDetails(project);
+
+        if (projectDetails != null) {
+            CustomProperties customProperties = projectDetails.getCustomProperties();
+
+            if (customProperties != null) {
+                EList<CustomProperty> customPropertyList = customProperties.getCustomProperty();
+
+                if (customPropertyList != null) {
+                    for (CustomProperty customProperty : customPropertyList) {
+                        if (propertyName.equals(customProperty.getName())) {
+                            return customProperty.getValue();
+                        }
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Get custom property by name from projectConfig/projectDetails/customProperties
+     * 
+     * Sid ACE-5814
+     * 
+     * @param project
+     *            The project
+     * @param propertyName
+     *            Name of custom property to fetch.
+     * @param propertyValue
+     *            The value of property to set (or null to delete)
+     * 
+     * @return <code>true</code> on success
+     */
+    public static boolean setCustomProperty(IProject project, String propertyName, String propertyValue) {
+        ProjectDetails projectDetails = getProjectDetails(project);
+
+        if (projectDetails != null) {
+
+            WorkingCopy wc = WorkingCopyUtil.getWorkingCopyFor(projectDetails);
+            if (wc != null) {
+
+                CustomProperties customProperties = projectDetails.getCustomProperties();
+
+                if (customProperties == null) {
+                    customProperties = ProjectConfigFactory.eINSTANCE.createCustomProperties();
+
+                    projectDetails.setCustomProperties(customProperties);
+                }
+
+                EList<CustomProperty> customPropertyList = customProperties.getCustomProperty();
+
+                boolean found = false;
+                
+                for (Iterator iterator = customPropertyList.iterator(); iterator.hasNext();) {
+                    CustomProperty customProperty = (CustomProperty) iterator.next();
+
+                    if (propertyName.equals(customProperty.getName())) {
+                        found = true;
+                        
+                        /* Delete the custom property if passed null  value. */
+                        if (propertyValue == null) {
+                            iterator.remove();
+                            
+                        } else {
+                            customProperty.setValue(propertyValue);
+                        }
+
+                        break;
+                    }
+                }
+                
+                /* If we didn't find existing property then add one if we were not 'asked to remove'. */
+                if (!found && propertyValue != null) {
+                    CustomProperty customProperty = ProjectConfigFactory.eINSTANCE.createCustomProperty();
+                    
+                    customProperty.setName(propertyName);
+                    customProperty.setValue(propertyValue);
+                    
+                    customProperties.getCustomProperty().add(customProperty);
+                }
+
+                try {
+                    wc.save();
+
+                    return true;
+
+                } catch (IOException e) {
+                    throw new RuntimeException(
+                            String.format("Failed to write custom property '%s' to project '%s' config",
+                                    propertyName,
+                                    project.getName()));
+                }
+            }
+
         }
 
         return false;

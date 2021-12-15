@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."
     modelDirectory="/com.tibco.xpd.resources/src" editDirectory="/com.tibco.xpd.resources/src"
     modelPluginID="com.tibco.xpd.resources" modelName="ProjectConfig" codeFormatting="true"
@@ -99,10 +98,14 @@
       <genOperations ecoreOperation="ProjectConfig.ecore#//SpecialFolders/getEclipseIFoldersOfKind">
         <genParameters ecoreParameter="ProjectConfig.ecore#//SpecialFolders/getEclipseIFoldersOfKind/kind"/>
       </genOperations>
-      <genOperations ecoreOperation="ProjectConfig.ecore#//SpecialFolders/addGeneratedFolder">
-        <genParameters ecoreParameter="ProjectConfig.ecore#//SpecialFolders/addGeneratedFolder/folder"/>
-        <genParameters ecoreParameter="ProjectConfig.ecore#//SpecialFolders/addGeneratedFolder/kind"/>
-        <genParameters ecoreParameter="ProjectConfig.ecore#//SpecialFolders/addGeneratedFolder/generated"/>
+      <genOperations ecoreOperation="ProjectConfig.ecore#//SpecialFolders/addFolder.2">
+        <genParameters ecoreParameter="ProjectConfig.ecore#//SpecialFolders/addFolder.2/folder"/>
+        <genParameters ecoreParameter="ProjectConfig.ecore#//SpecialFolders/addFolder.2/kind"/>
+        <genParameters ecoreParameter="ProjectConfig.ecore#//SpecialFolders/addFolder.2/generated"/>
+      </genOperations>
+      <genOperations ecoreOperation="ProjectConfig.ecore#//SpecialFolders/markAsGenerated">
+        <genParameters ecoreParameter="ProjectConfig.ecore#//SpecialFolders/markAsGenerated/specialFolder"/>
+        <genParameters ecoreParameter="ProjectConfig.ecore#//SpecialFolders/markAsGenerated/generated"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="ProjectConfig.ecore#//UniqueIdContainer">
@@ -115,6 +118,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProjectConfig.ecore#//ProjectDetails/version"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProjectConfig.ecore#//ProjectDetails/status"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProjectConfig.ecore#//ProjectDetails/globalDestinations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProjectConfig.ecore#//ProjectDetails/customProperties"/>
       <genOperations ecoreOperation="ProjectConfig.ecore#//ProjectDetails/isGlobalDestinationEnabled">
         <genParameters ecoreParameter="ProjectConfig.ecore#//ProjectDetails/isGlobalDestinationEnabled/globalDestinationId"/>
       </genOperations>
@@ -125,6 +129,13 @@
     </genClasses>
     <genClasses ecoreClass="ProjectConfig.ecore#//Destinations">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProjectConfig.ecore#//Destinations/destination"/>
+    </genClasses>
+    <genClasses ecoreClass="ProjectConfig.ecore#//CustomProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProjectConfig.ecore#//CustomProperty/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProjectConfig.ecore#//CustomProperty/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ProjectConfig.ecore#//CustomProperties">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProjectConfig.ecore#//CustomProperties/customProperty"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

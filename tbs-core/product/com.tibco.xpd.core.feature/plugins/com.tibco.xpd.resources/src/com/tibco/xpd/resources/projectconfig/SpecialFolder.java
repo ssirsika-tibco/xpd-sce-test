@@ -21,12 +21,12 @@ import org.eclipse.core.runtime.IAdaptable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.SpecialFolder#getKind <em>Kind</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.SpecialFolder#getLocation <em>Location</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.SpecialFolder#getGenerated <em>Generated</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.resources.projectconfig.ProjectConfigPackage#getSpecialFolder()
  * @model superTypes="com.tibco.xpd.resources.projectconfig.UniqueIdContainer com.tibco.xpd.resources.projectconfig.Adadptable"
@@ -38,8 +38,7 @@ public interface SpecialFolder extends UniqueIdContainer, IAdaptable {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Kind</b></em>' attribute. <!--

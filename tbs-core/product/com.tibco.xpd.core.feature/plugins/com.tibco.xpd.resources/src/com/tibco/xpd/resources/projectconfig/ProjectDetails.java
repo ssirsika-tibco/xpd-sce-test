@@ -20,13 +20,14 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.ProjectDetails#getId <em>Id</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.ProjectDetails#getVersion <em>Version</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.ProjectDetails#getStatus <em>Status</em>}</li>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.ProjectDetails#getGlobalDestinations <em>Global Destinations</em>}</li>
+ *   <li>{@link com.tibco.xpd.resources.projectconfig.ProjectDetails#getCustomProperties <em>Custom Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.resources.projectconfig.ProjectConfigPackage#getProjectDetails()
  * @model
@@ -38,8 +39,7 @@ public interface ProjectDetails extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.";
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.";
 
     /**
      * Returns the value of the '<em><b>Id</b></em>' attribute.
@@ -97,7 +97,7 @@ public interface ProjectDetails extends EObject {
 
     /**
      * Returns the value of the '<em><b>Status</b></em>' attribute.
-     * The default value is <code>"0"</code>.
+     * The default value is <code>"underRevision"</code>.
      * The literals are from the enumeration {@link com.tibco.xpd.resources.projectconfig.ProjectStatus}.
      * <!-- begin-user-doc -->
      * <p>
@@ -109,7 +109,7 @@ public interface ProjectDetails extends EObject {
      * @see com.tibco.xpd.resources.projectconfig.ProjectStatus
      * @see #setStatus(ProjectStatus)
      * @see com.tibco.xpd.resources.projectconfig.ProjectConfigPackage#getProjectDetails_Status()
-     * @model default="0" required="true"
+     * @model default="underRevision" required="true"
      * @generated
      */
     ProjectStatus getStatus();
@@ -150,6 +150,28 @@ public interface ProjectDetails extends EObject {
      * @generated
      */
     void setGlobalDestinations(Destinations value);
+
+    /**
+     * Returns the value of the '<em><b>Custom Properties</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Custom Properties</em>' containment reference.
+     * @see #setCustomProperties(CustomProperties)
+     * @see com.tibco.xpd.resources.projectconfig.ProjectConfigPackage#getProjectDetails_CustomProperties()
+     * @model containment="true"
+     * @generated
+     */
+    CustomProperties getCustomProperties();
+
+    /**
+     * Sets the value of the '{@link com.tibco.xpd.resources.projectconfig.ProjectDetails#getCustomProperties <em>Custom Properties</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Custom Properties</em>' containment reference.
+     * @see #getCustomProperties()
+     * @generated
+     */
+    void setCustomProperties(CustomProperties value);
 
     /**
      * <!-- begin-user-doc -->

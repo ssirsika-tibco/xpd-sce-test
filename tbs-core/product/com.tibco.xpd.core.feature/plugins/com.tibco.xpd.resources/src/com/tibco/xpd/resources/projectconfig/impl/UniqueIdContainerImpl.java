@@ -18,21 +18,19 @@ import com.tibco.xpd.resources.projectconfig.UniqueIdContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.UniqueIdContainerImpl#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public abstract class UniqueIdContainerImpl extends EObjectImpl implements
-        UniqueIdContainer {
+public abstract class UniqueIdContainerImpl extends EObjectImpl implements UniqueIdContainer {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
@@ -140,7 +138,7 @@ public abstract class UniqueIdContainerImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (id: ");
         result.append(id);
         result.append(')');

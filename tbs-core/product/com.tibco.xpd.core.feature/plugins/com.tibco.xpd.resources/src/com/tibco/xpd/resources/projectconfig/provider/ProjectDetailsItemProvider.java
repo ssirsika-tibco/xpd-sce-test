@@ -36,15 +36,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProjectDetailsItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ProjectDetailsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved.";
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.";
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -81,15 +80,20 @@ public class ProjectDetailsItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     protected void addIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_ProjectDetails_id_feature"), getString(
-                        "_UI_PropertyDescriptor_description",
-                        "_UI_ProjectDetails_id_feature",
-                        "_UI_ProjectDetails_type"),
-                ProjectConfigPackage.Literals.PROJECT_DETAILS__ID, true, false,
-                false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ProjectDetails_id_feature"),
+                        getString("_UI_PropertyDescriptor_description",
+                                "_UI_ProjectDetails_id_feature",
+                                "_UI_ProjectDetails_type"),
+                        ProjectConfigPackage.Literals.PROJECT_DETAILS__ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -99,16 +103,20 @@ public class ProjectDetailsItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     protected void addVersionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_ProjectDetails_version_feature"), getString(
-                        "_UI_PropertyDescriptor_description",
-                        "_UI_ProjectDetails_version_feature",
-                        "_UI_ProjectDetails_type"),
-                ProjectConfigPackage.Literals.PROJECT_DETAILS__VERSION, true,
-                false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ProjectDetails_version_feature"),
+                        getString("_UI_PropertyDescriptor_description",
+                                "_UI_ProjectDetails_version_feature",
+                                "_UI_ProjectDetails_type"),
+                        ProjectConfigPackage.Literals.PROJECT_DETAILS__VERSION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -118,16 +126,20 @@ public class ProjectDetailsItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     protected void addStatusPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_ProjectDetails_status_feature"), getString(
-                        "_UI_PropertyDescriptor_description",
-                        "_UI_ProjectDetails_status_feature",
-                        "_UI_ProjectDetails_type"),
-                ProjectConfigPackage.Literals.PROJECT_DETAILS__STATUS, true,
-                false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ProjectDetails_status_feature"),
+                        getString("_UI_PropertyDescriptor_description",
+                                "_UI_ProjectDetails_status_feature",
+                                "_UI_ProjectDetails_type"),
+                        ProjectConfigPackage.Literals.PROJECT_DETAILS__STATUS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -139,12 +151,11 @@ public class ProjectDetailsItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(ProjectConfigPackage.Literals.PROJECT_DETAILS__GLOBAL_DESTINATIONS);
+            childrenFeatures.add(ProjectConfigPackage.Literals.PROJECT_DETAILS__GLOBAL_DESTINATIONS);
+            childrenFeatures.add(ProjectConfigPackage.Literals.PROJECT_DETAILS__CUSTOM_PROPERTIES);
         }
         return childrenFeatures;
     }
@@ -170,8 +181,7 @@ public class ProjectDetailsItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage(
-                "full/obj16/ProjectDetails"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ProjectDetails"));
     }
 
     /**
@@ -202,12 +212,11 @@ public class ProjectDetailsItemProvider extends ItemProviderAdapter implements
         case ProjectConfigPackage.PROJECT_DETAILS__ID:
         case ProjectConfigPackage.PROJECT_DETAILS__VERSION:
         case ProjectConfigPackage.PROJECT_DETAILS__STATUS:
-            fireNotifyChanged(new ViewerNotification(notification, notification
-                    .getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case ProjectConfigPackage.PROJECT_DETAILS__GLOBAL_DESTINATIONS:
-            fireNotifyChanged(new ViewerNotification(notification, notification
-                    .getNotifier(), true, false));
+        case ProjectConfigPackage.PROJECT_DETAILS__CUSTOM_PROPERTIES:
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -221,14 +230,14 @@ public class ProjectDetailsItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(
-                        ProjectConfigPackage.Literals.PROJECT_DETAILS__GLOBAL_DESTINATIONS,
-                        ProjectConfigFactory.eINSTANCE.createDestinations()));
+        newChildDescriptors.add(createChildParameter(ProjectConfigPackage.Literals.PROJECT_DETAILS__GLOBAL_DESTINATIONS,
+                ProjectConfigFactory.eINSTANCE.createDestinations()));
+
+        newChildDescriptors.add(createChildParameter(ProjectConfigPackage.Literals.PROJECT_DETAILS__CUSTOM_PROPERTIES,
+                ProjectConfigFactory.eINSTANCE.createCustomProperties()));
     }
 
     /**

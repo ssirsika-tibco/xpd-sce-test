@@ -55,6 +55,26 @@
             class="com.tibco.xpd.resources.projectconfig.ProjectConfigPackage"
             uri="http://www.tibco.com/XPD/projectConfig"/>
    </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated projectConfig -->
+      <parser
+            type="projectconfig"
+            class="com.tibco.xpd.resources.projectconfig.util.ProjectConfigResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated projectConfig -->
+      <factory
+            uri="http://www.tibco.com/XPD/projectConfig"
+            class="com.tibco.xpd.resources.projectconfig.provider.ProjectConfigItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
    <extension
          point="org.eclipse.core.expressions.propertyTesters">
       <propertyTester

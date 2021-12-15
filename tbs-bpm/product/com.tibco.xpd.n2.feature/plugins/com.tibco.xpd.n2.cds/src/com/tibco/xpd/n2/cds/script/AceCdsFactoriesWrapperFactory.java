@@ -28,6 +28,7 @@ import com.tibco.bds.designtime.generator.CDSBOMIndexerService;
 import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.script.model.client.DefaultJsClass;
 import com.tibco.xpd.script.model.client.DefaultUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
@@ -220,8 +221,14 @@ public class AceCdsFactoriesWrapperFactory {
                 new DefaultUMLScriptRelevantData(clazz.getName(),
                         clazz.getName(), false, factoryJsClass);
 
-        scriptData.setIcon(Xpdl2ResourcesPlugin.getDefault().getImageRegistry()
-                .get(Xpdl2ResourcesConsts.IMG_DATAFIELD_EXTERNALREFERENCE));
+        /*
+         * Sid ACE-5814 Noticed this throws exception for RASC generation command line (as we're running in headless
+         * mode and accessing UI components) - so conditionalised.
+         */
+        if (!XpdResourcesPlugin.isInHeadlessMode()) {
+            scriptData.setIcon(Xpdl2ResourcesPlugin.getDefault().getImageRegistry()
+                    .get(Xpdl2ResourcesConsts.IMG_DATAFIELD_EXTERNALREFERENCE));
+        }
 
         scriptData.setReadOnly(true);
         return scriptData;

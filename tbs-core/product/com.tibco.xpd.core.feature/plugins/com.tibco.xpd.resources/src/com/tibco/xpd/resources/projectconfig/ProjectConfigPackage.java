@@ -35,8 +35,7 @@ public interface ProjectConfigPackage extends EPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The package name.
@@ -68,9 +67,7 @@ public interface ProjectConfigPackage extends EPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    ProjectConfigPackage eINSTANCE =
-            com.tibco.xpd.resources.projectconfig.impl.ProjectConfigPackageImpl
-                    .init();
+    ProjectConfigPackage eINSTANCE = com.tibco.xpd.resources.projectconfig.impl.ProjectConfigPackageImpl.init();
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.resources.projectconfig.impl.DocumentRootImpl <em>Document Root</em>}' class.
@@ -433,13 +430,22 @@ public interface ProjectConfigPackage extends EPackage {
     int PROJECT_DETAILS__GLOBAL_DESTINATIONS = 3;
 
     /**
+     * The feature id for the '<em><b>Custom Properties</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROJECT_DETAILS__CUSTOM_PROPERTIES = 4;
+
+    /**
      * The number of structural features of the '<em>Project Details</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROJECT_DETAILS_FEATURE_COUNT = 4;
+    int PROJECT_DETAILS_FEATURE_COUNT = 5;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.resources.projectconfig.impl.DestinationImpl <em>Destination</em>}' class.
@@ -498,6 +504,71 @@ public interface ProjectConfigPackage extends EPackage {
     int DESTINATIONS_FEATURE_COUNT = 1;
 
     /**
+     * The meta object id for the '{@link com.tibco.xpd.resources.projectconfig.impl.CustomPropertyImpl <em>Custom Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.tibco.xpd.resources.projectconfig.impl.CustomPropertyImpl
+     * @see com.tibco.xpd.resources.projectconfig.impl.ProjectConfigPackageImpl#getCustomProperty()
+     * @generated
+     */
+    int CUSTOM_PROPERTY = 11;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_PROPERTY__NAME = 0;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_PROPERTY__VALUE = 1;
+
+    /**
+     * The number of structural features of the '<em>Custom Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_PROPERTY_FEATURE_COUNT = 2;
+
+    /**
+     * The meta object id for the '{@link com.tibco.xpd.resources.projectconfig.impl.CustomPropertiesImpl <em>Custom Properties</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.tibco.xpd.resources.projectconfig.impl.CustomPropertiesImpl
+     * @see com.tibco.xpd.resources.projectconfig.impl.ProjectConfigPackageImpl#getCustomProperties()
+     * @generated
+     */
+    int CUSTOM_PROPERTIES = 12;
+
+    /**
+     * The feature id for the '<em><b>Custom Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_PROPERTIES__CUSTOM_PROPERTY = 0;
+
+    /**
+     * The number of structural features of the '<em>Custom Properties</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_PROPERTIES_FEATURE_COUNT = 1;
+
+    /**
      * The meta object id for the '{@link com.tibco.xpd.resources.projectconfig.ProjectStatus <em>Project Status</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -505,7 +576,7 @@ public interface ProjectConfigPackage extends EPackage {
      * @see com.tibco.xpd.resources.projectconfig.impl.ProjectConfigPackageImpl#getProjectStatus()
      * @generated
      */
-    int PROJECT_STATUS = 11;
+    int PROJECT_STATUS = 13;
 
     /**
      * The meta object id for the '<em>IProject</em>' data type.
@@ -515,7 +586,7 @@ public interface ProjectConfigPackage extends EPackage {
      * @see com.tibco.xpd.resources.projectconfig.impl.ProjectConfigPackageImpl#getIProject()
      * @generated
      */
-    int IPROJECT = 12;
+    int IPROJECT = 14;
 
     /**
      * The meta object id for the '<em>IFolder</em>' data type.
@@ -525,7 +596,7 @@ public interface ProjectConfigPackage extends EPackage {
      * @see com.tibco.xpd.resources.projectconfig.impl.ProjectConfigPackageImpl#getIFolder()
      * @generated
      */
-    int IFOLDER = 13;
+    int IFOLDER = 15;
 
     /**
      * The meta object id for the '<em>IResource</em>' data type.
@@ -535,7 +606,7 @@ public interface ProjectConfigPackage extends EPackage {
      * @see com.tibco.xpd.resources.projectconfig.impl.ProjectConfigPackageImpl#getIResource()
      * @generated
      */
-    int IRESOURCE = 14;
+    int IRESOURCE = 16;
 
     /**
      * The meta object id for the '<em>ISpecial Folder Model</em>' data type.
@@ -545,7 +616,7 @@ public interface ProjectConfigPackage extends EPackage {
      * @see com.tibco.xpd.resources.projectconfig.impl.ProjectConfigPackageImpl#getISpecialFolderModel()
      * @generated
      */
-    int ISPECIAL_FOLDER_MODEL = 15;
+    int ISPECIAL_FOLDER_MODEL = 17;
 
     /**
      * The meta object id for the '<em>Collection</em>' data type.
@@ -555,7 +626,7 @@ public interface ProjectConfigPackage extends EPackage {
      * @see com.tibco.xpd.resources.projectconfig.impl.ProjectConfigPackageImpl#getCollection()
      * @generated
      */
-    int COLLECTION = 16;
+    int COLLECTION = 18;
 
     /**
      * Returns the meta object for class '{@link com.tibco.xpd.resources.projectconfig.DocumentRoot <em>Document Root</em>}'.
@@ -881,6 +952,17 @@ public interface ProjectConfigPackage extends EPackage {
     EReference getProjectDetails_GlobalDestinations();
 
     /**
+     * Returns the meta object for the containment reference '{@link com.tibco.xpd.resources.projectconfig.ProjectDetails#getCustomProperties <em>Custom Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Custom Properties</em>'.
+     * @see com.tibco.xpd.resources.projectconfig.ProjectDetails#getCustomProperties()
+     * @see #getProjectDetails()
+     * @generated
+     */
+    EReference getProjectDetails_CustomProperties();
+
+    /**
      * Returns the meta object for class '{@link com.tibco.xpd.resources.projectconfig.Destination <em>Destination</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -921,6 +1003,59 @@ public interface ProjectConfigPackage extends EPackage {
      * @generated
      */
     EReference getDestinations_Destination();
+
+    /**
+     * Returns the meta object for class '{@link com.tibco.xpd.resources.projectconfig.CustomProperty <em>Custom Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Custom Property</em>'.
+     * @see com.tibco.xpd.resources.projectconfig.CustomProperty
+     * @generated
+     */
+    EClass getCustomProperty();
+
+    /**
+     * Returns the meta object for the attribute '{@link com.tibco.xpd.resources.projectconfig.CustomProperty#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see com.tibco.xpd.resources.projectconfig.CustomProperty#getName()
+     * @see #getCustomProperty()
+     * @generated
+     */
+    EAttribute getCustomProperty_Name();
+
+    /**
+     * Returns the meta object for the attribute '{@link com.tibco.xpd.resources.projectconfig.CustomProperty#getValue <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Value</em>'.
+     * @see com.tibco.xpd.resources.projectconfig.CustomProperty#getValue()
+     * @see #getCustomProperty()
+     * @generated
+     */
+    EAttribute getCustomProperty_Value();
+
+    /**
+     * Returns the meta object for class '{@link com.tibco.xpd.resources.projectconfig.CustomProperties <em>Custom Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Custom Properties</em>'.
+     * @see com.tibco.xpd.resources.projectconfig.CustomProperties
+     * @generated
+     */
+    EClass getCustomProperties();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link com.tibco.xpd.resources.projectconfig.CustomProperties#getCustomProperty <em>Custom Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Custom Property</em>'.
+     * @see com.tibco.xpd.resources.projectconfig.CustomProperties#getCustomProperty()
+     * @see #getCustomProperties()
+     * @generated
+     */
+    EReference getCustomProperties_CustomProperty();
 
     /**
      * Returns the meta object for enum '{@link com.tibco.xpd.resources.projectconfig.ProjectStatus <em>Project Status</em>}'.
@@ -1033,8 +1168,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__XMLNS_PREFIX_MAP = eINSTANCE
-                .getDocumentRoot_XMLNSPrefixMap();
+        EReference DOCUMENT_ROOT__XMLNS_PREFIX_MAP = eINSTANCE.getDocumentRoot_XMLNSPrefixMap();
 
         /**
          * The meta object literal for the '<em><b>XSI Schema Location</b></em>' map feature.
@@ -1042,8 +1176,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = eINSTANCE
-                .getDocumentRoot_XSISchemaLocation();
+        EReference DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = eINSTANCE.getDocumentRoot_XSISchemaLocation();
 
         /**
          * The meta object literal for the '<em><b>Project Config</b></em>' containment reference feature.
@@ -1051,8 +1184,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__PROJECT_CONFIG = eINSTANCE
-                .getDocumentRoot_ProjectConfig();
+        EReference DOCUMENT_ROOT__PROJECT_CONFIG = eINSTANCE.getDocumentRoot_ProjectConfig();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.resources.projectconfig.impl.ProjectConfigImpl <em>Project Config</em>}' class.
@@ -1070,8 +1202,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROJECT_CONFIG__ASSET_TYPES = eINSTANCE
-                .getProjectConfig_AssetTypes();
+        EReference PROJECT_CONFIG__ASSET_TYPES = eINSTANCE.getProjectConfig_AssetTypes();
 
         /**
          * The meta object literal for the '<em><b>Special Folders</b></em>' containment reference feature.
@@ -1079,8 +1210,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROJECT_CONFIG__SPECIAL_FOLDERS = eINSTANCE
-                .getProjectConfig_SpecialFolders();
+        EReference PROJECT_CONFIG__SPECIAL_FOLDERS = eINSTANCE.getProjectConfig_SpecialFolders();
 
         /**
          * The meta object literal for the '<em><b>Project</b></em>' attribute feature.
@@ -1088,8 +1218,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROJECT_CONFIG__PROJECT = eINSTANCE
-                .getProjectConfig_Project();
+        EAttribute PROJECT_CONFIG__PROJECT = eINSTANCE.getProjectConfig_Project();
 
         /**
          * The meta object literal for the '<em><b>Project Type</b></em>' attribute feature.
@@ -1097,8 +1226,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROJECT_CONFIG__PROJECT_TYPE = eINSTANCE
-                .getProjectConfig_ProjectType();
+        EAttribute PROJECT_CONFIG__PROJECT_TYPE = eINSTANCE.getProjectConfig_ProjectType();
 
         /**
          * The meta object literal for the '<em><b>Project Details</b></em>' containment reference feature.
@@ -1106,8 +1234,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROJECT_CONFIG__PROJECT_DETAILS = eINSTANCE
-                .getProjectConfig_ProjectDetails();
+        EReference PROJECT_CONFIG__PROJECT_DETAILS = eINSTANCE.getProjectConfig_ProjectDetails();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.resources.projectconfig.impl.SpecialFolderImpl <em>Special Folder</em>}' class.
@@ -1133,8 +1260,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SPECIAL_FOLDER__LOCATION = eINSTANCE
-                .getSpecialFolder_Location();
+        EAttribute SPECIAL_FOLDER__LOCATION = eINSTANCE.getSpecialFolder_Location();
 
         /**
          * The meta object literal for the '<em><b>Generated</b></em>' attribute feature.
@@ -1142,8 +1268,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SPECIAL_FOLDER__GENERATED = eINSTANCE
-                .getSpecialFolder_Generated();
+        EAttribute SPECIAL_FOLDER__GENERATED = eINSTANCE.getSpecialFolder_Generated();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.resources.projectconfig.impl.SpecialFoldersImpl <em>Special Folders</em>}' class.
@@ -1161,8 +1286,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SPECIAL_FOLDERS__FOLDERS = eINSTANCE
-                .getSpecialFolders_Folders();
+        EReference SPECIAL_FOLDERS__FOLDERS = eINSTANCE.getSpecialFolders_Folders();
 
         /**
          * The meta object literal for the '<em><b>Config</b></em>' container reference feature.
@@ -1170,8 +1294,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SPECIAL_FOLDERS__CONFIG = eINSTANCE
-                .getSpecialFolders_Config();
+        EReference SPECIAL_FOLDERS__CONFIG = eINSTANCE.getSpecialFolders_Config();
 
         /**
          * The meta object literal for the '{@link org.eclipse.core.runtime.IAdaptable <em>Adadptable</em>}' class.
@@ -1199,8 +1322,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute UNIQUE_ID_CONTAINER__ID = eINSTANCE
-                .getUniqueIdContainer_Id();
+        EAttribute UNIQUE_ID_CONTAINER__ID = eINSTANCE.getUniqueIdContainer_Id();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.resources.projectconfig.impl.AssetTypeImpl <em>Asset Type</em>}' class.
@@ -1262,8 +1384,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROJECT_DETAILS__VERSION = eINSTANCE
-                .getProjectDetails_Version();
+        EAttribute PROJECT_DETAILS__VERSION = eINSTANCE.getProjectDetails_Version();
 
         /**
          * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
@@ -1271,8 +1392,7 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROJECT_DETAILS__STATUS = eINSTANCE
-                .getProjectDetails_Status();
+        EAttribute PROJECT_DETAILS__STATUS = eINSTANCE.getProjectDetails_Status();
 
         /**
          * The meta object literal for the '<em><b>Global Destinations</b></em>' containment reference feature.
@@ -1280,8 +1400,15 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROJECT_DETAILS__GLOBAL_DESTINATIONS = eINSTANCE
-                .getProjectDetails_GlobalDestinations();
+        EReference PROJECT_DETAILS__GLOBAL_DESTINATIONS = eINSTANCE.getProjectDetails_GlobalDestinations();
+
+        /**
+         * The meta object literal for the '<em><b>Custom Properties</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PROJECT_DETAILS__CUSTOM_PROPERTIES = eINSTANCE.getProjectDetails_CustomProperties();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.resources.projectconfig.impl.DestinationImpl <em>Destination</em>}' class.
@@ -1317,8 +1444,51 @@ public interface ProjectConfigPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DESTINATIONS__DESTINATION = eINSTANCE
-                .getDestinations_Destination();
+        EReference DESTINATIONS__DESTINATION = eINSTANCE.getDestinations_Destination();
+
+        /**
+         * The meta object literal for the '{@link com.tibco.xpd.resources.projectconfig.impl.CustomPropertyImpl <em>Custom Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see com.tibco.xpd.resources.projectconfig.impl.CustomPropertyImpl
+         * @see com.tibco.xpd.resources.projectconfig.impl.ProjectConfigPackageImpl#getCustomProperty()
+         * @generated
+         */
+        EClass CUSTOM_PROPERTY = eINSTANCE.getCustomProperty();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CUSTOM_PROPERTY__NAME = eINSTANCE.getCustomProperty_Name();
+
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CUSTOM_PROPERTY__VALUE = eINSTANCE.getCustomProperty_Value();
+
+        /**
+         * The meta object literal for the '{@link com.tibco.xpd.resources.projectconfig.impl.CustomPropertiesImpl <em>Custom Properties</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see com.tibco.xpd.resources.projectconfig.impl.CustomPropertiesImpl
+         * @see com.tibco.xpd.resources.projectconfig.impl.ProjectConfigPackageImpl#getCustomProperties()
+         * @generated
+         */
+        EClass CUSTOM_PROPERTIES = eINSTANCE.getCustomProperties();
+
+        /**
+         * The meta object literal for the '<em><b>Custom Property</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CUSTOM_PROPERTIES__CUSTOM_PROPERTY = eINSTANCE.getCustomProperties_CustomProperty();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.resources.projectconfig.ProjectStatus <em>Project Status</em>}' enum.

@@ -21,10 +21,10 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.resources.projectconfig.impl.DestinationImpl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -34,8 +34,7 @@ public class DestinationImpl extends EObjectImpl implements Destination {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.";
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.";
 
     /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -94,8 +93,8 @@ public class DestinationImpl extends EObjectImpl implements Destination {
         String oldType = type;
         type = newType;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    ProjectConfigPackage.DESTINATION__TYPE, oldType, type));
+            eNotify(new ENotificationImpl(this, Notification.SET, ProjectConfigPackage.DESTINATION__TYPE, oldType,
+                    type));
     }
 
     /**
@@ -151,8 +150,7 @@ public class DestinationImpl extends EObjectImpl implements Destination {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case ProjectConfigPackage.DESTINATION__TYPE:
-            return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT
-                    .equals(type);
+            return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
         }
         return super.eIsSet(featureID);
     }
@@ -167,7 +165,7 @@ public class DestinationImpl extends EObjectImpl implements Destination {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (type: ");
         result.append(type);
         result.append(')');
