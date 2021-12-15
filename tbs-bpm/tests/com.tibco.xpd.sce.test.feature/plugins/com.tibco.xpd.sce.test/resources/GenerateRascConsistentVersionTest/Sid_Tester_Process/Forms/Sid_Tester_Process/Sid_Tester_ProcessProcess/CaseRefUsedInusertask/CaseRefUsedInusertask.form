@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" generated="true" generatorSource="Sid_Tester_Process.xpdl#_9QRgwDGxEeysgN5J_V0TXg?p=Sid_Tester_Process%26s=Process%20Packages%26t=xpdl2%3aActivity%26q=Sid_Tester_Process%3a%3aSid_Tester_ProcessProcess%26n=CaseRefUsedInusertask?" formatVersion="11.0.0">
+  <form:externalResources>
+    <form:externalResource name="resource.common" uri="pathmap://FORMS_RESOURCES/common.properties" internal="true" localized="true"/>
+    <form:externalResource name="resource.form" uri="Sid_Tester_Process/Sid_Tester_ProcessProcess/CaseRefUsedInusertask/CaseRefUsedInusertask.properties" sfRelative="true" internal="true" localized="true"/>
+  </form:externalResources>
+  <form:dataModel>
+    <form:parameter generated="true" generatorSource="Sid_Tester_Process.xpdl#_KKTuQDGyEeysgN5J_V0TXg?p=Sid_Tester_Process%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Sid_Tester_Process%3a%3aSid_Tester_ProcessProcess%26n=CaseRefParameter?" name="data.CaseRefParameter" label="Case Ref Parameter" dataType="uml:Class Sid_Tester_Data.bom#_UDLGQDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.sid_tester_data%26n=SidTesterCase?" inout="INOUT"/>
+  </form:dataModel>
+  <form:actions/>
+  <form:rules>
+    <form:rule generated="true" name="rule.cancel" label="Cancel">
+      <form:event source="#control.cancel" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.cancel.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.cancel"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.close" label="Close">
+      <form:event source="#control.close" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.close.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.close"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.submit" label="Submit">
+      <form:event source="#control.submit" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.submit.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.submit"/>
+    </form:rule>
+  </form:rules>
+  <form:bindings>
+    <form:binding generated="true" direction="bothways" name="_3JRl8DG0EeysgN5J_V0TXg">
+      <form:source target="data.CaseRefParameter" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.CaseRefParameter.value"></form:source>
+      <form:destination target="pane.CaseRefParameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.CaseRefParameter.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="sourceToDest" name="_3JS0EDG0EeysgN5J_V0TXg">
+      <form:source target="pane.CaseRefParameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Sid_Tester_Data.bom#_UZX_wDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aSidTesterCase%26n=autoCaseIdentifier1?" data="form.pane.CaseRefParameter.value.autoCaseIdentifier1"></form:source>
+      <form:destination target="control.CaseRefParameter_autoCaseIdentifier1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseRefParameter_autoCaseIdentifier1.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_3JTbIDG0EeysgN5J_V0TXg">
+      <form:source target="pane.CaseRefParameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Sid_Tester_Data.bom#_av3AsDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aSidTesterCase%26n=caseState1?" data="form.pane.CaseRefParameter.value.caseState1"></form:source>
+      <form:destination target="control.CaseRefParameter_caseState1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseRefParameter_caseState1.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_3JUCMDG0EeysgN5J_V0TXg">
+      <form:source target="pane.CaseRefParameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Sid_Tester_Data.bom#_cUgDQDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aSidTesterCase%26n=topLevelAttr?" data="form.pane.CaseRefParameter.value.topLevelAttr"></form:source>
+      <form:destination target="control.CaseRefParameter_topLevelAttr" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseRefParameter_topLevelAttr.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_3JUpQDG0EeysgN5J_V0TXg">
+      <form:source target="pane.CaseRefParameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Sid_Tester_Data.bom#_iBNHYjGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aSidTesterCase%26n=child?" data="form.pane.CaseRefParameter.value.child"></form:source>
+      <form:destination target="pane.CaseRefParameter_child" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.CaseRefParameter_child.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_3JVQUDG0EeysgN5J_V0TXg">
+      <form:source target="pane.CaseRefParameter_child" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Sid_Tester_Data.bom#_gHqy4DGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aChild%26n=attribute1?" data="form.pane.CaseRefParameter_child.value.attribute1"></form:source>
+      <form:destination target="control.CaseRefParameter_child_attribute1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseRefParameter_child_attribute1.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_3JVQUTG0EeysgN5J_V0TXg">
+      <form:source target="pane.CaseRefParameter_child" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Sid_Tester_Data.bom#_gSZcMDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aChild%26n=attribute2?" data="form.pane.CaseRefParameter_child.value.attribute2"></form:source>
+      <form:destination target="control.CaseRefParameter_child_attribute2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseRefParameter_child_attribute2.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_3JV3YDG0EeysgN5J_V0TXg">
+      <form:source target="pane.CaseRefParameter_child" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Sid_Tester_Data.bom#_g4ekwDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aChild%26n=attribute3?" data="form.pane.CaseRefParameter_child.value.attribute3"></form:source>
+      <form:destination target="control.CaseRefParameter_child_attribute3" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseRefParameter_child_attribute3.value"></form:destination>
+    </form:binding>
+  </form:bindings>
+  <form:defaults>
+    <form:labelProperties position="top"/>
+  </form:defaults>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" name="pane.content" paneType="com.tibco.forms.panes.vertical">
+    <form:label>SID: Case Ref Used In User Task</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="true"/>
+    <form:defaults>
+      <form:labelProperties position="top"/>
+    </form:defaults>
+    <form:pane generated="true" generatorSource="Sid_Tester_Process.xpdl#_KKTuQDGyEeysgN5J_V0TXg?p=Sid_Tester_Process%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Sid_Tester_Process%3a%3aSid_Tester_ProcessProcess%26n=CaseRefParameter?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class Sid_Tester_Data.bom#_UDLGQDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.sid_tester_data%26n=SidTesterCase?" name="pane.CaseRefParameter" paneType="com.tibco.forms.panes.vertical">
+      <form:label>Case Ref Parameter</form:label>
+      <form:hint></form:hint>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="left"/>
+      </form:defaults>
+      <form:control generated="true" generatorSource="Sid_Tester_Data.bom#_UZX_wDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aSidTesterCase%26n=autoCaseIdentifier1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.CaseRefParameter_autoCaseIdentifier1">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>autoCaseIdentifier1</form:label>
+        <form:hint></form:hint>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="Sid_Tester_Data.bom#_av3AsDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aSidTesterCase%26n=caseState1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.optionlist" controlType="com.tibco.forms.controls.optionlist" name="control.CaseRefParameter_caseState1">
+        <form:propertySet xsi:type="et:MultiChoicePropertySet">
+          <et:choiceType>enumeration</et:choiceType>
+          <et:choiceEnumeration>Sid_Tester_Data.bom#_WFimoDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aEnumeration%26q=com.example.sid_tester_data%26n=States?</et:choiceEnumeration>
+        </form:propertySet>
+        <form:label>caseState1</form:label>
+        <form:hint></form:hint>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>true</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="Sid_Tester_Data.bom#_cUgDQDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aSidTesterCase%26n=topLevelAttr?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.CaseRefParameter_topLevelAttr">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>Top Level Attr</form:label>
+        <form:hint></form:hint>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:pane generated="true" generatorSource="Sid_Tester_Data.bom#_iBNHYjGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aSidTesterCase%26n=child?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class Sid_Tester_Data.bom#_ewEGwDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.sid_tester_data%26n=Child?" name="pane.CaseRefParameter_child" paneType="com.tibco.forms.panes.vertical">
+        <form:label>Child</form:label>
+        <form:hint></form:hint>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:defaults>
+          <form:labelProperties position="top"/>
+        </form:defaults>
+        <form:control generated="true" generatorSource="Sid_Tester_Data.bom#_gHqy4DGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aChild%26n=attribute1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.CaseRefParameter_child_attribute1">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>attribute1</form:label>
+          <form:hint></form:hint>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Sid_Tester_Data.bom#_gSZcMDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aChild%26n=attribute2?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.CaseRefParameter_child_attribute2">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>attribute2</form:label>
+          <form:hint></form:hint>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Sid_Tester_Data.bom#_g4ekwDGxEeysgN5J_V0TXg?p=Sid_Tester_Data%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.sid_tester_data%3a%3aChild%26n=attribute3?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.CaseRefParameter_child_attribute3">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>attribute3</form:label>
+          <form:hint></form:hint>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+      </form:pane>
+    </form:pane>
+  </form:pane>
+  <form:pane gwt:toolbar="true" styleClass="toolbar" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.horizontal" name="pane.toolbar" paneType="com.tibco.forms.panes.horizontal">
+    <form:label>Toolbar</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.cancel">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Cancel</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.close">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Close</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.submit">
+      <form:propertySet xsi:type="et:ButtonPropertySet">
+        <et:type>primary</et:type>
+      </form:propertySet>
+      <form:label>Submit</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.messages" name="pane.messages" paneType="com.tibco.forms.panes.messages">
+    <form:propertySet xsi:type="et:MessagesPanePropertySet"/>
+    <form:label>Invalid Entries</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+  </form:pane>
+</form:form>
