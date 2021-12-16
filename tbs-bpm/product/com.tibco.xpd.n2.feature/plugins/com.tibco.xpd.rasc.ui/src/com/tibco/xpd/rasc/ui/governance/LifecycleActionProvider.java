@@ -88,12 +88,20 @@ public class LifecycleActionProvider extends CommonActionProvider {
                      */
                     lockForProduction.setEnabled(false);
                 }
+
                 // If any projects are unlocked disable Generate Production and
                 // Create New Draft actions
                 if (hasUnlockedProjects.get()) {
                     generateProductionArtifacts.setEnabled(false);
                     createNewDraft.setEnabled(false);
                 }
+
+                // Sid ACE-5815 if locked projects are selected then disable Generate Test Artifacts
+                // (else it's confusing to generate test artifacts that actually generate production artifacts.
+                if (hasLockedProjects.get()) {
+                    generateDraftArtifacts.setEnabled(false);
+                }
+
                 menu.appendToGroup(ICommonMenuConstants.GROUP_NEW, subMenu);
             }
         } catch (CoreException e) {
