@@ -55,6 +55,7 @@
            </objectState>
          </visibility>
       </objectContribution>
+
       <objectContribution
             id="com.tibco.xpd.processwidget.transactionalContribution"
             objectClass="com.tibco.xpd.processwidget.parts.TaskEditPart">
@@ -67,9 +68,15 @@
                menubarPath="object"
                style="toggle"/>
          <visibility>
-            <objectState
+         	<and>
+            	<objectState
                   name="com.tibco.xpd.processwidget.TASK_OR_SUBPROC"
                   value="SUBPROCESS"/>
+               <objectState
+                 name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+                 value="FALSE">
+           		</objectState>
+			</and>
          </visibility>
       </objectContribution>
       <objectContribution
@@ -128,7 +135,7 @@
       </objectContribution>
       <objectContribution
             adaptable="false"
-            id="com.tibco.xpd.processwidget.pageflowContribution"
+            id="com.tibco.xpd.processwidget.pageflowOpenContribution"
             objectClass="com.tibco.xpd.processwidget.parts.TaskEditPart">
          <menu
                id="pageflowMenu"
@@ -136,19 +143,45 @@
                path="object">
          </menu>
          <action
-               class="com.tibco.xpd.processwidget.popup.actions.UpdatePageflowAction"
-               enablesFor="1"
-               icon="icons/pageflow/SyncParams.png"
-               id="com.tibco.xpd.processwidget.pageflowMenu.update"
-               label="%updatePageflow.label"
-               menubarPath="pageflowMenu/group1">
-         </action>
-         <action
                class="com.tibco.xpd.processwidget.popup.actions.OpenPageflowAction"
                enablesFor="1"
                icon="icons/pageflow/OpenPageflow.png"
                id="com.tibco.xpd.processwidget.pageflow.open"
                label="%openPageflow.label"
+               menubarPath="pageflowMenu/group1">
+         </action>
+         
+         <visibility>
+             <and>
+                <objectState
+                      name="com.tibco.xpd.processwidget.IS_BUSINESS_PROCESS_USER_TASK"
+                      value="TRUE">
+                </objectState>
+                <or>
+                   <objectState
+                         name="com.tibco.xpd.processwidget.IS_RCP_APPLICATION"
+                         value="TRUE">
+                   </objectState>
+                   <objectState
+                         name="com.tibco.xpd.processwidget.IS_WM_FEATURE_AVAILABLE"
+                         value="TRUE">
+                   </objectState>
+                </or>
+             </and>
+         </visibility>
+      </objectContribution>
+
+
+      <objectContribution
+            adaptable="false"
+            id="com.tibco.xpd.processwidget.pageflowEditContribution"
+            objectClass="com.tibco.xpd.processwidget.parts.TaskEditPart">
+         <action
+               class="com.tibco.xpd.processwidget.popup.actions.UpdatePageflowAction"
+               enablesFor="1"
+               icon="icons/pageflow/SyncParams.png"
+               id="com.tibco.xpd.processwidget.pageflowMenu.update"
+               label="%updatePageflow.label"
                menubarPath="pageflowMenu/group1">
          </action>
          <action
@@ -191,9 +224,15 @@
                          value="TRUE">
                    </objectState>
                 </or>
+				<objectState
+					name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+					value="FALSE">
+				</objectState>
              </and>
          </visibility>
       </objectContribution>
+
+
       <objectContribution
             id="com.tibco.xpd.processwidget.taskContribution"
             objectClass="com.tibco.xpd.processwidget.parts.TaskEditPart">
@@ -309,6 +348,10 @@
                      value="TRUE">
                </objectState>
             </or>
+            <objectState
+             	name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+             	value="FALSE">
+       		</objectState>
             </and>
          </visibility>
       </objectContribution>

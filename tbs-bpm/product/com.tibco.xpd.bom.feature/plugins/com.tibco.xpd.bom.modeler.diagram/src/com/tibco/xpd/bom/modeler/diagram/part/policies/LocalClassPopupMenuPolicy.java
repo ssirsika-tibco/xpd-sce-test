@@ -13,6 +13,8 @@ import org.eclipse.uml2.uml.Class;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.modeler.diagram.edit.parts.ClassEditPart;
+import com.tibco.xpd.resources.WorkingCopy;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 
 /**
  * Checks if the right click menu on a Class should contain the convert to Local
@@ -40,6 +42,12 @@ public class LocalClassPopupMenuPolicy implements IPopupMenuContributionPolicy {
                 if ((object != null) && (object instanceof ClassEditPart)) {
                     ClassEditPart editPart = (ClassEditPart) object;
                     Class toMutateClass = editPart.getElement();
+
+                    // IF the BOM is read only then don't allow changes
+                    WorkingCopy wc = WorkingCopyUtil.getWorkingCopyFor(toMutateClass);
+                    if (wc != null && wc.isReadOnly()) {
+                        return false;
+                    }
 
                     // If the global data profile is not applied, don't show the
                     // convert

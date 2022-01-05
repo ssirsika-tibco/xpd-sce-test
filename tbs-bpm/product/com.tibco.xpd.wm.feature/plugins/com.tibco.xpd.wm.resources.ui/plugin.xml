@@ -128,10 +128,16 @@
              menubarPath="starteventPageflowMenu/group1">
        </action>
        <visibility>
-          <objectState
-                name="com.tibco.xpd.processwidget.IS_START_TYPE_NONE_DIRECTLY_UNDER_PROCESS"
-                value="TRUE">
-          </objectState>
+         	<and>
+                <objectState
+                      name="com.tibco.xpd.processwidget.IS_START_TYPE_NONE_DIRECTLY_UNDER_PROCESS"
+                      value="TRUE">
+                </objectState>
+				<objectState
+					name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+					value="FALSE">
+				</objectState>
+            </and>
        </visibility>
     </objectContribution>
  </extension>

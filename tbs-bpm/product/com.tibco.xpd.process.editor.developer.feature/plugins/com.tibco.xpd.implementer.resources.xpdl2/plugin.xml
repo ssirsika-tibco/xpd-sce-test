@@ -295,10 +295,16 @@
                    menubarPath="caseclass.generate.caseservice/main">
              </action>
              <visibility>
-                <objectState
-                      name="type"
-                      value="CASE">
-                </objectState>
+             	<and>
+	                <objectState
+	                      name="type"
+	                      value="CASE">
+	                </objectState>
+					<objectState
+						name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+						value="FALSE">
+					</objectState>
+				</and>
              </visibility>
           </objectContribution>
           <objectContribution
@@ -336,10 +342,16 @@
                    menubarPath="caseclass.generate.bizservice/main">
              </action>
              <visibility>
-                <objectState
-                      name="type"
-                      value="CASE">
-                </objectState>
+             	<and>
+	                <objectState
+	                      name="type"
+	                      value="CASE">
+	                </objectState>
+					<objectState
+						name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+						value="FALSE">
+					</objectState>
+                </and>
              </visibility>
           </objectContribution>
           <objectContribution
@@ -352,10 +364,16 @@
                    path="object">
              </menu>
              <visibility>
-                <objectState
-                      name="com.tibco.xpd.processwidget.IS_START_TYPE_NONE_DIRECTLY_UNDER_PROCESS"
-                      value="TRUE">
-                </objectState>
+             	<and>
+	                <objectState
+	                      name="com.tibco.xpd.processwidget.IS_START_TYPE_NONE_DIRECTLY_UNDER_PROCESS"
+	                      value="TRUE">
+	                </objectState>
+					<objectState
+						name="com.tibco.xpd.processwidget.IS_READ_ONLY"
+						value="FALSE">
+					</objectState>
+	            </and>
              </visibility>
              <action
                    class="com.tibco.xpd.implementer.resources.xpdl2.actions.GenerateServiceProcessOnStartTypeNoneAction"
