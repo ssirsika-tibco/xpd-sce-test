@@ -42,4 +42,14 @@ public class RestDataMapperInSection extends AbstractRestDataMapperSection {
         return Messages.RestDataMapperInSection_RestInputMappingTitle_message;
     }
 
+    /**
+     * @see com.tibco.xpd.datamapper.api.AbstractDataMapperSection#isCreatingTargetData()
+     *
+     * @return
+     */
+    @Override
+    protected boolean isCreatingTargetData() {
+        /* REST input data is brand new and created from scratch */
+        return true;
+    }
 }

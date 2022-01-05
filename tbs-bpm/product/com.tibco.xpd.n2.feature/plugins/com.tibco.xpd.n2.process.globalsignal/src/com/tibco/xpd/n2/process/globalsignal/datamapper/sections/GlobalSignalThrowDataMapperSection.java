@@ -43,4 +43,16 @@ public class GlobalSignalThrowDataMapperSection extends
     protected String getTitle() {
         return Messages.GlobalSignalThrowDataMapperSection_Title;
     }
+
+    /**
+     * @see com.tibco.xpd.datamapper.api.AbstractDataMapperSection#isCreatingTargetData()
+     *
+     * @return
+     */
+    @Override
+    protected boolean isCreatingTargetData() {
+        /* Global signal input data is brand new and created from scratch */
+        return true;
+    }
+
 }

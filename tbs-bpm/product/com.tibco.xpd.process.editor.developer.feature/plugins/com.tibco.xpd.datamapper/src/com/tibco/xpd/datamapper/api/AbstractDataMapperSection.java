@@ -623,7 +623,10 @@ public abstract class AbstractDataMapperSection extends
             Action mergeListAction = null;
 
             // overwrite/append available for simple and complex type arrays
-            if (isTargetSelectionMultiInstance()) {
+            /*
+             * IF the target data is being created from scratch then 'append to list' isn't applicable.
+             */
+            if (isTargetSelectionMultiInstance() && !isCreatingTargetData()) {
                 // add menu action to set array inflation type as overwrite list
                 overwriteListAction =
                         new Action(
@@ -652,63 +655,56 @@ public abstract class AbstractDataMapperSection extends
                 actions.add(overwriteListAction);
 
                 // menu action to set array inflation type as append list
-                appendListAction =
-                        new Action(
-                                Messages.AbstractDataMapperSection_appendList) {
+                appendListAction = new Action(Messages.AbstractDataMapperSection_appendList) {
 
-                            @Override
-                            public void run() {
-                                setArrayInflationType(getCurrentSelectedTargetObject(),
-                                        DataMapperArrayInflationType.APPEND_LIST);
-                            }
+                    @Override
+                    public void run() {
+                        setArrayInflationType(getCurrentSelectedTargetObject(),
+                                DataMapperArrayInflationType.APPEND_LIST);
+                    }
 
-                            /**
-                             * @see org.eclipse.jface.action.Action#getImageDescriptor()
-                             * 
-                             * @return
-                             */
-                            @Override
-                            public ImageDescriptor getImageDescriptor() {
-                                return DataMapperPlugin
-                                        .getDefault()
-                                        .getImageRegistry()
-                                        .getDescriptor(DataMapperConstants.IMG_APPEND_LIST);
-                            }
-                        };
+                    /**
+                     * @see org.eclipse.jface.action.Action#getImageDescriptor()
+                     * 
+                     * @return
+                     */
+                    @Override
+                    public ImageDescriptor getImageDescriptor() {
+                        return DataMapperPlugin.getDefault().getImageRegistry()
+                                .getDescriptor(DataMapperConstants.IMG_APPEND_LIST);
+                    }
+                };
                 actions.add(appendListAction);
 
                 /*
-                 * Sid XPD-7737 - Merge list needs to be available for simple
-                 * type because it is NOT always just same as an overwrite (for
-                 * instance, if there are fewer source elements than tyarget
-                 * then need to overwrite target elemetns up to that point but
-                 * still want remainder of target elemetns left there)
+                 * Sid XPD-7737 - Merge list needs to be available for simple type because it is NOT always just same as
+                 * an overwrite (for instance, if there are fewer source elements than tyarget then need to overwrite
+                 * target elemetns up to that point but still want remainder of target elemetns left there)
                  */
 
                 // menu action to set array inflation type as merge list
-                mergeListAction =
-                        new Action(Messages.AbstractDataMapperSection_mergeList) {
+                mergeListAction = new Action(Messages.AbstractDataMapperSection_mergeList) {
 
-                            @Override
-                            public void run() {
-                                setArrayInflationType(getCurrentSelectedTargetObject(),
-                                        DataMapperArrayInflationType.MERGE_LIST);
-                            }
+                    @Override
+                    public void run() {
+                        setArrayInflationType(getCurrentSelectedTargetObject(),
+                                DataMapperArrayInflationType.MERGE_LIST);
+                    }
 
-                            /**
-                             * @see org.eclipse.jface.action.Action#getImageDescriptor()
-                             * 
-                             * @return
-                             */
-                            @Override
-                            public ImageDescriptor getImageDescriptor() {
-                                return DataMapperPlugin
-                                        .getDefault()
-                                        .getImageRegistry()
-                                        .getDescriptor(DataMapperConstants.IMG_MERGE_LIST);
-                            }
-                        };
+                    /**
+                     * @see org.eclipse.jface.action.Action#getImageDescriptor()
+                     * 
+                     * @return
+                     */
+                    @Override
+                    public ImageDescriptor getImageDescriptor() {
+                        return DataMapperPlugin.getDefault().getImageRegistry()
+                                .getDescriptor(DataMapperConstants.IMG_MERGE_LIST);
+                    }
+                };
+
                 actions.add(mergeListAction);
+
             }
 
             // select the current array inflation type
@@ -1695,5 +1691,19 @@ public abstract class AbstractDataMapperSection extends
          * XPD-7878: Automap is not applicable for data mappers.
          */
         return null;
+    }
+
+    /**
+     * Return true if the content of the mapping target data will always be created from scratch in the given mapping
+     * scenario.
+     * 
+     * If the target data IS being created from scratch then inapplicable options will be removed (i.e. Append to list,
+     * Merge with target list)
+     * 
+     * @return Returns <code>false</code> by default, override to return true if target data is being created from
+     *         scratch (i.e. generally input mappings to services/sub-processes/signals etc)
+     */
+    protected boolean isCreatingTargetData() {
+        return false;
     }
 }

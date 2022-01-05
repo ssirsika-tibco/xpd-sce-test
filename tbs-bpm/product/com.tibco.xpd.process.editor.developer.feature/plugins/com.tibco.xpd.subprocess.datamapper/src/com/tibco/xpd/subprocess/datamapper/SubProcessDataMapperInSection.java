@@ -60,7 +60,7 @@ public class SubProcessDataMapperInSection extends
         if (toTest instanceof EObject) {
             eo = (EObject) toTest;
         } else if (toTest instanceof IAdaptable) {
-            eo = (EObject) ((IAdaptable) toTest).getAdapter(EObject.class);
+            eo = ((IAdaptable) toTest).getAdapter(EObject.class);
         }
         if (eo instanceof Activity
                 && SubProcUtil.isSubProcessImplementation((Activity) eo)) {
@@ -74,4 +74,14 @@ public class SubProcessDataMapperInSection extends
         return false;
     }
 
+    /**
+     * @see com.tibco.xpd.datamapper.api.AbstractDataMapperSection#isCreatingTargetData()
+     *
+     * @return
+     */
+    @Override
+    protected boolean isCreatingTargetData() {
+        /* Sub-process input data is brand new and created from scratch */
+        return true;
+    }
 }
