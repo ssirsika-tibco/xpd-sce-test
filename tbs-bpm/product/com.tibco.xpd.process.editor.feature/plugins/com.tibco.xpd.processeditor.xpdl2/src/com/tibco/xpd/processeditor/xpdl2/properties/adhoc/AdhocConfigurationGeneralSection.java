@@ -124,10 +124,6 @@ public class AdhocConfigurationGeneralSection extends
             allowMultipleInvocationsCheckBox.setEnabled(true);
         }
 
-        /* Sid ACE-3680 Disallow Manual Ad-Hoc in ACE for now. */
-        manual.setEnabled(false);
-        allowMultipleInvocationsCheckBox.setEnabled(false);
-
     }
 
     /**
