@@ -11,6 +11,7 @@ import java.util.List;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.FocusAdapter;
@@ -33,6 +34,7 @@ import com.tibco.xpd.processeditor.xpdl2.Xpdl2ProcessEditorPlugin;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
+import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.ui.dialogs.AbstractXpdWizardPage;
 import com.tibco.xpd.ui.dialogs.FileSelectionBrowserControl;
@@ -338,48 +340,71 @@ public class CaseDataGenerationWizardPage extends AbstractXpdWizardPage
         public void handleEvent(Event event) {
 
             if (event.widget instanceof Tree) {
+                GovernanceStateService governanceStateService = new GovernanceStateService();
 
                 TreeItem[] selection = ((Tree) event.widget).getSelection();
                 if (selection != null && selection.length > 0) {
 
                     Object item = selection[0].getData();
-                    /* if existing xpdl file is selected */
-                    if (item instanceof IFile) {
-
-                        IFile xpdlFile = (IFile) item;
-                        if (Xpdl2ResourcesConsts.XPDL_EXTENSION.equals(xpdlFile
-                                .getFileExtension())) {
-
-                            setFileName(xpdlFile.getName());
-                            setCreateNewPackage(false);
-                            setExistingXpdlFile(xpdlFile);
-                            project = xpdlFile.getProject();
-
-                            setPageComplete(true);
-                        }
-                    } else if (item instanceof SpecialFolder) {
-                        /* if Process Packages special folder is selected */
-                        SpecialFolder specialFolder = (SpecialFolder) item;
-                        project = WorkingCopyUtil.getProjectFor(specialFolder);
-                        IFolder folder = specialFolder.getFolder();
-                        IFile xpdlFile = folder.getFile(fileNameText.getText());
-
-                        if (!xpdlFile.exists()) {
-
-                            setCreateNewPackage(true);
-                        } else {
-
-                            setCreateNewPackage(false);
-                            setExistingXpdlFile(xpdlFile);
-                        }
-
-                        setFileName(xpdlFile.getName());
-                        setPageComplete(true);
-
-                    } else if (item instanceof IProject) {
+                    
+                    if (item instanceof IProject) {
                         /* if project is selected in the tree viewer */
                         project = (IProject) item;
                         setPageComplete(false);
+                        setErrorMessage(String.format("Select a process package or folder"));
+
+                    } else {
+                        /* if existing xpdl file is selected */
+                        if (item instanceof IFile) {
+    
+                            IFile xpdlFile = (IFile) item;
+                            if (Xpdl2ResourcesConsts.XPDL_EXTENSION.equals(xpdlFile
+                                    .getFileExtension())) {
+    
+                                setFileName(xpdlFile.getName());
+                                setCreateNewPackage(false);
+                                setExistingXpdlFile(xpdlFile);
+                                project = xpdlFile.getProject();
+    
+                            }
+                        } else if (item instanceof SpecialFolder) {
+                            /* if Process Packages special folder is selected */
+                            SpecialFolder specialFolder = (SpecialFolder) item;
+                            project = WorkingCopyUtil.getProjectFor(specialFolder);
+                            IFolder folder = specialFolder.getFolder();
+                            IFile xpdlFile = folder.getFile(fileNameText.getText());
+    
+                            if (!xpdlFile.exists()) {
+    
+                                setCreateNewPackage(true);
+                            } else {
+    
+                                setCreateNewPackage(false);
+                                setExistingXpdlFile(xpdlFile);
+                            }
+    
+                            setFileName(xpdlFile.getName());
+    
+                        }
+
+                        try {
+                            if (project != null && !governanceStateService.isLockedForProduction(project)) {
+                                setPageComplete(true);
+                                setErrorMessage(null);
+
+                            } else {
+                                setPageComplete(false);
+
+                                if (project != null) {
+                                    setErrorMessage(String.format("Project '%1$s' is locked", project.getName()));
+                                } else {
+                                    setErrorMessage(String.format("Select a process package or folder"));
+                                }
+                            }
+                        } catch (CoreException e) {
+                            e.printStackTrace();
+                        }
+
                     }
 
                     setProcessPackagesFolder();
