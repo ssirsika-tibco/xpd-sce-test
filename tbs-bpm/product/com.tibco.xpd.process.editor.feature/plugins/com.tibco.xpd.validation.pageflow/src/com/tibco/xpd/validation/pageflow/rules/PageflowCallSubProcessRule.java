@@ -17,20 +17,19 @@ import com.tibco.xpd.xpdl2.SubFlow;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
- * Pageflow validation rules for Call Sub-Process activity. This will add the
- * following markers:
+ * Pageflow validation rules for Call Sub-Process activity. This will add the following markers:
  * <p>
- * 1. A Pageflow process can only synchronously call a Service process that has
- * the Pageflow engine deployment target selected.
+ * 1. A Pageflow process can only synchronously call a Service process that has the Pageflow engine deployment target
+ * selected.
  * <p>
- * 2. A Pageflow process can only call a Business process in
- * asynchronous-detached mode.
+ * 2. A Pageflow process can only call a Business process in asynchronous-detached mode.
  * <p>
- * 3. In asynchronous-detached mode a Pageflow process can only call a Service
- * process that has the Process engine deployment target selected.
+ * 3. In asynchronous-detached mode a Pageflow process can only call a Service process that has the Process engine
+ * deployment target selected.
  * <p>
  * 4. A Pageflow process cannot call processes in asynchronous-attached mode.
  * <p>
+ * 5. You cannot make asynchronous calls to processes that are executed in the pageflow run-time.
  * 
  * @author sajain
  * @since Jan 15, 2015
@@ -63,6 +62,13 @@ public class PageflowCallSubProcessRule extends ProcessActivitiesValidationRule 
      */
     private static final String ISSUE_PF_CANNOT_CALL_IN_ASYNC_ATTACHED =
             "pageflow.pfCannotCallInAsyncAttached"; //$NON-NLS-1$
+
+    /**
+     * Sid ACE-6063 Validate against asynch calls to pageflow-engine-executed processes
+     * 
+     * You cannot make asynchronous calls to processes that are executed in the pageflow run-time.
+     */
+    private static final String ISSUE_PF_CANNOT_CALL_PAGEFLOW_ASYNC = "pageflow.pfCannotCallPageflowAsynch"; //$NON-NLS-1$
 
     /**
      * @see com.tibco.xpd.validation.xpdl2.rules.ProcessActivitiesValidationRule#validate(com.tibco.xpd.xpdl2.Activity)
@@ -102,9 +108,18 @@ public class PageflowCallSubProcessRule extends ProcessActivitiesValidationRule 
                     TaskObjectUtil.getSubProcessOrInterface(activity);
 
             /*
+             * Sid ACE-6063 Validate against ANY ASYNCH call where we know that the target is run in pageflow engine
+             */
+            if (subProcObject instanceof Process && Xpdl2ModelUtil.isPageflowOrSubType((Process) subProcObject)
+                    && execModeObject instanceof AsyncExecutionMode
+                    && (AsyncExecutionMode.ATTACHED.equals(execModeObject)
+                            || AsyncExecutionMode.DETACHED.equals(execModeObject))) {
+                addIssue(ISSUE_PF_CANNOT_CALL_PAGEFLOW_ASYNC, activity);
+            }
+            /*
              * Check if the calling process is a pageflow.
              */
-            if (Xpdl2ModelUtil.isPageflow(proc)) {
+            else if (Xpdl2ModelUtil.isPageflow(proc)) {
 
                 if (Xpdl2ModelUtil
                         .isServiceProcessOrProcessInterface(subProcObject)) {

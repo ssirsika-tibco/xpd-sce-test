@@ -65,28 +65,19 @@ public class SetCallSubProcessToSyncResolution extends
                             (AsyncExecutionMode) execModeObject;
 
                     /*
-                     * Check if execution mode is set to ASYNCHRONOUS_DETACHED.
+                     * Sid ACE-6063 - This quick fix was coded incorrectly. The resolution was to switch sub-proc call
+                     * to Synchronous, but wasn't doing so if mode was Asynch-Detached - it should do what it says on
+                     * the tin!
                      */
-                    if (!AsyncExecutionMode.DETACHED.equals(executionMode)) {
+                    CompoundCommand cmd =
+                            new CompoundCommand(Messages.SetCallSubProcessInvocationModeResolution_Command_label);
 
-                        /*
-                         * If it isn't, then return command to set it to
-                         * ASYNCHRONOUS_DETACHED.
-                         */
+                    cmd.append(SetCommand.create(editingDomain,
+                            subFlow,
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_AsyncExecutionMode(),
+                            SetCommand.UNSET_VALUE));
 
-                        CompoundCommand cmd =
-                                new CompoundCommand(
-                                        Messages.SetCallSubProcessInvocationModeResolution_Command_label);
-
-                        cmd.append(SetCommand.create(editingDomain,
-                                subFlow,
-                                XpdExtensionPackage.eINSTANCE
-                                        .getDocumentRoot_AsyncExecutionMode(),
-                                SetCommand.UNSET_VALUE));
-
-                        return cmd;
-                    }
-
+                    return cmd;
                 }
             }
         }

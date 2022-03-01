@@ -104,17 +104,17 @@ public class ConvertCallProcess {
             	XpdModelType modelType = XPDLUtils.getXpdModelType(xpdlActivity.getProcess());
             	if (XpdModelType.PAGE_FLOW.equals(modelType) ||
             			(XpdModelType.SERVICE_PROCESS.equals(modelType) && context.isPageFlowEngineTarget())) {
-	        		//detached and pageflow or service process deployed to a pageflow engine
-            		//set remote engine to indicate if we will be crossing engine boundaries
+	        		// Calling asynch from a pageflow OR a pageflow-service-process
             	    
-                    /*
-                     * Sid ACE-3820 Make sure we're actually crossing engine boundary before setting the remoteEngine
-                     * property.
-                     */
-                    if (subProcessOrInterface instanceof Process
-                            && Xpdl2ModelUtil.isBusinessProcess((Process) subProcessOrInterface)) {
-                        callProcess.setRemoteEngine(true);
-                    }
+            	    /* 
+            	     * Sid ACE-6063 Removed original fix for ACE-3820 (only set remoteEngine=true if target process is a business-process).
+            	     * 
+            	     *  This was an invalid assertion. Because Asynch pageflow -> pageflow sub-process call is not permitted then 
+            	     *  we have to assume that dynamic call using process-interface will be pageflow->business process.
+            	     *  
+            	     *  So the correct fix for ACE-3820 should have been to validate against asynch pageflow->pageflow sub-process calls. 
+            	     */
+                     callProcess.setRemoteEngine(true);
             	}
             }
         } else {
