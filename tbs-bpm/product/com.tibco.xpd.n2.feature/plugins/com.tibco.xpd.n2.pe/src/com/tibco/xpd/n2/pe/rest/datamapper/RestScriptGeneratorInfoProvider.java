@@ -34,6 +34,7 @@ import com.tibco.xpd.rsd.PayloadReference;
 import com.tibco.xpd.rsd.Request;
 import com.tibco.xpd.rsd.Resource;
 import com.tibco.xpd.rsd.Service;
+import com.tibco.xpd.ui.util.NameUtil;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.BasicType;
@@ -1060,9 +1061,23 @@ public class RestScriptGeneratorInfoProvider
             RestParamTreeItem item = (RestParamTreeItem) object;
             path = item.getPath();
             Parameter param = item.getParam();
-            if (ParameterStyle.HEADER.equals(param.getStyle())) {
+
+            /**
+             * Sid ACE-6071 (port of XPD-8546) JS script variable names for query params also need
+             * to have special characters removed as well as header parameters.
+             * 
+             * Also, just replacing hyphen with underscore is a little weak, so
+             * we will do that (as we always used to for header params) AND then
+             * remove anything that is not alphanumeric or underscore - that
+             * should cleanse everything else that will be an issue for JS
+             * script variables.
+             */
+            if (ParameterStyle.HEADER.equals(param.getStyle()) || ParameterStyle.QUERY.equals(param.getStyle())) {
                 path = path.replace('-', '_');
+                
+                path = NameUtil.getInternalName(path, true);
             }
+
         } else if (object instanceof UnprocessedTextRestMapperTreeItem) {
             path = RestMappingPrefix.PAYLOAD.getPrefix();
         }
