@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.TimeZone;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
@@ -652,8 +653,13 @@ public final class ProjectUtil2 {
 
     private static final String simpleDateFormat = "yyyyMMddHHmmssSSS"; //$NON-NLS-1$
 
-    private static final SimpleDateFormat format =
-            new SimpleDateFormat(simpleDateFormat);
+    private static SimpleDateFormat format;
+
+    /* Sid ACE-5814 Use UTC time for timestamps for consistency across different builders. */
+    static {
+        format = new SimpleDateFormat(simpleDateFormat);
+        format.setTimeZone(TimeZone.getTimeZone("GMT")); //$NON-NLS-1$
+    }
 
     /**
      * Sid ACE-122 - Moved from DAANamingUtils
