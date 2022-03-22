@@ -23,8 +23,10 @@ import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapt
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.RestConceptPath;
+import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
 import com.tibco.xpd.rest.schema.JsonSchemaUtil;
 import com.tibco.xpd.rsd.DataType;
+import com.tibco.xpd.rsd.Fault;
 import com.tibco.xpd.rsd.HttpMethod;
 import com.tibco.xpd.rsd.Method;
 import com.tibco.xpd.rsd.Parameter;
@@ -38,6 +40,7 @@ import com.tibco.xpd.ui.util.NameUtil;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.BasicType;
+import com.tibco.xpd.xpdl2.ResultError;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
@@ -559,16 +562,38 @@ public class RestScriptGeneratorInfoProvider
      *            The activity to check.
      * @param isSource
      *            true if this is a
-     * @return <code>true</code> if mayload is the special "Unprocessed Text"
-     *         type, <code>false</code> if it is not, <code>null</code> if the
-     *         type is unset.
+     * @return <code>true</code> if Payload is the special "Unprocessed Text" type, <code>false</code> if it is not,
+     *         <code>null</code> if the type is unset.
      */
     private PayloadType getPayloadType(Activity activity, boolean isSource) {
         PayloadType payloadType = PayloadType.UNASSIGNED;
         RestServiceTaskAdapter rsta = new RestServiceTaskAdapter();
-        Method method = rsta.getRSOMethod(activity);
-        if (method != null) {
-            payloadType = getPayloadType(method, isSource);
+
+        /*
+         * Sid ACE-6123 When called for the PayloadType for a Catch Fault event then we need to look at the FAULT for
+         * the payload type instead of the REST service normal response type.
+         */
+        if (rsta.isCatchEvent(activity)) {
+            // May be a Catch for a REST fault.
+            Activity thrower = rsta.getThrowerActivity(activity);
+            if (thrower != null) {
+                ResultError resultError = EventObjectUtil.getResultError(activity);
+                
+                if (resultError != null && resultError.getErrorCode() != null && !resultError.getErrorCode().isEmpty()) {
+                    
+                    Fault rsoFault = rsta.getRSOFault(thrower, resultError.getErrorCode());
+                    
+                    if (rsoFault != null) {
+                        payloadType = getPayloadType(rsoFault);
+                    }
+                }
+            }
+
+        } else {
+            Method method = rsta.getRSOMethod(activity);
+            if (method != null) {
+                payloadType = getPayloadType(method, isSource);
+            }
         }
         return payloadType;
     }
@@ -583,7 +608,6 @@ public class RestScriptGeneratorInfoProvider
      *         type is unset.
      */
     private PayloadType getPayloadType(Method method, boolean isSource) {
-        PayloadType payloadType = PayloadType.UNASSIGNED;
         PayloadRefContainer prc = null;
 
         if (isSource) {
@@ -592,8 +616,17 @@ public class RestScriptGeneratorInfoProvider
             prc = method.getRequest();
         }
 
-        if (prc != null) {
-            PayloadReference pr = prc.getPayloadReference();
+        return getPayloadType(prc);
+    }
+
+    /**
+     * @param 
+     * @return the {@link PayloadType} referred to by the given payload ref container.
+     */
+    public PayloadType getPayloadType(PayloadRefContainer payloadRefContainer) {
+        PayloadType payloadType = PayloadType.UNASSIGNED;
+        if (payloadRefContainer != null) {
+            PayloadReference pr = payloadRefContainer.getPayloadReference();
             if (pr != null) {
                 if (JsonSchemaUtil.UNPROCESSED_TEXT_PAYLOAD_REFERENCE
                         .equals(pr.getRef())) {
