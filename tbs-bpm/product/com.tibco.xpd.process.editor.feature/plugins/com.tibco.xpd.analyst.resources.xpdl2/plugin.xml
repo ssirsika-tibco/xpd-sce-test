@@ -903,35 +903,6 @@
                	</and>
             </enablement>
          </commonWizard>
-         <!-- ACE-2011: Remove Unsupported features. ARIS import.
-         <commonWizard
-               menuGroupId="additions.package"
-               type="import"
-               wizardId="com.tibco.xpd.importwizard.aris">
-            <enablement>
-               <or>
-                  <and>
-                     <instanceof
-                           value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
-                     </instanceof>
-                     <test
-                           property="com.tibco.xpd.resources.specialfolder.isOfKind"
-                           value="processes">
-                     </test>
-                  </and>
-                  <and>
-                     <instanceof
-                           value="org.eclipse.core.resources.IResource">
-                     </instanceof>
-                     <test
-                           property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
-                           value="processes">
-                     </test>
-                  </and>
-               </or>
-            </enablement>
-         </commonWizard>
-         -->
          <commonWizard
                menuGroupId="additions.package"
                type="import"
