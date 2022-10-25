@@ -185,8 +185,11 @@ public class PERascContributor implements RascContributor {
                     if (root instanceof Package) {
                         EList<Process> processes = ((Package) root).getProcesses();
 
-                        hasProcesses = !processes.isEmpty();
-                        break;
+                        /* Sid ACE-6411 Fixed incorrectly coded check for ANY xpdl has processes */
+                        if (!processes.isEmpty()) {
+                            hasProcesses = true;
+                            break;
+                        }
                     }
                 }
             }
