@@ -747,9 +747,17 @@ public class ConvertProcess {
                     if (transition != null) context.syncXpdlId(bpelLink, transition);
                     flowLinks.add(bpelLink);
                     link.setBpelReference(bpelLink);
-                    if (link.isLoopBack()) {
-                        BPELUtils.addExtensionAttribute(bpelLink, LOOPBACK_EXTENSION, "yes"); //$NON-NLS-1$
-                    }
+                    
+                    /* 
+                     * Sid ACE-6295 During ACE-5065 TCLA->BPMe app generation feature it was found that the tibex:loopback 
+                     * attribute was not referenced anywhere in process-engine code (according to Mark Barnett).
+                     * 
+                     * So to save future confusion we decided to remove it.
+                     */
+//                    if (link.isLoopBack()) {
+//                        BPELUtils.addExtensionAttribute(bpelLink, LOOPBACK_EXTENSION, "yes"); //$NON-NLS-1$
+//                    }
+                    
                 } finally {
                     context.endElement();
                 }
