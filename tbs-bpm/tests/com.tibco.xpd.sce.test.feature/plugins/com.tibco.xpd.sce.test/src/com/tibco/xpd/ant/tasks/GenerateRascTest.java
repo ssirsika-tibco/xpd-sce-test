@@ -28,6 +28,7 @@ import org.eclipse.debug.core.ILaunchManager;
 
 import com.tibco.bpm.dt.rasc.Version;
 import com.tibco.xpd.core.test.util.TestUtil;
+import com.tibco.xpd.rasc.core.impl.RascControllerImpl;
 import com.tibco.xpd.resources.util.GovernanceStateService;
 import com.tibco.xpd.resources.util.ProjectImporter;
 
@@ -36,12 +37,14 @@ import junit.framework.TestCase;
 /**
  * ACE-5814: Test to check that locked projects maintain consistent version qualifier in RASC Manifest and that draft
  * projects always change version
+ * 
+ * ACE-6110: Check that Feature-Version property is set correctly.
  *
  * @author aallway
  * @since 14 Oct 2021
  */
 @SuppressWarnings("nls")
-public class GenerateRascConsistentVersionTest extends TestCase {
+public class GenerateRascTest extends TestCase {
 
     /*
      * This needs to be a copy of GenerateRasctTask.DEFAULT_DEST_DIR as: From
@@ -93,14 +96,20 @@ public class GenerateRascConsistentVersionTest extends TestCase {
 
 
             /*
-             * Read the manifest and check version.
+             * Read the manifest then check version and feature compatibility version.
              */
-            Version origProductionRascVersion = getRascVersion(productionRascFile.getLocation().toFile());
-            assertTrue(origProductionRascVersion.getQualifier() != null
-                    && !origProductionRascVersion.getQualifier().isEmpty());
+            ManifestProperties originalProductionManifestProps =
+                    getRascProperties(productionRascFile.getLocation().toFile());
+            assertTrue(originalProductionManifestProps.appVersion.getQualifier() != null
+                    && !originalProductionManifestProps.appVersion.getQualifier().isEmpty());
+            assertEquals(RascControllerImpl.BPME_COMPATIBILITY_FEATURE_VERSION,
+                    originalProductionManifestProps.featureVersion);
 
-            Version origDraftRascVersion = getRascVersion(draftRascFile.getLocation().toFile());
-            assertTrue(origDraftRascVersion.getQualifier() != null && !origDraftRascVersion.getQualifier().isEmpty());
+            ManifestProperties originalDraftManifestProps = getRascProperties(draftRascFile.getLocation().toFile());
+            assertTrue(originalDraftManifestProps.appVersion.getQualifier() != null
+                    && !originalDraftManifestProps.appVersion.getQualifier().isEmpty());
+            assertEquals(RascControllerImpl.BPME_COMPATIBILITY_FEATURE_VERSION,
+                    originalDraftManifestProps.featureVersion);
 
             // Delete and regenerate RASC files.
             productionRascFile.delete(true, new NullProgressMonitor());
@@ -119,17 +128,24 @@ public class GenerateRascConsistentVersionTest extends TestCase {
             assertTrue(draftRascFile.exists());
 
             // Recheck manifest versions.
-            Version newProductionRascVersion = getRascVersion(productionRascFile.getLocation().toFile());
-            assertTrue(newProductionRascVersion.getQualifier() != null
-                    && !newProductionRascVersion.getQualifier().isEmpty());
+            ManifestProperties newProductionManifestProps =
+                    getRascProperties(productionRascFile.getLocation().toFile());
+            assertTrue(newProductionManifestProps.appVersion.getQualifier() != null
+                    && !newProductionManifestProps.appVersion.getQualifier().isEmpty());
 
-            assertEquals(origProductionRascVersion, newProductionRascVersion);
+            assertEquals(originalProductionManifestProps.appVersion, newProductionManifestProps.appVersion);
 
-            Version newDraftRascVersion = getRascVersion(draftRascFile.getLocation().toFile());
-            assertTrue(newDraftRascVersion.getQualifier() != null && !newDraftRascVersion.getQualifier().isEmpty());
+            assertEquals(newProductionManifestProps.featureVersion,
+                    RascControllerImpl.BPME_COMPATIBILITY_FEATURE_VERSION);
+
+            ManifestProperties newDraftManifestProps = getRascProperties(draftRascFile.getLocation().toFile());
+            assertTrue(newDraftManifestProps.appVersion.getQualifier() != null
+                    && !newDraftManifestProps.appVersion.getQualifier().isEmpty());
             
-            assertNotEquals(origDraftRascVersion, newDraftRascVersion);
+            assertNotEquals(originalDraftManifestProps.appVersion, newDraftManifestProps.appVersion);
             
+            assertEquals(newDraftManifestProps.featureVersion, RascControllerImpl.BPME_COMPATIBILITY_FEATURE_VERSION);
+
         } catch (Exception e) {
             fail("Exception thrown in test: " + e.getMessage());
         } finally {
@@ -144,20 +160,26 @@ public class GenerateRascConsistentVersionTest extends TestCase {
      * @param rascFile
      * @return version
      */
-    private Version getRascVersion(File rascFile) {
+    private ManifestProperties getRascProperties(File rascFile) {
         try {
+            ManifestProperties manifestProps = new ManifestProperties();
+
             ZipFile rascZip = new ZipFile(rascFile);
 
             InputStream mainfestStream = rascZip.getInputStream(new ZipEntry("MANIFEST.MF"));
 
             Manifest manifest = new Manifest(mainfestStream);
-            String version = manifest.getMainAttributes().getValue("Application-Version");
+
+            manifestProps.appVersion = new Version(manifest.getMainAttributes().getValue("Application-Version"));
+
+            String appVersion = manifest.getMainAttributes().getValue("Feature-Version");
+            manifestProps.featureVersion = appVersion != null ? Integer.parseInt(appVersion) : null;
 
             mainfestStream.close();
 
             rascZip.close();
 
-            return new Version(version);
+            return manifestProps;
 
         } catch (Exception e) {
             fail("Error reading manifest from " + rascFile.getPath() + "  ::  " + e.getMessage());
@@ -245,5 +267,17 @@ public class GenerateRascConsistentVersionTest extends TestCase {
     
         // fail if it failed to complete
         assertTrue("Launch failed to complete.", launch.isTerminated());
+    }
+
+    /**
+     * Simple data task to gather data from a generated RASC.
+     *
+     * @author aallway
+     * @since Oct 2022
+     */
+    private static class ManifestProperties {
+        Version appVersion;
+
+        int featureVersion;
     }
 }

@@ -58,6 +58,17 @@ import com.tibco.xpd.resources.util.SpecialFolderUtil;
  * @since 1 Mar 2019
  */
 public class RascControllerImpl implements RascController {
+
+    /**
+     * Sid ACE-6110 The Latest BPMe runtime feature compatibility version number.
+     * 
+     * This is an incrementing integer that the run-time uses to declare it's feature compatibility. If there is a new
+     * feature in Studio applications that requires additional run-time support that older versions cannot handle, then
+     * the feature-version is incremented. In this way new app features from a later version of Studio cannot be
+     * deployed into an older run-time that does not support that feature.
+     */
+    public static final int BPME_COMPATIBILITY_FEATURE_VERSION = 1;
+
     private static final String PROGRESS_TASK =
             Messages.RascControllerImpl_ProgressTask;
 
@@ -342,6 +353,11 @@ public class RascControllerImpl implements RascController {
             } else {
                 aManifest.setGovernanceState(GovernanceState.DRAFT);
             }
+
+            /*
+             * Sid ACE-6110: The feature compatibility version required by any run-time that this app is deployed to.
+             */
+            aManifest.setFeatureVersion(BPME_COMPATIBILITY_FEATURE_VERSION);
 
             for (RascAppSummary dependency : aAppSummary
                     .getReferencedProjects()) {
