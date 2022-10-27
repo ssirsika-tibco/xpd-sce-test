@@ -94,22 +94,27 @@ public class GenerateRascTest extends TestCase {
             IFile draftRascFile = rascOutFolder.getFile("Sid_Tester_Process.rasc");
             assertTrue(draftRascFile.exists());
 
-
             /*
-             * Read the manifest then check version and feature compatibility version.
+             * Check the manifest then check version, feature compatibility version and source/target environment
              */
             ManifestProperties originalProductionManifestProps =
                     getRascProperties(productionRascFile.getLocation().toFile());
             assertTrue(originalProductionManifestProps.appVersion.getQualifier() != null
                     && !originalProductionManifestProps.appVersion.getQualifier().isEmpty());
+
             assertEquals(RascControllerImpl.BPME_COMPATIBILITY_FEATURE_VERSION,
                     originalProductionManifestProps.featureVersion);
+            assertEquals(RascControllerImpl.BPME_ENVIRONMENT_TAG, originalProductionManifestProps.sourceEnvironment);
+            assertEquals(RascControllerImpl.BPME_ENVIRONMENT_TAG, originalProductionManifestProps.targetEnvironment);
 
             ManifestProperties originalDraftManifestProps = getRascProperties(draftRascFile.getLocation().toFile());
             assertTrue(originalDraftManifestProps.appVersion.getQualifier() != null
                     && !originalDraftManifestProps.appVersion.getQualifier().isEmpty());
+
             assertEquals(RascControllerImpl.BPME_COMPATIBILITY_FEATURE_VERSION,
                     originalDraftManifestProps.featureVersion);
+            assertEquals(RascControllerImpl.BPME_ENVIRONMENT_TAG, originalDraftManifestProps.sourceEnvironment);
+            assertEquals(RascControllerImpl.BPME_ENVIRONMENT_TAG, originalDraftManifestProps.targetEnvironment);
 
             // Delete and regenerate RASC files.
             productionRascFile.delete(true, new NullProgressMonitor());
@@ -137,6 +142,8 @@ public class GenerateRascTest extends TestCase {
 
             assertEquals(newProductionManifestProps.featureVersion,
                     RascControllerImpl.BPME_COMPATIBILITY_FEATURE_VERSION);
+            assertEquals(RascControllerImpl.BPME_ENVIRONMENT_TAG, newProductionManifestProps.sourceEnvironment);
+            assertEquals(RascControllerImpl.BPME_ENVIRONMENT_TAG, newProductionManifestProps.targetEnvironment);
 
             ManifestProperties newDraftManifestProps = getRascProperties(draftRascFile.getLocation().toFile());
             assertTrue(newDraftManifestProps.appVersion.getQualifier() != null
@@ -145,6 +152,8 @@ public class GenerateRascTest extends TestCase {
             assertNotEquals(originalDraftManifestProps.appVersion, newDraftManifestProps.appVersion);
             
             assertEquals(newDraftManifestProps.featureVersion, RascControllerImpl.BPME_COMPATIBILITY_FEATURE_VERSION);
+            assertEquals(RascControllerImpl.BPME_ENVIRONMENT_TAG, newDraftManifestProps.sourceEnvironment);
+            assertEquals(RascControllerImpl.BPME_ENVIRONMENT_TAG, newDraftManifestProps.targetEnvironment);
 
         } catch (Exception e) {
             fail("Exception thrown in test: " + e.getMessage());
@@ -174,6 +183,9 @@ public class GenerateRascTest extends TestCase {
 
             String appVersion = manifest.getMainAttributes().getValue("Feature-Version");
             manifestProps.featureVersion = appVersion != null ? Integer.parseInt(appVersion) : null;
+
+            manifestProps.sourceEnvironment = manifest.getMainAttributes().getValue("Source-Environment");
+            manifestProps.targetEnvironment = manifest.getMainAttributes().getValue("Target-Environment");
 
             mainfestStream.close();
 
@@ -279,5 +291,9 @@ public class GenerateRascTest extends TestCase {
         Version appVersion;
 
         int featureVersion;
+
+        String sourceEnvironment;
+
+        String targetEnvironment;
     }
 }

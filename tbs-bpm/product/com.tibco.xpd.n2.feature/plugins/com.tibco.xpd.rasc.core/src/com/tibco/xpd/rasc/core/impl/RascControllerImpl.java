@@ -69,6 +69,9 @@ public class RascControllerImpl implements RascController {
      */
     public static final int BPME_COMPATIBILITY_FEATURE_VERSION = 1;
 
+    /** Sid ACE-6599 The RASC Source/Target-Environment */
+    public static final String BPME_ENVIRONMENT_TAG = "bpme"; //$NON-NLS-1$
+
     private static final String PROGRESS_TASK =
             Messages.RascControllerImpl_ProgressTask;
 
@@ -358,6 +361,12 @@ public class RascControllerImpl implements RascController {
              * Sid ACE-6110: The feature compatibility version required by any run-time that this app is deployed to.
              */
             aManifest.setFeatureVersion(BPME_COMPATIBILITY_FEATURE_VERSION);
+
+            /*
+             * Sid ACE-6599: Set the source and target environment
+             */
+            aManifest.setSourceEnvironment(BPME_ENVIRONMENT_TAG);
+            aManifest.setTargetEnvironment(BPME_ENVIRONMENT_TAG);
 
             for (RascAppSummary dependency : aAppSummary
                     .getReferencedProjects()) {
