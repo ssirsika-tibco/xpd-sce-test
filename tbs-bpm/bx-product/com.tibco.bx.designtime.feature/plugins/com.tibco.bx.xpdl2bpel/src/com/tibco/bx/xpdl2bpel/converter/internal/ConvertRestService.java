@@ -111,7 +111,13 @@ public class ConvertRestService {
             }
         }
 
-        XPDLUtils.configureRetry(invoke, xpdlActivity);
+        XPDLUtils.configureRetry(invoke, xpdlActivity, context);
+        
+        /*
+         * Sid ACE-6451 "Maximum retry action" configuration was missing from REST service activities in runtime BPEL.
+         */
+        XPDLUtils.configureHaltOnError(invoke, xpdlActivity, context);
+        
         return invoke;
     }
 

@@ -150,11 +150,11 @@ public class ConverterExtensions {
 			XPDLUtils.findReferencedData(context, xpdlActivity, preCallAssign.getName(), DataReferenceContext.CONTEXT_MAPPING_IN);
 		}
 
-		XPDLUtils.configureRetry(extensionActivity, xpdlActivity);
+		XPDLUtils.configureRetry(extensionActivity, xpdlActivity, context);
 
     	if (variables.getChildren().isEmpty() && preCallAssign.getCopy().isEmpty() && postCallAssign.getCopy().isEmpty()) {
         	//No temp variables; no mappings. Simply return the extension activity
-	    	XPDLUtils.configureHaltOnError(extensionActivity, xpdlActivity);
+	    	XPDLUtils.configureHaltOnError(extensionActivity, xpdlActivity, context);
             return extensionActivity;
         }
         
@@ -170,7 +170,7 @@ public class ConverterExtensions {
         }
         scope.setVariables(variables);
         scope.setActivity(sequence);
-    	XPDLUtils.configureHaltOnError(scope, xpdlActivity);
+    	XPDLUtils.configureHaltOnError(scope, xpdlActivity, context);
         return scope;
 	}
 

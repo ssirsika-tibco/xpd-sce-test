@@ -1004,7 +1004,7 @@ public class ConvertEvent {
         //so that the message variable will be available for the data mapping conversion
         org.eclipse.bpel.model.Invoke invoke = ConvertWebService.convertWebServiceOperationToBPELInvoke(
         		context, wsoInfo, xpdlActivity, message);
-    	XPDLUtils.configureRetry(invoke, xpdlActivity);
+    	XPDLUtils.configureRetry(invoke, xpdlActivity, context);
         sequence.getActivities().add(invoke);
 
         ConvertDataMapping convertDataMapping=new ConvertDataMapping(context,xpdlActivity, wsoInfo);
@@ -1024,7 +1024,7 @@ public class ConvertEvent {
         org.eclipse.bpel.model.Variables variables = context.getVariables(xpdlActivity);
         scope.setVariables(variables);
         scope.setActivity(sequence);
-    	XPDLUtils.configureHaltOnError(scope, xpdlActivity);
+    	XPDLUtils.configureHaltOnError(scope, xpdlActivity, context);
         return scope;
     }
 

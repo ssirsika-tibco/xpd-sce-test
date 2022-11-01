@@ -284,7 +284,7 @@ public class ConvertTask {
                 //variable in the context (required for the CDS since we need to know the variable type) 
                 org.eclipse.bpel.model.Invoke invoke = ConvertWebService.convertWebServiceOperationToBPELInvoke(
                         context, wsoInfo, xpdlActivity, taskService.getMessageIn());
-                XPDLUtils.configureRetry(invoke, xpdlActivity);
+                XPDLUtils.configureRetry(invoke, xpdlActivity, context);
 
                 /* XPD-8010 DataMapper - mapping activity is not necessarily an assign anymore, maybe a sequence for Datamapper. */
                 ConvertDataMapping dataMappingConverter = new ConvertDataMapping(context, xpdlActivity, wsoInfo);
@@ -314,7 +314,7 @@ public class ConvertTask {
                 scope.setVariables(variables);
                 scope.setActivity(sequence);
 
-                XPDLUtils.configureHaltOnError(scope, xpdlActivity);
+                XPDLUtils.configureHaltOnError(scope, xpdlActivity, context);
                 
                 return scope;
             case ImplementationType.OTHER:

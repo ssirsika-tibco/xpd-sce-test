@@ -194,12 +194,12 @@ public class AdvancedTaskRetryProperties {
 
                 TaskType taskType = TaskObjectUtil.getTaskTypeStrict(activity);
                 /*
-                 * XPD-3857 not applicable to pageflows and service process
-                 * (XPD-8276).
+                 * XPD-3857 not applicable to pageflows and service process (XPD-8276).
+                 * 
+                 * Sid ACE-6451 Allow retry settings on service-processes
                  */
                 if (Xpdl2ModelUtil.isPageflowProcess((activity.getProcess()))
-                        || Xpdl2ModelUtil
-                                .isServiceProcess(activity.getProcess())) {
+                /* || Xpdl2ModelUtil.isServiceProcess(activity.getProcess()) */ ) {
                     return false;
                 }
                 // Allow 'Service Task'

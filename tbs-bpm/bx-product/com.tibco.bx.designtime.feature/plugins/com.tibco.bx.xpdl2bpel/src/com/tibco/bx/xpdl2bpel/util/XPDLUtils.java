@@ -888,7 +888,18 @@ public class XPDLUtils {
                 XpdExtensionPackage.eINSTANCE.getDocumentRoot_Retry());
     }
 
-	public static void configureRetry(org.eclipse.bpel.model.ExtensibleElement bpelElement, OtherElementsContainer container) {
+	public static void configureRetry(org.eclipse.bpel.model.ExtensibleElement bpelElement, OtherElementsContainer container, ConverterContext context) {
+	    /*
+	     * Sid ACE-6451 We now allow retry config on service-processes which can be dual flavour (Process and / or Pageflow runtime deployment targets).
+	     * Retry etc does not make sense in Pageflows (which is why Studio does not support retry config for these.
+	     * 
+	     * So in the use-case where we have a service-process with dual destination, we should NOT output retry config for the copy of process 
+	     * that is deployed into Pageflow engine. 
+	     */
+	    if (context.isPageFlowEngineTarget()) {
+	        return;
+	    }
+	    	    
 		Retry retry = XPDLUtils.getRetry(container);
         if (retry != null) {
         	if (retry.getInitialPeriod() > 0) {
@@ -903,8 +914,19 @@ public class XPDLUtils {
         }
 	}
     
-	public static void configureHaltOnError(org.eclipse.bpel.model.ExtensibleElement bpelElement, OtherElementsContainer container) {
-		Retry retry = XPDLUtils.getRetry(container);
+	public static void configureHaltOnError(org.eclipse.bpel.model.ExtensibleElement bpelElement, OtherElementsContainer container, ConverterContext context) {
+	    /*
+         * Sid ACE-6451 We now allow retry config on service-processes which can be dual flavour (Process and / or Pageflow runtime deployment targets).
+         * Retry etc does not make sense in Pageflows (which is why Studio does not support retry config for these.
+         * 
+         * So in the use-case where we have a service-process with dual destination, we should NOT output retry config for the copy of process 
+         * that is deployed into Pageflow engine. 
+         */
+        if (context.isPageFlowEngineTarget()) {
+            return;
+        }
+        
+        Retry retry = XPDLUtils.getRetry(container);
         if (retry != null &&retry.isSetMaxRetryAction()) {
         	if (MaxRetryActionType.HALT.equals(retry.getMaxRetryAction())) {
             	BPELUtils.addExtensionAttribute(bpelElement, N2PEConstants.RETRY_MAX_RETRY_ACTION, "true"); //$NON-NLS-1$
