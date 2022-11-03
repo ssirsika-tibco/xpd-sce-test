@@ -55,6 +55,35 @@ public interface IScriptGeneratorInfoProvider {
             String rhsObjectStatement, String jsVarAlias);
 
     /**
+     * Call to generate the 'else' statement to handle assignment if the mapping-source-data fails the null check.
+     * 
+     * i.e. This is the function that returns the content of the else statement(s) in this scenario...
+     * 
+     * <pre>
+     * // Map from 'postCDDRequest.consumerRequestType' to 'Payload.PostCDDRequest.consumerRequestType' 
+     * if (postCDDRequest != null) { 
+     *      REST_PAYLOAD['consumerRequestType'] = postCDDRequest.consumerRequestType ? new String(postCDDRequest.consumerRequestType) : null;
+     *       
+     *      if ($REST_PAYLOAD['consumerRequestType'] === null) { 
+     *          delete $REST_PAYLOAD['consumerRequestType'] 
+     *      } 
+     * } 
+     * else { 
+     *      // 
+     *      // YOUR CODE HERE TO HANDLE ASSIGNMENT OF TARGET DATA IF SOURCE DATA DOES NOT EXIST
+     *      //
+     * }
+     * </pre>
+     * 
+     * @param object
+     *            The object to assign.
+     * @param jsVarAlias
+     *            The target alias.
+     * @return The else statement.
+     */
+    String getAssignmentElseStatement(Object object, String jsVarAlias);
+
+    /**
      * Get the getter statement or the given source object when this is a item to item direct mapping.
      * 
      * Sid ACE-2088 If the mapping scenario for which this info provider is used permits Multi-Instance->Single-Instance

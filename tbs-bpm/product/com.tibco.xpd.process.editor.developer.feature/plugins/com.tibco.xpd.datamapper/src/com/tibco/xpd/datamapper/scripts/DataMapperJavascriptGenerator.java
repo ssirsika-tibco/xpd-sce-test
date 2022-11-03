@@ -1600,12 +1600,18 @@ public class DataMapperJavascriptGenerator {
              */
             script.addLine("} else {", true, true); //$NON-NLS-1$
 
-            script.addLine(getAssignmentStatement(sourceInfoProvider,
-                    targetInfoProvider,
-                    srcItem,
-                    targetItem,
-                    "null", //$NON-NLS-1$
-                    aliasOfTargetParent));
+            /*
+             * Sid ACE-6367 Allow the script info provider to give 'unset target if source data does not exist'
+             * statements
+             */
+            script.addLine(targetInfoProvider.getContribDelegatingScriptGenInfoProvider()
+                    .getAssignmentElseStatement(targetItem, aliasOfTargetParent.jsVarAlias));
+            // script.addLine(getAssignmentStatement(sourceInfoProvider,
+            // targetInfoProvider,
+            // srcItem,
+            // targetItem,
+            // "null", //$NON-NLS-1$
+            // aliasOfTargetParent));
 
             script.addLine("}", false, true); //$NON-NLS-1$
 

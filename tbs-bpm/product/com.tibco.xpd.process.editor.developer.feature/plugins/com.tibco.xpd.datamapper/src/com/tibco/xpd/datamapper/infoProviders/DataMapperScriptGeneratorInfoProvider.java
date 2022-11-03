@@ -71,6 +71,38 @@ public class DataMapperScriptGeneratorInfoProvider implements
         return null;
     }
 
+
+    /**
+     * Sid ACE-6367
+     * 
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getAssignmentElseStatement(java.lang.Object,
+     *      java.lang.String, java.lang.String)
+     *
+     * @param object
+     * @param jsVarAlias
+     * @return
+     */
+    @Override
+    public String getAssignmentElseStatement(Object object, String jsVarAlias) {
+        if (object instanceof WrappedContributedContent) {
+
+            WrappedContributedContent wrappedElement = ((WrappedContributedContent) object);
+            AbstractDataMapperContentContributor contrib = wrappedElement.getContributor();
+
+            if (contrib != null) {
+                IScriptGeneratorInfoProvider scriptGeneratorInfoProvider =
+                        getScriptGeneratorInfoProvider(contrib.getContributorId());
+
+                if (scriptGeneratorInfoProvider != null) {
+
+                    return scriptGeneratorInfoProvider.getAssignmentElseStatement(wrappedElement.getContributedObject(),
+                            jsVarAlias);
+                }
+            }
+        }
+        return null;
+    }
+
     /**
      * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getGetterStatement(java.lang.Object)
      * 
@@ -527,4 +559,5 @@ public class DataMapperScriptGeneratorInfoProvider implements
         return ScriptGeneratorInfoProviderContributionHelper
                 .getScriptGeneratorInfoProvider(contributionID);
     }
+
 }

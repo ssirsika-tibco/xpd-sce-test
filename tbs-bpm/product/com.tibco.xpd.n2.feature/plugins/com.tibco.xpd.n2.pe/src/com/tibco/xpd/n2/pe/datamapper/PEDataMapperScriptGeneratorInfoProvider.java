@@ -29,6 +29,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * @param jsVarAlias
      * @return
      */
+    @Override
     public String getAssignmentStatement(Object object,
             String rhsObjectStatement, String jsVarAlias) {
 
@@ -40,6 +41,23 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
     }
 
     /**
+     * 
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getAssignmentElseStatement(java.lang.Object,
+     *      java.lang.String)
+     *
+     * @param object
+     * @param jsVarAlias
+     * @return
+     */
+    @Override
+    public String getAssignmentElseStatement(Object object, String jsVarAlias) {
+        /*
+         * Sid ACE-6367 Just set to null as we always used to for non-REST input data (BPM data is ok to set to null).
+         */
+        return getAssignmentStatement(object, "null", jsVarAlias); //$NON-NLS-1$
+    }
+
+    /**
      * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getGetterStatement(java.lang.Object,
      *      java.lang.String)
      * 
@@ -47,6 +65,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * @param jsVarAlias
      * @return
      */
+    @Override
     public String getGetterStatement(Object object, String jsVarAlias) {
         if (object instanceof StaticContentDataMapperElement) {
             return ((StaticContentDataMapperElement) object)
@@ -60,6 +79,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * 
      * @return
      */
+    @Override
     public String getScriptsToAppend(ScriptDataMapper container,
             boolean isSource) {
         // Not expecting this to be called
@@ -73,6 +93,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * @param object
      * @return
      */
+    @Override
     public String getCollectionSizeScript(Object object,
             String objectParentJsVar) {
         // Not expecting this to be called
@@ -98,6 +119,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * @param complexObject
      * @return
      */
+    @Override
     public String getComplexObjectCreationScript(Object complexObject) {
         // Not expecting this to be called
         return null;
@@ -111,6 +133,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * @param complexObject
      * @return
      */
+    @Override
     public String getArrayCreationScript(Object complexObject) {
         // Not expecting this to be called
         return null;
@@ -124,6 +147,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * @param indexVarName
      * @return
      */
+    @Override
     public String getCollectionElementScript(Object collection,
             String indexVarName, String objectParentJsVar) {
         // Not expecting this to be called
@@ -138,6 +162,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * @param jsElementToAdd
      * @return
      */
+    @Override
     public String getCollectionAddElementScript(Object collection,
             String jsElementToAdd, String objectParentJsVar) {
         // Not expecting this to be called
@@ -154,6 +179,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * @param loopIndexJsVar
      * @return
      */
+    @Override
     public String getCollectionSetElementScript(Object collection,
             String jsVarName, String objectParentJsVar, String loopIndexJsVar) {
         // Not expecting this to be called
@@ -171,6 +197,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * @param objectParentJsVar
      * @return
      */
+    @Override
     public String getCollectionElementScriptForTargetMerge(Object collection,
             String indexVarName, String objectParentJsVar) {
         // Not expecting this to be called
@@ -185,6 +212,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * @param jsVarAlias
      * @return
      */
+    @Override
     public String getClearCollectionScript(Object collectionObject,
             String jsVarAlias) {
         // Not expecting this to be called
@@ -210,6 +238,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * 
      * @return
      */
+    @Override
     public String getScriptsToPrepend(ScriptDataMapper container,
             boolean isSource) {
         // Not expecting this to be called
@@ -227,6 +256,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * @param checkType
      * @return
      */
+    @Override
     public String getCheckNullTreeExpression(Object object, String jsVarAlias,
             CheckNullTreeExpressionType checkType) {
         /*
@@ -244,6 +274,7 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
      * @param path
      * @return
      */
+    @Override
     public String resolvePath(Object object, String path) {
         return path;
     }

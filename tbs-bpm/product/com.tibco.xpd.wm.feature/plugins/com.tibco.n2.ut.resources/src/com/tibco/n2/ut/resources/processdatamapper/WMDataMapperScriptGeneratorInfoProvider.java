@@ -47,6 +47,22 @@ public class WMDataMapperScriptGeneratorInfoProvider implements
     }
 
     /**
+     * 
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getAssignmentElseStatement(java.lang.Object,
+     *      java.lang.String)
+     *
+     * @param object
+     * @param jsVarAlias
+     * @return
+     */
+    public String getAssignmentElseStatement(Object object, String jsVarAlias) {
+        /*
+         * Sid ACE-6367 Just set to null for non-REST input data like always have (BPM data is ok to set to null).
+         */
+        return getAssignmentStatement(object, "null", jsVarAlias); //$NON-NLS-1$
+    }
+
+    /**
      * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getGetterStatement(java.lang.Object,
      *      java.lang.String)
      * 

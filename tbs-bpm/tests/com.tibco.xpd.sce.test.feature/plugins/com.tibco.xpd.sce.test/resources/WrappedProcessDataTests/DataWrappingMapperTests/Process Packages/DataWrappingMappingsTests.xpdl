@@ -1069,6 +1069,9 @@ Copy_Of_TimeField = TimeField;&#xD;
                       <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.textToFromEnum">
                         <xpdl2:Actual ScriptGrammar="JavaScript">Copy_Of_ClassField.enum1</xpdl2:Actual>
                       </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.complexTypeList.nestedTypeProperty.grandChildProperty">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Copy_Of_ClassField.complexList.grandchildclass.grandChildAtribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
                     </xpdExt:DataMappings>
                   </xpdExt:ScriptDataMapper>
                 </xpdl2:MessageIn>

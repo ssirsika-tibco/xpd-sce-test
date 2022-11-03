@@ -416,6 +416,79 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                 inputMappingsScript.contains("var $sVi1 = data.Copy_Of_ClassField.complexList[i1];")); //$NON-NLS-1$
 
         /*
+         * Sid ACE-6367: Should have code to delete target REST data if it is assigned from null
+         */
+        /*
+         * Query and header parameters should NOT be deleted.
+         */
+        assertFalse(context + ": Should NOT delete QUERY params if they are null.", //$NON-NLS-1$
+                inputMappingsScript.contains("delete REST_QUERY_queryparam1")); //$NON-NLS-1$
+
+        assertFalse(context + ": Should NOT delete HEADER params if they are null.", //$NON-NLS-1$
+                inputMappingsScript.contains("delete REST_QUERY_queryparam1")); //$NON-NLS-1$
+
+        /*
+         * Should NOT delete REST input payload arrays if they are null
+         */
+        assertFalse(context + ": Should NOT delete HEADER params if they are null.", //$NON-NLS-1$
+                inputMappingsScript.contains("delete REST_PAYLOAD['textList']")); //$NON-NLS-1$
+
+        /*
+         * Should delete standard payload property assignments if they are null
+         */
+        assertTrue(context + ": Should delete normal properties if source child field property is null (1)", //$NON-NLS-1$
+                inputMappingsScript.contains("if (REST_PAYLOAD['booleanProperty'] === null) {")); //$NON-NLS-1$
+
+        assertTrue(context + ": Should delete normal properties if source child field property is null (2)", //$NON-NLS-1$
+                inputMappingsScript.contains("delete REST_PAYLOAD['booleanProperty'];")); //$NON-NLS-1$
+
+        /* Final check ensures that the expected code is contiguous */
+        assertTrue(context + ": Should delete normal properties if source child field property is null (3)", //$NON-NLS-1$
+                inputMappingsScript.replaceAll("\\s+", "").contains( //$NON-NLS-1$ //$NON-NLS-2$
+                        "if(REST_PAYLOAD['booleanProperty']===null){deleteREST_PAYLOAD['booleanProperty'];}"));
+
+        /*
+         * Should delete standard payload property assignments if their parent property are null
+         */
+        assertTrue(context + ": Should delete normal properties if source child field parent property is null (1)", //$NON-NLS-1$
+                inputMappingsScript.contains("REST_PAYLOAD['booleanProperty'] = null;")); //$NON-NLS-1$
+
+        /* Final check ensures that the expected code is contiguous */
+        assertTrue(context + ": Should delete normal properties if source child field parent property is null (2)", //$NON-NLS-1$
+                inputMappingsScript.replaceAll("\\s+", "").contains( //$NON-NLS-1$ //$NON-NLS-2$
+                        "else{REST_PAYLOAD['booleanProperty']=null;deleteREST_PAYLOAD['booleanProperty'];}"));
+
+        /*
+         * Should delete array child payload property assignments if they are null
+         */
+        assertTrue(context + ": Should delete array child properties if source child field property is null (1)", //$NON-NLS-1$
+                inputMappingsScript.contains(
+                        "if ($tVi1['nestedTypeProperty']['grandChildProperty'] === null) {")); //$NON-NLS-1$
+
+        assertTrue(context + ": Should delete array child properties if source child field property is null (2)", //$NON-NLS-1$
+                inputMappingsScript
+                        .contains("delete $tVi1['nestedTypeProperty']['grandChildProperty'];")); //$NON-NLS-1$
+
+        /* Final check ensures that the expected code is contiguous */
+        assertTrue(context + ": Should delete array child properties if source child field property is null (3)", //$NON-NLS-1$
+                inputMappingsScript.replaceAll("\\s+", "").contains( //$NON-NLS-1$ //$NON-NLS-2$
+                        "if($tVi1['nestedTypeProperty']['grandChildProperty']===null){delete$tVi1['nestedTypeProperty']['grandChildProperty'];}"));
+
+        /*
+         * Should delete array child payload property assignments if their parent property are null
+         */
+        assertTrue(context + ": Should delete array child properties if source child field parent property is null (1)", //$NON-NLS-1$
+                inputMappingsScript
+                        .contains("$tVi1['nestedTypeProperty']['grandChildProperty'] = null;")); //$NON-NLS-1$
+
+        /* Final check ensures that the expected code is contiguous */
+        assertTrue(context + ": Should delete array child properties if source child field parent property is null (2)", //$NON-NLS-1$
+                inputMappingsScript.replaceAll("\\s+", "").contains( //$NON-NLS-1$ //$NON-NLS-2$
+                        "else{$tVi1['nestedTypeProperty']['grandChildProperty']=null;delete$tVi1['nestedTypeProperty']['grandChildProperty'];}"));
+
+        // END OF ACE-6367
+
+        /*
          * Sid ACE-564 - enumerations are treated as simple text properties (because that is what they are at run-time).
          */
         assertTrue(context + ": Should treat input enumerations as simple text values.", //$NON-NLS-1$
@@ -463,6 +536,14 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                 outputMappingsScript.contains("var $sVi2 = REST_PAYLOAD['textToFromEnumList'][i2]")); //$NON-NLS-1$
         assertTrue(context + ": (2) Should treat output enumeration lists as simple text lists.", //$NON-NLS-1$
                 outputMappingsScript.contains("data.ClassField.enumList.push($sVi2);")); //$NON-NLS-1$
+
+        /*
+         * Sid ACE-6367: Should NOT have code to delete target PROCESS data if it is assigned from null in output
+         * mapping script (we only do this for REST payloads as BPMe is quite happy with null properties.
+         */
+        assertFalse(context + ": Output mapping scripts should not delete target process data", //$NON-NLS-1$
+                outputMappingsScript.contains("delete ")); //$NON-NLS-1$
+
     }
 
     /**

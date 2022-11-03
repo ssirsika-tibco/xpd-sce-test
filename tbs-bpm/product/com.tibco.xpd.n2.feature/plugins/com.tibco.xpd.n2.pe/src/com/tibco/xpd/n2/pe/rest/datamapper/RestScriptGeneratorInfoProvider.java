@@ -68,18 +68,102 @@ public class RestScriptGeneratorInfoProvider
     public String getAssignmentStatement(Object object,
             String rhsObjectStatement, String jsVarAlias) {
         StringBuilder statement = new StringBuilder();
+        
+        String lhsRestPath;
+        
         if (jsVarAlias == null || jsVarAlias.isEmpty()) {
-            statement.append(convertPath(getPath(object)));
+            lhsRestPath = convertPath(getPath(object));
+            
         } else {
-            statement.append(
-                    convertPath(jsVarAlias) + "['" + getName(object) + "']"); //$NON-NLS-1$ //$NON-NLS-2$
+            lhsRestPath =
+                    convertPath(jsVarAlias) + "['" + getName(object) + "']"; //$NON-NLS-1$ //$NON-NLS-2$
         }
+        
+        statement.append(lhsRestPath);
         statement.append(" = "); //$NON-NLS-1$
         appendRhsObjectStatement(object, rhsObjectStatement, statement);
         statement.append(";"); //$NON-NLS-1$
+        
+        /* 
+         * Sid ACE-6367 Delete REST input data rather that setting properties to null
+         * 
+         * BUT ONLY If not a Query/Header/Path parameter as these are all top level temp vars and we can't delete those. 
+         */
+        if (getParameterStyle(object) == null) {
+            statement.append("if (");
+            statement.append(lhsRestPath);
+            statement.append(" === null) { ");
+            statement.append("delete ");
+            statement.append(lhsRestPath);
+            statement.append("; }");
+        }
+         
         return statement.toString();
     }
 
+    /**
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getAssignmentElseStatement(java.lang.Object, java.lang.String, java.lang.String)
+     *
+     * @param object
+     * @param rhsObjectStatement
+     * @param jsVarAlias
+     * @return
+     */
+    @Override
+    public String getAssignmentElseStatement(Object object, String jsVarAlias) {
+        /* 
+         * Sid ACE-6367 Delete REST input data rather that setting properties to null
+         * 
+         * Delete the target data (1st set to null so that the delete will always work even if target did not exist).
+         * i.e...
+         * 
+         *  $REST_PAYLOAD['consumerRequestType'] = null;
+         *  delete $REST_PAYLOAD['consumerRequestType'];
+         */
+        StringBuilder statement = new StringBuilder();
+        
+        String lhsRestPath;
+        
+        if (jsVarAlias == null || jsVarAlias.isEmpty()) {
+            lhsRestPath = convertPath(getPath(object));
+            
+        } else {
+            lhsRestPath =
+                    convertPath(jsVarAlias) + "['" + getName(object) + "']"; //$NON-NLS-1$ //$NON-NLS-2$
+        }
+        
+        /* $REST_PAYLOAD['xxxxx'] = null; */
+        statement.append(lhsRestPath);
+        statement.append(" = "); //$NON-NLS-1$
+        statement.append("null"); //$NON-NLS-1$
+        statement.append(";"); //$NON-NLS-1$
+        
+        /*  delete $REST_PAYLOAD['xxxxx']; // BUT ONLY If not a Query/Header/Path parameter as these are all top level temp vars and we can't delete those. */
+        if (getParameterStyle(object) == null) {
+            statement.append("delete "); //$NON-NLS-1$
+            statement.append(lhsRestPath);
+            statement.append(";"); //$NON-NLS-1$
+        }
+        
+        return statement.toString();
+    }
+    
+    /**
+     * 
+     * @param object
+     * @return The {@link ParameterStyle} if the given object is a {@link RestParamTreeItem}
+     */
+    private ParameterStyle getParameterStyle(Object object) {
+        if (object instanceof RestParamTreeItem) {
+            Parameter param = ((RestParamTreeItem) object).getParam();
+            
+            if (param != null) {
+                return param.getStyle();
+            }
+        }
+        return null;
+    }
+    
     /**
      * @param object
      * @param rhsObjectStatement

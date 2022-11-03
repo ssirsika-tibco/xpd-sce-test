@@ -88,6 +88,23 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
     }
 
     /**
+     * 
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getAssignmentElseStatement(java.lang.Object,
+     *      java.lang.String)
+     *
+     * @param object
+     * @param jsVarAlias
+     * @return
+     */
+    @Override
+    public String getAssignmentElseStatement(Object object, String jsVarAlias) {
+        /*
+         * Sid ACE-6367 Just set to null as we always used to for non-REST input data (BPM data is ok to set to null).
+         */
+        return getAssignmentStatement(object, "null", jsVarAlias); //$NON-NLS-1$
+    }
+
+    /**
      * Create an assignment statement to append the RHS onto target list.
      * 
      * In ACE the output single->multi-instance semantic is 'append to target array'. This is because ACE data
