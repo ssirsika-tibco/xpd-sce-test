@@ -17,6 +17,7 @@ import javax.wsdl.Import;
 import javax.xml.namespace.QName;
 
 import org.eclipse.bpel.model.ExtensibleElement;
+import org.eclipse.bpel.model.Variable;
 import org.eclipse.bpel.model.messageproperties.Property;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -436,7 +437,28 @@ public class ConverterContext {
     		currVariables = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariables();
     		m_variableMap.put(parent, currVariables);
     	}
-    	currVariables.getChildren().addAll(variables.getChildren());
+    	
+        /*
+         * Sid ACE-6547 (XPD-8570) Don't add fields that are already in the variable set.
+         *
+         * This can happen when dealing with the dual output of service-process
+         * to pageflow AND business process when there are package level fields
+         * they were added twice.
+         */
+    	Set<String> existingVarNames = new HashSet<>();
+    	for (Variable variable : currVariables.getChildren()) {
+    	    existingVarNames.add(variable.getName());
+    	}
+    	
+    	List<Variable> toAdd = new ArrayList<>();
+    	
+    	for (Variable variable : variables.getChildren()) {
+           if (!existingVarNames.contains(variable.getName())) {
+               toAdd.add(variable);
+           }
+        }
+
+        currVariables.getChildren().addAll(toAdd);
 		m_variableMap.put(parent, currVariables);
 	}
 	
