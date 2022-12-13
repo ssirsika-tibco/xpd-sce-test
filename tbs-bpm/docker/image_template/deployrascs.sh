@@ -94,6 +94,12 @@ for RASC in $(echo $DEPLOY_LIST | tr "," " "); do
 			MISSING_RES_TYPE=$(cat ./.deploy_output | python -c "import sys, json; print json.load(sys.stdin)['contextAttributes'][1]['value']" 2> /dev/null);
 			echo " At least one shared resource does not exist on target system: $MISSING_RES ($MISSING_RES_TYPE)";
 			exit 4
+
+	    elif [[ "$ERROR_CODE" == "DEM_DEPLOYMENT_INVALID_VERSION" ]]; then
+		    # Missing shared resource error
+			echo " The deployment artifact is for a later version than the target system supports";
+			exit 4
+
 		else
 			# Fatal error - stop deploying
 			if [[ "$ERROR_MSG" != "" ]]; then
@@ -101,6 +107,7 @@ for RASC in $(echo $DEPLOY_LIST | tr "," " "); do
 			else 
 				1>&2 echo " Deploy request error - $RESPONSE_CODE";
 			fi
+		
 			exit 4;
 		fi
   
@@ -120,5 +127,3 @@ echo '--------------------------------------------------------------------------
 echo 'Deployment successful';
 
 exit 0;
-
-
