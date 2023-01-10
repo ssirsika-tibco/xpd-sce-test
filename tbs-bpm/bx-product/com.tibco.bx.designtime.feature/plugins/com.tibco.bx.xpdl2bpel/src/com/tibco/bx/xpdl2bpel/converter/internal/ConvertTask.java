@@ -2,6 +2,9 @@ package com.tibco.bx.xpdl2bpel.converter.internal;
 
 import java.util.List;
 
+import org.eclipse.bpel.model.Correlations;
+import org.eclipse.bpel.model.PartnerActivity;
+import org.eclipse.bpel.model.Receive;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -191,6 +194,14 @@ public class ConvertTask {
                  * Sid ACE-3332 add parameters definitions to the incoming request activity.
                  */
                 ConvertEventHandlers.addIncomingRequestParameters(xpdlActivity, scope);
+                
+                /* 
+                 * Sid ACE-6365 Support correlation data for incoming request receive tasks. 
+                 */
+                Correlations correlations = ConvertCorrelations.convertIncomingRequestCorrelations(context, xpdlActivity);
+                if (correlations != null) {
+                    receive.setCorrelations(correlations);
+                }
 
                 return scope;
             } else {

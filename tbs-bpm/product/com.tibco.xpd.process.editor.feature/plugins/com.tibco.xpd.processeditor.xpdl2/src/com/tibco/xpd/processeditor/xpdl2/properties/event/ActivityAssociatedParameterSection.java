@@ -103,7 +103,17 @@ public class ActivityAssociatedParameterSection extends
                     if (event instanceof StartEvent) {
                         StartEvent startEvent = (StartEvent) event;
                         switch (startEvent.getTrigger().getValue()) {
+                        /*
+                         * Sid ACE-6338 Go back to param AND correlation data association for Event sub-process incoming
+                         * request start events. So disable this 'just parameters' section for Event sub-process
+                         * incoming request start events.
+                         */
                         case TriggerType.NONE:
+                            if (EventObjectUtil.isEventSubProcessStartEvent(activity)) {
+                                return false;
+                            }
+                            return true;
+
                         case TriggerType.TIMER:
                         case TriggerType.CONDITIONAL:
                         case TriggerType.MULTIPLE:
@@ -116,7 +126,12 @@ public class ActivityAssociatedParameterSection extends
                         IntermediateEvent intermediateEvent =
                                 (IntermediateEvent) event;
                         switch (intermediateEvent.getTrigger().getValue()) {
-                        case TriggerType.NONE:
+                        /*
+                         * Sid ACE-6338 Go back to param AND correlation data association for incoming request events.
+                         * So disable this 'just parameters' section for incoming request intermediate events.
+                         */
+                        // case TriggerType.NONE:
+
                         case TriggerType.TIMER:
                         case TriggerType.CONDITIONAL:
                         case TriggerType.MULTIPLE:
@@ -173,7 +188,12 @@ public class ActivityAssociatedParameterSection extends
                 case TaskType.NONE:
                 case TaskType.MANUAL:
                 case TaskType.DTABLE:
-                case TaskType.RECEIVE: /* Sid ACE-3392 Show standard interface tab for receive task */
+                    /*
+                     * Sid ACE-6338 Go back to param AND correlation data association incoming request events. So
+                     * disable this 'just parameters' section
+                     */
+                    // case TaskType.RECEIVE:
+
                     return true;
                 default:
                     return false;

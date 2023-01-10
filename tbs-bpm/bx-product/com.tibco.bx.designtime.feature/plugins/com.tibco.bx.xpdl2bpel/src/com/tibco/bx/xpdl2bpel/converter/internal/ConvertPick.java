@@ -6,6 +6,7 @@ import javax.xml.namespace.QName;
 
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELFactory;
+import org.eclipse.bpel.model.Correlations;
 import org.eclipse.bpel.model.Flow;
 import org.eclipse.bpel.model.OnAlarm;
 import org.eclipse.bpel.model.OnMessage;
@@ -353,6 +354,14 @@ public class ConvertPick {
         
         if(correlateImmediate) {
             BPELUtils.addExtensionAttribute(onMessage, N2PEConstants.CORRELATE_IMMEDIATE, "yes");
+        }
+        
+        /* 
+         * Sid ACE-6365 Support correlation data for incoming request receive tasks. 
+         */
+        Correlations correlations = ConvertCorrelations.convertIncomingRequestCorrelations(context, task.getXpdlActivity());
+        if (correlations != null) {
+            onMessage.setCorrelations(correlations);
         }
         
         org.eclipse.bpel.model.Activity assign =  org.eclipse.bpel.model.BPELFactory.eINSTANCE.createAssign();

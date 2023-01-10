@@ -12,6 +12,7 @@ import javax.xml.namespace.QName;
 
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELFactory;
+import org.eclipse.bpel.model.Correlations;
 import org.eclipse.bpel.model.ExtensibleElement;
 import org.eclipse.bpel.model.Flow;
 import org.eclipse.bpel.model.OnEvent;
@@ -211,7 +212,15 @@ public class ConvertEventHandlers {
         if (correlateImmediate) {
             BPELUtils.addExtensionAttribute(onEvent, N2PEConstants.CORRELATE_IMMEDIATE, "yes"); //$NON-NLS-1$
         }
-
+        
+        /* 
+         * Sid ACE-6365 Support correlation data for incoming request receive tasks. 
+         */
+        Correlations correlations = ConvertCorrelations.convertIncomingRequestCorrelations(context, xpdlActivity);
+        if (correlations != null) {
+            onEvent.setCorrelations(correlations);
+        }
+        
         context.syncXpdlId(onEvent, xpdlActivity);
         
         org.eclipse.bpel.model.Activity theMappingActivity = createIncomingRequestStartActivity(context);

@@ -717,6 +717,7 @@ public class CorrelationDataAssociationTable extends BaseTableControl {
             super(editingDomain, viewer, SWT.NONE,
                     Messages.CorrelationDataAssociationControl_ModeColumnTitle,
                     150);
+
             /*
              * XPD-6789: Saket: This editor should be read only.
              */
@@ -732,9 +733,10 @@ public class CorrelationDataAssociationTable extends BaseTableControl {
                 @Override
                 public Object[] getElements(Object inputElement) {
                     Object[] elements =
-                            new Object[] { CorrelationMode.INITIALIZE,
-                                    CorrelationMode.CORRELATE,
-                                    CorrelationMode.JOIN };
+                            new Object[] { CorrelationMode.CORRELATE
+                            // , CorrelationMode.INITIALIZE,
+                            // CorrelationMode.JOIN
+                    };
                     return elements;
                 }
 
@@ -774,9 +776,16 @@ public class CorrelationDataAssociationTable extends BaseTableControl {
          */
         @Override
         protected CellEditor getCellEditor(Object element) {
+            /* Sid ACE-6338 do not allow selection of correlation mode in BPMe (always default 'Correlate') */
+            /*
+             * Sid ACE-6366 ... unless it is already *not* 'Correlate' in which case allow editing to allow user to
+             * change it.
+             */
             if (element instanceof AssociatedCorrelationField) {
-                editor.setInput(element);
-                return editor;
+                if (!CorrelationMode.CORRELATE.equals(((AssociatedCorrelationField) element).getCorrelationMode())) {
+                    editor.setInput(element);
+                    return editor;
+                }
             }
             return null;
         }
@@ -997,7 +1006,7 @@ public class CorrelationDataAssociationTable extends BaseTableControl {
 
                 text = implAss.getDescription();
             }
-            return text;
+            return text != null ? text : "";
         }
 
         /*

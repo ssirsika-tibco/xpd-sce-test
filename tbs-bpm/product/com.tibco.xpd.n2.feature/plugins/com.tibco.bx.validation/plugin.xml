@@ -5011,6 +5011,9 @@ s         <scriptContribution
                class="com.tibco.bx.validation.ace.rules.AceProcessRules"
                validateOnSaveOnly="false">
          </rule>
+         <rule
+               class="com.tibco.bx.validation.ace.rules.AceCorrelationAssociationsValidationRules">
+         </rule>
 	  </provider>
       <issue
             id="ace.invoke.businessprocess.not.supported"
@@ -5144,6 +5147,24 @@ s         <scriptContribution
             id="ace.noRetryInPageflowError"
             message="%ace.noRetryInPageflowError"
             severity="ERROR">
+      </issue>
+      <issue
+            id="ace.correlation.join.not.supported"
+            message="%ace.correlation.join.not.supported"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="false"
+               id="resolution.bpmn.removeCorrelationAssociation">
+         </resolution>
+      </issue>
+      <issue
+            id="ace.correlation.init.not.supported"
+            message="%ace.correlation.init.not.supported"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="false"
+               id="resolution.bpmn.removeCorrelationAssociation">
+         </resolution>
       </issue>
 	</extension>
 

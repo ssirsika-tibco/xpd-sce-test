@@ -12,6 +12,7 @@ import java.util.Set;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELFactory;
 import org.eclipse.bpel.model.CompensateScope;
+import org.eclipse.bpel.model.Correlations;
 import org.eclipse.bpel.model.ExtensibleElement;
 import org.eclipse.bpel.model.ExtensionActivity;
 import org.eclipse.bpel.model.Variable;
@@ -392,7 +393,15 @@ public class ConvertEvent {
         if (correlateImmediate) {
             BPELUtils.addExtensionAttribute(receive, N2PEConstants.CORRELATE_IMMEDIATE, "yes"); //$NON-NLS-1$
         }
-
+        
+        /* 
+         * Sid ACE-6365 Support correlation data for incoming request receive tasks. 
+         */
+        Correlations correlations = ConvertCorrelations.convertIncomingRequestCorrelations(context, xpdlActivity);
+        if (correlations != null) {
+            receive.setCorrelations(correlations);
+        }
+        
         sequence.getActivities().add(receive);
 
         //SCE: The mapping assign activity is not requited at the moment but we keep it to preserve the structure. 

@@ -446,6 +446,13 @@ public class AceMigratedProcessValidationsTest
                                 "BPM  : System participants must have a shared resource type selected. (ProcessValidationTest_NewWSDLFile_Provider)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/CorrelationAssociations.xpdl", //$NON-NLS-1$
+                                "ace.correlation.init.not.supported", //$NON-NLS-1$
+                                "_eXsM4VBwEe2TwvF4kSQwJg", //$NON-NLS-1$
+                                "BPM  : Mode 'Initialize' for correlation data 'CorrelationField' is no longer supported for incoming request activities (CorrelationAssociations:ReceiveTask)", //$NON-NLS-1$
+                                "Remove correlation data from activity interface"), //$NON-NLS-1$
+
                 };
         return markerInfos;
     }

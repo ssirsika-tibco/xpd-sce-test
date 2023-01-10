@@ -172,8 +172,12 @@ public class CorrelationDataRule extends ProcessValidationRule {
                         // correlaiton association then at least one must be in
                         // correlate mode,.
                         if (!isStartActivity && !hasCorrelateModeAssoc) {
-                            addIssue(NO_CORRELATEMODE_DATA_FOR_REQACTIVITY,
-                                    activity);
+                            /*
+                             * Sid ACE-6366 disable correlation data rule as correlation currenty doesn't have the same
+                             * rules as AMX BPM
+                             */
+                            // addIssue(NO_CORRELATEMODE_DATA_FOR_REQACTIVITY,
+                            // activity);
                         }
 
                     }

@@ -16,6 +16,7 @@ import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELFactory;
 import org.eclipse.bpel.model.CompensationHandler;
 import org.eclipse.bpel.model.Condition;
+import org.eclipse.bpel.model.Correlations;
 import org.eclipse.bpel.model.Empty;
 import org.eclipse.bpel.model.EventHandler;
 import org.eclipse.bpel.model.Expression;
@@ -868,6 +869,14 @@ public class ConvertBoundaryEvents {
          */
         ConvertEventHandlers.addIncomingRequestParameters(xpdlActivity, theMappingActivity);
         
+        /* 
+         * Sid ACE-6365 Support correlation data for incoming request receive tasks. 
+         */
+        Correlations correlations = ConvertCorrelations.convertIncomingRequestCorrelations(context, xpdlActivity);
+        if (correlations != null) {
+            onEvent.setCorrelations(correlations);
+        }
+
 	}
 
 	public static Variable makeFanVariable(ConverterContext context, boolean setInitValue) {

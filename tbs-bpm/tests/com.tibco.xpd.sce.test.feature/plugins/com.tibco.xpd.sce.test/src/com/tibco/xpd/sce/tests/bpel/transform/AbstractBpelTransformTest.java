@@ -371,7 +371,7 @@ public abstract class AbstractBpelTransformTest extends TestCase {
      * @return true if the element has the attribute with the value.
      */
     protected boolean hasAttrNsValue(Node elementNode, String namespace, String attrName, String attrValue) {
-        return hasAttribute(elementNode, Optional.of(namespace), attrName, Optional.of(attrValue));
+        return hasAttribute(elementNode, Optional.ofNullable(namespace), attrName, Optional.of(attrValue));
     }
 
     /**

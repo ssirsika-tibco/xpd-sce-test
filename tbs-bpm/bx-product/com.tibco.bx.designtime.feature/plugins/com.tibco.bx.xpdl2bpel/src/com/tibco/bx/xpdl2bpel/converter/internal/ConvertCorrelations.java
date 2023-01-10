@@ -29,7 +29,7 @@ import com.tibco.bx.xpdl2bpel.Messages;
 import com.tibco.bx.xpdl2bpel.converter.ConversionException;
 import com.tibco.bx.xpdl2bpel.util.BPELUtils;
 import com.tibco.bx.xpdl2bpel.util.XPDLUtils;
-
+import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptMappingCompositor;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptMappingCompositorFactory;
@@ -39,6 +39,7 @@ import com.tibco.xpd.xpdExtension.CorrelationDataMappings;
 import com.tibco.xpd.xpdExtension.CorrelationMode;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdl2.Activity;
+import com.tibco.xpd.xpdl2.DataField;
 import com.tibco.xpd.xpdl2.DataMapping;
 import com.tibco.xpd.xpdl2.DirectionType;
 import com.tibco.xpd.xpdl2.Event;
@@ -49,15 +50,15 @@ public class ConvertCorrelations {
 	
 	public static void convert(ConverterContext context, com.tibco.xpd.xpdl2.Activity xpdlActivity, 
 			PartnerActivity activity, WebServiceOperationInfo wsoInfo, com.tibco.xpd.xpdl2.Message message) {
-		if (activity instanceof Receive || activity instanceof Reply) {	// only Receive and Reply activities are supported
-	        /*
-	         * Sid ACE-194 - we don't support Correlation of web service incoming in ACE
-	         */
-	        throw new RuntimeException("Unexpected inclusion of incoming message correlation activity in source process.");
-//			Correlations correlations = convertCorrelationMappings(context, xpdlActivity, message, wsoInfo, false);
+        if (activity instanceof Receive || activity instanceof Reply) { // only Receive and Reply activities are supported
+            /*
+             * Sid ACE-194 - we don't support Correlation of web service incoming in ACE
+             */
+            throw new RuntimeException("Unexpected inclusion of incoming message correlation activity in source process.");
+//          Correlations correlations = convertCorrelationMappings(context, xpdlActivity, message, wsoInfo, false);
 //            ((PartnerActivity)activity).setCorrelations(correlations);
-		}
-	}
+        }
+    }
 	
 	public static void convert(ConverterContext context, com.tibco.xpd.xpdl2.Activity xpdlActivity, 
 			OnEvent onEvent, WebServiceOperationInfo wsoInfo, com.tibco.xpd.xpdl2.Message message) {
@@ -135,6 +136,50 @@ public class ConvertCorrelations {
 		}		
 		return correlationSets;
 	}
+
+    /**
+     * Sid ACE-6365 Convert the correlation data associations to the appropriate BPEL correlation constructs for
+     * incoming request activities
+     * 
+     * This is a list of bpws:correlations AND any referenced correlation data field is added to the main process
+     * correlationSets list
+     * 
+     * @return
+     */
+	public static Correlations convertIncomingRequestCorrelations(ConverterContext context, Activity xpdlActivity) {
+
+        /*
+         * Get the implicitly / explicitly associated correlation data
+         */
+        List<DataField> correlationDataForActivity =
+                ProcessInterfaceUtil.getAssociatedCorrelationDataForActivity(xpdlActivity);
+
+        if (correlationDataForActivity.size() > 0) {
+            Correlations correlations = BPELFactory.eINSTANCE.createCorrelations();
+
+            for (DataField dataField : correlationDataForActivity) {
+                /*
+                 * Add the correlationSets entry (if not already there.
+                 * 
+                 * (getCorrelationSet() creates one 1st time reqeusted)
+                 */
+                CorrelationSet correlationSet = context.getCorrelationSet(dataField.getName());
+
+                /*
+                 * Add a correlation to this activity's correlations
+                 */
+                Correlation correlation = BPELFactory.eINSTANCE.createCorrelation();
+                correlation.setInitiate("no"); //$NON-NLS-1$
+                correlation.setSet(correlationSet);
+                correlations.getChildren().add(correlation);
+            }
+
+            return correlations;
+        }
+
+        return null;
+	}
+	
 	
     /*
      * Sid ACE-194 - we don't support Correlation of web service incoming in ACE
