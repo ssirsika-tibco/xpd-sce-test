@@ -446,7 +446,7 @@ public class AceMigratedProcessValidationsTest
                                 "BPM  : System participants must have a shared resource type selected. (ProcessValidationTest_NewWSDLFile_Provider)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
+                        new ValidationsTestProblemMarkerInfo( // New correlation data tests
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/CorrelationAssociations.xpdl", //$NON-NLS-1$
                                 "ace.correlation.init.not.supported", //$NON-NLS-1$
                                 "_eXsM4VBwEe2TwvF4kSQwJg", //$NON-NLS-1$
