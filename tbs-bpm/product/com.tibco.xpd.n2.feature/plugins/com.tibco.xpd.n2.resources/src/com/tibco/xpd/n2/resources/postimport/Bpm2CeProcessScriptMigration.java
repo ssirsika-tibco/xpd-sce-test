@@ -214,7 +214,8 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
         // for static classes to the old-name->new-name top level identifiers map.
         result.add(new BOMFactoryRefactor());
-        result.add(new StaticRefRefactor("Process", "bpm.process")); //$NON-NLS-1$ //$NON-NLS-2$
+        // Sid ACE-6615 Process->bpm.process static reference replacement now handled in ProcessUtilRefactor below
+        // result.add(new StaticRefRefactor("Process", "bpm.process")); //$NON-NLS-1$ //$NON-NLS-2$
         result.add(new StaticRefRefactor("WorkManagerFactory", "bpm.workManager")); //$NON-NLS-1$ //$NON-NLS-2$
         result.add(new StaticRefRefactor("CaseSignalAttributes", "bpm.caseSignal")); //$NON-NLS-1$ //$NON-NLS-2$
 
@@ -264,6 +265,11 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         scriptUtilMethods.put("copy", "copy"); //$NON-NLS-1$ //$NON-NLS-2$
         scriptUtilMethods.put("copyAll", "copyAll"); //$NON-NLS-1$ //$NON-NLS-2$
         result.add(new ScriptUtilRefactor(scriptUtilMethods));
+
+        // Sid ACE-6615 Process util script class refactors
+        Map<String, String> processUtilMethods = new HashMap<>();
+        processUtilMethods.put("getOriginatorName", "getAuthenticatedUser"); //$NON-NLS-1$ //$NON-NLS-2$
+        result.add(new ProcessUtilRefactor(processUtilMethods));
 
         return result;
     }

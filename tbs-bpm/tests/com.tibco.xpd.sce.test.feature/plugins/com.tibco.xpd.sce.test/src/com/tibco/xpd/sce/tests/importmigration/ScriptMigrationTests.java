@@ -10,6 +10,7 @@ import java.util.Collections;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.resources.util.ProjectImporter;
@@ -245,8 +246,11 @@ public class ScriptMigrationTests extends TestCase {
         }
     }
 
+    /*
+     * Test ScriptUtil and Process script util class migration.
+     */
     // @Test
-    public void testScriptUtilMigration() throws Exception {
+    public void testScriptUtilClassesMigration() throws Exception {
         ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
                 new String[] { "resources/ScriptMigrationTests/script-util/simple-data/",
                         "resources/ScriptMigrationTests/script-util/simple-proc/" },
