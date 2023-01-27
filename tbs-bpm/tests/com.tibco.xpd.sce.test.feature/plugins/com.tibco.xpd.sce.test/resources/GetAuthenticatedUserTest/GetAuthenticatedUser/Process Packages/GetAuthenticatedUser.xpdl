@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_7MUT4J2VEe2Erf2zuSS83w" xpdExt:DisplayName="GetAuthenticatedUser" Name="GetAuthenticatedUser">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2023-01-26</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_-lbk_J2VEe2Erf2zuSS83w" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_-lbk5Z2VEe2Erf2zuSS83w">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_-lbk_Z2VEe2Erf2zuSS83w" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_-lbk_p2VEe2Erf2zuSS83w" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_-lbk9p2VEe2Erf2zuSS83w">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_-lbk_52VEe2Erf2zuSS83w" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="300.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_-lblAZ2VEe2Erf2zuSS83w" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_-lblA52VEe2Erf2zuSS83w">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_-lblAp2VEe2Erf2zuSS83w" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="300.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_gJE6kZ2WEe2Erf2zuSS83w" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_gJE6kJ2WEe2Erf2zuSS83w">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_gJE6kp2WEe2Erf2zuSS83w" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="300.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_uMZEVZ2WEe2Erf2zuSS83w" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_uMZEUJ2WEe2Erf2zuSS83w">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_uMZEVp2WEe2Erf2zuSS83w" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="300.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_xTh0bJ2WEe2Erf2zuSS83w" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_xTh0Z52WEe2Erf2zuSS83w">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_xTh0bZ2WEe2Erf2zuSS83w" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="300.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_-lbk5Z2VEe2Erf2zuSS83w" xpdExt:DisplayName="GetAuthenticatedUser-Business-Process" Name="GetAuthenticatedUserBusinessProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_-lbk8Z2VEe2Erf2zuSS83w" xpdExt:DisplayName="Field" Name="Field" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-lbk8p2VEe2Erf2zuSS83w" xpdExt:DisplayName="Field2" Name="Field2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-lbk852VEe2Erf2zuSS83w" xpdExt:DisplayName="Field3" Name="Field3" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-lbk9J2VEe2Erf2zuSS83w" xpdExt:DisplayName="Field4" Name="Field4" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-lbk9Z2VEe2Erf2zuSS83w" xpdExt:DisplayName="Field5" Name="Field5" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_-lbk5p2VEe2Erf2zuSS83w" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_-lbk_Z2VEe2Erf2zuSS83w" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_-lbk7J2VEe2Erf2zuSS83w" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">data.Field = bpm.process.getAuthenticatedUser();&#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_-lbk_Z2VEe2Erf2zuSS83w" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="229.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Initiated">
+              <xpdExt:Information ScriptGrammar="JavaScript">data.Field = bpm.process.getAuthenticatedUser();</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_KKqigJ2WEe2Erf2zuSS83w" xpdExt:DisplayName="" Name="" From="_-lbk5p2VEe2Erf2zuSS83w" To="_-lbk7J2VEe2Erf2zuSS83w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_-lbk9p2VEe2Erf2zuSS83w" xpdExt:XpdModelType="PageFlow" xpdExt:PublishAsBusinessService="true" xpdExt:BusinessServiceCategory="CallServiceProcesses/CallServiceProcesses" xpdExt:DisplayName="GetAuthenticatedUser-Business-Service" Name="GetAuthenticatedUserBusinessService">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_SclVYZ2WEe2Erf2zuSS83w" xpdExt:DisplayName="Field" Name="Field" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_-lbk952VEe2Erf2zuSS83w" Name="Start" xpdExt:Visibility="Private" xpdExt:DisplayName="Start">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="27.0" LaneId="_-lbk_52VEe2Erf2zuSS83w" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="53.0" YCoordinate="115.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_-lbk-Z2VEe2Erf2zuSS83w" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">data.Field = bpm.process.getAuthenticatedUser();</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="64.0" LaneId="_-lbk_52VEe2Erf2zuSS83w" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="184.0" YCoordinate="115.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Initiated">
+              <xpdExt:Information ScriptGrammar="JavaScript">data.Field = bpm.process.getAuthenticatedUser();</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_-lbk-52VEe2Erf2zuSS83w" xpdExt:DisplayName="" Name="" From="_-lbk952VEe2Erf2zuSS83w" To="_-lbk-Z2VEe2Erf2zuSS83w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_-lblA52VEe2Erf2zuSS83w" xpdExt:XpdModelType="PageFlow" xpdExt:DisplayName="GetAuthenticatedUser-Pageflow-Process" Name="GetAuthenticatedUserPageflowProcess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_-lblCZ2VEe2Erf2zuSS83w" xpdExt:DisplayName="Field" Name="Field" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_-lblBJ2VEe2Erf2zuSS83w" Name="Start" xpdExt:Visibility="Private" xpdExt:DisplayName="Start">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="27.0" LaneId="_-lblAp2VEe2Erf2zuSS83w" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="53.0" YCoordinate="115.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_-lblBp2VEe2Erf2zuSS83w" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">data.Field = bpm.process.getAuthenticatedUser();</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="64.0" LaneId="_-lblAp2VEe2Erf2zuSS83w" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="322.0" YCoordinate="115.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Completed">
+              <xpdExt:Information ScriptGrammar="JavaScript">data.Field = bpm.process.getAuthenticatedUser();</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_-lblCJ2VEe2Erf2zuSS83w" xpdExt:DisplayName="" Name="" From="_-lblBJ2VEe2Erf2zuSS83w" To="_-lblBp2VEe2Erf2zuSS83w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_gJE6kJ2WEe2Erf2zuSS83w" xpdExt:XpdModelType="ServiceProcess" xpdExt:DisplayName="GetAuthenticatedUser-Service-Process-ProcessAndPageflow" Name="GetAuthenticatedUserServiceProcessProcessAndPageflow">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_naX98J2WEe2Erf2zuSS83w" xpdExt:DisplayName="Field" Name="Field" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_gJFhpZ2WEe2Erf2zuSS83w" Name="Start" xpdExt:Visibility="Private" xpdExt:DisplayName="Start">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="168,186,200" Height="27.0" LaneId="_gJE6kp2WEe2Erf2zuSS83w" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="53.0" YCoordinate="132.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_gJFhp52WEe2Erf2zuSS83w" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">data.Field = bpm.process.getAuthenticatedUser();</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="168,186,200" Height="64.0" LaneId="_gJE6kp2WEe2Erf2zuSS83w" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="264.0" YCoordinate="132.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Completed">
+              <xpdExt:Information ScriptGrammar="JavaScript">data.Field = bpm.process.getAuthenticatedUser();</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_gJFhqZ2WEe2Erf2zuSS83w" xpdExt:DisplayName="" Name="" From="_gJFhpZ2WEe2Erf2zuSS83w" To="_gJFhp52WEe2Erf2zuSS83w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:ServiceProcessConfiguration xpdExt:DeployToProcessRuntime="true" xpdExt:DeployToPageflowRuntime="true"/>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_uMZEUJ2WEe2Erf2zuSS83w" xpdExt:XpdModelType="ServiceProcess" xpdExt:DisplayName="GetAuthenticatedUser-Service-Process-ProcessOnly" Name="GetAuthenticatedUserServiceProcessProcessOnly">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_uMZEVJ2WEe2Erf2zuSS83w" xpdExt:DisplayName="Field" Name="Field" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_uMZEUZ2WEe2Erf2zuSS83w" Name="Start" xpdExt:Visibility="Private" xpdExt:DisplayName="Start">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="168,186,200" Height="27.0" LaneId="_uMZEVp2WEe2Erf2zuSS83w" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="53.0" YCoordinate="132.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_uMZEUp2WEe2Erf2zuSS83w" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">data.Field = bpm.process.getAuthenticatedUser();</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="168,186,200" Height="64.0" LaneId="_uMZEVp2WEe2Erf2zuSS83w" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="264.0" YCoordinate="132.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Completed">
+              <xpdExt:Information ScriptGrammar="JavaScript">data.Field = bpm.process.getAuthenticatedUser();</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_uMZEU52WEe2Erf2zuSS83w" xpdExt:DisplayName="" Name="" From="_uMZEUZ2WEe2Erf2zuSS83w" To="_uMZEUp2WEe2Erf2zuSS83w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:ServiceProcessConfiguration xpdExt:DeployToProcessRuntime="true" xpdExt:DeployToPageflowRuntime="false"/>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_xTh0Z52WEe2Erf2zuSS83w" xpdExt:XpdModelType="ServiceProcess" xpdExt:DisplayName="GetAuthenticatedUser-Service-Process-PageflowOnly" Name="GetAuthenticatedUserServiceProcessPageflowOnly">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_xTh0a52WEe2Erf2zuSS83w" xpdExt:DisplayName="Field" Name="Field" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_xTh0aJ2WEe2Erf2zuSS83w" Name="Start" xpdExt:Visibility="Private" xpdExt:DisplayName="Start">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="168,186,200" Height="27.0" LaneId="_xTh0bZ2WEe2Erf2zuSS83w" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="53.0" YCoordinate="132.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_xTh0aZ2WEe2Erf2zuSS83w" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">data.Field = bpm.process.getAuthenticatedUser();</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="168,186,200" Height="64.0" LaneId="_xTh0bZ2WEe2Erf2zuSS83w" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="304.0" YCoordinate="132.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Completed">
+              <xpdExt:Information ScriptGrammar="JavaScript">data.Field = bpm.process.getAuthenticatedUser();</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_xTh0ap2WEe2Erf2zuSS83w" xpdExt:DisplayName="" Name="" From="_xTh0aJ2WEe2Erf2zuSS83w" To="_xTh0aZ2WEe2Erf2zuSS83w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:ServiceProcessConfiguration xpdExt:DeployToProcessRuntime="false" xpdExt:DeployToPageflowRuntime="true"/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

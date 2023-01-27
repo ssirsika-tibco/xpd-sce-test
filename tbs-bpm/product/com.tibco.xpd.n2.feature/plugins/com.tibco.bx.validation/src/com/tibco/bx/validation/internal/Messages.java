@@ -230,6 +230,10 @@ public class Messages extends NLS {
 
     public static String N2JScriptDotExpressionValidator_InvalidCriteriaParameterMsg;
 
+    public static String N2JScriptDotExpressionValidator_MethodNotSupportedInBusinessProcess_message;
+
+    public static String N2JScriptDotExpressionValidator_MethodNotSupportedInProcessEngineServiceProcess_message;
+
     public static String N2StatementValidator_ReturnStatNotSupported;
 
     public static String N2JScriptAssignmentExpressionValidator_NotAllowedValueForProcessPriority2;

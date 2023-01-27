@@ -11,6 +11,7 @@ import com.tibco.xpd.sce.tests.javascript.CaseDataLiteralParamTest;
 import com.tibco.xpd.sce.tests.javascript.CaseDataScriptGenerationTest;
 import com.tibco.xpd.sce.tests.javascript.CaseDataTaskInvalidTest;
 import com.tibco.xpd.sce.tests.javascript.CaseDataTaskTest;
+import com.tibco.xpd.sce.tests.javascript.GetAuthenticatedUserValidationTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptArrayInvalidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptArrayValidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptDateValidTest;
@@ -77,6 +78,7 @@ public class AllUnitTests {
         suite.addTestSuite(CaseDataLiteralParamTest.class);
         suite.addTestSuite(AceDataWrapperScriptObjectTest.class);
         suite.addTestSuite(AceProcessAndWMScriptTest.class);
+        suite.addTestSuite(GetAuthenticatedUserValidationTest.class);
 
         return suite;
     }

@@ -20,6 +20,7 @@ import org.eclipse.uml2.uml.Relationship;
 import org.eclipse.uml2.uml.Type;
 
 import com.tibco.bx.validation.internal.Messages;
+import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.n2.cds.script.IRestScriptRelevantData;
@@ -58,6 +59,11 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
      * auditLog method name on Process java script class from PEJavaScript.uml
      */
     private static final String AUDIT_LOG_METHOD_NAME = "auditLog"; //$NON-NLS-1$
+
+    /**
+     * getAuthenticatedUser() method name on bpm.process java script class from PEJavaScript.uml
+     */
+    private static final String GETAUTHENTICATEDUSER_METHOD_NAME = "getAuthenticatedUser"; //$NON-NLS-1$
 
     /**
      * Process java script class name from PEJavascript.uml
@@ -270,10 +276,11 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
                          * available to audit messages only from business processes. If this method is used in Pageflow
                          * process or Business Service then a warning must be shown
                          */
+                        EObject input = getInput(getInfoObject());
+                        Process process = Xpdl2ModelUtil.getProcess(input);
+
                         if (AUDIT_LOG_METHOD_NAME.equals(methodName)) {
 
-                            EObject input = getInput(getInfoObject());
-                            Process process = Xpdl2ModelUtil.getProcess(input);
                             if (Xpdl2ModelUtil.isPageflow(process)
                                     || Xpdl2ModelUtil.isPageflowBusinessService(process)) {
 
@@ -295,7 +302,40 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
                                 addWarningMessage(token, message, additionalAttributes);
 
                             }
+                        }
+                        /*
+                         * Sid ACE-6616 handle validation against use of bpm.process.getAuthenticatedUser() is
+                         * process-engine executed scripts.
+                         */
+                        if (GETAUTHENTICATEDUSER_METHOD_NAME.equals(methodName)) {
+                            /*
+                             * bpm.process.getAuthenticatedUser() can be used in any pageflow-derived process type (as
+                             * there will always be an authenticated user for these)
+                             */
+                            if (!Xpdl2ModelUtil.isPageflowOrSubType(process)) {
+                                /*
+                                 * You can't use it in service-process with the business-process deployment target (but
+                                 * just pageflow target is ok)
+                                 */
+                                if (Xpdl2ModelUtil.isServiceProcess(process)) {
+                                    if (ProcessInterfaceUtil.isProcessEngineServiceProcess(process)) {
+                                        /* Service process with business process deploy target so can't use it here */
+                                        String message =
+                                                Messages.N2JScriptDotExpressionValidator_MethodNotSupportedInProcessEngineServiceProcess_message;
+                                        List<String> additionalAttributes = new ArrayList<String>();
+                                        additionalAttributes.add(methodName);
+                                        addErrorMessage(token, message, additionalAttributes);
+                                    }
+                                } else {
+                                    /* Not a pageflow process and not a service-process so can't use it here */
+                                    String message =
+                                            Messages.N2JScriptDotExpressionValidator_MethodNotSupportedInBusinessProcess_message;
+                                    List<String> additionalAttributes = new ArrayList<String>();
+                                    additionalAttributes.add(methodName);
+                                    addErrorMessage(token, message, additionalAttributes);
 
+                                }
+                            }
                         }
                     }
                 }
