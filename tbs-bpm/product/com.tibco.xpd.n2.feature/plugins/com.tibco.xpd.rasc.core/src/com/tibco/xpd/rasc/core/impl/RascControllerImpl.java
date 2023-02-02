@@ -90,11 +90,6 @@ public class RascControllerImpl implements RascController {
     private static final String REST_ASSET_TYPE = "com.tibco.xpd.rest.asset"; //$NON-NLS-1$
 
     /**
-     * The name for project type manifest property.
-     */
-    private static final String PROJECT_TYPE_PROPERTY_NAME = "Project-Type"; //$NON-NLS-1$
-
-    /**
      * Used to look-up the implementations of the RascContributor interface.
      */
     private final static RascContributorLocator contributorlocator =
@@ -438,13 +433,7 @@ public class RascControllerImpl implements RascController {
         }
 
         if (projectType != null) {
-            try {
-                deployment.setProperties(PROJECT_TYPE_PROPERTY_NAME,
-                        new PropertyValue[] { new PropertyValue(projectType.name()) });
-            } catch (RuntimeApplicationException e) {
-                throw new RascInternalException(
-                        "Failed adding project type to MANIFEST.MF (" + projectType.name() + ")", e); //$NON-NLS-1$ //$NON-NLS-2$
-            }
+            deployment.setProjectType(projectType.name());
         }
 
     }
