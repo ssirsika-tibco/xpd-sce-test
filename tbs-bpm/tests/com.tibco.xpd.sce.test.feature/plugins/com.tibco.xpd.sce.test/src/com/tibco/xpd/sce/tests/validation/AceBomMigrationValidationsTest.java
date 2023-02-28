@@ -294,7 +294,7 @@ public class AceBomMigrationValidationsTest
                                 "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
                                 "ace.bom.max.5.searchable", //$NON-NLS-1$
                                 "_M6i7YGA1EemgPPDBEdhwDQ", //$NON-NLS-1$
-                                "BPM  : Case classes cannot have more than 5 searchable attributes (Unsupported Searchable Attribute (com.example.unsupportedconstructs))", //$NON-NLS-1$
+                                "BPM  : Case classes cannot have more than 15 searchable attributes (Unsupported Searchable Attribute (com.example.unsupportedconstructs))", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
