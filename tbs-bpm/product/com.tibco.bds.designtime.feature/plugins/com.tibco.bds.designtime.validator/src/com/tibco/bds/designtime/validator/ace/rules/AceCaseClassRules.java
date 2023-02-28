@@ -61,8 +61,8 @@ public class AceCaseClassRules implements IValidationRule {
     private static final String ISSUE_ACE_CASEID_MUST_BE_TEXT =
             "ace.bom.caseid.must.be.text"; //$NON-NLS-1$
 
-    private static final String ISSUE_ACE_MAX_5_SEARCHABLE =
-            "ace.bom.max.5.searchable"; //$NON-NLS-1$
+    private static final String ISSUE_ACE_MAX_SEARCHABLE =
+            "ace.bom.max.searchable"; //$NON-NLS-1$
 
     private static final String ISSUE_ACE_MAX_5_SUMMARY =
             "ace.bom.max.5.summary"; //$NON-NLS-1$
@@ -232,8 +232,8 @@ public class AceCaseClassRules implements IValidationRule {
         }
 
         // There can only be 5 searchable properties.
-        if (searchProperties.size() > 5) {
-            scope.createIssue(ISSUE_ACE_MAX_5_SEARCHABLE,
+        if (searchProperties.size() > 15) {
+            scope.createIssue(ISSUE_ACE_MAX_SEARCHABLE,
                     BOMValidationUtil.getLocation(clazz),
                     clazz.eResource().getURIFragment(clazz));
 
