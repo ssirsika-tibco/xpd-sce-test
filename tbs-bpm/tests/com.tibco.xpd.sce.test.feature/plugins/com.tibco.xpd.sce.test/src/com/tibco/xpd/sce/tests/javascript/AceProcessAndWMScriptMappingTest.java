@@ -405,7 +405,7 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
         assertTrue(
                 context + ": Should treat input enumerations as simple text values.", //$NON-NLS-1$
                 inputMappingsScript.contains(
-                        "REST_PAYLOAD['textToFromEnum'] = (data.Copy_Of_ClassField.enum1 != null) ? new String(data.Copy_Of_ClassField.enum1) : null;")); //$NON-NLS-1$
+                        "REST_PAYLOAD['textToFromEnum'] = (data.Copy_Of_ClassField.enum1 != null) && (data.Copy_Of_ClassField.enum1.length > 0) ? new String(data.Copy_Of_ClassField.enum1) : null;")); //$NON-NLS-1$
 
         assertTrue(context
                 + ": Should treat input enumeration lists as simple text lists.", //$NON-NLS-1$
