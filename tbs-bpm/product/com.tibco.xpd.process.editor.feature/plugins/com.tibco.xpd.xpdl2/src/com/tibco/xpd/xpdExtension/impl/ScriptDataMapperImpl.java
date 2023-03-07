@@ -44,6 +44,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.ScriptDataMapperImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.ScriptDataMapperImpl#getMapperContext <em>Mapper Context</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.ScriptDataMapperImpl#getMappingDirection <em>Mapping Direction</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.impl.ScriptDataMapperImpl#isExcludeEmptyOptionalObjects <em>Exclude Empty Optional Objects</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.impl.ScriptDataMapperImpl#isExcludeEmptyOptionalArrays <em>Exclude Empty Optional Arrays</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.impl.ScriptDataMapperImpl#isExcludeEmptyObjectsFromArrays <em>Exclude Empty Objects From Arrays</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.ScriptDataMapperImpl#getDataMappings <em>Data Mappings</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.ScriptDataMapperImpl#getUnmappedScripts <em>Unmapped Scripts</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.ScriptDataMapperImpl#getArrayInflationType <em>Array Inflation Type</em>}</li>
@@ -136,6 +139,66 @@ public class ScriptDataMapperImpl extends EObjectImpl implements ScriptDataMappe
      * @ordered
      */
     protected boolean mappingDirectionESet;
+
+    /**
+     * The default value of the '{@link #isExcludeEmptyOptionalObjects() <em>Exclude Empty Optional Objects</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isExcludeEmptyOptionalObjects()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean EXCLUDE_EMPTY_OPTIONAL_OBJECTS_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isExcludeEmptyOptionalObjects() <em>Exclude Empty Optional Objects</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isExcludeEmptyOptionalObjects()
+     * @generated
+     * @ordered
+     */
+    protected boolean excludeEmptyOptionalObjects = EXCLUDE_EMPTY_OPTIONAL_OBJECTS_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isExcludeEmptyOptionalArrays() <em>Exclude Empty Optional Arrays</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isExcludeEmptyOptionalArrays()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean EXCLUDE_EMPTY_OPTIONAL_ARRAYS_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isExcludeEmptyOptionalArrays() <em>Exclude Empty Optional Arrays</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isExcludeEmptyOptionalArrays()
+     * @generated
+     * @ordered
+     */
+    protected boolean excludeEmptyOptionalArrays = EXCLUDE_EMPTY_OPTIONAL_ARRAYS_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isExcludeEmptyObjectsFromArrays() <em>Exclude Empty Objects From Arrays</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isExcludeEmptyObjectsFromArrays()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isExcludeEmptyObjectsFromArrays() <em>Exclude Empty Objects From Arrays</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isExcludeEmptyObjectsFromArrays()
+     * @generated
+     * @ordered
+     */
+    protected boolean excludeEmptyObjectsFromArrays = EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getDataMappings() <em>Data Mappings</em>}' containment reference list.
@@ -315,6 +378,75 @@ public class ScriptDataMapperImpl extends EObjectImpl implements ScriptDataMappe
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isExcludeEmptyOptionalObjects() {
+        return excludeEmptyOptionalObjects;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setExcludeEmptyOptionalObjects(boolean newExcludeEmptyOptionalObjects) {
+        boolean oldExcludeEmptyOptionalObjects = excludeEmptyOptionalObjects;
+        excludeEmptyOptionalObjects = newExcludeEmptyOptionalObjects;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_OBJECTS,
+                    oldExcludeEmptyOptionalObjects, excludeEmptyOptionalObjects));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isExcludeEmptyOptionalArrays() {
+        return excludeEmptyOptionalArrays;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setExcludeEmptyOptionalArrays(boolean newExcludeEmptyOptionalArrays) {
+        boolean oldExcludeEmptyOptionalArrays = excludeEmptyOptionalArrays;
+        excludeEmptyOptionalArrays = newExcludeEmptyOptionalArrays;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_ARRAYS,
+                    oldExcludeEmptyOptionalArrays, excludeEmptyOptionalArrays));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isExcludeEmptyObjectsFromArrays() {
+        return excludeEmptyObjectsFromArrays;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setExcludeEmptyObjectsFromArrays(boolean newExcludeEmptyObjectsFromArrays) {
+        boolean oldExcludeEmptyObjectsFromArrays = excludeEmptyObjectsFromArrays;
+        excludeEmptyObjectsFromArrays = newExcludeEmptyObjectsFromArrays;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS,
+                    oldExcludeEmptyObjectsFromArrays, excludeEmptyObjectsFromArrays));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EList<DataMapping> getDataMappings() {
         if (dataMappings == null) {
             dataMappings = new EObjectContainmentEList<DataMapping>(DataMapping.class, this,
@@ -402,6 +534,12 @@ public class ScriptDataMapperImpl extends EObjectImpl implements ScriptDataMappe
             return getMapperContext();
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPING_DIRECTION:
             return getMappingDirection();
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_OBJECTS:
+            return isExcludeEmptyOptionalObjects();
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_ARRAYS:
+            return isExcludeEmptyOptionalArrays();
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS:
+            return isExcludeEmptyObjectsFromArrays();
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__DATA_MAPPINGS:
             return getDataMappings();
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS:
@@ -432,6 +570,15 @@ public class ScriptDataMapperImpl extends EObjectImpl implements ScriptDataMappe
             return;
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPING_DIRECTION:
             setMappingDirection((DirectionType) newValue);
+            return;
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_OBJECTS:
+            setExcludeEmptyOptionalObjects((Boolean) newValue);
+            return;
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_ARRAYS:
+            setExcludeEmptyOptionalArrays((Boolean) newValue);
+            return;
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS:
+            setExcludeEmptyObjectsFromArrays((Boolean) newValue);
             return;
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__DATA_MAPPINGS:
             getDataMappings().clear();
@@ -469,6 +616,15 @@ public class ScriptDataMapperImpl extends EObjectImpl implements ScriptDataMappe
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPING_DIRECTION:
             unsetMappingDirection();
             return;
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_OBJECTS:
+            setExcludeEmptyOptionalObjects(EXCLUDE_EMPTY_OPTIONAL_OBJECTS_EDEFAULT);
+            return;
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_ARRAYS:
+            setExcludeEmptyOptionalArrays(EXCLUDE_EMPTY_OPTIONAL_ARRAYS_EDEFAULT);
+            return;
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS:
+            setExcludeEmptyObjectsFromArrays(EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS_EDEFAULT);
+            return;
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__DATA_MAPPINGS:
             getDataMappings().clear();
             return;
@@ -498,6 +654,12 @@ public class ScriptDataMapperImpl extends EObjectImpl implements ScriptDataMappe
             return isSetMapperContext();
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPING_DIRECTION:
             return isSetMappingDirection();
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_OBJECTS:
+            return excludeEmptyOptionalObjects != EXCLUDE_EMPTY_OPTIONAL_OBJECTS_EDEFAULT;
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_ARRAYS:
+            return excludeEmptyOptionalArrays != EXCLUDE_EMPTY_OPTIONAL_ARRAYS_EDEFAULT;
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS:
+            return excludeEmptyObjectsFromArrays != EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS_EDEFAULT;
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__DATA_MAPPINGS:
             return dataMappings != null && !dataMappings.isEmpty();
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS:
@@ -569,6 +731,12 @@ public class ScriptDataMapperImpl extends EObjectImpl implements ScriptDataMappe
             result.append(mappingDirection);
         else
             result.append("<unset>"); //$NON-NLS-1$
+        result.append(", excludeEmptyOptionalObjects: "); //$NON-NLS-1$
+        result.append(excludeEmptyOptionalObjects);
+        result.append(", excludeEmptyOptionalArrays: "); //$NON-NLS-1$
+        result.append(excludeEmptyOptionalArrays);
+        result.append(", excludeEmptyObjectsFromArrays: "); //$NON-NLS-1$
+        result.append(excludeEmptyObjectsFromArrays);
         result.append(')');
         return result.toString();
     }

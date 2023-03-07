@@ -83,4 +83,27 @@
              providerClass="com.tibco.xpd.rest.datamapper.RestDataReferenceContextProvider">
        </provider>
     </extension>
+    
+    <extension
+         point="com.tibco.xpd.processeditor.xpdl2.advancedProperties">
+      <DestinationEnvironments
+            DestinationEnvCategoryLabel="%property_category_rest_service_input">
+         <DestinationEnvironment
+               DestinationEnvironmentId="bpmn1">
+         </DestinationEnvironment>
+      </DestinationEnvironments>
+      <AdvancedProperties>
+         <AdvancedProperty
+               ContributedAdvancedPropertyClass="com.tibco.xpd.rest.datamapper.properties.RestInputExcludeEmptyOptionalObjectsProperty"
+               DisplayName="%property_exclude_empty_optional_objects_from_target_data">
+         </AdvancedProperty>
+         <AdvancedProperty
+               ContributedAdvancedPropertyClass="com.tibco.xpd.rest.datamapper.properties.RestInputExcludeEmptyObjectsFromArraysProperty"
+               DisplayName="%property_exclude_empty_objects_from_arrays_in_target_data">
+         </AdvancedProperty>
+         <AdvancedProperty
+               ContributedAdvancedPropertyClass="com.tibco.xpd.rest.datamapper.properties.RestInputExcludeEmptyOptionalArraysProperty"
+               DisplayName="%property_exclude_empty_optional_arrays_from_target_data">
+         </AdvancedProperty></AdvancedProperties>
+   </extension>
 </plugin>

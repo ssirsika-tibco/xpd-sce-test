@@ -94,6 +94,8 @@ public class Messages extends NLS {
 
     public static String ScriptGeneratorInfoProviderContributionHelper_ErrorReadingExtensionMessage;
 
+    public static String AdvancedRestServiceInputMappingProperties_SetInputMappingExclusions_cmd;
+
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);

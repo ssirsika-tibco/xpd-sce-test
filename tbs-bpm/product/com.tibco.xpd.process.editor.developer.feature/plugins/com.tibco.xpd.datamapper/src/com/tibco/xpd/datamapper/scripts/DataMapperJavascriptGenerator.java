@@ -52,6 +52,7 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @author nwilson
  * @since 9 Mar 2015
  */
+@SuppressWarnings("nls")
 public class DataMapperJavascriptGenerator {
     private int functionIndex = 1;
 
@@ -640,6 +641,10 @@ public class DataMapperJavascriptGenerator {
             DataMapperTreeNode targetNode, Object targetWrappedItem) {
 
         if (targetWrappedItem != null) {
+            /*
+             * Sid ACE-6583 track if we added script to create new complex object.
+             */
+            boolean complexTargetCreated = false;
 
             /*
              * Sid XPD-7651 - Used to be code here that reset the
@@ -691,6 +696,8 @@ public class DataMapperJavascriptGenerator {
                      * Create the target complex object (because it's content as
                      * been mapped).
                      */
+                    complexTargetCreated = true; /* Sid ACE-6583 */
+
                     String createComplexObjectScript =
                             getCreateComplexItemScript(targetInfoProvider,
                                     targetWrappedItem);
@@ -734,6 +741,31 @@ public class DataMapperJavascriptGenerator {
                     mappingContentProvider,
                     aliasOfSourceParent,
                     newTargetAlias);
+
+            /*
+             * Sid ACE-6583 Check if target data handling script requires to exclude empty complex objects for optional
+             * target data (if the target data info provider supports it).
+             */
+            if (complexTargetCreated) {
+
+                if (scriptDataMapper.isExcludeEmptyOptionalObjects()) {
+                    /*
+                     * Target data mappings are configured to Delete empty optional objects (but don't delete if root
+                     * var (can't delete these in JavaScript)
+                     */
+                    boolean isRoot = targetInfoProvider.getContentProvider().getParent(targetWrappedItem) == null;
+
+                    if (!isRoot && targetInfoProvider.getMinimumInstances(targetWrappedItem) < 1) {
+                        String isEmptyObjectConditionStatement = getDeleteEmptyObjectScript(targetInfoProvider,
+                                targetWrappedItem,
+                                newTargetAlias.jsVarAlias);
+                        
+                        if (isEmptyObjectConditionStatement != null) {
+                            script.append(isEmptyObjectConditionStatement);
+                        }
+                    }
+                }
+            }
         }
 
     }
@@ -1011,7 +1043,8 @@ public class DataMapperJavascriptGenerator {
                         .getContribDelegatingScriptGenInfoProvider()
                         .getCollectionAddElementScript(targetWrappedItem,
                                 sourceItemAlias.jsVarAlias,
-                                aliasOfTargetParent.jsVarAlias));
+                                aliasOfTargetParent.jsVarAlias,
+                                false));
 
                 script.addLine("}", false, true); //$NON-NLS-1$
 
@@ -1026,7 +1059,8 @@ public class DataMapperJavascriptGenerator {
                         .getContribDelegatingScriptGenInfoProvider()
                         .getCollectionAddElementScript(targetWrappedItem,
                                 sourceItemAlias.jsVarAlias,
-                                aliasOfTargetParent.jsVarAlias));
+                                aliasOfTargetParent.jsVarAlias,
+                                false));
             }
 
         } else {
@@ -1159,12 +1193,12 @@ public class DataMapperJavascriptGenerator {
                         .getContribDelegatingScriptGenInfoProvider()
                         .getCollectionAddElementScript(targetWrappedItem,
                                 newTargetAlias.jsVarAlias,
-                                aliasOfTargetParent.jsVarAlias));
+                                aliasOfTargetParent.jsVarAlias,
+                                scriptDataMapper.isExcludeEmptyObjectsFromArrays())); // Sid ACE-6538
 
                 script.addLine("}", false, true); //$NON-NLS-1$
 
             } else {
-
                 /**
                  * If not merging lists then append element to end of array
                  * (overwrite will have cleared the array first so effectively
@@ -1184,9 +1218,9 @@ public class DataMapperJavascriptGenerator {
                         .getContribDelegatingScriptGenInfoProvider()
                         .getCollectionAddElementScript(targetWrappedItem,
                                 elementToAddToArray,
-                                aliasOfTargetParent.jsVarAlias));
+                                aliasOfTargetParent.jsVarAlias,
+                                scriptDataMapper.isExcludeEmptyObjectsFromArrays())); // Sid ACE-6583
             }
-
         }
 
         /**
@@ -1201,6 +1235,30 @@ public class DataMapperJavascriptGenerator {
             script.addLine("}", false, true); //$NON-NLS-1$
         }
 
+        /*
+         * Sid ACE-6583 Check if target data handling script is configured to exclude empty arrays for optional target
+         * data (if the target supports it)
+         */
+        if (targetInfoProvider.getMinimumInstances(targetWrappedItem) < 1) {
+            if (scriptDataMapper.isExcludeEmptyOptionalArrays()) {
+
+                /*
+                 * Target data mappings are configured to Delete empty optional objects (but don't delete if root var
+                 * (can't delete these in JavaScript)
+                 */
+                boolean isRoot = targetInfoProvider.getContentProvider().getParent(targetWrappedItem) == null;
+
+                if (!isRoot) {
+                    String deleteEmptyArrayScript = getDeleteEmptyArrayScript(targetInfoProvider,
+                            targetWrappedItem,
+                            tgtArrayItemAlias.jsVarAlias);
+
+                    if (deleteEmptyArrayScript != null) {
+                        script.append(deleteEmptyArrayScript);
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -2221,6 +2279,60 @@ public class DataMapperJavascriptGenerator {
 
         return null;
     }
+
+    /**
+     * Sid ACE-6583 Get the script to delete an empty target object IF after it has been created and all descendant
+     * mappings have been applied, it is still empty. Return <code>null</code> if deletion of empty target objects is
+     * not required/desired.
+     * 
+     * @param targetPath
+     * @param jsVarAlias
+     *            If not <code>null</code> then this is the alternate 'temporary variable' object path to use (usually
+     *            used when dealing with mappings of descendant objects inside a list).
+     * 
+     * @return javascript to delete an empty target object IF after it has been created and all descendant mappings have
+     *         been applied, it is still empty. Return <code>null</code> if deletion of empty target objects is not
+     *         required/desired.
+     */
+    private String getDeleteEmptyObjectScript(ContributableDataMapperInfoProvider infoProvider, Object complexItem,
+            String jsVarAlias) {
+
+        String text =
+                infoProvider.getContribDelegatingScriptGenInfoProvider().getDeleteEmptyObjectScript(complexItem,
+                        jsVarAlias);
+
+        if (text != null && !text.isEmpty()) {
+            return text;
+        }
+
+        return null;
+    }
+
+    /**
+     * Sid ACE-6583 Get the script to delete an empty target array IF after it has been created and all descendant
+     * mappings have been applied, it is still empty.
+     * 
+     * @param targetPath
+     * @param jsVarAlias
+     *            If not <code>null</code> then this is the alternate 'temporary variable' object path to use (usually
+     *            used when dealing with mappings of descendant objects inside a list).
+     * 
+     * @return javascript to delete an empty target rray IF after it has been created and all descendant mappings have
+     *         been applied, it is still empty. Return <code>null</code> if deletion of empty target objects is not
+     *         required/desired.
+     */
+    private String getDeleteEmptyArrayScript(ContributableDataMapperInfoProvider infoProvider, Object complexItem,
+            String jsVarAlias) {
+        String text = infoProvider.getContribDelegatingScriptGenInfoProvider().getDeleteEmptyArrayScript(complexItem,
+                jsVarAlias);
+
+        if (text != null && !text.isEmpty()) {
+            return text;
+        }
+
+        return null;
+    }
+
 
     /*
      * Sid XPD-7660 - Removed getCreateArrayInstanceScript() this was called for

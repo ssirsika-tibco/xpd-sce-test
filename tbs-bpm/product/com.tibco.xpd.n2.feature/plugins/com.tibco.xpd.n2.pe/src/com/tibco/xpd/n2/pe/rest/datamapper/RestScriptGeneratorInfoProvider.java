@@ -1,13 +1,13 @@
 /*
  * Copyright (c) TIBCO Software Inc 2004, 2015. All rights reserved.
  */
-
 package com.tibco.xpd.n2.pe.rest.datamapper;
 
 import java.util.List;
 
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.PrimitiveType;
+import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
@@ -49,6 +49,7 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @author nwilson
  * @since 1 May 2015
  */
+@SuppressWarnings("nls")
 public class RestScriptGeneratorInfoProvider
         implements IScriptGeneratorInfoProvider {
 
@@ -165,6 +166,10 @@ public class RestScriptGeneratorInfoProvider
     }
     
     /**
+     * Sid: ACE-6853 Confusingly named as RHS (it means RHS of an assignment statemet not RHS of mappings) 
+     * 
+     * This  Appends the statement that will get value of he SOURCE of a mapping and perform any necessary pre-processing on it.
+     *   
      * @param object
      * @param rhsObjectStatement
      * @param statement
@@ -244,7 +249,32 @@ public class RestScriptGeneratorInfoProvider
                             + " : null"; //$NON-NLS-1$
                 } else if (PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME
                         .equals(name)) {
-                    suffix = " ? new String(" + rhsObjectStatement + ") : null"; //$NON-NLS-1$ //$NON-NLS-2$
+                    
+                    
+                    /*
+                     * Sid ACE-6809 (ACE-6583) If the target input property is optional, then exclude value if source field is empty.
+                     * 
+                     * This is to work around 'text attributes are set to empty string by Forms/Case-Data-manager even when user hasn't entered any value'.
+                     */
+                    boolean excludeEmptyString = false;
+                    
+                    if (cp.getItem() instanceof Property) {
+                        Property property = (Property) cp.getItem();
+                        
+                        if (property.getLower() == 0 && !cp.isArray()) {
+                            // Minimum instances == 0 == optional REST property.
+                            // For arrays, best just leave as is.
+                            excludeEmptyString = true;
+                        }
+                    }
+
+                    if (excludeEmptyString) {
+                        suffix = " && ("+rhsObjectStatement + ".length > 0)" + " ? new String(" + rhsObjectStatement + ") : null"; //$NON-NLS-1$ //$NON-NLS-2$
+                        
+                    } else {
+                        // For required target REST property always map EVEN in empty string.
+                        suffix = " ? new String(" + rhsObjectStatement + ") : null"; //$NON-NLS-1$ //$NON-NLS-2$
+                    }
                 }
             }
         }
@@ -559,6 +589,7 @@ public class RestScriptGeneratorInfoProvider
                     RestMapperTreeItemFactory.getInstance();
             Activity activity = Xpdl2ModelUtil.getParentActivity(container);
             JavaScriptStringBuilder jssb = new JavaScriptStringBuilder();
+            
             RestServiceTaskAdapter rsta = new RestServiceTaskAdapter();
             Method method = rsta.getRSOMethod(activity);
             if (method != null) {
@@ -638,6 +669,7 @@ public class RestScriptGeneratorInfoProvider
                 return jssb.toString();
             }
         }
+
         return null;
     }
 
@@ -1007,31 +1039,53 @@ public class RestScriptGeneratorInfoProvider
     }
 
     /**
-     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getCollectionAddElementScript(java.lang.Object,
-     *      java.lang.String, java.lang.String)
      * 
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getCollectionAddElementScript(java.lang.Object,
+     *      java.lang.String, java.lang.String, boolean)
+     *
      * @param collection
      * @param jsElementToAdd
      * @param objectParentJsVar
+     * @param excludeEmptyObjects
+     *            Sid ACE-6583 Handle exclusion of empty objects from target arrays if required.
      * @return
      */
     @Override
     public String getCollectionAddElementScript(Object collection,
-            String jsElementToAdd, String objectParentJsVar) {
+            String jsElementToAdd, String objectParentJsVar, boolean excludeEmptyObjects) {
 
         StringBuilder script = new StringBuilder();
-        if (objectParentJsVar != null && !objectParentJsVar.isEmpty()) {
-            script.append(convertPath(objectParentJsVar) + "['" //$NON-NLS-1$
-                    + getName(collection) + "']"); //$NON-NLS-1$
-        } else {
-            script.append(convertPath(getPath(collection)));
-        }
 
+        /* Sid ACE-6583 Handle exclusion of empty objects from target arrays if required. */
+        String targetPath; 
+                
+        if (objectParentJsVar != null && !objectParentJsVar.isEmpty()) {
+            targetPath = convertPath(objectParentJsVar) + "['" //$NON-NLS-1$
+                    + getName(collection) + "']"; //$NON-NLS-1$
+        } else {
+            targetPath = convertPath(getPath(collection));
+        }
+        
+        if (excludeEmptyObjects) {
+            // Add the 'if (!(<is empty object>) {' statement
+            script.append(String.format("if (!(%1$s)) { ", getIsEmptyObjectConditionStatement(jsElementToAdd)));
+        }
+        
+        script.append(targetPath);
+        
         script.append(".push("); //$NON-NLS-1$
+
         appendRhsObjectStatement(collection, jsElementToAdd, script);
         script.append(");"); //$NON-NLS-1$
+        
+        if (excludeEmptyObjects) {
+            // Terminate the 'if (!(<is empty object>) {' statement
+            script.append(" } ");
+        }
+        
         return script.toString();
     }
+
 
     /**
      * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getCollectionSetElementScript(java.lang.Object,
@@ -1346,5 +1400,72 @@ public class RestScriptGeneratorInfoProvider
         UNASSIGNED, JSON, UNPROCESSED_TEXT
     }
 
+    /**
+     * Sid ACE-6583
+     * 
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getDeleteEmptyObjectScript(java.lang.Object, java.lang.String)
+     *
+     * @param object
+     * @param jsVarAlias the 
+     * @return
+     */
+    @Override
+    public String getDeleteEmptyObjectScript(Object object, String jsVarAlias) {
+        StringBuilder script = new StringBuilder();
+        
+        String targetPath = resolvePath(jsVarAlias, jsVarAlias);
+        
+        // Add the 'if (!(<is empty object>) {' statement
+        script.append(String.format("if (%1$s) { delete %2$s; }\n", getIsEmptyObjectConditionStatement(targetPath), targetPath));
+
+        return script.toString();
+    }
+
+    /**
+     * Sid ACE-6583
+     * 
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getDeleteEmptyArrayScript(java.lang.Object, java.lang.String)
+     *
+     * @param object
+     * @param jsVarAlias
+     * @return
+     */
+    @Override
+    public String getDeleteEmptyArrayScript(Object object, String jsVarAlias) {
+        StringBuilder script = new StringBuilder();
+        
+        String targetPath = resolvePath(jsVarAlias, jsVarAlias);
+        
+        // Add the 'if (!(<is empty object>) {' statement
+        script.append(String.format("if (%1$s) { delete %2$s; }\n", getIsEmptyArrayConditionStatement(targetPath), targetPath));
+
+        return script.toString();
+    }
+
+
+    /**
+     * Sid ACE-6583 Get the javascript statement to check if the given object is empty.
+     * 
+     * @param path Path of object
+     * 
+     * @return the javascript statement to check if the given object is empty.
+     */
+    private Object getIsEmptyObjectConditionStatement(String path) {
+        return String.format("!!%1$s && Object.getPrototypeOf(%1$s) === Object.prototype && Object.keys(%1$s).length === 0",
+                path);
+    }
+
+    /**
+     * Sid ACE-6583 Get the javascript statement to check if the given array is empty.
+     * 
+     * @param path Path of array
+     * 
+     * @return the javascript statement to check if the given array is empty.
+     */
+    private Object getIsEmptyArrayConditionStatement(String path) {
+        return String.format("Array.isArray(%1$s) && %1$s.length === 0",
+                path);
+    }
 
 }
+    

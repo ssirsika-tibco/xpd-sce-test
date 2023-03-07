@@ -3677,8 +3677,35 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getScriptDataMapper_ExcludeEmptyOptionalObjects() {
+        return (EAttribute) scriptDataMapperEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScriptDataMapper_ExcludeEmptyOptionalArrays() {
+        return (EAttribute) scriptDataMapperEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScriptDataMapper_ExcludeEmptyObjectsFromArrays() {
+        return (EAttribute) scriptDataMapperEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EReference getScriptDataMapper_DataMappings() {
-        return (EReference) scriptDataMapperEClass.getEStructuralFeatures().get(2);
+        return (EReference) scriptDataMapperEClass.getEStructuralFeatures().get(5);
     }
 
     /**
@@ -3687,7 +3714,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
      * @generated
      */
     public EReference getScriptDataMapper_UnmappedScripts() {
-        return (EReference) scriptDataMapperEClass.getEStructuralFeatures().get(3);
+        return (EReference) scriptDataMapperEClass.getEStructuralFeatures().get(6);
     }
 
     /**
@@ -3696,7 +3723,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
      * @generated
      */
     public EReference getScriptDataMapper_ArrayInflationType() {
-        return (EReference) scriptDataMapperEClass.getEStructuralFeatures().get(4);
+        return (EReference) scriptDataMapperEClass.getEStructuralFeatures().get(7);
     }
 
     /**
@@ -6605,6 +6632,9 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
         scriptDataMapperEClass = createEClass(SCRIPT_DATA_MAPPER);
         createEAttribute(scriptDataMapperEClass, SCRIPT_DATA_MAPPER__MAPPER_CONTEXT);
         createEAttribute(scriptDataMapperEClass, SCRIPT_DATA_MAPPER__MAPPING_DIRECTION);
+        createEAttribute(scriptDataMapperEClass, SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_OBJECTS);
+        createEAttribute(scriptDataMapperEClass, SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_ARRAYS);
+        createEAttribute(scriptDataMapperEClass, SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS);
         createEReference(scriptDataMapperEClass, SCRIPT_DATA_MAPPER__DATA_MAPPINGS);
         createEReference(scriptDataMapperEClass, SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS);
         createEReference(scriptDataMapperEClass, SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE);
@@ -13497,6 +13527,51 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
                 IS_UNIQUE,
                 !IS_DERIVED,
                 IS_ORDERED);
+        initEAttribute(getScriptDataMapper_ExcludeEmptyOptionalObjects(),
+                theXMLTypePackage.getBoolean(),
+                "excludeEmptyOptionalObjects", //$NON-NLS-1$
+                null,
+                1,
+                1,
+                ScriptDataMapper.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                !IS_UNSETTABLE,
+                !IS_ID,
+                !IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
+        initEAttribute(getScriptDataMapper_ExcludeEmptyOptionalArrays(),
+                theXMLTypePackage.getBoolean(),
+                "excludeEmptyOptionalArrays", //$NON-NLS-1$
+                null,
+                1,
+                1,
+                ScriptDataMapper.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                !IS_UNSETTABLE,
+                !IS_ID,
+                !IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
+        initEAttribute(getScriptDataMapper_ExcludeEmptyObjectsFromArrays(),
+                theXMLTypePackage.getBoolean(),
+                "excludeEmptyObjectsFromArrays", //$NON-NLS-1$
+                null,
+                1,
+                1,
+                ScriptDataMapper.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                !IS_UNSETTABLE,
+                !IS_ID,
+                !IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
         initEReference(getScriptDataMapper_DataMappings(),
                 theXpdl2Package.getDataMapping(),
                 null,
@@ -16567,6 +16642,24 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
                 source,
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "MappingDirection" //$NON-NLS-1$ //$NON-NLS-2$
+                });
+        addAnnotation(getScriptDataMapper_ExcludeEmptyOptionalObjects(),
+                source,
+                new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "ExcludeEmptyOptionalObjects", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                });
+        addAnnotation(getScriptDataMapper_ExcludeEmptyOptionalArrays(),
+                source,
+                new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "ExcludeEmptyOptionalArrays", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                });
+        addAnnotation(getScriptDataMapper_ExcludeEmptyObjectsFromArrays(),
+                source,
+                new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "ExcludeEmptyObjectsFromArrays", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
         addAnnotation(getScriptDataMapper_DataMappings(),
                 source,

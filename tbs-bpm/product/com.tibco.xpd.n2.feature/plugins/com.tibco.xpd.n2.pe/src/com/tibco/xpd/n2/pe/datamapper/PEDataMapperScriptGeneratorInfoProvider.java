@@ -155,16 +155,21 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
     }
 
     /**
-     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getCollectionAddElementScript(java.lang.Object,
-     *      java.lang.String, String)
      * 
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getCollectionAddElementScript(java.lang.Object,
+     *      java.lang.String, java.lang.String, boolean)
+     *
      * @param collection
      * @param jsElementToAdd
+     * @param objectParentJsVar
+     * @param excludeEmptyObjects
+     *            Sid ACE-6583 NOTE: Exclusion of empty objects from target arrays not needed for bpm.process util class
+     *            properties  - so this flag is ignored
      * @return
      */
     @Override
     public String getCollectionAddElementScript(Object collection,
-            String jsElementToAdd, String objectParentJsVar) {
+            String jsElementToAdd, String objectParentJsVar, boolean excludeEmptyObjects) {
         // Not expecting this to be called
         return null;
     }
@@ -289,4 +294,37 @@ public class PEDataMapperScriptGeneratorInfoProvider implements
                 "Not expecting getSingleToMultiInstanceAssignmentStatement() to be called for Process JS class mapper content."); //$NON-NLS-1$
     }
 
+    /**
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getDeleteEmptyObjectScript(java.lang.Object,
+     *      java.lang.String)
+     *
+     * @param object
+     * @param jsVarAlias
+     * @return
+     */
+    @Override
+    public String getDeleteEmptyObjectScript(Object object, String jsVarAlias) {
+        /*
+         * Sid ACE-6583 Exclusion of empty target objects not currently needed for anything in the bpm.process util
+         * class properties.
+         */
+        return null;
+    }
+
+    /**
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getDeleteEmptyArrayScript(java.lang.Object,
+     *      java.lang.String)
+     *
+     * @param object
+     * @param jsVarAlias
+     * @return
+     */
+    @Override
+    public String getDeleteEmptyArrayScript(Object object, String jsVarAlias) {
+        /*
+         * Sid ACE-6583 Exclusion of empty target arrays not currently needed for anything in the bpm.process util class
+         * properties.
+         */
+        return null;
+    }
 }

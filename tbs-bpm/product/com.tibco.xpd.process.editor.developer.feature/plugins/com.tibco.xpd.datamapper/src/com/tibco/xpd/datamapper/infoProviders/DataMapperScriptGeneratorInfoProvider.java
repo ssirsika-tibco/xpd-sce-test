@@ -369,17 +369,21 @@ public class DataMapperScriptGeneratorInfoProvider implements
         return null;
     }
 
+
     /**
      * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getCollectionAddElementScript(java.lang.Object,
-     *      java.lang.String, String)
-     * 
+     *      java.lang.String, java.lang.String, boolean)
+     *
      * @param collection
      * @param jsVarName
+     * @param objectParentJsVar
+     * @param excludeEmptyObjects
+     *            Sid ACE-6583
      * @return
      */
     @Override
     public String getCollectionAddElementScript(Object collection,
-            String jsVarName, String objectParentJsVar) {
+            String jsVarName, String objectParentJsVar, boolean excludeEmptyObjects) {
         if (collection instanceof WrappedContributedContent) {
 
             WrappedContributedContent wrappedElement =
@@ -398,7 +402,8 @@ public class DataMapperScriptGeneratorInfoProvider implements
                             .getCollectionAddElementScript(wrappedElement
                                     .getContributedObject(),
                                     jsVarName,
-                                    objectParentJsVar);
+                                    objectParentJsVar,
+                                    excludeEmptyObjects);
                 }
             }
         }
@@ -558,6 +563,68 @@ public class DataMapperScriptGeneratorInfoProvider implements
             String contributionID) {
         return ScriptGeneratorInfoProviderContributionHelper
                 .getScriptGeneratorInfoProvider(contributionID);
+    }
+
+    /**
+     * Sid ACE-6583 
+     * 
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getDeleteEmptyObjectScript(java.lang.Object,
+     *      java.lang.String)
+     *
+     * @param object
+     * @param jsVarAlias
+     * @return
+     */
+    @Override
+    public String getDeleteEmptyObjectScript(Object object, String jsVarAlias) {
+        if (object instanceof WrappedContributedContent) {
+
+            WrappedContributedContent wrappedElement = ((WrappedContributedContent) object);
+            AbstractDataMapperContentContributor contrib = wrappedElement.getContributor();
+
+            if (contrib != null) {
+                IScriptGeneratorInfoProvider scriptGeneratorInfoProvider =
+                        getScriptGeneratorInfoProvider(contrib.getContributorId());
+
+                if (scriptGeneratorInfoProvider != null) {
+
+                    return scriptGeneratorInfoProvider.getDeleteEmptyObjectScript(wrappedElement.getContributedObject(),
+                            jsVarAlias);
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Sid ACE-6583
+     * 
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getDeleteEmptyArrayScript(java.lang.Object,
+     *      java.lang.String)
+     *
+     * @param object
+     * @param jsVarAlias
+     * @return
+     */
+    @Override
+    public String getDeleteEmptyArrayScript(Object object, String jsVarAlias) {
+        if (object instanceof WrappedContributedContent) {
+
+            WrappedContributedContent wrappedElement = ((WrappedContributedContent) object);
+            AbstractDataMapperContentContributor contrib = wrappedElement.getContributor();
+
+            if (contrib != null) {
+                IScriptGeneratorInfoProvider scriptGeneratorInfoProvider =
+                        getScriptGeneratorInfoProvider(contrib.getContributorId());
+
+                if (scriptGeneratorInfoProvider != null) {
+
+                    return scriptGeneratorInfoProvider.getDeleteEmptyArrayScript(wrappedElement.getContributedObject(),
+                            jsVarAlias);
+                }
+            }
+        }
+        return null;
     }
 
 }

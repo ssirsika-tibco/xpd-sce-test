@@ -647,17 +647,22 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
                 true);
     }
 
+
     /**
      * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getCollectionAddElementScript(java.lang.Object,
-     *      java.lang.String, String)
-     * 
+     *      java.lang.String, java.lang.String, boolean)
+     *
      * @param collection
      * @param jsVarName
+     * @param objectParentJsVar
+     * @param excludeEmptyObjects
+     *            Sid ACE-6583 NOTE: Exclusion of empty objects from target arrays not currently supported (or needed)
+     *            for BPMe process/case data - so this flag is ignored.
      * @return
      */
     @Override
     public String getCollectionAddElementScript(Object collection,
-            String jsVarName, String objectParentJsVar) {
+            String jsVarName, String objectParentJsVar, boolean excludeEmptyObjects) {
         if (collection instanceof ConceptPath) {
             ConceptPath cp = (ConceptPath) collection;
 
@@ -1037,5 +1042,36 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
             return finaliseObjectPath(designTimePath, pathOrJsVarAlias);
         }
         return pathOrJsVarAlias;
+    }
+
+    /**
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getDeleteEmptyObjectScript(java.lang.Object, java.lang.String)
+     *
+     * @param object
+     * @param jsVarAlias
+     * @return
+     */
+    @Override
+    public String getDeleteEmptyObjectScript(Object object, String jsVarAlias) {
+        /*
+         * Sid ACE-6583 Exclusion of empty target objects not currently supported (or wanted) for BPMe process/case
+         * data.
+         */
+        return null;
+    }
+
+    /**
+     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getDeleteEmptyArrayScript(java.lang.Object, java.lang.String)
+     *
+     * @param object
+     * @param jsVarAlias
+     * @return
+     */
+    @Override
+    public String getDeleteEmptyArrayScript(Object object, String jsVarAlias) {
+        /*
+         * Sid ACE-6583 Exclusion of empty target arrays not currently supported (or wanted) for BPMe process/case data.
+         */
+        return null;
     }
 }

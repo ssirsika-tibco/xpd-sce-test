@@ -6440,13 +6440,40 @@ public interface XpdExtensionPackage extends EPackage {
     int SCRIPT_DATA_MAPPER__MAPPING_DIRECTION = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Exclude Empty Optional Objects</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_OBJECTS = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Exclude Empty Optional Arrays</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_ARRAYS = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Exclude Empty Objects From Arrays</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 5;
+
+    /**
      * The feature id for the '<em><b>Data Mappings</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SCRIPT_DATA_MAPPER__DATA_MAPPINGS = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 3;
+    int SCRIPT_DATA_MAPPER__DATA_MAPPINGS = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Unmapped Scripts</b></em>' containment reference list.
@@ -6455,7 +6482,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 4;
+    int SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Array Inflation Type</b></em>' containment reference list.
@@ -6464,7 +6491,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 5;
+    int SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 8;
 
     /**
      * The number of structural features of the '<em>Script Data Mapper</em>' class.
@@ -6473,7 +6500,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_DATA_MAPPER_FEATURE_COUNT = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 6;
+    int SCRIPT_DATA_MAPPER_FEATURE_COUNT = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 9;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.DataMapperArrayInflationImpl <em>Data Mapper Array Inflation</em>}' class.
@@ -12190,6 +12217,39 @@ public interface XpdExtensionPackage extends EPackage {
     EAttribute getScriptDataMapper_MappingDirection();
 
     /**
+     * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyOptionalObjects <em>Exclude Empty Optional Objects</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Exclude Empty Optional Objects</em>'.
+     * @see com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyOptionalObjects()
+     * @see #getScriptDataMapper()
+     * @generated
+     */
+    EAttribute getScriptDataMapper_ExcludeEmptyOptionalObjects();
+
+    /**
+     * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyOptionalArrays <em>Exclude Empty Optional Arrays</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Exclude Empty Optional Arrays</em>'.
+     * @see com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyOptionalArrays()
+     * @see #getScriptDataMapper()
+     * @generated
+     */
+    EAttribute getScriptDataMapper_ExcludeEmptyOptionalArrays();
+
+    /**
+     * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyObjectsFromArrays <em>Exclude Empty Objects From Arrays</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Exclude Empty Objects From Arrays</em>'.
+     * @see com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyObjectsFromArrays()
+     * @see #getScriptDataMapper()
+     * @generated
+     */
+    EAttribute getScriptDataMapper_ExcludeEmptyObjectsFromArrays();
+
+    /**
      * Returns the meta object for the containment reference list '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getDataMappings <em>Data Mappings</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -16918,6 +16978,33 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute SCRIPT_DATA_MAPPER__MAPPING_DIRECTION = eINSTANCE.getScriptDataMapper_MappingDirection();
+
+        /**
+         * The meta object literal for the '<em><b>Exclude Empty Optional Objects</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_OBJECTS =
+                eINSTANCE.getScriptDataMapper_ExcludeEmptyOptionalObjects();
+
+        /**
+         * The meta object literal for the '<em><b>Exclude Empty Optional Arrays</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_ARRAYS =
+                eINSTANCE.getScriptDataMapper_ExcludeEmptyOptionalArrays();
+
+        /**
+         * The meta object literal for the '<em><b>Exclude Empty Objects From Arrays</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS =
+                eINSTANCE.getScriptDataMapper_ExcludeEmptyObjectsFromArrays();
 
         /**
          * The meta object literal for the '<em><b>Data Mappings</b></em>' containment reference list feature.

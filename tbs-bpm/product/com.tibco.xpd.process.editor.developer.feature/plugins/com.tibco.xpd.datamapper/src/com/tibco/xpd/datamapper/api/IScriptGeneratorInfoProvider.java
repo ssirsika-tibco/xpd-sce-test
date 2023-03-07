@@ -255,15 +255,16 @@ public interface IScriptGeneratorInfoProvider {
      * @param jsElementToAdd
      *            The element to add.
      * @param objectParentJsVar
-     *            Override JavaScript variable name if required (else
-     *            <code>null</code> or <code>""</code> if the original source
-     *            item name/path should be used.
+     *            Override JavaScript variable name if required (else <code>null</code> or <code>""</code> if the
+     *            original source item name/path should be used.
+     * @param excludeEmptyObjects
+     *            Sid ACE-6583 IF <code>true</code> AND supported by the target data, then the script should be
+     *            generated to only add the item to the target array IF the object is not empty.
      * 
-     * @return javascript text to add the given javascript variable to the given
-     *         collection (array/list).
+     * @return javascript text to add the given javascript variable to the given collection (array/list).
      */
     public String getCollectionAddElementScript(Object collection,
-            String jsElementToAdd, String objectParentJsVar);
+            String jsElementToAdd, String objectParentJsVar, boolean excludeEmptyObjects);
 
     /**
      * @param collection
@@ -271,14 +272,12 @@ public interface IScriptGeneratorInfoProvider {
      * @param jsElementToAdd
      *            The element to add.
      * @param objectParentJsVar
-     *            Override JavaScript variable name if required (else
-     *            <code>null</code> or <code>""</code> if the original source
-     *            item name/path should be used.
+     *            Override JavaScript variable name if required (else <code>null</code> or <code>""</code> if the
+     *            original source item name/path should be used.
      * @param loopIndexJsVar
      *            The string with the loop index variable
      * 
-     * @return javascript text to add the given javascript variable to the given
-     *         collection (array/list).
+     * @return javascript text to add the given javascript variable to the given collection (array/list).
      */
     public String getCollectionSetElementScript(Object collection,
             String jsElementToAdd, String objectParentJsVar,
@@ -341,5 +340,43 @@ public interface IScriptGeneratorInfoProvider {
      * @return The resolved path.
      */
     public String resolvePath(Object object, String path);
+
+    /**
+     * Sid ACE-6583 Get the script to delete an empty target object IF after it has been created and all descendant
+     * mappings have been applied, it is still empty. Return <code>null</code> if deletion of empty target objects is
+     * not required/desired.
+     * 
+     * @param object
+     *            The mapping source object.
+     * 
+     * @param jsVarAlias
+     *            Path of the OBJECT itself (NOT parent) Override JavaScript variable name if required (else <code>null
+     *            </code> or <code>""</code> if the original source item name/path should be used. Alias variables are
+     *            used to represent elements in a source/target item collection.
+     * 
+     * @return javascript to delete an empty target object IF after it has been created and all descendant mappings have
+     *         been applied, it is still empty. Return <code>null</code> if deletion of empty target objects is not
+     *         required/desired.
+     */
+    public String getDeleteEmptyObjectScript(Object object, String jsVarAlias);
+
+    /**
+     * Sid ACE-6583 Get the script to delete an empty target object IF after it has been created and all descendant
+     * mappings have been applied, it is still empty. Return <code>null</code> if deletion of empty target objects is
+     * not required/desired.
+     * 
+     * @param object
+     *            The mapping source object.
+     * 
+     * @param jsVarAlias
+     *            Path of the ARRAY itself (NOT parent) Override JavaScript variable name if required (else <code>null
+     *            </code> or <code>""</code> if the original source item name/path should be used. Alias variables are
+     *            used to represent elements in a source/target item collection.
+     * 
+     * @return javascript to delete an empty target object IF after it has been created and all descendant mappings have
+     *         been applied, it is still empty. Return <code>null</code> if deletion of empty target objects is not
+     *         required/desired.
+     */
+    public String getDeleteEmptyArrayScript(Object object, String jsVarAlias);
 
 }

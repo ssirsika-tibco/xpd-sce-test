@@ -71,6 +71,9 @@ public class ScriptDataMapperItemProvider extends ItemProviderAdapter implements
 
             addMapperContextPropertyDescriptor(object);
             addMappingDirectionPropertyDescriptor(object);
+            addExcludeEmptyOptionalObjectsPropertyDescriptor(object);
+            addExcludeEmptyOptionalArraysPropertyDescriptor(object);
+            addExcludeEmptyObjectsFromArraysPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -117,6 +120,75 @@ public class ScriptDataMapperItemProvider extends ItemProviderAdapter implements
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
+    }
+
+    /**
+     * This adds a property descriptor for the Exclude Empty Optional Objects feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addExcludeEmptyOptionalObjectsPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ScriptDataMapper_excludeEmptyOptionalObjects_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ScriptDataMapper_excludeEmptyOptionalObjects_feature", //$NON-NLS-1$
+                                "_UI_ScriptDataMapper_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_OBJECTS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
+    }
+
+    /**
+     * This adds a property descriptor for the Exclude Empty Optional Arrays feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addExcludeEmptyOptionalArraysPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ScriptDataMapper_excludeEmptyOptionalArrays_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ScriptDataMapper_excludeEmptyOptionalArrays_feature", //$NON-NLS-1$
+                                "_UI_ScriptDataMapper_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_ARRAYS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
+    }
+
+    /**
+     * This adds a property descriptor for the Exclude Empty Objects From Arrays feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addExcludeEmptyObjectsFromArraysPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ScriptDataMapper_excludeEmptyObjectsFromArrays_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ScriptDataMapper_excludeEmptyObjectsFromArrays_feature", //$NON-NLS-1$
+                                "_UI_ScriptDataMapper_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
                         null,
                         null));
     }
@@ -193,6 +265,9 @@ public class ScriptDataMapperItemProvider extends ItemProviderAdapter implements
         switch (notification.getFeatureID(ScriptDataMapper.class)) {
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPER_CONTEXT:
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPING_DIRECTION:
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_OBJECTS:
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_ARRAYS:
+        case XpdExtensionPackage.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__OTHER_ELEMENTS:
