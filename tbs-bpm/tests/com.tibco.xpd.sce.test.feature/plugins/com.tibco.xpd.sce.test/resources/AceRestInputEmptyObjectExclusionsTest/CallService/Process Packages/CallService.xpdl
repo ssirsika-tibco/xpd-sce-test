@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_-4aVwLLLEe2b9ON8wbVbYw" xpdExt:DisplayName="CallService" Name="CallService">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2023-02-22</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_zXieI7LMEe2b9ON8wbVbYw" xpdExt:DisplayName="dt_mock_services" Name="dt_mock_services">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:RestService resourceName="dt-mock-services"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_Ycc58LkdEe2li-CC_at3Cg" xpdExt:DisplayName="tibco-admin" Name="tibco-admin">
+      <xpdl2:ParticipantType Type="RESOURCE_SET">
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name=&quot;tibco-admin&quot;)</xpdExt:ParticipantQuery>
+      </xpdl2:ParticipantType>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_eiltV728Ee28HIOfZkNSRw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_eiltRb28Ee28HIOfZkNSRw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_eiltWL28Ee28HIOfZkNSRw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_JEWj5b3ZEe28HIOfZkNSRw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_JEWj6L3ZEe28HIOfZkNSRw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_JEWj5r3ZEe28HIOfZkNSRw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_eiltRb28Ee28HIOfZkNSRw" xpdExt:XpdModelType="PageFlow" xpdExt:PublishAsBusinessService="true" xpdExt:BusinessServiceCategory="ExcludeOptionalEmptyInput/ResponseAsObject" xpdExt:DisplayName="CallService" Name="CallService">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_eiltVb28Ee28HIOfZkNSRw" xpdExt:DisplayName="InField" Name="InField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CallServiceData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_9V7Z4LLMEe2b9ON8wbVbYw"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_eiltVr28Ee28HIOfZkNSRw" xpdExt:DisplayName="OutField" Name="OutField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CallServiceData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_9V7Z4LLMEe2b9ON8wbVbYw"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_eiltRr28Ee28HIOfZkNSRw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="27.0" LaneId="_eiltWL28Ee28HIOfZkNSRw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_eiltR728Ee28HIOfZkNSRw" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="47.0" LaneId="_eiltWL28Ee28HIOfZkNSRw" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="679.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_eiltSL28Ee28HIOfZkNSRw" Name="Mapsallcontentreturnstheinputdataasastring" xpdExt:Visibility="Private" xpdExt:DisplayName="Maps all content - returns the input data as a string">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_eiltSb28Ee28HIOfZkNSRw">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToRestService" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.text1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.bomText</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.child.childText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclass1.bomChildText</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.child.childTextArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclass1.childTextList</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.child.grandChild1.grandChildText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclass1.grandchildclass1.grandChildText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.child.grandChildArray.grandChildText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclass1.grandchildList1.grandChildText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childArray.childText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclassList1.bomChildText</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childArray.childTextArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclassList1.childTextList</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childArray.grandChild1.grandChildText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclassList1.grandchildclass1.grandChildText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.textArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.textList</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childArray.grandChildArray.grandChildText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclassList1.grandchildList1.grandChildText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.integer">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.integer</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.number">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.number</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.child.childInteger">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclass1.childInteger</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.child.childNumber">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclass1.childNumber</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childArray.childInteger">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclassList1.childInteger</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childArray.childNumber">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclassList1.childNumber</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_eiltSr28Ee28HIOfZkNSRw">
+                  <xpdExt:ScriptDataMapper MapperContext="RestServiceToProcess" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.bomText">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.text1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.childclass1.bomChildText">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.child.childText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.childclass1.childTextList">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.child.childTextArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.childclass1.grandchildList1.grandChildText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.child.grandChildArray.grandChildText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.childclass1.grandchildclass1.grandChildText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.child.grandChild1.grandChildText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.childclassList1.bomChildText">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.childArray.childText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.childclassList1.childTextList">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.childArray.childTextArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.childclassList1.grandchildList1.grandChildText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.childArray.grandChildArray.grandChildText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.childclassList1.grandchildclass1.grandChildText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.childArray.grandChild1.grandChildText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.integer">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.integer</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.number">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.number</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.childclassList1.childInteger">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.childArray.childInteger</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.childclassList1.childNumber">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.childArray.childNumber</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.childclass1.childInteger">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.child.childInteger</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField.childclass1.childNumber">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.child.childNumber</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="REST_Services.rsd" xpdExt:MethodId="_0tDloLkZEe2li-CC_at3Cg"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_zXieI7LMEe2b9ON8wbVbYw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="96.0" LaneId="_eiltWL28Ee28HIOfZkNSRw" Width="141.0">
+              <xpdl2:Coordinates XCoordinate="381.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_eiltS728Ee28HIOfZkNSRw" Name="UserTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="User Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_eiltTL28Ee28HIOfZkNSRw"/>
+                <xpdl2:MessageOut Id="_eiltTb28Ee28HIOfZkNSRw"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="64.0" LaneId="_eiltWL28Ee28HIOfZkNSRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="158.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="InField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_eiltTr28Ee28HIOfZkNSRw" Name="UserTask2" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="User Task 2">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_eiltT728Ee28HIOfZkNSRw"/>
+                <xpdl2:MessageOut Id="_eiltUL28Ee28HIOfZkNSRw"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="64.0" LaneId="_eiltWL28Ee28HIOfZkNSRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="551.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="OutField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_eiltUb28Ee28HIOfZkNSRw" Name="" From="_eiltTr28Ee28HIOfZkNSRw" To="_eiltR728Ee28HIOfZkNSRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_eiltUr28Ee28HIOfZkNSRw" Name="" From="_eiltS728Ee28HIOfZkNSRw" To="_eiltSL28Ee28HIOfZkNSRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_eiltU728Ee28HIOfZkNSRw" xpdExt:DisplayName="" Name="" From="_eiltRr28Ee28HIOfZkNSRw" To="_eiltS728Ee28HIOfZkNSRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_eiltVL28Ee28HIOfZkNSRw" xpdExt:DisplayName="" Name="" From="_eiltSL28Ee28HIOfZkNSRw" To="_eiltTr28Ee28HIOfZkNSRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_JEWj6L3ZEe28HIOfZkNSRw" xpdExt:XpdModelType="PageFlow" xpdExt:PublishAsBusinessService="true" xpdExt:BusinessServiceCategory="ExcludeOptionalEmptyInput/MandatoryProperties_ResponseAsString" xpdExt:DisplayName="MandatoryCallService" Name="MandatoryCallService">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_JEWj-L3ZEe28HIOfZkNSRw" xpdExt:DisplayName="InField" Name="InField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CallServiceData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_9V7Z4LLMEe2b9ON8wbVbYw"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_JEWj-b3ZEe28HIOfZkNSRw" xpdExt:DisplayName="OutField" Name="OutField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_JEWj6b3ZEe28HIOfZkNSRw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="27.0" LaneId="_JEWj5r3ZEe28HIOfZkNSRw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_JEWj6r3ZEe28HIOfZkNSRw" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="47.0" LaneId="_JEWj5r3ZEe28HIOfZkNSRw" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="679.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_JEWj673ZEe28HIOfZkNSRw" Name="Mapsallcontentreturnstheinputdataasastring" xpdExt:Visibility="Private" xpdExt:DisplayName="Maps all content - returns the input data as a string">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_JEWj7L3ZEe28HIOfZkNSRw">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToRestService" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.child.childText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclass1.bomChildText</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childArray.childText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclassList1.bomChildText</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childArray.grandChildArray.grandChildText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclassList1.grandchildList1.grandChildText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.textArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.textList</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.child.childTextArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclass1.childTextList</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.text1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.bomText</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.child.grandChild1.grandChildText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclass1.grandchildclass1.grandChildText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.child.grandChildArray.grandChildText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclass1.grandchildList1.grandChildText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childArray.grandChild1.grandChildText1">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclassList1.grandchildclass1.grandChildText1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.child.childInteger">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclass1.childInteger</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.child.childNumber">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclass1.childNumber</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childArray.childInteger">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclassList1.childInteger</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childArray.childNumber">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclassList1.childNumber</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childArray.childTextArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.childclassList1.childTextList</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.number">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.number</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.integer">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">InField.integer</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_JEWj7b3ZEe28HIOfZkNSRw">
+                  <xpdExt:ScriptDataMapper MapperContext="RestServiceToProcess" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.UnprocessedText</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="REST_Services.rsd" xpdExt:MethodId="_fp0F8Lz2Ee2tYaRGWWGzMQ"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_zXieI7LMEe2b9ON8wbVbYw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="96.0" LaneId="_JEWj5r3ZEe28HIOfZkNSRw" Width="141.0">
+              <xpdl2:Coordinates XCoordinate="376.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_JEWj7r3ZEe28HIOfZkNSRw" Name="Setupdata" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Setup data">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_JEWj773ZEe28HIOfZkNSRw"/>
+                <xpdl2:MessageOut Id="_JEWj8L3ZEe28HIOfZkNSRw"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="64.0" LaneId="_JEWj5r3ZEe28HIOfZkNSRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="158.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="InField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_JEWj8b3ZEe28HIOfZkNSRw" Name="Checkresponse" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Check response">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_JEWj8r3ZEe28HIOfZkNSRw"/>
+                <xpdl2:MessageOut Id="_JEWj873ZEe28HIOfZkNSRw"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="64.0" LaneId="_JEWj5r3ZEe28HIOfZkNSRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="551.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="OutField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_JEWj9L3ZEe28HIOfZkNSRw" Name="" From="_JEWj8b3ZEe28HIOfZkNSRw" To="_JEWj6r3ZEe28HIOfZkNSRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_JEWj9b3ZEe28HIOfZkNSRw" Name="" From="_JEWj7r3ZEe28HIOfZkNSRw" To="_JEWj673ZEe28HIOfZkNSRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_JEWj9r3ZEe28HIOfZkNSRw" xpdExt:DisplayName="" Name="" From="_JEWj6b3ZEe28HIOfZkNSRw" To="_JEWj7r3ZEe28HIOfZkNSRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_JEWj973ZEe28HIOfZkNSRw" xpdExt:DisplayName="" Name="" From="_JEWj673ZEe28HIOfZkNSRw" To="_JEWj8b3ZEe28HIOfZkNSRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

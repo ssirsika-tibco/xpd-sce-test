@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<rsd:Service xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rsd="http://com.tibco.xpd/rsd" xmi:id="_jCblwJsDEe2vDa9tfy1uLQ" name="dt-mock-services" contextPath="/dt-mock-services/gsbc/MOCK_GSBC_FOR_ALL_GSBCS/tci/candidate">
+  <resources xmi:id="_jCblwZsDEe2vDa9tfy1uLQ" name="dt-mock-services -> return passed object as string" pathTemplate="/complexType/outputPassedJsonAsString">
+    <methods xmi:id="_jCblwpsDEe2vDa9tfy1uLQ" name="Return passed OPTIONAL properties object as string" httpMethod="PUT">
+      <request xmi:id="_jCblw5sDEe2vDa9tfy1uLQ">
+        <parameters xmi:id="_DgRRsLLMEe2b9ON8wbVbYw" name="headerParam" style="HEADER"/>
+        <payloadReference xmi:id="_tHULEJsDEe2vDa9tfy1uLQ" namespace="http://xpd.tibco.com/jsd/1.0" ref="_klnPwpsDEe2vDa9tfy1uLQ" location="NewJsonSchema.jsd" mediaType="application/json"/>
+      </request>
+      <response xmi:id="_jCblxJsDEe2vDa9tfy1uLQ">
+        <payloadReference xmi:id="_kSLHkLkZEe2li-CC_at3Cg" namespace="http://xpd.tibco.com/jsd/1.0" ref="UNPROCESSED-TEXT" mediaType="application/json"/>
+      </response>
+    </methods>
+    <methods xmi:id="_0tDloLkZEe2li-CC_at3Cg" name="Return passed OPTIONAL PROPERTIES object as object" httpMethod="PUT">
+      <request xmi:id="_0tDlobkZEe2li-CC_at3Cg">
+        <parameters xmi:id="_0tDlorkZEe2li-CC_at3Cg" name="headerParam" style="HEADER"/>
+        <payloadReference xmi:id="_0tDlo7kZEe2li-CC_at3Cg" namespace="http://xpd.tibco.com/jsd/1.0" ref="_klnPwpsDEe2vDa9tfy1uLQ" location="NewJsonSchema.jsd" mediaType="application/json"/>
+      </request>
+      <response xmi:id="_0tDlpLkZEe2li-CC_at3Cg">
+        <payloadReference xmi:id="_3nCDcLkZEe2li-CC_at3Cg" namespace="http://xpd.tibco.com/jsd/1.0" ref="_klnPwpsDEe2vDa9tfy1uLQ" location="NewJsonSchema.jsd" mediaType="application/json"/>
+      </response>
+    </methods>
+    <methods xmi:id="_fp0F8Lz2Ee2tYaRGWWGzMQ" name="Return passed MANDATORY properties object as string" httpMethod="PUT">
+      <request xmi:id="_fp0F8bz2Ee2tYaRGWWGzMQ">
+        <parameters xmi:id="_fp0F8rz2Ee2tYaRGWWGzMQ" name="headerParam" style="HEADER"/>
+        <payloadReference xmi:id="_Gww20Lz4Ee2tYaRGWWGzMQ" namespace="http://xpd.tibco.com/jsd/1.0" ref="_0LT-oLz3Ee2tYaRGWWGzMQ" location="NewJsonSchema.jsd" mediaType="application/json"/>
+      </request>
+      <response xmi:id="_fp0F9Lz2Ee2tYaRGWWGzMQ">
+        <payloadReference xmi:id="_fp0F9bz2Ee2tYaRGWWGzMQ" namespace="http://xpd.tibco.com/jsd/1.0" ref="UNPROCESSED-TEXT" mediaType="application/json"/>
+      </response>
+    </methods>
+  </resources>
+</rsd:Service>
