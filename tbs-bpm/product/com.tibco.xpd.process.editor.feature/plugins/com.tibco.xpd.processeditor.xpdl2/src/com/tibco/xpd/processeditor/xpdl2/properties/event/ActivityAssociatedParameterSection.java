@@ -103,15 +103,17 @@ public class ActivityAssociatedParameterSection extends
                     if (event instanceof StartEvent) {
                         StartEvent startEvent = (StartEvent) event;
                         switch (startEvent.getTrigger().getValue()) {
-                        /*
-                         * Sid ACE-6338 Go back to param AND correlation data association for Event sub-process incoming
-                         * request start events. So disable this 'just parameters' section for Event sub-process
-                         * incoming request start events.
-                         */
+                        // Sid ACE-6815 Disable event handler correlation until supported by run-time
+                        // /*
+                        // * Sid ACE-6338 Go back to param AND correlation data association for Event sub-process
+                        // incoming
+                        // * request start events. So disable this 'just parameters' section for Event sub-process
+                        // * incoming request start events.
+                        // */
                         case TriggerType.NONE:
-                            if (EventObjectUtil.isEventSubProcessStartEvent(activity)) {
-                                return false;
-                            }
+                            // if (EventObjectUtil.isEventSubProcessStartEvent(activity)) {
+                            // return false;
+                            // }
                             return true;
 
                         case TriggerType.TIMER:
@@ -126,11 +128,18 @@ public class ActivityAssociatedParameterSection extends
                         IntermediateEvent intermediateEvent =
                                 (IntermediateEvent) event;
                         switch (intermediateEvent.getTrigger().getValue()) {
-                        /*
-                         * Sid ACE-6338 Go back to param AND correlation data association for incoming request events.
-                         * So disable this 'just parameters' section for incoming request intermediate events.
-                         */
-                        // case TriggerType.NONE:
+                        // Sid ACE-6815 Disable event handler correlation until supported by run-time
+                        // /*
+                        // * Sid ACE-6338 Go back to param AND correlation data association for incoming request events.
+                        // * So disable this 'just parameters' section for incoming request intermediate events.
+                        // */
+                        case TriggerType.NONE:
+                            // Sid ACE-6815 Enable the 'just params (not correlation)' association section for event
+                            // handler intermediate events.
+                            if (EventObjectUtil.isEventHandlerOrEventSubProcessStartEventActivity(activity)) {
+                                return true;
+                            }
+                            return false;
 
                         case TriggerType.TIMER:
                         case TriggerType.CONDITIONAL:

@@ -68,7 +68,7 @@ public class N2_30_EventSubProcessValidationsTest extends
                                 "/ABPM-911_EventSubProc_TestProj/Process Packages/test.xpdl", //$NON-NLS-1$ 
                                 "bpmn.dev.eventHandlerCorrelationDataInitialization", //$NON-NLS-1$ 
                                 "_dno7UD4tEeSaGbHAYrhcpw", //$NON-NLS-1$ 
-                                "BPMN : Event handler correlation data 'CorrelationField' must be mapped in all start activities. Alternatively, you must state when to intialize the Event Handler explicitly. The following start activities fail to initialize the data: 'Start Event' (testProcess3:EventSubProcess:CatchMessageEvent)", //$NON-NLS-1$ 
+                                "BPMN :Event-handlers must be initialized only after the correlation field 'CorrelationField' is assigned in the main process flow. Use the 'Event Handler->Initializers' configuration to specify the activity(s) that set the correlation data. (testProcess3:EventSubProcess:CatchMessageEvent)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$ 
 
                         new ValidationsTestProblemMarkerInfo(

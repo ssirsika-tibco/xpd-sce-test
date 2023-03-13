@@ -5014,6 +5014,10 @@ s         <scriptContribution
          <rule
                class="com.tibco.bx.validation.ace.rules.AceCorrelationAssociationsValidationRules">
          </rule>
+         <rule
+               class="com.tibco.bx.validation.rules.activity.EventHandlerCorrelationDataWarningRule"
+               validateOnSaveOnly="false">
+         </rule>
 	  </provider>
       <issue
             id="ace.invoke.businessprocess.not.supported"
@@ -5165,6 +5169,11 @@ s         <scriptContribution
                canApplyToMultiple="false"
                id="resolution.bpmn.removeCorrelationAssociation">
          </resolution>
+      </issue>
+      <issue
+            id="bx.correlation.not.supported.on.event.handlers"
+            message="%bx.correlation.not.supported.on.event.handlers"
+            severity="WARNING">
       </issue>
 	</extension>
 

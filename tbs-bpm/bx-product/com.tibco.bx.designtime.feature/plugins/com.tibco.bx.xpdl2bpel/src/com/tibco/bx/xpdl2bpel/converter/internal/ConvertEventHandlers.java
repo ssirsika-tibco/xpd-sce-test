@@ -213,13 +213,14 @@ public class ConvertEventHandlers {
             BPELUtils.addExtensionAttribute(onEvent, N2PEConstants.CORRELATE_IMMEDIATE, "yes"); //$NON-NLS-1$
         }
         
-        /* 
-         * Sid ACE-6365 Support correlation data for incoming request receive tasks. 
-         */
-        Correlations correlations = ConvertCorrelations.convertIncomingRequestCorrelations(context, xpdlActivity);
-        if (correlations != null) {
-            onEvent.setCorrelations(correlations);
-        }
+        // Sid ACE-6815 Disable event handler correlation until supported by run-time
+//        /* 
+//         * Sid ACE-6365 Support correlation data for incoming request receive tasks.
+//         */
+//        Correlations correlations = ConvertCorrelations.convertIncomingRequestCorrelations(context, xpdlActivity);
+//        if (correlations != null) {
+//            onEvent.setCorrelations(correlations);
+//        }
         
         context.syncXpdlId(onEvent, xpdlActivity);
         

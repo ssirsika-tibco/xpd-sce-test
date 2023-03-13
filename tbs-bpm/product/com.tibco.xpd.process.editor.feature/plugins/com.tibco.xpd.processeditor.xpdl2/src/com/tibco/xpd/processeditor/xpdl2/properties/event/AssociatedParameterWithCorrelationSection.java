@@ -329,29 +329,29 @@ public class AssociatedParameterWithCorrelationSection extends
                  * Flow.
                  */
                 if (!DecisionFlowUtil.isDecisionFlow(activity.getProcess())) {
-
                     /*
                      * Sid ACE-6338 Allow correlation data association for Incoming Request intermediate events, receive
                      * tasks and Incoming Request start events in event sub-processes
                      */
-                    if (activity.getEvent() instanceof IntermediateEvent) {
-                        IntermediateEvent interEvent =
-                                (IntermediateEvent) activity.getEvent();
+                    // Sid ACE-6815 Disable event handler correlation until supported by run-time
+                    if (!EventObjectUtil.isEventHandlerOrEventSubProcessStartEventActivity(activity)) {
+                        if (activity.getEvent() instanceof IntermediateEvent) {
+                            IntermediateEvent interEvent = (IntermediateEvent) activity.getEvent();
 
-                        if (TriggerType.NONE_LITERAL.equals(interEvent.getTrigger())) {
+                            if (TriggerType.NONE_LITERAL.equals(interEvent.getTrigger())) {
+                                return true;
+                            }
+                        } else if (activity.getEvent() instanceof StartEvent) {
+                            StartEvent startEvent = (StartEvent) activity.getEvent();
+
+                            if (EventObjectUtil.isEventSubProcessStartRequestEvent(activity)) {
+
+                                return true;
+                            }
+                        }
+                        else if (TaskType.RECEIVE_LITERAL.equals(TaskObjectUtil.getTaskTypeStrict(activity))) {
                             return true;
                         }
-                    }
-                    else if (activity.getEvent() instanceof StartEvent) {
-                        StartEvent startEvent = (StartEvent) activity.getEvent();
-
-                        if (EventObjectUtil.isEventSubProcessStartRequestEvent(activity)) {
-
-                            return true;
-                        }
-                    }
-                    else if (TaskType.RECEIVE_LITERAL.equals(TaskObjectUtil.getTaskTypeStrict(activity))) {
-                        return true;
                     }
                 }
             }
