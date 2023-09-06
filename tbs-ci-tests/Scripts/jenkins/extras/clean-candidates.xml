@@ -6,7 +6,7 @@
 	"C:/builder/tibco-build". "autobuild.dir.user" should contain "tools" and "candidates" -->
 	<fail unless="autobuild.dir.user" message="Please provide 'autobuild.dir.user' property. 'autobuild.dir.user' should contain 'tools' and 'candidates' folders."/>
 	
-	<available file="${autobuild.dir.user}/tools" type="dir" property="autobuild.dir.user.ok"/>
+	<available file="${devtools.dir.base}/tools" type="dir" property="autobuild.dir.user.ok"/>
 	<fail unless="autobuild.dir.user.ok" message="'autobuild.dir.user' (${autobuild.dir.user}) folder should contain 'tools' folder."/>
 
 	
