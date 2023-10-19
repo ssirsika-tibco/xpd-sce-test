@@ -2818,6 +2818,24 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
     protected boolean isExplicitAssignmentAllowance(
             IScriptRelevantData lhsDataType, IScriptRelevantData rhsDataType) {
         String lhsTypeStr = convertSpecificToGenericType(lhsDataType);
+        
+        /*
+         * Sid XPD-8605 Script validation throws exception when array temp variable is pre-declared and then assigned
+         * from a function call.
+         * 
+         * When script looks like this...
+         * 
+         * var list = [];
+         * 
+         * list = <some list field or function that returns list>;
+         * 
+         * Then it used to cause NPE because lhsTypeStr would be null. This pattern would not be allowed anyway and so
+         * should raise a problem marker if we check for null and return false here.
+         */
+        if (lhsTypeStr == null) {
+            return false;
+        }
+
         String rhsTypeStr = convertSpecificToGenericType(rhsDataType);
         if (lhsTypeStr.equals(rhsTypeStr)) {
             return true;

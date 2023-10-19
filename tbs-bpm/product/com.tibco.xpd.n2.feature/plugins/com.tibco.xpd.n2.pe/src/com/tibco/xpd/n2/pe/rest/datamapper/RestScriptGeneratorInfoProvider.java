@@ -1451,7 +1451,13 @@ public class RestScriptGeneratorInfoProvider
      * @return the javascript statement to check if the given object is empty.
      */
     private Object getIsEmptyObjectConditionStatement(String path) {
-        return String.format("!!%1$s && Object.getPrototypeOf(%1$s) === Object.prototype && Object.keys(%1$s).length === 0",
+        /*
+        * Sid ACE-6996 use deepContainsPrimitiveProperties() function for
+        * checking empty optional objects. That way, if we have empty required objects/arrays 
+        * (that will not themselves be deleted because they're tagged as required) under an 
+        *  optional Object, then we will treat them as empty.
+        */
+        return String.format("!!%1$s && Object.getPrototypeOf(%1$s) === Object.prototype && !Calculation.deepContainsPrimitiveProperties(%1$s)",
                 path);
     }
 
@@ -1468,4 +1474,3 @@ public class RestScriptGeneratorInfoProvider
     }
 
 }
-    
