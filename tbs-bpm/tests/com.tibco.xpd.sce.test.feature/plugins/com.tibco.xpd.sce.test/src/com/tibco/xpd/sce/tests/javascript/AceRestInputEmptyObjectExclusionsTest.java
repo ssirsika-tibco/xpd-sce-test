@@ -43,13 +43,13 @@ public class AceRestInputEmptyObjectExclusionsTest extends TestCase {
      */
 
     private static final String REST_PAYLOAD_CHILD_DELETE_EMPTY_OBJECT_FRAGMENT =
-            "if (!!REST_PAYLOAD['child'] && Object.getPrototypeOf(REST_PAYLOAD['child']) === Object.prototype && Object.keys(REST_PAYLOAD['child']).length === 0) { delete REST_PAYLOAD['child']; }";
+            "if (!!REST_PAYLOAD['child'] && Object.getPrototypeOf(REST_PAYLOAD['child']) === Object.prototype && !Calculation.deepContainsPrimitiveProperties(REST_PAYLOAD['child'])) { delete REST_PAYLOAD['child']; }";
 
     private static final String REST_PAYLOAD_CHILD_GRANDCHILD_DELETE_EMPTY_OBJECT_FRAGMENT =
-            "if (!!REST_PAYLOAD['child']['grandChild1'] && Object.getPrototypeOf(REST_PAYLOAD['child']['grandChild1']) === Object.prototype && Object.keys(REST_PAYLOAD['child']['grandChild1']).length === 0) { delete REST_PAYLOAD['child']['grandChild1']; }";
+            "if (!!REST_PAYLOAD['child']['grandChild1'] && Object.getPrototypeOf(REST_PAYLOAD['child']['grandChild1']) === Object.prototype && !Calculation.deepContainsPrimitiveProperties(REST_PAYLOAD['child']['grandChild1'])) { delete REST_PAYLOAD['child']['grandChild1']; }";
 
     private static final String REST_PAYLOAD_CHILDARRAY_GRANDCHILD_DELETE_EMPTY_OBJECT_FRAGMENT =
-            "if (!!$tVi3['grandChild1'] && Object.getPrototypeOf($tVi3['grandChild1']) === Object.prototype && Object.keys($tVi3['grandChild1']).length === 0) { delete $tVi3['grandChild1']; }";
+            "if (!!$tVi3['grandChild1'] && Object.getPrototypeOf($tVi3['grandChild1']) === Object.prototype && !Calculation.deepContainsPrimitiveProperties($tVi3['grandChild1'])) { delete $tVi3['grandChild1']; }";
 
     private static final String REST_PAYLOAD_CHILD_GRANDCHILDARRAY_DELETE_EMPTY_ARRAY_FRAGMENT =
             "if (Array.isArray(REST_PAYLOAD['child']['grandChildArray']) && REST_PAYLOAD['child']['grandChildArray'].length === 0) { delete REST_PAYLOAD['child']['grandChildArray']; }";
@@ -64,13 +64,13 @@ public class AceRestInputEmptyObjectExclusionsTest extends TestCase {
             "if (Array.isArray(REST_PAYLOAD['childArray']) && REST_PAYLOAD['childArray'].length === 0) { delete REST_PAYLOAD['childArray']; }";
 
     private static final String REST_PAYLOAD_CHILD_GRANDCHILDARRAY_EXCLUDE_EMPTY_OBJECT_FROM_ARRAY_FRAGMENT =
-            "if (!(!!$tVi2 && Object.getPrototypeOf($tVi2) === Object.prototype && Object.keys($tVi2).length === 0)) { REST_PAYLOAD['child']['grandChildArray'].push($tVi2); }";
+            "if (!(!!$tVi2 && Object.getPrototypeOf($tVi2) === Object.prototype && !Calculation.deepContainsPrimitiveProperties($tVi2))) { REST_PAYLOAD['child']['grandChildArray'].push($tVi2); }";
 
     private static final String REST_PAYLOAD_CHILDARRAY_GRANDCHILDARRAY_EXCLUDE_EMPTY_OBJECT_FROM_ARRAY_FRAGMENT =
-            "if (!(!!$tVi5 && Object.getPrototypeOf($tVi5) === Object.prototype && Object.keys($tVi5).length === 0)) { $tVi3['grandChildArray'].push($tVi5); }";
+            "if (!(!!$tVi5 && Object.getPrototypeOf($tVi5) === Object.prototype && !Calculation.deepContainsPrimitiveProperties($tVi5))) { $tVi3['grandChildArray'].push($tVi5); }";
 
     private static final String REST_PAYLOAD_CHILDARRAY_EXCLUDE_EMPTY_OBJECT_FROM_ARRAY_FRAGMENT =
-            "if (!(!!$tVi3 && Object.getPrototypeOf($tVi3) === Object.prototype && Object.keys($tVi3).length === 0)) { REST_PAYLOAD['childArray'].push($tVi3); } ";
+            "if (!(!!$tVi3 && Object.getPrototypeOf($tVi3) === Object.prototype && !Calculation.deepContainsPrimitiveProperties($tVi3))) { REST_PAYLOAD['childArray'].push($tVi3); } ";
 
     /**
      * Test various Exclude Empty Object configuration options impact on REST script mapping generation.
@@ -545,21 +545,21 @@ public class AceRestInputEmptyObjectExclusionsTest extends TestCase {
          */
         assertTrue(
                 "testExcludeEmptyOptionsNotUsedForMandatoryInputs: Should not contain Empty Object deletion script for Output Mappings",
-                !script.contains("Object.keys(data.OutField).length"));
+                !script.contains("Calculation.deepContainsPrimitiveProperties(data.OutField)"));
 
         /*
          * Exclude Empty Array script fragments...
          */
         assertTrue(
                 "testExcludeEmptyOptionsNotUsedForMandatoryInputs: Should not contain Empty Array deletion script for Output Mappings",
-                !script.contains("Object.keys(data.OutField.childclassList1).length"));
+                !script.contains("Calculation.deepContainsPrimitiveProperties(data.OutField.childclassList1)"));
 
         /*
          * Exclude Empty Object From Array script fragments...
          */
         assertTrue(
                 "testExcludeEmptyOptionsNotUsedForMandatoryInputs: Should not contain Exclude Empty Object From Array deletion script for Output Mappings",
-                !script.contains("Object.keys($tVi3).length"));
+                !script.contains("Calculation.deepContainsPrimitiveProperties($tVi3)"));
 
     }
 
