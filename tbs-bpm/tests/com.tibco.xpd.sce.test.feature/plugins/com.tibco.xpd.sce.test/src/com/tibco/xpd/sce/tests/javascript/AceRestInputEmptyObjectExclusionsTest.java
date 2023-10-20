@@ -366,49 +366,61 @@ public class AceRestInputEmptyObjectExclusionsTest extends TestCase {
          * Exclude Empty Object script fragments...
          */
         assertTrue(
-                "testAllExcludeEmptyOptionsSet: Should not contain Empty Object deletion script for - REST_PAYLOAD.child",
+				"testAllExcludeEmptyOptionsSet: Should not contain Empty Object deletion script for - REST_PAYLOAD.child\n"
+						+ REST_PAYLOAD_CHILD_DELETE_EMPTY_OBJECT_FRAGMENT + "\nIn==>\n" + script,
                 script.contains(REST_PAYLOAD_CHILD_DELETE_EMPTY_OBJECT_FRAGMENT));
 
         assertTrue(
-                "testAllExcludeEmptyOptionsSet: Should not contain Empty Object deletion script for - REST_PAYLOAD.child.grandChild",
+				"testAllExcludeEmptyOptionsSet: Should not contain Empty Object deletion script for - REST_PAYLOAD.child.grandChild\n"
+						+ REST_PAYLOAD_CHILD_GRANDCHILD_DELETE_EMPTY_OBJECT_FRAGMENT + "\nIn==>\n" + script,
                 script.contains(REST_PAYLOAD_CHILD_GRANDCHILD_DELETE_EMPTY_OBJECT_FRAGMENT));
 
         assertTrue(
-                "testAllExcludeEmptyOptionsSet: Should not contain Empty Object deletion script for - REST_PAYLOAD.childarray[].grandChild",
+				"testAllExcludeEmptyOptionsSet: Should not contain Empty Object deletion script for - REST_PAYLOAD.childarray[].grandChild\n"
+						+ REST_PAYLOAD_CHILDARRAY_GRANDCHILD_DELETE_EMPTY_OBJECT_FRAGMENT + "\nIn==>\n" + script,
                 script.contains(REST_PAYLOAD_CHILDARRAY_GRANDCHILD_DELETE_EMPTY_OBJECT_FRAGMENT));
 
         /*
          * Exclude Empty Array script fragments...
          */
         assertTrue(
-                "testAllExcludeEmptyOptionsSet: Should not contain Empty Array deletion script for - REST_PAYLOAD.child.grandChildArray[]",
+				"testAllExcludeEmptyOptionsSet: Should not contain Empty Array deletion script for - REST_PAYLOAD.child.grandChildArray[]\n"
+						+ REST_PAYLOAD_CHILD_GRANDCHILDARRAY_DELETE_EMPTY_ARRAY_FRAGMENT + "\nIn==>\n" + script,
                 script.contains(REST_PAYLOAD_CHILD_GRANDCHILDARRAY_DELETE_EMPTY_ARRAY_FRAGMENT));
 
         assertTrue(
-                "testAllExcludeEmptyOptionsSet: Should not contain Empty Array deletion script for - REST_PAYLOAD.childarray[].childTextArray[]",
+				"testAllExcludeEmptyOptionsSet: Should not contain Empty Array deletion script for - REST_PAYLOAD.childarray[].childTextArray[]\n"
+						+ REST_PAYLOAD_CHILDARRAY_CHILDTEXTARRAY_DELETE_EMPTY_ARRAY_FRAGMENT + "\nIn==>\n" + script,
                 script.contains(REST_PAYLOAD_CHILDARRAY_CHILDTEXTARRAY_DELETE_EMPTY_ARRAY_FRAGMENT));
 
         assertTrue(
-                "testAllExcludeEmptyOptionsSet: Should not contain Empty Array deletion script for - REST_PAYLOAD.childarray[].grandChildArray[]",
+				"testAllExcludeEmptyOptionsSet: Should not contain Empty Array deletion script for - REST_PAYLOAD.childarray[].grandChildArray[]\n"
+						+ REST_PAYLOAD_CHILDARRAY_GRANDCHILDARRAY_DELETE_EMPTY_ARRAY_FRAGMENT + "\nIn==>\n" + script,
                 script.contains(REST_PAYLOAD_CHILDARRAY_GRANDCHILDARRAY_DELETE_EMPTY_ARRAY_FRAGMENT));
 
         assertTrue(
-                "testAllExcludeEmptyOptionsSet: Should not contain Empty Array deletion script for - REST_PAYLOAD.childarray[]",
+				"testAllExcludeEmptyOptionsSet: Should not contain Empty Array deletion script for - REST_PAYLOAD.childarray[]\n"
+						+ REST_PAYLOAD_CHILDARRAY_DELETE_EMPTY_ARRAY_FRAGMENT + "\nIn==>\n" + script,
                 script.contains(REST_PAYLOAD_CHILDARRAY_DELETE_EMPTY_ARRAY_FRAGMENT));
 
         /*
          * Exclude Empty Object From Array script fragments...
          */
         assertTrue(
-                "testAllExcludeEmptyOptionsSet: Should not contain Exclude Empty Object From Array script for - REST_PAYLOAD.child.grandChildArray[]",
+				"testAllExcludeEmptyOptionsSet: Should not contain Exclude Empty Object From Array script for - REST_PAYLOAD.child.grandChildArray[]\n"
+						+ REST_PAYLOAD_CHILD_GRANDCHILDARRAY_EXCLUDE_EMPTY_OBJECT_FROM_ARRAY_FRAGMENT + "\nIn==>\n"
+						+ script,
                 script.contains(REST_PAYLOAD_CHILD_GRANDCHILDARRAY_EXCLUDE_EMPTY_OBJECT_FROM_ARRAY_FRAGMENT));
 
         assertTrue(
-                "testAllExcludeEmptyOptionsSet: Should not contain Exclude Empty Object From Array script for - REST_PAYLOAD.childArray[].grandChildArray[]",
+				"testAllExcludeEmptyOptionsSet: Should not contain Exclude Empty Object From Array script for - REST_PAYLOAD.childArray[].grandChildArray[]\n"
+						+ REST_PAYLOAD_CHILDARRAY_GRANDCHILDARRAY_EXCLUDE_EMPTY_OBJECT_FROM_ARRAY_FRAGMENT + "\nIn==>\n"
+						+ script,
                 script.contains(REST_PAYLOAD_CHILDARRAY_GRANDCHILDARRAY_EXCLUDE_EMPTY_OBJECT_FROM_ARRAY_FRAGMENT));
 
         assertTrue(
-                "testAllExcludeEmptyOptionsSet: Should not contain Exclude Empty Object From Array script for - REST_PAYLOAD.childArray[]",
+				"testAllExcludeEmptyOptionsSet: Should not contain Exclude Empty Object From Array script for - REST_PAYLOAD.childArray[]\n"
+						+ REST_PAYLOAD_CHILDARRAY_EXCLUDE_EMPTY_OBJECT_FROM_ARRAY_FRAGMENT + "\nIn==>\n" + script,
                 script.contains(REST_PAYLOAD_CHILDARRAY_EXCLUDE_EMPTY_OBJECT_FROM_ARRAY_FRAGMENT));
     }
 
