@@ -357,8 +357,9 @@ public class AceRestInputEmptyObjectExclusionsTest extends TestCase {
     }
 
     /**
-     * Test that correct script is generated when ALL of the Exclude Empty options are set.
-     */
+	 * Test that correct script is generated when ALL of the Exclude Empty options are set.
+	 * 
+	 */
     private void testAllExcludeEmptyOptionsSet(Process process) {
         String script = generateMappingScript(process, "_eiltSL28Ee28HIOfZkNSRw", true, true, true, true);
 
