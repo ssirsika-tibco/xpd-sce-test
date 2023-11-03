@@ -108,10 +108,22 @@
 	<xsl:template match="xpdl2:Participant/xpdExt:ParticipantSharedResource/xpdExt:RestService">
 		<!-- Just output the bare element -->
 		<xpdExt:RestService>
-			<!-- In case it is already migrated (originally we did that format version 23 before changeing to 1000 copy the new ACE attrib values  -->
-			<xsl:if test="@resourceName">
-				<xsl:attribute name="resourceName"><xsl:value-of select="@resourceName"/></xsl:attribute>
-			</xsl:if>
+		
+			<!-- 
+			================================================================================================================
+			ACE-7329 : On migration from 4.x a REST service system participant's shared resource name must be preserved.
+					   i.e. @HttpClientInstanceName must be preserved into @resourceName attribute for <xpdExt:RestService>
+			================================================================================================================		   
+			 -->
+			<xsl:choose>
+		        <xsl:when test="@HttpClientInstanceName">
+		        		<xsl:attribute name="resourceName"><xsl:value-of select="@HttpClientInstanceName"/></xsl:attribute>
+		        </xsl:when>
+		       <!-- In case it is already migrated (originally we did that format version 23 before changeing to 1000 copy the new ACE attrib values  -->
+ 		        <xsl:when test="@resourceName">
+						<xsl:attribute name="resourceName"><xsl:value-of select="@resourceName"/></xsl:attribute>
+				</xsl:when>
+	       </xsl:choose>
 			<xsl:if test="@description">
 				<xsl:attribute name="description"><xsl:value-of select="@description"/></xsl:attribute>
 			</xsl:if>

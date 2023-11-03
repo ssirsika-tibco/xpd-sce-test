@@ -77,6 +77,12 @@
         <xpdExt:RestService HttpClientInstanceName="ProjectMigrationTest_REST-Service"/>
       </xpdExt:ParticipantSharedResource>
     </xpdl2:Participant>
+    <xpdl2:Participant Id="_4oSa8HM7Ee69zd_jSOGMMX" xpdExt:DisplayName="REST Participant Already Migrated" Name="RESTParticipantAlreadyMigrated">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:RestService resourceName="REST_Service_Instance_AlreadyMigrated" description="Description should be preserved"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
   </xpdl2:Participants>
   <xpdl2:Pools>
     <xpdl2:Pool Id="_nBj6OVuYEemv57AKFO26Pg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_nBj6QVuYEemv57AKFO26Pg">

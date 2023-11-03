@@ -7,8 +7,10 @@ package com.tibco.xpd.sce.tests.importmigration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IFile;
@@ -1045,6 +1047,8 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                 Xpdl2ResourcesConsts.XPDL_EXTENSION,
                 false);
 
+		Map<String, String> expectedSharedResourceNamesMap = getExpectedSharedResourceNameList();
+
         for (IResource xpdlFile : xpdlFiles) {
             WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(xpdlFile);
 
@@ -1183,11 +1187,21 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                                     XpdExtensionPackage.eINSTANCE.getDocumentRoot_ParticipantSharedResource());
 
                     if (psr != null) {
-                        assertTrue(xpdlFile.getName() + "::" //$NON-NLS-1$
-                                + Xpdl2ModelUtil.getDisplayName(process) + ":" //$NON-NLS-1$
-                                + Xpdl2ModelUtil.getDisplayName(participant)
-                                + " - REST/WEB/JDBC system participant should have had xpdExt:ParticipantSharedResource removed", //$NON-NLS-1$
-                                psr.getWebService() == null && psr.getJdbc() == null);
+						/**
+						 * ACE-7329 : On migration from 4.x a REST service system participant's shared resource name
+						 * must be preserved.
+						 */
+						if (expectedSharedResourceNamesMap.get(participant.getName()) != null)
+						{
+							assertEquals(expectedSharedResourceNamesMap.get(participant.getName()),
+									psr.getRestService().getResourceName());
+						}
+
+						assertTrue(xpdlFile.getName() + "::" //$NON-NLS-1$
+								+ Xpdl2ModelUtil.getDisplayName(process) + ":" //$NON-NLS-1$
+								+ Xpdl2ModelUtil.getDisplayName(participant)
+								+ " - REST/WEB/JDBC system participant should have had xpdExt:ParticipantSharedResource removed", //$NON-NLS-1$
+								psr.getWebService() == null && psr.getJdbc() == null);
 
                         /*
                          * Sid ACE-479 We now only remove the content of xpdExt:RestService not the whole element so
@@ -1212,6 +1226,17 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                         XpdExtensionPackage.eINSTANCE.getDocumentRoot_ParticipantSharedResource());
 
                 if (psr != null) {
+
+					/**
+					 * ACE-7329 : On migration from 4.x a REST service system participant's shared resource name must be
+					 * preserved.
+					 */
+					if (expectedSharedResourceNamesMap.get(participant.getName()) != null)
+					{
+						assertEquals(expectedSharedResourceNamesMap.get(participant.getName()),
+								psr.getRestService().getResourceName());
+					}
+
                     assertTrue(xpdlFile.getName() + "::" //$NON-NLS-1$
                             + Xpdl2ModelUtil.getDisplayName(participant) + ":" //$NON-NLS-1$
                             + " - REST/WEB/JDBC system participant should have had xpdExt:ParticipantSharedResource removed", //$NON-NLS-1$
@@ -1574,5 +1599,22 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 
         return false;
     }
+
+	/**
+	 * Expected Map of Shared Resource Name for given Participant Name
+	 * 
+	 * @return
+	 */
+	private Map<String, String> getExpectedSharedResourceNameList()
+	{
+		HashMap<String, String> contents = new HashMap<>();
+		contents.put("ProjectMigrationTest_RESTService_Consumer", //$NON-NLS-1$
+				"ProjectMigrationTest_REST-Service"); //$NON-NLS-1$
+		contents.put("Participant2", //$NON-NLS-1$
+				"REST_CLientInstance"); //$NON-NLS-1$
+		contents.put("RESTParticipantAlreadyMigrated", //$NON-NLS-1$
+				"REST_Service_Instance_AlreadyMigrated"); //$NON-NLS-1$
+		return contents;
+	}
 
 }
