@@ -16,6 +16,7 @@ import com.tibco.xpd.sce.tests.validation.AceDateTimeResolutionTest;
 import com.tibco.xpd.sce.tests.validation.AceDecPlacesValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceDuplicatePackageNameTest;
 import com.tibco.xpd.sce.tests.validation.AceIncomingRequestActivityTest;
+import com.tibco.xpd.sce.tests.validation.AceLoggerValidTest;
 import com.tibco.xpd.sce.tests.validation.AceMigratedProcessValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceNameLengthRestrictionsTest;
 import com.tibco.xpd.sce.tests.validation.AceProcessInvalidDataRulesTest;
@@ -73,6 +74,7 @@ public class AllUnitTestsValidation {
         suite.addTestSuite(AceSummaryArrayResolutionTest.class);
         suite.addTestSuite(ServiceProcessTimerEventValidationTest.class);
 
+		suite.addTestSuite(AceLoggerValidTest.class);
         suite.addTestSuite(RepeatingScriptFunctionParameterTest.class);
         return suite;
     }
