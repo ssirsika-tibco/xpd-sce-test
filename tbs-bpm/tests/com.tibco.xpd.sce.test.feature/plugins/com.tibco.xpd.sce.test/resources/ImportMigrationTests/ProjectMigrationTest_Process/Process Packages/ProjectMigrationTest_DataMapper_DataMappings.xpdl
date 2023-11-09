@@ -83,6 +83,64 @@
         <xpdExt:RestService resourceName="REST_Service_Instance_AlreadyMigrated" description="Description should be preserved"/>
       </xpdExt:ParticipantSharedResource>
     </xpdl2:Participant>
+    <xpdl2:Participant Id="_arTj0X1BEe68UrdJJ7Z_pA" xpdExt:DisplayName="SOAP Consumer Participant 1" Name="SOAPConsumerParticipant1">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" HttpClientInstanceName="SOAP_Service_Instance1"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_arTj1H1BEe68UrdJJ7Z_pA" xpdExt:DisplayName="SOAP Participant 2" Name="SOAPParticipant2">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" HttpClientInstanceName="SOAP_Service_Instance2">
+              <xpdExt:OutboundSecurity>
+                <xpdExt:SecurityPolicy GovernanceApplicationName="Gov_app_2" Type="UsernameToken"/>
+              </xpdExt:OutboundSecurity>
+            </xpdExt:SoapHttpBinding>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_arTj131BEe68UrdJJ7Z_pA" xpdExt:DisplayName="SOAP Participant With JMS (cannot carry over resource name)" Name="SOAPParticipantWithJMS">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:SoapJmsBinding Name="SoapOverJms" OutboundConnectionFactory="JMS_Outbound_Factory" InboundDestination="JMS_Inbound_Destination" OutboundDestination="JMS_Outbound_Destination" DeliveryMode="PERSISTENT" Priority="4" MessageExpiration="30" InvocationTimeout="60">
+              <outboundSecurity>
+                <xpdExt:SecurityPolicy GovernanceApplicationName="UserName_Gov" Type="UsernameToken"/>
+              </outboundSecurity>
+            </xpdExt:SoapJmsBinding>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+     <xpdl2:Participant Id="_arTj1n1BEe68UrdJJ7Z_pA" xpdExt:DisplayName="SOAP Participant With Virtualization (cannot carry over resource name)" Name="SOAPParticipantWithVirtualization">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+     <xpdl2:Participant Id="_arTj2H1BEe68UrdJJ7Z_pA" xpdExt:DisplayName="SOAP Service Provider Participant (not relevant in BMPe 5.x)" Name="SOAPServiceProviderParticipant">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>                  
   </xpdl2:Participants>
   <xpdl2:Pools>
     <xpdl2:Pool Id="_nBj6OVuYEemv57AKFO26Pg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_nBj6QVuYEemv57AKFO26Pg">
@@ -266,6 +324,16 @@
             <xpdExt:RestService HttpClientInstanceName="REST_CLientInstance"/>
           </xpdExt:ParticipantSharedResource>
         </xpdl2:Participant>
+        <xpdl2:Participant Id="_arTj4X1BEe68UrdJJ7Z_pA" xpdExt:DisplayName="Process Level SOAP Consumer Participant" Name="ProcessLevelSOAPConsumerParticipant">
+          <xpdl2:ParticipantType Type="SYSTEM"/>
+          <xpdExt:ParticipantSharedResource>
+            <xpdExt:WebService>
+              <xpdExt:Outbound>
+                <xpdExt:SoapHttpBinding Name="SoapOverHttp" HttpClientInstanceName="SOAP_Service_Instance3"/>
+              </xpdExt:Outbound>
+            </xpdExt:WebService>
+          </xpdExt:ParticipantSharedResource>
+        </xpdl2:Participant>        
       </xpdl2:Participants>
       <xpdl2:DataFields>
         <xpdl2:DataField Id="_nBkhYFuYEemv57AKFO26Pg" xpdExt:DisplayName="Field" Name="Field" ReadOnly="false">

@@ -104,6 +104,23 @@
 	<xsl:template match="xpdl2:Participant/xpdExt:ParticipantSharedResource[xpdExt:WebService or xpdExt:Jdbc]">
 		<!-- Do nothing (e.g. do not output the element)-->
 	</xsl:template>
+	
+	
+	<!-- 
+	================================================================================================================
+	ACE-7188 :  On migration from 4.x convert all SOAP-service consumer participants to REST service consumer participants.
+	================================================================================================================
+	 -->
+    <xsl:template match="xpdl2:Participant/xpdExt:ParticipantSharedResource[xpdExt:WebService/xpdExt:Outbound]">
+		<!-- Just output the bare element -->
+		 <xpdExt:ParticipantSharedResource>
+		 	<xpdExt:RestService>
+	             <xsl:if test="xpdExt:WebService/xpdExt:Outbound/xpdExt:SoapHttpBinding/@HttpClientInstanceName">
+	                <xsl:attribute name="resourceName"><xsl:value-of select="xpdExt:WebService/xpdExt:Outbound/xpdExt:SoapHttpBinding/@HttpClientInstanceName"/></xsl:attribute>
+	             </xsl:if>
+		 	</xpdExt:RestService>
+		 </xpdExt:ParticipantSharedResource>
+	</xsl:template>
 
 	<xsl:template match="xpdl2:Participant/xpdExt:ParticipantSharedResource/xpdExt:RestService">
 		<!-- Just output the bare element -->

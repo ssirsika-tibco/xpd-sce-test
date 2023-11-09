@@ -1188,8 +1188,11 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 
                     if (psr != null) {
 						/**
-						 * ACE-7329 : On migration from 4.x a REST service system participant's shared resource name
+						 * ACE-7329 : On migration from 4.x - a REST service system participant's shared resource name
 						 * must be preserved.
+						 * 
+						 * ACE-7188 : On migration from 4.x a SOAP-service consumer participant configured as SOAP over
+						 * HTTP the shared resource name must be preserved
 						 */
 						if (expectedSharedResourceNamesMap.get(participant.getName()) != null)
 						{
@@ -1230,6 +1233,9 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 					/**
 					 * ACE-7329 : On migration from 4.x a REST service system participant's shared resource name must be
 					 * preserved.
+					 * 
+					 * ACE-7188 : On migration from 4.x a SOAP-service consumer participant configured as SOAP over HTTP
+					 * the shared resource name must be preserved
 					 */
 					if (expectedSharedResourceNamesMap.get(participant.getName()) != null)
 					{
@@ -1605,15 +1611,19 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("nls")
 	private Map<String, String> getExpectedSharedResourceNameList()
 	{
 		HashMap<String, String> contents = new HashMap<>();
-		contents.put("ProjectMigrationTest_RESTService_Consumer", //$NON-NLS-1$
-				"ProjectMigrationTest_REST-Service"); //$NON-NLS-1$
-		contents.put("Participant2", //$NON-NLS-1$
-				"REST_CLientInstance"); //$NON-NLS-1$
-		contents.put("RESTParticipantAlreadyMigrated", //$NON-NLS-1$
-				"REST_Service_Instance_AlreadyMigrated"); //$NON-NLS-1$
+		contents.put("ProjectMigrationTest_RESTService_Consumer", "ProjectMigrationTest_REST-Service");
+		contents.put("Participant2", "REST_CLientInstance");
+		contents.put("RESTParticipantAlreadyMigrated", "REST_Service_Instance_AlreadyMigrated");
+
+		contents.put("SOAPConsumerParticipant1", "SOAP_Service_Instance1");
+		contents.put("SOAPParticipant2", "SOAP_Service_Instance2");
+		contents.put("ProcessLevelSOAPConsumerParticipant", "SOAP_Service_Instance3");
+		contents.put("SOAPParticipantWithJMS", null);
+		contents.put("SOAPParticipantWithVirtualization", null);
 		return contents;
 	}
 
