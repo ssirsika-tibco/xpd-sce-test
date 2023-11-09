@@ -393,27 +393,6 @@ public class AceMigratedProcessValidationsTest
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
                                 "ace.system.participant.must.have.type.set", //$NON-NLS-1$
-                                "_9b9x0GEWEem0lq-eL9iD2A", //$NON-NLS-1$
-                                "BPM  : System participants must have a shared resource type selected. (NewWSDLFile_Consumer)", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
-
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
-                                "ace.system.participant.must.have.type.set", //$NON-NLS-1$
-                                "__qs2EGEdEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : System participants must have a shared resource type selected. (ProcessValidationTest_NewWSDLFile_Consumer)", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
-
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
-                                "ace.invalid.participant.type", //$NON-NLS-1$
-                                "_Ksll8GdPEemc57YnadR58Q", //$NON-NLS-1$
-                                "BPM  : Participant must be of type External reference, Organisation Model Query or System. (Human Participant)", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
-
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
-                                "ace.system.participant.must.have.type.set", //$NON-NLS-1$
                                 "_Lts4cGEfEemASo-CA987hg", //$NON-NLS-1$
                                 "BPM  : System participants must have a shared resource type selected. (DatabaseParticipant)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
