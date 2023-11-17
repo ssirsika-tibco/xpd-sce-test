@@ -86,8 +86,9 @@ public class AceRestInputEmptyObjectExclusionsTest extends TestCase {
 
         IProject mapperProject = ResourcesPlugin.getWorkspace().getRoot().getProject("CallService");
 
-        assertFalse("CallService" //$NON-NLS-1$
-                + " project should not have any ERROR level problem markers", //$NON-NLS-1$
+		assertFalse(
+				"CallService project should not have any ERROR level problem markers (other than expected com.tibco.xpd.forms.validation.project.misconfigured) :\n" //$NON-NLS-1$
+						+ TestUtil.getErrorProblemMarkerList(mapperProject, true), 
                 TestUtil.hasErrorProblemMarker(mapperProject, // $NON-NLS-1$
                         true,
                         Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured"),
