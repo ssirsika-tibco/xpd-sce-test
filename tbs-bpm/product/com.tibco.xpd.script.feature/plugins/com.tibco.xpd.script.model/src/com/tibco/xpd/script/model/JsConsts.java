@@ -78,6 +78,9 @@ public class JsConsts {
     public static final String CASE_REFERENCE = "CaseReference"; //$NON-NLS-1$
 
     public static final String CASE_TYPE_NAME = "CaseTypeName"; //$NON-NLS-1$
+    
+	// ACE-7310 Nikita Introduce new type to convert BOM fields to and from JSON strings in process Script
+    public static final String CLASS_TYPE_NAME = "ClassTypeName"; //$NON-NLS-1$
 
     public static final String ASSOCIATION_LINK_NAME = "AssociationLinkName"; //$NON-NLS-1$
 

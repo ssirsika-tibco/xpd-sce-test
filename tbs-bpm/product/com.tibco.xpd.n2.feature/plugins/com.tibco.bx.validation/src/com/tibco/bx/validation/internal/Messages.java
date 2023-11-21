@@ -299,10 +299,16 @@ public class Messages extends NLS {
     public static String N2JScriptDotExpressionValidator_invalidAssociationLinkName;
 
     public static String N2JScriptDotExpressionValidator_invalidCaseTypeName;
+    
+	// ACE-7310 Nikita - message to indicate a Class type
+    public static String N2JScriptDotExpressionValidator_invalidClassTypeName;
 
     public static String N2JScriptDotExpressionValidator_nonLiteralAssociationLinkName;
 
     public static String N2JScriptDotExpressionValidator_nonLiteralCaseTypeName;
+    
+	// ACE-7310 Nikita - message to indicate a Class type
+    public static String N2JScriptDotExpressionValidator_nonLiteralClassTypeName;
 
     public static String N2JScriptReturnTypeValidator_ReturnLastLineOnly;
 

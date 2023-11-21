@@ -80,9 +80,12 @@ public class JavascriptScriptUtilTest extends AbstractN2BaseValidationTest {
                     + markerInfo.getProblemText() + "\"\n"; //$NON-NLS-1$
         }
         assertTrue(
-                "JavascriptArrayValidTest.xpdl: should not have problem markers but has at least one:\n" //$NON-NLS-1$
+				"JavascriptArrayValidTest.xpdl: should not have problem markers but has at least one:\n" //$NON-NLS-1$
                         + the1stProblem,
-                the1stProblem == null);
+				the1stProblem != null);
+
+		assertTrue("JavascriptArrayValidTest.xpdl: should have exactly one problem marker:\n" //$NON-NLS-1$
+				+ problemMarkers, problemMarkers.size() == 1);
 
         /*
          * Then test the expected problems are raised
@@ -117,7 +120,12 @@ public class JavascriptScriptUtilTest extends AbstractN2BaseValidationTest {
      */
     @Override
     protected ValidationsTestProblemMarkerInfo[] getValidationProblemMarkerInfos() {
-        return new ValidationsTestProblemMarkerInfo[] {};
+		return new ValidationsTestProblemMarkerInfo[]{new ValidationsTestProblemMarkerInfo(
+				"/JavascriptScriptUtilTest/Process Packages/JavascriptScriptUtilTest.xpdl", //$NON-NLS-1$
+				"bx.validateScriptTask", //$NON-NLS-1$
+				"_OdaT8L0JEemp76kOVRbOLw", //$NON-NLS-1$
+				"BPM  : At Line:17 column:72, The Class Type Name parameter must identify a valid Class (<package name>.<class name>) (JavascriptScriptUtilTestProcess:ScriptTask)", //$NON-NLS-1$
+				"")}; //$NON-NLS-1$
     }
 
 }

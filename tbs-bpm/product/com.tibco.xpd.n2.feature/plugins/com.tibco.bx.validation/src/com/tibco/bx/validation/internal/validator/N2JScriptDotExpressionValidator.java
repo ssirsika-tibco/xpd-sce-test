@@ -127,7 +127,11 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
                     // token,
                     // actualParamNames[i]);
                 } else if (JsConsts.CASE_TYPE_NAME.equals(methodParams[i].getType())) {
-                    handleCaseTypeName(token, actualParamNames[i]);
+					handleTypeName(token, actualParamNames[i], true);
+                } else if (JsConsts.CLASS_TYPE_NAME.equals(methodParams[i].getType())) {
+					// ACE-7310 Nikita Handle new type method introduced to convert BOM fields to and from JSON strings
+					// in process Script
+					handleTypeName(token, actualParamNames[i], false);
                 } else if (JsConsts.ASSOCIATION_LINK_NAME.equals(methodParams[i].getType())) {
                     handleAssociationLinkName(token, actualParamNames[i]);
                 } else if (JsConsts.CRITERIA.equals(methodParams[i].getType())) {
@@ -554,7 +558,11 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
              * validate them against DQL Query language
              */
             return true;
-        } else if (isCaseTypeNameQueryMethodParam(lhsDataType) && isValidToAssignToCaseTypeNameParam(rhsDataType)) {
+        } else if (isCaseTypeNameQueryMethodParam(lhsDataType) && isValidStringLiteral(rhsDataType)) {
+            return true;
+        } else if (isClassTypeNameQueryMethodParam(lhsDataType) && isValidStringLiteral(rhsDataType)) {
+			// ACE-7310 Nikita Handle new type method introduced to convert BOM fields to and from JSON strings in
+			// process Script
             return true;
         } else if (isAssociationLinkNameQueryMethodParam(lhsDataType)
                 && isValidToAssignToAssociationLinkNameParam(rhsDataType)) {
@@ -670,7 +678,8 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
      *            The data type.
      * @return <code>true</code> if data type is valid to assign to a Case Type Name string method parameter.
      */
-    private boolean isValidToAssignToCaseTypeNameParam(IScriptRelevantData scritpRelDataType) {
+	private boolean isValidStringLiteral(IScriptRelevantData scritpRelDataType)
+	{
         String dataType = scritpRelDataType.getType();
         if (JsConsts.STRING.equals(dataType) || JsConsts.STRING_LITERAL.equals(dataType)
                 || JsConsts.TEXT.equals(dataType)) {
@@ -694,6 +703,25 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
         }
         return false;
     }
+
+    /**
+	 * ACE-7310 Nikita Handle new type method introduced to convert BOM fields to and from JSON strings in process
+	 * Script
+	 * 
+	 * @param srd
+	 *            The data type.
+	 * @return <code>true</code> if the given script relevant data is for a method param of Class Type Name type.
+	 */
+	private boolean isClassTypeNameQueryMethodParam(IScriptRelevantData srd) {
+		if (JsConsts.CLASS_TYPE_NAME.equals(srd.getType())) {
+			if (srd instanceof DefaultScriptRelevantData) {
+				if (((DefaultScriptRelevantData) srd).getExtendedInfo() instanceof JsMethodParam) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
     /**
      * @param scritpRelDataType
@@ -959,15 +987,17 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
     }
 
     /**
-     * Validates that the case type name parameter refers to a valid case class.
-     * 
-     * @param token
-     *            The token being parsed.
-     * @param actualParamName
-     *            The parameter name to check.
-     */
-    private void handleCaseTypeName(Token token,
-            String actualParamName) {
+	 * Validates that the case type name parameter refers to a valid case class.
+	 * 
+	 * @param token
+	 *            The token being parsed.
+	 * @param actualParamName
+	 *            The parameter name to check.
+	 * @param isCaseType
+	 *            The boolean flag to indicate if the type is a Case type name
+	 */
+	private void handleTypeName(Token token, String actualParamName, boolean isCaseType)
+	{
 
         String stringLiteralValue = null;
 
@@ -977,7 +1007,7 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
         }
 
         if (stringLiteralValue != null) {
-            // Check that it's a valid case type name.
+            // Check that it's a valid case or class type name.
             boolean valid = false;
             int lastDot = stringLiteralValue.lastIndexOf('.');
             if (lastDot != -1 && (lastDot + 1) < stringLiteralValue.length()) {
@@ -990,19 +1020,28 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
                     for (Package pkg : packages) {
                         if (packageName.equals(pkg.getName())) {
                             Type cls = pkg.getOwnedType(className);
-                            if (cls instanceof Class && BOMGlobalDataUtils.isCaseClass((Class) cls)) {
-                                valid = true;
-                                break;
+                            if (cls instanceof Class) {
+                            	if (isCaseType) {
+                            		if (BOMGlobalDataUtils.isCaseClass((Class) cls)) {
+                            			valid = true;
+                                        break;		
+                            		}
+                            	} else {
+                            		valid = true;
+                                    break;	
+                            	}                                
                             }
                         }
                     }
                 }
             }
             if (!valid) {
-                addErrorMessage(token, Messages.N2JScriptDotExpressionValidator_invalidCaseTypeName);
+				addErrorMessage(token, isCaseType ? Messages.N2JScriptDotExpressionValidator_invalidCaseTypeName
+						: Messages.N2JScriptDotExpressionValidator_invalidClassTypeName);
             }
         } else {
-            addErrorMessage(token, Messages.N2JScriptDotExpressionValidator_nonLiteralCaseTypeName);
+			addErrorMessage(token, isCaseType ? Messages.N2JScriptDotExpressionValidator_nonLiteralCaseTypeName
+					: Messages.N2JScriptDotExpressionValidator_nonLiteralClassTypeName);
         }
     }
 

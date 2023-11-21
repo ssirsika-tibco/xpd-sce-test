@@ -8,7 +8,9 @@
   <packagedElement xmi:type="uml:DataType" xmi:id="_RgOFgIYSEemPmt-F0Us-xg" name="Number"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_5ufZ4LH8Eemf26GkMUv1Gw" name="CaseReference"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_Q5lysL3eEemuJqb-nNsrsw" name="CaseTypeName"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_ZuUeoPyUTeClx4j-88xxjQ" name="ClassTypeName"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_UYJkQL3eEemuJqb-nNsrsw" name="AssociationLinkName"/>
+  
   <packagedElement xmi:type="uml:Class" xmi:id="_UCHoUPuSEd6Q9p1yYiMS_w" name="Log">
     <ownedOperation xmi:id="_cFj6UPuSEd6Q9p1yYiMS_w" name="write" isStatic="true">
       <ownedParameter xmi:id="_eZ-M8PuSEd6Q9p1yYiMS_w" name="msg" type="_L0lAYOANEd6NV_VD55whVg"/>
@@ -148,6 +150,15 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y_GFAL0FEemi9uZ1-vIc-A"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zPZK0L0FEemi9uZ1-vIc-A" value="*"/>
       </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ScriptUtil_parseData_" name="parseData">
+    	<ownedParameter xmi:id="_ScriptUtil_parseData_jsonAsString_" name="jsonAsString" type="_L0lAYOANEd6NV_VD55whVg"/>
+	    <ownedParameter xmi:id="_ScriptUtil_parseData_classType_" name="classType" type="_ZuUeoPyUTeClx4j-88xxjQ"/>	    
+	    <ownedParameter xmi:id="_ScriptUtil_parseData_returnBomObject_" type="_eTPKMKHqEd6gj7Xw0shGxA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ScriptUtil_stringify_" name="stringify">
+    	<ownedParameter xmi:id="_ScriptUtil_stringify_object_" name="object" type="_eTPKMKHqEd6gj7Xw0shGxA"/>    
+	    <ownedParameter xmi:id="_ScriptUtil_stringify_returnJsonString_" type="_L0lAYOANEd6NV_VD55whVg" direction="return"/>
     </ownedOperation>
   </packagedElement>
 </uml:Model>

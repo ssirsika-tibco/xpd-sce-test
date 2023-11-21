@@ -121,6 +121,12 @@ data.CaseRefArrayField.pushAll(bpm.scriptUtil.copyAll(data.CaseRefArrayField));&
 &#xD;
 data.TextField = bpm.scriptUtil.copy(data.TextField);&#xD;
 data.TextArrayField.pushAll(bpm.scriptUtil.copyAll(data.TextArrayField));&#xD;
+&#xD;
+var jsonString = bpm.scriptUtil.stringify(data.BomField);&#xD;
+&#xD;
+data.BomField = bpm.scriptUtil.parseData(jsonString , 'com.example.javascriptscriptutildata.ScriptUtilClass');&#xD;
+&#xD;
+data.BomField = bpm.scriptUtil.parseData(jsonString , 'ScriptUtilCase');&#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>

@@ -436,6 +436,7 @@ public class JSTypesCompatabilityUtil {
                         PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
                         JsConsts.DQL_STRING,
                         JsConsts.CASE_TYPE_NAME,
+						JsConsts.CLASS_TYPE_NAME,
                         JsConsts.ASSOCIATION_LINK_NAME));
         CDS_TO_CDS_PRIMITIVETYPES_MAP
                 .put(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME, textAllowed);
