@@ -10,7 +10,7 @@
   <packagedElement xmi:type="uml:DataType" xmi:id="_Q5lysL3eEemuJqb-nNsrsw" name="CaseTypeName"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_ZuUeoPyUTeClx4j-88xxjQ" name="ClassTypeName"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_UYJkQL3eEemuJqb-nNsrsw" name="AssociationLinkName"/>
-  
+  <packagedElement xmi:type="uml:DataType" xmi:id="_s3xegHIbEd-kC5ysQRjHHw" name="Datetimetz"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_UCHoUPuSEd6Q9p1yYiMS_w" name="Log">
     <ownedOperation xmi:id="_cFj6UPuSEd6Q9p1yYiMS_w" name="write" isStatic="true">
       <ownedParameter xmi:id="_eZ-M8PuSEd6Q9p1yYiMS_w" name="msg" type="_L0lAYOANEd6NV_VD55whVg"/>
@@ -160,5 +160,34 @@
     	<ownedParameter xmi:id="_ScriptUtil_stringify_object_" name="object" type="_eTPKMKHqEd6gj7Xw0shGxA"/>    
 	    <ownedParameter xmi:id="_ScriptUtil_stringify_returnJsonString_" type="_L0lAYOANEd6NV_VD55whVg" direction="return"/>
     </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_DateTimeUtil_" name="DateTimeUtil" isAbstract="true">
+    <ownedOperation xmi:id="_DateTimeUtil_convertDateTimeToDateTimeTZ_" name="convertDateTimeToDateTimeTZ">
+    	<ownedParameter xmi:id="_DateTimeUtil_dateTime_" name="dateTime" xmi:type="uml:Parameter">
+  			<type xmi:type="uml:Class" href="platform:/plugin/com.tibco.xpd.script.model/model/JavaScript.uml#_kr6asNI7EduWapZ5a676CA"/>
+		</ownedParameter>
+    	<ownedParameter xmi:id="_DateTimeUtil_dateTimeTZ_" type="_s3xegHIbEd-kC5ysQRjHHw" direction="return"/> 
+    </ownedOperation>
+    <ownedOperation xmi:id="_DateTimeUtil_convertDateTimeStringToDateTimeTZ_" name="convertDateTimeToDateTimeTZ">
+    	<ownedParameter xmi:id="_DateTimeUtil_dateTimeString_" name="dateTimeString" type="_L0lAYOANEd6NV_VD55whVg"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_dateTimeTZ_" type="_s3xegHIbEd-kC5ysQRjHHw" direction="return"/>    	
+    </ownedOperation>
+    <ownedOperation xmi:id="_DateTimeUtil_addDuration_" name="addDuration">
+    	<ownedParameter xmi:id="_DateTimeUtil_addDuration_dateTime_" name="dateTime" type="_s3xegHIbEd-kC5ysQRjHHw"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_addDuration_duration_" name="duration" type="_L0lAYOANEd6NV_VD55whVg"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_addDuration_dateTimeTZ_" type="_s3xegHIbEd-kC5ysQRjHHw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_DateTimeUtil_addDuration_direction_" name="addDuration">
+    	<ownedParameter xmi:id="_DateTimeUtil_addDuration_dateTime_" name="dateTime" type="_s3xegHIbEd-kC5ysQRjHHw"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_addDuration_isPositive_" name="isPositive" type="_aPzxAKHqEd6gj7Xw0shGxA"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_addDuration_year_" name="year" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_addDuration_month_" name="month" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_addDuration_day_" name="day" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_addDuration_hour_" name="hour" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_addDuration_minute_" name="minute" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_addDuration_second_" name="second" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_addDuration_millisecond_" name="millisecond" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_addDuration_dateTimeTZ_" type="_s3xegHIbEd-kC5ysQRjHHw" direction="return"/>
+    </ownedOperation>    
   </packagedElement>
 </uml:Model>

@@ -28,6 +28,7 @@ import com.tibco.xpd.sce.tests.rasc.contributors.PeSharedResourceContributorTest
 import com.tibco.xpd.sce.tests.rasc.contributors.PfeRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WlfModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WpModelRascContributorTest;
+import com.tibco.xpd.sce.tests.validation.JavascriptDateTimeUtilTest;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -79,6 +80,7 @@ public class AllUnitTests {
         suite.addTestSuite(AceDataWrapperScriptObjectTest.class);
         suite.addTestSuite(AceProcessAndWMScriptTest.class);
         suite.addTestSuite(GetAuthenticatedUserValidationTest.class);
+		suite.addTestSuite(JavascriptDateTimeUtilTest.class);
 
         return suite;
     }

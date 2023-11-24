@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_iGFNYIj0Ee6qBaoYQ06ihg" xpdExt:DisplayName="JavascriptDateTimeUtilTest" Name="JavascriptDateTimeUtilTest">
+  <xpdl2:PackageHeader xpdExt:Language="en_US">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2023-11-22</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>nkelkar</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_nUi2VIj0Ee6qBaoYQ06ihg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_iGYIUIj0Ee6qBaoYQ06ihg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_nUi2VYj0Ee6qBaoYQ06ihg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_iGYIUIj0Ee6qBaoYQ06ihg" xpdExt:DisplayName="JavascriptDateTimeUtilTest-Process" Name="JavascriptDateTimeUtilTestProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_pbO2AIj0Ee6qBaoYQ06ihg" xpdExt:DisplayName="DateField" Name="DateField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_r0l6EIj0Ee6qBaoYQ06ihg" xpdExt:DisplayName="TimeField" Name="TimeField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_tZbw8Ij0Ee6qBaoYQ06ihg" xpdExt:DisplayName="DateTimeField" Name="DateTimeField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_CfdIcIj1Ee6qBaoYQ06ihg" xpdExt:DisplayName="TextField" Name="TextField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_nUi2Voj0Ee6qBaoYQ06ihg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="27.0" LaneId="_nUi2VYj0Ee6qBaoYQ06ihg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="95.0" YCoordinate="154.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nUi2V4j0Ee6qBaoYQ06ihg" Name="ScriptTask" FinishMode="Manual" IsATransaction="false" StartMode="Manual" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">data.TimeField = bpm.dateTimeUtil.convertDateTimeToDateTimeTZ(data.TimeField);&#xD;
+data.DateTimeField = bpm.dateTimeUtil.convertDateTimeToDateTimeTZ(data.DateTimeField);&#xD;
+data.DateField = bpm.dateTimeUtil.convertDateTimeToDateTimeTZ(data.DateField);&#xD;
+data.DateTimeField = bpm.dateTimeUtil.convertDateTimeToDateTimeTZ(data.TextField);&#xD;
+&#xD;
+//Missing arguments&#xD;
+data.DateField = bpm.dateTimeUtil.convertDateTimeToDateTimeTZ();&#xD;
+&#xD;
+data.DateTimeField = bpm.dateTimeUtil.addDuration(data.DateTimeField,&quot;PT2H&quot;);&#xD;
+data.DateField = bpm.dateTimeUtil.addDuration(data.TimeField, true, 0, 0, 0, 4, 0, 0, 0);&#xD;
+data.DateField = bpm.dateTimeUtil.addDuration(data.TimeField, false, 1, 0, 0, 4, 0, 0, 0);&#xD;
+&#xD;
+//Incorrect argument type&#xD;
+data.DateField = bpm.dateTimeUtil.addDuration(data.TimeField, true, &quot;&quot;, 0, 0, 0, 4, 0, 0);&#xD;
+&#xD;
+//Missing arguments&#xD;
+data.DateField = bpm.dateTimeUtil.addDuration(data.TimeField, false, 1, 0, 0, 0, 0, 0);&#xD;
+data.DateTimeField = bpm.dateTimeUtil.addDuration(data.DateTimeField);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="64.0" LaneId="_nUi2VYj0Ee6qBaoYQ06ihg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="223.0" YCoordinate="154.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nUi2WIj0Ee6qBaoYQ06ihg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="27.0" LaneId="_nUi2VYj0Ee6qBaoYQ06ihg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="351.0" YCoordinate="154.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_nUi2WYj0Ee6qBaoYQ06ihg" xpdExt:DisplayName="" From="_nUi2Voj0Ee6qBaoYQ06ihg" To="_nUi2V4j0Ee6qBaoYQ06ihg"/>
+        <xpdl2:Transition Id="_nUi2Woj0Ee6qBaoYQ06ihg" xpdExt:DisplayName="" From="_nUi2V4j0Ee6qBaoYQ06ihg" To="_nUi2WIj0Ee6qBaoYQ06ihg"/>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>
