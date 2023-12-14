@@ -13,6 +13,18 @@
     <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
   </xpdl2:RedefinableHeader>
   <xpdl2:Pools>
+    <xpdl2:Pool Id="_yYQGx5jLEe6bv_MKeVgGrg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_yX8kwJjLEe6bv_MKeVgGrg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_yYQGyJjLEe6bv_MKeVgGrg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
     <xpdl2:Pool Id="_NcBIYL0JEemp76kOVRbOLw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_LU5q4L0JEemp76kOVRbOLw">
       <xpdl2:Lanes>
         <xpdl2:Lane Id="_NcBIYb0JEemp76kOVRbOLw" xpdExt:DisplayName="Lane" Name="Lane">
@@ -154,6 +166,131 @@ data.BomField = bpm.scriptUtil.parseData(jsonString , 'ScriptUtilCase');&#xD;
             <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
           </xpdl2:ConnectorGraphicsInfos>
         </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_yX8kwJjLEe6bv_MKeVgGrg" xpdExt:DisplayName="JavascriptScriptUtilTest-Process2" Name="JavascriptScriptUtilTestProcess2">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_0fkYmJjLEe6bv_MKeVgGrg" xpdExt:DisplayName="BomField" Name="BomField">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="JavascriptScriptUtilData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_uKqv4L0JEemp76kOVRbOLw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_0fkYmZjLEe6bv_MKeVgGrg" xpdExt:DisplayName="CaseRefField" Name="CaseRefField">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="JavascriptScriptUtilData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tAATkL0JEemp76kOVRbOLw"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_0fkYmpjLEe6bv_MKeVgGrg" xpdExt:DisplayName="BomArrayField" Name="BomArrayField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="JavascriptScriptUtilData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_uKqv4L0JEemp76kOVRbOLw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_0fkYm5jLEe6bv_MKeVgGrg" xpdExt:DisplayName="TextArrayField" Name="TextArrayField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_0fkYnJjLEe6bv_MKeVgGrg" xpdExt:DisplayName="CaseField" Name="CaseField">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="JavascriptScriptUtilData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tAATkL0JEemp76kOVRbOLw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_0fkYnZjLEe6bv_MKeVgGrg" xpdExt:DisplayName="CaseArrayField" Name="CaseArrayField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="JavascriptScriptUtilData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tAATkL0JEemp76kOVRbOLw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_0fkYnpjLEe6bv_MKeVgGrg" xpdExt:DisplayName="TextField" Name="TextField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_2vP8MJjLEe6bv_MKeVgGrg" xpdExt:DisplayName="ParticipantField" Name="ParticipantField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_yYQGyZjLEe6bv_MKeVgGrg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="27.0" LaneId="_yYQGyJjLEe6bv_MKeVgGrg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="95.0" YCoordinate="154.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_yYQGypjLEe6bv_MKeVgGrg" Name="UserTask" FinishMode="Manual" IsATransaction="false" StartMode="Manual" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="User Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_zB0BIJjLEe6bv_MKeVgGrg"/>
+                <xpdl2:MessageOut Id="_zB0BIZjLEe6bv_MKeVgGrg"/>
+                <xpdExt:UserTaskScripts>
+                  <xpdExt:OpenScript ScriptGrammar="JavaScript">data.BomField = bpm.scriptUtil.copy(data.BomField);&#xD;
+data.BomArrayField.pushAll(bpm.scriptUtil.copyAll(data.BomArrayField));&#xD;
+&#xD;
+data.CaseField = bpm.scriptUtil.copy(data.CaseField);&#xD;
+data.CaseArrayField.pushAll(bpm.scriptUtil.copyAll(data.CaseArrayField));&#xD;
+&#xD;
+data.TextField = bpm.scriptUtil.copy(data.TextField);&#xD;
+data.TextArrayField.pushAll(bpm.scriptUtil.copyAll(data.TextArrayField));&#xD;
+&#xD;
+var jsonString = bpm.scriptUtil.stringify(data.BomField);&#xD;
+&#xD;
+data.BomField = bpm.scriptUtil.parseData(jsonString , 'com.example.javascriptscriptutildata.ScriptUtilClass');&#xD;
+&#xD;
+data.BomField = bpm.scriptUtil.parseData(jsonString , 'ScriptUtilCase');&#xD;
+</xpdExt:OpenScript>
+                </xpdExt:UserTaskScripts>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_2vP8MJjLEe6bv_MKeVgGrg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="64.0" LaneId="_yYQGyJjLEe6bv_MKeVgGrg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="223.0" YCoordinate="154.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_yYQGy5jLEe6bv_MKeVgGrg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="27.0" LaneId="_yYQGyJjLEe6bv_MKeVgGrg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="351.0" YCoordinate="154.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_yYQGzJjLEe6bv_MKeVgGrg" xpdExt:DisplayName="" From="_yYQGyZjLEe6bv_MKeVgGrg" To="_yYQGypjLEe6bv_MKeVgGrg"/>
+        <xpdl2:Transition Id="_yYQGzZjLEe6bv_MKeVgGrg" xpdExt:DisplayName="" From="_yYQGypjLEe6bv_MKeVgGrg" To="_yYQGy5jLEe6bv_MKeVgGrg"/>
       </xpdl2:Transitions>
       <xpdl2:ExtendedAttributes>
         <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>

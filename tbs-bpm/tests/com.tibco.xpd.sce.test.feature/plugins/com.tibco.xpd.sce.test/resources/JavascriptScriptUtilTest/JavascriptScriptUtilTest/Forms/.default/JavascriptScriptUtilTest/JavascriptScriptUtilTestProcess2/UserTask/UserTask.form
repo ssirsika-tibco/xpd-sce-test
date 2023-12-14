@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_yYQGypjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aActivity%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=UserTask?" formatVersion="11.0.0">
+  <form:externalResources>
+    <form:externalResource name="resource.common" uri="pathmap://FORMS_RESOURCES/common.properties" internal="true" localized="true"/>
+    <form:externalResource name="resource.form" uri=".default/JavascriptScriptUtilTest/JavascriptScriptUtilTestProcess2/UserTask/UserTask.properties" sfRelative="true" internal="true" localized="true"/>
+  </form:externalResources>
+  <form:dataModel>
+    <form:parameter generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYmJjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=BomField?" name="data.BomField" label="BomField" dataType="uml:Class JavascriptScriptUtilData.bom#_uKqv4L0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.javascriptscriptutildata%26n=ScriptUtilClass?" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYmZjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=CaseRefField?" name="data.CaseRefField" label="CaseRefField" dataType="uml:Class JavascriptScriptUtilData.bom#_tAATkL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.javascriptscriptutildata%26n=ScriptUtilCase?" inout="IN"/>
+    <form:parameter generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYmpjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=BomArrayField?" name="data.BomArrayField" label="BomArrayField" dataType="uml:Class JavascriptScriptUtilData.bom#_uKqv4L0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.javascriptscriptutildata%26n=ScriptUtilClass?" isArray="true" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYm5jLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=TextArrayField?" name="data.TextArrayField" label="TextArrayField" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" isArray="true" length="50" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYnJjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=CaseField?" name="data.CaseField" label="CaseField" dataType="uml:Class JavascriptScriptUtilData.bom#_tAATkL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.javascriptscriptutildata%26n=ScriptUtilCase?" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYnZjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=CaseArrayField?" name="data.CaseArrayField" label="CaseArrayField" dataType="uml:Class JavascriptScriptUtilData.bom#_tAATkL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.javascriptscriptutildata%26n=ScriptUtilCase?" isArray="true" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYnpjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=TextField?" name="data.TextField" label="TextField" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" length="50" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_2vP8MJjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=ParticipantField?" name="data.ParticipantField" label="ParticipantField" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" inout="INOUT"/>
+  </form:dataModel>
+  <form:actions/>
+  <form:rules>
+    <form:rule generated="true" name="rule.cancel" label="Cancel">
+      <form:event source="#control.cancel" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.cancel.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.cancel"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.close" label="Close">
+      <form:event source="#control.close" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.close.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.close"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.submit" label="Submit">
+      <form:event source="#control.submit" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.submit.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.submit"/>
+    </form:rule>
+  </form:rules>
+  <form:bindings>
+    <form:binding generated="true" direction="bothways" name="_K59iAJjMEe6bv_MKeVgGrg">
+      <form:source target="data.BomField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.BomField.value"/>
+      <form:destination target="pane.BomField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.BomField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_K59iAZjMEe6bv_MKeVgGrg">
+      <form:source target="pane.BomField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value JavascriptScriptUtilData.bom#_v9VnYL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilClass%26n=attribute1?" data="form.pane.BomField.value.attribute1"/>
+      <form:destination target="control.BomField_attribute1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.BomField_attribute1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_K59iApjMEe6bv_MKeVgGrg">
+      <form:source target="data.CaseRefField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.CaseRefField.value"/>
+      <form:destination target="pane.CaseRefField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.CaseRefField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="sourceToDest" name="_K59iA5jMEe6bv_MKeVgGrg">
+      <form:source target="pane.CaseRefField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value JavascriptScriptUtilData.bom#_wR47EL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilCase%26n=autoCaseIdentifier1?" data="form.pane.CaseRefField.value.autoCaseIdentifier1"/>
+      <form:destination target="control.CaseRefField_autoCaseIdentifier1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseRefField_autoCaseIdentifier1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="sourceToDest" name="_K59iBJjMEe6bv_MKeVgGrg">
+      <form:source target="pane.CaseRefField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value JavascriptScriptUtilData.bom#_1CduIL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilCase%26n=caseState1?" data="form.pane.CaseRefField.value.caseState1"/>
+      <form:destination target="control.CaseRefField_caseState1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseRefField_caseState1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_K59iBZjMEe6bv_MKeVgGrg">
+      <form:source target="data.BomArrayField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.BomArrayField.value"/>
+      <form:destination target="pane.BomArrayField" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value" data="form.pane.BomArrayField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_K59iBpjMEe6bv_MKeVgGrg">
+      <form:source target="pane.BomArrayField" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value JavascriptScriptUtilData.bom#_v9VnYL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilClass%26n=attribute1?" data="form.pane.BomArrayField.value.attribute1"/>
+      <form:destination target="control.BomArrayField_attribute1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.BomArrayField_attribute1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_K59iB5jMEe6bv_MKeVgGrg">
+      <form:source target="data.TextArrayField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.TextArrayField.value"/>
+      <form:destination target="control.TextArrayField" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.TextArrayField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_K59iCJjMEe6bv_MKeVgGrg">
+      <form:source target="data.CaseField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.CaseField.value"/>
+      <form:destination target="pane.CaseField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.CaseField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="sourceToDest" name="_K59iCZjMEe6bv_MKeVgGrg">
+      <form:source target="pane.CaseField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value JavascriptScriptUtilData.bom#_wR47EL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilCase%26n=autoCaseIdentifier1?" data="form.pane.CaseField.value.autoCaseIdentifier1"/>
+      <form:destination target="control.CaseField_autoCaseIdentifier1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseField_autoCaseIdentifier1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_K59iCpjMEe6bv_MKeVgGrg">
+      <form:source target="pane.CaseField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value JavascriptScriptUtilData.bom#_1CduIL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilCase%26n=caseState1?" data="form.pane.CaseField.value.caseState1"/>
+      <form:destination target="control.CaseField_caseState1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseField_caseState1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_K59iC5jMEe6bv_MKeVgGrg">
+      <form:source target="data.CaseArrayField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.CaseArrayField.value"/>
+      <form:destination target="pane.CaseArrayField" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value" data="form.pane.CaseArrayField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="sourceToDest" name="_K59iDJjMEe6bv_MKeVgGrg">
+      <form:source target="pane.CaseArrayField" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value JavascriptScriptUtilData.bom#_wR47EL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilCase%26n=autoCaseIdentifier1?" data="form.pane.CaseArrayField.value.autoCaseIdentifier1"/>
+      <form:destination target="control.CaseArrayField_autoCaseIdentifier1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseArrayField_autoCaseIdentifier1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_K59iDZjMEe6bv_MKeVgGrg">
+      <form:source target="pane.CaseArrayField" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value JavascriptScriptUtilData.bom#_1CduIL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilCase%26n=caseState1?" data="form.pane.CaseArrayField.value.caseState1"/>
+      <form:destination target="control.CaseArrayField_caseState1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseArrayField_caseState1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_K59iDpjMEe6bv_MKeVgGrg">
+      <form:source target="data.TextField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.TextField.value"/>
+      <form:destination target="control.TextField" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.TextField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_K59iD5jMEe6bv_MKeVgGrg">
+      <form:source target="data.ParticipantField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ParticipantField.value"/>
+      <form:destination target="control.ParticipantField" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ParticipantField.value"/>
+    </form:binding>
+  </form:bindings>
+  <form:defaults>
+    <form:labelProperties position="top"/>
+  </form:defaults>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" name="pane.content" paneType="com.tibco.forms.panes.vertical">
+    <form:label>User Task</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="true"/>
+    <form:defaults>
+      <form:labelProperties position="left"/>
+    </form:defaults>
+    <form:pane generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYmJjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=BomField?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class JavascriptScriptUtilData.bom#_uKqv4L0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.javascriptscriptutildata%26n=ScriptUtilClass?" name="pane.BomField" paneType="com.tibco.forms.panes.vertical">
+      <form:label>BomField</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="top"/>
+      </form:defaults>
+      <form:control generated="true" generatorSource="JavascriptScriptUtilData.bom#_v9VnYL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilClass%26n=attribute1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.BomField_attribute1">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>attribute1</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+    </form:pane>
+    <form:pane generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYmZjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=CaseRefField?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class JavascriptScriptUtilData.bom#_tAATkL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.javascriptscriptutildata%26n=ScriptUtilCase?" name="pane.CaseRefField" paneType="com.tibco.forms.panes.vertical">
+      <form:label>CaseRefField</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="top"/>
+      </form:defaults>
+      <form:control generated="true" generatorSource="JavascriptScriptUtilData.bom#_wR47EL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilCase%26n=autoCaseIdentifier1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.CaseRefField_autoCaseIdentifier1">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>autoCaseIdentifier1</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="JavascriptScriptUtilData.bom#_1CduIL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilCase%26n=caseState1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.optionlist" readOnly="true" controlType="com.tibco.forms.controls.optionlist" name="control.CaseRefField_caseState1">
+        <form:propertySet xsi:type="et:MultiChoicePropertySet">
+          <et:choiceType>enumeration</et:choiceType>
+          <et:choiceEnumeration>JavascriptScriptUtilData.bom#_xXZxoL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aEnumeration%26q=com.example.javascriptscriptutildata%26n=ScriptUtilStates?</et:choiceEnumeration>
+        </form:propertySet>
+        <form:label>caseState1</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+    </form:pane>
+    <form:pane generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYmpjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=BomArrayField?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.grid" dataType="uml:Class JavascriptScriptUtilData.bom#_uKqv4L0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.javascriptscriptutildata%26n=ScriptUtilClass?" name="pane.BomArrayField" paneType="com.tibco.forms.panes.grid">
+      <form:propertySet xsi:type="et:GridPanePropertySet">
+        <et:showNavigator>false</et:showNavigator>
+        <et:supportAddOperation>true</et:supportAddOperation>
+        <et:supportDeleteOperation>true</et:supportDeleteOperation>
+        <et:editable>true</et:editable>
+        <et:sortable>true</et:sortable>
+        <et:rowLabel>{0}</et:rowLabel>
+      </form:propertySet>
+      <form:label>BomArrayField</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="top"/>
+      </form:defaults>
+      <form:control generated="true" generatorSource="JavascriptScriptUtilData.bom#_v9VnYL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilClass%26n=attribute1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.BomArrayField_attribute1">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>attribute1</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+    </form:pane>
+    <form:control generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYm5jLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=TextArrayField?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.TextArrayField">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <form:list>true</form:list>
+        <et:displayLength>40</et:displayLength>
+        <et:maxLength>50</et:maxLength>
+      </form:propertySet>
+      <form:label>TextArrayField</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:pane generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYnJjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=CaseField?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class JavascriptScriptUtilData.bom#_tAATkL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.javascriptscriptutildata%26n=ScriptUtilCase?" name="pane.CaseField" paneType="com.tibco.forms.panes.vertical">
+      <form:label>CaseField</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="top"/>
+      </form:defaults>
+      <form:control generated="true" generatorSource="JavascriptScriptUtilData.bom#_wR47EL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilCase%26n=autoCaseIdentifier1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.CaseField_autoCaseIdentifier1">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>autoCaseIdentifier1</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="JavascriptScriptUtilData.bom#_1CduIL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilCase%26n=caseState1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.optionlist" controlType="com.tibco.forms.controls.optionlist" name="control.CaseField_caseState1">
+        <form:propertySet xsi:type="et:MultiChoicePropertySet">
+          <et:choiceType>enumeration</et:choiceType>
+          <et:choiceEnumeration>JavascriptScriptUtilData.bom#_xXZxoL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aEnumeration%26q=com.example.javascriptscriptutildata%26n=ScriptUtilStates?</et:choiceEnumeration>
+        </form:propertySet>
+        <form:label>caseState1</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>true</form:required>
+      </form:control>
+    </form:pane>
+    <form:pane generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYnZjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=CaseArrayField?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.grid" dataType="uml:Class JavascriptScriptUtilData.bom#_tAATkL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.javascriptscriptutildata%26n=ScriptUtilCase?" name="pane.CaseArrayField" paneType="com.tibco.forms.panes.grid">
+      <form:propertySet xsi:type="et:GridPanePropertySet">
+        <et:showNavigator>false</et:showNavigator>
+        <et:supportAddOperation>true</et:supportAddOperation>
+        <et:supportDeleteOperation>true</et:supportDeleteOperation>
+        <et:editable>true</et:editable>
+        <et:sortable>true</et:sortable>
+        <et:rowLabel>{0}</et:rowLabel>
+      </form:propertySet>
+      <form:label>CaseArrayField</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="top"/>
+      </form:defaults>
+      <form:control generated="true" generatorSource="JavascriptScriptUtilData.bom#_wR47EL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilCase%26n=autoCaseIdentifier1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.CaseArrayField_autoCaseIdentifier1">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>autoCaseIdentifier1</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="JavascriptScriptUtilData.bom#_1CduIL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.javascriptscriptutildata%3a%3aScriptUtilCase%26n=caseState1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.optionlist" controlType="com.tibco.forms.controls.optionlist" name="control.CaseArrayField_caseState1">
+        <form:propertySet xsi:type="et:MultiChoicePropertySet">
+          <et:choiceType>enumeration</et:choiceType>
+          <et:choiceEnumeration>JavascriptScriptUtilData.bom#_xXZxoL0JEemp76kOVRbOLw?p=JavascriptScriptUtilData%26s=Business%20Objects%26t=uml%3aEnumeration%26q=com.example.javascriptscriptutildata%26n=ScriptUtilStates?</et:choiceEnumeration>
+        </form:propertySet>
+        <form:label>caseState1</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>true</form:required>
+      </form:control>
+    </form:pane>
+    <form:control generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_0fkYnpjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=TextField?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.TextField">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>40</et:displayLength>
+        <et:maxLength>50</et:maxLength>
+      </form:propertySet>
+      <form:label>TextField</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="JavascriptScriptUtilTest.xpdl#_2vP8MJjLEe6bv_MKeVgGrg?p=JavascriptScriptUtilTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=JavascriptScriptUtilTest%3a%3aJavascriptScriptUtilTestProcess2%26n=ParticipantField?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textarea" controlType="com.tibco.forms.controls.textarea" name="control.ParticipantField">
+      <form:propertySet xsi:type="et:TextAreaPropertySet">
+        <et:rows>10</et:rows>
+        <et:cols>25</et:cols>
+      </form:propertySet>
+      <form:label>ParticipantField</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane gwt:toolbar="true" styleClass="toolbar" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.horizontal" name="pane.toolbar" paneType="com.tibco.forms.panes.horizontal">
+    <form:label>Toolbar</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.cancel">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Cancel</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.close">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Close</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.submit">
+      <form:propertySet xsi:type="et:ButtonPropertySet">
+        <et:type>primary</et:type>
+      </form:propertySet>
+      <form:label>Submit</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.messages" name="pane.messages" paneType="com.tibco.forms.panes.messages">
+    <form:propertySet xsi:type="et:MessagesPanePropertySet"/>
+    <form:label>Invalid Entries</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+  </form:pane>
+</form:form>

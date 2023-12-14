@@ -6,12 +6,14 @@ package com.tibco.xpd.sce.tests.javascript;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 
 import com.tibco.xpd.bom.resources.utils.BOMUtils;
 import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.core.test.validations.ValidationsTestProblemMarkerInfo;
 import com.tibco.xpd.n2.test.core.validation.AbstractN2BaseValidationTest;
+import com.tibco.xpd.resources.util.SpecialFolderUtil;
 
 /**
  * Test valid Javascript Array functions
@@ -33,12 +35,14 @@ public class JavascriptScriptUtilTest extends AbstractN2BaseValidationTest {
     protected void setUpBeforeBuild() {
         super.setUpBeforeBuild();
 
+		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("JavascriptScriptUtilTest"); //$NON-NLS-1$
         /*
          * make sure BOM project is configured as Business Data project to avoid
          * getting unexpected problem markers unrelated to this test.
          */
-        BOMUtils.setAsBusinessDataProject(ResourcesPlugin.getWorkspace()
-                .getRoot().getProject("JavascriptScriptUtilTest")); //$NON-NLS-1$
+		BOMUtils.setAsBusinessDataProject(project); // $NON-NLS-1$
+		// and make sure we have a Forms special folder
+		SpecialFolderUtil.getCreateSpecialFolderOfKind(project, "forms", "Forms"); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -52,6 +56,8 @@ public class JavascriptScriptUtilTest extends AbstractN2BaseValidationTest {
          * sure that the BOMs that are expected to be ok have no problems.
          */
         IFile okFile1 = getTestFile("JavascriptScriptUtilData.bom"); //$NON-NLS-1$
+
+		// has no errors except forms one, and 2
 
         List<ValidationsTestProblemMarkerInfo> problemMarkers =
                 getProblemMarkers(okFile1);
@@ -84,8 +90,8 @@ public class JavascriptScriptUtilTest extends AbstractN2BaseValidationTest {
                         + the1stProblem,
 				the1stProblem != null);
 
-		assertTrue("JavascriptArrayValidTest.xpdl: should have exactly one problem marker:\n" //$NON-NLS-1$
-				+ problemMarkers, problemMarkers.size() == 1);
+		assertTrue("JavascriptArrayValidTest.xpdl: should have two problem markers:\n" //$NON-NLS-1$
+				+ problemMarkers, problemMarkers.size() == 2);
 
         /*
          * Then test the expected problems are raised
@@ -125,6 +131,12 @@ public class JavascriptScriptUtilTest extends AbstractN2BaseValidationTest {
 				"bx.validateScriptTask", //$NON-NLS-1$
 				"_OdaT8L0JEemp76kOVRbOLw", //$NON-NLS-1$
 				"BPM  : At Line:17 column:72, The Class Type Name parameter must identify a valid Class (<package name>.<class name>) (JavascriptScriptUtilTestProcess:ScriptTask)", //$NON-NLS-1$
+				""),
+				new ValidationsTestProblemMarkerInfo(
+				"/JavascriptScriptUtilTest/Process Packages/JavascriptScriptUtilTest.xpdl", //$NON-NLS-1$
+				"bx.validateScriptTask", //$NON-NLS-1$
+				"_vUIJE5i4Ee6YrtLdONpHxA", //$NON-NLS-1$
+				"BPM  : OpenScript::At Line:14 column:72, The Class Type Name parameter must identify a valid Class (<package name>.<class name>) (JavascriptScriptUtilTestProcess2:UserTask)", //$NON-NLS-1$
 				"")}; //$NON-NLS-1$
     }
 
