@@ -2,9 +2,9 @@
 <project name="com.tibco.xpd.product.feature Overrides">
 	<property name="reldist.download.enable" value="true"/>
 
-    <property name="autobuild.obfuscator.style" value="package" />
-    <property name="autobuild.version.eclipse" value="4.11"/>
-	<property name="autobuild.version.eclipse-host" value="4.11"/>
+    <property name="autobuild.obfuscator.style" value="none" />
+    <property name="autobuild.version.eclipse" value="4.19"/>
+	<property name="autobuild.version.eclipse-host" value="4.19"/>
 
     <!-- Each Release Unit should change the project name above and the two
          property definitions below. -->
@@ -25,7 +25,10 @@
     <property name="autobuild.extension.target" value="main" />
 	<property name="javacSource" value="1.8"/>
 	<property name="javacTarget" value="1.8"/>
-	<property name="autobuild.jdk.force-18" value="true" />
+	<!-- Sid SCF-568 Need to force build with JDK for Java-11 as many 3rd party features are Java-11 -->
+	<!-- <property name="autobuild.jdk.force-18" value="true" /> -->
+	<property name="autobuild.dir.java110-classes" value="${autobuild.dir.java-classes}" />
+	<property name="autobuild.jdk.force-110" value="true" />
 
     <!-- for additional information on properties commonly overridden by release units, see:
          http://wiki.tibco.com/FrameworksWiki/Componentization/Builder -->
