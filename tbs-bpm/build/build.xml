@@ -28,7 +28,36 @@
                 <striplinebreaks />
             </filterchain>
         </loadfile>
+		<!-- Sid  Separate base product and N2 (amx-bpm) features (that depend on lower level BX features) -->
+        <loadfile property="product.n2.features" srcFile="product-n2-features.txt">
+            <filterchain>
+                <striplinecomments>
+                    <comment value="#" />
+                </striplinecomments>
+                <suffixlines suffix="," />
+                <striplinebreaks />
+            </filterchain>
+        </loadfile>
+		<!-- Sid ACE-7084 (ACE-6896) - Separate  N2 (amx-bpm) features and the BX features that depend on them -->
+		<loadfile property="bx.product.n2.features" srcFile="bx-product-n2-features.txt">
+            <filterchain>
+                <striplinecomments>
+                    <comment value="#" />
+                </striplinecomments>
+                <suffixlines suffix="," />
+                <striplinebreaks />
+            </filterchain>
+        </loadfile>
         <loadfile property="test.features" srcFile="test-features.txt">
+            <filterchain>
+                <striplinecomments>
+                    <comment value="#" />
+                </striplinecomments>
+                <suffixlines suffix="," />
+                <striplinebreaks />
+            </filterchain>
+        </loadfile>
+        <loadfile property="test.n2.features" srcFile="test-n2-features.txt">
             <filterchain>
                 <striplinecomments>
                     <comment value="#" />
@@ -41,8 +70,8 @@
 
     <target name="default" depends="build-product, clean-product" description="Default task: builds and then clean all product features." />
 
-    <target name="build-all" depends="build-product, build-bx-product, build-tests" description="Builds all product, bx-product and test features." />
-    <target name="clean-all" depends="clean-product, clean-bx-product, clean-tests" description="Cleans all product, bx-product and test features." />
+    <target name="build-all" depends="build-product, build-bx-product, build-product-n2, build-bx-product-n2, build-tests, build-n2-tests" description="Builds all product, bx-product, product-n2 and test features." />
+    <target name="clean-all" depends="clean-product, clean-bx-product, clean-product-n2, clean-bx-product-n2, clean-tests, clean-n2-tests" description="Cleans all product, bx-product, product-n2 and test features." />
 
     <target name="build-product" depends="init" description="Builds all product features.">
         <antcall target="-build">
@@ -56,10 +85,29 @@
             <param name="feature.type" value="bx-product" />
         </antcall>
     </target>
-
+	<!-- Sid  Separate base product and N2 (amx-bpm) features -->
+    <target name="build-product-n2" depends="init" description="Builds all product N2 features.">
+        <antcall target="-build">
+            <param name="features" value="${product.n2.features}" />
+            <param name="feature.type" value="product" />
+        </antcall> 
+    </target>
+	<!-- Sid ACE-7084 (ACE-6896) - Separate  N2 (amx-bpm) features and the BX features that depend on them -->
+	<target name="build-bx-product-n2" depends="init" description="Builds all bx-product-N2 features.">
+        <antcall target="-build">
+            <param name="features" value="${bx.product.n2.features}" />
+            <param name="feature.type" value="bx-product" />
+        </antcall>
+    </target>
     <target name="build-tests" depends="init" description="Builds all test features.">
         <antcall target="-build">
             <param name="features" value="${test.features}" />
+            <param name="feature.type" value="tests" />
+        </antcall>
+    </target>
+    <target name="build-n2-tests" depends="init" description="Builds all N2 test features.">
+        <antcall target="-build">
+            <param name="features" value="${test.n2.features}" />
             <param name="feature.type" value="tests" />
         </antcall>
     </target>
@@ -88,9 +136,46 @@
         </delete>
     </target>
 
+	<!-- Sid  Separate base product and N2 (amx-bpm) features -->
+    <target name="clean-product-n2" depends="init" description="Cleans all product N2 features.">
+        <antcall target="-clean">
+            <param name="features" value="${product.n2.features}" />
+            <param name="feature.type" value="product" />
+        </antcall>
+        <delete>
+            <fileset dir="../product">
+                <include name="**/@dot.log" />
+            </fileset>
+        </delete>
+    </target>
+
+	<!-- Sid ACE-7084 (ACE-6896) - Separate  N2 (amx-bpm) features and the BX features that depend on them -->
+    <target name="clean-bx-product-n2" depends="init" description="Cleans all bx-product-n2 features.">
+        <antcall target="-clean">
+            <param name="features" value="${bx.product.n2.features}" />
+            <param name="feature.type" value="bx-product" />
+        </antcall>
+        <delete>
+            <fileset dir="../bx-product">
+                <include name="**/@dot.log" />
+            </fileset>
+        </delete>
+    </target>
+
     <target name="clean-tests" depends="init" description="Cleans all test features.">
         <antcall target="-clean">
             <param name="features" value="${test.features}" />
+            <param name="feature.type" value="tests" />
+        </antcall>
+        <delete>
+            <fileset dir="../tests">
+                <include name="**/@dot.log" />
+            </fileset>
+        </delete>
+    </target>
+    <target name="clean-n2-tests" depends="init" description="Cleans all N2 test features.">
+        <antcall target="-clean">
+            <param name="features" value="${test.n2.features}" />
             <param name="feature.type" value="tests" />
         </antcall>
         <delete>

@@ -3,8 +3,8 @@
  */
 package com.tibco.xpd.ui.resources;
 
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.jface.util.Assert;
 
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 
@@ -61,6 +61,7 @@ public class StatusInfo implements IStatus {
     /**
      * Returns if the status severity is OK.
      */
+    @Override
     public boolean isOK() {
         return severity == IStatus.OK;
     }
@@ -89,6 +90,7 @@ public class StatusInfo implements IStatus {
     /**
      * @see IStatus#getMessage
      */
+    @Override
     public String getMessage() {
         return statusMessage;
     }
@@ -140,6 +142,7 @@ public class StatusInfo implements IStatus {
     /*
      * @see IStatus#matches(int)
      */
+    @Override
     public boolean matches(int severityMask) {
         return (severity & severityMask) != 0;
     }
@@ -149,6 +152,7 @@ public class StatusInfo implements IStatus {
      * 
      * @see IStatus#isMultiStatus()
      */
+    @Override
     public boolean isMultiStatus() {
         return false;
     }
@@ -156,6 +160,7 @@ public class StatusInfo implements IStatus {
     /*
      * @see IStatus#getSeverity()
      */
+    @Override
     public int getSeverity() {
         return severity;
     }
@@ -163,6 +168,7 @@ public class StatusInfo implements IStatus {
     /*
      * @see IStatus#getPlugin()
      */
+    @Override
     public String getPlugin() {
         return XpdResourcesPlugin.ID_PLUGIN;
     }
@@ -172,6 +178,7 @@ public class StatusInfo implements IStatus {
      * 
      * @see IStatus#getException()
      */
+    @Override
     public Throwable getException() {
         return null;
     }
@@ -181,6 +188,7 @@ public class StatusInfo implements IStatus {
      * 
      * @see IStatus#getCode()
      */
+    @Override
     public int getCode() {
         return severity;
     }
@@ -190,6 +198,7 @@ public class StatusInfo implements IStatus {
      * 
      * @see IStatus#getChildren()
      */
+    @Override
     public IStatus[] getChildren() {
         return new IStatus[0];
     }

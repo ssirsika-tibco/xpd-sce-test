@@ -153,7 +153,7 @@ public class DynamicOrganizationValidationTest extends
 
     @Override
     protected String getTestPlugInId() {
-        return "com.tibco.xpd.om.dynamicOrg.test"; //$NON-NLS-1$
+        return "com.tibco.xpd.om.dynamicorg.test"; //$NON-NLS-1$
     }
 
     @Override

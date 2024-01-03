@@ -21,7 +21,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -48,6 +48,8 @@ import com.tibco.xpd.resources.projectconfig.SpecialFolder;
 import com.tibco.xpd.resources.projectconfig.projectassets.IProjectAsset;
 import com.tibco.xpd.ui.wizards.newproject.XpdProjectWizard;
 import com.tibco.xpd.ui.wizards.newproject.XpdProjectWizard.CreateXpdProjectOperation;
+
+import junit.framework.TestCase;
 
 /**
  * @author wzurek
@@ -376,7 +378,7 @@ public class ConceptWorkingCopyTest extends TestCase {
      * Wait until all background tasks are complete.
      */
     public void waitForJobs() {
-        while (Platform.getJobManager().currentJob() != null) {
+        while (Job.getJobManager().currentJob() != null) {
             delay(1000);
         }
     }

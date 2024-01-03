@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="testsuite" default="run" basedir=".">
+	<property name="plugin-name" value="com.tibco.xpd.validation.wm.test" />
 	<!-- The property ${eclipse-home} should be passed into this script -->
 	<!-- Set a meaningful default value for when it is not. -->
 	<property name="eclipse-home" value="${basedir}\..\.." />
 	<echo>Eclipse home: ${eclipse-home}</echo>
 
-	<!-- sets the properties eclipse-home, and library-file -->
-	<property name="plugin-name"
-		value="com.tibco.xpd.validation.wm.test" />
-	<property name="library-file"
-		value="${eclipse-home}/plugins/org.eclipse.test_3.2.0/library.xml" />
-
 	<!-- This target holds all initialization code that needs to be done for -->
 	<!-- all tests that are to be run. Initialization for individual tests -->
 	<!-- should be done within the body of the suite target. -->
 	<target name="init">
+		<echo>Init for Test Plugin: ${plugin-name}</echo>
+		<echo>  Eclipse home: ${eclipse-home}</echo>
+
 		<property environment="env" />
 		<tstamp />
 		<delete>
@@ -33,12 +31,20 @@
 	<!-- This target defines the tests that need to be run. -->
 	<target name="suiteA" depends="hudson-output">
 		<property name="results.dir" value="${eclipse-home}/results" />
-		<property name="test-workspace"
+		<property name="core-workspace"
 			value="${eclipse-home}/validation-wm-ws" />
-		<delete dir="${test-workspace}" quiet="true" />
+
+		<delete dir="${core-workspace}" quiet="true" />
+
+		<echo>Calling 'ui-test' from ${library-file}</echo>
+		<echo>  results.dir=${results.dir}</echo>
+		<echo>  core-workspace=${core-workspace}</echo>
+		<echo>  jvm for ui-test task=${bpm.build.jre.11}</echo>
+		
 		<ant target="ui-test" antfile="${library-file}"
 			dir="${eclipse-home}">
-			<property name="data-dir" value="${test-workspace}" />
+        	<property name="jvm" value="${bpm.build.jre.11}"/>
+			<property name="data-dir" value="${core-workspace}" />
 			<property name="plugin-name" value="${plugin-name}" />
 			<property name="classname"
 				value="com.tibco.xpd.validation.wm.test.AllTestsA" />
@@ -55,12 +61,12 @@
 	<!-- This target defines the tests that need to be run. -->
 	<target name="suiteB" depends="hudson-output">
 		<property name="results.dir" value="${eclipse-home}/results" />
-		<property name="test-workspace"
+		<property name="core-workspace"
 			value="${eclipse-home}/validation-wm-ws" />
-		<delete dir="${test-workspace}" quiet="true" />
+		<delete dir="${core-workspace}" quiet="true" />
 		<ant target="ui-test" antfile="${library-file}"
 			dir="${eclipse-home}">
-			<property name="data-dir" value="${test-workspace}" />
+			<property name="data-dir" value="${core-workspace}" />
 			<property name="plugin-name" value="${plugin-name}" />
 			<property name="classname"
 				value="com.tibco.xpd.validation.wm.test.AllTestsB" />
@@ -77,12 +83,12 @@
 	<!-- This target defines the tests that need to be run. -->
 	<target name="suite" depends="hudson-output">
 		<property name="results.dir" value="${eclipse-home}/results" />
-		<property name="test-workspace"
+		<property name="core-workspace"
 			value="${eclipse-home}/validation-wm-ws" />
-		<delete dir="${test-workspace}" quiet="true" />
+		<delete dir="${core-workspace}" quiet="true" />
 		<ant target="ui-test" antfile="${library-file}"
 			dir="${eclipse-home}">
-			<property name="data-dir" value="${test-workspace}" />
+			<property name="data-dir" value="${core-workspace}" />
 			<property name="plugin-name" value="${plugin-name}" />
 			<property name="classname"
 				value="com.tibco.xpd.validation.wm.globaldata.AllTests" />

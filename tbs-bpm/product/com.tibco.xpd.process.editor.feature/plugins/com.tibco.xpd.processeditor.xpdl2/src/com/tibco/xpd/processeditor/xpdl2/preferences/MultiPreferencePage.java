@@ -14,7 +14,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.OperationCanceledException;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
@@ -114,11 +113,13 @@ public class MultiPreferencePage extends PreferencePage implements
             this.categories = categories;
         }
 
-        public void widgetDefaultSelected(SelectionEvent e) {
+        @Override
+		public void widgetDefaultSelected(SelectionEvent e) {
             performAction(e);
         }
 
-        public void widgetSelected(SelectionEvent e) {
+        @Override
+		public void widgetSelected(SelectionEvent e) {
             performAction(e);
         }
 
@@ -132,7 +133,8 @@ public class MultiPreferencePage extends PreferencePage implements
 
     }
 
-    public void init(IWorkbench workbench) {
+    @Override
+	public void init(IWorkbench workbench) {
     }
 
     @Override
@@ -291,7 +293,7 @@ public class MultiPreferencePage extends PreferencePage implements
                 }
                 // Check if a build job is already running
                 Job[] buildJobs =
-                        Platform.getJobManager()
+						Job.getJobManager()
                                 .find(ResourcesPlugin.FAMILY_MANUAL_BUILD);
                 for (int i = 0; i < buildJobs.length; i++) {
                     Job curr = buildJobs[i];
@@ -391,13 +393,15 @@ public class MultiPreferencePage extends PreferencePage implements
             categories.add(cat);
         }
 
-        public Iterator<Category> iterator() {
+        @Override
+		public Iterator<Category> iterator() {
             return categories.iterator();
         }
 
         public void sortByName() {
             Collections.sort(categories, new Comparator<Category>() {
-                public int compare(Category arg0, Category arg1) {
+                @Override
+				public int compare(Category arg0, Category arg1) {
                     return arg0.getName().compareToIgnoreCase(arg1.getName());
                 }
             });

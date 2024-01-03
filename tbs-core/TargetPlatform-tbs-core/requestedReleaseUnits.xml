@@ -2,38 +2,81 @@
 <feature id="design.gatherer" version="1.0.0" label="BPM Studio design-time gatherer">
 	<requires>
 		<!-- This TP definition is for tbs core features only. See: trunk/tbs-bpm/TargetPlatform-tbs-bpm for full bpm TP -->
-		
-		<import feature="com.tibco.xpd.installer.feature" version="11.0.0" match="compatible" />
 
-		<!-- SVN Features -->
-		<import feature="org.tigris.subversion.clientadapter.feature" version="1.8.12" match="compatible" />
-		<import feature="org.tigris.subversion.subclipse" version="4.2.4" match="compatible" />
-		<import feature="org.tmatesoft.svnkit" version="1.8.12" match="compatible" />
-		
-		<!-- Eclipse Test Features and also mockito.-->
-		<import feature="org.eclipse.test" version="3.5.0" match="compatible" />
+		<!-- 
+			SVN Features - 
+				Latest on spin-sites are later than currently available in reldist so fixing on Major & Minor version using 'equivalent')) 
+					to prevent builder pulling in later versions that we aren't going to use in reality.
+				Also, this UTB org.tigris.subversion.clientadapter.feature, BUT actual installer contained 
+					org.tigris.subversion.clientadapter.**svnkit**.feature, so changed here so that target-platform is more equivalent to installer.
+		-->
+		<import feature="org.tigris.subversion.clientadapter.svnkit.feature" version="1.8.12" match="equivalent" /> <!-- Latest on spin = 1.10.1 -->
+		<import feature="org.tigris.subversion.subclipse" version="4.2.4" match="equivalent" />  <!-- Latest on spin = 4.3.0 -->
+		<import feature="org.tmatesoft.svnkit" version="1.8.12" match="equivalent" />  <!-- Latest on spin = 1.10.10 -->
+
+		<!-- Eclipse Test Features and also mockito (so dev TP can be used to run tests).-->
+		<import feature="org.eclipse.test" version="3.7.1400" match="compatible" />
         <import feature="org.mockito.feature" version="1.9.5" match="compatible"/>
 
-		<!-- Derby -->
-		<import feature="com.tibco.xpd.tpcl.org.apache.derby.feature" version="10.14.2" match="compatible"/>
+		<!-- Eclipse 4.19 dependencies -->
+		<import feature="com.tibco.tpcl.eclipse419.deps.feature" version="1.0.0" match="compatible"/>
+		<import feature="com.tibco.tpcl.eclipse419.deps.apache.feature" version="1.0.0" match="compatible"/>
+		<import feature="com.tibco.tpcl.eclipse419.deps.apache.lucene.feature" version="1.0.0" match="compatible"/>
+		<import feature="com.tibco.tpcl.eclipse419.deps.batik.feature" version="1.0.0" match="compatible"/>
+		<import feature="com.tibco.tpcl.eclipse419.deps.javax.feature" version="1.0.0" match="compatible"/>
+		<import feature="com.tibco.tpcl.eclipse419.deps.jetty.feature" version="1.0.0" match="compatible"/>
 
-		<!-- log4j -->
+		<!-- Apache TIBCO TPCLS's -->
+		<import feature="com.tibco.xpd.tpcl.org.apache.derby.feature" version="10.14.2" match="compatible"/>
 		<import feature="com.tibco.xpd.tpcl.org.apache.log4j.feature" version="1.2.19" match="compatible"/>
+
+		<!-- Extra Features - explicitly requested. -->
+		<import feature="org.eclipse.platform" version="4.19.0" match="compatible" />
+		<import feature="org.eclipse.emf" version="2.25.0" match="compatible" />
+		<import feature="org.eclipse.emf.workspace" version="1.12.0" match="compatible"/>	
+		<import feature="org.eclipse.emf.transaction" version="1.12.0" match="compatible" />
+		<import feature="org.eclipse.emf.validation" version="1.12.2" match="compatible" />
+		<import feature="org.eclipse.emf.validation.ocl" version="1.12.2" match="compatible" />
+		<import feature="org.eclipse.emf.query" version="1.12.0" match="compatible" />
+		<import feature="org.eclipse.emf.query.ocl" version="1.12.0" match="compatible" />
+		<import feature="org.eclipse.gef" version="3.11.0" match="compatible" />
+		<import feature="org.eclipse.gmf" version="1.12.0" match="compatible" />
+		<import feature="org.eclipse.zest" version="1.7.0" match="compatible"/>
 		
-		<!-- Studio core features -->
+		<import feature="org.eclipse.xsd" version="2.19.0" match="compatible"/>
+		<import feature="org.eclipse.wst.ws_core.feature" version="3.21.0" match="compatible"/>
+		<import feature="org.eclipse.wst.common_core.feature" version="3.21.0" match="compatible"/>
+		<import feature="org.eclipse.wst.common_ui.feature" version="3.21.0" match="compatible"/>
+		<import feature="org.eclipse.wst.common.fproj" version="3.7.3" match="compatible"/>
+		<import feature="org.eclipse.wst.jsdt.feature" version="2.3.400" match="compatible"/>
+		<import feature="org.eclipse.wst.xml_core.feature" version="3.21.0" match="compatible"/>
+		<import feature="org.eclipse.wst.xml_ui.feature" version="3.21.0" match="compatible"/>
+		<import feature="org.eclipse.wst.xml_userdoc.feature" version="3.18.0" match="compatible"/>
+		<import feature="org.eclipse.team.extras" version="3.1.200" match="compatible"/>
+
+		  <!-- Explicitly pull in org.eclipse.birt.report.viewer which doesn't appear to get pulled in as 
+			   part of org.eclipse.birt feature even though it is listed in it's feature.xml.
+			 I think the issue is that org.eclipse.birt.report.viewer depends on jetty plugins and 
+			   if nothing depends on those to pull them in, then P2 will not load the org.eclipse.birt.report.viewer plugin
+			 I think this may only happen when BPM features that depend on it are excluded from these
+			   requestedReleaseUnits.xml during update of Eclipse plaform/TPCLs etc.	 -->
+		<import plugin="org.eclipse.birt.report.viewer" version="4.9.0" match="compatible"/>
+		<import feature="org.eclipse.birt" version="4.9.0" match="compatible"/>
+		
+		<!--  -->
+		
+		<!-- 
+		Studio core features (and installer feature, which I think is only used to build TP??) 
+		-->
+		<import feature="com.tibco.xpd.installer.feature" version="11.1.0" match="compatible" />
+
 		<import feature="com.tibco.xpd.product.feature" version="11.5.0" match="compatible" />
+		<import feature="com.tibco.xpd.core.feature" version="11.5.0" match="compatible" />
 		<import feature="com.tibco.xpd.core.feature.devdocs" version="11.5.0" match="compatible" />
 		<import feature="com.tibco.xpd.deploy.feature" version="11.5.0" match="compatible" />
 		<import feature="com.tibco.xpd.scf.feature" version="11.5.0" match="compatible" />
 		
 		<import feature="com.tibco.xpd.core.help.feature" version="11.5.0" match="compatible" />
 		
-		<!-- script feature dependencies -->
-		<import feature="org.eclipse.uml2" version="5.5.0" match="compatible"/>
-		<import feature="org.eclipse.wst.web_core.feature" version="3.13.0" match="compatible"/>
-		<import feature="org.eclipse.wst.jsdt.feature" version="2.1.1" match="compatible"/>
-		<import feature="org.eclipse.wst.common.fproj" version="3.7.2" match="compatible"/>
-		<import feature="com.tibco.tpcl.antlr.feature.eclipse" version="2.7.300" match="compatible"/>
-		<import feature="com.tibco.tpcl.org.jaxen.feature.eclipse" version="1.1.500" match="compatible"/>		
 	</requires>	
 </feature>

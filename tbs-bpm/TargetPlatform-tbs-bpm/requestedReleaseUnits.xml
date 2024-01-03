@@ -1,83 +1,201 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <feature id="design.gatherer" version="1.0.0" label="BPM Studio design-time gatherer">
 	<requires>
+		<!--
+		====================================================================================================
+		====================================================================================================
+		====================================================================================================
 
-		<import feature="com.tibco.xpd.installer.feature" version="11.0.0" match="compatible" />
+		STUDIO CORE FEATURES and BASE ECLIPSE DEPENDENCIES
+		
+		  Everything here up to the "END STUDIO CORE FEATURES and BASE ECLIPSE DEPENDENCIES" comment below
+		  should be copied from ..\..\tbs-core\TargetPlatform-tbs-core content as is.
 
-		<!-- SVN Features -->
-		<import feature="org.tigris.subversion.clientadapter.feature" version="1.8.12" match="compatible" />
-		<import feature="org.tigris.subversion.subclipse" version="4.2.4" match="compatible" />
-		<import feature="org.tmatesoft.svnkit" version="1.8.12" match="compatible" />
+		====================================================================================================
+		====================================================================================================
+		====================================================================================================
+	 	-->
+		 
+		<!-- 
+			SVN Features - 
+				Latest on spin-sites are later than currently available in reldist so fixing on Major & Minor version using 'equivalent')) 
+					to prevent builder pulling in later versions that we aren't going to use in reality.
+				Also, this UTB org.tigris.subversion.clientadapter.feature, BUT actual installer contained 
+					org.tigris.subversion.clientadapter.**svnkit**.feature, so changed here so that target-platform is more equivalent to installer.
+		-->
+		<import feature="org.tigris.subversion.clientadapter.svnkit.feature" version="1.8.12" match="equivalent" /> <!-- Latest on spin = 1.10.1 -->
+		<import feature="org.tigris.subversion.subclipse" version="4.2.4" match="equivalent" />  <!-- Latest on spin = 4.3.0 -->
+		<import feature="org.tmatesoft.svnkit" version="1.8.12" match="equivalent" />  <!-- Latest on spin = 1.10.10 -->
 
-		<!-- Eclipse Test Features and also mockito.-->
-		<import feature="org.eclipse.test" version="3.7.200" match="compatible" />
+		<!-- Eclipse Test Features and also mockito (so dev TP can be used to run tests).-->
+		<import feature="org.eclipse.test" version="3.7.1400" match="compatible" />
         <import feature="org.mockito.feature" version="1.9.5" match="compatible"/>
-		
-		<!--Oxygen dependencies. -->
-		<import feature="com.tibco.xpd.tpcl.oxygen.dependencies.feature" version="1.0.1.001" match="compatible" />
-		
-		<!-- PE Design time features Features (aka BX wned by us and stored in the Studio  REPO) -->
-		<import feature="com.tibco.bx.design.model.feature" version="11.5.0" match="compatible" />
-		<import feature="com.tibco.bx.designtime.feature" version="11.5.0" match="compatible" />
-		<import feature="com.tibco.bx.extension.designtime.feature" version="11.5.0" match="compatible" />
 
-		<!--PE dependencies (adopted from reldist) -->
-		<import feature="com.tibco.bx.common.model.feature.eclipse" version="1.16.0" match="compatible" />
-		<import feature="com.tibco.bx.extension.model.feature.eclipse" version="1.13.100" match="compatible" />
-		<import feature="com.tibco.tpcl.org.eclipse.bpel.feature" version="1.10.0.002" match="compatible" />		
-		<import feature="com.tibco.tpcl.com.sun.jmx.remote.optional.feature.eclipse" version="1.10.0" match="compatible"/>
-		<import feature="com.tibco.tpcl.org.apache.commons.httpclient.feature.eclipse" version="3.10.0" match="compatible"/>
-		<!-- ACE-118 <import feature="com.tibco.tpcl.org.slf4j.log4j12.feature.eclipse" version="1.7.0" match="compatible"/> -->
-		
+		<!-- Eclipse 4.19 dependencies -->
+		<import feature="com.tibco.tpcl.eclipse419.deps.feature" version="1.0.0" match="compatible"/>
+		<import feature="com.tibco.tpcl.eclipse419.deps.apache.feature" version="1.0.0" match="compatible"/>
+		<import feature="com.tibco.tpcl.eclipse419.deps.apache.lucene.feature" version="1.0.0" match="compatible"/>
+		<import feature="com.tibco.tpcl.eclipse419.deps.batik.feature" version="1.0.0" match="compatible"/>
+		<import feature="com.tibco.tpcl.eclipse419.deps.javax.feature" version="1.0.0" match="compatible"/>
+		<import feature="com.tibco.tpcl.eclipse419.deps.jetty.feature" version="1.0.0" match="compatible" />
 
-		<!-- Forms Features -->
-		<import feature="com.tibco.forms.core.feature" version="11.4.0" match="compatible" />
-		<import feature="com.tibco.forms.client.feature" version="11.4.0" match="compatible" />
-		<import feature="com.tibco.xpd.forms.designer.feature" version="11.4.0" match="compatible" />
-		<import feature="com.tibco.xpd.forms.gwt.feature" version="11.4.0" match="compatible" />
-		<import feature="com.tibco.xpd.forms.process.feature" version="11.4.0" match="compatible" />
-		<import feature="com.tibco.xpd.forms.n2.feature" version="11.4.0" match="compatible" />
-
+		<!-- Apache TIBCO TPCLS's -->
+		<import feature="com.tibco.xpd.tpcl.org.apache.derby.feature" version="10.14.2" match="compatible"/>
+		<import feature="com.tibco.xpd.tpcl.org.apache.log4j.feature" version="1.2.19" match="compatible"/>
 
 		<!-- Extra Features - explicitly requested. -->
-		<import feature="org.eclipse.platform" version="4.11.0" match="compatible" />
-		<import feature="org.eclipse.emf" version="2.17.0" match="compatible" />
+		<import feature="org.eclipse.platform" version="4.19.0" match="compatible" />
+		<import feature="org.eclipse.emf" version="2.25.0" match="compatible" />
 		<import feature="org.eclipse.emf.workspace" version="1.12.0" match="compatible"/>	
 		<import feature="org.eclipse.emf.transaction" version="1.12.0" match="compatible" />
-		<import feature="org.eclipse.emf.validation" version="1.12.1" match="compatible" />
+		<import feature="org.eclipse.emf.validation" version="1.12.2" match="compatible" />
+		<import feature="org.eclipse.emf.validation.ocl" version="1.12.2" match="compatible" />
+		<import feature="org.eclipse.emf.query" version="1.12.0" match="compatible" />
+		<import feature="org.eclipse.emf.query.ocl" version="1.12.0" match="compatible" />
 		<import feature="org.eclipse.gef" version="3.11.0" match="compatible" />
-		<import feature="org.eclipse.uml2" version="5.5.0" match="compatible"/>
-		<import feature="org.eclipse.ocl" version="3.12.0" match="compatible"/>
 		<import feature="org.eclipse.gmf" version="1.12.0" match="compatible" />
-		<!--  Not provided by new 4.11 based TP
-		<import feature="org.eclipse.datatools.connectivity.feature" version="1.14.0" match="compatible" />
-		<import feature="org.eclipse.datatools.sqldevtools.feature" version="1.14.0" match="compatible" />
-		<import feature="org.eclipse.datatools.modelbase.feature" version="1.14.0" match="compatible" />
-		<import feature="org.eclipse.wst.ws_ui.feature" version="3.8.100" match="compatible" />>
+		<import feature="org.eclipse.zest" version="1.7.0" match="compatible"/>
+		
+<!-- Not needed in BPMe
+		<import feature="org.eclipse.xsd" version="2.19.0" match="compatible"/>
+		<import feature="org.eclipse.wst.ws_core.feature" version="3.21.0" match="compatible"/>
+		<import feature="org.eclipse.wst.common_core.feature" version="3.21.0" match="compatible"/>
+		<import feature="org.eclipse.wst.common_ui.feature" version="3.21.0" match="compatible"/>
+		<import feature="org.eclipse.wst.common.fproj" version="3.7.3" match="compatible"/>
+		<import feature="org.eclipse.wst.jsdt.feature" version="2.3.400" match="compatible"/>
+		<import feature="org.eclipse.wst.xml_core.feature" version="3.21.0" match="compatible"/>
+		<import feature="org.eclipse.wst.xml_ui.feature" version="3.21.0" match="compatible"/>
+		<import feature="org.eclipse.wst.xml_userdoc.feature" version="3.18.0" match="compatible"/>
+		<import feature="org.eclipse.team.extras" version="3.1.200" match="compatible"/>
+-->
+
+		  <!-- Explicitly pull in org.eclipse.birt.report.viewer which doesn't appear to get pulled in as 
+			   part of org.eclipse.birt feature even though it is listed in it's feature.xml.
+			 I think the issue is that org.eclipse.birt.report.viewer depends on jetty plugins and 
+			   if nothing depends on those to pull them in, then P2 will not load the org.eclipse.birt.report.viewer plugin
+			 I think this may only happen when BPM features that depend on it are excluded from these
+			   requestedReleaseUnits.xml during update of Eclipse plaform/TPCLs etc.	 -->
+		<import plugin="org.eclipse.birt.report.viewer" version="4.9.0" match="compatible"/>
+		<import feature="org.eclipse.birt" version="4.9.0" match="compatible"/>
+		
+		<!--  -->
+	
+		<!-- 
+		Studio core features (and installer feature, which I think is only used to build TP??) 
 		-->
-		<!-- Extra Features - script dependencies -->
-		<import feature="org.eclipse.wst.web_core.feature" version="3.9.1" match="compatible"/>
-		<import feature="org.eclipse.wst.jsdt.feature" version="2.1.0" match="compatible"/>
-		<import feature="org.eclipse.wst.common.fproj" version="3.7.0" match="compatible"/>
+		<import feature="com.tibco.xpd.installer.feature" version="11.1.0" match="compatible" />
+
+		<import feature="com.tibco.xpd.product.feature" version="11.5.0" match="compatible" />
+		<import feature="com.tibco.xpd.core.feature" version="11.5.0" match="compatible" />
+		<import feature="com.tibco.xpd.core.feature.devdocs" version="11.5.0" match="compatible" />
+		<import feature="com.tibco.xpd.deploy.feature" version="11.5.0" match="compatible" />
+		<import feature="com.tibco.xpd.scf.feature" version="11.5.0" match="compatible" />
+		<import feature="com.tibco.xpd.core.help.feature" version="11.5.0" match="compatible" />
+
+		<!--
+		====================================================================================================
+		END OF STUDIO CORE FEATURES and BASE ECLIPSE DEPENDENCIES
+		
+		  Everything below here is in addition to 
+		  the ..\..\tbs-core\TargetPlatform-tbs-core\requestedReleaseUnits.xml content. 
+		====================================================================================================
+	 	-->
+
+		<!-- Extra Features - Additional (over core feature) -->
+		<!-- Script dependences -->
+		<import feature="org.eclipse.wst.web_core.feature" version="3.21.0" match="compatible"/>
 		<import feature="com.tibco.tpcl.antlr.feature.eclipse" version="2.7.300" match="compatible"/>
 		<import feature="com.tibco.tpcl.org.jaxen.feature.eclipse" version="1.1.500" match="compatible"/>
-		<!-- Extra Features - bom dependencies -->
+
+		<!-- Other bits and pieces. -->
+		<import feature="org.eclipse.uml2" version="5.5.2" match="compatible"/>
+		<import feature="org.eclipse.ocl" version="3.14.500" match="compatible"/>
+		<import feature="com.tibco.xpd.tpcl.org.google.gson.feature" version="2.8.5" match="compatible"/>
+		
+		<!-- 
+		   Extra features WST (WSDL services related features I think)
+		   TBD Probably no longer required in BPMe Studio
+		   ==============================================================
+		   org.eclipse.wst.ws_ui.feature (below) imports the following plugins WITHOUT versions
+			this confuses gathers because they appear in the eclipse411.deps and eclipse419.deps features.  
+			If we include *specific* version provided in eclipse419.deps then _hopefully_ it will satisfy gatherer.
+        -->		
+<!--
+	    <import plugin="org.eclipse.wst.command.env.ui" version="1.1.200"/>
+		<import plugin="org.eclipse.wst.command.env.infopop" version="1.0.200"/>
+		<import plugin="org.eclipse.wst.ws.explorer" version="1.0.1100"/>
+		<import plugin="org.eclipse.wst.ws.ui" version="1.1.300"/>
+		<import plugin="org.eclipse.wst.wsdl.ui" version="1.3.100"/>
+		<import plugin="org.eclipse.wst.ws.service.policy.ui" version="1.0.500"/>
+
+        <import feature="org.eclipse.wst.ws_ui.feature" match="compatible" version="3.9.100"/>
+-->
+		<!--  -->
+
+		<!-- For the javax.xml.ws and javax.jws removed from Java-8 -->
+		<import feature="org.eclipse.jst.ws.jaxws.feature" version="1.2.700" match="compatible" />	
+
+		<!-- -->
+		
+		<!-- Extra Features - OAW (Open Architecture Ware) dependencies -->
 		<import feature="org.openarchitectureware.core.feature" version="4.3.1" match="compatible"/>
 		<import feature="org.openarchitectureware.uml2.adapter" version="4.3.1" match="compatible"/>
 		<import feature="org.openarchitectureware.plugins.feature" version="4.3.1" match="compatible"/>
 		<import feature="org.openarchitectureware.util.stdlib.feature" version="4.3.1" match="compatible"/>
 		<import feature="org.openarchitectureware.xsd.feature" version="4.3.1" match="compatible"/>
 		<import feature="org.openarchitectureware.util.ple_feature" version="4.3.1" match="compatible"/>
-		<import feature="com.tibco.xpd.tpcl.oaw.lib.feature" version="4.3.2" match="compatible"/>
+		<import feature="com.tibco.xpd.tpcl.oaw.lib.feature" version="4.3.3" match="compatible"/>
 
+		<!--
+		=================================================================
+		TIBCO / BPM features outside of base BPM Studio
+		=================================================================
+		-->
+		<!-- Extra featrues for Forms -->
+		<import feature="org.eclipse.m2m.qvt.oml" version="3.9.2" match="compatible"/>
+		<import feature="org.eclipse.m2m.qvt.oml.runtime" version="3.9.2" match="compatible"/>
 
-		<!-- Core Features -->
-		<import feature="com.tibco.xpd.product.feature" version="11.5.0" match="compatible" />
-		<import feature="com.tibco.xpd.core.feature" version="11.5.0" match="compatible" />
-		<import feature="com.tibco.xpd.deploy.feature" version="11.5.0" match="compatible" />
-		<import feature="com.tibco.xpd.scf.feature" version="11.5.0" match="compatible" />
-		<import feature="com.tibco.xpd.core.help.feature" version="11.5.0" match="compatible" />
+		<!-- BPM Runtime Features -->
+		<import feature="com.tibco.n2.de.rqlparser.feature.eclipse" version="1.6.0" match="compatible" />
+		<import feature="com.tibco.n2.pageactivity.model.feature.eclipse" version="1.3.0" match="compatible" />
+		<import feature="com.tibco.n2.ut.model.feature.eclipse" version="1.5.1" match="compatible" />
+        <import feature="com.tibco.amxbpm.documentactivity.model.feature.eclipse" version="1.0.0" match="compatible" />
 
+		<!--PE dependencies from runtime (adopted from reldist) -->
+		<import feature="com.tibco.bx.common.model.feature.eclipse" version="1.16.0" match="compatible" />
+		<import feature="com.tibco.bx.extension.model.feature.eclipse" version="1.13.100" match="compatible" />
+		<import feature="com.tibco.tpcl.org.eclipse.bpel.feature" version="1.10.100" match="compatible" />		
+		<import feature="com.tibco.tpcl.com.sun.jmx.remote.optional.feature.eclipse" version="1.10.0" match="compatible"/>
+
+		<!-- BPM Data manager features. -->
+		<import feature="com.tibco.bpm.cdm.dm.feature.eclipse" version="1.0.0" match="compatible"/>
+		<import feature="com.tibco.bpm.artefact.collection.feature.eclipse" version="1.3.0" match="compatible"/>
+
+		<!-- Pulling in HttpClient 3.1.200 (rather than the 3.10.0 used in actual product install set) because we
+		     have to pull in 1.5.400 of commons.logging.over.slf4j because that has the export org.apache.commons.logging package @ v1.2.0
+			 that is required by org.apache.xmlgraphics which is now pulled into Eclipse 4.19.0.
+			 So this is the only way to satisfy the issue : Missing Constraint: Import-Package: org.apache.commons.logging; version="[1.0.4,1.3.0)" -->
+		<import feature="com.tibco.tpcl.org.apache.commons.httpclient.feature.eclipse" version="3.1.200" match="compatible"/>
+        <import feature="com.tibco.tpcl.org.apache.commons.logging.over.slf4j.feature.eclipse" match="compatible" version="1.5.400"/>
+
+		<import feature="com.tibco.tpcl.org.slf4j.log4j12.feature.eclipse" version="1.7.0.002" match="perfect"/>
+ 
+		<!-- Forms Features -->
+<!--
+		<import feature="com.tibco.forms.core.feature" version="11.4.0" match="compatible" />
+		<import feature="com.tibco.forms.client.feature" version="11.4.0" match="compatible" />
+		<import feature="com.tibco.xpd.forms.designer.feature" version="11.4.0" match="compatible" />
+		<import feature="com.tibco.xpd.forms.gwt.feature" version="11.4.0" match="compatible" />
+		<import feature="com.tibco.xpd.forms.process.feature" version="11.4.0" match="compatible" />
+		<import feature="com.tibco.xpd.forms.n2.feature" version="11.4.0" match="compatible" />
+-->
+
+		<!--
+		=================================================================================================
+		Base BPM Studio (in addition to Studio Core features and BPM features from other teams)
+		=================================================================================================
+		 -->
+		
 		<!-- BPM Base Features -->
 		<import feature="com.tibco.xpd.script.feature" version="11.5.0" match="compatible" />
 		<import feature="com.tibco.xpd.bom.feature" version="11.5.0" match="compatible" />
@@ -88,19 +206,16 @@
 		<import feature="com.tibco.xpd.process.developer.feature" version="11.5.0" match="compatible" />
 		<import feature="com.tibco.xpd.tpcl.org.google.gson.feature" version="2.8.5" match="compatible"/>
 
+		<!-- PE Design time features (aka BX owned by us and stored in the Studio  REPO) -->
+		<import feature="com.tibco.bx.design.model.feature" version="11.5.0" match="compatible" />
+		<import feature="com.tibco.bx.designtime.feature" version="11.5.0" match="compatible" />
+		<import feature="com.tibco.bx.extension.designtime.feature" version="11.5.0" match="compatible" />
+
 		<!-- BPM N2 Features -->
 		<import feature="com.tibco.bds.designtime.feature" version="11.5.0" match="compatible" />
 		<import feature="com.tibco.xpd.n2.feature" version="11.5.0" match="compatible" />
 		<import feature="com.tibco.xpd.wm.feature" version="11.5.0" match="compatible" /> 
-	
-		<!-- BPM Runtime Features -->
-		<import feature="com.tibco.n2.de.rqlparser.feature.eclipse" version="1.6.0" match="compatible" />
-		<import feature="com.tibco.n2.pageactivity.model.feature.eclipse" version="1.3.0" match="compatible" />
-		<import feature="com.tibco.n2.ut.model.feature.eclipse" version="1.5.0" match="compatible" />
-        <import feature="com.tibco.amxbpm.documentactivity.model.feature.eclipse" version="1.0.0" match="compatible" />
-		
 		<!-- Documentation eclipse features. -->
 		<import feature="com.tibco.xpd.bpm.edition.doc.feature" version="11.5.0" match="compatible" />
-		
 	</requires>
 </feature>

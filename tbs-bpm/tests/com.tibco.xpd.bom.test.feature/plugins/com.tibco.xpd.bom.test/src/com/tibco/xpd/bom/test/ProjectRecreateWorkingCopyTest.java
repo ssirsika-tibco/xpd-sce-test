@@ -14,7 +14,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.swt.widgets.Display;
 
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
@@ -22,6 +22,8 @@ import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.ui.wizards.newproject.XpdProjectWizard;
 import com.tibco.xpd.ui.wizards.newproject.XpdProjectWizard.CreateXpdProjectOperation;
+
+import junit.framework.TestCase;
 
 /**
  * Tests problem with deleting and recreating project with the same name and
@@ -91,7 +93,8 @@ public class ProjectRecreateWorkingCopyTest extends TestCase {
             System.out.println("*** before project delete");
             final IWorkspace workspace = ResourcesPlugin.getWorkspace();
             workspace.run(new IWorkspaceRunnable() {
-                public void run(IProgressMonitor monitor) throws CoreException {
+               @Override
+               public void run(IProgressMonitor monitor) throws CoreException {
                     workspace.getRoot().getProject(PROJECT_NAME).delete(true,
                             true, new NullProgressMonitor());
                 }
@@ -133,6 +136,7 @@ public class ProjectRecreateWorkingCopyTest extends TestCase {
             System.out.println("*** before project delete");
             final IWorkspace workspace = ResourcesPlugin.getWorkspace();
             workspace.run(new IWorkspaceRunnable() {
+                @Override
                 public void run(IProgressMonitor monitor) throws CoreException {
                     workspace.getRoot().getProject(PROJECT_NAME).delete(true,
                             true, new NullProgressMonitor());
@@ -179,7 +183,7 @@ public class ProjectRecreateWorkingCopyTest extends TestCase {
      * Wait until all background tasks are complete.
      */
     protected void waitForJobs() {
-        while (Platform.getJobManager().currentJob() != null) {
+        while (Job.getJobManager().currentJob() != null) {
             delay(1000);
         }
     }

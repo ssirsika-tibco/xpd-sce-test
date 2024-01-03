@@ -2,6 +2,10 @@
 <feature id="design.gatherer" version="1.0.0" label="BPM Studio design-time gatherer for JUNIT test target platform">
 	<requires>
 
+		<!-- Eclipse Test Features and also mockito.-->
+		<import feature="org.eclipse.test" version="3.7.1400" match="compatible" />
+        <import feature="org.mockito.feature" version="1.9.5" match="compatible"/>
+
 		<!-- This is a template. Please add here only the JUnit features which are not already included in bpm tp. --> 
         <!-- All features from the bpm target platform and this file will be merged into requestedReleaseUnits.xml. -->
 		<!-- 

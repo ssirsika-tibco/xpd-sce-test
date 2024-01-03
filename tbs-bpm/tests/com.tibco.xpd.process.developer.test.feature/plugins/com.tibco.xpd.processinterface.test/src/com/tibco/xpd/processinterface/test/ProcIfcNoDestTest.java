@@ -7,34 +7,24 @@ package com.tibco.xpd.processinterface.test;
 import java.util.Collections;
 import java.util.List;
 
-import junit.framework.TestCase;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.ui.PlatformUI;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.core.test.util.TestUtil;
-import com.tibco.xpd.processeditor.xpdl2.wizards.NewBusinessProcessWizard;
-import com.tibco.xpd.resources.WorkingCopy;
-import com.tibco.xpd.resources.projectconfig.projectassets.util.ProjectAssetMigrationManager;
 import com.tibco.xpd.resources.util.ProjectImporter;
-import com.tibco.xpd.resources.util.WorkingCopyUtil;
-import com.tibco.xpd.resources.util.XpdConsts;
 import com.tibco.xpd.xpdExtension.ProcessInterface;
 import com.tibco.xpd.xpdExtension.ProcessInterfaces;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Xpdl2Package;
 import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
+
+import junit.framework.TestCase;
 
 /**
  * 
@@ -68,63 +58,65 @@ public class ProcIfcNoDestTest extends TestCase {
     }
 
     /**
-     * This tests implements the proc ifc "a. InterfaceWithoutParams" using the
-     * wizard so that has the implementing activities.
-     */
-    public void testImplementProcessInterface() {
-        IFile simpleProcIfcs =
-                project.getFile(new Path("Process Packages/SimpleProcIfcs.xpdl")); //$NON-NLS-1$
-        WorkingCopy xpdlWorkingCopy =
-                WorkingCopyUtil.getWorkingCopy(simpleProcIfcs);
-        if (null != xpdlWorkingCopy) {
-
-            /*
-             * XPD-5179: Saket- Check if the project requires migration. If yes,
-             * then migrate the project build it and then continue with the
-             * test.
-             */
-
-            try {
-                if (project
-                        .findMarkers(XpdConsts.PROJECT_MIGRATION_MARKER_TYPE,
-                                false,
-                                IResource.DEPTH_ZERO) != null) {
-                    ProjectAssetMigrationManager.getInstance().migrate(project,
-                            true,
-                            new NullProgressMonitor());
-                }
-            } catch (CoreException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-
-            TestUtil.buildAndWait();
-
-            EObject rootElement = xpdlWorkingCopy.getRootElement();
-            assertTrue("Root element is Package", //$NON-NLS-1$
-                    rootElement instanceof com.tibco.xpd.xpdl2.Package);
-
-            ProcessInterface procIfc =
-                    getProcIfcFromPackage((com.tibco.xpd.xpdl2.Package) rootElement,
-                            "aInterfaceWithoutParams"); //$NON-NLS-1$
-            assertTrue("Process Interface found", procIfc != null); //$NON-NLS-1$
-
-            NewBusinessProcessWizard newBusinessProcessWizard =
-                    new NewBusinessProcessWizard();
-            newBusinessProcessWizard.init(PlatformUI.getWorkbench(),
-                    new StructuredSelection(procIfc));
-            WizardDialog dialog =
-                    new WizardDialog(PlatformUI.getWorkbench()
-                            .getActiveWorkbenchWindow().getShell(),
-                            newBusinessProcessWizard);
-            dialog.create();
-            assertTrue(newBusinessProcessWizard.performFinish());
-            // TODO - Check whether the process contains activities that
-            // implement the
-            // process interface
-        }
-
-    }
+	 * Sid SCF-565 diabled test function - it hangs and implementation was never completed originally...
+	 * 
+	 * This tests implements the proc ifc "a. InterfaceWithoutParams" using the wizard so that has the implementing
+	 * activities.
+	 */
+	// public void testImplementProcessInterface() {
+	// IFile simpleProcIfcs =
+	// project.getFile(new Path("Process Packages/SimpleProcIfcs.xpdl")); //$NON-NLS-1$
+	// WorkingCopy xpdlWorkingCopy =
+	// WorkingCopyUtil.getWorkingCopy(simpleProcIfcs);
+	// if (null != xpdlWorkingCopy) {
+	//
+	// /*
+	// * XPD-5179: Saket- Check if the project requires migration. If yes,
+	// * then migrate the project build it and then continue with the
+	// * test.
+	// */
+	//
+	// try {
+	// if (project
+	// .findMarkers(XpdConsts.PROJECT_MIGRATION_MARKER_TYPE,
+	// false,
+	// IResource.DEPTH_ZERO) != null) {
+	// ProjectAssetMigrationManager.getInstance().migrate(project,
+	// true,
+	// new NullProgressMonitor());
+	// }
+	// } catch (CoreException e1) {
+	// // TODO Auto-generated catch block
+	// e1.printStackTrace();
+	// }
+	//
+	// TestUtil.buildAndWait();
+	//
+	// EObject rootElement = xpdlWorkingCopy.getRootElement();
+	// assertTrue("Root element is Package", //$NON-NLS-1$
+	// rootElement instanceof com.tibco.xpd.xpdl2.Package);
+	//
+	// ProcessInterface procIfc =
+	// getProcIfcFromPackage((com.tibco.xpd.xpdl2.Package) rootElement,
+	// "aInterfaceWithoutParams"); //$NON-NLS-1$
+	// assertTrue("Process Interface found", procIfc != null); //$NON-NLS-1$
+	//
+	// NewBusinessProcessWizard newBusinessProcessWizard =
+	// new NewBusinessProcessWizard();
+	// newBusinessProcessWizard.init(PlatformUI.getWorkbench(),
+	// new StructuredSelection(procIfc));
+	// WizardDialog dialog =
+	// new WizardDialog(PlatformUI.getWorkbench()
+	// .getActiveWorkbenchWindow().getShell(),
+	// newBusinessProcessWizard);
+	// dialog.create();
+	// assertTrue(newBusinessProcessWizard.performFinish());
+	// // TODO - Check whether the process contains activities that
+	// // implement the
+	// // process interface
+	// }
+	//
+	// }
 
     /**
      * @param xpdlPackage

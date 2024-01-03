@@ -43,7 +43,7 @@
 	<target name="_execute-PluginTest" depends="findPluginDir">
 			<echo> eclipse home: ${junitTestHome} </echo>
 			<echo> unqualified plugin name: ${pluginName} </echo>
-			<echo> junit plugin test.xml is located here: ${junitPluginDir}/test.xml</echo>
+			<echo> junit plugin test.xml expected here: ${junitPluginDir}/test.xml</echo>
 			<property name="pluginTestFileLocation" value="${junitPluginDir}/test.xml"/>
 			<available file="${junitPluginDir}/test.xml" property="test-xml-present"/>
 			<if>
@@ -64,22 +64,40 @@
 	</target>
 
 	<target name="feature-gen-results">
-		<propertyregex property="report" input="${pluginTestFileLocation}" regexp="([^/\\]*)_" select="\1" casesensitive="false" />
-		<echo>REPORT: ${report}</echo>
+		<!-- The original report name calculation wasn't good because it relied on there being only a single "_" underscore in plugin path 
+			(i.e. from "c:\builder\<branch build>\junitTest\pluginscom.tibco.xpd.xxxxx_1.0.0.jar")
+		     So if you had a <branch build location> containing "_" (like BPM_Studio_433) it would return "BPM_Studio" 
+		   So just use the pluginName we already extracted from feature.
+		   -->
+		<!-- <propertyregex property="report" input="${pluginTestFileLocation}" regexp="([^/\\]*)_" select="\1" casesensitive="false" />-->
+		<property name="report" value="${pluginName}"/>
+		
+		<echo>REPORT: ${report}.xml</echo>
 		<copy file="${junitTestHome}/${report}.xml" tofile="${results}/xml/${report}_${platform}.xml" failonerror="true" />
 		<xslt style="${junit-xsl}" basedir="${results}/xml" destdir="${results}/html" />
 	</target>
 	
 	<target name="findFeatureDir">
+		<echo>Find folder for feature junitFeature='${junitFeature}_*' in featuresDir='${featuresDir}'</echo>
 		<path id="junit.feature.dir">
 			<dirset dir="${featuresDir}">
 				<include name="${junitFeature}_*" />
 			</dirset>
 		</path>
+		
 		<property name="junitFeatureDir" refid="junit.feature.dir"/>
+		
+		<fail message="Feature '${junitFeature}' not found in test target platform - check feature is included in src/tbs-bpm/TargetPlatform-junit-tbs-bpm/requestedReleaseUnits-junit.xml">
+			 <condition>
+					 <equals arg1="${junitFeatureDir}" arg2=""/>
+			 </condition>
+		</fail>
+		
+		<echo>Found junitFeaturesDir='${junitFeatureDir}'</echo>
 	</target>
 		
 	<target name="findPluginDir">
+		<echo>Looking for plugin dir: '${pluginName}_*' in '${pluginsDir}'</echo>
 		<path id="junit.plugin.dir">
 			<dirset dir="${pluginsDir}">
 				<include name="${pluginName}_*" />

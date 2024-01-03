@@ -10,7 +10,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.OperationCanceledException;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
@@ -242,13 +241,14 @@ public class AbstractValidationPreferencePage extends PreferencePage implements
          * 
          * @see org.eclipse.core.runtime.jobs.Job#run(org.eclipse.core.runtime.IProgressMonitor)
          */
+        @Override
         protected IStatus run(IProgressMonitor monitor) {
             synchronized (getClass()) {
                 if (monitor.isCanceled()) {
                     return Status.CANCEL_STATUS;
                 }
                 // Check if a build job is already running
-                Job[] buildJobs = Platform.getJobManager().find(
+                Job[] buildJobs = Job.getJobManager().find(
                         ResourcesPlugin.FAMILY_MANUAL_BUILD);
                 for (int i = 0; i < buildJobs.length; i++) {
                     Job curr = buildJobs[i];
@@ -298,6 +298,7 @@ public class AbstractValidationPreferencePage extends PreferencePage implements
          * 
          * @see org.eclipse.core.runtime.jobs.Job#belongsTo(java.lang.Object)
          */
+        @Override
         public boolean belongsTo(Object family) {
             return ResourcesPlugin.FAMILY_MANUAL_BUILD == family;
         }

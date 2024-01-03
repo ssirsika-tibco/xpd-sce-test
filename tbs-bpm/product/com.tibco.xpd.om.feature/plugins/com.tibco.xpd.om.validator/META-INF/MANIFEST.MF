@@ -5,17 +5,12 @@ Bundle-SymbolicName: com.tibco.xpd.om.validator; singleton:=true
 Bundle-Version: 11.5.0.qualifier
 Bundle-Activator: com.tibco.xpd.om.validator.Activator
 Bundle-Vendor: %providerName_notrans
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- com.tibco.xpd.om.resources,
- org.eclipse.core.resources;bundle-version="3.4.0",
- com.tibco.xpd.resources,
- com.tibco.xpd.validation,
- com.tibco.xpd.om.core,
- com.tibco.xpd.om.resources.ui,
- org.eclipse.emf.workspace;bundle-version="1.2.0",
- com.tibco.xpd.resources.ui,
- com.tibco.xpd.destinations
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,com.tibco.xpd.om
+ .resources,org.eclipse.core.resources;bundle-version="[3.14.0,4.0.0)",c
+ om.tibco.xpd.resources,com.tibco.xpd.validation,com.tibco.xpd.om.core,c
+ om.tibco.xpd.om.resources.ui,org.eclipse.emf.workspace;bundle-version="
+ [1.5.1,2.0.0)",com.tibco.xpd.resources.ui,com.tibco.xpd.destinations
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
+

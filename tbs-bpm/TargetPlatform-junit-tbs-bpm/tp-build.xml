@@ -39,6 +39,10 @@ Builds target platform based on BPM target platform. Please provide 'ru.fragment
     
     <!--############################################-->
     <!-- Parameters -->
+	<property name="SVN_REPO_TBS_BPM" value="https://emea-swi-svn.emea.tibco.com/svn/technical/xpd/sce/${autobuild.branch}/tbs-bpm"/>
+    
+	<!-- Specifies whether a local build (as opposed to build on infrastructure) -->
+	<property name="use.local.bpm.tp" value="false"/>
     
     <!-- Description of the TP fragment. -->
 	<property name="ru.fragment.tp.desc" value="JUnit BPM Features." />
@@ -61,10 +65,10 @@ Builds target platform based on BPM target platform. Please provide 'ru.fragment
 	<property name="ru.template.file" location="${ru.fragment.file}" />
     
     <!-- The url of the bpm target platform definition used for merge. -->
-	<property name="bpm.tp.url" value="https://emea-swi-svn.emea.tibco.com/svn/technical/xpd/sce/trunk/tbs-bpm/TargetPlatform-tbs-bpm/requestedReleaseUnits.xml" />
+	<property name="bpm.tp.url" value="${SVN_REPO_TBS_BPM}/TargetPlatform-tbs-bpm/requestedReleaseUnits.xml" />
 
     <!-- Build svn URL can only be accessed from build machines (without username/password credentials - autorized by IP) -->
-	<property name="bpm.tp.build.url" value="https://emea-swi-svn.emea.tibco.com/svn-build/technical/xpd/sce/trunk/tbs-bpm/TargetPlatform-tbs-bpm/requestedReleaseUnits.xml" />
+	<property name="bpm.tp.build.url" value="https://emea-swi-svn.emea.tibco.com/svn-build/technical/xpd/sce/${autobuild.branch}/tbs-bpm/TargetPlatform-tbs-bpm/requestedReleaseUnits.xml" />
     
     <!-- Credential file with username and encoded password to access svn -->
 	<property name="credentials.file" location="${user.home}/credentials.properties" />
@@ -81,19 +85,31 @@ Builds target platform based on BPM target platform. Please provide 'ru.fragment
 	</target>
     
     <target name="getBpmTp" unless="skip.bpm.tp.refresh" description="Gets BPM target platfrom into . folder.">
-        <!-- Always try to refresh bpm tp first using build URL. --> 
-        <antcall target="-getBpmTpFromBuildSvn"/>
-        <condition property="bpmTpExists" value="true">
-			<available file="${ru.bpm.file}" type="file" />
-		</condition>
-        <!-- If not successfull then try fallback get using normal URL and a credential file provided in user.home directory. --> 
-        <if>
-         <not><isset property="bpmTpExists" /></not>
-         <then>
-           	<echo message="Getting bpm tp from buid URL failed so trying to get the file from the normal URL." />
-        	<antcall target="-getBpmTpFromSvn"/>
-         </then>
-        </if>
+		<!-- If using local base tbs-bpm target platform then copy from local -->
+		<if>
+			<equals	arg1="${use.local.bpm.tp}" arg2="true"/>
+			<then>
+				<copy file="../TargetPlatform-tbs-bpm/requestedReleaseUnits.xml" tofile="${ru.bpm.file}"/>
+				<condition property="bpmTpExists" value="true">
+					<available file="${ru.bpm.file}" type="file" />
+				</condition>
+			</then>
+			<else>
+				<!-- Always try to refresh bpm tp first using build URL. --> 
+				<antcall target="-getBpmTpFromBuildSvn"/>
+				<condition property="bpmTpExists" value="true">
+					<available file="${ru.bpm.file}" type="file" />
+				</condition>
+				<!-- If not successfull then try fallback get using normal URL and a credential file provided in user.home directory. --> 
+				<if>
+				 <not><isset property="bpmTpExists" /></not>
+				 <then>
+					<echo message="Getting bpm tp from buid URL failed so trying to get the file from the normal URL." />
+					<antcall target="-getBpmTpFromSvn"/>
+				 </then>
+				</if>
+			</else>
+		</if>
 	</target>
     <target name="-getBpmTpFromBuildSvn" unless="bpmTpExists">
         <echo>Copying bpm tp from: ${bpm.tp.build.url}.</echo>

@@ -55,13 +55,13 @@ import org.eclipse.ui.internal.WorkbenchPage;
 import org.eclipse.ui.internal.WorkbenchPlugin;
 import org.eclipse.ui.internal.dialogs.EventLoopProgressMonitor;
 import org.eclipse.ui.internal.misc.StatusUtil;
-import org.eclipse.ui.internal.util.Util;
 import org.eclipse.ui.model.WorkbenchPartLabelProvider;
 import org.eclipse.ui.statushandlers.StatusManager;
 
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdProjectResourceFactory;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.util.XpdUtil;
 
 /**
  * Helper class for handling deploy actions.
@@ -202,7 +202,7 @@ public class DeployHelper {
                 if (part instanceof ISaveablePart2) {
                     WorkbenchPage page =
                             (WorkbenchPage) part.getSite().getPage();
-                    if (!Util.equals(currentPage, page)) {
+                    if (!XpdUtil.safeEquals(currentPage, page)) {
                         currentPage = page;
                     }
                     if (confirm) {

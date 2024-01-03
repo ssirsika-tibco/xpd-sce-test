@@ -108,7 +108,7 @@ public class Xpdl2ModelUtilApiTest extends AbstractApiClassTest {
             "public static com.tibco.xpd.xpdl2.DataType resolveDataType(com.tibco.xpd.xpdl2.Package,com.tibco.xpd.xpdl2.DataType,boolean)", //$NON-NLS-1$ 
             "public static com.tibco.xpd.xpdl2.JoinSplitType safeGetGatewayType(com.tibco.xpd.xpdl2.Activity)", //$NON-NLS-1$ 
             "public static com.tibco.xpd.xpdl2.ExclusiveType safeGetExclusiveType(com.tibco.xpd.xpdl2.Activity)", //$NON-NLS-1$ 
-            "public static boolean isCorrelationActivity(com.tibco.xpd.xpdl2.Activity)", //$NON-NLS-1$ 
+            "public static boolean isCorrelatingActivity(com.tibco.xpd.xpdl2.Activity)", //$NON-NLS-1$ 
             "public static java.util.Collection<com.tibco.xpd.xpdl2.Activity> getAttachedEvents(com.tibco.xpd.xpdl2.Activity)", //$NON-NLS-1$ 
             "public static java.util.List<com.tibco.xpd.xpdl2.DataField> getCorrelationDataFields(com.tibco.xpd.xpdl2.Process)", //$NON-NLS-1$ 
             "public static boolean isWsdlDerived(org.eclipse.emf.ecore.EObject)", //$NON-NLS-1$ 

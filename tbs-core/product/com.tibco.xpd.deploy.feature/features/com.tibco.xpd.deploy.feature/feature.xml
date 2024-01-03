@@ -1,55 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<feature
-      id="com.tibco.xpd.deploy.feature"
-      label="%featureName"
-      version="11.5.0.qualifier"
-      provider-name="%providerName_notrans"
-      plugin="com.tibco.xpd.deploy.branding">
-
-   <description url="http://www.tibco.com/devnet/business_studio/default.jsp">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<feature id="com.tibco.xpd.deploy.feature" label="%featureName" plugin="com.tibco.xpd.deploy.branding" provider-name="%providerName_notrans" version="11.5.0.qualifier">
+    <description url="http://www.tibco.com/devnet/business_studio/default.jsp">
       %description
    </description>
-
-   <copyright url="http://www.example.com/copyright">
+    <copyright url="http://www.example.com/copyright">
       %copyright
    </copyright>
-
-   <license url="%licenseURL_notrans">
+    <license url="%licenseURL_notrans">
       %license
    </license>
-
-   <requires>
-      <import feature="org.eclipse.platform" version="4.11.0" match="compatible"/>
-      <import feature="com.tibco.xpd.core.feature" version="11.5.0" match="compatible"/>
-      <import feature="org.eclipse.emf" version="2.17.0" match="compatible"/>
-   </requires>
-
-   <plugin
-         id="com.tibco.xpd.deploy.core"
-         download-size="0"
-         install-size="0"
-         version="11.5.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="com.tibco.xpd.deploy.core.edit"
-         download-size="0"
-         install-size="0"
-         version="11.5.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="com.tibco.xpd.deploy.ui"
-         download-size="0"
-         install-size="0"
-         version="11.5.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="com.tibco.xpd.deploy.branding"
-         download-size="0"
-         install-size="0"
-         version="11.5.0.qualifier"/>
-
-
+    <requires>
+        <import feature="org.eclipse.platform" match="compatible" version="4.19.0"/>
+        <import feature="com.tibco.xpd.core.feature" match="compatible" version="11.5.0"/>
+        <import feature="org.eclipse.emf" match="compatible" version="2.25.0"/>
+    </requires>
+    <plugin download-size="0" id="com.tibco.xpd.deploy.core" install-size="0" unpack="false" version="11.5.0.qualifier"/>
+    <plugin download-size="0" id="com.tibco.xpd.deploy.core.edit" install-size="0" unpack="false" version="11.5.0.qualifier"/>
+    <plugin download-size="0" id="com.tibco.xpd.deploy.ui" install-size="0" unpack="false" version="11.5.0.qualifier"/>
+    <plugin download-size="0" id="com.tibco.xpd.deploy.branding" install-size="0" version="11.5.0.qualifier"/>
 </feature>

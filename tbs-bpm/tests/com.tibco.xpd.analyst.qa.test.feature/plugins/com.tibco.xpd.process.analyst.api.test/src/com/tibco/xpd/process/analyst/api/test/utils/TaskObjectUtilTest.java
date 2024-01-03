@@ -93,7 +93,6 @@ public class TaskObjectUtilTest extends AbstractApiClassTest {
                         "public static org.eclipse.emf.ecore.EObject getSubProcessOrInterface(com.tibco.xpd.xpdl2.Activity)", //$NON-NLS-1$ 
                         "public static org.eclipse.emf.ecore.EObject getSubProcessOrInterface(com.tibco.xpd.xpdl2.Activity,com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl)", //$NON-NLS-1$ 
                         "public static org.eclipse.emf.common.command.Command getChangeTaskImplementationCommand(org.eclipse.emf.edit.domain.EditingDomain,com.tibco.xpd.xpdl2.Activity,com.tibco.xpd.processwidget.adapters.TaskType,java.lang.String,java.lang.String)", //$NON-NLS-1$ 
-                        "public static org.eclipse.emf.common.command.Command getSetBusinessProcessCommand(org.eclipse.emf.edit.domain.EditingDomain,com.tibco.xpd.xpdl2.Activity,org.eclipse.emf.ecore.EObject)", //$NON-NLS-1$ 
                         "public static boolean isRemoteURL(java.lang.String)", //$NON-NLS-1$ 
                         "public static java.lang.String getUserTaskFormURIFromPageflowProcess(com.tibco.xpd.xpdl2.Process)", //$NON-NLS-1$ 
                         "public static com.tibco.xpd.xpdl2.ImplementationType getTaskImplementationType(com.tibco.xpd.xpdl2.Activity)", //$NON-NLS-1$ 
@@ -140,8 +139,6 @@ public class TaskObjectUtilTest extends AbstractApiClassTest {
                         "public static void appendSetResourcePatternsCommand(org.eclipse.emf.edit.domain.EditingDomain,com.tibco.xpd.xpdl2.Activity,com.tibco.xpd.processwidget.adapters.TaskType,org.eclipse.emf.common.command.CompoundCommand)", //$NON-NLS-1$ 
                         "public static org.eclipse.emf.common.command.Command selectOrClearActivityParticipantCommand(org.eclipse.emf.edit.domain.EditingDomain,com.tibco.xpd.xpdl2.Process,com.tibco.xpd.xpdl2.Activity,boolean)", //$NON-NLS-1$ 
                         "public static java.util.List<org.eclipse.emf.ecore.EObject> selectActivityPerformers(com.tibco.xpd.xpdl2.Process,com.tibco.xpd.xpdl2.Activity)", //$NON-NLS-1$ 
-                        "public static java.lang.String getJspPage(com.tibco.xpd.xpdl2.Activity)", //$NON-NLS-1$ 
-                        "public static org.eclipse.emf.common.command.Command getSetUserTaskJspPageCommand(org.eclipse.emf.edit.domain.EditingDomain,com.tibco.xpd.xpdl2.Activity,java.lang.String)", //$NON-NLS-1$ 
                         "public static java.lang.String getUserTaskFormURIFromFormFile(org.eclipse.core.resources.IFile)", //$NON-NLS-1$ 
                         "public static org.eclipse.core.resources.IFile getUserTaskFormFileFromPicker(org.eclipse.swt.widgets.Shell,com.tibco.xpd.xpdl2.Activity)", //$NON-NLS-1$ 
                         "public static org.eclipse.emf.common.command.Command getUserTaskSetPageflowProcessCommand(org.eclipse.emf.edit.domain.EditingDomain,com.tibco.xpd.xpdl2.Activity,com.tibco.xpd.xpdl2.Process)", //$NON-NLS-1$ 

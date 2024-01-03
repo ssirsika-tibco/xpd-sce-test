@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--
+NOT SURE IF THIS IS ACTUALLY USED - it doesn't seem to be in the normal place (each plugin has test.xml at root level usually)
+-->
 <project name="testsuite" default="run" basedir=".">
+	<echo>** Sid: WASN'T SURE IF THIS test.xml file was used: tbs-core\tests\com.tibco.xpd.core.test.feature\plugins\com.tibco.xpd.core.test\resources\ProjectImporter\com.tibco.n2.ut.test</echo>
+	<echo>     If this appears in log it appears that it does!!!</echo>
+	
 	<!-- The property ${eclipse-home} should be passed into this script -->
 	<!-- Set a meaningful default value for when it is not. -->
 	<property name="eclipse-home" value="${basedir}\..\.." />

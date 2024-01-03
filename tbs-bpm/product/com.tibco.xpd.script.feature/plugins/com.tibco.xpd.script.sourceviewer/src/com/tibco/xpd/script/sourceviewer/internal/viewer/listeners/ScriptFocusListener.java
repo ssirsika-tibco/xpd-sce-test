@@ -1,7 +1,7 @@
 package com.tibco.xpd.script.sourceviewer.internal.viewer.listeners;
 
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.jobs.IJobManager;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;
 
@@ -25,7 +25,7 @@ public class ScriptFocusListener implements FocusListener {
 
     @Override
     public void focusLost(FocusEvent e) {
-        IJobManager jobManager = Platform.getJobManager();
+        IJobManager jobManager = Job.getJobManager();
         jobManager.cancel(Consts.SCRIPT_JOB_FAMILY);
         SaveUtil.saveScript(scriptSourceViewer);
         unRegisterContentAssist();

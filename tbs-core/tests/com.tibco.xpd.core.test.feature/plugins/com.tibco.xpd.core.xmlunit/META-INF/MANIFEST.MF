@@ -4,8 +4,9 @@ Bundle-Name: Xmlunit Plug-in
 Bundle-SymbolicName: com.tibco.xpd.core.xmlunit
 Bundle-Version: 11.5.0.qualifier
 Bundle-Vendor: TIBCO
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: com.tibco.org.custommonkey.xmlunit;visibility:=reexport,
- org.junit;bundle-version="3.8.2"
-Export-Package: com.tibco.xpd.core.xmlunit,
- com.tibco.xpd.core.xmlunit.xsd
+ org.junit;bundle-version="[4.13.0,5.0.0)"
+Export-Package: com.tibco.xpd.core.xmlunit,com.tibco.xpd.core.xmlunit.xs
+ d
+

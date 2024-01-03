@@ -1,66 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<feature
-      id="com.tibco.xpd.core.test.feature"
-      label="%featureName"
-      version="11.5.0.qualifier"
-      provider-name="%providerName">
-
-   <description url="">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<feature id="com.tibco.xpd.core.test.feature" label="%featureName" provider-name="%providerName" version="11.5.0.qualifier">
+    <description url="">
       JUnit test Release Unit
    </description>
-
-   <copyright url="">
+    <copyright url="">
       Copyright 2007 TIBCO Software Inc.
    </copyright>
-
-   <license url="">
+    <license url="">
       For internal use only.
    </license>
-
-   <requires>
-      <import feature="com.tibco.xpd.core.feature" version="11.5.0" match="compatible"/>
-      <!--<import feature="com.tibco.xpd.process.analyst.feature" version="11.5.0" match="compatible"/>-->
-      <import feature="org.eclipse.test" version="3.7.200" match="compatible"/>
-   </requires>
-
-   <plugin
-         id="com.tibco.xpd.core.test"
-         download-size="0"
-         install-size="0"
-         version="11.5.0.qualifier"/>
-
-   <plugin
-         id="com.tibco.xpd.core.builder.test"
-         download-size="0"
-         install-size="0"
-         version="11.5.0.qualifier"/>
-
-   <plugin
-         id="com.tibco.xpd.core.testutil"
-         download-size="0"
-         install-size="0"
-         version="11.5.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="com.tibco.xpd.core.createtestwizards"
-         download-size="0"
-         install-size="0"
-         version="11.5.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="com.tibco.org.custommonkey.xmlunit"
-         download-size="0"
-         install-size="0"
-         version="11.5.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="com.tibco.xpd.core.xmlunit"
-         download-size="0"
-         install-size="0"
-         version="11.5.0.qualifier"
-         unpack="false"/>
-
+    <requires>
+        <import feature="com.tibco.xpd.core.feature" match="compatible" version="11.5.0"/>
+        <import feature="org.eclipse.test" match="compatible" version="3.7.1400"/>
+    </requires>
+    <plugin download-size="0" id="com.tibco.xpd.core.test" install-size="0" version="11.5.0.qualifier"/>
+    <plugin download-size="0" id="com.tibco.xpd.core.builder.test" install-size="0" version="11.5.0.qualifier"/>
+    <plugin download-size="0" id="com.tibco.xpd.core.testutil" install-size="0" unpack="false" version="11.5.0.qualifier"/>
+    <plugin download-size="0" id="com.tibco.xpd.core.createtestwizards" install-size="0" unpack="false" version="11.5.0.qualifier"/>
+    <plugin download-size="0" id="com.tibco.org.custommonkey.xmlunit" install-size="0" unpack="false" version="11.5.0.qualifier"/>
+    <plugin download-size="0" id="com.tibco.xpd.core.xmlunit" install-size="0" unpack="false" version="11.5.0.qualifier"/>
 </feature>

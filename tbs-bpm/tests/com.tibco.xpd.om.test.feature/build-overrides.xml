@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="com.tibco.xpd.om.test.feature Overrides">
-	<property name="reldist.download.enable" value="true"/>
-
-    <property name="autobuild.obfuscator.style" value="none" />
-    <property name="autobuild.version.eclipse" value="4.11"/>
-	<property name="autobuild.version.eclipse-host" value="4.11"/>
     <!-- Each Release Unit should change the project name above and the two
          property definitions below. -->
     <property name="release-unit" value="com.tibco.xpd.om.test.feature" />
     <property name="feature" value="com.tibco.xpd.om.test.feature" />
 
-    <!-- allows for cycles in the binary dependencies -->
-    <property name="allow.binary.cycles" value="true" />
-    
+	<property name="reldist.download.enable" value="true"/>
+
+    <property name="autobuild.obfuscator.style" value="none" />
+    <property name="autobuild.version.eclipse" value="4.19"/>
+	<property name="autobuild.version.eclipse-host" value="4.19"/>
+
+	<property name="javacSource" value="1.8"/>
+	<property name="javacTarget" value="1.8"/>
+	<!-- Sid SCF-568 Need to force build with JDK for Java-11 as many 3rd party features are Java-11 -->
+	<!-- <property name="autobuild.jdk.force-18" value="true" /> -->
+	<property name="autobuild.dir.java110-classes" value="${autobuild.dir.java-classes}" />
+	<property name="autobuild.jdk.force-110" value="true" />
+
     <!-- The repository name is only used to separate release unit configurations,
          preventing confusion of thirdparty common with neo common, for instance. -->
     <property name="autobuild.repository" value="sce-repository" />
-	<property name="javacSource" value="1.8"/>
-    <property name="javacTarget" value="1.8"/>
-    <property name="autobuild.jdk.force-18" value="true" />
+
+    <!-- allows for cycles in the binary dependencies added in the PDE 3.4 -->
+    <property name="allow.binary.cycles" value="true" />
 
     <!-- if there is a .devdocs feature, and this property is set, the javadoc
          for the code feature will be output to this location -->
@@ -34,12 +39,20 @@
 
     <!-- for additional information on properties commonly overridden by release units, see:
          http://wiki.tibco.com/FrameworksWiki/Componentization/Builder -->
-   <updatesites id="autobuild.workspace.update-sites.list"> 		
-		<updatesite url="http://spin.tibco.com/milestones/release/site.xml"/>		
-		<updatesite url="http://spin.tibco.com/milestones/thirdparty/site.xml"/>
-		<updatesite url="http://reldist.na.tibco.com/reldist/debug/site.xml"/>			
-		<updatesite url="http://studiobuild2.emea.tibco.com/userContent/from_studiobuild1/jenkins_userContent/eclipse-test-framework-4.7.2/site.xml"/>
-          <updatesite url="http://spin.tibco.com/eclipse-4.7/thirdparty/site.xml"/>
-   </updatesites> 
+    <updatesites id="autobuild.workspace.update-sites.list">
+        <updatesite url="http://studiobuild2.emea.tibco.com/userContent/from_studiobuild1/jenkins_job_LocalUpdateSite_workspace/org.mockito.site/site.xml"/>
+		<updatesite url="http://reldist.na.tibco.com/reldist/debug/site.xml"/>		
 
+        <!-- New oxygen test feature. -->
+		<updatesite url="http://studiobuild2.emea.tibco.com/userContent/from_studiobuild1/jenkins_userContent/eclipse-test-framework-4.19/site.xml"/>
+        
+        <!-- Added for eclipse test feature dependency - TODO remove when one is added on the 4.4 spin. -->
+		<updatesite url="http://spin.tibco.com/eclipse-3.7/thirdparty/site.xml"/>	
+
+		<!-- Sid SCF-568: Add 3rd party sites where we're likely to find features from Eclipse 4.19 -->
+		<updatesite url="http://reldist.na.tibco.com/reldist/eclipse-4.19/thirdparty/site.xml"/>
+		
+		<updatesite url="http://spin.tibco.com/eclipse-4.7/thirdparty/site.xml"/>
+		<updatesite url="http://spin.tibco.com/eclipse-4.11/thirdparty/site.xml"/>		
+   </updatesites>
 </project>

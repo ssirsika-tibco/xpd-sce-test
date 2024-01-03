@@ -5,10 +5,14 @@ package com.tibco.xpd.om.test.cases;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Properties;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.activities.IActivityManager;
 
 import com.tibco.xpd.om.core.om.OrgModel;
 import com.tibco.xpd.om.core.om.OrgUnit;
@@ -39,6 +43,20 @@ public class OMNamespacesTest extends AbstractOMTestCase {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
+
+		/*
+		 * Historic change broke this test (which doesn't appear to have run in infra for a long time. At some point we
+		 * changed Label Provider for model elements to only show "Label" unless solutionDesign capability was
+		 * activated, only then show "Label (name)"
+		 * 
+		 * So in order for testGetLabel() to work correctly, we need to enabled solutionDesign capability.
+		 */
+		IActivityManager activityManager = PlatformUI.getWorkbench().getActivitySupport().getActivityManager();
+		Set<String> enabledActivityIds = activityManager.getEnabledActivityIds();
+		Set activities = new HashSet<>(enabledActivityIds);
+		activities.add("com.tibco.xpd.om.solutiondesign");
+		PlatformUI.getWorkbench().getActivitySupport().setEnabledActivityIds(activities);
+
         model = factory.createOrgModel();
         model.setName("OrgModel");
         OMTestUtil.createResource(testResourceURI, Arrays.asList(model), null);
@@ -112,12 +130,13 @@ public class OMNamespacesTest extends AbstractOMTestCase {
 
                 Position position = factory.createPosition();
                 position.setDisplayName("Position");
+				position.setName(position.getName() + "XYZ");
                 orgUnit.getPositions().add(position);
 
                 String positionLabel = OMUtil.getLabel(position);
                 System.out.println("Pos label: " + positionLabel);
 
-                String expectedPositionLabel = "Position (Position)";
+				String expectedPositionLabel = "Position (PositionXYZ)";
 
                 assertEquals("Incorrect label.",
                         expectedPositionLabel,

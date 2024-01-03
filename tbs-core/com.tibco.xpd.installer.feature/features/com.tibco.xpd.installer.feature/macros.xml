@@ -24,6 +24,7 @@
     <target name="default" depends="-copy-eclipse, -prepare-download" description="Execute Eclipse tests">
          ================================= -->
     <target name="default" depends="-copy-eclipse, -copy-extra-features, -check-launcher, -init-eclipse, -configure-tp, -prepare-download, -emma.addinstrumentation" description="Execute Eclipse tests">
+		<echo>installer.feature/macros.xml/default:  studio.junit.jre='${studio.junit.jre}'</echo>
         <ant antfile="all.tests.xml">
         	<property name="jvm" value="${studio.junit.jre}"/>
 			<property name="coverage.dir" value="${coverage.dir}"/>
@@ -91,9 +92,9 @@
     <!-- Copy Eclipse SDK over the gathered set of features (TP). -->
 	<!-- TODO do the smarter TP unsing p2 -->
     <target name="-copy-eclipse" unless="skip.copy-eclipse">
-    	<echo>Coping Eclipse SDK to TP from: ${autobuild.dir.eclipse-default}</echo>
+    	<echo>Coping Eclipse SDK to TP from: ${autobuild.dir.eclipse-4.19}</echo>
     	<copy todir="${installation.root}/components/eclipse">
-    		<fileset dir="${autobuild.dir.eclipse-default}">
+    		<fileset dir="${autobuild.dir.eclipse-4.19}">
     		</fileset>
     	</copy>
     </target>
@@ -165,9 +166,12 @@
 		different).
 	-->
 	<target name="-init-eclipse" if="launcher.available">
-		<echo>Initialise p2 meta-data</echo>
+		<echo>basedir=${basedir}</echo>
+		<echo>jvm    =${bpm.build.jre.11}</echo>
+		<echo>jar    =${bs.tp.dir}/plugins/org.eclipse.equinox.launcher_${bs.launcher.version}.jar</echo>
         <java
 	            dir="${basedir}"
+				jvm="${bpm.build.jre.11}"
 	            jar="${bs.tp.dir}/plugins/org.eclipse.equinox.launcher_${bs.launcher.version}.jar"
 	            fork="true"
 	            failonerror="true">
@@ -177,6 +181,7 @@
 	        <jvmarg value="-XX:MaxPermSize=256m"/>
         </java>
 	</target>
+
 	
 	<target name="-configure-tp">
 		<echo>Configuring target platfom in: ${bs.tp.dir}</echo>

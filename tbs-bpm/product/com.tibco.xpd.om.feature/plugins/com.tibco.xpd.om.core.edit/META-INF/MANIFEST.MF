@@ -4,14 +4,16 @@ Bundle-Name: %pluginName_notrans
 Bundle-SymbolicName: com.tibco.xpd.om.core.edit; singleton:=true
 Bundle-Version: 11.5.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: com.tibco.xpd.om.core.om.provider.OrganisationModelEditPlugin$Implementation
+Bundle-Activator: com.tibco.xpd.om.core.om.provider.OrganisationModelEdi
+ tPlugin$Implementation
 Bundle-Vendor: %providerName_notrans
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.tibco.xpd.om.core.om.provider,
- com.tibco.xpd.om.core.om.provider.properties
-Require-Bundle: org.eclipse.emf.edit;bundle-version="[2.7.0,3.0.0)";visibility:=reexport,
- org.eclipse.core.expressions;bundle-version="[3.4.0,4.0.0)",
- com.tibco.xpd.om.core;visibility:=reexport,
- com.tibco.xpd.resources.ui
-Eclipse-LazyStart: true
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: com.tibco.xpd.om.core.om.provider,com.tibco.xpd.om.core.
+ om.provider.properties
+Require-Bundle: org.eclipse.emf.edit;bundle-version="[2.16.0,3.0.0)";vis
+ ibility:=reexport,org.eclipse.core.expressions;bundle-version="[3.7.100
+ ,4.0.0)",com.tibco.xpd.om.core;visibility:=reexport,com.tibco.xpd.resou
+ rces.ui
+Bundle-ActivationPolicy: lazy
+
