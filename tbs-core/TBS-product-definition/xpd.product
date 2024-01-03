@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="TIBCO Business Studio" uid="com.tibco.xpd.branding.prod" id="com.tibco.xpd.branding.prod" application="org.eclipse.ui.ide.workbench" version="11.1.4" useFeatures="true" includeLaunchers="true">
+<product name="TIBCO Business Studio" uid="com.tibco.xpd.branding.prod" id="com.tibco.xpd.branding.prod" application="org.eclipse.ui.ide.workbench" version="11.2.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="icons/about_image.png"/>
@@ -241,7 +241,7 @@
       <plugin id="org.eclipse.equinox.concurrent"/>
       <plugin id="org.eclipse.equinox.concurrent.source"/>
       <plugin id="org.eclipse.equinox.console"/>
-      <plugin id="org.eclipse.equinox.console.jaas.fragment"/>
+      <plugin id="org.eclipse.equinox.console.jaas.fragment" fragment="true"/>
       <plugin id="org.eclipse.equinox.console.source"/>
       <plugin id="org.eclipse.equinox.console.ssh"/>
       <plugin id="org.eclipse.equinox.console.ssh.source"/>
@@ -334,7 +334,7 @@
       <plugin id="org.eclipse.equinox.p2.updatesite.source"/>
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.preferences.source"/>
-      <plugin id="org.eclipse.equinox.region"/>
+      <plugin id="org.eclipse.equinox.region" fragment="true"/>
       <plugin id="org.eclipse.equinox.region.source"/>
       <plugin id="org.eclipse.equinox.registry"/>
       <plugin id="org.eclipse.equinox.registry.source"/>
@@ -352,7 +352,7 @@
       <plugin id="org.eclipse.equinox.simpleconfigurator.source"/>
       <plugin id="org.eclipse.equinox.supplement"/>
       <plugin id="org.eclipse.equinox.supplement.source"/>
-      <plugin id="org.eclipse.equinox.transforms.hook"/>
+      <plugin id="org.eclipse.equinox.transforms.hook" fragment="true"/>
       <plugin id="org.eclipse.equinox.transforms.hook.source"/>
       <plugin id="org.eclipse.equinox.transforms.xslt"/>
       <plugin id="org.eclipse.equinox.transforms.xslt.source"/>
@@ -364,7 +364,7 @@
       <plugin id="org.eclipse.equinox.weaving.caching.j9"/>
       <plugin id="org.eclipse.equinox.weaving.caching.j9.source"/>
       <plugin id="org.eclipse.equinox.weaving.caching.source"/>
-      <plugin id="org.eclipse.equinox.weaving.hook"/>
+      <plugin id="org.eclipse.equinox.weaving.hook" fragment="true"/>
       <plugin id="org.eclipse.equinox.weaving.hook.source"/>
       <plugin id="org.eclipse.equinox.wireadmin"/>
       <plugin id="org.eclipse.equinox.wireadmin.source"/>
@@ -613,12 +613,13 @@
    </plugins>
 
    <features>
+      <feature id="org.eclipse.sdk" installMode="root"/>
+      <feature id="org.eclipse.cvs" installMode="root"/>
       <feature id="org.eclipse.e4.rcp" installMode="root"/>
       <feature id="org.eclipse.ecf.core.feature" installMode="root"/>
       <feature id="org.eclipse.ecf.core.ssl.feature" installMode="root"/>
       <feature id="org.eclipse.ecf.filetransfer.feature" installMode="root"/>
-      <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature" installMode="root"/>
-      <feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature" installMode="root"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient45.feature" installMode="root"/>
       <feature id="org.eclipse.ecf.filetransfer.ssl.feature" installMode="root"/>
       <feature id="org.eclipse.emf.common" installMode="root"/>
       <feature id="org.eclipse.emf.ecore" installMode="root"/>

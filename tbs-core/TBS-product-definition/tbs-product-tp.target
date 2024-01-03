@@ -1,26 +1,56 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde version="3.8"?><target includeMode="feature" name="tbs-product-tp" sequenceNumber="134">
-<locations>
-	<location path="${project_loc}\resources\eclipse-411-20190430-163501-delta-pack\eclipse" type="Directory"/>
-	<location path="C:\src\p2\eclipse\eclipse-SDK-4.11-win32-x86_64\eclipse" type="Profile"/>
-	<location id="com.tibco.xpd.product.feature" path="${project_loc}\resources\product-assembly\assembly_tibco_com_tibco_xpd_product_feature_11.4.0.008\source" type="Feature"/>
-</locations>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target includeMode="feature" name="tbs-product-tp" sequenceNumber="134">
+	<locations>
+		<location path="C:\src\p2\eclipse\eclipse-SDK-4.19-win32-x86_64\eclipse" type="Profile"/>
+		<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+			<repository location="http://download.eclipse.org/eclipse/updates/4.19"/>
+			<unit id="org.eclipse.cvs.feature.group" version="1.4.1700.v20210303-1800"/>
+			<unit id="org.eclipse.cvs.source.feature.group" version="1.4.1700.v20210303-1800"/>
+			<unit id="org.eclipse.e4.rcp.feature.group" version="4.19.0.v20210302-1107"/>
+			<unit id="org.eclipse.e4.rcp.source.feature.group" version="4.19.0.v20210302-1107"/>
+			<unit id="org.eclipse.equinox.executable" version="3.8.1100.v20210209-1541"/>
+			<unit id="org.eclipse.equinox.executable.feature.group" version="3.8.1100.v20210209-1541"/>
+			<unit id="org.eclipse.equinox.p2.sdk.feature.group" version="3.11.1100.v20210227-0235"/>
+			<unit id="org.eclipse.equinox.sdk.feature.group" version="3.22.0.v20210227-0235"/>
+			<unit id="org.eclipse.jdt.feature.group" version="3.18.700.v20210303-1800"/>
+			<unit id="org.eclipse.jdt.source.feature.group" version="3.18.700.v20210303-1800"/>
+			<unit id="org.eclipse.platform.ide" version="4.19.0.I20210303-1800"/>
+			<unit id="org.eclipse.platform.sdk" version="4.19.0.I20210303-1800"/>
+			<unit id="org.eclipse.rcp.configuration.feature.group" version="1.1.1200.v20210303-1800"/>
+			<unit id="org.eclipse.rcp.feature.group" version="4.19.0.v20210303-1800"/>
+			<unit id="org.eclipse.rcp.source.feature.group" version="4.19.0.v20210303-1800"/>
+			<unit id="org.eclipse.tips.feature.feature.group" version="0.2.1300.v20210226-2208"/>
+		</location>
+		<location id="com.tibco.xpd.product.feature" path="${project_loc}\resources\product-assembly\assembly_tibco_com_tibco_xpd_product_feature_11.5.0.002\source" type="Feature"/>
+	</locations>
 	<includeBundles>
 		<feature id="com.tibco.xpd.product.feature"/>
+		<feature id="org.eclipse.cvs"/>
 		<feature id="org.eclipse.e4.core.tools.feature"/>
 		<feature id="org.eclipse.e4.rcp"/>
 		<feature id="org.eclipse.ecf.core.feature"/>
 		<feature id="org.eclipse.ecf.core.ssl.feature"/>
 		<feature id="org.eclipse.ecf.filetransfer.feature"/>
-		<feature id="org.eclipse.ecf.filetransfer.httpclient4.feature"/>
-		<feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"/>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient45.feature"/>
 		<feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
 		<feature id="org.eclipse.emf.common"/>
 		<feature id="org.eclipse.emf.ecore"/>
+		<feature id="org.eclipse.equinox.compendium.sdk"/>
+		<feature id="org.eclipse.equinox.core.feature"/>
+		<feature id="org.eclipse.equinox.core.sdk"/>
 		<feature id="org.eclipse.equinox.executable"/>
 		<feature id="org.eclipse.equinox.p2.core.feature"/>
+		<feature id="org.eclipse.equinox.p2.discovery.feature"/>
 		<feature id="org.eclipse.equinox.p2.extras.feature"/>
 		<feature id="org.eclipse.equinox.p2.rcp.feature"/>
+		<feature id="org.eclipse.equinox.p2.sdk"/>
 		<feature id="org.eclipse.equinox.p2.user.ui"/>
+		<feature id="org.eclipse.equinox.sdk"/>
+		<feature id="org.eclipse.equinox.server.core"/>
+		<feature id="org.eclipse.equinox.server.jetty"/>
+		<feature id="org.eclipse.equinox.server.p2"/>
+		<feature id="org.eclipse.equinox.serverside.sdk"/>
 		<feature id="org.eclipse.help"/>
 		<feature id="org.eclipse.jdt"/>
 		<feature id="org.eclipse.pde"/>
