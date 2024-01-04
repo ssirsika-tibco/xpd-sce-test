@@ -23,6 +23,11 @@
          step, which will be invoked on successful completion of the release unit build. -->
     <property name="autobuild.extension.script" location="post-ru-build.xml" />
     <property name="autobuild.extension.target" value="main" />
+	<property name="javacSource" value="1.8"/>
+	<property name="javacTarget" value="1.8"/>
+	<!-- Sid SCF-568 Need to force build with JDK for Java-11 as many 3rd party features are Java-11 -->
+	<property name="autobuild.dir.java110-classes" value="${autobuild.dir.java-classes}" />
+	<property name="autobuild.jdk.force-110" value="true" />
 
     <!--import file="post-ru-overrides.xml"/-->
 

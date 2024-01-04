@@ -63,16 +63,18 @@
             // whichresource will supply a URL so ...
             // ... need to remove file:/ from start ...
             var tmp = project.getProperty("prefFile");
-            if (tmp.indexOf(':', 5) > 0) {
-                // windows
-                tmp = prefFile.substring(6);
-            } else {
-                // *nix
-                tmp = prefFile.substring(5);
-            }
-            // ... and replace %20 with space
-            tmp = tmp.replace(/%20/g, ' ');
-            project.setProperty("prefFile.path", tmp);
+			if (tmp) {
+				if (tmp.indexOf(':', 5) > 0) {
+					// windows
+					tmp = prefFile.substring(6);
+				} else {
+					// *nix
+					tmp = prefFile.substring(5);
+				}
+				// ... and replace %20 with space
+				tmp = tmp.replace(/%20/g, ' ');
+				project.setProperty("prefFile.path", tmp);
+			}
         </script>
 
 		<echo>Replacing preference in file: ${prefFile.path}</echo>
