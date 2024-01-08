@@ -67,9 +67,6 @@ public class AceCaseClassRules implements IValidationRule {
     private static final String ISSUE_ACE_MAX_5_SUMMARY =
             "ace.bom.max.5.summary"; //$NON-NLS-1$
 
-    private static final String ISSUE_ACE_SEARCHABLE_IN_CASE_ONLY =
-            "ace.bom.searchable.in.case.only"; //$NON-NLS-1$
-
     private static final String ISSUE_ACE_SEARCHABLE_MUST_BE_NONARRAY =
             "ace.bom.searchable.must.be.nonarray"; //$NON-NLS-1$
 
@@ -127,11 +124,6 @@ public class AceCaseClassRules implements IValidationRule {
         for (Property property : ownedAttributes) {
             if (BOMGlobalDataUtils.isCID(property)) {
                 scope.createIssue(ISSUE_ACE_IDENTIFIER_IN_CASE_ONLY,
-                        BOMValidationUtil.getLocation(property),
-                        property.eResource().getURIFragment(property));
-
-            } else if (BOMGlobalDataUtils.isSearchable(property)) {
-                scope.createIssue(ISSUE_ACE_SEARCHABLE_IN_CASE_ONLY,
                         BOMValidationUtil.getLocation(property),
                         property.eResource().getURIFragment(property));
 

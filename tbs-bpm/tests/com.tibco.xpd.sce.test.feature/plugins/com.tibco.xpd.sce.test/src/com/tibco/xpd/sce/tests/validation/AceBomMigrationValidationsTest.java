@@ -215,13 +215,6 @@ public class AceBomMigrationValidationsTest
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
-                                "ace.bom.searchable.in.case.only", //$NON-NLS-1$
-                                "_5ioZkmA2EemgPPDBEdhwDQ", //$NON-NLS-1$
-                                "BPM  : Only case classes can contain searchable attributes (searchable attribute6 (com.example.unsupportedconstructs))", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
-
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
                                 "ace.bom.subpackage.issue", //$NON-NLS-1$
                                 "_7jILUGAuEemjK7MhjOTqUg", //$NON-NLS-1$
                                 "BPM  : Sub-packages are not supported (Sub-package (com.example.unsupportedconstructs))", //$NON-NLS-1$
@@ -316,13 +309,6 @@ public class AceBomMigrationValidationsTest
                                 "ace.bom.searchable.must.be.nonarray", //$NON-NLS-1$
                                 "_QkdBUGA1EemgPPDBEdhwDQ", //$NON-NLS-1$
                                 "BPM  : Searchable attributes cannot be arrays (array searchable attrib2 (com.example.unsupportedconstructs))", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
-
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
-                                "ace.bom.searchable.in.case.only", //$NON-NLS-1$
-                                "_rC5ZlmA2EemgPPDBEdhwDQ", //$NON-NLS-1$
-                                "BPM  : Only case classes can contain searchable attributes (searchable attribute6 (com.example.unsupportedconstructs))", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(

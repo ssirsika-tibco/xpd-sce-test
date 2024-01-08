@@ -9,9 +9,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
@@ -42,6 +44,8 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
 
     private Button summaryCheck = null;
 
+	private Label  summaryLabel;
+
     @Override
     protected boolean shouldDisplay(EObject eo) {
 
@@ -58,8 +62,9 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
             // multiplicity) on associations
             if (prop.getAssociation() == null) {
                 Class class_ = prop.getClass_();
-                if ((class_ != null) && (BOMGlobalDataUtils.isCaseClass(class_)
-                        || BOMGlobalDataUtils.isGlobalClass(class_))) {
+				// Nikita ACE-7537 Show searchable attributes section for all classes
+				// Removed the check for case class
+				if (class_ != null) {
                     return true;
                 }
             }
@@ -143,7 +148,7 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
         setLayoutData(searchCheck);
         manageControl(searchCheck);
 
-        createLabel(root,
+		summaryLabel = createLabel(root,
                 toolkit,
                 Messages.SearchableAttributeSection_Summary_label);
         summaryCheck = toolkit.createButton(root, /* label */null, SWT.CHECK); // $NON-NLS-1$
@@ -193,6 +198,41 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
         if (summaryCheck != null && !summaryCheck.isDisposed()) {
             // If this is a case Identifier or a case state, then it should be
             // set by default and not edit-able
+			Class class_ = prop.getClass_();
+
+			// Nikita ACE-7537 Hide summary if parent is not a Case Class
+			if (!BOMGlobalDataUtils.isCaseClass(class_)) {
+				// ACE-7537 Set the width and height to 0
+				GridData gd = new GridData(0, 0);
+				summaryCheck.setLayoutData(gd);
+				summaryLabel.setLayoutData(gd);
+
+				// Update visibility
+				summaryCheck.setVisible(false);
+				summaryLabel.setVisible(false);
+
+				// Requests that this control and all of its ancestors and siblings
+				// be repositioned by their layouts at the earliest opportunity.
+				summaryCheck.requestLayout();
+				return;
+			}
+			else if (!summaryCheck.getVisible())
+			{
+				// ACE-7537 Restore defaullt layout data for label and checkbox
+				GridData gData = new GridData();
+				gData.widthHint = STANDARD_LABEL_WIDTH;
+				summaryLabel.setLayoutData(gData);
+				setLayoutData(summaryCheck);
+
+				// Update visibility
+				summaryCheck.setVisible(true);
+				summaryLabel.setVisible(true);
+
+				// Requests that this control and all of its ancestors and siblings
+				// be repositioned by their layouts at the earliest opportunity.
+				summaryCheck.requestLayout();
+			}
+
             if (BOMGlobalDataUtils.isCID(prop)
                     || BOMGlobalDataUtils.isCaseState(prop)) {
                 summaryCheck.setSelection(true);
