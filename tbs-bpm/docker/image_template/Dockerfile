@@ -18,11 +18,8 @@ WORKDIR /tmp/tibco
 RUN unzip -q TIB_business-studio-bpm-edition.zip && \
     ./TIBCOUniversalInstaller-lnx-x86-64.bin -silent -V responseFile="docker-studio.silent"
 
-# the version of the studio build - usage "docker build --build-arg version=5.0"
-ARG version=5.0
-
 # initialize the eclipse configuration - to improve start-up performance
-WORKDIR /opt/TIBCO/studio-bpm/studio/$version/eclipse
+WORKDIR /opt/TIBCO/studio-bpm/studio/$$STUDIO_PRODUCT_HOME_VERSION$$/eclipse
 RUN ./TIBCOBusinessStudio -initialize -noSplash -clean
 
 # start a fresh image - in order to reduce final size
@@ -58,14 +55,11 @@ VOLUME $WORKSPACE_DIR $PROJECTS_DIR $RASCS_DIR
 # copy studio installation from previous image
 COPY --from=installer --chown=studio:studio /opt/TIBCO/studio-bpm /opt/TIBCO/studio-bpm
 
-# the version of the studio build - usage "docker build --build-arg version=5.0"
-ARG version=5.0
-
 # copy the ant script with the generateRasc command
-COPY --chown=studio:studio build.xml entrypoint.sh deployrascs.sh /opt/TIBCO/studio-bpm/studio/$version/eclipse/
+COPY --chown=studio:studio build.xml entrypoint.sh deployrascs.sh /opt/TIBCO/studio-bpm/studio/$$STUDIO_PRODUCT_HOME_VERSION$$/eclipse/
 
 USER studio:studio
-WORKDIR /opt/TIBCO/studio-bpm/studio/$version/eclipse
+WORKDIR /opt/TIBCO/studio-bpm/studio/$$STUDIO_PRODUCT_HOME_VERSION$$/eclipse
 
 
 # run the ant script

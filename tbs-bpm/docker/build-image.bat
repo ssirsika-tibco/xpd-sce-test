@@ -54,7 +54,7 @@ IF NOT EXIST .\image_template\TIB_business-studio-bpm-edition_?.?.?_linux*.zip (
   EXIT /b -1
 )
 
-docker build -t tibco/bpm-studio:$$IMAGE_TAG_VERSION$$ --build-arg version=5.0 .\image_template
+docker build -t tibco/bpm-studio:$$IMAGE_TAG_VERSION$$ .\image_template
 
 ECHO Removing temporary install image...	
 docker images -q --filter label=maintainer="TIBCO Software Inc" --filter label=image=bpm-studio-installation > .install_images.tmp
