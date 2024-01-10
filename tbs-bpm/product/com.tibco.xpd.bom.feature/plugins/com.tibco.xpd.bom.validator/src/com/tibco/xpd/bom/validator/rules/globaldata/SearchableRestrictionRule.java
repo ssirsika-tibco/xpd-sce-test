@@ -39,27 +39,23 @@ public class SearchableRestrictionRule implements IValidationRule {
         GlobalDataProfileManager gdManager =
                 GlobalDataProfileManager.getInstance();
 
-        if (gdManager.isLocal(clazz)) {
-            /*
-             * Sid ACE-470 globaldataBOM.class.local.searchable.restricted.issue
-             * removed in favour of ACE specific rule.
-             */
-
-        } else {
-            // Now check all of the search-able attributes to make sure that
-            // none of them are of type class, as you cannot have a Class, Case
-            // or Global that is search-able
-            for (Property property : clazz.getOwnedAttributes()) {
-                if (gdManager.isSearchable(property)) {
-                    Type type = property.getType();
-                    if (type instanceof org.eclipse.uml2.uml.Class) {
-                        String displayName =
-                                PrimitivesUtil.getDisplayLabel(type);
-                        scope.createIssue(ISSUE_ID_UNSUPPORTED_TYPE,
-                                BOMValidationUtil.getLocation(clazz),
-                                property.eResource().getURIFragment(property),
-                                Collections.singletonList(displayName));
-                    }
+		/*
+		 * Nikita ACE-7540 globaldataBOM.class.local.searchable.restricted.issue should added to ALL classes
+		 * Removed the check to skip local classes
+		 */
+        // Now check all of the search-able attributes to make sure that
+        // none of them are of type class, as you cannot have a Class, Case
+        // or Global that is search-able
+        for (Property property : clazz.getOwnedAttributes()) {
+            if (gdManager.isSearchable(property)) {
+                Type type = property.getType();
+                if (type instanceof org.eclipse.uml2.uml.Class) {
+                    String displayName =
+                            PrimitivesUtil.getDisplayLabel(type);
+                    scope.createIssue(ISSUE_ID_UNSUPPORTED_TYPE,
+                            BOMValidationUtil.getLocation(clazz),
+                            property.eResource().getURIFragment(property),
+                            Collections.singletonList(displayName));
                 }
             }
         }

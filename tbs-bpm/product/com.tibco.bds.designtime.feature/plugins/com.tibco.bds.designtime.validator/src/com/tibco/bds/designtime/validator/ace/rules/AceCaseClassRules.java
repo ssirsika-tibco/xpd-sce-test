@@ -2,9 +2,12 @@ package com.tibco.bds.designtime.validator.ace.rules;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
@@ -133,11 +136,63 @@ public class AceCaseClassRules implements IValidationRule {
     }
 
     /**
-     * Validate the given case class
-     * 
-     * @param scope
-     * @param clazz
-     */
+	 * Recursively finds all searchable properties in a Class. Also traverses through all compositions of the given
+	 * class.
+	 * 
+	 * Nikita ACE-7540
+	 * 
+	 * @param clazz
+	 * @param searchProperties
+	 * @param classesAlreadyOnCompositionThread
+	 */
+	private void findSearchProperties(org.eclipse.uml2.uml.Class clazz, List<Property> searchProperties,
+			Set<org.eclipse.uml2.uml.Class> classesAlreadyOnCompositionThread)
+	{
+		// ACE-7540 Search properties of a class only if not already done
+		if (classesAlreadyOnCompositionThread.contains(clazz))
+		{
+			return;
+		}
+
+		/*
+		 * PUSH this class onto 'stack' of 'already processed' classes with this class added to prevent looping
+		 * recursion ALONG THIS 'THREAD' of a hierarchy of compositions
+		 */
+		classesAlreadyOnCompositionThread.add(clazz);
+
+		// Consider all attributes, including attributes directly or indirectly included in the case object via
+		// composition of normal classes.
+		EList<Property> ownedAttributes = clazz.getOwnedAttributes();
+
+		for (Property property : ownedAttributes) {
+			Type type = property.getType();
+			boolean isComposition = property.getAggregation().equals(AggregationKind.COMPOSITE_LITERAL);
+
+			if ((type != null) && (type instanceof org.eclipse.uml2.uml.Class) && isComposition) {
+				org.eclipse.uml2.uml.Class class_ = (org.eclipse.uml2.uml.Class) type;
+
+				findSearchProperties(class_, searchProperties, classesAlreadyOnCompositionThread);
+
+			} else if ((!BOMGlobalDataUtils.isCaseState(property)) && (!BOMGlobalDataUtils.isCID(property))
+					&& (BOMGlobalDataUtils.isSearchable(property))) {
+				searchProperties.add(property);
+				
+			}
+		}
+
+		/*
+		 * POP this class onto 'stack' of 'already processed' classes
+		 */
+		classesAlreadyOnCompositionThread.remove(clazz);
+
+	}
+
+	/**
+	 * Validate the given case class
+	 * 
+	 * @param scope
+	 * @param clazz
+	 */
     private void validateCaseClass(IValidationScope scope,
             org.eclipse.uml2.uml.Class clazz) {
 
@@ -145,6 +200,11 @@ public class AceCaseClassRules implements IValidationRule {
         List<Property> caseIdProperties = new ArrayList<>();
         List<Property> searchProperties = new ArrayList<>();
         List<Property> summaryProperties = new ArrayList<>();
+
+		// Nikita ACE-7540
+		// Construct a set of classes to be traversed to look for searchable attributes
+		// This is maintained to avoid an infinite loop(cycle) incase of class compositions
+		Set<org.eclipse.uml2.uml.Class> traversedClasses = new HashSet<org.eclipse.uml2.uml.Class>();
 
         EList<Property> ownedAttributes = clazz.getOwnedAttributes();
 
@@ -155,16 +215,14 @@ public class AceCaseClassRules implements IValidationRule {
             } else if (BOMGlobalDataUtils.isCID(property)) {
                 caseIdProperties.add(property);
 
-            } else {
-                if (BOMGlobalDataUtils.isSearchable(property)) {
-                    searchProperties.add(property);
-                }
-                if (BOMGlobalDataUtils.isSummary(property)) {
-                    summaryProperties.add(property);
-                }
+			} else if (BOMGlobalDataUtils.isSummary(property)) {
+				summaryProperties.add(property);
+				
             }
+		}
 
-        }
+		// Nikita ACE-7540 Find all searchable properties
+		findSearchProperties(clazz, searchProperties, traversedClasses);
 
         // Case class must have a case state attribute.
         if (caseStateProperty == null) {
@@ -223,8 +281,9 @@ public class AceCaseClassRules implements IValidationRule {
             }
         }
 
-        // There can only be 5 searchable properties.
-        if (searchProperties.size() > 15) {
+        // There can only be 30 searchable properties.
+		// Nikita ACE-7540 Updated max number of searchable attributes allowed to 30
+        if (searchProperties.size() > 30) {
             scope.createIssue(ISSUE_ACE_MAX_SEARCHABLE,
                     BOMValidationUtil.getLocation(clazz),
                     clazz.eResource().getURIFragment(clazz));

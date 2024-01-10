@@ -89,6 +89,12 @@ public class AceBomMigrationValidationsTest
                     + markerInfo.getResourceURI() + "." //$NON-NLS-1$
                     + markerInfo.getLocationURI() + ":\n  \"" //$NON-NLS-1$
                     + markerInfo.getProblemText() + "\"\n"; //$NON-NLS-1$
+
+			
+			// Nikita ACE-7540 The max allowed count for searchable attributes changed form 15 to 30
+			// Make sure we don't get a error level problem marker anymore for searchable attributes
+			assertFalse("SupportedConstructs.bom should not have error level problem marker for searchble attributes",
+						markerInfo.getProblemId() == "ace.bom.max.5.searchable");
         }
         assertTrue(
                 "SupportedConstructs.bom: should not have problem markers but has at least one:\n" //$NON-NLS-1$
@@ -281,13 +287,6 @@ public class AceBomMigrationValidationsTest
                                 "casestate.invalid.containing.class.issue", //$NON-NLS-1$
                                 "_KF_LBGDjEemqb6fRqQJHQg", //$NON-NLS-1$
                                 "BPM  : Only case classes can contain case state attributes (caseState1 (com.example.unsupportedconstructs))", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
-
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
-                                "ace.bom.max.5.searchable", //$NON-NLS-1$
-                                "_M6i7YGA1EemgPPDBEdhwDQ", //$NON-NLS-1$
-                                "BPM  : Case classes cannot have more than 15 searchable attributes (Unsupported Searchable Attribute (com.example.unsupportedconstructs))", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(

@@ -277,7 +277,7 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
         // Check to see if this is a Duration type, we do not allow
         // searchable for a Duration Primitive type
         Type type = prop.getType();
-        if (type instanceof PrimitiveType) {
+        if (type instanceof PrimitiveType && !prop.isMultivalued()) {
             // Get the base type in case this is a BOM primitive type defined by
             // the user, we want to get the type of that for checking
             PrimitiveType primType =
@@ -287,7 +287,7 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
             if (PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME
                     .equals(primType.getName())) {
                 return false;
-            }
+            }            
             return true;
         } else if (type instanceof Enumeration) {
             // Enumerations in SCE are treated as Text types
@@ -307,7 +307,7 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
         // Check to see if this is a Duration type, we do not allow
         // searchable for a Duration Primitive type
         Type type = prop.getType();
-        if (type instanceof PrimitiveType) {
+        if (type instanceof PrimitiveType && !prop.isMultivalued()) {
             // Get the base type in case this is a BOM primitive type defined by
             // the user, we want to get the type of that for checking
             PrimitiveType primType =
