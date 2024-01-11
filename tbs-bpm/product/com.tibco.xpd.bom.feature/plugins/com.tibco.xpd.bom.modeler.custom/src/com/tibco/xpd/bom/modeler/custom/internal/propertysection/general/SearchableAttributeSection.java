@@ -166,8 +166,19 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
             return;
         }
 
+		Class class_ = prop.getClass_();
+
         // Make sure the tick box is initialised before we do anything
         if (searchCheck != null && !searchCheck.isDisposed()) {
+			if (!BOMGlobalDataUtils.isCaseClass(class_)) {
+				// ACE-7537 Update searchable tooltip for Non-case classes
+				searchCheck.setToolTipText(Messages.Searchable_tooltip_nonCaseClass);
+			}
+			else {
+				// ACE-7537 Reset searchable tooltip to default for case classes
+				searchCheck.setToolTipText(Messages.Searchable_tooltip);
+			}
+			
             // If this is a case Identifier or a case state, then it should be
             // set by default and not edit-able
             if (BOMGlobalDataUtils.isCID(prop)
@@ -196,9 +207,6 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
 
         // Make sure the tick box is initialised before we do anything
         if (summaryCheck != null && !summaryCheck.isDisposed()) {
-            // If this is a case Identifier or a case state, then it should be
-            // set by default and not edit-able
-			Class class_ = prop.getClass_();
 
 			// Nikita ACE-7537 Hide summary if parent is not a Case Class
 			if (!BOMGlobalDataUtils.isCaseClass(class_)) {
@@ -233,6 +241,8 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
 				summaryCheck.requestLayout();
 			}
 
+			// If this is a case Identifier or a case state, then it should be
+			// set by default and not edit-able
             if (BOMGlobalDataUtils.isCID(prop)
                     || BOMGlobalDataUtils.isCaseState(prop)) {
                 summaryCheck.setSelection(true);

@@ -387,6 +387,8 @@ public class Messages extends NLS {
 
     public static String Searchable_tooltip;
 
+	public static String Searchable_tooltip_nonCaseClass;
+
     public static String SearchableAttributeSection_Summary_label;
 
     public static String SearchableAttributeSection_Summary_tooltip;
