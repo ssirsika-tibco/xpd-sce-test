@@ -23,13 +23,6 @@ import org.eclipse.pde.core.plugin.IPluginModelBase;
 import org.eclipse.pde.core.plugin.PluginRegistry;
 import org.eclipse.uml2.uml.Property;
 
-import com.tibco.bx.extensions.java.JavaExtensionModel.FactoryClassType;
-import com.tibco.bx.extensions.java.JavaExtensionModel.JavaClassType;
-import com.tibco.bx.extensions.java.JavaExtensionModel.JavaExtensionModelFactory;
-import com.tibco.bx.extensions.java.JavaExtensionModel.JavaMethodType;
-import com.tibco.bx.extensions.java.JavaExtensionModel.JavaParameterType;
-import com.tibco.bx.extensions.java.JavaExtensionModel.JavaParametersType;
-import com.tibco.bx.extensions.java.JavaExtensionModel.JavaProjectType;
 import com.tibco.bx.xpdl2bpel.ConverterActivator;
 import com.tibco.bx.xpdl2bpel.N2PEConstants;
 import com.tibco.bx.xpdl2bpel.converter.ConversionException;
