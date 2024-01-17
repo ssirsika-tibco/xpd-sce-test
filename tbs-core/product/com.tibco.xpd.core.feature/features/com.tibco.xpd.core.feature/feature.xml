@@ -1,52 +1,138 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<feature id="com.tibco.xpd.core.feature" label="%featureName" plugin="com.tibco.xpd.core.branding" provider-name="%providerName" version="11.5.0.qualifier">
-    <description url="http://www.tibco.com/devnet/business_studio/default.jsp">
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.tibco.xpd.core.feature"
+      label="%featureName"
+      version="11.5.0.qualifier"
+      provider-name="%providerName"
+      plugin="com.tibco.xpd.core.branding">
+
+   <description url="http://www.tibco.com/devnet/business_studio/default.jsp">
       %description
    </description>
-    <copyright>
+
+   <copyright>
       %copyright
    </copyright>
-    <license url="%licenseURL">
+
+   <license url="%licenseURL">
       %license
    </license>
-    <requires>
-        <import feature="org.eclipse.emf.workspace" match="compatible" version="1.12.0"/>
-        <import feature="org.eclipse.emf.transaction" match="compatible" version="1.12.0"/>
-        <import feature="org.eclipse.platform" match="compatible" version="4.19.0"/>
-        <import feature="org.eclipse.emf" match="compatible" version="2.25.0"/>
-        <import feature="org.eclipse.jdt" match="compatible" version="3.18.700"/>
-        <import feature="org.eclipse.gef" match="compatible" version="3.11.0"/>
-        <import feature="org.eclipse.gmf" match="compatible" version="1.13.0"/>
-        <import feature="org.eclipse.emf.validation" match="compatible" version="1.12.2"/>
-        <import feature="com.tibco.xpd.tpcl.org.apache.derby.feature" match="compatible" version="10.14.2"/>
-        <import feature="com.tibco.xpd.tpcl.org.apache.log4j.feature" match="compatible" version="1.2.19"/>
-        <import feature="org.tigris.subversion.subclipse" match="compatible" version="4.2.4"/>
-        <import feature="org.eclipse.zest" match="compatible" version="1.7.0"/>
-        <import feature="com.tibco.tpcl.eclipse419.deps.feature" match="compatible" version="1.0.0"/>
-        <import feature="com.tibco.tpcl.eclipse419.deps.apache.feature" match="compatible" version="1.0.0"/>
-        <import feature="com.tibco.tpcl.eclipse419.deps.apache.lucene.feature" match="compatible" version="1.0.0"/>
-        <import feature="com.tibco.tpcl.eclipse419.deps.batik.feature" match="compatible" version="1.0.0"/>
-        <import feature="com.tibco.tpcl.eclipse419.deps.javax.feature" match="compatible" version="1.0.0"/>
-        <import feature="com.tibco.tpcl.eclipse419.deps.jetty.feature" match="compatible" version="1.0.0"/>
-        <import feature="com.tibco.tpcl.eclipse419.deps.apache.commons.feature" match="compatible" version="1.0.0"/>
-        <!-- These feature are only required to force a specific version of wst when we are using multiple update sites. -->
-        <!--   TODO: Remove then we will be able to use only spin/eclipse-4.7 update site -->
-        <import feature="org.eclipse.wst.common_core.feature" match="compatible" version="3.21.0"/>
-        <import feature="org.eclipse.wst.common_ui.feature" match="compatible" version="3.21.0"/>
-        <import feature="org.eclipse.wst.xml_core.feature" match="compatible" version="3.21.0"/>
-        <import feature="org.eclipse.wst.xml_ui.feature" match="compatible" version="3.21.0"/>
-    </requires>
-    <plugin download-size="0" id="com.tibco.xpd.core.branding" install-size="0" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.resources" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.resources.ui" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.ui.properties" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.core.doc" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.validation" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.gmf.extensions" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.core.validate.system" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.fragments" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.destinations" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.quickfixtooltip" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.core.ant.task" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.dependency.visualization" install-size="0" unpack="false" version="11.5.0.qualifier"/>
+
+   <requires>
+      <import feature="org.eclipse.emf.workspace" version="1.12.0" match="compatible"/>
+      <import feature="org.eclipse.emf.transaction" version="1.12.0" match="compatible"/>
+      <import feature="org.eclipse.platform" version="4.19.0" match="compatible"/>
+      <import feature="org.eclipse.emf" version="2.25.0" match="compatible"/>
+      <import feature="org.eclipse.jdt" version="3.18.700" match="compatible"/>
+      <import feature="org.eclipse.gef" version="3.11.0" match="compatible"/>
+      <import feature="org.eclipse.gmf" version="1.13.0" match="compatible"/>
+      <import feature="org.eclipse.gmf.runtime.notation" version="1.13.0" match="compatible"/>
+      <import feature="org.eclipse.emf.validation" version="1.12.2" match="compatible"/>
+      <import feature="com.tibco.xpd.tpcl.org.apache.derby.feature" version="10.14.2" match="compatible"/>
+      <import feature="com.tibco.xpd.tpcl.org.apache.log4j.feature" version="1.2.19" match="compatible"/>
+      <import feature="org.tigris.subversion.subclipse" version="4.2.4" match="compatible"/>
+      <import feature="org.eclipse.zest" version="1.7.0" match="compatible"/>
+      <import feature="com.tibco.tpcl.eclipse419.deps.feature" version="1.0.0" match="compatible"/>
+      <import feature="com.tibco.tpcl.eclipse419.deps.apache.feature" version="1.0.0" match="compatible"/>
+      <import feature="com.tibco.tpcl.eclipse419.deps.apache.lucene.feature" version="1.0.0" match="compatible"/>
+      <import feature="com.tibco.tpcl.eclipse419.deps.batik.feature" version="1.0.0" match="compatible"/>
+      <import feature="com.tibco.tpcl.eclipse419.deps.javax.feature" version="1.0.0" match="compatible"/>
+      <import feature="com.tibco.tpcl.eclipse419.deps.jetty.feature" version="1.0.0" match="compatible"/>
+      <import feature="com.tibco.tpcl.eclipse419.deps.apache.commons.feature" version="1.0.0" match="compatible"/>
+      <import feature="org.eclipse.wst.common_core.feature" version="3.21.0" match="compatible"/>
+      <import feature="org.eclipse.wst.common_ui.feature" version="3.21.0" match="compatible"/>
+      <import feature="org.eclipse.wst.xml_core.feature" version="3.21.0" match="compatible"/>
+      <import feature="org.eclipse.wst.xml_ui.feature" version="3.21.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="com.tibco.xpd.core.branding"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"/>
+
+   <plugin
+         id="com.tibco.xpd.resources"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.resources.ui"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.ui.properties"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.core.doc"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.validation"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.gmf.extensions"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.core.validate.system"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.fragments"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.destinations"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.quickfixtooltip"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.core.ant.task"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.dependency.visualization"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
 </feature>
