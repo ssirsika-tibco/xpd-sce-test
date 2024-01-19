@@ -344,12 +344,10 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
             final EMap<String, String> nsMap = docRoot.getXMLNSPrefixMap();
 
             /*
-             * Sid ACE-467 - Need to remove simulation namespace, so if it's
-             * there then run the command to reset it.
+             * Sid ACE-467 - Need to remove simulation namespace, so if it's there then run the command to reset it.
              * 
-             * Sid ACE-475 - Same goes for the eaijava and database namespaces
-             * (for which we also have removed the model contribution from the
-             * product)
+             * Sid ACE-475 - Same goes for the eaijava and (for which we also have removed the model contribution from
+             * the product)
              * 
              * Sid ACE-1353 - Same for iProcessExt
              */
@@ -357,7 +355,7 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
             if (!map.containsKey(Xpdl2Package.eNS_URI)
                     || nsMap.containsKey("simulation") //$NON-NLS-1$
                     || nsMap.containsKey("eaijava") //$NON-NLS-1$
-                    || nsMap.containsKey("database") //$NON-NLS-1$
+                    || !nsMap.containsKey("database") //$NON-NLS-1$ Sid ACE-6986 reinstate DB task model
                     || nsMap.containsKey("iProcessExt")) { //$NON-NLS-1$
 
                 WorkingCopy wc = WorkingCopyUtil.getWorkingCopyFor(docRoot);
@@ -386,7 +384,8 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
                                 nsMap.removeKey("simulation"); //$NON-NLS-1$
                                 /* Sid ACE-475 - same for eaijava & database */
                                 nsMap.removeKey("eaijava"); //$NON-NLS-1$
-                                nsMap.removeKey("database"); //$NON-NLS-1$
+                                // Sid ACE-6986 reinstate DB task model
+                                nsMap.put("database", "http://www.tibco.com/XPD/database1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
                                 /* Sid ACE-1353 - Same for iProcessExt */
                                 nsMap.removeKey("iProcessExt"); //$NON-NLS-1$
 

@@ -43,6 +43,29 @@
       <import feature="org.eclipse.wst.common_ui.feature" version="3.21.0" match="compatible"/>
       <import feature="org.eclipse.wst.xml_core.feature" version="3.21.0" match="compatible"/>
       <import feature="org.eclipse.wst.xml_ui.feature" version="3.21.0" match="compatible"/>
+
+      
+		<!-- Sid ACE-7084 (ACE-6986) Re-include eclipse.datatools.enablement features (data connection providers for data source explorer / database task) -->
+        <import feature="org.eclipse.datatools.connectivity.feature" match="compatible" version="1.14.102"/>
+        <import feature="org.eclipse.datatools.sqldevtools.feature" match="compatible" version="1.14.201"/>
+        <import feature="org.eclipse.datatools.sqldevtools.sqlbuilder.feature" match="compatible" version="1.14.201"/>
+        <import feature="org.eclipse.datatools.modelbase.feature" match="compatible" version="1.14.102"/>
+        <import feature="org.eclipse.datatools.enablement.feature" match="compatible" version="1.14.102"/>
+        <import feature="org.eclipse.datatools.enablement.apache.derby.feature" match="compatible" version="1.14.102"/>
+        <import feature="org.eclipse.datatools.enablement.hsqldb.feature" match="compatible" version="1.14.102"/>
+        <import feature="org.eclipse.datatools.enablement.ibm.feature" match="compatible" version="1.14.103"/>
+        <import feature="org.eclipse.datatools.enablement.jdbc.feature" match="compatible" version="1.14.102"/>
+        <import feature="org.eclipse.datatools.enablement.jdt.feature" match="compatible" version="1.14.102"/>
+        <import feature="org.eclipse.datatools.enablement.msft.feature" match="compatible" version="1.14.102"/>
+        <import feature="org.eclipse.datatools.enablement.mysql.feature" match="compatible" version="1.14.103"/>
+        <import feature="org.eclipse.datatools.enablement.oda.feature" match="compatible" version="1.14.102"/>
+        <import feature="org.eclipse.datatools.enablement.oda.designer.feature" match="compatible" version="1.14.102"/>
+        <import feature="org.eclipse.datatools.enablement.oracle.feature" match="compatible" version="1.14.102"/>
+        <import feature="org.eclipse.datatools.enablement.postgresql.feature" match="compatible" version="1.14.102"/>
+        <import feature="org.eclipse.datatools.enablement.sap.feature" match="compatible" version="1.14.102"/>
+        <import feature="org.eclipse.datatools.enablement.sybase.feature" match="compatible" version="1.14.201"/>
+        <import feature="org.eclipse.datatools.enablement.ingres.feature" match="compatible" version="1.14.102"/>
+      
    </requires>
 
    <plugin

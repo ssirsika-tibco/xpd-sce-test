@@ -37,6 +37,12 @@ public class SimplifiedUiPerspectiveListener extends
     private static final String NON_BPM_ACTIVITY_CATEGORY =
             "com.tibco.xpd.bpm.simplified.ui.nonbpm.catetory"; //$NON-NLS-1$
 
+    /**
+     * 'Unsupported Features for BPM' activity category.
+     */
+    @SuppressWarnings("restriction")
+    private static final String UNSUPPORTED_IN_BPM_ACTIVITY_CATEGORY = "com.tibco.xpd.unsupported.in.bpm.category"; //$NON-NLS-1$
+
     private static final String BPM_MODELING_PERSPECTIVE =
             "com.tibco.xpd.bpm.modeling.perspective"; //$NON-NLS-1$
 
@@ -45,6 +51,11 @@ public class SimplifiedUiPerspectiveListener extends
 
     private static final List<String> SIMPLIFIED_PERSPECTIVES = Arrays
             .asList(BPM_MODELING_PERSPECTIVE, LIVE_DEV_PERSPECTIVE);
+
+    /**
+     * Sid ACE-7484 The full modelling perspective
+     */
+    private static final String MODELING_PERSPECTIVE_ID = "com.tibco.modeling.perspective";
 
     /**
      * Cached non-bpm category.
@@ -100,8 +111,11 @@ public class SimplifiedUiPerspectiveListener extends
         }
         boolean nonBpmEnabled =
                 ActivitiesUtil.isCategoryEnabled(nonBpmCategory);
+
+        String currentPerspectiveId = perspective.getId();
+
         boolean isSimplifiedPerspective =
-                SIMPLIFIED_PERSPECTIVES.contains(perspective.getId());
+                SIMPLIFIED_PERSPECTIVES.contains(currentPerspectiveId);
 
         if (isSimplifiedPerspective && !isSetLastActivePerspective()) {
             /* Disable non-bpm first time workspace is run. */
@@ -111,7 +125,15 @@ public class SimplifiedUiPerspectiveListener extends
         } else if (!isSimplifiedPerspective && !nonBpmEnabled) {
             setEnabledCategoryActivities(NON_BPM_ACTIVITY_CATEGORY, true);
         }
-        setLastActivePerspective(perspective.getId());
+
+        /* Sid ACE-7484 Always Hide the "Data Source Explorer" view in Modelling and BPM Modelling perspectives */
+        if (isSimplifiedPerspective || MODELING_PERSPECTIVE_ID.equals(currentPerspectiveId)) {
+            setEnabledCategoryActivities(UNSUPPORTED_IN_BPM_ACTIVITY_CATEGORY, false);
+        } else {
+            setEnabledCategoryActivities(UNSUPPORTED_IN_BPM_ACTIVITY_CATEGORY, true);
+        }
+
+        setLastActivePerspective(currentPerspectiveId);
     }
 
     private void setEnabledCategoryActivities(String categoryId, boolean enable) {

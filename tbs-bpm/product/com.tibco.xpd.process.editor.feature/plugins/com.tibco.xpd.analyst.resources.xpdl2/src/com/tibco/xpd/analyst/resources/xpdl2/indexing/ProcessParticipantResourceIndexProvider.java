@@ -220,6 +220,13 @@ public class ProcessParticipantResourceIndexProvider extends
                 map.put(ATTRIBUTE_RESOURCE_TYPE, ResourceType.EMAIL.toString());
 
                 map.put(ATTRIBUTE_EMAIL_INSTANCE_NAME, psr.getEmail().getInstanceName());
+
+            }
+            /* Sid ACE-7084 reintroduced JDBC participant shared resources. */
+            else if (null != psr.getJdbc()) {
+                map.put(ATTRIBUTE_RESOURCE_TYPE, ResourceType.JDBC.toString());
+
+                map.put(ATTRIBUTE_RESOURCE_NAME, psr.getJdbc().getInstanceName());
             }
         }
 

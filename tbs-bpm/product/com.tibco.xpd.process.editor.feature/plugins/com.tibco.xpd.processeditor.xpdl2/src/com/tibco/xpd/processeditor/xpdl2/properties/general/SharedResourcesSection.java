@@ -67,14 +67,12 @@ public class SharedResourcesSection
 
     private DecoratedField emailInstanceNameText;
 
-    private Text jdbcInstanceNameText;
+    private DecoratedField jdbcInstanceNameText;
 
     private Button wsInboundButton;
 
     private Button wsOutboundButton;
 
-    private Text jdbcProfileNameText;
-    
     private DecoratedField endPointIdentifierText;
     
     private Text endPointIdentifierDescText;
@@ -114,13 +112,13 @@ public class SharedResourcesSection
                 button.setToolTipText(description);
             }
 
-            /*
-             * ACE-1371: Saket: User should not be able to create participant of
-             * JDBC type
-             */
-            if (resourceType == ProcessParticipantResourceIndexProvider.ResourceType.JDBC) {
-                button.setVisible(false);
-            }
+//            /*
+//             * ACE-1371: Saket: User should not be able to create participant of
+//             * JDBC type
+//             */
+//            if (resourceType == ProcessParticipantResourceIndexProvider.ResourceType.JDBC) {
+//                button.setVisible(false);
+//            }
 
             manageControl(button);
             typeButtons.add(button);
@@ -184,101 +182,17 @@ public class SharedResourcesSection
      */
     private void createEmailPage(Composite page, XpdFormToolkit toolkit) {
         GridLayoutFactory.swtDefaults().numColumns(2).applyTo(page);
+
+        Label description = toolkit.createLabel(page,
+                Messages.SharedResourcesSection_EmailSharedResource_title);
+        GridDataFactory.swtDefaults().span(2, 1).indent(0, 0).applyTo(description);
+
         toolkit.createLabel(page,
                 Messages.SharedResourcesSection_SharedResourceLabel);
 
         FixedValueFieldProposalProvider emailInstanceNamesProposalProvider =
-                new FixedValueFieldAssistHelper.FixedValueFieldProposalProvider() {
-                    @Override
-                    public Object[] getProposals() {
-                        /*
-                         * Get all the participants which match the content of
-                         * the content assist field
-                         */
-                        Set<EmailParticpantSharedResourceProposal> allInstanceNameProposals = getAllInstanceNameProposals();
-                        Object[] proposals = allInstanceNameProposals.toArray();
-                        return proposals;
-                    }
-
-                    /**
-                     * Get all email instance name proposals that are in the
-                     * scope of the input object.
-                     * 
-                     * @return
-                     */
-                    private Set<EmailParticpantSharedResourceProposal> getAllInstanceNameProposals() {
-
-                        Set<EmailParticpantSharedResourceProposal> allInstanceNameProposals =
-                                new HashSet<EmailParticpantSharedResourceProposal>();
-
-                        Collection<IndexerItem> allParticipantIndexerItems =
-                                ProcessUIUtil.getAllParticipantIndexerItems();
-
-                        for (IndexerItem eachParticipantIndexerItem : allParticipantIndexerItems) {
-                            /*
-                             * Check if the participant is of shared resource is
-                             * of EMAIL share resource type.
-                             */
-
-                            if (eachParticipantIndexerItem != null) {
-                                String resourceType = eachParticipantIndexerItem
-                                        .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_TYPE);
-                                if (ProcessParticipantResourceIndexProvider.ResourceType.EMAIL.toString()
-                                        .equals(resourceType)) {
-
-                                    /*
-                                     * Make sure that we haven't already added
-                                     * the current email instance name to the
-                                     * list of all resource names.
-                                     */
-
-                                    String emailInstanceName = eachParticipantIndexerItem
-                                            .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_EMAIL_INSTANCE_NAME);
-                                    if (null != emailInstanceName && !emailInstanceName.isEmpty()
-                                            && !isAlreadyInTheInstanceNameProposals(emailInstanceName,
-                                                    allInstanceNameProposals)) {
-
-                                        EmailParticpantSharedResourceProposal newEmailServiceSharedResourceProposal =
-                                                new EmailParticpantSharedResourceProposal(emailInstanceName);
-                                        allInstanceNameProposals.add(newEmailServiceSharedResourceProposal);
-                                    }
-                                }
-                            }
-                        }
-
-                        return allInstanceNameProposals;
-                    }
-
-                    /**
-                     * Return <code>true</code> if a resource proposal with the
-                     * specified instance name is already present in the list of
-                     * resource proposals, <code>false</code> otherwise.
-                     * 
-                     * @param instanceName
-                     * @param allResourceProposals
-                     * 
-                     * @return <code>true</code> if a resource proposal with the
-                     *         specified instance name is already present in the
-                     *         list of resource proposals, <code>false</code>
-                     *         otherwise.
-                     */
-                    private boolean isAlreadyInTheInstanceNameProposals(String instanceName,
-                            Set<EmailParticpantSharedResourceProposal> allResourceProposals) {
-                        boolean isInstanceNameInTheResourceProposals = false;
-
-                        if (null != instanceName) {
-                            for (EmailParticpantSharedResourceProposal eachProposal : allResourceProposals) {
-                                if (null != eachProposal && null != eachProposal.getEmailInstanceName()) {
-                                    if (instanceName.equals(eachProposal.getEmailInstanceName())) {
-                                        isInstanceNameInTheResourceProposals = true;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                        return isInstanceNameInTheResourceProposals;
-                    }
-                };
+                new SharedResourceNameProposalProvider(ProcessParticipantResourceIndexProvider.ResourceType.EMAIL,
+                        ProcessParticipantResourceIndexProvider.ATTRIBUTE_EMAIL_INSTANCE_NAME);
 
         /*
          * Content assist helper for email instance names content assist.
@@ -298,26 +212,40 @@ public class SharedResourcesSection
     /**
      * Creates JDBC Service page.
      * 
+     * Sid ACE-7084 reintroduced JDBC shared resource participant type AND converted to auto-complete like other types.
+     * 
      * @param page
      * @param toolkit
      */
     private void createJdbcPage(Composite page, XpdFormToolkit toolkit) {
         GridLayoutFactory.swtDefaults().numColumns(2).applyTo(page);
-        toolkit.createLabel(page,
-                Messages.SharedResourcesSection_JdbcInstanceName_label);
-        jdbcInstanceNameText = toolkit.createText(page, ""); //$NON-NLS-1$
-        GridDataFactory.fillDefaults().grab(true, false)
-                .applyTo(jdbcInstanceNameText);
-        manageControlUpdateOnDeactivate(jdbcInstanceNameText);
 
-        Label profileLabel = toolkit.createLabel(page,
-                Messages.SharedResourcesSection_JdbcProfileName_label);
-        profileLabel.setToolTipText(
-                Messages.SharedResourcesSection_JdbcProfileName_tooltip);
-        jdbcProfileNameText = toolkit.createText(page, ""); //$NON-NLS-1$
-        GridDataFactory.fillDefaults().grab(true, false)
-                .applyTo(jdbcProfileNameText);
-        manageControlUpdateOnDeactivate(jdbcProfileNameText);
+        Label description = toolkit.createLabel(page,
+                Messages.SharedResourcesSection_JdbcSharedResource_title);
+        GridDataFactory.swtDefaults().span(2, 1).indent(0, 0).applyTo(description);
+
+        toolkit.createLabel(page,
+                Messages.SharedResourcesSection_SharedResourceLabel);
+
+        FixedValueFieldProposalProvider instanceNamesProposalProvider =
+                new SharedResourceNameProposalProvider(ProcessParticipantResourceIndexProvider.ResourceType.JDBC,
+                        ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME);
+
+        /*
+         * Content assist helper for JDBC instance names content assist.
+         */
+        FixedValueFieldAssistHelper instanceNameContentAssistHelper =
+                new FixedValueFieldAssistHelper(toolkit, page, instanceNamesProposalProvider, false);
+
+        instanceNameContentAssistHelper.addValueChangedListener(this);
+        jdbcInstanceNameText = instanceNameContentAssistHelper.getDecoratedField();
+        GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
+        gridData.horizontalIndent = -6;
+        jdbcInstanceNameText.getLayoutControl().setLayoutData(gridData);
+        jdbcInstanceNameText.getLayoutControl().setBackground(page.getBackground());
+        jdbcInstanceNameText.getControl().setToolTipText(Messages.SharedResourcesSection_JdbcInstanceNameTooltip);
+        manageControlUpdateOnDeactivate((Text) jdbcInstanceNameText.getControl());
+
     }
 
     /**
@@ -328,9 +256,10 @@ public class SharedResourcesSection
      */
     private void createRestServicePage(Composite page, XpdFormToolkit toolkit) {
         GridLayoutFactory.swtDefaults().numColumns(2).applyTo(page);
+
         Label description = toolkit.createLabel(page,
                 Messages.SharedResourcesSection_RestResourceDesc);
-        GridDataFactory.swtDefaults().span(2, 1).indent(5, 0)
+        GridDataFactory.swtDefaults().span(2, 1).indent(0, 0)
                 .applyTo(description);
         
         /*
@@ -610,18 +539,19 @@ public class SharedResourcesSection
     }
 
     /**
-     * Class to facilitate the proposals for Email particpant shared resource
-     * instance name content assist.
+     * Class to facilitate the proposals for Email particpant shared resource instance name content assist.
+     * 
+     * Sid ACE-7084 renamed for more generic usage (nothing email specific in here)
      *
      * @author sajain
      * @since Jul 30, 2019
      */
-    private static class EmailParticpantSharedResourceProposal {
+    private static class ParticpantSharedResourceProposal {
 
         /**
-         * Email participant instance name.
+         * Shared resource instance name.
          */
-        private String emailInstanceName;
+        private String instanceName;
 
         /**
          * Class to facilitate the proposals for Email particpant shared
@@ -629,8 +559,8 @@ public class SharedResourcesSection
          * 
          * @param aEmailInstanceName
          */
-        public EmailParticpantSharedResourceProposal(String aEmailInstanceName) {
-            this.setEmailInstanceName(aEmailInstanceName);
+        public ParticpantSharedResourceProposal(String aEmailInstanceName) {
+            this.setInstanceName(aEmailInstanceName);
         }
 
         /**
@@ -641,26 +571,26 @@ public class SharedResourcesSection
         @Override
         public String toString() {
             String toStr = super.toString();
-            if (null != this.emailInstanceName && !this.emailInstanceName.isEmpty()) {
-                toStr = this.emailInstanceName;
+            if (null != this.instanceName && !this.instanceName.isEmpty()) {
+                toStr = this.instanceName;
             }
 
             return toStr;
         }
 
         /**
-         * @return the emailInstanceName
+         * @return the instanceName
          */
-        public String getEmailInstanceName() {
-            return emailInstanceName;
+        public String getInstanceName() {
+            return instanceName;
         }
 
         /**
-         * @param emailInstanceName
-         *            the emailInstanceName to set
+         * @param instanceName
+         *            the instanceName to set
          */
-        public void setEmailInstanceName(String emailInstanceName) {
-            this.emailInstanceName = emailInstanceName;
+        public void setInstanceName(String instanceName) {
+            this.instanceName = instanceName;
         }
     }
 
@@ -732,7 +662,9 @@ public class SharedResourcesSection
                 }
             }
         }
-        if (obj == jdbcInstanceNameText) {
+
+        /* Sid ACE-7084 Changed jdbc shared resource name to content assist field. */
+        if (obj == jdbcInstanceNameText.getControl()) {
             final ParticipantSharedResource sr =
                     getSetParticipantSharedResource(participant, false);
             if (sr != null && sr.getJdbc() != null) {
@@ -749,24 +681,28 @@ public class SharedResourcesSection
                 }
             }
         }
-        if (obj == jdbcProfileNameText) {
-            final ParticipantSharedResource sr =
-                    getSetParticipantSharedResource(participant, false);
-            if (sr != null && sr.getJdbc() != null) {
-                Text tc = (Text) obj;
-                final String text = tc.getText();
-                if (!text.equals(sr.getJdbc().getJdbcProfileName())) {
-                    return new RecordingCommand(
-                            (TransactionalEditingDomain) getEditingDomain()) {
-                        @Override
-                        protected void doExecute() {
-                            sr.getJdbc().setJdbcProfileName(text);
-                        }
-                    };
-                }
-            }
-        }
         
+        /*
+         * Sid ACE-7084 Don't need jdbc profile anymore (it was nver passed to runtime anyway)
+         */
+        // if (obj == jdbcProfileNameText) {
+        // final ParticipantSharedResource sr =
+        // getSetParticipantSharedResource(participant, false);
+        // if (sr != null && sr.getJdbc() != null) {
+        // Text tc = (Text) obj;
+        // final String text = tc.getText();
+        // if (!text.equals(sr.getJdbc().getJdbcProfileName())) {
+        // return new RecordingCommand(
+        // (TransactionalEditingDomain) getEditingDomain()) {
+        // @Override
+        // protected void doExecute() {
+        // sr.getJdbc().setJdbcProfileName(text);
+        // }
+        // };
+        // }
+        // }
+        // }
+       
         if (obj == endPointIdentifierText.getControl()) {
           final ParticipantSharedResource sr =
                   getSetParticipantSharedResource(participant, false);
@@ -915,10 +851,20 @@ public class SharedResourcesSection
             }
 
         } else if (sharedResource.getJdbc() != null) {
-            jdbcInstanceNameText.setText(
-                    nullSafe(sharedResource.getJdbc().getInstanceName()));
-            jdbcProfileNameText.setText(
-                    nullSafe(sharedResource.getJdbc().getJdbcProfileName()));
+            /* Sid ACE-7084 changed Jdbc share resource name to content assisted control */
+            JdbcResource jdbcResource = sharedResource.getJdbc();
+
+            if (jdbcResource.getInstanceName() != null) {
+                ((Text) jdbcInstanceNameText.getControl()).setText(nullSafe(jdbcResource.getInstanceName()));
+            } else {
+                ((Text) jdbcInstanceNameText.getControl()).setText("");//$NON-NLS-1$
+            }
+
+            /*
+             * Sid ACE-7084 Don't need jdbc profile anymore (it was nver passed to runtime anyway)
+             */
+            // jdbcProfileNameText.setText(
+            // nullSafe(sharedResource.getJdbc().getJdbcProfileName()));
         }
         else if (sharedResource.getRestService() != null) {
             RestServiceResource restService = sharedResource.getRestService();
@@ -942,4 +888,115 @@ public class SharedResourcesSection
     private String nullSafe(String s) {
         return s != null ? s : ""; //$NON-NLS-1$
     }
+
+    /**
+     * Sid ACE-7084 Refactored from email shared resource section for re-use in email and jdbc shared resource section.
+     *
+     * @author aallway
+     * @since 2 Jun 2023
+     */
+    private final class SharedResourceNameProposalProvider
+            implements FixedValueFieldAssistHelper.FixedValueFieldProposalProvider {
+
+        private com.tibco.xpd.analyst.resources.xpdl2.indexing.ProcessParticipantResourceIndexProvider.ResourceType participantResourceType;
+
+        private String instanceNameIndexerAttrName;
+
+        /**
+         * Create shared resource instance name content assist proposal provider for the given shared resource type
+         * 
+         * @param participantResourceType
+         *            The type of participant shared resource to handle.
+         * 
+         * @param instanceNameIndexerAttrName
+         *            The participant index attribute name for the shared resource instance name attribute
+         */
+        public SharedResourceNameProposalProvider(
+                ProcessParticipantResourceIndexProvider.ResourceType participantResourceType,
+                String instanceNameIndexerAttrName) {
+            this.participantResourceType = participantResourceType;
+            this.instanceNameIndexerAttrName = instanceNameIndexerAttrName;
+
+        }
+
+        @Override
+        public Object[] getProposals() {
+            /*
+             * Get all the participants which match the content of the content assist field
+             */
+            Set<ParticpantSharedResourceProposal> allInstanceNameProposals = getAllInstanceNameProposals();
+            Object[] proposals = allInstanceNameProposals.toArray();
+            return proposals;
+        }
+
+        /**
+         * Get all instance name proposals that are in the scope of the input object.
+         * 
+         * @return
+         */
+        private Set<ParticpantSharedResourceProposal> getAllInstanceNameProposals() {
+
+            Set<ParticpantSharedResourceProposal> allInstanceNameProposals =
+                    new HashSet<ParticpantSharedResourceProposal>();
+
+            Collection<IndexerItem> allParticipantIndexerItems = ProcessUIUtil.getAllParticipantIndexerItems();
+
+            for (IndexerItem eachParticipantIndexerItem : allParticipantIndexerItems) {
+                /*
+                 * Check if the participant is of shared resource is of required share resource type.
+                 */
+                if (eachParticipantIndexerItem != null) {
+                    String resourceType = eachParticipantIndexerItem
+                            .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_TYPE);
+
+                    if (participantResourceType.toString().equals(resourceType)) {
+                        /*
+                         * Make sure that we haven't already added the current instance name to the list of all resource
+                         * names.
+                         */
+                        String instanceName = eachParticipantIndexerItem
+                                .get(instanceNameIndexerAttrName);
+
+                        if (null != instanceName && !instanceName.isEmpty()
+                                && !isAlreadyInTheInstanceNameProposals(instanceName, allInstanceNameProposals)) {
+
+                            ParticpantSharedResourceProposal newSharedResourceProposal =
+                                    new ParticpantSharedResourceProposal(instanceName);
+                            allInstanceNameProposals.add(newSharedResourceProposal);
+                        }
+                    }
+                }
+            }
+
+            return allInstanceNameProposals;
+        }
+
+        /**
+         * Return <code>true</code> if a resource proposal with the specified instance name is already present in the
+         * list of resource proposals, <code>false</code> otherwise.
+         * 
+         * @param instanceName
+         * @param allResourceProposals
+         * 
+         * @return <code>true</code> if a resource proposal with the specified instance name is already present in the
+         *         list of resource proposals, <code>false</code> otherwise.
+         */
+        private boolean isAlreadyInTheInstanceNameProposals(String instanceName,
+                Set<ParticpantSharedResourceProposal> allResourceProposals) {
+            boolean isInstanceNameInTheResourceProposals = false;
+
+            if (null != instanceName) {
+                for (ParticpantSharedResourceProposal eachProposal : allResourceProposals) {
+                    if (null != eachProposal && null != eachProposal.getInstanceName()) {
+                        if (instanceName.equals(eachProposal.getInstanceName())) {
+                            isInstanceNameInTheResourceProposals = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            return isInstanceNameInTheResourceProposals;
+        }
+    }
+
 }

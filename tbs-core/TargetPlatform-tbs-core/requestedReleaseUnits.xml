@@ -1,7 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <feature id="design.gatherer" version="1.0.0" label="BPM Studio design-time gatherer">
 	<requires>
-		<!-- This TP definition is for tbs core features only. See: trunk/tbs-bpm/TargetPlatform-tbs-bpm for full bpm TP -->
+		<!--
+		====================================================================================================
+		====================================================================================================
+		====================================================================================================
+
+		STUDIO CORE FEATURES and BASE ECLIPSE DEPENDENCIES
+		
+		  Everything here up to the "END STUDIO CORE FEATURES and BASE ECLIPSE DEPENDENCIES" comment below
+		  should be copied from ..\..\tbs-core\TargetPlatform-tbs-core content as is.
+
+		====================================================================================================
+		====================================================================================================
+		====================================================================================================
+	 	-->
 
 		<!-- 
 			SVN Features - 
@@ -25,9 +38,6 @@
 		<import feature="com.tibco.tpcl.eclipse419.deps.batik.feature" version="1.0.0" match="compatible"/>
 		<import feature="com.tibco.tpcl.eclipse419.deps.javax.feature" version="1.0.0" match="compatible"/>
 		<import feature="com.tibco.tpcl.eclipse419.deps.jetty.feature" version="1.0.0" match="compatible" />
-		<import feature="com.tibco.tpcl.eclipse419.deps.eclipse.wst.feature" version="1.0.0" match="compatible" />
-		<import feature="com.tibco.tpcl.eclipse419.deps.apache.commons.feature" version="1.0.0" match="compatible" />
-        <import feature="com.tibco.amx.jst.tpcl.eclipse419.dependencies.feature" match="compatible" version="1.0.0"/>  
 
 		<!-- Apache TIBCO TPCLS's -->
 		<import feature="com.tibco.xpd.tpcl.org.apache.derby.feature" version="10.14.2" match="compatible"/>
@@ -44,6 +54,7 @@
 		<import feature="org.eclipse.emf.query.ocl" version="1.12.0" match="compatible" />
 		<import feature="org.eclipse.gef" version="3.11.0" match="compatible" />
 		<import feature="org.eclipse.gmf" version="1.12.0" match="compatible" />
+		<import feature="org.eclipse.gmf.runtime.notation" version="1.13.0" match="compatible" />
 		<import feature="org.eclipse.zest" version="1.7.0" match="compatible"/>
 		
 		<import feature="org.eclipse.xsd" version="2.19.0" match="compatible"/>
@@ -57,7 +68,30 @@
 		<import feature="org.eclipse.wst.xml_userdoc.feature" version="3.18.0" match="compatible"/>
 		<import feature="org.eclipse.team.extras" version="3.1.200" match="compatible"/>
 
-		  <!-- Explicitly pull in org.eclipse.birt.report.viewer which doesn't appear to get pulled in as 
+		<!-- Datatools re-introduced for DB Service task support. -->
+		<import feature="org.eclipse.datatools.enablement.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.apache.derby.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.hsqldb.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.ibm.feature" version="1.14.103" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.jdbc.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.jdt.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.msft.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.mysql.feature" version="1.14.103" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.oda.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.oda.designer.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.oracle.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.postgresql.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.sap.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.sybase.feature" version="1.14.201" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.ingres.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.connectivity.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.modelbase.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.sqldevtools.parsers.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.sqldevtools.sqlbuilder.feature" version="1.14.102" match="compatible"/>	
+		<!-- =============== -->
+
+		<!-- TODO Sid 19/01/2024 - BIRT  shouldn't be required fore 5.x 
+			Explicitly pull in org.eclipse.birt.report.viewer which doesn't appear to get pulled in as 
 			   part of org.eclipse.birt feature even though it is listed in it's feature.xml.
 			 I think the issue is that org.eclipse.birt.report.viewer depends on jetty plugins and 
 			   if nothing depends on those to pull them in, then P2 will not load the org.eclipse.birt.report.viewer plugin
@@ -65,11 +99,10 @@
 			   requestedReleaseUnits.xml during update of Eclipse plaform/TPCLs etc.	 -->
 		<import plugin="org.eclipse.birt.report.viewer" version="4.9.0" match="compatible"/>
 		<import feature="org.eclipse.birt" version="4.9.0" match="compatible"/>
-		
 		<!--  -->
 		
 		<!-- 
-		Studio core features (and installer feature, which I think is only used to build TP??) 
+		 THE Studio core features themselves (and installer feature, which I think is only used to build TP??) 
 		-->
 		<import feature="com.tibco.xpd.installer.feature" version="11.1.0" match="compatible" />
 
@@ -78,8 +111,15 @@
 		<import feature="com.tibco.xpd.core.feature.devdocs" version="11.5.0" match="compatible" />
 		<import feature="com.tibco.xpd.deploy.feature" version="11.5.0" match="compatible" />
 		<import feature="com.tibco.xpd.scf.feature" version="11.5.0" match="compatible" />
-		
 		<import feature="com.tibco.xpd.core.help.feature" version="11.5.0" match="compatible" />
+
+		<!--
+		====================================================================================================
+		END OF STUDIO CORE FEATURES and BASE ECLIPSE DEPENDENCIES
 		
+		  Everything below here is in addition to 
+		  the ..\..\tbs-core\TargetPlatform-tbs-core\requestedReleaseUnits.xml content. 
+		====================================================================================================
+	 	-->		
 	</requires>	
 </feature>

@@ -104,11 +104,12 @@ public class ExtensionValidationRule extends ActivityValidationRule {
         String implementationId =
                 TaskObjectUtil.getTaskImplementationExtensionId(activity);
 
-        if (TaskImplementationTypeDefinitions.DATABASE_SERVICE
-                .equals(implementationId)) {
-            addIssue(ACE_ISSUE_DATABASE_TASK_NOT_SUPPORTED, activity);
-
-        } else if (TaskImplementationTypeDefinitions.DECISION_SERVICE
+        // if (TaskImplementationTypeDefinitions.DATABASE_SERVICE
+        // .equals(implementationId)) {
+        // addIssue(ACE_ISSUE_DATABASE_TASK_NOT_SUPPORTED, activity);
+        //
+        // } else
+        if (TaskImplementationTypeDefinitions.DECISION_SERVICE
                 .equals(implementationId)) {
             addIssue(ACE_ISSUE_DECISIONS_TASK_NOT_SUPPORTED, activity);
 

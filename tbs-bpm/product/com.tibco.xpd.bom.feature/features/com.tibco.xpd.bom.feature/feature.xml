@@ -1,15 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<feature id="com.tibco.xpd.bom.feature" label="%featureName" plugin="com.tibco.xpd.bom.branding" provider-name="%providerName_notrans" version="11.5.0.qualifier">
-    <description url="http://www.tibco.com/devnet/business_studio/default.jsp">
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.tibco.xpd.bom.feature"
+      label="%featureName"
+      version="11.5.0.qualifier"
+      provider-name="%providerName_notrans"
+      plugin="com.tibco.xpd.bom.branding">
+
+   <description url="http://www.tibco.com/devnet/business_studio/default.jsp">
       %description
    </description>
-    <copyright>
+
+   <copyright>
       %copyright
    </copyright>
-    <license url="%licenseURL_notrans">
+
+   <license url="%licenseURL_notrans">
       %license
    </license>
-    <requires>
+
+   <requires>
         <import feature="org.eclipse.gef" match="compatible" version="3.11.0"/>
         <import feature="org.eclipse.ocl" match="compatible" version="3.14.500"/>
         <import feature="org.eclipse.uml2" match="compatible" version="5.5.2"/>
@@ -27,17 +36,171 @@
         <import feature="org.openarchitectureware.xsd.feature" match="compatible" version="4.3.1"/>
         <import feature="org.openarchitectureware.util.ple_feature" match="compatible" version="4.3.1"/>
         <import feature="com.tibco.xpd.tpcl.oaw.lib.feature" match="compatible" version="4.3.3"/>
-    </requires>
-    <plugin download-size="0" id="com.tibco.xpd.bom.modeler" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.bom.modeler.diagram" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.bom.resources.ui" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.bom.resources" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.bom.modeler.custom" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.bom.types" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.bom.validator" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.bom.branding" install-size="0" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.bom.fragments" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.bom.gen" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.bom.gen.ui" install-size="0" unpack="false" version="11.5.0.qualifier"/>
-    <plugin download-size="0" id="com.tibco.xpd.bom.globaldata" install-size="0" unpack="false" version="11.5.0.qualifier"/>
+
+      <import feature="org.eclipse.datatools.connectivity.feature" version="1.14.102" match="compatible"/>
+      <import feature="org.eclipse.datatools.sqldevtools.feature" version="1.14.102" match="compatible"/>
+      <import feature="org.eclipse.datatools.modelbase.feature" version="1.14.102" match="compatible"/>
+      <import feature="org.eclipse.datatools.sqldevtools.parsers.feature" version="1.14.102" match="compatible"/>
+      <import feature="org.eclipse.datatools.sqldevtools.sqlbuilder.feature" version="1.14.102" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="com.tibco.xpd.bom.modeler"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.modeler.diagram"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.resources.ui"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.resources"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.modeler.custom"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.types"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.validator"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.branding"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.fragments"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.gen"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.modeler"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.modeler.diagram"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.resources.ui"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.resources"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.modeler.custom"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.types"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.validator"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.branding"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.fragments"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.gen"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.gen.ui"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.globaldata"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.db"
+         download-size="0"
+         install-size="0"
+         version="11.5.0.qualifier"
+         unpack="false"/>
+
 </feature>

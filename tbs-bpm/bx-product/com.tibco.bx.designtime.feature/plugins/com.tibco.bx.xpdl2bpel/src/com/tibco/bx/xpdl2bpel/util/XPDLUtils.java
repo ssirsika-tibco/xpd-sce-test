@@ -177,7 +177,8 @@ public class XPDLUtils {
      */
     public enum SharedResourceType{
         HTTP_CLIENT("HTTPClient"), //$NON-NLS-1$
-        EMAIL("EMail"); //$NON-NLS-1$
+        EMAIL("EMail"), //$NON-NLS-1$
+        JDBC("Jdbc"); //$NON-NLS-1$
         
         private String name;
         
@@ -640,6 +641,24 @@ public class XPDLUtils {
         }
         return null;
     }
+    
+    /**
+     * Sid ACE-7084 Return database shared resource from associated participant.
+     * 
+     * @param xpdlActivity the context activity.
+     * @return database shared resource from associated participant or 'null' if it can't be resolved.
+     */
+    public static JdbcResource getDatabaseResource(Activity xpdlActivity) {
+        if (xpdlActivity != null) {
+            ParticipantSharedResource sharedResource =
+                    getActivitySharedResource(xpdlActivity);
+            if (sharedResource != null) {
+                return sharedResource.getJdbc();
+            }
+        }
+        return null;
+    }
+    
     
     /**
      * Based on the Web service shared resource configuration - if the

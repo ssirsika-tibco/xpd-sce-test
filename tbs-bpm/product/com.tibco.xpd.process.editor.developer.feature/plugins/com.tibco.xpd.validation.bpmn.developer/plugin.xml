@@ -20,7 +20,9 @@
             markerType="com.tibco.xpd.validation.bpmnValidationMarker"
             name="BPMN Task Validation Provider"
             scopeProvider="com.tibco.xpd.validation.xpdl2.provider.ActivityScopeProvider">
-         
+         <rule
+               class="com.tibco.xpd.validation.bpmn.developer.rules.DatabaseStoredProcedureRule">
+         </rule>
          <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.ScriptContentsRule">
          </rule>

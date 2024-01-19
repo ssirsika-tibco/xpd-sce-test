@@ -1569,6 +1569,10 @@ public class Messages extends NLS {
 
     public static String SharedResourcesSection_EmailInstanceNameTooltip;
 
+    public static String SharedResourcesSection_EmailSharedResource_title;
+
+    public static String SharedResourcesSection_JdbcInstanceNameTooltip;
+
     public static String SharedResourcesSection_JdbcEnum_button;
 
     public static String SharedResourcesSection_JdbcInstanceName_label;
@@ -1576,6 +1580,8 @@ public class Messages extends NLS {
     public static String SharedResourcesSection_JdbcProfileName_label;
 
     public static String SharedResourcesSection_JdbcProfileName_tooltip;
+
+    public static String SharedResourcesSection_JdbcSharedResource_title;
 
     public static String SharedResourcesSection_Provider_button;
 

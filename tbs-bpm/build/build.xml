@@ -70,8 +70,8 @@
 
     <target name="default" depends="build-product, clean-product" description="Default task: builds and then clean all product features." />
 
-    <target name="build-all" depends="build-product, build-bx-product, build-product-n2, build-bx-product-n2, build-tests, build-n2-tests" description="Builds all product, bx-product, product-n2 and test features." />
-    <target name="clean-all" depends="clean-product, clean-bx-product, clean-product-n2, clean-bx-product-n2, clean-tests, clean-n2-tests" description="Cleans all product, bx-product, product-n2 and test features." />
+    <target name="build-all" depends="build-product, build-bx-product, build-product-n2, build-bx-product-n2, build-tests" description="Builds all product, bx-product, product-n2 and test features." />
+    <target name="clean-all" depends="clean-product, clean-bx-product, clean-product-n2, clean-bx-product-n2, clean-tests" description="Cleans all product, bx-product, product-n2 and test features." />
 
     <target name="build-product" depends="init" description="Builds all product features.">
         <antcall target="-build">

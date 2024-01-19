@@ -92,16 +92,17 @@
 	
 	<!--
 	===============================================================================
-	Remove current configuration information from WEB and JDBC service system participants 
+	Remove current configuration information from WEB service system participants 
 	(as in SCE the configuration UI and model will be different).
 	
-	Sid ACE-479: Remvoe JBCD participant type info as well.
+	Sid ACE-7117 Do not remove whole JDBC participant - just the JdbcProfileName attribute
 	Sid ACE-479: Do not remove the entire xpdExt:RestServie element as it is this that 
 	             defines the participant as REST type (instead, the next template will 
 	             remove all of the configuration within it.
+	
 	===============================================================================
     -->
-	<xsl:template match="xpdl2:Participant/xpdExt:ParticipantSharedResource[xpdExt:WebService or xpdExt:Jdbc]">
+	<xsl:template match="xpdl2:Participant/xpdExt:ParticipantSharedResource[xpdExt:WebService]">
 		<!-- Do nothing (e.g. do not output the element)-->
 	</xsl:template>
 	
@@ -120,6 +121,14 @@
 	             </xsl:if>
 		 	</xpdExt:RestService>
 		 </xpdExt:ParticipantSharedResource>
+	</xsl:template>
+
+	<xsl:template match="xpdl2:Participant/xpdExt:ParticipantSharedResource/xpdExt:Jdbc">
+		<xpdExt:Jdbc>
+			<xsl:if test="@InstanceName">
+				<xsl:attribute name="InstanceName"><xsl:value-of select="@InstanceName"/></xsl:attribute>
+			</xsl:if>
+		</xpdExt:Jdbc>
 	</xsl:template>
 
 	<xsl:template match="xpdl2:Participant/xpdExt:ParticipantSharedResource/xpdExt:RestService">
@@ -633,17 +642,6 @@
 	<xsl:template match="@eaijava:* | eaijava:*">
 		<!-- Do nothing (e.g. do not output the attribute / element)-->
 	</xsl:template>
-	
-	<!--
-	===============================================================================
-	Remove all references to database schema elements (the extension model contribution is
-	no longer part of the SCE feature set so have to remove it). 
-	===============================================================================
-    -->
-	<xsl:template match="@database:* | database:*">
-		<!-- Do nothing (e.g. do not output the attribute / element)-->
-	</xsl:template>
-
 	
 	<!--
 	===============================================================================

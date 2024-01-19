@@ -62,6 +62,9 @@
          <taskImplementation taskImplementationId="E-Mail">
             <taskTypeContext type="Service"/>
          </taskImplementation>
+         <taskImplementation taskImplementationId="Database">
+            <taskTypeContext type="Service"/>
+         </taskImplementation>
          <taskImplementation taskImplementationId="GlobalData">
             <taskTypeContext type="Service"/>
          </taskImplementation>
@@ -568,6 +571,9 @@
 
          <rule
                class="com.tibco.bx.validation.rules.activity.SubProcessTaskPriorityRule">
+         </rule>
+         <rule
+               class="com.tibco.bx.validation.rules.activity.MissingDatabaseParameterRule">
          </rule>
          <rule
                class="com.tibco.bx.validation.rules.process.EmbeddedSubProcHasNoStartRule">
@@ -3909,7 +3915,9 @@ s         <scriptContribution
          <rule
                class="com.tibco.bx.validation.rules.activity.TransactionValidationRule">
          </rule>
-
+         <rule
+               class="com.tibco.bx.validation.rules.activity.DatabaseExtensionValidationRule">
+         </rule>
       </provider>
       <issue
             id="n2pe.manualTaskNotSupported"
@@ -5090,6 +5098,16 @@ s         <scriptContribution
       <issue
             id="ace.rest.participant.must.have.resource.name"
             message="%ace.rest.participant.must.have.resource.name"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="ace.email.participant.must.have.resource.name"
+            message="%ace.email.participant.must.have.resource.name"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="ace.jdbc.participant.must.have.resource.name"
+            message="%ace.jdbc.participant.must.have.resource.name"
             severity="ERROR">
       </issue>
       <issue

@@ -165,12 +165,13 @@ public class PeSharedResourceContributorTest extends TestCase {
             PropertyValue[] manifestAttrs = writer.getManifestAttribute(
                     PERascContributor.SHARED_RESOURCE_MANIFEST_ATTR);
             assertNotNull(manifestAttrs);
-            assertEquals(3, manifestAttrs.length);
+            assertEquals(4, manifestAttrs.length);
 
             String[][] expectedValues = {
                     { "SimpleProc/Participants/SimpleServicesService_Consumer",
                             "HTTPClient" },
-                    { "all_reps@work.com", "EMail" } };
+                    // Sid ACE-7229 Added test for Jdbc shared resource dependencies
+                    { "all_reps@work.com", "EMail" }, { "TCLA_PostgreSQL", "Jdbc" } };
             for (String[] expected : expectedValues) {
                 boolean found = false;
                 for (PropertyValue actual : manifestAttrs) {
@@ -296,7 +297,7 @@ public class PeSharedResourceContributorTest extends TestCase {
             PropertyValue[] manifestAttrs = writer.getManifestAttribute(
                     PERascContributor.SHARED_RESOURCE_MANIFEST_ATTR);
             assertNotNull(manifestAttrs);
-            assertEquals(3, manifestAttrs.length);
+            assertEquals(4, manifestAttrs.length);
 
         } finally {
             if (projectImporter != null) {
@@ -378,7 +379,7 @@ public class PeSharedResourceContributorTest extends TestCase {
             PropertyValue[] manifestAttrs = writer.getManifestAttribute(
                     PERascContributor.SHARED_RESOURCE_MANIFEST_ATTR);
             assertNotNull(manifestAttrs);
-            assertEquals(3, manifestAttrs.length);
+            assertEquals(4, manifestAttrs.length);
 
         } finally {
             if (projectImporter != null) {

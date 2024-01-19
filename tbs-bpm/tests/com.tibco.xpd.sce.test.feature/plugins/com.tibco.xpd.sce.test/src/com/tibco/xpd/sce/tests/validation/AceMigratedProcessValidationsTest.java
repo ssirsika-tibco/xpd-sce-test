@@ -229,12 +229,16 @@ public class AceMigratedProcessValidationsTest
                                 "BPM  : Document operation service tasks are not supported (control of case documents is provided via UI / run-time API only). (Pageflow_ServiceConsumer:CaseDocument)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
-                                "ace.database.task.not.supported", //$NON-NLS-1$
-                                "_FchOQmEfEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Database service tasks are not supported (consider use of REST service task instead). (Pageflow_ServiceConsumer:Database)", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
+                        /*
+                         * Sid ACE-6084 (ACE-6896) Removed Database Service task restrictions).
+                         */
+                        // new ValidationsTestProblemMarkerInfo(
+                        // "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
+                        // "ace.database.task.not.supported", //$NON-NLS-1$
+                        // "_FchOQmEfEemASo-CA987hg", //$NON-NLS-1$
+                        // "BPM : Database service tasks are not supported (consider use of REST service task instead).
+                        // (Pageflow_ServiceConsumer:Database)", //$NON-NLS-1$
+                        // ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
@@ -243,12 +247,16 @@ public class AceMigratedProcessValidationsTest
                                 "BPM  : Java service tasks are not supported (consider use of REST service task instead). (Pageflow_ServiceConsumer:Java)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
-                                "ace.database.task.not.supported", //$NON-NLS-1$
-                                "_ISPToWEeEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Database service tasks are not supported (consider use of REST service task instead). (ServiceConsumer:Database)", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
+                        /*
+                         * Sid ACE-6084 (ACE-6896) Removed Database Service task restrictions).
+                         */
+                        // new ValidationsTestProblemMarkerInfo(
+                        // "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
+                        // "ace.database.task.not.supported", //$NON-NLS-1$
+                        // "_ISPToWEeEemASo-CA987hg", //$NON-NLS-1$
+                        // "BPM : Database service tasks are not supported (consider use of REST service task instead).
+                        // (ServiceConsumer:Database)", //$NON-NLS-1$
+                        // ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
@@ -390,13 +398,16 @@ public class AceMigratedProcessValidationsTest
                                 "BPM  : Incoming web-service message events are not supported. Use 'type none' instead and invoke these thru run-time API if required. (StartEvent)", //$NON-NLS-1$
                          ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
-                                "ace.system.participant.must.have.type.set", //$NON-NLS-1$
-                                "_Lts4cGEfEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : System participants must have a shared resource type selected. (DatabaseParticipant)", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
-
+                        /*
+                         * Sid ACE-7117 We now only remove the JdbcPofileName from xpdExt:Jdbc not the whole element.
+                         */
+                        // new ValidationsTestProblemMarkerInfo(
+                        // "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
+                        // "ace.system.participant.must.have.type.set", //$NON-NLS-1$
+                        // "_Lts4cGEfEemASo-CA987hg", //$NON-NLS-1$
+                        // "BPM : System participants must have a shared resource type selected. (DatabaseParticipant)",
+                        // //$NON-NLS-1$
+                        // ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$

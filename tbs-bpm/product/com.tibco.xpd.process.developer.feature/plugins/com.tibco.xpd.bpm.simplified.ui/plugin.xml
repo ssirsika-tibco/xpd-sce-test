@@ -194,7 +194,30 @@
          <perspectiveShortcut id="com.tibco.xpd.bpm.modeling.perspective" />
       </perspectiveExtension>
    </extension>
-   
+
+   <extension
+      point="org.eclipse.ui.activities">
+	    <category
+	          description="%unsupported_features_for_bpm_category_description"
+	          id="com.tibco.xpd.unsupported.in.bpm.category"
+	          name="%unsupported_features_for_bpm_category_name">
+	    </category>
+
+        <categoryActivityBinding
+          activityId="com.tibco.xpd.simplified.ui.activity.datatools"
+          categoryId="com.tibco.xpd.unsupported.in.bpm.category"/>
+          
+        <!-- Datatools -->          
+        <activity
+          id="com.tibco.xpd.simplified.ui.activity.datatools"
+          name="%dtp_activity_name">
+        </activity>
+        <activityPatternBinding
+          activityId="com.tibco.xpd.simplified.ui.activity.datatools"
+          pattern="org\.eclipse\.datatools\..*/.*"/>
+ 	    
+   </extension>
+      
    <extension
       point="org.eclipse.ui.activities">
 	    <category
@@ -239,10 +262,6 @@
           
         <categoryActivityBinding
           activityId="com.tibco.xpd.simplified.ui.activity.emf"
-          categoryId="com.tibco.xpd.bpm.simplified.ui.nonbpm.catetory"/>
-          
-        <categoryActivityBinding
-          activityId="com.tibco.xpd.simplified.ui.activity.datatools"
           categoryId="com.tibco.xpd.bpm.simplified.ui.nonbpm.catetory"/>
           
         <categoryActivityBinding
@@ -317,15 +336,6 @@
         <activityPatternBinding
           activityId="com.tibco.xpd.simplified.ui.activity.emf"
           pattern="org\.eclipse\.m2m\.qvt\.oml\.runtime\.ui/.*"/>
-          
-        <!-- Datatools -->          
-        <activity
-          id="com.tibco.xpd.simplified.ui.activity.datatools"
-          name="%dtp_activity_name">
-        </activity>
-        <activityPatternBinding
-          activityId="com.tibco.xpd.simplified.ui.activity.datatools"
-          pattern="org\.eclipse\.datatools\..*/.*"/>
           
         <!-- Java EE -->          
         <activity

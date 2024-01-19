@@ -43,6 +43,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.TaskImplementationTypeDefinit
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.xpdExtension.EmailResource;
+import com.tibco.xpd.xpdExtension.JdbcResource;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.resolvers.DataReferenceContext;
 
@@ -198,6 +199,27 @@ public class ConverterExtensions {
                             sharedResourceName);
                 }
             }   
+        } 
+        /*
+         * Sid ACE-7122 Moved Shared resource instance name and type to main 
+         * extension activity attributes for consistency with Email/REST tasks.
+         */
+        else if (TaskImplementationTypeDefinitions.DATABASE_SERVICE.equals(implementationTypeId)) {
+            JdbcResource jdbcResource = XPDLUtils.getDatabaseResource(xpdlActivity);
+            
+            if (jdbcResource != null) {
+                BPELUtils.addExtensionAttribute(extensionActivity,
+                        XPDLUtils.ATTR_SHARED_RESOURCE_TYPE,
+                        XPDLUtils.SharedResourceType.JDBC.getName());
+                
+                String sharedResourceName = jdbcResource.getInstanceName();
+                
+                if (sharedResourceName != null) {
+                    BPELUtils.addExtensionAttribute(extensionActivity,
+                            XPDLUtils.ATTR_SHARED_RESOURCE_NAME,
+                            sharedResourceName);
+                }
+            }
         }
     }
 

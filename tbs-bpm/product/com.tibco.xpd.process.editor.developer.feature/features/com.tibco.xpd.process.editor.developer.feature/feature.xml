@@ -22,6 +22,15 @@
         <import feature="com.tibco.xpd.process.editor.feature" match="compatible" version="11.5.0"/>
         <import feature="com.tibco.xpd.rest.feature" match="compatible" version="11.5.0"/>
         <import feature="com.tibco.xpd.bom.feature" match="compatible" version="11.5.0"/>
+      <!-- Sid ACE-6986 Re-introduce Eclipse datatools -->
+      <import feature="org.eclipse.datatools.connectivity.feature" version="1.14.102" match="compatible"/>
+      <import feature="org.eclipse.datatools.sqldevtools.parsers.feature" version="1.14.102" match="compatible"/>
+      <import feature="org.eclipse.datatools.sqldevtools.sqlbuilder.feature" version="1.14.102" match="compatible"/>
+<!-- merge fropm trunk after eclipse 4.19 adoption, can't depend on Eclipse 4.11 now...
+      <import feature="com.tibco.tpcl.eclipse411.deps.feature" version="1.0.0" match="compatible"/>
+      <import feature="com.tibco.tpcl.eclipse411.deps.apache.lucene.feature" version="1.0.0" match="compatible"/>
+     --> 
+
     </requires>
     <plugin download-size="0" id="com.tibco.xpd.implementer.resources.xpdl2" install-size="0" unpack="false" version="11.5.0.qualifier"/>
     <plugin download-size="0" id="com.tibco.xpd.implementer.nativeservices" install-size="0" unpack="false" version="11.5.0.qualifier"/>

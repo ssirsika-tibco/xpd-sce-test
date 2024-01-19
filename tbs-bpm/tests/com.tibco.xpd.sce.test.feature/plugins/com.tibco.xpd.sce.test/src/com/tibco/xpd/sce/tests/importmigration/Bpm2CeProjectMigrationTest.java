@@ -1039,7 +1039,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
          * All processes and process interfaces should have the CE destination set.
          * 
          * This also has the advantage of checking that the XPDL migration has created valid format xpdl files with
-         * things like simulation/eaijava/database namespace elements removed.
+         * things like simulation/eaijava namespace elements removed.
          * 
          */
         Collection<IResource> xpdlFiles = SpecialFolderUtil.getAllDeepResourcesInSpecialFolderOfKind(project,
@@ -1246,7 +1246,17 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                     assertTrue(xpdlFile.getName() + "::" //$NON-NLS-1$
                             + Xpdl2ModelUtil.getDisplayName(participant) + ":" //$NON-NLS-1$
                             + " - REST/WEB/JDBC system participant should have had xpdExt:ParticipantSharedResource removed", //$NON-NLS-1$
-                            psr.getWebService() == null && psr.getJdbc() == null);
+                            psr.getWebService() == null);
+
+                    /*
+                     * Sid ACE-7117 We now only remove the JdbcPofileName from xpdExt:Jdbc not the whole element.
+                     */
+                    if (psr.getJdbc() != null) {
+                        assertTrue(xpdlFile.getName() + "::" //$NON-NLS-1$
+                                + Xpdl2ModelUtil.getDisplayName(participant) + ":" //$NON-NLS-1$
+                                + " - JDBC system participant should have had xpdExt:ParticipantSharedResource/xpdExt:Jdbc/JdbcProfileName attribute removed", //$NON-NLS-1$
+                                psr.getJdbc().getJdbcProfileName() == null);
+                    }
 
                     /*
                      * Sid ACE-479 We now only remove the content of xpdExt:RestService not the whole element so that we

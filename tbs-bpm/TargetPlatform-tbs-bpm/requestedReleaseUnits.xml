@@ -68,7 +68,30 @@
 		<import feature="org.eclipse.wst.xml_userdoc.feature" version="3.18.0" match="compatible"/>
 		<import feature="org.eclipse.team.extras" version="3.1.200" match="compatible"/>
 
-		<!-- Explicitly pull in org.eclipse.birt.report.viewer which doesn't appear to get pulled in as 
+		<!-- Datatools re-introduced for DB Service task support. -->
+		<import feature="org.eclipse.datatools.enablement.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.apache.derby.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.hsqldb.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.ibm.feature" version="1.14.103" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.jdbc.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.jdt.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.msft.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.mysql.feature" version="1.14.103" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.oda.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.oda.designer.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.oracle.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.postgresql.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.sap.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.sybase.feature" version="1.14.201" match="compatible"/>
+		<import feature="org.eclipse.datatools.enablement.ingres.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.connectivity.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.modelbase.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.sqldevtools.parsers.feature" version="1.14.102" match="compatible"/>
+		<import feature="org.eclipse.datatools.sqldevtools.sqlbuilder.feature" version="1.14.102" match="compatible"/>	
+		<!-- =============== -->
+
+		<!-- TODO Sid 19/01/2024 - BIRT  shouldn't be required fore 5.x 
+			Explicitly pull in org.eclipse.birt.report.viewer which doesn't appear to get pulled in as 
 			   part of org.eclipse.birt feature even though it is listed in it's feature.xml.
 			 I think the issue is that org.eclipse.birt.report.viewer depends on jetty plugins and 
 			   if nothing depends on those to pull them in, then P2 will not load the org.eclipse.birt.report.viewer plugin
@@ -76,11 +99,10 @@
 			   requestedReleaseUnits.xml during update of Eclipse plaform/TPCLs etc.	 -->
 		<import plugin="org.eclipse.birt.report.viewer" version="4.9.0" match="compatible"/>
 		<import feature="org.eclipse.birt" version="4.9.0" match="compatible"/>
-		
 		<!--  -->
 	
 		<!-- 
-		Studio core features (and installer feature, which I think is only used to build TP??) 
+		 THE Studio core features themselves (and installer feature, which I think is only used to build TP??) 
 		-->
 		<import feature="com.tibco.xpd.installer.feature" version="11.1.0" match="compatible" />
 
@@ -110,7 +132,7 @@
 		<import feature="org.eclipse.uml2" version="5.5.2" match="compatible"/>
 		<import feature="org.eclipse.ocl" version="3.14.500" match="compatible"/>
 		<import feature="com.tibco.xpd.tpcl.org.google.gson.feature" version="2.8.5" match="compatible"/>
-		
+	
 		<!-- 
 		   Extra features WST (WSDL services related features I think)
 		   TBD Probably no longer required in BPMe Studio

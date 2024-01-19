@@ -5,6 +5,8 @@
 package com.tibco.bx.validation.ace.rules;
 
 import com.tibco.xpd.validation.xpdl2.rules.PackageValidationRule;
+import com.tibco.xpd.xpdExtension.EmailResource;
+import com.tibco.xpd.xpdExtension.JdbcResource;
 import com.tibco.xpd.xpdExtension.ParticipantSharedResource;
 import com.tibco.xpd.xpdExtension.RestServiceResource;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
@@ -34,9 +36,24 @@ public class AceParticipantRules extends PackageValidationRule {
             "ace.system.participant.must.have.type.set"; //$NON-NLS-1$
 
     /**
-     * REST Service participants must have an Endpoint Identification value set.
+     * REST Service participants must have Shared Resource Name set.
      */
     private static final String ACE_ISSUE_REST_PARTICIPANT_MUST_HAVE_RESOURCE_NAME =
+            "ace.rest.participant.must.have.resource.name"; //$NON-NLS-1$
+
+    /*
+     * Sid ACE-7084 Email and Jdbc participants should be validated to have shared resource name set.
+     */
+    /**
+     * Email participants must have Shared Resource Name set.
+     */
+    private static final String ACE_ISSUE_EMAIL_PARTICIPANT_MUST_HAVE_RESOURCE_NAME =
+            "ace.rest.participant.must.have.resource.name"; //$NON-NLS-1$
+
+    /**
+     * Jdbc participants must have Shared Resource Name set.
+     */
+    private static final String ACE_ISSUE_JDBC_PARTICIPANT_MUST_HAVE_RESOURCE_NAME =
             "ace.rest.participant.must.have.resource.name"; //$NON-NLS-1$
 
     /**
@@ -91,16 +108,37 @@ public class AceParticipantRules extends PackageValidationRule {
                     RestServiceResource rsr = psr.getRestService();
                     if (null != rsr) {
                         /*
-                         * REST Service participants must have an Endpoint
-                         * Identification value set.
+                         * REST Service participants must have Shared Resource Name set.
                          */
-                        if (null == rsr.getResourceName()
-                                || rsr.getResourceName().trim().isEmpty()) {
+                        if (null == rsr.getResourceName() || rsr.getResourceName().trim().isEmpty()) {
+                            addIssue(ACE_ISSUE_REST_PARTICIPANT_MUST_HAVE_RESOURCE_NAME, participant);
+                        }
+                    }
+                    /*
+                     * Sid ACE-7084 Email and Jdbc participants should be validated to have shared resource name set.
+                     */
+                    EmailResource esr = psr.getEmail();
+                    if (null != esr) {
+                        /*
+                         * Email participants must have Shared Resource Name set.
+                         */
+                        if (null == esr.getInstanceName() || esr.getInstanceName().trim().isEmpty()) {
+                            addIssue(ACE_ISSUE_EMAIL_PARTICIPANT_MUST_HAVE_RESOURCE_NAME, participant);
+                        }
+                    }
+
+                    JdbcResource jsr = psr.getJdbc();
+                    if (null != jsr) {
+                        /*
+                         * Jdbc participants must have an Endpoint Identification value set.
+                         */
+                        if (null == jsr.getInstanceName() || jsr.getInstanceName().trim().isEmpty()) {
                             addIssue(
-                                    ACE_ISSUE_REST_PARTICIPANT_MUST_HAVE_RESOURCE_NAME,
+                                    ACE_ISSUE_JDBC_PARTICIPANT_MUST_HAVE_RESOURCE_NAME,
                                     participant);
                         }
                     }
+
                 }
 
             } else if (!ParticipantType.RESOURCE_LITERAL.equals(type)
