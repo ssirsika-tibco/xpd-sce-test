@@ -15,22 +15,23 @@ public class BOMResourcesPlugin extends AbstractUIPlugin {
 
     // BOM version
     /*
-     * XPD-5058: BOM migration for latest UML version
-     * 
-     * Following upgrade of UML models to the latest UML2 Version 3.0.0 for
-     * eclipse 3.7 platform, the BOM models should be migrated to refer to this
-     * latest UML2 version. Updating the BOM model version will trigger save
-     * action which saves the UML namespace from the loaded BOM model, which is
-     * the latest. No explicit extension is required. The same case is for UML2
-     * version moving to 5.0.0 in eclipse 4.7 (hance the version was moved
-     * another notch - to 5).
-     * 
-     * Sid ACE-467 - bumped BOM format version to 1000 to exnsure migrations
-     * from BPM to CE envs are done (and to leave a gap between this and AMX BPM
-     * - therefore future AMX BPM releases with incremented formatversion
-     * numbers will still migrate to ACE).
-     */
-    public static final String BOM_VERSION = "1000"; //$NON-NLS-1$
+	 * XPD-5058: BOM migration for latest UML version
+	 * 
+	 * Following upgrade of UML models to the latest UML2 Version 3.0.0 for eclipse 3.7 platform, the BOM models should
+	 * be migrated to refer to this latest UML2 version. Updating the BOM model version will trigger save action which
+	 * saves the UML namespace from the loaded BOM model, which is the latest. No explicit extension is required. The
+	 * same case is for UML2 version moving to 5.0.0 in eclipse 4.7 (hance the version was moved another notch - to 5).
+	 * 
+	 * <li>1000 Sid ACE-467 - bumped BOM format version to 1000 to exnsure migrations from BPM to CE envs are done (and
+	 * to leave a gap between this and AMX BPM - therefore future AMX BPM releases with incremented formatversion
+	 * numbers will still migrate to ACE).</li>
+	 * 
+	 * <li>1001 Sid ACE-7488 - AMX BPM Studio 5.5.0 Bumped version 100 1 due to adoption of GMF.notation features (which
+	 * has changed the XML namespace for GMF notations and therefore makes models created in 5.5 are incompatible with
+	 * previous versions.</i>
+	 * 
+	 */
+	public static final String	BOM_VERSION											= "1001";															//$NON-NLS-1$
 
     // The plug-in ID
     public static final String PLUGIN_ID = "com.tibco.xpd.bom.resources"; //$NON-NLS-1$

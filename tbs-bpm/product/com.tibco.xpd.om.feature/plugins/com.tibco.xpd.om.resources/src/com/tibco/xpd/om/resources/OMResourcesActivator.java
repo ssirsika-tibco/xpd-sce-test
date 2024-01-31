@@ -26,19 +26,22 @@ public class OMResourcesActivator extends Plugin {
 
     // The OM file version (anything earlier than this is non-ACE.
     /**
-     * <li>1000 - Studio Container Edition 5.0.0 (V95) (marks the transition between BPM and SCE Studio - and leaves a
-     * gap between this and AMX BPM - therefore future AMX BPM releases with incremented formatversion numbers will
-     * still migrate to ACE).</i>
-     * 
-     * <li>1001 - Studio Container Edition 5.0.0 (V97)</i>
-     * 
-     * <li>1002 - Studio Container Edition 5.0.0 (V115) - additional system action removal/merge</i>
-     * 
-     * <li>1003 - Studio Container Edition 5.0.0 (V115) - runtime changed there mind about creatUpdateDeleteCase
-     * (switched to separate createUpdateCase and deleteCase)</li>
-     * 
-     */
-    public static final int OM_FILE_VERSION = 1003;
+	 * <li>1000 - Studio Container Edition 5.0.0 (V95) (marks the transition between BPM and SCE Studio - and leaves a
+	 * gap between this and AMX BPM - therefore future AMX BPM releases with incremented formatversion numbers will
+	 * still migrate to ACE).</i>
+	 * 
+	 * <li>1001 - Studio Container Edition 5.0.0 (V97)</i>
+	 * 
+	 * <li>1002 - Studio Container Edition 5.0.0 (V115) - additional system action removal/merge</i>
+	 * 
+	 * <li>1003 - Studio Container Edition 5.0.0 (V115) - runtime changed there mind about creatUpdateDeleteCase
+	 * (switched to separate createUpdateCase and deleteCase)</li>
+	 * 
+	 * <li>1004 - Studio Container Edition 5.5.0 (V199) Sid ACE-7488 - BPM Studio bump to 1004 due to adoption of
+	 * GMF.notation features (which has changed the XML namespace for GMF notations and therefore makes models created
+	 * in 5.5.0 incompatible with previous versions.</i>
+	 */
+	public static final int				OM_FILE_VERSION			= 1004;
 
     // The shared instance
     private static OMResourcesActivator plugin;
