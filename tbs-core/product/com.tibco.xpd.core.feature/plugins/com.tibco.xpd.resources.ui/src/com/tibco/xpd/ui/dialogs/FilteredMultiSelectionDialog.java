@@ -5,6 +5,7 @@ package com.tibco.xpd.ui.dialogs;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -22,7 +23,6 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
@@ -152,29 +152,27 @@ public abstract class FilteredMultiSelectionDialog extends
         return super.createDialogArea(parent);
     }
 
-    /*
-     * This method hacks FilteredItemSelection accessing its private field by
-     * reflection.
-     */
+	/**
+	 * Force reselection of last set initial selection.
+	 */
     private void applyInitalElementSection() {
         Set<Object> initialSel = new LinkedHashSet<Object>();
         updateInitialSelection(initialSel);
         Field listField;
         try {
-            listField =
-                    FilteredItemsSelectionDialog.class.getDeclaredField("list"); //$NON-NLS-1$
-            listField.setAccessible(true);
-            StructuredViewer viewer = (StructuredViewer) listField.get(this);
+			/*
+			 * Sid ACE-7602 Use recently introduced set initial elements method rather than old hacky way of using Java
+			 * introspection.
+			 */
             if (initialSel != null && !initialSel.isEmpty()) {
-                Object objectToSelect = initialSel.iterator().next();
-                viewer.setSelection(new StructuredSelection(objectToSelect));
+				this.setInitialElementSelections(new ArrayList<Object>(initialSel));
             } else {
                 /*
                  * Ensure that there is no selection set in the list until a
                  * selection is made by user so that the OK button would be
                  * disabled
                  */
-                viewer.setSelection(StructuredSelection.EMPTY);
+				this.setInitialElementSelections(Collections.emptyList());
             }
         } catch (Exception e) {
             // Ignore, the error will only be logged.
@@ -189,11 +187,15 @@ public abstract class FilteredMultiSelectionDialog extends
      */
     @Override
     public void refresh() {
-        super.refresh();
         if (!initialized && !multi) {
             applyInitalElementSection();
             initialized = true;
         }
+		/*
+		 * Sid ACE-7602 Don't refresh until after we have set the initial selection (as 1st refresh sets the initial
+		 * selection.
+		 */
+		super.refresh();
     }
 
     @Override

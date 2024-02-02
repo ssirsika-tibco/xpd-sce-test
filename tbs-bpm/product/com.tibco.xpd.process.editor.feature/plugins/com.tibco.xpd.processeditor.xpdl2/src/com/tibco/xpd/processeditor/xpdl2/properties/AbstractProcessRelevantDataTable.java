@@ -30,6 +30,7 @@ import org.eclipse.jface.viewers.ICellEditorListener;
 import org.eclipse.jface.viewers.ICellEditorValidator;
 import org.eclipse.jface.viewers.IFilter;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
@@ -53,6 +54,7 @@ import org.eclipse.uml2.uml.Type;
 import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.properties.general.BaseTypeSection;
 import com.tibco.xpd.analyst.resources.xpdl2.properties.general.UIBasicTypes;
+import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.bom.resources.ui.commonpicker.BOMTypeQuery;
 import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
@@ -1606,6 +1608,14 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
                     if (element instanceof TypeDeclaration) {
                         TypeDeclaration typeDeclaration =
                                 (TypeDeclaration) element;
+
+						/*
+						 * Sid ACE-7602 Found that setting case ref type on type declaration DIDN'T unset the current
+						 * basic-type model. So fixed.
+						 */
+						cmd.append(TypeDeclarationPropertySection.getClearTypeDeclarationTypeCommand(getEditingDomain(),
+								typeDeclaration));
+
                         cmd.append(SetCommand.create(getEditingDomain(),
                                 typeDeclaration,
                                 Xpdl2Package.eINSTANCE
@@ -1765,6 +1775,12 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
             // XPD-3129:using project filter , restricts the picker to Classes
             // from BOMs in same Project only, which is not desired.
             IFilter[] filters = new IFilter[] {};
+
+			/* Sid ACE-7602 setup current selection as initial selection. */
+			Object initialSelection = null;
+			Object firstElement = ((StructuredSelection) getViewer().getSelection()).getFirstElement();
+			initialSelection = BasicTypeConverterFactory.INSTANCE.getBaseType(firstElement, false);
+
             result =
                     PickerService
                             .getInstance()
@@ -1773,7 +1789,7 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
                                     null,
                                     null,
                                     null,
-                                    filters);
+									filters, initialSelection);
 
             // XPD-3129: add project reference if required
             if (result instanceof Type
@@ -1847,6 +1863,12 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
             // XPD-3129:using project filter , restricts the picker to Classes
             // from BOMs in same Project only, which is not desired.
             IFilter[] filters = new IFilter[] {};
+
+            /* Sid ACE-7602 setup current selection as initial selection. */
+			Object initialSelection = null;
+			Object firstElement = ((StructuredSelection) getViewer().getSelection()).getFirstElement();
+			initialSelection = BasicTypeConverterFactory.INSTANCE.getBaseType(firstElement, false);
+
             result =
                     PickerService
                             .getInstance()
@@ -1855,7 +1877,8 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
                                     null,
                                     null,
                                     null,
-                                    filters);
+									filters,
+									initialSelection);
 
             // XPD-3129: add project reference if required
             if (result instanceof Type

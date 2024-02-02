@@ -38,6 +38,7 @@ import org.eclipse.ui.forms.widgets.ScrolledPageBook;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Type;
 
+import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.bom.resources.ui.commonpicker.BOMTypeQuery;
@@ -673,6 +674,17 @@ public abstract class BaseTypeSection extends
         EObject inputType = getInputType();
 
         if (inputType != null) {
+			/* Sid ACE-7602 Set input on type picker dialogs so that they can pick up current selected type */
+			if (bomTypePickerCtrl != null)
+			{
+				bomTypePickerCtrl.setInput(getInput());
+			}
+
+			if (caseClassPickerCtrl != null)
+			{
+				caseClassPickerCtrl.setInput(getInput());
+			}
+
             // Update the details section
             doRefreshExtraDetails();
 
@@ -1797,6 +1809,8 @@ public abstract class BaseTypeSection extends
 
         private String[] bomTypeFilter;
 
+		private EObject						input;
+
         public BOMTypePicker(Composite parent, int style,
                 XpdFormToolkit toolkit, EditingDomain editingDomain,
                 ContainerType containerType, String[] bomTypeFilter) {
@@ -1817,6 +1831,23 @@ public abstract class BaseTypeSection extends
             /* Sid ACE-5361 allow subclass to set filter. */
             this.bomTypeFilter = bomTypeFilter;
         }
+
+		/**
+		 * @param input
+		 *            the input to set
+		 */
+		public void setInput(EObject input)
+		{
+			this.input = input;
+		}
+
+		/**
+		 * @return the input
+		 */
+		public EObject getInput()
+		{
+			return input;
+		}
 
         /**
          * Get the current project.
@@ -1841,13 +1872,18 @@ public abstract class BaseTypeSection extends
             // BOMs in same Project only, which is not desired.
             IFilter[] filters = new IFilter[] {};
 
+			/* Sid ACE-7602 setup current selection as initial selection. */
+			Object initialSelection = BasicTypeConverterFactory.INSTANCE.getBaseType(getInput(), false);
+
             Object result =
                     PickerService.getInstance().openSinglePickerDialog(shell,
                             queries,
                             null,
                             null,
                             null,
-                            filters);
+							filters, 
+							initialSelection);
+            
             if (result instanceof Type
                     && ComplexDataUIUtil.checkProjectDependencies(shell,
                             project,
@@ -2119,6 +2155,9 @@ public abstract class BaseTypeSection extends
             // BOMs in same Project only, which is not desired.
             IFilter[] filters = new IFilter[] {};
 
+			/* Sid ACE-7602 setup current selection as initial selection. */
+			Object initialSelection = BasicTypeConverterFactory.INSTANCE.getBaseType(getInput(), false);
+
             Shell shell = control.getShell();
             Object result =
                     PickerService.getInstance().openSinglePickerDialog(shell,
@@ -2127,7 +2166,8 @@ public abstract class BaseTypeSection extends
                             null,
                             null,
                             filters,
-                            null);
+							initialSelection);
+            
             if (result instanceof Type
                     && ComplexDataUIUtil.checkProjectDependencies(shell,
                             project,

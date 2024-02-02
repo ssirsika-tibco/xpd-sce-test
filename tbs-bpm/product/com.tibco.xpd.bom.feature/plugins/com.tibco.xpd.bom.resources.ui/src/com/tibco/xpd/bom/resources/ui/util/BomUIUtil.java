@@ -195,6 +195,7 @@ public class BomUIUtil {
             EObject context, IResource[] resourceFilter, String operationLabel,
             String initialPattern) {
         Classifier superClass = null;
+		Object initialSelection = null; // Current type selected.
 
         if (context == null) {
             throw new NullPointerException("input is null"); //$NON-NLS-1$
@@ -211,8 +212,12 @@ public class BomUIUtil {
                     new BOMTypeQuery(BOMTypeQuery.PRIMITIVE_TYPE,
                             BOMTypeQuery.BASE_PRIMITIVE_TYPE);
             filtersList.add(new BOMBasePrimitiveTypesFilter());
+            
         } else if (context instanceof Property) {
             Property prop = (Property) context;
+
+            /* Sid ACE-7602 set current type as initial selection. */
+			initialSelection = prop.getType();
 
             query =
                     new BOMTypeQuery(BOMTypeQuery.PRIMITIVE_TYPE,
@@ -272,7 +277,7 @@ public class BomUIUtil {
                         initialPattern,
                         resourceFilter,
                         new Object[] { context },
-                        filters);
+						filters, initialSelection);
 
         if (result instanceof Type
                 && checkProjectDependencies(shell,
