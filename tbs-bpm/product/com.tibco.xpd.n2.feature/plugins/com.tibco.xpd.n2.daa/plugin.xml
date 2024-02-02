@@ -71,6 +71,9 @@
             type="org.eclipse.core.resources.IProject">
       </propertyTester>
    </extension>
+   
+   <!-- Sid ACE-7608 Hide the advanced property "BPM Runtime Configuration... Incoming Request Timeout (seconds)" as no longer applicable to BPMe 5.x --> 
+   <!--
       <extension
          point="com.tibco.xpd.processeditor.xpdl2.advancedProperties">
       <DestinationEnvironments
@@ -84,5 +87,6 @@
                ContributedAdvancedPropertyClass="com.tibco.xpd.n2.daa.ThreadingPolicyInvocationTimeOutProperty"
                DisplayName="%advanced.properties.deploy.bpmDeployConfiguration.label">
          </AdvancedProperty></AdvancedProperties>
-   </extension>   
+     </extension>
+   -->   
 </plugin>

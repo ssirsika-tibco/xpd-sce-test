@@ -645,10 +645,14 @@
                 class="com.tibco.bx.validation.rules.mapping.GlobalDataCatchErrorJSOutputMappingRule">
           </rule>
 
+          <!-- Sid ACE-7608 Hide the advanced property "BPM Runtime Configuration... Incoming Request Timeout (seconds)" as no longer applicable to BPMe 5.x -->
+          <!--
           <rule
                 class="com.tibco.bx.validation.rules.process.ThreadingPolicyInvocationTimeoutRule"
                 validateOnSaveOnly="false">
           </rule>
+          -->
+          
           <rule
                 class="com.tibco.bx.validation.rules.EventSubProcessStartEventRule">
           </rule>
@@ -2217,11 +2221,15 @@
              severity="ERROR">
        </issue>
 
+	   <!-- Sid ACE-7608 Hide the advanced property "BPM Runtime Configuration... Incoming Request Timeout (seconds)" as no longer applicable to BPMe 5.x -->
+	   <!-- 
        <issue
              id="bx.invocationTimeoutRequired"
              message="%bx.invocationTimeoutRequiredMsg"
              severity="WARNING">
        </issue>
+       --> 
+       
        <issue
              id="bx.eventSubProcStartEventTriggerTypeRestrictionInBusinessProc"
              message="%bx.eventSubProcStartEventTriggerTypeRestrictionInBusinessProc"

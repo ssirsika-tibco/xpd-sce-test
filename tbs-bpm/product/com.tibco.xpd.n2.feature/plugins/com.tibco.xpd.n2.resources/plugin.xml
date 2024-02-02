@@ -196,6 +196,10 @@
                 DisplayName="%advanced_property_system_error_action">
           </AdvancedProperty></AdvancedProperties>
     </extension>
+    
+    <!-- Sid ACE-7608 Hide the advanced proeprty "Pre-AMX-BPM 2.0 compatibility options... Use unqualified correlation property names on deploy"
+         as it is no longer applicable to BPMe 5.x and cvould cause issues if selected -->
+    <!--
     <extension
           point="com.tibco.xpd.processeditor.xpdl2.advancedProperties">
        <DestinationEnvironments
@@ -211,6 +215,9 @@
           </AdvancedProperty>
        </AdvancedProperties>
     </extension>
+    -->
+    
+    
      <extension
           point="com.tibco.xpd.processeditor.xpdl2.advancedProperties">
        <DestinationEnvironments

@@ -35,6 +35,7 @@
 		
 		- Remove ReceiveTask web-service configuration
 		
+		- Sid ACE-7608 Remove xpdExt:BxUseUnqualifiedPropertyNames and <xpdExt:BpmRuntimeConfiguration /> 
 		
   	    (See XpdlMigrate.java for format version <-> Studio version equivalence).
   	     
@@ -701,7 +702,7 @@
 		<!--  Not outputting the version element to target will effectively remove it -->
 	</xsl:template>
 	
-		<!--
+	<!--
 	===============================================================================
 	Remove Publish as REST service attributes and the hidden pageflow that supports the service API
 	===============================================================================
@@ -711,6 +712,19 @@
 	</xsl:template>
 	
 	<xsl:template match="xpdl2:WorkflowProcess/xpdExt:RESTServices">
+		<!-- Do nothing (e.g. do not output the element)-->
+	</xsl:template>
+
+	<!--
+	===============================================================================
+	Sid ACE-7608 Remove xpdExt:BxUseUnqualifiedPropertyNames and <xpdExt:BpmRuntimeConfiguration /> 
+	===============================================================================
+    -->
+	<xsl:template match="@xpdExt:BxUseUnqualifiedPropertyNames">
+		<!-- Do nothing (e.g. do not output attribute)-->
+	</xsl:template>
+
+	<xsl:template match="xpdExt:BpmRuntimeConfiguration">
 		<!-- Do nothing (e.g. do not output the element)-->
 	</xsl:template>
 	

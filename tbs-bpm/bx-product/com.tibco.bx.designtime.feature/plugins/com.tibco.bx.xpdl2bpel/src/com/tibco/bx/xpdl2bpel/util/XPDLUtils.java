@@ -1183,18 +1183,23 @@ public class XPDLUtils {
                 XpdExtensionPackage.eINSTANCE.getDocumentRoot_NonInterruptingEvent());
     }
 
-    /**
-     * Check whether the process package containing the given element is
-     * configured to use the old pre-AMX-BPM-2.0 Correlation PropertyName scheme
-     * 
-     * @param anyProcessPackageElement
-     * 
-     * @return <code>true</code> if the pre-AMX-BPM-2.0 correlation PropertyName
-     *         scheme (i.e. <b>just the correlation datafield name</b>) should
-     *         be used or <code>false</code> to use the new post-AMX-BPM-2.0
-     *         schema should be used
-     *         <b>PropertyName=ProcessName_CorrelationDataName</b>
-     */
+	/**
+	 * Check whether the process package containing the given element is configured to use the old pre-AMX-BPM-2.0
+	 * Correlation PropertyName scheme
+	 * 
+	 * @param anyProcessPackageElement
+	 * 
+	 * @return <code>true</code> if the pre-AMX-BPM-2.0 correlation PropertyName scheme (i.e. <b>just the correlation
+	 *         datafield name</b>) should be used or <code>false</code> to use the new post-AMX-BPM-2.0 schema should be
+	 *         used <b>PropertyName=ProcessName_CorrelationDataName</b>
+	 * 
+	 * @deprecated Sid ACE-7608 We now hide the advanced property "Pre-AMX-BPM 2.0 compatibility options... Use
+	 *             unqualified correlation property names on deploy" as it is no longer applicable (being pre AMX-BPM
+	 *             2.0!) and selecting it _would_ have an impact on runtime correlation field naming. So noting that
+	 *             here but leaving the code here _just in case_ someone already has it selected and it's working for
+	 *             them.
+	 */
+	@Deprecated
     public static boolean useUnqualifiedCorrelationPropertyNames(
             EObject anyProcessPackageElement) {
         /*

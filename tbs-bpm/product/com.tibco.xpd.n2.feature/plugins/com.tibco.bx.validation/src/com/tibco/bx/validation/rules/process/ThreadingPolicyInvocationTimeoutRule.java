@@ -13,12 +13,16 @@ import com.tibco.xpd.xpdl2.util.ReplyActivityUtil;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
- * Rule that complains incoming request timeout (on process package) being not
- * set if any process has incoming correlation activities with replies
+ * Rule that complains incoming request timeout (on process package) being not set if any process has incoming
+ * correlation activities with replies
  * 
  * @author bharge
  * @since 24 Jul 2014
+ * 
+ * @deprecated Sid ACE-7608 Hide the advanced property "BPM Runtime Configuration... Incoming Request Timeout (seconds)"
+ *             as no longer applicable to BPMe 5.x (disabled in plugin.xml contributions)
  */
+@Deprecated
 public class ThreadingPolicyInvocationTimeoutRule extends
         ProcessActivitiesValidationRule {
 
@@ -33,29 +37,28 @@ public class ThreadingPolicyInvocationTimeoutRule extends
     @Override
     protected void validate(Activity activity) {
 
-        if (Xpdl2ModelUtil.isCorrelatingActivity(activity)) {
+		if (Xpdl2ModelUtil.isCorrelatingActivity(activity))
+		{
 
-            if (ReplyActivityUtil.hasReplyActivities(activity)) {
+			if (ReplyActivityUtil.hasReplyActivities(activity))
+			{
 
-                /*
-                 * check if the process package has bpm runtime configuration
-                 * invocation time out set. if not raise a warning
-                 */
-                Package procPkg = activity.getProcess().getPackage();
-                BpmRuntimeConfiguration bpmRuntimeConfiguration =
-                        (BpmRuntimeConfiguration) Xpdl2ModelUtil
-                                .getOtherElement(procPkg,
-                                        XpdExtensionPackage.eINSTANCE
-                                                .getDocumentRoot_BpmRuntimeConfiguration());
+				/*
+				 * check if the process package has bpm runtime configuration invocation time out set. if not raise a
+				 * warning
+				 */
+				Package procPkg = activity.getProcess().getPackage();
+				BpmRuntimeConfiguration bpmRuntimeConfiguration = (BpmRuntimeConfiguration) Xpdl2ModelUtil
+						.getOtherElement(procPkg,
+								XpdExtensionPackage.eINSTANCE.getDocumentRoot_BpmRuntimeConfiguration());
 
-                if (null == bpmRuntimeConfiguration
-                        || null == bpmRuntimeConfiguration
-                                .getIncomingRequestTimeout()) {
+				if (null == bpmRuntimeConfiguration || null == bpmRuntimeConfiguration.getIncomingRequestTimeout())
+				{
 
-                    addIssue(INVOCATION_TIMEOUT_REQUIRED, activity);
-                }
-            }
-        }
+					addIssue(INVOCATION_TIMEOUT_REQUIRED, activity);
+				}
+			}
+		}
     }
 
 }
