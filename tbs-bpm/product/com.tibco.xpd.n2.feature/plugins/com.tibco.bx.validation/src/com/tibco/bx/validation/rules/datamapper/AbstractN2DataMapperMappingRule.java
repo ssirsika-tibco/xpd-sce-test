@@ -14,7 +14,6 @@ import com.tibco.xpd.datamapper.api.DataMapperUtils;
 import com.tibco.xpd.datamapper.infoProviders.WrappedContributedContent;
 import com.tibco.xpd.datamapper.rules.AbstractDataMapperMappingRule;
 import com.tibco.xpd.mapper.Mapping;
-import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
@@ -23,16 +22,12 @@ import com.tibco.xpd.validation.bpmn.rules.baserules.JavaScriptTypeCompatibility
 import com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProviderBase;
 import com.tibco.xpd.validation.bpmn.rules.baserules.MappingTypeCompatibility;
 import com.tibco.xpd.validation.bpmn.rules.baserules.ProcessDataMappingCompatibilityUtil;
-import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdExtension.ScriptInformation;
-import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
-import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.BasicType;
 import com.tibco.xpd.xpdl2.BasicTypeType;
 import com.tibco.xpd.xpdl2.DirectionType;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
 import com.tibco.xpd.xpdl2.RecordType;
-import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
  * Abstract data mapper rule class to provide common rules applicable to all
@@ -44,7 +39,11 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 public abstract class AbstractN2DataMapperMappingRule
         extends AbstractDataMapperMappingRule {
 
-    private static final int MAPPING_SIZE_LIMIT = 100;
+	/*
+	 * Sid ACE-7582 No need to complain about number of mappings now because BPMe runtime should not attempt to compile
+	 * JavaScript any more and so should not hit 64k script engine limit
+	 */
+	// private static final int MAPPING_SIZE_LIMIT = 100;
 
     /**
      * @see com.tibco.xpd.validation.bpmn.rules.baserules.AbstractActivityMappingJavaScriptRule#checkJavaScriptTypeCompatibility(java.lang.Object,
@@ -396,57 +395,62 @@ public abstract class AbstractN2DataMapperMappingRule
 
         super.performAdditionalMappingsValidation(objectToValidate, mappings);
 
-        if (mappings.size() > MAPPING_SIZE_LIMIT) {
+		/*
+		 * Sid ACE-7582 No need to complain about number of mappings now because BPMe runtime should not attempt to
+		 * compile JavaScript any more and so should not hit 64k script engine limit
+		 */
 
-            if (objectToValidate instanceof Activity) {
-
-                Activity activity = (Activity) objectToValidate;
-
-                ScriptDataMapper sdm = getScriptDataMapperProvider()
-                        .getScriptDataMapper(activity);
-
-                MappingDirection mappingDirection = getMappingDirection();
-
-                if (MappingDirection.IN.equals(mappingDirection)) {
-
-                    boolean suppressMaxInputMappingsError =
-                            Xpdl2ModelUtil.getOtherAttributeAsBoolean(sdm,
-                                    XpdExtensionPackage.eINSTANCE
-                                            .getDocumentRoot_SuppressMaxMappingsError());
-                    if (suppressMaxInputMappingsError) {
-                        /* raise warning */
-                        addIssue("bx.inputMappingCountExceedsLimitWarning", //$NON-NLS-1$
-                                sdm,
-                                createMessageList(
-                                        getMappingTypeDescription(activity)));
-                    } else {
-                        /* raise error */
-                        addIssue("bx.inputMappingCountExceedsLimitError", //$NON-NLS-1$
-                                sdm,
-                                createMessageList(
-                                        getMappingTypeDescription(activity)));
-                    }
-
-                } else if (MappingDirection.OUT.equals(mappingDirection)) {
-                    boolean suppressMaxOutputMappingsError =
-                            Xpdl2ModelUtil.getOtherAttributeAsBoolean(sdm,
-                                    XpdExtensionPackage.eINSTANCE
-                                            .getDocumentRoot_SuppressMaxMappingsError());
-                    if (suppressMaxOutputMappingsError) {
-                        /* raise warning */
-                        addIssue("bx.outputMappingCountExceedsLimitWarning", //$NON-NLS-1$
-                                sdm,
-                                createMessageList(
-                                        getMappingTypeDescription(activity)));
-                    } else {
-                        /* raise error */
-                        addIssue("bx.outputMappingCountExceedsLimitError", //$NON-NLS-1$
-                                sdm,
-                                createMessageList(
-                                        getMappingTypeDescription(activity)));
-                    }
-                }
-            }
-        }
+		// if (mappings.size() > MAPPING_SIZE_LIMIT) {
+		//
+		// if (objectToValidate instanceof Activity) {
+		//
+		// Activity activity = (Activity) objectToValidate;
+		//
+		// ScriptDataMapper sdm = getScriptDataMapperProvider()
+		// .getScriptDataMapper(activity);
+		//
+		// MappingDirection mappingDirection = getMappingDirection();
+		//
+		// if (MappingDirection.IN.equals(mappingDirection)) {
+		//
+		// boolean suppressMaxInputMappingsError =
+		// Xpdl2ModelUtil.getOtherAttributeAsBoolean(sdm,
+		// XpdExtensionPackage.eINSTANCE
+		// .getDocumentRoot_SuppressMaxMappingsError());
+		// if (suppressMaxInputMappingsError) {
+		// /* raise warning */
+		// addIssue("bx.inputMappingCountExceedsLimitWarning", //$NON-NLS-1$
+		// sdm,
+		// createMessageList(
+		// getMappingTypeDescription(activity)));
+		// } else {
+		// /* raise error */
+		// addIssue("bx.inputMappingCountExceedsLimitError", //$NON-NLS-1$
+		// sdm,
+		// createMessageList(
+		// getMappingTypeDescription(activity)));
+		// }
+		//
+		// } else if (MappingDirection.OUT.equals(mappingDirection)) {
+		// boolean suppressMaxOutputMappingsError =
+		// Xpdl2ModelUtil.getOtherAttributeAsBoolean(sdm,
+		// XpdExtensionPackage.eINSTANCE
+		// .getDocumentRoot_SuppressMaxMappingsError());
+		// if (suppressMaxOutputMappingsError) {
+		// /* raise warning */
+		// addIssue("bx.outputMappingCountExceedsLimitWarning", //$NON-NLS-1$
+		// sdm,
+		// createMessageList(
+		// getMappingTypeDescription(activity)));
+		// } else {
+		// /* raise error */
+		// addIssue("bx.outputMappingCountExceedsLimitError", //$NON-NLS-1$
+		// sdm,
+		// createMessageList(
+		// getMappingTypeDescription(activity)));
+		// }
+		// }
+		// }
+		// }
     }
 }

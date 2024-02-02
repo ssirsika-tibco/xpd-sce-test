@@ -16,12 +16,17 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
- * Resolution to suppress the error message and show it as a warning when number
- * of mappings on an activity exceeds the supported count.
+ * Resolution to suppress the error message and show it as a warning when number of mappings on an activity exceeds the
+ * supported count.
  *
  * @author aallway
  * @since 21 Jan, 2019
+ * 
+ * @deprecated Sid ACE-7582 resolution disabled in plugin.xml. No need to complain about number of mappings now because
+ *             BPMe runtime should not attempt to compile JavaScript any more and so should not hit 64k script engine
+ *             limit. So no need for the resolution.
  */
+@Deprecated
 public class IgnoreMappingCountResolution
         extends AbstractWorkingCopyResolution {
 
