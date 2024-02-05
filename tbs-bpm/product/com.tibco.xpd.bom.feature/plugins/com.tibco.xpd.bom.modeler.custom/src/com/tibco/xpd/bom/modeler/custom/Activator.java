@@ -8,6 +8,7 @@ import com.tibco.xpd.resources.logger.LoggerFactory;
 
 /**
  * The activator class controls the plug-in life cycle
+ * 
  */
 public class Activator extends AbstractUIPlugin {
 

@@ -14,7 +14,6 @@ import com.tibco.xpd.resources.wc.gmf.XpdResourceFactory;
  * each referenced <code>EObject</code>.
  * 
  * @author njpatel
- * 
  */
 public class BOMResourceFactory extends XpdResourceFactory {
 
