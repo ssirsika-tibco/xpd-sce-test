@@ -1378,6 +1378,25 @@ public abstract class AbstractDataMapperSection extends
                                 refresh = true;
                                 break;
                             }
+							/*
+							 * Sid XPD-8633 - Fix issue that undo of 1st created mapping does not refresh properties.
+							 * 
+							 * This is because the check above to catch all changes to scriptDataMapper won't work
+							 * because the removed scriptDataMapper element is added during 1st mapping create, and so
+							 * when undone it fails
+							 * "input = getScriptDataMapperProvider().getScriptDataMapper(activity);" will return null.
+							 * 
+							 * So we need to check explicitly for removal of scriptDataMapper element.
+							 */
+							else if (notification.getOldValue() instanceof ScriptDataMapper
+									&& notification.getEventType() == Notification.REMOVE)
+							{
+								if (notifier instanceof EObject && EcoreUtil.isAncestor(activity, (EObject) notifier))
+								{
+									refresh = true;
+									break;
+								}
+							}
                         }
                     }
                 }
