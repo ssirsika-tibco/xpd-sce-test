@@ -60,6 +60,7 @@ import com.tibco.xpd.resources.util.XpdConsts;
 import com.tibco.xpd.validation.provider.IIssue;
 import com.tibco.xpd.xpdExtension.Audit;
 import com.tibco.xpd.xpdExtension.CatchErrorMappings;
+import com.tibco.xpd.xpdExtension.ConstantPeriod;
 import com.tibco.xpd.xpdExtension.ParticipantSharedResource;
 import com.tibco.xpd.xpdExtension.ProcessInterfaces;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
@@ -656,9 +657,31 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 
             Activity receiveActivity = process.getActivity("_Gz1Zga1dEemL6f5sRm58aQ"); //$NON-NLS-1$
 
-            assertNull("xpdExt:CorrelationTimeout should have been removed from receivetask xpdl2:Activity", //$NON-NLS-1$
+			assertNotNull("xpdExt:CorrelationTimeout should have been retained from receivetask xpdl2:Activity", //$NON-NLS-1$
                     Xpdl2ModelUtil.getOtherElement(receiveActivity,
                             XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelationTimeout()));
+			
+			
+			ConstantPeriod constantP = ((ConstantPeriod) Xpdl2ModelUtil.getOtherElement(receiveActivity,
+					XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelationTimeout()));
+
+
+			assertEquals(
+					"xpdExt:CorrelationTimeout attribute should have days set to 1", //$NON-NLS-1$
+					"1", // $NON-NLS-1$
+					constantP.getDays().toString());
+
+			assertEquals("xpdExt:CorrelationTimeout attribute should have hours set to 2", //$NON-NLS-1$
+					"2", // $NON-NLS-1$
+					constantP.getHours().toString());
+
+			assertEquals("xpdExt:CorrelationTimeout attribute should have minutes set to 3", //$NON-NLS-1$
+					"3", // $NON-NLS-1$
+					constantP.getMinutes().toString());
+
+			assertEquals("xpdExt:CorrelationTimeout attribute should have sec set to 4", //$NON-NLS-1$
+					"4", // $NON-NLS-1$
+					constantP.getSeconds().toString());
 
             TaskReceive taskReceive = ((Task) receiveActivity.getImplementation()).getTaskReceive();
 
@@ -676,7 +699,8 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                     Xpdl2ModelUtil.getOtherAttribute(taskReceive,
                             XpdExtensionPackage.eINSTANCE.getDocumentRoot_Generated()));
 
-            assertNull("xpdExt:CorrelateImmediately attribute should have been removed from xpdl2:TaskReceive.", //$NON-NLS-1$
+			assertNotNull(
+					"xpdExt:CorrelateImmediately attribute should have been retained from xpdl2:TaskReceive. If already set", //$NON-NLS-1$
                     Xpdl2ModelUtil.getOtherAttribute(taskReceive,
                             XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelateImmediately()));
 

@@ -843,10 +843,13 @@ public class ConvertBoundaryEvents {
 	    OnEvent onEvent = BPELFactory.eINSTANCE.createOnEvent();
 	    eventHandler.getEvents().add(onEvent);
 	    
-	    // SCE: Default message correlation timeout is no longer configurable by the user.
+	    // ACE-7613 SCE: Default message correlation timeout re-enabled for configurable by the user.
         // See: XPDLUtils.getMessageTimeout(xpdlActivity);
-        BPELUtils.addExtensionAttribute(onEvent, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
-	    
+        Long seconds = XPDLUtils.getMessageTimeout(xpdlActivity);
+        if (seconds>0) {
+            BPELUtils.addExtensionAttribute(onEvent, "messageTimeout", seconds.toString());
+        }
+        
         // Sid ACE-2388 - Correlate immediate
         boolean correlateImmediate = XPDLUtils.getCorrelateImmediately(xpdlActivity.getEvent());
         if (correlateImmediate) {

@@ -595,8 +595,6 @@
 	Remove ReceiveTask web-service configuration 
 	===============================================================================
     -->
-    <xsl:template match="xpdl2:Activity[xpdl2:Implementation/xpdl2:Task/xpdl2:TaskReceive]/xpdExt:CorrelationTimeout">
-	</xsl:template>
     
 
 	<xsl:template match="xpdl2:TaskReceive/@xpdExt:ImplementationType">
@@ -611,8 +609,6 @@
 	<xsl:template match="xpdl2:TaskReceive/@xpdExt:Generated">
 	</xsl:template>
 
-	<xsl:template match="xpdl2:TaskReceive/@xpdExt:CorrelateImmediately">
-	</xsl:template>
 		
 	<xsl:template match="xpdl2:TaskReceive/xpdl2:WebServiceOperation">
 	</xsl:template>

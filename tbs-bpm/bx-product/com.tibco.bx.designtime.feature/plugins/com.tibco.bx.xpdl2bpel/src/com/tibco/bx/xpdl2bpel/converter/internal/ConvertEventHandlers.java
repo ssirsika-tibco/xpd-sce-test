@@ -203,9 +203,15 @@ public class ConvertEventHandlers {
 
         Activity xpdlActivity = eventHandlerTask.getXpdlActivity();
 
-        // SCE: Default message correlation timeout is no longer configurable by the user.
+        // ACE-7613 SCE: Default message correlation timeout is re-enabled for configurable by the user.
         // See: XPDLUtils.getMessageTimeout(xpdlActivity);
-        BPELUtils.addExtensionAttribute(onEvent, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
+        Long seconds = XPDLUtils.getMessageTimeout(xpdlActivity);
+        if (seconds>0) {
+            BPELUtils.addExtensionAttribute(onEvent, "messageTimeout", seconds.toString());
+        }
+        
+        
+        
         
         // Sid ACE-2388 - Correlate immediate
         boolean correlateImmediate = XPDLUtils.getCorrelateImmediately(xpdlActivity.getEvent());

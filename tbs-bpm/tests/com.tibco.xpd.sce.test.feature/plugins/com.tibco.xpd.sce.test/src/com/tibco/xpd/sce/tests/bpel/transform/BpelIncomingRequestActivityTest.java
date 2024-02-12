@@ -104,8 +104,8 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
                     findFirstElement(pick.get().getChildNodes(), node -> "onMessage".equals(node.getLocalName()));
             assertTrue("Missing onMessage of the pick", onMessage.isPresent());
 
-            // check if timeout is set
-            assertAttrNsValue(onMessage.get(), TIBEX_NS, "messageTimeout", "3600");
+			// check if timeout attr is present
+			assertNull(onMessage.get().getAttributes().getNamedItem("messageTimeout"));
 
             // ACE-2388 check if correlateImmediate is set
             assertAttrNsValue(onMessage.get(), TIBEX_NS, "correlateImmediate", "yes");
@@ -133,8 +133,8 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
                     findFirstElement(pick.get().getChildNodes(), node -> "onMessage".equals(node.getLocalName()));
             assertTrue("Missing onMessage of the pick", onMessage.isPresent());
 
-            // check if timeout is set
-            assertAttrNsValue(onMessage.get(), TIBEX_NS, "messageTimeout", "3600");
+			// check if timeout attr is present
+			assertNull(onMessage.get().getAttributes().getNamedItem("messageTimeout"));
 
             // ACE-2388 check if correlateImmediate is set
             assertAttrNsValue(onMessage.get(), TIBEX_NS, "correlateImmediate", "yes");
@@ -164,7 +164,7 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         assertEquals("Element onEvent is missing.", 1, onEventElems.getLength());
         Node onEventElem = onEventElems.item(0);
         // Check attrs. have the expected values
-        assertAttrNsValue(onEventElem, TIBEX_NS, "messageTimeout", "3600");
+		assertNull(onEventElem.getAttributes().getNamedItem("messageTimeout"));
         assertAttrNsValue(onEventElem, TIBEX_NS, "blockUntilCompleted", "yes");
         assertAttrNsValue(onEventElem, TIBEX_NS, "xpdlId", "_fB8G0K1eEemheL-rDtMNiw");
 
@@ -200,7 +200,8 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         assertEquals("Element onEvent is missing.", 1, onEventElems.getLength());
         Node onEventElem = onEventElems.item(0);
         // Check attrs. have the expected values
-        assertAttrNsValue(onEventElem, TIBEX_NS, "messageTimeout", "3600");
+		assertNull(onEventElem.getAttributes().getNamedItem("messageTimeout"));
+
         assertAttrNsValue(onEventElem, TIBEX_NS, "blockUntilCompleted", "yes");
         assertAttrNsValue(onEventElem, TIBEX_NS, "xpdlId", "_T9JOkK1cEemheL-rDtMNiw");
         // ACE-2388 check if correlateImmediate is set
@@ -256,7 +257,8 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         // Check onEvent has a scope and a the flow in it.
         Optional<Node> receive = findChildElement(scopeElem, "bpws:sequence/bpws:receive");
         assertTrue("Receive is missing.", receive.isPresent());
-        assertAttrNsValue(receive.get(), TIBEX_NS, "messageTimeout", "3600");
+		assertNull(receive.get().getAttributes().getNamedItem("messageTimeout"));
+
         assertAttrValue(receive.get(), "createInstance", "no");
         // ACE-2388 check if correlateImmediate is set
         assertAttrNsValue(receive.get(), TIBEX_NS, "correlateImmediate", "yes");
@@ -305,7 +307,7 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
 
         Optional<Node> receive = findChildElement(receiveTaskScope.get(), "bpws:sequence/bpws:receive");
         assertTrue("Missing bpws:receive", receive.isPresent());
-        assertAttrNsValue(receive.get(), TIBEX_NS, "messageTimeout", "3600");
+		assertNull(receive.get().getAttributes().getNamedItem("messageTimeout"));
         assertAttrValue(receive.get(), "createInstance", "no");
         // ACE-2388 check if correlateImmediate is set
         assertAttrNsValue(receive.get(), TIBEX_NS, "correlateImmediate", "yes");
@@ -338,7 +340,7 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         assertTrue("Missing onEvent for script task", onEvent.isPresent());
         assertAttrNsValue(onEvent.get(), TIBEX_NS, "cancel", "yes");
         assertAttrNsValue(onEvent.get(), TIBEX_NS, "xpdlId", "_MO0-UK4oEemYb8w_p5NPDw");
-        assertAttrNsValue(onEvent.get(), TIBEX_NS, "messageTimeout", "3600");
+		assertNull(onEvent.get().getAttributes().getNamedItem("messageTimeout"));
         // ACE-2388 check if correlateImmediate is set
         assertAttrNsValue(onEvent.get(), TIBEX_NS, "correlateImmediate", "yes");
 

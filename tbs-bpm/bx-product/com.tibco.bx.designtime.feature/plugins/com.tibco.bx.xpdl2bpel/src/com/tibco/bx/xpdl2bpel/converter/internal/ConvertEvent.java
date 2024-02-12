@@ -384,10 +384,14 @@ public class ConvertEvent {
         org.eclipse.bpel.model.Receive receive = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createReceive();
         receive.setName(context.genUniqueActivityName("receive")); //$NON-NLS-1$
         receive.setCreateInstance(false);
-        // SCE: Default message correlation timeout is no longer configurable by the user.
+        // ACE-7613 SCE: Default message correlation timeout re-enabled for configurable by the user.
         // See: XPDLUtils.getMessageTimeout(xpdlActivity);
-        BPELUtils.addExtensionAttribute(receive, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
-
+        Long seconds = XPDLUtils.getMessageTimeout(xpdlActivity);
+        if (seconds>0) {
+            BPELUtils.addExtensionAttribute(receive, "messageTimeout", seconds.toString());
+        }
+        
+        
         // Sid ACE-2388 - Correlate immediate
         boolean correlateImmediate = XPDLUtils.getCorrelateImmediately(xpdlActivity.getEvent());
         if (correlateImmediate) {

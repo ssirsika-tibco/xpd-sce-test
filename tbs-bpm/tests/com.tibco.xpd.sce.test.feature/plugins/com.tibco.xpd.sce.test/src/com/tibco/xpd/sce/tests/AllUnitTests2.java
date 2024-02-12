@@ -10,6 +10,7 @@ import com.tibco.xpd.sce.tests.bpel.transform.BpelCaseDataOperationActivityTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelDataFieldDescriptorTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelGlobalSignalsTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelIncomingRequestActivityTest;
+import com.tibco.xpd.sce.tests.bpel.transform.BpelIncomingRequestWithCorrelationTimeOutSetTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelLocalSignalsTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelSharedResourceTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelSubProcessConversionTest;
@@ -59,6 +60,7 @@ public class AllUnitTests2 {
         suite.addTestSuite(BpelGlobalSignalsTest.class);
         suite.addTestSuite(BpelLocalSignalsTest.class);
         suite.addTestSuite(BpelSubProcessConversionTest.class);
+		suite.addTestSuite(BpelIncomingRequestWithCorrelationTimeOutSetTest.class);
         suite.addTestSuite(BpelIncomingRequestActivityTest.class);
         suite.addTestSuite(BpelCaseDataOperationActivityTest.class);
 

@@ -5365,22 +5365,18 @@ public class Xpdl2ModelUtil {
     }
 
     /**
-     * Checks if the given activity is a correlating activity. An activity is a
-     * correlating activity if it is a receive task with an in-flow, a catch
-     * intermediate message event and a message start event in an event sub
-     * proc. A message start event or a receive task that is process start
-     * activity is <strong>not</strong> a correlating activity
-     * <p>
-     * In other words it is any incoming request activity that is received on an
-     * existing process instance and therefore must do some correlation with
-     * incoming mesage data to find the correct process instance to direct the
-     * mesage to.
-     * </p>
-     * 
-     * @param activity
-     * @return <code>true</code> if the activity is correlating incoming request
-     *         activity (see above)
-     */
+	 * Checks if the given activity is a correlating activity. An activity is a correlating activity if it is a receive
+	 * task with an in-flow, a catch intermediate message event and a message start event in an event sub proc. A
+	 * message start event or a receive task that is process start activity is <strong>not</strong> a correlating
+	 * activity
+	 * <p>
+	 * In other words it is any incoming request activity that is received on an existing process instance and therefore
+	 * must do some correlation with incoming mesage data to find the correct process instance to direct the mesage to.
+	 * </p>
+	 * 
+	 * @param activity
+	 * @return <code>true</code> if the activity is MESSAGE BASED correlating incoming request activity (see above)
+	 */
     public static boolean isCorrelatingActivity(Activity activity) {
 
         boolean isIncomingRequestActivity =
@@ -5392,6 +5388,51 @@ public class Xpdl2ModelUtil {
 
         return isCorrelatingActivity;
     }
+
+	/**
+	 * Check if the given activity is a BPMe correlating activity.
+	 * 
+	 * BPMe correlating Activities are type-none incoming request activities and receive tasks NOT incoming message-type
+	 * events and receive tasks (as per AMX BPM) which are not supported in BPMe
+	 * 
+	 * @param activity
+	 *            returns <code>true</code> If the given activity is a BPMe correlating activity)
+	 */
+	public static boolean isCorrelatingActivityForBpme(Activity activity)
+	{
+		if (activity.getEvent() instanceof IntermediateEvent)
+		{
+			IntermediateEvent interEvent = (IntermediateEvent) activity.getEvent();
+
+			if (TriggerType.NONE_LITERAL.equals(interEvent.getTrigger()))
+			{
+				return true;
+			}
+		}
+		else if (activity.getEvent() instanceof StartEvent)
+		{
+			if (TriggerType.NONE_LITERAL.equals(((StartEvent) activity.getEvent()).getTrigger()))
+			{
+				if (isEventSubProcessStartEvent(activity))
+				{
+					return true;
+				}
+			}
+		}
+		else
+		{
+			Implementation impl = activity.getImplementation();
+			if (impl instanceof Task)
+			{
+				if (((Task) impl).getTaskReceive() != null)
+				{
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
 
     /**
      * Checks if the given activity can have correlation data associated

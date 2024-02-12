@@ -338,10 +338,14 @@ public class ConvertPick {
         /* Sid ACE-4118 add event activity name to OnMessage element so that runtime can correlate it with incoming request. */
         BPELUtils.addExtensionAttribute(onMessage, "name", task.getXpdlActivity().getName()); //$NON-NLS-1$
                 
-        // SCE: Default message correlation timeout is no longer configurable by the user.
+        // ACE-7613 SCE: Default message correlation timeout re-enabled for configurable by the user.
         // See: XPDLUtils.getMessageTimeout(xpdlActivity);
-        BPELUtils.addExtensionAttribute(onMessage, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
-       
+        Long seconds = XPDLUtils.getMessageTimeout(task.getXpdlActivity());
+        if (seconds>0) {
+            BPELUtils.addExtensionAttribute(onMessage, "messageTimeout", seconds.toString());
+        }
+        
+        
         // Sid ACE-2388 Correlate immediate
         boolean correlateImmediate;
         if (task.getXpdlActivity().getEvent()==null) {

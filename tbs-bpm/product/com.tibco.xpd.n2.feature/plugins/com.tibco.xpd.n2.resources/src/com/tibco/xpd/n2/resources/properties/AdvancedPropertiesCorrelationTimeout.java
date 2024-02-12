@@ -65,16 +65,19 @@ public class AdvancedPropertiesCorrelationTimeout {
         @Override
         public boolean isApplicable(EObject input) {
             /*
-             * Sid ACE-3975 Correlation timeout is now a fixed 60 minutes (handled by xpdl2bpel) as correlation is only
-             * via API using process instance id (therefore there cannot be any significant delay by a 3rd party app
-             * getting a process-instance-id and it actually existing on database).
-             * 
-             * So until we support some form of business-data based correlation then we'll disable user setting of the
-             * correlation timeout.
-             */
-            if (true) {
-                return false;
-            }
+			 * Sid ACE-3975 Correlation timeout is now a fixed 60 minutes (handled by xpdl2bpel) as correlation is only
+			 * via API using process instance id (therefore there cannot be any significant delay by a 3rd party app
+			 * getting a process-instance-id and it actually existing on database).
+			 * 
+			 * So until we support some form of business-data based correlation then we'll disable user setting of the
+			 * correlation timeout.
+			 * 
+			 * Chaitanya ACE-7613 :- As part of this JIRA we have re-enable the Correlation Timeout configuration for
+			 * Incoming Request.
+			 */
+			// if (true) {
+			// return false;
+			// }
 
             /*
              * correlation time out is applicable only to receive task with incoming transition , intermediate catch
@@ -82,10 +85,9 @@ public class AdvancedPropertiesCorrelationTimeout {
              */
             if (input instanceof Activity) {
                 /*
-                 * XPD-7042: applicable if the activity is an correlating
-                 * activity.
-                 */
-                return Xpdl2ModelUtil.isCorrelatingActivity((Activity) input);
+				 * XPD-7042: applicable if the activity is an correlating activity for BPMe.
+				 */
+				return Xpdl2ModelUtil.isCorrelatingActivityForBpme((Activity) input);
             }
             return false;
         }

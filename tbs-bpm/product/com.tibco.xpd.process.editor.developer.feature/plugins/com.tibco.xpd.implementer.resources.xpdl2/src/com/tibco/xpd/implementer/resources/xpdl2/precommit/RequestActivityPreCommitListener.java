@@ -109,7 +109,9 @@ public class RequestActivityPreCommitListener extends
 
         if (activity != null) {
 
-            if (!Xpdl2ModelUtil.isCorrelatingActivity(activity)) {
+        	// ACE-7613 SCE: Default message correlation timeout re-enabled for configurable by the user for Incoming Request, so added 
+        	// additional check of not a correlatingActivity for BPMe.
+            if (!Xpdl2ModelUtil.isCorrelatingActivity(activity) && !Xpdl2ModelUtil.isCorrelatingActivityForBpme(activity)) {
 
                 /*
                  * check if the "Correlation Timeout" attribute is present
