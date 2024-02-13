@@ -273,7 +273,8 @@ public abstract class AbstractTibcoContentAssistProcessor
             }
             ICompletionProposal b1 = (ICompletionProposal) o1;
             ICompletionProposal b2 = (ICompletionProposal) o2;
-            return b1.getDisplayString().compareTo(b2.getDisplayString());
+			// Nikita ACE-7334 Make the comparison case-insensitive
+			return b1.getDisplayString().compareToIgnoreCase(b2.getDisplayString());
         }
 
         public ProposalComparator() {

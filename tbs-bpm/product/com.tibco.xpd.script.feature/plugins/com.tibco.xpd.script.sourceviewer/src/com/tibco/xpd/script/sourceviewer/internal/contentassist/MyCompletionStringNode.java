@@ -43,15 +43,29 @@ public class MyCompletionStringNode {
      * @return integer value to sort objects
      */
     public int getSortGroup() {
-        if (jsAttribute != null || jsReference != null) {
-            return 2;
-        } else if (jsMethod != null) {
-            return 3;
-        } else if (jsClass != null) {
-            return 4;
-        } else {
-            return 1;
-        }
+
+		// Nikita ACE-7334 For JavaScript editor content assist, sort top level content list appropriately
+
+		if (jsAttribute != null || jsReference != null || jsMethod != null || jsClass != null)
+		{
+			// Static JS Classes, sortGroup=2 indicates they will be shown after sortGroup 1
+			return 2;
+		}
+		else
+		{
+			if (completionstring.equals("bpm"))
+			{
+				// User-defined "bpm" object (that the utility scripts are now located within) doesn't have same
+				// relevance as "data", "factory", "pkg"
+				// sortGroup=2 to group will other static JS classes
+				return 2;
+			}
+
+			// Show user-defined wrapper objects "data", "factory", "pkg" before everything else
+			// i.e. it has the sortGroup=1 so that these classes are shown on top
+			return 1;
+		}
+
     }
 
     public MyCompletionStringNode(JsAttribute jsAttribute) {
