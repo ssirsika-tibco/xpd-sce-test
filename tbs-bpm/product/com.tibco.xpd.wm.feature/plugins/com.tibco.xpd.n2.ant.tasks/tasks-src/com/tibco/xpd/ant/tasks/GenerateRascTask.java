@@ -65,7 +65,7 @@ import com.tibco.xpd.resources.util.SubProgressMonitorEx;
  * Studio Project Workspace. If the "destdir" specifies an absolute path, that path should be used as-is. If the
  * "destdir" specifies a relative path, it should be prefixed with the "basedir".
  * <p>
- * Note that with no destdir specified then each project should get it’s RASC exported into its Deployment Artifacts
+ * Note that with no destdir specified then each project should get itï¿½s RASC exported into its Deployment Artifacts
  * folder.
  *
  * 
@@ -586,10 +586,10 @@ public class GenerateRascTask extends Task {
             }
 
             // always check for errors - even if we have just done a build
-            if (errorsExist(aProjects)) {
-                aMonitor.setTaskName(
-                        "Unable to generate Deployment Artifact(s). One or more projects have problems that must be resolved first.");
-                return;
+			if (errorsExist(aProjects, true, aMonitor))
+			{
+				throw new BuildException(
+						"Unable to generate Deployment Artifact(s). One or more projects have problems that must be resolved first.");
             }
 
             // Generate the RASC for each project.
@@ -815,16 +815,19 @@ public class GenerateRascTask extends Task {
     }
 
     /**
-     * For a given collection of Studio Projects tells whether there are error
-     * level problem markers on them or their referenced projects.
-     * 
-     * @param aProjects
-     *            collection of projects.
-     * @return true if one of the studioProjects or one of their referenced
-     *         project has error marker.
-     * @throws CoreException
-     */
-    private boolean errorsExist(Collection<IProject> aProjects)
+	 * For a given collection of Studio Projects tells whether there are error level problem markers on them or their
+	 * referenced projects. 'aLogError' flag handles error logging using passed progress monitor.
+	 * 
+	 * @param aProjects
+	 *            collection of projects.
+	 * @param aLogError
+	 *            Flag indicating whether errors should be logged using the progress monitor.
+	 * @param aMonitor
+	 *            Progress monitor to record progress information to be logged.
+	 * @return true if one of the studioProjects or one of their referenced project has error marker.
+	 * @throws CoreException
+	 */
+	private boolean errorsExist(Collection<IProject> aProjects, boolean aLogError, IProgressMonitor aMonitor)
             throws CoreException {
         // collate all projects and referenced projects
         Set<IProject> allProjects = new HashSet<>();
@@ -836,6 +839,8 @@ public class GenerateRascTask extends Task {
             allProjects.add(studioProject);
         }
 
+		boolean hasError = false;
+		boolean errorMsgShown = false;
         // search for any error marker
         for (IProject eachProject : allProjects) {
             if (!eachProject.isAccessible()) {
@@ -843,17 +848,55 @@ public class GenerateRascTask extends Task {
             }
             IMarker[] markers = eachProject
                     .findMarkers(null, true, IResource.DEPTH_INFINITE);
+			Set<IMarker> errorMarkers = new HashSet<>();
             for (IMarker marker : markers) {
                 if (marker.getAttribute(IMarker.SEVERITY,
                         IMarker.SEVERITY_INFO) == IMarker.SEVERITY_ERROR) {
-                    // no need to check further
-                    return true;
+					if (!aLogError)
+					{
+						return true; // Stop checking and return true if aLogError is false
+					}
+					errorMarkers.add(marker);
                 }
             }
-        }
+			hasError = !errorMarkers.isEmpty();
+			if (hasError && aMonitor != null)
+			{
+				// Only show error message once.
+				if (!errorMsgShown)
+				{
+					aMonitor.setTaskName(
+							"Unable to generate Deployment Artifact(s). One or more projects have problems that must be resolved first...");
+					errorMsgShown = true;
+				}
+				aMonitor.setTaskName(
+						String.format("Project '%s'...", eachProject.getName()));
+				for (IMarker marker : errorMarkers)
+				{
 
-        return false;
+					aMonitor.subTask(String.format("\t\"%1$s %2$s\"", marker.getAttribute(IMarker.MESSAGE),
+							getWorkspacePathLogStr(marker)));
+				}
+			}
+        }
+		return hasError;
     }
+
+	/**
+	 * Return log string to show the workspace path. If marker.getResource is null then return empty string.
+	 * 
+	 * @return Workspace path log string.
+	 * 
+	 */
+	private String getWorkspacePathLogStr(IMarker aMarker)
+	{
+		if (aMarker.getResource() != null)
+		{
+			return String.format("- (%s)", aMarker.getResource().getFullPath().toOSString());
+		}
+		return "";
+	}
+
 
     private enum Result {
         SUCCESS("Success"), //
@@ -950,7 +993,7 @@ public class GenerateRascTask extends Task {
 
         // Check errors
         long ts = System.currentTimeMillis();
-        boolean errorProblemMarkers = errorsExist(aProjects);
+		boolean errorProblemMarkers = errorsExist(aProjects, false, null);
         aMonitor.setTaskName("Checking projects' error markers took:  "
                 + (System.currentTimeMillis() - ts) + "ms "
                 + (errorProblemMarkers ? "[errors detected]" : "[no errors]"));
