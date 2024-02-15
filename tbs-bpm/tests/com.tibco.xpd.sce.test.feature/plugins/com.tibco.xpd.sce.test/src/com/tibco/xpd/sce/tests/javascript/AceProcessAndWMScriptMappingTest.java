@@ -148,7 +148,7 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
 
         assertTrue(context
                 + ": Should check wrapping data object for null even for simple process field assignment.", //$NON-NLS-1$
-                script.contains("if (data != null)")); //$NON-NLS-1$
+				script.contains("if (pathExists(data, \"data.BooleanField\"))")); //$NON-NLS-1$
 
         assertTrue(context
                 + ": Should do direct assignment of complex types (without ScriptUtil.copy().", //$NON-NLS-1$
@@ -386,7 +386,7 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
 
         assertTrue(context + ": Should include 'data' object in null checkimng", //$NON-NLS-1$
                 inputMappingsScript.contains(
-                        "if (data != null && data.Copy_Of_ClassField != null)")); //$NON-NLS-1$
+						"if (pathExists(data, \"data.Copy_Of_ClassField.boolean1\")")); //$NON-NLS-1$
 
         assertTrue(context
                 + ": Should iterate thru source arrays using length attribute.", //$NON-NLS-1$

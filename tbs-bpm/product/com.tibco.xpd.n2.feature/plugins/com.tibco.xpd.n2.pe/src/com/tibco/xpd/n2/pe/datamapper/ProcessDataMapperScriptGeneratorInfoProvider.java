@@ -14,7 +14,6 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.bom.modeler.custom.enumlitext.util.EnumLitValueUtil;
 import com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider;
 import com.tibco.xpd.n2.cds.script.AceCdsFactoriesWrapperFactory;
-import com.tibco.xpd.processeditor.xpdl2.properties.ChoiceConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdl2.BasicType;
@@ -28,8 +27,48 @@ import com.tibco.xpd.xpdl2.RecordType;
  * @author Ali
  * @since 6 Mar 2015
  */
+@SuppressWarnings("nls")
 public class ProcessDataMapperScriptGeneratorInfoProvider
         implements IScriptGeneratorInfoProvider {
+
+	/*
+	 * Sid ACE-7710 Function for Null source property and descendant checking given root object and path
+	 * 
+	 * With comments intentionally cut out, don't need those in generated script.
+	 * 
+	 * rootObject: The base variable for path
+	 * 
+	 * objectPath: The full path to the property to check (include root object)
+	 */
+	public static final String JS_NULL_PROPERTY_METHOD = "function pathExists(rootObject, objectPath) { \n" //
+			+ "    if (objectPath && elementExists(rootObject)) {\n" //
+			+ "        var lastChildStartIdx = objectPath.lastIndexOf('[\\'');\n" //
+			+ "        var paths = [];\n" //
+			+ "        // dot-notation\n" //
+			+ "        if (lastChildStartIdx === -1) {       \n" //
+			+ "            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object\n" //
+			+ "            paths = objectPath.split(\".\").slice(1); \n" //
+			+ "        } else {\n" //
+			+ "            // Square-bracket notation\n" //
+			+ "            while(lastChildStartIdx !== -1){            \n" //
+			+ "                var lastChildEndIdx = objectPath.lastIndexOf('\\']');\n" //
+			+ "                // Add last child\n" //
+			+ "                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));\n" //
+			+ "                // Update path\n" //
+			+ "                objectPath = objectPath.substring(0, lastChildStartIdx);\n" //
+			+ "                lastChildStartIdx = objectPath.lastIndexOf('[\\'');\n" //
+			+ "            }\n" //
+			+ "        }        \n" //
+			+ "        var pathElement = paths.reduce(function(obj, prop){       \n" //
+			+ "            return (elementExists(obj) && elementExists(obj[prop])) ? obj[prop] : undefined;\n" //
+			+ "        }, rootObject);\n" //
+			+ "        return elementExists(pathElement);\n" //
+			+ "    }\n" //
+			+ "    return false;\n" //
+			+ "}\n" //
+			+ "function elementExists(element){\n" //
+			+ "    return typeof(element) !== 'undefined' && element !== null;\n" //
+			+ "}"; //
 
     /**
      * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getAssignmentStatement(java.lang.Object,
@@ -387,7 +426,15 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
     @Override
     public String getScriptsToAppend(ScriptDataMapper container,
             boolean isSource) {
-        return null;
+		/*
+		 * Sid ACE-7710 Function for Null source property and descendant checking given root object and path
+		 */
+		if (isSource)
+		{
+			return "\n\n" + JS_NULL_PROPERTY_METHOD;
+		}
+
+		return null;
     }
 
     /**
@@ -813,66 +860,6 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
     public String getCheckNullTreeExpression(Object object, String jsVarAlias,
             CheckNullTreeExpressionType checkType) {
 
-        /**
-         * Sid XPD-7975: Note that for process data, if we are null checking
-         * source object for for loop iterator, then we check right down to and
-         * including the source array itself.
-         * 
-         * On the other hand, if this is a single instance mapping then we only
-         * bother checking down to **but not including** the mapped object
-         * itself.
-         * 
-         * This is because, in the process-data type system all fields and
-         * child-properties *are always defined in scope* so will always exist
-         * in scope and may be either a value or null. Therefore for exception
-         * free execution we only need to null check the ancestor tree of the
-         * mapped object to make sure we're not referencing something inside a
-         * null object.
-         * 
-         * This saves unnecessary bloat of generated script doing... <code>
-         * if (SrcField != null) {
-         *     TgtField = SrcField;
-         * } else {
-         *     TgtField = null;
-         * }
-         * 
-         * if (SrcBOMField != null && SrcBOMField.property != null) {
-         *     TgtField2 = SrcBOMField.property;
-         * } else {
-         *     TgtField2 = null;
-         * }          
-         * </code>
-         * <p>
-         * Instead of... <code>
-         * TgtField = SrcField;
-         * 
-         * if (SrcBOMField != null) {
-         *     TgtField2 = SrcBOMField.property;
-         * } else {
-         *     TgtField2 = null;
-         * }          
-         * </code>
-         * <p>
-         * Which is effectively the same because in the first case the else
-         * clause is unnecessary becasuie SrcField either has a value OR is null
-         * AND in the second case, if srcBOMField is set, then
-         * SrcBOMField.property will either have a value or it will be null (and
-         * therefore set the target to null anyway).
-         */
-        boolean checkLastElementInPath = true;
-
-        if (CheckNullTreeExpressionType.IS_SINGLE_INSTANCE_CHECK
-                .equals(checkType)) {
-
-            /*
-             * Sid ACE-564 Enumerations (even enumeration literals) and just
-             * string properties now.
-             * 
-             * So we can just treat them the same as simple type
-             */
-            checkLastElementInPath = false;
-        }
-
         String pathToCheck = null;
 
         if (jsVarAlias != null && jsVarAlias.length() > 0) {
@@ -890,75 +877,26 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
                     ((ConceptPath) object).getPath());
         }
 
-        /* Sid XPD-7996 Allow subclass to adjust final path */
+		if (pathToCheck != null && pathToCheck.length() > 0)
+		{
+			/**
+			 * Sid ACE-7710 Use new pathExists() function (added as part of getScriptsToAppend())
+			 * 
+			 * We pass the path to the new 'pathExists(rootObject, "path") method. This reduces size of script by
+			 * removing lots of repeated
+			 * 
+			 * " if ( (typeof(a) != undefined && a != null) && (typeof(a.b) != undefined && a.b != null) &&
+			 * (typeof(a.b.c) != undefined && a.b.c != null) "
+			 */
 
-        if (pathToCheck != null && pathToCheck.length() > 0) {
-            /*
-             * If there's an alias then we have to check it for null.
-             * 
-             * **Note though that in situations where we're mapping nested
-             * content from within arrays jsVarAlis may be...
-             * 
-             * srcVi1.child.grandchild
-             * 
-             * Therefore nothing may have checked the null-ness of srcVi1.child
-             * yet. So we'll have to chop and check each part.
-             */
-            String[] parts = pathToCheck.split("\\."); //$NON-NLS-1$
+			/* We can assume that the first element in path is the root object. */
+			String[] parts = pathToCheck.split("\\."); //$NON-NLS-1$
 
-            StringBuilder sb = new StringBuilder();
+			String rootObject = parts[0];
 
-            String pathTilNow = ""; //$NON-NLS-1$
+			String pathExistsCall = String.format("pathExists(%1$s, \"%2$s\")", rootObject, pathToCheck);
 
-            int partsToIterate = parts.length;
-
-            if (!checkLastElementInPath) {
-                partsToIterate--;
-            }
-
-            for (int i = 0; i < partsToIterate; i++) {
-                String part = parts[i];
-                /*
-                 * The only reason for having source alias is for temp var
-                 * within source tree (which we will have copied from a source
-                 * list, so not need to check the root of the tree in this
-                 * case).
-                 */
-                if (jsVarAlias != null && jsVarAlias.length() > 0 && i == 0) {
-                    /* skip alias variable itself. */
-                    pathTilNow = part;
-                    continue;
-                }
-
-                /*
-                 * Sid XPD-7932 Ignore special 'choice identifier elements in
-                 * path'
-                 */
-                if (part.startsWith(ChoiceConceptPath.CHOICE_PATH_PREFIX)) {
-                    continue;
-                }
-
-                if (sb.length() > 0) {
-                    /* Not the first condition we've added so AND it. */
-                    sb.append(" && "); //$NON-NLS-1$
-                }
-
-                if (i == 0) {
-                    pathTilNow = part;
-                } else {
-                    pathTilNow = pathTilNow + "." + part; //$NON-NLS-1$
-                }
-
-                sb.append(pathTilNow);
-                sb.append(" != null"); //$NON-NLS-1$
-            }
-
-            String expression = sb.toString();
-
-            if (expression.trim().length() > 0) {
-                return expression;
-            }
-
+			return pathExistsCall;
         }
 
         return null;

@@ -111,7 +111,7 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
          */
 
         assertTrue(context + ": Should check wrapping data object for null even for simple process field assignment.", //$NON-NLS-1$
-                script.contains("if (data != null)")); //$NON-NLS-1$
+				script.contains("if (pathExists(data, \"data.ClassField\")")); //$NON-NLS-1$
 
         assertTrue(context + ": Should do direct assignment of complex types (without ScriptUtil.copy().", //$NON-NLS-1$
                 script.contains("data.Copy_Of_ClassField = data.ClassField;")); //$NON-NLS-1$
@@ -237,7 +237,7 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                 outputMappingsScript.contains("= parameters.ComplexListParameter[")); //$NON-NLS-1$
 
         assertTrue(context + ": Should wrap target sub-process parameters null checks in a 'parameters' object.", //$NON-NLS-1$
-                outputMappingsScript.contains("if (parameters != null && parameters.ComplexListParameter != null) {")); //$NON-NLS-1$
+				outputMappingsScript.contains("if (pathExists(parameters, \"parameters.ComplexListParameter\")) {")); //$NON-NLS-1$
 
     }
 
@@ -319,7 +319,7 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
          */
         assertTrue(context + ": Should wrap target sub-process parameter null checks in a 'parameters' object.", //$NON-NLS-1$
                 outputMappingsScript.contains(
-                        "if (parameters != null && parameters.ClassParameter != null && parameters.ClassParameter.complexChild != null) {")); //$NON-NLS-1$
+						"if (pathExists(parameters, \"parameters.ClassParameter.complexChild.attribute1\")) {")); //$NON-NLS-1$
 
         assertTrue(context + ": Should wrap target sub-process parameter get value in a 'parameters' object.", //$NON-NLS-1$
                 outputMappingsScript.contains("= parameters.ClassParameter.complexChild.attribute1;")); //$NON-NLS-1$
@@ -407,7 +407,7 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                 !inputMappingsScript.contains("(Copy_Of_ClassField")); //$NON-NLS-1$
 
         assertTrue(context + ": Should include 'data' object in null checkimng", //$NON-NLS-1$
-                inputMappingsScript.contains("if (data != null && data.Copy_Of_ClassField != null)")); //$NON-NLS-1$
+				inputMappingsScript.contains("if (pathExists(data, \"data.Copy_Of_ClassField.textList\")")); //$NON-NLS-1$
 
         assertTrue(context + ": Should iterate thru source arrays using length attribute.", //$NON-NLS-1$
                 inputMappingsScript.contains("< data.Copy_Of_ClassField.textList.length")); //$NON-NLS-1$

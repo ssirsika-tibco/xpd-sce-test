@@ -239,12 +239,42 @@ $_f1_result = _f1_();
 data.ScriptTaskL = $_f1_result;
 
 // Map from 'ScriptTaskL' to 'ScriptTaskR'
-if (data != null) {
+if (pathExists(data, "data.ScriptTaskL")) {
     data.ScriptTaskR = data.ScriptTaskL;
 } else {
     data.ScriptTaskR = null;
 }
 
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
+}
 
 </xpdl2:Description>
           <xpdl2:Implementation>
@@ -289,10 +319,40 @@ $_f1_result = _f1_();
 data.InitScriptL = $_f1_result;
 
 // Map from 'InitScriptL' to 'InitScriptR'
-if (data != null) {
+if (pathExists(data, "data.InitScriptL")) {
     data.InitScriptR = data.InitScriptL;
 } else {
     data.InitScriptR = null;
+}
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -337,11 +397,43 @@ $_f1_result = _f1_();
 data.CompleteScriptL = $_f1_result;
 
 // Map from 'CompleteScriptL' to 'CompleteScriptR'
-if (data != null) {
+if (pathExists(data, "data.CompleteScriptL")) {
     data.CompleteScriptR = data.CompleteScriptL;
 } else {
     data.CompleteScriptR = null;
 }
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
+}
+
 
 </xpdl2:Description>
           <xpdl2:Implementation>
@@ -384,10 +476,42 @@ $_f1_result = _f1_();
 data.TimeoutScriptL = $_f1_result;
 
 // Map from 'TimeoutScriptL' to 'TimeoutScriptR'
-if (data != null) {
+if (pathExists(data, "data.TimeoutScriptL")) {
     data.TimeoutScriptR = data.TimeoutScriptL;
 } else {
     data.TimeoutScriptR = null;
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -432,10 +556,42 @@ $_f1_result = _f1_();
 data.CancelScriptL = $_f1_result;
 
 // Map from 'CancelScriptL' to 'CancelScriptR'
-if (data != null) {
+if (pathExists(data, "data.CancelScriptL")) {
     data.CancelScriptR = data.CancelScriptL;
 } else {
     data.CancelScriptR = null;
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -480,10 +636,42 @@ $_f1_result = _f1_();
 data.ScheduleScriptL = $_f1_result;
 
 // Map from 'ScheduleScriptL' to 'ScheduleScriptR'
-if (data != null) {
+if (pathExists(data, "data.ScheduleScriptL")) {
     data.ScheduleScriptR = data.ScheduleScriptL;
 } else {
     data.ScheduleScriptR = null;
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -541,10 +729,42 @@ $_f1_result = _f1_();
 data.RescheduleScriptL = $_f1_result;
 
 // Map from 'RescheduleScriptL' to 'RescheduleScriptR'
-if (data != null) {
+if (pathExists(data, "data.RescheduleScriptL")) {
     data.RescheduleScriptR = data.RescheduleScriptL;
 } else {
     data.RescheduleScriptR = null;
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -602,10 +822,42 @@ $_f1_result = _f1_();
 data.OpenScriptL = $_f1_result;
 
 // Map from 'OpenScriptL' to 'OpenScriptR'
-if (data != null) {
+if (pathExists(data, "data.OpenScriptL")) {
     data.OpenScriptR = data.OpenScriptL;
 } else {
     data.OpenScriptR = null;
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -663,10 +915,42 @@ $_f1_result = _f1_();
 data.CloseScriptL = $_f1_result;
 
 // Map from 'CloseScriptL' to 'CloseScriptR'
-if (data != null) {
+if (pathExists(data, "data.CloseScriptL")) {
     data.CloseScriptR = data.CloseScriptL;
 } else {
     data.CloseScriptR = null;
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -724,10 +1008,42 @@ $_f1_result = _f1_();
 data.SubmitScriptL = $_f1_result;
 
 // Map from 'SubmitScriptL' to 'SubmitScriptR'
-if (data != null) {
+if (pathExists(data, "data.SubmitScriptL")) {
     data.SubmitScriptR = data.SubmitScriptL;
 } else {
     data.SubmitScriptR = null;
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 

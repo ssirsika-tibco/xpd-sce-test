@@ -21,6 +21,7 @@ import com.tibco.xpd.implementer.resources.xpdl2.mappings.RestParamTreeItem;
 import com.tibco.xpd.implementer.resources.xpdl2.mappings.UnprocessedTextRestMapperTreeItem;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter;
 import com.tibco.xpd.mapper.MappingDirection;
+import com.tibco.xpd.n2.pe.datamapper.ProcessDataMapperScriptGeneratorInfoProvider;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.RestConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
@@ -584,7 +585,14 @@ public class RestScriptGeneratorInfoProvider
     @Override
     public String getScriptsToAppend(ScriptDataMapper container,
             boolean isSource) {
-        if (!isSource) {
+		/*
+		 * Sid ACE-7710 Function for Null source property and descendant checking given root object and path
+		 */
+		if (isSource)
+		{
+			return "\n\n" + ProcessDataMapperScriptGeneratorInfoProvider.JS_NULL_PROPERTY_METHOD;
+		}
+		else if (!isSource) {
             RestMapperTreeItemFactory factory =
                     RestMapperTreeItemFactory.getInstance();
             Activity activity = Xpdl2ModelUtil.getParentActivity(container);
@@ -1290,6 +1298,20 @@ public class RestScriptGeneratorInfoProvider
         }
 
         if (pathToCheck != null && pathToCheck.length() > 0) {
+
+			/**
+			 * Sid XPD-8612 Use new pathExists() function (added as part of getScriptsToAppend())
+			 * 
+			 * So now, we convert a.b.c modelled path to a['b']['c'] style notation (to avoid issues with accented
+			 * characters in property names etc).
+			 * 
+			 * Then we pass the path to the new 'pathExists(rootObject, "path") method. This reduces size of script by
+			 * removing lots of repeated
+			 * 
+			 * " if ( (typeof(a) != undefined && a != null) && (typeof(a['b']) != undefined && a['b'] != null) &&
+			 * (typeof(a['b']['c']) != undefined && a['b']['c'] != null) "
+			 */
+
             /*
              * If there's an alias then we have to check it for null.
              * 
@@ -1301,29 +1323,14 @@ public class RestScriptGeneratorInfoProvider
              * Therefore nothing may have checked the null-ness of srcVi1.child
              * yet. So we'll have to chop and check each part.
              */
-            String[] parts = pathToCheck.split("\\."); //$NON-NLS-1$
 
-            StringBuilder sb = new StringBuilder();
+			/** Convert the dot-separted path to a['b'] notation (in case of accented chars etc) */
+			String[] parts = pathToCheck.split("\\."); //$NON-NLS-1$
 
             String pathTilNow = ""; //$NON-NLS-1$
 
             for (int i = 0; i < parts.length; i++) {
                 String part = parts[i];
-                /*
-                 * The only reason for having source alias is for temp var
-                 * within source tree (which we will have copied from a source
-                 * list, so no need to check the root of the tree in this case).
-                 */
-                if (jsVarAlias != null && jsVarAlias.length() > 0 && i == 0) {
-                    /* skip alias variable itself. */
-                    pathTilNow = part;
-                    continue;
-                }
-
-                if (sb.length() > 0) {
-                    /* Not the first condition we've added so AND it. */
-                    sb.append(" &&\n   "); //$NON-NLS-1$
-                }
 
                 if (i == 0) {
                     /*
@@ -1340,38 +1347,14 @@ public class RestScriptGeneratorInfoProvider
                     pathTilNow = pathTilNow + "['" + part + "']"; //$NON-NLS-1$ //$NON-NLS-2$
                 }
 
-                /*
-                 * Sid XPD-7975. Cannot simply say
-                 * "if ( REST_PAYLOAD['top']['child'] )"
-                 * 
-                 * This is because the if statement in this case IS NOT 'does
-                 * property exist' it is actually 'is property true or false'.
-                 * 
-                 * In JavaScript integer type witha value of zero is FALSE, and
-                 * so we would process the else clause instead and the target
-                 * would be set to null instead of zero
-                 * 
-                 * So we have to explicitly check if the source is NOT undefined
-                 * and is NOT null (in case it's a parent object that exists but
-                 * is null. So we have to do this...
-                 * 
-                 * "if ( (typeof(REST_PAYLOAD['top']['child']) != "undefined
-                 * " && REST_PAYLOAD['top']['child'] != null) )"
-                 */
-                String checkExistsExpr = String.format(
-                        "(typeof(%1$s) != \"undefined\" && %2$s != null)", //$NON-NLS-1$
-                        pathTilNow,
-                        pathTilNow);
-
-                sb.append(checkExistsExpr);
             }
 
-            String expression = sb.toString();
+			/** Add the single call to pathExists() function passing root variable and path */
+			String rootObject = parts[0];
 
-            if (expression.trim().length() > 0) {
-                return expression;
-            }
+			String pathExistsCall = String.format("pathExists(%1$s, \"%2$s\")", rootObject, pathTilNow);
 
+			return pathExistsCall;
         }
 
         return null;

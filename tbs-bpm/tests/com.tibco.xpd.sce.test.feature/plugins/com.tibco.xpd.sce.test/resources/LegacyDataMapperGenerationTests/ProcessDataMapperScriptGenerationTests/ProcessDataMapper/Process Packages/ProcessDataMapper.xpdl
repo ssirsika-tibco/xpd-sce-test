@@ -15,7 +15,7 @@
   <xpdl2:Participants>
     <xpdl2:Participant Id="_42CBIOz2EeSF4IKDfXmKBw" xpdExt:DisplayName="Participant" Name="Participant">
       <xpdl2:ParticipantType Type="RESOURCE_SET">
-        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name=&quot;tibco-admin&quot;)</xpdExt:ParticipantQuery>
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name=&amp;quot;tibco-admin&amp;quot;)</xpdExt:ParticipantQuery>
       </xpdl2:ParticipantType>
     </xpdl2:Participant>
     <xpdl2:Participant Id="_0m4ZsPAjEeSZJ5L9UItcvQ" xpdExt:DisplayName="ProcessDataMapper-Process2 (API Activity EndPoint)" Name="ProcessDataMapperProcess2">
@@ -257,25 +257,57 @@
         </xpdl2:Activity>
         <xpdl2:Activity Id="_blhbkO2SEeS4I4a6rDKS7w" Name="SimpleTypes" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Simple Types">
           <xpdl2:Description>// Map from 'IntField' to 'IntParam'
-if (data != null) {
+if (pathExists(data, "data.IntField")) {
     data.IntParam = data.IntField;
 } else {
     data.IntParam = null;
 }
 
 // Map from 'TextField' to 'TextParam'
-if (data != null) {
+if (pathExists(data, "data.TextField")) {
     data.TextParam = data.TextField;
 } else {
     data.TextParam = null;
 }
 
 // Map from 'TextField2' to 'TextParam2'
-if (data != null) {
+if (pathExists(data, "data.TextField2")) {
     data.TextParam2 = data.TextField2;
 } else {
     data.TextParam2 = null;
 }
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
+}
+
 
 </xpdl2:Description>
           <xpdl2:Implementation>
@@ -311,11 +343,43 @@ if (data != null) {
         </xpdl2:Activity>
         <xpdl2:Activity Id="_uTvYwO2TEeS4I4a6rDKS7w" Name="DirectMapComplexType" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="Direct Map Complex Type" xpdExt:RequireNewTransaction="false">
           <xpdl2:Description>// Map from 'TopField' to 'TopParam'
-if (data != null) {
+if (pathExists(data, "data.TopField")) {
     data.TopParam = data.TopField;
 } else {
     data.TopParam = null;
 }
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
+}
+
 
 </xpdl2:Description>
           <xpdl2:Implementation>
@@ -350,7 +414,7 @@ if (data.TopParam == null) {
 }
 
 // Map from 'TextField' to 'TopParam.topAttr'
-if (data != null) {
+if (pathExists(data, "data.TextField")) {
     data.TopParam.topAttr = data.TextField;
 } else {
     data.TopParam.topAttr = null;
@@ -362,7 +426,7 @@ if (data.TopParam.middleSingleInst == null) {
 }
 
 // Map from 'TextField2' to 'TopParam.middleSingleInst.middleAttr'
-if (data != null) {
+if (pathExists(data, "data.TextField2")) {
     data.TopParam.middleSingleInst.middleAttr = data.TextField2;
 } else {
     data.TopParam.middleSingleInst.middleAttr = null;
@@ -374,10 +438,42 @@ if (data.TopParam.middleSingleInst.bottomSingleInst == null) {
 }
 
 // Map from 'TopField.middleSingleInst.middleAttr' to 'TopParam.middleSingleInst.bottomSingleInst.bottomAttr'
-if (data != null &amp;&amp; data.TopField != null &amp;&amp; data.TopField.middleSingleInst != null) {
+if (pathExists(data, "data.TopField.middleSingleInst.middleAttr")) {
     data.TopParam.middleSingleInst.bottomSingleInst.bottomAttr = data.TopField.middleSingleInst.middleAttr;
 } else {
     data.TopParam.middleSingleInst.bottomSingleInst.bottomAttr = null;
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -430,39 +526,71 @@ data.TextParam = bpm.workManager.getWorkItem().description;
 data.TextParam2 = bpm.workManager.getWorkItem().workItemAttributes.attribute2;
 
 // Map from 'BoolField' to 'Work Item.cancel'
-if (data != null) {
+if (pathExists(data, "data.BoolField")) {
     bpm.workManager.getWorkItem().cancel = data.BoolField;
 } else {
     bpm.workManager.getWorkItem().cancel = null;
 }
 
 // Map from 'TextField' to 'Work Item.description'
-if (data != null) {
+if (pathExists(data, "data.TextField")) {
     bpm.workManager.getWorkItem().description = data.TextField;
 } else {
     bpm.workManager.getWorkItem().description = null;
 }
 
 // Map from 'IntField' to 'Work Item.priority'
-if (data != null) {
+if (pathExists(data, "data.IntField")) {
     bpm.workManager.getWorkItem().priority = data.IntField;
 } else {
     bpm.workManager.getWorkItem().priority = null;
 }
 
 // Map from 'TextField2' to 'Work Item.Work Item Attributes.A Name'
-if (data != null) {
+if (pathExists(data, "data.TextField2")) {
     bpm.workManager.getWorkItem().workItemAttributes.attribute2 = data.TextField2;
 } else {
     bpm.workManager.getWorkItem().workItemAttributes.attribute2 = null;
 }
 
 // Map from 'DateTimeField' to 'Work Item.Work Item Attributes.Date Of Birth !!!'
-if (data != null) {
+if (pathExists(data, "data.DateTimeField")) {
     bpm.workManager.getWorkItem().workItemAttributes.attribute7 = data.DateTimeField;
 } else {
     bpm.workManager.getWorkItem().workItemAttributes.attribute7 = null;
 }
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
+}
+
 
 </xpdl2:Description>
           <xpdl2:Implementation>
@@ -550,11 +678,43 @@ if (data.TopParam == null) {
 data.TopParam.topAttr = bpm.process.getModuleName();
 
 // Map from 'IntField' to 'Process.priority'
-if (data != null) {
+if (pathExists(data, "data.IntField")) {
     bpm.process.priority = data.IntField;
 } else {
     bpm.process.priority = null;
 }
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
+}
+
 
 </xpdl2:Description>
           <xpdl2:Implementation>
@@ -625,11 +785,43 @@ $_f2_result = _f2_();
 data.DateTimeParam = $_f2_result;
 
 // Map from 'TextParam' to 'TextField'
-if (data != null) {
+if (pathExists(data, "data.TextParam")) {
     data.TextField = data.TextParam;
 } else {
     data.TextField = null;
 }
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
+}
+
 
 </xpdl2:Description>
           <xpdl2:Implementation>
@@ -685,14 +877,14 @@ if (data.LikeMappingVisitor == null) {
 }
 
 // Map from 'LikeMappingPatient.id' to 'LikeMappingVisitor.id'
-if (data != null &amp;&amp; data.LikeMappingPatient != null) {
+if (pathExists(data, "data.LikeMappingPatient.id")) {
     data.LikeMappingVisitor.id = data.LikeMappingPatient.id;
 } else {
     data.LikeMappingVisitor.id = null;
 }
 
 // Map from 'LikeMappingPatient.name' to 'LikeMappingVisitor.name'
-if (data != null &amp;&amp; data.LikeMappingPatient != null) {
+if (pathExists(data, "data.LikeMappingPatient.name")) {
     data.LikeMappingVisitor.name = data.LikeMappingPatient.name;
 } else {
     data.LikeMappingVisitor.name = null;
@@ -704,14 +896,14 @@ if (data.LikeMappingVisitor.address == null) {
 }
 
 // Map from 'LikeMappingPatient.address.line1' to 'LikeMappingVisitor.address.line1'
-if (data != null &amp;&amp; data.LikeMappingPatient != null &amp;&amp; data.LikeMappingPatient.address != null) {
+if (pathExists(data, "data.LikeMappingPatient.address.line1")) {
     data.LikeMappingVisitor.address.line1 = data.LikeMappingPatient.address.line1;
 } else {
     data.LikeMappingVisitor.address.line1 = null;
 }
 
 // Map from 'LikeMappingPatient.address.postcode' to 'LikeMappingVisitor.address.postcode'
-if (data != null &amp;&amp; data.LikeMappingPatient != null &amp;&amp; data.LikeMappingPatient.address != null) {
+if (pathExists(data, "data.LikeMappingPatient.address.postcode")) {
     data.LikeMappingVisitor.address.postcode = data.LikeMappingPatient.address.postcode;
 } else {
     data.LikeMappingVisitor.address.postcode = null;
@@ -722,17 +914,25 @@ if (data != null &amp;&amp; data.LikeMappingPatient != null &amp;&amp; data.Like
 // Overwrite list: LikeMappingVisitorArray
 data.LikeMappingVisitorArray.length = 0;
 
-if (data != null &amp;&amp; data.LikeMappingPatientArray != null) {
+if (pathExists(data, "data.LikeMappingPatientArray")) {
 
     for (var i1 = 0; i1 &lt; data.LikeMappingPatientArray.length; i1++) { 
         var $sVi1 = data.LikeMappingPatientArray[i1];
         var $tVi1 = factory.com_example_bdp.createVisitor();
 
         // Map from 'LikeMappingPatientArray.id' to 'LikeMappingVisitorArray.id'
-        $tVi1.id = $sVi1.id;
+        if (pathExists($sVi1, "$sVi1.id")) {
+            $tVi1.id = $sVi1.id;
+        } else {
+            $tVi1.id = null;
+        }
 
         // Map from 'LikeMappingPatientArray.name' to 'LikeMappingVisitorArray.name'
-        $tVi1.name = $sVi1.name;
+        if (pathExists($sVi1, "$sVi1.name")) {
+            $tVi1.name = $sVi1.name;
+        } else {
+            $tVi1.name = null;
+        }
 
         // Create target 'LikeMappingVisitorArray.address' if it doesn't exist.
         if ($tVi1.address == null) {
@@ -740,14 +940,14 @@ if (data != null &amp;&amp; data.LikeMappingPatientArray != null) {
         }
 
         // Map from 'LikeMappingPatientArray.address.line1' to 'LikeMappingVisitorArray.address.line1'
-        if ($sVi1.address != null) {
+        if (pathExists($sVi1, "$sVi1.address.line1")) {
             $tVi1.address.line1 = $sVi1.address.line1;
         } else {
             $tVi1.address.line1 = null;
         }
 
         // Map from 'LikeMappingPatientArray.address.postcode' to 'LikeMappingVisitorArray.address.postcode'
-        if ($sVi1.address != null) {
+         if (pathExists($sVi1, "$sVi1.address.postcode")) {
             $tVi1.address.postcode = $sVi1.address.postcode;
         } else {
             $tVi1.address.postcode = null;
@@ -761,7 +961,7 @@ if (data != null &amp;&amp; data.LikeMappingPatientArray != null) {
 
 // Merge list content: MergeLikeMappingVisitorArray
 
-if (data != null &amp;&amp; data.MergeLikeMappingPatientArray != null) {
+if (pathExists(data, "data.MergeLikeMappingPatientArray")) {
 
     for (var i2 = 0; i2 &lt; data.MergeLikeMappingPatientArray.length; i2++) { 
         var $sVi2 = data.MergeLikeMappingPatientArray[i2];
@@ -775,10 +975,18 @@ if (data != null &amp;&amp; data.MergeLikeMappingPatientArray != null) {
         }
 
         // Map from 'MergeLikeMappingPatientArray.id' to 'MergeLikeMappingVisitorArray.id'
-        $tVi2.id = $sVi2.id;
+        if (pathExists($sVi2, "$sVi2.id")) {
+            $tVi2.id = $sVi2.id;
+        } else {
+            $tVi2.id = null;
+        }
 
         // Map from 'MergeLikeMappingPatientArray.name' to 'MergeLikeMappingVisitorArray.name'
-        $tVi2.name = $sVi2.name;
+        if (pathExists($sVi2, "$sVi2.name")) {
+            $tVi2.name = $sVi2.name;
+        } else {
+            $tVi2.name = null;
+        }
 
         // Create target 'MergeLikeMappingVisitorArray.address' if it doesn't exist.
         if ($tVi2.address == null) {
@@ -786,14 +994,14 @@ if (data != null &amp;&amp; data.MergeLikeMappingPatientArray != null) {
         }
 
         // Map from 'MergeLikeMappingPatientArray.address.line1' to 'MergeLikeMappingVisitorArray.address.line1'
-        if ($sVi2.address != null) {
+         if (pathExists($sVi2, "$sVi2.address.line1")) {
             $tVi2.address.line1 = $sVi2.address.line1;
         } else {
             $tVi2.address.line1 = null;
         }
 
         // Map from 'MergeLikeMappingPatientArray.address.postcode' to 'MergeLikeMappingVisitorArray.address.postcode'
-        if ($sVi2.address != null) {
+        if (pathExists($sVi2, "$sVi2.address.postcode")) {
             $tVi2.address.postcode = $sVi2.address.postcode;
         } else {
             $tVi2.address.postcode = null;
@@ -803,6 +1011,38 @@ if (data != null &amp;&amp; data.MergeLikeMappingPatientArray != null) {
             data.MergeLikeMappingVisitorArray.push($tVi2);
         }
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -856,13 +1096,45 @@ if (data != null &amp;&amp; data.MergeLikeMappingPatientArray != null) {
 // Overwrite list: TopArrayField
 data.TopArrayField.length = 0;
 
-if (data != null &amp;&amp; data.TopArrayParam != null) {
+if (pathExists(data, "data.TopArrayParam")) {
 
     for (var i1 = 0; i1 &lt; data.TopArrayParam.length; i1++) { 
         var $sVi1 = data.TopArrayParam[i1];
         
         data.TopArrayField.push($sVi1);
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -899,14 +1171,14 @@ if (data != null &amp;&amp; data.TopArrayParam != null) {
           <xpdl2:Description>// Overwrite list: TopArrayField
 data.TopArrayField.length = 0;
 
-if (data != null &amp;&amp; data.TopArrayParam != null) {
+if (pathExists(data, "data.TopArrayParam")) {
 
     for (var i1 = 0; i1 &lt; data.TopArrayParam.length; i1++) { 
         var $sVi1 = data.TopArrayParam[i1];
         var $tVi1 = factory.com_example_bdp.createTop();
 
         // Map from 'TopArrayParam.middleSingleInst.bottomSingleInst.bottomAttr' to 'TopArrayField.topAttr'
-        if ($sVi1.middleSingleInst != null &amp;&amp; $sVi1.middleSingleInst.bottomSingleInst != null) {
+        if (pathExists($sVi1, "$sVi1.middleSingleInst.bottomSingleInst.bottomAttr")) {
             $tVi1.topAttr = $sVi1.middleSingleInst.bottomSingleInst.bottomAttr;
         } else {
             $tVi1.topAttr = null;
@@ -918,7 +1190,7 @@ if (data != null &amp;&amp; data.TopArrayParam != null) {
         }
 
         // Map from 'TopArrayParam.middleSingleInst.bottomSingleInst.bottomAttr' to 'TopArrayField.middleSingleInst.middleAttr'
-        if ($sVi1.middleSingleInst != null &amp;&amp; $sVi1.middleSingleInst.bottomSingleInst != null) {
+        if (pathExists($sVi1, "$sVi1.middleSingleInst.bottomSingleInst.bottomAttr")) {
             $tVi1.middleSingleInst.middleAttr = $sVi1.middleSingleInst.bottomSingleInst.bottomAttr;
         } else {
             $tVi1.middleSingleInst.middleAttr = null;
@@ -930,7 +1202,7 @@ if (data != null &amp;&amp; data.TopArrayParam != null) {
         }
 
         // Map from 'TopArrayParam.middleSingleInst.bottomSingleInst.bottomAttr' to 'TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr'
-        if ($sVi1.middleSingleInst != null &amp;&amp; $sVi1.middleSingleInst.bottomSingleInst != null) {
+        if (pathExists($sVi1, "$sVi1.middleSingleInst.bottomSingleInst.bottomAttr")) {
             $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = $sVi1.middleSingleInst.bottomSingleInst.bottomAttr;
         } else {
             $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = null;
@@ -938,6 +1210,38 @@ if (data != null &amp;&amp; data.TopArrayParam != null) {
         
         data.TopArrayField.push($tVi1);
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -977,7 +1281,7 @@ if (data != null &amp;&amp; data.TopArrayParam != null) {
           <xpdl2:Description>// Overwrite list: TopArrayField
 data.TopArrayField.length = 0;
 
-if (data != null &amp;&amp; data.TopArrayParam != null) {
+if (pathExists(data, "data.TopArrayParam")) {
 
     for (var i1 = 0; i1 &lt; data.TopArrayParam.length; i1++) { 
         var $sVi1 = data.TopArrayParam[i1];
@@ -989,7 +1293,11 @@ if (data != null &amp;&amp; data.TopArrayParam != null) {
         }
 
         // Map from 'TopArrayParam.topAttr' to 'TopArrayField.middleSingleInst.middleAttr'
-        $tVi1.middleSingleInst.middleAttr = $sVi1.topAttr;
+        if (pathExists($sVi1, "$sVi1.topAttr")) {
+            $tVi1.middleSingleInst.middleAttr = $sVi1.topAttr;
+        } else {
+            $tVi1.middleSingleInst.middleAttr = null;
+        }
 
         // Create target 'TopArrayField.middleSingleInst.bottomSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst.bottomSingleInst == null) {
@@ -997,7 +1305,7 @@ if (data != null &amp;&amp; data.TopArrayParam != null) {
         }
 
         // Map from 'TopArrayParam.middleSingleInst.middleAttr' to 'TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr'
-        if ($sVi1.middleSingleInst != null) {
+        if (pathExists($sVi1, "$sVi1.middleSingleInst.middleAttr")) {
             $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = $sVi1.middleSingleInst.middleAttr;
         } else {
             $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = null;
@@ -1005,6 +1313,38 @@ if (data != null &amp;&amp; data.TopArrayParam != null) {
         
         data.TopArrayField.push($tVi1);
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -1042,7 +1382,7 @@ if (data != null &amp;&amp; data.TopArrayParam != null) {
 
 // Merge list content: TextArrayField
 
-if (data != null &amp;&amp; data.TextArrayParam != null) {
+if (pathExists(data, "data.TextArrayParam")) {
 
     for (var i1 = 0; i1 &lt; data.TextArrayParam.length; i1++) { 
         var $sVi1 = data.TextArrayParam[i1];
@@ -1060,7 +1400,7 @@ if (data != null &amp;&amp; data.TextArrayParam != null) {
 
 // Merge list content: TopArrayField
 
-if (data != null &amp;&amp; data.TopArrayParam != null) {
+if (pathExists(data, "data.TopArrayParam")) {
 
     for (var i2 = 0; i2 &lt; data.TopArrayParam.length; i2++) { 
         var $sVi2 = data.TopArrayParam[i2];
@@ -1072,6 +1412,38 @@ if (data != null &amp;&amp; data.TopArrayParam != null) {
             data.TopArrayField.push($sVi2);
         }
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -1112,14 +1484,18 @@ if (data != null &amp;&amp; data.TopArrayParam != null) {
           <xpdl2:Description>// Overwrite list: TopArrayField
 data.TopArrayField.length = 0;
 
-if (data != null &amp;&amp; data.PatientArray != null) {
+if (pathExists(data, "data.PatientArray")) {
 
     for (var i1 = 0; i1 &lt; data.PatientArray.length; i1++) { 
         var $sVi1 = data.PatientArray[i1];
         var $tVi1 = factory.com_example_bdp.createTop();
 
         // Map from 'PatientArray.id' to 'TopArrayField.topAttr'
-        $tVi1.topAttr = $sVi1.id;
+        if (pathExists($sVi1, "$sVi1.id")) {
+            $tVi1.topAttr = $sVi1.id;
+        } else {
+            $tVi1.topAttr = null;
+        }
 
         // Create target 'TopArrayField.middleSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst == null) {
@@ -1127,7 +1503,11 @@ if (data != null &amp;&amp; data.PatientArray != null) {
         }
 
         // Map from 'PatientArray.name' to 'TopArrayField.middleSingleInst.middleAttr'
-        $tVi1.middleSingleInst.middleAttr = $sVi1.name;
+        if (pathExists($sVi1, "$sVi1.name")) {
+            $tVi1.middleSingleInst.middleAttr = $sVi1.name;
+        } else {
+            $tVi1.middleSingleInst.middleAttr = null;
+        }
 
         // Create target 'TopArrayField.middleSingleInst.bottomSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst.bottomSingleInst == null) {
@@ -1135,7 +1515,7 @@ if (data != null &amp;&amp; data.PatientArray != null) {
         }
 
         // Map from 'PatientArray.address.line1' to 'TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr'
-        if ($sVi1.address != null) {
+        if (pathExists($sVi1, "$sVi1.address.line1")) {
             $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = $sVi1.address.line1;
         } else {
             $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = null;
@@ -1143,6 +1523,38 @@ if (data != null &amp;&amp; data.PatientArray != null) {
         
         data.TopArrayField.push($tVi1);
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -1181,7 +1593,7 @@ if (data != null &amp;&amp; data.PatientArray != null) {
         <xpdl2:Activity Id="_iowJMypYEeWky-pvF47-Ag" Name="InflateArrayMappingMerge" xpdExt:Visibility="Private" xpdExt:DisplayName="Inflate Array Mapping Merge">
           <xpdl2:Description>// Merge list content: TopArrayField
 
-if (data != null &amp;&amp; data.PatientArray != null) {
+if (pathExists(data, "data.PatientArray")) {
 
     for (var i1 = 0; i1 &lt; data.PatientArray.length; i1++) { 
         var $sVi1 = data.PatientArray[i1];
@@ -1195,7 +1607,11 @@ if (data != null &amp;&amp; data.PatientArray != null) {
         }
 
         // Map from 'PatientArray.id' to 'TopArrayField.topAttr'
-        $tVi1.topAttr = $sVi1.id;
+        if (pathExists($sVi1, "$sVi1.id")) {
+            $tVi1.topAttr = $sVi1.id;
+        } else {
+            $tVi1.topAttr = null;
+        }
 
         // Create target 'TopArrayField.middleSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst == null) {
@@ -1203,7 +1619,11 @@ if (data != null &amp;&amp; data.PatientArray != null) {
         }
 
         // Map from 'PatientArray.name' to 'TopArrayField.middleSingleInst.middleAttr'
-        $tVi1.middleSingleInst.middleAttr = $sVi1.name;
+        if (pathExists($sVi1, "$sVi1.name")) {
+            $tVi1.middleSingleInst.middleAttr = $sVi1.name;
+        } else {
+            $tVi1.middleSingleInst.middleAttr = null;
+        }
 
         // Create target 'TopArrayField.middleSingleInst.bottomSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst.bottomSingleInst == null) {
@@ -1211,7 +1631,7 @@ if (data != null &amp;&amp; data.PatientArray != null) {
         }
 
         // Map from 'PatientArray.address.line1' to 'TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr'
-        if ($sVi1.address != null) {
+        if (pathExists($sVi1, "$sVi1.address.line1")) {
             $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = $sVi1.address.line1;
         } else {
             $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = null;
@@ -1221,6 +1641,38 @@ if (data != null &amp;&amp; data.PatientArray != null) {
             data.TopArrayField.push($tVi1);
         }
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -1265,13 +1717,45 @@ if (data != null &amp;&amp; data.PatientArray != null) {
 // Overwrite list: TextArrayField
 data.TextArrayField.length = 0;
 
-if (data != null &amp;&amp; data.TextArrayParam != null) {
+if (pathExists(data, "data.TextArrayParam")) {
 
     for (var i1 = 0; i1 &lt; data.TextArrayParam.length; i1++) { 
         var $sVi1 = data.TextArrayParam[i1];
         
         data.TextArrayField.push($sVi1);
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -1315,7 +1799,7 @@ if (data.TopParam == null) {
 // Overwrite list: TopParam.middleMultiInst
 data.TopParam.middleMultiInst.length = 0;
 
-if (data != null &amp;&amp; data.AlternateStructure != null &amp;&amp; data.AlternateStructure.middle != null) {
+if (pathExists(data, "data.AlternateStructure.middle")) {
 
     for (var i1 = 0; i1 &lt; data.AlternateStructure.middle.length; i1++) { 
         var $sVi1 = data.AlternateStructure.middle[i1];
@@ -1334,13 +1818,45 @@ if (data.TopParam.middleSingleInst == null) {
 // Overwrite list: TopParam.middleSingleInst.bottomMultiInst
 data.TopParam.middleSingleInst.bottomMultiInst.length = 0;
 
-if (data != null &amp;&amp; data.AlternateStructure != null &amp;&amp; data.AlternateStructure.bottom != null) {
+if (pathExists(data, "data.AlternateStructure.bottom")) {
 
     for (var i2 = 0; i2 &lt; data.AlternateStructure.bottom.length; i2++) { 
         var $sVi2 = data.AlternateStructure.bottom[i2];
         
         data.TopParam.middleSingleInst.bottomMultiInst.push($sVi2);
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -1377,7 +1893,7 @@ if (data != null &amp;&amp; data.AlternateStructure != null &amp;&amp; data.Alte
           <xpdl2:Description>// Overwrite list: TopArrayParam
 data.TopArrayParam.length = 0;
 
-if (data != null &amp;&amp; data.AlternateStructureArray != null) {
+if (pathExists(data, "data.AlternateStructureArray")) {
 
     for (var i1 = 0; i1 &lt; data.AlternateStructureArray.length; i1++) { 
         var $sVi1 = data.AlternateStructureArray[i1];
@@ -1388,7 +1904,7 @@ if (data != null &amp;&amp; data.AlternateStructureArray != null) {
         // Overwrite list: TopArrayParam.middleMultiInst
         $tVi1.middleMultiInst.length = 0;
         
-        if ($sVi1.middle != null) {
+        if (pathExists($sVi1, "$sVi1.middle")) {
         
             for (var i2 = 0; i2 &lt; $sVi1.middle.length; i2++) { 
                 var $sVi2 = $sVi1.middle[i2];
@@ -1407,7 +1923,7 @@ if (data != null &amp;&amp; data.AlternateStructureArray != null) {
         // Overwrite list: TopArrayParam.middleSingleInst.bottomMultiInst
         $tVi1.middleSingleInst.bottomMultiInst.length = 0;
         
-        if ($sVi1.bottom != null) {
+        if (pathExists($sVi1, "$sVi1.bottom")) {
         
             for (var i3 = 0; i3 &lt; $sVi1.bottom.length; i3++) { 
                 var $sVi3 = $sVi1.bottom[i3];
@@ -1418,6 +1934,38 @@ if (data != null &amp;&amp; data.AlternateStructureArray != null) {
         
         data.TopArrayParam.push($tVi1);
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -1460,7 +2008,7 @@ if (data.TopParam == null) {
 
 // Merge list content: TopParam.middleMultiInst
 
-if (data != null &amp;&amp; data.AlternateStructure != null &amp;&amp; data.AlternateStructure.middle != null) {
+if (pathExists(data, "data.AlternateStructure.middle")) {
 
     for (var i1 = 0; i1 &lt; data.AlternateStructure.middle.length; i1++) { 
         var $sVi1 = data.AlternateStructure.middle[i1];
@@ -1483,7 +2031,7 @@ if (data.TopParam.middleSingleInst == null) {
 
 // Merge list content: TopParam.middleSingleInst.bottomMultiInst
 
-if (data != null &amp;&amp; data.AlternateStructure != null &amp;&amp; data.AlternateStructure.bottom != null) {
+if (pathExists(data, "data.AlternateStructure.bottom")) {
 
     for (var i2 = 0; i2 &lt; data.AlternateStructure.bottom.length; i2++) { 
         var $sVi2 = data.AlternateStructure.bottom[i2];
@@ -1495,6 +2043,38 @@ if (data != null &amp;&amp; data.AlternateStructure != null &amp;&amp; data.Alte
             data.TopParam.middleSingleInst.bottomMultiInst.push($sVi2);
         }
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -1534,7 +2114,7 @@ if (data != null &amp;&amp; data.AlternateStructure != null &amp;&amp; data.Alte
         <xpdl2:Activity Id="_jEl3AypgEeWky-pvF47-Ag" Name="NestedDirectArrayMapMerge2" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Direct Array Map Merge 2">
           <xpdl2:Description>// Merge list content: TopArrayParam
 
-if (data != null &amp;&amp; data.AlternateStructureArray != null) {
+if (pathExists(data, "data.AlternateStructureArray")) {
 
     for (var i1 = 0; i1 &lt; data.AlternateStructureArray.length; i1++) { 
         var $sVi1 = data.AlternateStructureArray[i1];
@@ -1551,7 +2131,7 @@ if (data != null &amp;&amp; data.AlternateStructureArray != null) {
 
         // Merge list content: TopArrayParam.middleMultiInst
         
-        if ($sVi1.middle != null) {
+        if (pathExists($sVi1, "$sVi1.middle")) {
         
             for (var i2 = 0; i2 &lt; $sVi1.middle.length; i2++) { 
                 var $sVi2 = $sVi1.middle[i2];
@@ -1574,7 +2154,7 @@ if (data != null &amp;&amp; data.AlternateStructureArray != null) {
 
         // Merge list content: TopArrayParam.middleSingleInst.bottomMultiInst
         
-        if ($sVi1.bottom != null) {
+        if (pathExists($sVi1, "$sVi1.bottom")) {
         
             for (var i3 = 0; i3 &lt; $sVi1.bottom.length; i3++) { 
                 var $sVi3 = $sVi1.bottom[i3];
@@ -1592,6 +2172,38 @@ if (data != null &amp;&amp; data.AlternateStructureArray != null) {
             data.TopArrayParam.push($tVi1);
         }
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -1633,7 +2245,7 @@ if (data != null &amp;&amp; data.AlternateStructureArray != null) {
           <xpdl2:Description>// Overwrite list: TopArrayParam
 data.TopArrayParam.length = 0;
 
-if (data != null &amp;&amp; data.PatientArray != null) {
+if (pathExists(data, "data.PatientArray")) {
 
     for (var i1 = 0; i1 &lt; data.PatientArray.length; i1++) { 
         var $sVi1 = data.PatientArray[i1];
@@ -1642,14 +2254,18 @@ if (data != null &amp;&amp; data.PatientArray != null) {
         // Overwrite list: TopArrayParam.middleMultiInst
         $tVi1.middleMultiInst.length = 0;
         
-        if ($sVi1.medicalrecords != null) {
+        if (pathExists($sVi1, "$sVi1.medicalrecords")) {
         
             for (var i2 = 0; i2 &lt; $sVi1.medicalrecords.length; i2++) { 
                 var $sVi2 = $sVi1.medicalrecords[i2];
                 var $tVi2 = factory.com_example_bdp.createMiddle();
 
                 // Map from 'PatientArray.medicalrecords.id' to 'TopArrayParam.middleMultiInst.middleAttr'
-                $tVi2.middleAttr = $sVi2.id;
+                if (pathExists($sVi2, "$sVi2.id")) {
+                    $tVi2.middleAttr = $sVi2.id;
+                } else {
+                    $tVi2.middleAttr = null;
+                }
                 
                 $tVi1.middleMultiInst.push($tVi2);
             }
@@ -1663,14 +2279,18 @@ if (data != null &amp;&amp; data.PatientArray != null) {
         // Overwrite list: TopArrayParam.middleSingleInst.bottomMultiInst
         $tVi1.middleSingleInst.bottomMultiInst.length = 0;
         
-        if ($sVi1.medicalrecords != null) {
+        if (pathExists($sVi1, "$sVi1.medicalrecords")) {
         
             for (var i3 = 0; i3 &lt; $sVi1.medicalrecords.length; i3++) { 
                 var $sVi3 = $sVi1.medicalrecords[i3];
                 var $tVi3 = factory.com_example_bdp.createBottom();
 
                 // Map from 'PatientArray.medicalrecords.summary' to 'TopArrayParam.middleSingleInst.bottomMultiInst.bottomAttr'
-                $tVi3.bottomAttr = $sVi3.summary;
+                if (pathExists($sVi3, "$sVi3.summary")) {
+                    $tVi3.bottomAttr = $sVi3.summary;
+                } else {
+                    $tVi3.bottomAttr = null;
+                }
                 
                 $tVi1.middleSingleInst.bottomMultiInst.push($tVi3);
             }
@@ -1678,6 +2298,38 @@ if (data != null &amp;&amp; data.PatientArray != null) {
         
         data.TopArrayParam.push($tVi1);
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -1713,7 +2365,7 @@ if (data != null &amp;&amp; data.PatientArray != null) {
         <xpdl2:Activity Id="_DD0FUSpkEeWky-pvF47-Ag" Name="NestedInflateArrayMapMerge" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Inflate Array Map Merge">
           <xpdl2:Description>// Merge list content: TopArrayParam
 
-if (data != null &amp;&amp; data.PatientArray != null) {
+if (pathExists(data, "data.PatientArray")) {
 
     for (var i1 = 0; i1 &lt; data.PatientArray.length; i1++) { 
         var $sVi1 = data.PatientArray[i1];
@@ -1728,7 +2380,7 @@ if (data != null &amp;&amp; data.PatientArray != null) {
 
         // Merge list content: TopArrayParam.middleMultiInst
         
-        if ($sVi1.medicalrecords != null) {
+        if (pathExists($sVi1, "$sVi1.medicalrecords")) {
         
             for (var i2 = 0; i2 &lt; $sVi1.medicalrecords.length; i2++) { 
                 var $sVi2 = $sVi1.medicalrecords[i2];
@@ -1742,7 +2394,11 @@ if (data != null &amp;&amp; data.PatientArray != null) {
                 }
 
                 // Map from 'PatientArray.medicalrecords.id' to 'TopArrayParam.middleMultiInst.middleAttr'
-                $tVi2.middleAttr = $sVi2.id;
+                if (pathExists($sVi2, "$sVi2.id")) {
+                    $tVi2.middleAttr = $sVi2.id;
+                } else {
+                    $tVi2.middleAttr = null;
+                }
                 
                 if (i2 >= $tVi1.middleMultiInst.length) {
                     $tVi1.middleMultiInst.push($tVi2);
@@ -1757,7 +2413,7 @@ if (data != null &amp;&amp; data.PatientArray != null) {
 
         // Merge list content: TopArrayParam.middleSingleInst.bottomMultiInst
         
-        if ($sVi1.medicalrecords != null) {
+        if (pathExists($sVi1, "$sVi1.medicalrecords")) {
         
             for (var i3 = 0; i3 &lt; $sVi1.medicalrecords.length; i3++) { 
                 var $sVi3 = $sVi1.medicalrecords[i3];
@@ -1771,7 +2427,11 @@ if (data != null &amp;&amp; data.PatientArray != null) {
                 }
 
                 // Map from 'PatientArray.medicalrecords.summary' to 'TopArrayParam.middleSingleInst.bottomMultiInst.bottomAttr'
-                $tVi3.bottomAttr = $sVi3.summary;
+                if (pathExists($sVi3, "$sVi3.summary")) {
+                    $tVi3.bottomAttr = $sVi3.summary;
+                } else {
+                    $tVi3.bottomAttr = null;
+                }
                 
                 if (i3 >= $tVi1.middleSingleInst.bottomMultiInst.length) {
                     $tVi1.middleSingleInst.bottomMultiInst.push($tVi3);
@@ -1783,6 +2443,38 @@ if (data != null &amp;&amp; data.PatientArray != null) {
             data.TopArrayParam.push($tVi1);
         }
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -1823,7 +2515,7 @@ if (data != null &amp;&amp; data.PatientArray != null) {
         <xpdl2:Activity Id="_6rhvQypkEeWky-pvF47-Ag" Name="NestedSimpleArrayMapMerge" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Simple Array Map Merge">
           <xpdl2:Description>// Merge list content: PatientArray
 
-if (data != null &amp;&amp; data.YetAnotherArray != null) {
+if (pathExists(data, "data.YetAnotherArray")) {
 
     for (var i1 = 0; i1 &lt; data.YetAnotherArray.length; i1++) { 
         var $sVi1 = data.YetAnotherArray[i1];
@@ -1838,7 +2530,7 @@ if (data != null &amp;&amp; data.YetAnotherArray != null) {
 
         // Merge list content: PatientArray.medicalrecords
         
-        if ($sVi1.yetanothermiddle != null) {
+        if (pathExists($sVi1, "$sVi1.yetanothermiddle")) {
         
             for (var i2 = 0; i2 &lt; $sVi1.yetanothermiddle.length; i2++) { 
                 var $sVi2 = $sVi1.yetanothermiddle[i2];
@@ -1856,8 +2548,8 @@ if (data != null &amp;&amp; data.YetAnotherArray != null) {
                 // Overwrite list: PatientArray.medicalrecords.additionalRecordRefs
                 $tVi2.additionalRecordRefs.length = 0;
                 
-                if ($sVi2.middleArray != null) {
-                
+				if (pathExists($sVi2, "$sVi2.middleArray")) {
+					
                     for (var i3 = 0; i3 &lt; $sVi2.middleArray.length; i3++) { 
                         var $sVi3 = $sVi2.middleArray[i3];
                         
@@ -1875,6 +2567,38 @@ if (data != null &amp;&amp; data.YetAnotherArray != null) {
             data.PatientArray.push($tVi1);
         }
     }
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -1919,14 +2643,14 @@ if (data.RecursiveField == null) {
 }
 
 // Map from 'RecursiveParam.attribute1' to 'RecursiveField.attribute1'
-if (data != null &amp;&amp; data.RecursiveParam != null) {
+if (pathExists(data, "data.RecursiveParam.attribute1")) {
     data.RecursiveField.attribute1 = data.RecursiveParam.attribute1;
 } else {
     data.RecursiveField.attribute1 = null;
 }
 
 // Map from 'RecursiveParam.attribute2' to 'RecursiveField.attribute2'
-if (data != null &amp;&amp; data.RecursiveParam != null) {
+if (pathExists(data, "data.RecursiveParam.attribute2")) {
     data.RecursiveField.attribute2 = data.RecursiveParam.attribute2;
 } else {
     data.RecursiveField.attribute2 = null;
@@ -1938,7 +2662,7 @@ if (data.RecursiveField.recursChild == null) {
 }
 
 // Map from 'RecursiveParam.recursChild.attribute1' to 'RecursiveField.recursChild.attribute1'
-if (data != null &amp;&amp; data.RecursiveParam != null &amp;&amp; data.RecursiveParam.recursChild != null) {
+if (pathExists(data, "data.RecursiveParam.recursChild.attribute1")) {
     data.RecursiveField.recursChild.attribute1 = data.RecursiveParam.recursChild.attribute1;
 } else {
     data.RecursiveField.recursChild.attribute1 = null;
@@ -1950,10 +2674,42 @@ if (data.RecursiveField.recursChild.recursGrandChild == null) {
 }
 
 // Map from 'RecursiveParam.recursChild.recursGrandChild.attribute1' to 'RecursiveField.recursChild.recursGrandChild.attribute1'
-if (data != null &amp;&amp; data.RecursiveParam != null &amp;&amp; data.RecursiveParam.recursChild != null &amp;&amp; data.RecursiveParam.recursChild.recursGrandChild != null) {
+if (pathExists(data, "data.RecursiveParam.recursChild.recursGrandChild.attribute1")) {
     data.RecursiveField.recursChild.recursGrandChild.attribute1 = data.RecursiveParam.recursChild.recursGrandChild.attribute1;
 } else {
     data.RecursiveField.recursChild.recursGrandChild.attribute1 = null;
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -2144,77 +2900,77 @@ if (data != null &amp;&amp; data.RecursiveParam != null &amp;&amp; data.Recursiv
             </xpdl2:Activity>
             <xpdl2:Activity Id="_eD2kRCWCEeWMdKRbP2XvVw" Name="ClassAttributeTypeCompatibility" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Class Attribute Type Compatibility">
               <xpdl2:Description>// Map from 'TypesClass.boolean1' to 'Text01'
-if (data != null &amp;&amp; data.TypesClass != null) {
+if (pathExists(data, "data.TypesClass.boolean1")) {
     data.Text01 = data.TypesClass.boolean1;
 } else {
     data.Text01 = null;
 }
 
 // Map from 'TypesClass.date' to 'Text02'
-if (data != null &amp;&amp; data.TypesClass != null) {
+if (pathExists(data, "data.TypesClass.date")) {
     data.Text02 = data.TypesClass.date;
 } else {
     data.Text02 = null;
 }
 
 // Map from 'TypesClass.datetime' to 'Text04'
-if (data != null &amp;&amp; data.TypesClass != null) {
+if (pathExists(data, "data.TypesClass.datetime")) {
     data.Text04 = data.TypesClass.datetime;
 } else {
     data.Text04 = null;
 }
 
 // Map from 'TypesClass.decimal' to 'Text05'
-if (data != null &amp;&amp; data.TypesClass != null) {
+if (pathExists(data, "data.TypesClass.decimal")) {
     data.Text05 = data.TypesClass.decimal;
 } else {
     data.Text05 = null;
 }
 
 // Map from 'TypesClass.duration' to 'Text06'
-if (data != null &amp;&amp; data.TypesClass != null) {
+if (pathExists(data, "data.TypesClass.duration")) {
     data.Text06 = data.TypesClass.duration;
 } else {
     data.Text06 = null;
 }
 
 // Map from 'TypesClass.enum1' to 'Text07'
-if (data != null &amp;&amp; data.TypesClass != null) {
+if (pathExists(data, "data.TypesClass.enum1")) {
     data.Text07 = data.TypesClass.enum1;
 } else {
     data.Text07 = null;
 }
 
 // Map from 'TypesClass.integer' to 'Text08'
-if (data != null &amp;&amp; data.TypesClass != null) {
+if (pathExists(data, "data.TypesClass.integer")) {
     data.Text08 = data.TypesClass.integer;
 } else {
     data.Text08 = null;
 }
 
 // Map from 'TypesClass.time' to 'Text09'
-if (data != null &amp;&amp; data.TypesClass != null) {
+if (pathExists(data, "data.TypesClass.time")) {
     data.Text09 = data.TypesClass.time;
 } else {
     data.Text09 = null;
 }
 
 // Map from 'TypesClass.uri' to 'Text10'
-if (data != null &amp;&amp; data.TypesClass != null) {
+if (pathExists(data, "data.TypesClass.uri")) {
     data.Text10 = data.TypesClass.uri;
 } else {
     data.Text10 = null;
 }
 
 // Map from 'TypesClass.id' to 'Text11'
-if (data != null &amp;&amp; data.TypesClass != null) {
+if (pathExists(data, "data.TypesClass.id")) {
     data.Text11 = data.TypesClass.id;
 } else {
     data.Text11 = null;
 }
 
 // Map from 'TypesClass.text' to 'Text12'
-if (data != null &amp;&amp; data.TypesClass != null) {
+if (pathExists(data, "data.TypesClass.text")) {
     data.Text12 = data.TypesClass.text;
 } else {
     data.Text12 = null;
@@ -2226,18 +2982,50 @@ if (data.TypesClass == null) {
 }
 
 // Map from 'DateTime2' to 'TypesClass.dateTimeTZ'
-if (data != null) {
+if (pathExists(data, "data.DateTime2")) {
     data.TypesClass.dateTimeTZ = data.DateTime2;
 } else {
     data.TypesClass.dateTimeTZ = null;
 }
 
 // Map from 'Text13' to 'TypesClass.enum1'
-if (data != null) {
+if (pathExists(data, "data.Text13")) {
     data.TypesClass.enum1 = data.Text13;
 } else {
     data.TypesClass.enum1 = null;
 }
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
+}
+
 
 </xpdl2:Description>
               <xpdl2:Implementation>
@@ -2303,45 +3091,77 @@ if (data != null) {
             </xpdl2:Activity>
             <xpdl2:Activity Id="_QqdcwCYoEeWOVbireKkn9g" Name="FieldTypesCompatibility" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Field Types Compatibility">
               <xpdl2:Description>// Map from 'Boolean1' to 'Text01'
-if (data != null) {
+if (pathExists(data, "data.Boolean1")) {
     data.Text01 = data.Boolean1;
 } else {
     data.Text01 = null;
 }
 
 // Map from 'Integer' to 'Text02'
-if (data != null) {
+if (pathExists(data, "data.Integer")) {
     data.Text02 = data.Integer;
 } else {
     data.Text02 = null;
 }
 
 // Map from 'Decimal' to 'Text03'
-if (data != null) {
+if (pathExists(data, "data.Decimal")) {
     data.Text03 = data.Decimal;
 } else {
     data.Text03 = null;
 }
 
 // Map from 'Date1' to 'Text04'
-if (data != null) {
+if (pathExists(data, "data.Date1")) {
     data.Text04 = data.Date1;
 } else {
     data.Text04 = null;
 }
 
 // Map from 'Time1' to 'Text05'
-if (data != null) {
+if (pathExists(data, "data.Time1")) {
     data.Text05 = data.Time1;
 } else {
     data.Text05 = null;
 }
 
 // Map from 'DateTime' to 'Text06'
-if (data != null) {
+if (pathExists(data, "data.DateTime")) {
     data.Text06 = data.DateTime;
 } else {
     data.Text06 = null;
+}
+
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
 }
 
 
@@ -2388,11 +3208,43 @@ if (data != null) {
             </xpdl2:Activity>
             <xpdl2:Activity Id="_IRAXISYrEeWOVbireKkn9g" Name="SubtoSuperClass" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Sub to Super Class">
               <xpdl2:Description>// Map from 'SubClass' to 'SuperClass'
-if (data != null) {
+if (pathExists(data, "data.SubClass")) {
     data.SuperClass = data.SubClass;
 } else {
     data.SuperClass = null;
 }
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
+}
+
 
 </xpdl2:Description>
               <xpdl2:Implementation>
@@ -2422,28 +3274,28 @@ if (data != null) {
             </xpdl2:Activity>
             <xpdl2:Activity Id="_ET-RECcAEeWQGL9kU2bBTg" Name="TypeMappingErrors" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Type Mapping Errors">
               <xpdl2:Description>// Map from 'Text01' to 'Date1'
-if (data != null) {
+if (pathExists(data, "data.Text01")) {
     data.Date1 = data.Text01;
 } else {
     data.Date1 = null;
 }
 
 // Map from 'DateTime' to 'Date2'
-if (data != null) {
+if (pathExists(data, "data.DateTime")) {
     data.Date2 = data.DateTime;
 } else {
     data.Date2 = null;
 }
 
 // Map from 'Date2' to 'DateTime'
-if (data != null) {
+if (pathExists(data, "data.Date2")) {
     data.DateTime = data.Date2;
 } else {
     data.DateTime = null;
 }
 
 // Map from 'SuperClass' to 'SubClass'
-if (data != null) {
+if (pathExists(data, "data.SuperClass")) {
     data.SubClass = data.SuperClass;
 } else {
     data.SubClass = null;
@@ -2455,74 +3307,106 @@ if (data.TypesClass == null) {
 }
 
 // Map from 'Text02' to 'TypesClass.attachment'
-if (data != null) {
+if (pathExists(data, "data.Text02")) {
     data.TypesClass.attachment = data.Text02;
 } else {
     data.TypesClass.attachment = null;
 }
 
 // Map from 'Text03' to 'TypesClass.boolean1'
-if (data != null) {
+if (pathExists(data, "data.Text03")) {
     data.TypesClass.boolean1 = data.Text03;
 } else {
     data.TypesClass.boolean1 = null;
 }
 
 // Map from 'Text04' to 'TypesClass.date'
-if (data != null) {
+if (pathExists(data, "data.Text04")) {
     data.TypesClass.date = data.Text04;
 } else {
     data.TypesClass.date = null;
 }
 
 // Map from 'Text05' to 'TypesClass.dateTimeTZ'
-if (data != null) {
+if (pathExists(data, "data.Text05")) {
     data.TypesClass.dateTimeTZ = data.Text05;
 } else {
     data.TypesClass.dateTimeTZ = null;
 }
 
 // Map from 'Text06' to 'TypesClass.datetime'
-if (data != null) {
+if (pathExists(data, "data.Text06")) {
     data.TypesClass.datetime = data.Text06;
 } else {
     data.TypesClass.datetime = null;
 }
 
 // Map from 'Text07' to 'TypesClass.decimal'
-if (data != null) {
+if (pathExists(data, "data.Text07")) {
     data.TypesClass.decimal = data.Text07;
 } else {
     data.TypesClass.decimal = null;
 }
 
 // Map from 'Text08' to 'TypesClass.duration'
-if (data != null) {
+if (pathExists(data, "data.Text08")) {
     data.TypesClass.duration = data.Text08;
 } else {
     data.TypesClass.duration = null;
 }
 
 // Map from 'Text09' to 'TypesClass.integer'
-if (data != null) {
+if (pathExists(data, "data.Text09")) {
     data.TypesClass.integer = data.Text09;
 } else {
     data.TypesClass.integer = null;
 }
 
 // Map from 'Text10' to 'TypesClass.time'
-if (data != null) {
+if (pathExists(data, "data.Text10")) {
     data.TypesClass.time = data.Text10;
 } else {
     data.TypesClass.time = null;
 }
 
 // Map from 'SuperClass2' to 'TypesClass.subClass'
-if (data != null) {
+if (pathExists(data, "data.SuperClass2")) {
     data.TypesClass.subClass = data.SuperClass2;
 } else {
     data.TypesClass.subClass = null;
 }
+
+
+function pathExists(rootObject, objectPath) { 
+    if (objectPath &amp;&amp; elementExists(rootObject)) {
+        var lastChildStartIdx = objectPath.lastIndexOf('[\'');
+        var paths = [];
+        // dot-notation
+        if (lastChildStartIdx === -1) {       
+            // Split and remove the first element because it is the root object e.g. 'obj.child.grandchild' --> obj is the root object
+            paths = objectPath.split(".").slice(1); 
+        } else {
+            // Square-bracket notation
+            while(lastChildStartIdx !== -1){            
+                var lastChildEndIdx = objectPath.lastIndexOf('\']');
+                // Add last child
+                paths.unshift(objectPath.substring(lastChildStartIdx + 2, lastChildEndIdx));
+                // Update path
+                objectPath = objectPath.substring(0, lastChildStartIdx);
+                lastChildStartIdx = objectPath.lastIndexOf('[\'');
+            }
+        }        
+        var pathElement = paths.reduce(function(obj, prop){       
+            return (elementExists(obj) &amp;&amp; elementExists(obj[prop])) ? obj[prop] : undefined;
+        }, rootObject);
+        return elementExists(pathElement);
+    }
+    return false;
+}
+function elementExists(element){
+    return typeof(element) !== 'undefined' &amp;&amp; element !== null;
+}
+
 
 </xpdl2:Description>
               <xpdl2:Implementation>
