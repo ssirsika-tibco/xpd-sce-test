@@ -509,12 +509,30 @@ public class ProcessUIUtil {
     }
 
     /**
-     * This method uses the indexer to return the process matching the given
-     * process id
-     * 
-     * @return Process or <code>null</code> if process not found.
-     * 
-     */
+	 * This method uses the indexer to return the pageflows in the indexer that match the given Id
+	 * 
+	 * This method returns an empty list if no element in the indexer matches the given id.
+	 * 
+	 * @return <code>EObject</code> the eObjects that match the passed id .
+	 * 
+	 */
+	public static List<EObject> getAllPageflows(String id)
+	{
+		List<EObject> elements = new ArrayList<EObject>();
+		Map<String, String> additionalAttributes = new HashMap<String, String>();
+		additionalAttributes.put(Xpdl2ResourcesPlugin.ATTRIBUTE_ITEM_ID, id);
+		IndexerItem criteria = new IndexerItemImpl(null, ProcessResourceItemType.PAGEFLOW.toString(), null,
+				additionalAttributes);
+		elements = getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID, criteria);
+		return elements;
+	}
+
+	/**
+	 * This method uses the indexer to return the process matching the given process id
+	 * 
+	 * @return Process or <code>null</code> if process not found.
+	 * 
+	 */
     public static Process getProcesById(String id) {
 
         List<EObject> procsForId = ProcessUIUtil.getAllProcesses(id);
@@ -528,6 +546,29 @@ public class ProcessUIUtil {
 
         return null;
     }
+
+	/**
+	 * This method uses the indexer to return the pageflow matching the given process id
+	 * 
+	 * @return Process or <code>null</code> if process not found.
+	 * 
+	 */
+	public static Process getPageflowById(String id)
+	{
+
+		List<EObject> procsForId = ProcessUIUtil.getAllPageflows(id);
+
+		if (procsForId.size() > 0)
+		{
+			EObject process = procsForId.get(0);
+			if (process instanceof Process)
+			{
+				return (Process) process;
+			}
+		}
+
+		return null;
+	}
 
     /**
      * This method uses the indexer to return the process packages in the

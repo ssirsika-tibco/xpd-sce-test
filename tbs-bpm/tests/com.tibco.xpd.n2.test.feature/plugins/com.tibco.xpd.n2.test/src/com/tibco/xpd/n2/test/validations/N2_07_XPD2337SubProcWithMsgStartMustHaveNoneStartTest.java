@@ -56,14 +56,14 @@ public class N2_07_XPD2337SubProcWithMsgStartMustHaveNoneStartTest extends
                                 "/XPD-2337/Process Packages/XPD-2337.xpdl", //$NON-NLS-1$ 
                                 "bx.subProcWithMsgStartMustHaveNoneStart", //$NON-NLS-1$ 
                                 "_tWSd4c_nEeCi1O9-4mx4Eg", //$NON-NLS-1$ 
-                                "Process Manager 1.x : The invoked process with message start activity(s) must also have a start event of type none to be invoked as a sub-process. (XPD2337Process:XPD2337SubProcess)", //$NON-NLS-1$ 
+								"Process Manager 1.x : The invoked process must have a Start Request Event to be invoked from a sub-process task (message events are no longer supported). Change the event type or select a different process. (XPD2337Process:XPD2337SubProcess)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$ 
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/XPD-2337/Process Packages/XPD-2337.xpdl", //$NON-NLS-1$ 
                                 "bx.interfaceWithMsgStartMustHaveNoneStart", //$NON-NLS-1$ 
                                 "_zRQngs_nEeCi1O9-4mx4Eg", //$NON-NLS-1$ 
-                                "Process Manager 1.x : The invoked process interface with message start event(s) must also have a start event of type none to be invoked as a sub-process. (XPD2337Process:XPD2337Interface)", //$NON-NLS-1$ 
+								"Process Manager 1.x : The invoked process-interface must have a Start Request Event to be invoked from a sub-process task (message events are no longer supported). Change the event type or select a different process-interface. (XPD2337Process:XPD2337Interface)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$ 
 
                 };

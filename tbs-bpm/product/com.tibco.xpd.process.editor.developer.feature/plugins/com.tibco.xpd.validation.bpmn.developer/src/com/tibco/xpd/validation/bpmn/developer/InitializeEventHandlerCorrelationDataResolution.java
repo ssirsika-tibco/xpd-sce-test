@@ -51,7 +51,8 @@ public class InitializeEventHandlerCorrelationDataResolution extends
     protected Command getResolutionCommand(EditingDomain editingDomain,
             EObject target, IMarker marker) throws ResolutionException {
 
-        if (target instanceof Activity) {
+		if (target instanceof Activity)
+		{
             CompoundCommand cCmd =
                     new CompoundCommand(
                             Messages.InitializeEventHandlerCorrelationDataResolution_InitializeListWithStartActivities_menu);
@@ -81,7 +82,12 @@ public class InitializeEventHandlerCorrelationDataResolution extends
                     /*
                      * XPD-7075: Resolution valid event for Signal Events.
                      */
-                    if (evt.getEventTriggerTypeNode() instanceof TriggerResultMessage
+					/*
+					 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event
+					 * handlers and Event Sub-processes
+					 */
+					if (evt.getEventTriggerTypeNode() == null
+							|| evt.getEventTriggerTypeNode() instanceof TriggerResultMessage
                             || evt.getEventTriggerTypeNode() instanceof TriggerResultSignal) {
                         EObject eventTriggerTypeNode =
                                 evt.getEventTriggerTypeNode();
@@ -89,6 +95,7 @@ public class InitializeEventHandlerCorrelationDataResolution extends
                         EventHandlerInitialisers evtHdlInitialisers =
                                 getOrCreateEventHandlerInitialiser(editingDomain,
                                         cCmd,
+										activity,
                                         eventTriggerTypeNode);
 
                         EList<ActivityRef> currentActivityRefs = null;
@@ -186,11 +193,20 @@ public class InitializeEventHandlerCorrelationDataResolution extends
      */
     private EventHandlerInitialisers getOrCreateEventHandlerInitialiser(
             EditingDomain editingDomain, CompoundCommand cCmd,
+			Activity activity,
             EObject eventTriggerTypeNode) {
 
+		/*
+		 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event handlers and
+		 * Event Sub-processes.
+		 * 
+		 * Have to put EventHandlerInitialisers element on the Activity for Incoming Request events as they do not have
+		 * a trigger type node.
+		 */
         EventHandlerInitialisers model =
                 (EventHandlerInitialisers) Xpdl2ModelUtil
-                        .getOtherElement((OtherElementsContainer) eventTriggerTypeNode,
+						.getOtherElement(
+								eventTriggerTypeNode == null ? activity : (OtherElementsContainer) eventTriggerTypeNode,
                                 XpdExtensionPackage.eINSTANCE
                                         .getDocumentRoot_EventHandlerInitialisers());
 
@@ -201,7 +217,7 @@ public class InitializeEventHandlerCorrelationDataResolution extends
                     XpdExtensionFactory.eINSTANCE
                             .createEventHandlerInitialisers();
             cCmd.append(Xpdl2ModelUtil.getSetOtherElementCommand(editingDomain,
-                    (OtherElementsContainer) eventTriggerTypeNode,
+					eventTriggerTypeNode == null ? activity : (OtherElementsContainer) eventTriggerTypeNode,
                     XpdExtensionPackage.eINSTANCE
                             .getDocumentRoot_EventHandlerInitialisers(),
                     model));

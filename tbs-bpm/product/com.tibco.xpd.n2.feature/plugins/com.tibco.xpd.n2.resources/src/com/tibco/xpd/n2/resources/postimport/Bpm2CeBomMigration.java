@@ -3,11 +3,20 @@
  */
 package com.tibco.xpd.n2.resources.postimport;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.FigureUtilities;
@@ -15,10 +24,13 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Extension;
 import org.eclipse.uml2.uml.Model;
+import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Stereotype;
 
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager.StereotypeKind;
@@ -101,6 +113,15 @@ public class Bpm2CeBomMigration implements IBOMMigration {
         if (c != null) {
             cmd.append(c);
         }
+
+		/*
+		 * ACE-7093: Remove the generalization
+		 */
+		c = removeGeneralization(domain, model);
+		if (c != null)
+		{
+			cmd.append(c);
+		}
 
         return !cmd.isEmpty() ? cmd : null;
     }
@@ -496,4 +517,156 @@ public class Bpm2CeBomMigration implements IBOMMigration {
         return !cmd.isEmpty() ? cmd : null;
     }
 
+	/**
+	 * ACE-7093: Remove the generalization.
+	 * 
+	 * Before removing the generalization relationship, all the derived attributes from general (super) class should be
+	 * copied to generalized (special) class. After coping the derived attributes, delete the generalization
+	 * relationship between the classes. While coping the attributes, copy all the stereotypes applied on the source
+	 * attribute to destination.
+	 * 
+	 * @param domain
+	 *            The editing domain.
+	 * @param model
+	 *            The BOM UML model.
+	 * @return The command to convert the classes.
+	 */
+	private Command removeGeneralization(TransactionalEditingDomain domain, Model model)
+	{
+
+		return new RecordingCommand(domain)
+		{
+			// Map to cache class<-->Attribute info object information.
+			Map<org.eclipse.uml2.uml.Class, Set<AttributeCopier>> newAttributesInfoMap = new HashMap<>();
+
+			@Override
+			protected void doExecute()
+			{
+				/*
+				 * Search through all the classes to create map of additional attributes which need to be created before
+				 * removing the generalization.
+				 */
+
+				EList<Element> allOwnedElements = model.allOwnedElements();
+
+				List<org.eclipse.uml2.uml.Class> classes = new ArrayList<>();
+
+				for (Element element : allOwnedElements)
+				{
+					if (element instanceof org.eclipse.uml2.uml.Class)
+					{
+						org.eclipse.uml2.uml.Class clazz = (org.eclipse.uml2.uml.Class) element;
+						classes.add(clazz);
+
+						// Get all the inherited members from super classes hierarchies.
+						EList<NamedElement> inheritedMembers = clazz.getInheritedMembers();
+
+						if (!inheritedMembers.isEmpty())
+						{
+							Set<AttributeCopier> attributeCopiers = new HashSet<>();
+							for (NamedElement srcProperty : inheritedMembers)
+							{
+								if (srcProperty instanceof Property)
+								{
+									attributeCopiers.add(new AttributeCopier((Property) srcProperty));
+								}
+							}
+							newAttributesInfoMap.put(clazz, attributeCopiers);
+						}
+					}
+				}
+
+				// Remove all the generalization
+				for (org.eclipse.uml2.uml.Class clazz : classes)
+				{
+					clazz.getGeneralizations().clear();
+				}
+
+				// Now iterate over the map to copy attributes with stereotypes.
+				for (Entry<org.eclipse.uml2.uml.Class, Set<AttributeCopier>> entry : newAttributesInfoMap.entrySet())
+				{
+					for (AttributeCopier attributeCopier : entry.getValue())
+					{
+						attributeCopier.copyToClass(entry.getKey());
+					}
+				}
+			}
+		};
+	}
+
+	/**
+	 * Final class to provide functionality to copy the attribute to destination class.
+	 *
+	 *
+	 * @author ssirsika
+	 * @since 01-Nov-2023
+	 */
+	private final class AttributeCopier
+	{
+		/**
+		 * Source attribute
+		 */
+		private Property srcAttribute;
+
+		public AttributeCopier(Property aSrcAttribute)
+		{
+			this.srcAttribute = aSrcAttribute;
+		}
+
+		/**
+		 * Copy the belonging attribute to passed target class.
+		 * 
+		 * @param aClass
+		 *            Target class to which attribute need to be copied.
+		 */
+		public void copyToClass(org.eclipse.uml2.uml.Class aClass)
+		{
+			// Create a copy of an attribute
+			Property newAttribute = EcoreUtil.copy(this.srcAttribute);
+
+			// Set the new attribute to class
+			aClass.getOwnedAttributes().add(newAttribute);
+
+			/*
+			 * Get the all the applied stereotypes on source attribute and apply them on the new (destination)
+			 * attribute.
+			 */
+			EList<Stereotype> srcAppliedStereotypes = srcAttribute.getAppliedStereotypes();
+			for (Stereotype srcStereotype : srcAppliedStereotypes)
+			{
+				/*
+				 * Check the existence of matching applicable stereotype present in the new (destination) attribute.
+				 */
+				Stereotype applicableStereotype = newAttribute
+						.getApplicableStereotype(srcStereotype.getQualifiedName());
+
+				if (applicableStereotype != null)
+				{
+
+					// apply stereotype to new attribute
+					newAttribute.applyStereotype(applicableStereotype);
+
+					/*
+					 * Copy all the facet properties values (except mataclass properties) from source stereotype and set
+					 * them to the new attribute's stereotype.
+					 */
+					EList<Property> srcFacetProperties = srcStereotype.getOwnedAttributes();
+					for (Property srcFacetAttribute : srcFacetProperties)
+					{
+						String name = srcFacetAttribute.getName();
+						/*
+						 * We need to skip the properties like 'base_Property' or 'base_NamedElement' (i.e. metaclass
+						 * properties ) as those properties will be correctly set once the stereotype is applied to the
+						 * new (destination) attribute.
+						 */
+						if (!name.startsWith(Extension.METACLASS_ROLE_PREFIX))
+						{
+							Object value = srcAttribute.getValue(srcStereotype, name);
+							newAttribute.setValue(applicableStereotype, name, value);
+						}
+					}
+				}
+			}
+		}
+	}
 }

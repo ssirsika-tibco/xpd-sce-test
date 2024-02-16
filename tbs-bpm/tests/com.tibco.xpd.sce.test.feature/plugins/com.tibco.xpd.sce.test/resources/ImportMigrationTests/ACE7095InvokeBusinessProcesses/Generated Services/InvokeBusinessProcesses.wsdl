@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_CnpmMMmjEe6Q4NrtYwk5GA" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://example.com/invokebusinessprocessdata" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InvokeBusinessProcesses" targetNamespace="http://www.tibco.com/bs3.0/_CnpmMMmjEe6Q4NrtYwk5GA" tibex:XPDL="InvokeBusinessProcesses.xpdl">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_CnpmMMmjEe6Q4NrtYwk5GA" targetNamespace="http://www.tibco.com/bs3.0/_CnpmMMmjEe6Q4NrtYwk5GA">
+      <xsd:simpleType name="dateTime">
+        <xsd:restriction base="xsd:dateTime"/>
+      </xsd:simpleType>
+      <xsd:simpleType name="decimal__">
+        <xsd:restriction base="xsd:decimal"/>
+      </xsd:simpleType>
+      <xsd:simpleType name="string_50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://example.com/invokebusinessprocessdata" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://example.com/invokebusinessprocessdata" targetNamespace="http://example.com/invokebusinessprocessdata">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/ACE7095InvokeBusinessProcessData/Business Objects/InvokeBusinessProcessData.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="BizData1">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="bizdata2" type="BizData2"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="text">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BizData2">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="subtext">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="number" type="double_StudioGeneratedTemplate"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="datetime">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:dateTime">
+                <xsd:pattern value=".+T.+(Z|[+-].+)"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="bizdata3" type="BizData3"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BizData3">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="subsubtext">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="double_StudioGeneratedTemplate">
+        <xsd:restriction base="xsd:double">
+          <xsd:minInclusive value="-179.76931348623157E+306"/>
+          <xsd:maxInclusive value="179.76931348623157E+306"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="BizData1Element" type="BizData1"/>
+      <xsd:element name="BizData2Element" type="BizData2"/>
+      <xsd:element name="BizData3Element" type="BizData3"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MessageStarter_CatchMessageEvent_INPUT">
+    <wsdl:part name="BOM" type="ttns:BizData1"/>
+    <wsdl:part name="Datetime" type="ns:dateTime"/>
+    <wsdl:part name="Num" type="ns:decimal__"/>
+    <wsdl:part name="Text" type="ns:string_50"/>
+  </wsdl:message>
+  <wsdl:portType name="MessageStarter" tibex:FlowContainer="_9DK_EsmkEe6Q4NrtYwk5GA">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="CatchMessageEvent">
+      <wsdl:input message="ns:MessageStarter_CatchMessageEvent_INPUT" tibex:Event="_9DK_E8mkEe6Q4NrtYwk5GA"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

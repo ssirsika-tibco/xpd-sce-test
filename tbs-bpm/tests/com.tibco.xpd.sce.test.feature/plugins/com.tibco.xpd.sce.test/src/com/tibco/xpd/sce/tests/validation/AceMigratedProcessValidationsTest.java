@@ -140,13 +140,6 @@ public class AceMigratedProcessValidationsTest
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceProvider_GeneratedWSDL.xpdl", //$NON-NLS-1$
-                                "ace.invoke.businessprocess.not.supported", //$NON-NLS-1$
-                                "_QOJIXGEgEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Business process service activities are not supported. Use a sub-process task in asynchronous mode to invoke business processes from business service or pageflow processes. (ServiceProvider_GeneratedWSDLProcessGeneratedStart2:InvokeGeneratedStart2)", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
-
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceProvider_GeneratedWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.task.not.supported", //$NON-NLS-1$
                                 "_rUkKwWEaEemASo-CA987hg", //$NON-NLS-1$
                                 "BPM  : Incoming requests with specific replies are not currently supported. Consider using REST service send task to send data back to the external system. (ServiceProvider_GeneratedWSDLProcess:ReplyToGeneratedStart)", //$NON-NLS-1$

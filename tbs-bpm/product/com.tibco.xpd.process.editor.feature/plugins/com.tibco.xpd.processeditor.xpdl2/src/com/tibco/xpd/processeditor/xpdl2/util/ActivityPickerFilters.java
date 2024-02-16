@@ -78,7 +78,12 @@ public class ActivityPickerFilters {
                      * If it's an event then it mustn't be an event handler or
                      * an event attached to task.
                      */
-                    if (!Xpdl2ModelUtil.isEventHandlerActivity(activity)
+					/*
+					 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event
+					 * handlers and Event Sub-processes
+					 */
+					if (!Xpdl2ModelUtil.isEventHandlerActivity(activity)
+							&& !Xpdl2ModelUtil.isEventSubProcessStartEvent(activity)
                             && !Xpdl2ModelUtil.isEventAttachedToTask(activity)) {
                         ret = true;
                     }

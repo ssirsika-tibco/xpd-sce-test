@@ -333,9 +333,11 @@ public class AssociatedParameterWithCorrelationSection extends
                      * Sid ACE-6338 Allow correlation data association for Incoming Request intermediate events, receive
                      * tasks and Incoming Request start events in event sub-processes
                      */
-                    // Sid ACE-6815 Disable event handler correlation until supported by run-time
-                    if (!EventObjectUtil.isEventHandlerOrEventSubProcessStartEventActivity(activity)) {
-                        if (activity.getEvent() instanceof IntermediateEvent) {
+					/*
+					 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event
+					 * handlers and Event Sub-processes
+					 */
+                	if (activity.getEvent() instanceof IntermediateEvent) {
                             IntermediateEvent interEvent = (IntermediateEvent) activity.getEvent();
 
                             if (TriggerType.NONE_LITERAL.equals(interEvent.getTrigger())) {
@@ -352,7 +354,6 @@ public class AssociatedParameterWithCorrelationSection extends
                         else if (TaskType.RECEIVE_LITERAL.equals(TaskObjectUtil.getTaskTypeStrict(activity))) {
                             return true;
                         }
-                    }
                 }
             }
         }

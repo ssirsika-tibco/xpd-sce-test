@@ -30,6 +30,7 @@ import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Stereotype;
 import org.junit.Test;
 
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
@@ -983,12 +984,167 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
     }
 
     /**
-     * Test the given project.
-     * 
-     * @param projectName
-     * @param expectedMajorVersion
-     *            the expected major version after import.
-     */
+	 * ACE-7093: Test that Generalizations are removed after coping derived attributes.
+	 */
+	@SuppressWarnings("nls")
+	@Test
+    public void testGeneralizationProjectMigration() {
+		/*
+		 * Test imports two projects, 'ProjectMigrationTest_BaseGeneralization' and
+		 * 'ProjectMigrationTest_Generalization'. There exists generalization relationship between BOM class
+		 * (LowerGeneralClass) present in 'ProjectMigrationTest_Generalization' project with
+		 * 'ProjectMigrationTest_BaseGeneralization'. This is to check the cross-projects BOM generalization handling. 
+		 */ 
+		
+		String baseProjectName = "ProjectMigrationTest_BaseGeneralization"; //$NON-NLS-1$
+        String projectName = "ProjectMigrationTest_Generalization"; //$NON-NLS-1$
+        ProjectImporter baseProjectImporter = null;
+        ProjectImporter projectImporter = null;
+
+        try {
+        	baseProjectImporter = doTestProject(baseProjectName, 1);
+            projectImporter = doTestProject(projectName, 1);
+
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+
+            Collection<IResource> bomFiles = SpecialFolderUtil.getAllDeepResourcesInSpecialFolderOfKind(project,
+                    BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND,
+                    BOMResourcesPlugin.BOM_FILE_EXTENSION,
+                    false);
+
+            // Should only be one
+            assertEquals(1, bomFiles.size());
+
+            // Get the model
+            IResource bomFile = bomFiles.iterator().next();
+            WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(bomFile);
+            Model model = (Model) wc.getRootElement();
+
+			HashMap<String, List<String>> expectedClassToAttributesMap = buildExpectedClassMap();
+			int classCount = 0;
+            for (Element element : model.allOwnedElements()) {
+                if (element instanceof Class) {
+                    Class clazz = (Class) element;
+					String className = clazz.getName();
+					assertTrue("Class '" + className + "' should not have any generalization.",
+							clazz.getGeneralizations().isEmpty());
+					EList<Property> allAttributes = clazz.allAttributes();
+					List<String> expectedAttributeList = expectedClassToAttributesMap.get(className);
+					assertNotNull("Not expecting class '" + className + "' in the input project",
+							expectedAttributeList);
+					assertEquals(
+							"Number of attributes for class '" + className
+									+ "' does not match with expected attributes.",
+							expectedAttributeList.size(), clazz.allAttributes().size());
+
+					for (String attributeName : expectedAttributeList)
+					{
+						assertTrue(
+								"Missing expected attribute '" + attributeName + "' in the migrated class '"
+										+ className + "'.",
+								allAttributes.stream().anyMatch(p -> p.getName().equals(attributeName)));
+					}
+
+					/* For few sample attributes, check that stereotypes are getting copied correctly. */
+					if (className.equals("MainClass"))
+					{
+						Property attribute = allAttributes.stream().filter(p -> p.getName().equals("sd1aInteger")) //$NON-NLS-1$
+								.findAny().orElse(null);
+
+						assertEquals("sd1a Integer", PrimitivesUtil.getDisplayLabel(attribute));
+						Stereotype typeStereotype = attribute												//NOSONAR
+								.getAppliedStereotype("PrimitiveTypeFacets::RestrictedType");
+						assertNotNull("type Stereotype should be present ", typeStereotype);
+						
+						attribute = allAttributes.stream().filter(p -> p.getName().equals("s1aFixedPointNumber")) //$NON-NLS-1$
+								.findAny().orElse(null);
+
+						assertEquals("s1a Fixed Point Number", PrimitivesUtil.getDisplayLabel(attribute));
+						typeStereotype = attribute															//NOSONAR
+								.getAppliedStereotype("PrimitiveTypeFacets::RestrictedType");
+						assertNotNull("type Stereotype should be present ", typeStereotype);
+						assertEquals("123", attribute.getValue(typeStereotype, "decimalDefaultValue"));
+					} 
+					
+					if (className.equals("SuperClass1"))
+					{
+						Property attribute = allAttributes.stream().filter(p -> p.getName().equals("sd1aNonDiagramComposedAttribute")) //$NON-NLS-1$
+								.findAny().orElse(null);
+
+						assertEquals("sd1a Non-Diagram Composed Attribute", PrimitivesUtil.getDisplayLabel(attribute));
+					}
+					
+					if (className.equals("IncludedInMainClass"))
+					{
+						Property attribute = allAttributes.stream().filter(p -> p.getName().equals("sdciwdrInteger")) //$NON-NLS-1$
+								.findAny().orElse(null);
+
+						assertEquals("sdciwdr Integer", PrimitivesUtil.getDisplayLabel(attribute));
+						Stereotype typeStereotype = attribute												//NOSONAR
+								.getAppliedStereotype("PrimitiveTypeFacets::RestrictedType");
+						assertNotNull("type Stereotype should be present ", typeStereotype);
+					} 
+					classCount++;
+				}
+            }
+
+			assertEquals(expectedClassToAttributesMap.keySet().size(), classCount);
+
+        } finally {
+			
+			if (baseProjectImporter != null)
+			{
+				baseProjectImporter.performDelete();
+			}
+			if (projectImporter != null)
+			{
+				projectImporter.performDelete();
+			}
+			 
+        }
+    }
+    
+	/**
+	 * @return the Map of expected class<->attributes collection.
+	 * 
+	 */
+	@SuppressWarnings("nls")
+	private HashMap<String, List<String>> buildExpectedClassMap()
+	{
+		HashMap<String, List<String>> classToAttributeMap = new HashMap<>();
+		classToAttributeMap.put("GlobalClass", Arrays.asList("sgc1", "sgc2", "gc2", "gc1"));
+		classToAttributeMap.put("IncludedInMainClass",
+				Arrays.asList("scc1", "sdciwdrInteger", "scc2", "sdciwdrText", "imc2", "imc1"));
+		classToAttributeMap.put("IncludedInSuperClass", Arrays.asList("isc2", "isc1"));
+		classToAttributeMap.put("IncludedInSuperDuperClass", Arrays.asList("isdc2", "isdc1"));
+		classToAttributeMap.put("MainClass",
+				Arrays.asList("maText", "maFloatingPointNumber", "childComposedFromMainClass",
+						"childComposedFromSuperClass", "s1aFixedPointNumber", "s2aDateTimeTZ", "sd1aInteger",
+						"childArrayComposedFromSuperDuperClass", "sd1aNonDiagramComposedAttribute"));
+		classToAttributeMap.put("SuperChildClass", Arrays.asList("sdciwdrText", "sdciwdrInteger", "scc2", "scc1"));
+		classToAttributeMap.put("SuperClass1",
+				Arrays.asList("sd1aNonDiagramComposedAttribute", "childArrayComposedFromSuperDuperClass", "sd1aInteger",
+						"childComposedFromSuperClass", "s2aDateTimeTZ", "s1aFixedPointNumber"));
+		classToAttributeMap.put("SuperDuperChildInheritedwithoutDiagramRelationship",
+				Arrays.asList("sdciwdrInteger", "sdciwdrText"));
+		classToAttributeMap.put("SuperDuperClass1",
+				Arrays.asList("sd1aNonDiagramComposedAttribute", "childArrayComposedFromSuperDuperClass",
+						"sd1aInteger"));
+		classToAttributeMap.put("SuperGlobalClass", Arrays.asList("sgc1", "sgc2"));
+		classToAttributeMap.put("CaseClass",
+				Arrays.asList("caseClass2", "summary", "globalChild", "caseState", "caseID"));
+		classToAttributeMap.put("CaseClass2", Arrays.asList("caseClass", "caseIdentifier"));
+		classToAttributeMap.put("LowerGeneralClass", Arrays.asList("lowerGeneralAtr", "middleBOMAtr", "baseBOMAtr"));
+		return classToAttributeMap;
+	}
+
+	/**
+	 * Test the given project.
+	 * 
+	 * @param projectName
+	 * @param expectedMajorVersion
+	 *            the expected major version after import.
+	 */
     private ProjectImporter doTestProject(String projectName, int expectedMajorVersion) {
         /*
          * Import and mgirate the project
@@ -1224,11 +1380,11 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 									psr.getRestService().getResourceName());
 						}
 
-						assertTrue(xpdlFile.getName() + "::" //$NON-NLS-1$
-								+ Xpdl2ModelUtil.getDisplayName(process) + ":" //$NON-NLS-1$
-								+ Xpdl2ModelUtil.getDisplayName(participant)
-								+ " - REST/WEB/JDBC system participant should have had xpdExt:ParticipantSharedResource removed", //$NON-NLS-1$
-								psr.getWebService() == null && psr.getJdbc() == null);
+                        assertTrue(xpdlFile.getName() + "::" //$NON-NLS-1$
+                                + Xpdl2ModelUtil.getDisplayName(process) + ":" //$NON-NLS-1$
+                                + Xpdl2ModelUtil.getDisplayName(participant)
+                                + " - REST/WEB/JDBC system participant should have had xpdExt:ParticipantSharedResource removed", //$NON-NLS-1$
+                                psr.getWebService() == null && psr.getJdbc() == null);
 
                         /*
                          * Sid ACE-479 We now only remove the content of xpdExt:RestService not the whole element so
@@ -1659,6 +1815,6 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 		contents.put("SOAPParticipantWithJMS", null);
 		contents.put("SOAPParticipantWithVirtualization", null);
 		return contents;
-	}
+}
 
 }

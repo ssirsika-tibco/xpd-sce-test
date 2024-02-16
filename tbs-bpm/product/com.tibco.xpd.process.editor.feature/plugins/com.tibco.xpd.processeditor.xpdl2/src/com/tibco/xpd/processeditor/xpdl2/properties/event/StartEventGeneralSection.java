@@ -608,7 +608,12 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
                             serializeConcurrentFlows.setEnabled(true);
                         }
 
-                        if (isEventSubProcessMessageStartEvent) {
+                        /*
+						 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event
+						 * handlers and Event Sub-processes
+						 */
+						if (isEventSubProcessStartRequestEvent || isEventSubProcessMessageStartEvent)
+						{
                             hideUIComposite(initialisersContainer,
                                 false,
                                 GridData.FILL_HORIZONTAL);
@@ -735,26 +740,30 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
                             allowConcurrentFlows.setSelection(false);
                         }
 
-                        /*
-                         * Initializers don't apply to Start Request events as
-                         * they're related to business data correlation - start
-                         * request events are correlated on process-id.
-                         */
-                        if (!isEventSubProcessStartRequestEvent) {
-                            // Get current initialiser activities
-                            List<Activity> currentInitialisingActivities = Collections.<Activity> emptyList();
+						/*
+						 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event
+						 * handlers and Event Sub-processes
+						 */
+						// Get current initialiser activities
+						List<Activity> currentInitialisingActivities = Collections.<Activity> emptyList();
 
-                            EventHandlerInitialisers evtHdlInitialisers = (EventHandlerInitialisers) Xpdl2ModelUtil
-                                    .getOtherElement((OtherElementsContainer) eventTriggerTypeNode,
-                                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerInitialisers());
+						/*
+						 * Have to put EventHandlerInitialisers element on the Activity for Incoming Request events as
+						 * they do not have a trigger type node.
+						 */
+						EventHandlerInitialisers evtHdlInitialisers = (EventHandlerInitialisers) Xpdl2ModelUtil
+								.getOtherElement(
+										eventTriggerTypeNode == null ? activity
+												: (OtherElementsContainer) eventTriggerTypeNode,
+										XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerInitialisers());
 
-                            if (evtHdlInitialisers != null) {
-                                currentInitialisingActivities = getEvtHandlerInitialisingActivities(evtHdlInitialisers);
-                            }
+						if (evtHdlInitialisers != null)
+						{
+							currentInitialisingActivities = getEvtHandlerInitialisingActivities(evtHdlInitialisers);
+						}
 
-                            initialiserPickerControl.setActivities(activity.getProcess(),
-                                    currentInitialisingActivities);
-                        }
+						initialiserPickerControl.setActivities(activity.getProcess(), currentInitialisingActivities);
+
                     }
                 }
             }
@@ -912,7 +921,11 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
                              * controls are applicable for message start event
                              * and Global start signals.
                              */
-                            if (eventTriggerTypeNode instanceof TriggerResultMessage
+							/*
+							 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request
+							 * Event handlers and Event Sub-processes
+							 */
+							if (eventTriggerTypeNode == null || eventTriggerTypeNode instanceof TriggerResultMessage
                                     || eventTriggerTypeNode instanceof TriggerResultSignal) {
 
                                 Command cmd =
@@ -995,9 +1008,17 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
             List<Activity> currentInitialisingActivities =
                     Collections.<Activity> emptyList();
 
+			/*
+			 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event handlers and
+			 * Event Sub-processes.
+			 * 
+			 * Have to put EventHandlerInitialisers element on the Activity for Incoming Request events as they do not
+			 * have a trigger type node.
+			 */
             EventHandlerInitialisers evtHdlInitialisers =
                     (EventHandlerInitialisers) Xpdl2ModelUtil
-                            .getOtherElement((OtherElementsContainer) triggerTypeNode,
+							.getOtherElement(
+									triggerTypeNode == null ? activity : (OtherElementsContainer) triggerTypeNode,
                                     XpdExtensionPackage.eINSTANCE
                                             .getDocumentRoot_EventHandlerInitialisers());
 
@@ -1016,13 +1037,14 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
                                 Messages.EventTriggerTypeMessageSection_EventHandlerInitializersSetCommand_name);
 
                 removeEventHandlerInitialisers(ed,
+						activity,
                         triggerTypeNode,
                         evtHdlInitialisers,
                         cmd);
 
                 if (!selectedInitialisingActivities.isEmpty()) {
                     evtHdlInitialisers =
-                            createEventHandlerInitialisers(ed,
+							createEventHandlerInitialisers(ed, activity,
                                     triggerTypeNode,
                                     cmd);
 
@@ -1044,13 +1066,20 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
      * @param cCmd
      *            CompoundCommand
      */
-    private void removeEventHandlerInitialisers(EditingDomain ed,
+	private void removeEventHandlerInitialisers(EditingDomain ed, Activity activity,
             EObject triggerTypeNode,
             EventHandlerInitialisers evtHdlInitialisers, CompoundCommand cCmd) {
 
         if (evtHdlInitialisers != null) {
+			/*
+			 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event handlers and
+			 * Event Sub-processes.
+			 * 
+			 * Have to put EventHandlerInitialisers element on the Activity for Incoming Request events as they do not
+			 * have a trigger type node.
+			 */
             cCmd.append(Xpdl2ModelUtil.getRemoveOtherElementCommand(ed,
-                    (OtherElementsContainer) triggerTypeNode,
+					triggerTypeNode == null ? activity : (OtherElementsContainer) triggerTypeNode,
                     XpdExtensionPackage.eINSTANCE
                             .getDocumentRoot_EventHandlerInitialisers(),
                     evtHdlInitialisers));
@@ -1119,10 +1148,20 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
             if (elemNum >= 1) {
                 Queue<Activity> q1 = new PriorityQueue<Activity>(elemNum, comp);
                 for (Activity act : arrActivities1)
-                    q1.offer(act);
+				{
+					if (act != null)
+					{ // prevent NPE if iniializer list contain deleted activity
+						q1.offer(act);
+					}
+				}
                 Queue<Activity> q2 = new PriorityQueue<Activity>(elemNum, comp);
                 for (Activity act : arrActivities2)
-                    q2.offer(act);
+				{
+					if (act != null)
+					{ // prevent NPE if iniializer list contain deleted activity
+						q2.offer(act);
+					}
+				}
 
                 // compare element-by-element
                 while (!q1.isEmpty() && !q2.isEmpty()) {
@@ -1149,13 +1188,22 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
      *            TriggerResultMessage to attach EventHandlerInitialiser to
      */
     private EventHandlerInitialisers createEventHandlerInitialisers(
-            EditingDomain ed, EObject triggerTypeNode, CompoundCommand cCmd) {
+            EditingDomain ed, Activity activity, EObject triggerTypeNode, CompoundCommand cCmd) {
 
         // Add ext model <EventHandlerInitialisers> to ##OTHER
         EventHandlerInitialisers model =
                 XpdExtensionFactory.eINSTANCE.createEventHandlerInitialisers();
+
+        
+		/*
+		 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event handlers and
+		 * Event Sub-processes.
+		 * 
+		 * Have to put EventHandlerInitialisers element on the Activity for Incoming Request events as they do not have
+		 * a trigger type node.
+		 */
         cCmd.append(Xpdl2ModelUtil.getSetOtherElementCommand(ed,
-                (OtherElementsContainer) triggerTypeNode,
+				triggerTypeNode == null ? activity : (OtherElementsContainer) triggerTypeNode,
                 XpdExtensionPackage.eINSTANCE
                         .getDocumentRoot_EventHandlerInitialisers(),
                 model));

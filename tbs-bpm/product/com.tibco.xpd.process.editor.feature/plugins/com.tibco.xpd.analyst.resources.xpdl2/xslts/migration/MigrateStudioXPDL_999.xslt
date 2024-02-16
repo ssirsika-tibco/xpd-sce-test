@@ -36,6 +36,9 @@
 		- Remove ReceiveTask web-service configuration
 		
 		- Sid ACE-7608 Remove xpdExt:BxUseUnqualifiedPropertyNames and <xpdExt:BpmRuntimeConfiguration /> 
+
+		- Sid ACE-7095 Convert 'invoke business process' send tasks to Asynch Sub-process tasks.
+		
 		
   	    (See XpdlMigrate.java for format version <-> Studio version equivalence).
   	     
@@ -158,6 +161,139 @@
 		</xpdExt:RestService>
 
 	</xsl:template>
+	
+	
+	<!--
+	===============================================================================
+	Sid ACE-7095 
+	Convert 'invoke business process' send tasks to Asynch Sub-process tasks.
+	===============================================================================
+    -->
+    <xsl:template match="xpdl2:Activity/xpdl2:Implementation[xpdl2:Task/xpdl2:TaskSend/@xpdExt:ImplementationType = 'InvokeBusinessProcess']">
+		
+		<xpdl2:SubFlow Execution="ASYNCHR" xpdExt:AsyncExecutionMode="Detached" xpdExt:StartStrategy="ScheduleStart" xpdExt:SuspendResumeWithParent="false">
+		
+			<!-- Copy the process reference and, optionally, the PackageRef (if ref is to process in other XPDL file)  -->
+			<xsl:attribute name="Id"><xsl:value-of select="xpdl2:Task/xpdl2:TaskSend/xpdExt:BusinessProcess/@BusinessProcessId"/></xsl:attribute>
+			
+			<xsl:if test="xpdl2:Task/xpdl2:TaskSend/xpdExt:BusinessProcess/@PackageRef"> 
+				<xsl:attribute name="PackageRef"><xsl:value-of select="xpdl2:Task/xpdl2:TaskSend/xpdExt:BusinessProcess/@PackageRef"/></xsl:attribute>
+			</xsl:if>
+		
+			<!-- 
+			Handle Data Mappings 
+			-->
+			<xsl:choose>
+				<!-- DataMapper Grammar Mappings -->
+				<xsl:when test="xpdl2:Task/xpdl2:TaskSend/xpdl2:Message/xpdExt:InputMappings">
+					
+					<!-- 
+					Apply template in mode 'CopyInvokeBizProcessDataMapper', 
+					so that normal 'copy as-is' default template behaviour will apply 
+					_except_ where we have specific templates that only operate in this
+					mode. These can then switch just the few attribute values that 
+					are different between Invoke-Biz-process-Send-task and 
+					Invoke-asynch-sub-process datamappings  
+				    -->
+					<xsl:apply-templates mode="CopyInvokeBizProcessDataMapper" select="xpdl2:Task/xpdl2:TaskSend/xpdl2:Message/xpdExt:InputMappings"/>
+				
+				</xsl:when>
+				
+				<!-- JavaScript Grammar Mappings -->
+				<xsl:when test="xpdl2:Task/xpdl2:TaskSend/xpdl2:Message/xpdl2:DataMappings[xpdl2:DataMapping]">
+					
+					<xpdExt:InputMappings MapperContext="ProcessToSubProcess" MappingDirection="IN">
+						<xpdExt:DataMappings>
+     				
+	    					<xsl:for-each select="xpdl2:Task/xpdl2:TaskSend/xpdl2:Message/xpdl2:DataMappings/xpdl2:DataMapping[@Direction = 'IN']">
+	    						<xsl:choose>
+	    							<xsl:when test="xpdExt:ScriptInformation">
+	    								<!-- Input Script mapping - almost the same EXCEPT in JavaScript mapping the script is in xpdl2:Actual -->
+										<xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" 
+															Direction="IN" 
+															Formal="{@Formal}">
+											<xpdExt:ScriptInformation Id="{xpdExt:ScriptInformation/@Id}" Name="{xpdExt:ScriptInformation/@Name}">
+												<xpdExt:Expression ScriptGrammar="JavaScript"><xsl:value-of select="xpdl2:Actual"/></xpdExt:Expression>
+											</xpdExt:ScriptInformation>
+											
+											<!--  And xpdl2:Actual is hard coded... -->
+											<xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+										</xpdExt:DataMapping>
+	    							</xsl:when>
+	    							<xsl:otherwise>
+	    								<!-- Standard non-scripted mapping -->
+			                  			<xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" 
+			                  								xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" 
+			                  								Direction="IN" 
+			                  								Formal="{@Formal}">
+			                    			<xsl:apply-templates select="xpdl2:Actual"/>
+			                  			</xpdExt:DataMapping>    						
+	    							</xsl:otherwise>
+	    						</xsl:choose>
+	    					
+	    					</xsl:for-each>
+	    					
+	    				</xpdExt:DataMappings>
+	    				
+	    				<!--
+	    					(As yet) Unmapped script mappings (move from xpdl2:activity to xpdExt:UnmappedScripts  
+	    				 -->
+	    				<xsl:if test="count(ancestor::xpdl2:Activity/xpdExt:ScriptInformation[@Name != '' and (not(@Direction) or @Direction != 'OUT')]) > 0">
+	    					<xpdExt:UnmappedScripts>
+	    						<xsl:copy-of select="ancestor::xpdl2:Activity/xpdExt:ScriptInformation[@Name != '' and (not(@Direction) or @Direction != 'OUT')]"/>
+	    					</xpdExt:UnmappedScripts>
+	    				</xsl:if>
+    
+    				</xpdExt:InputMappings>
+							
+				</xsl:when>
+			</xsl:choose>
+		
+		</xpdl2:SubFlow>
+		
+	</xsl:template>
+
+	<!--
+	===============================================================================
+	Sid ACE-7095  
+	Remove Performers for Invoke Business process Send Tasks. These send tasks 
+	will be converted to Asynch sub-process tasks which don't need performer.
+	
+	Match any xpdl2:Performer that has an xpdl2:Activity ancestor that's a send
+	task with implementation type of InvokeBusinessProcess           
+	===============================================================================
+    -->
+    <xsl:template match="xpdl2:Performers[ancestor::xpdl2:Activity/xpdl2:Implementation[xpdl2:Task/xpdl2:TaskSend/@xpdExt:ImplementationType = 'InvokeBusinessProcess']]">
+    	<!-- Do nothing - will be converted to SubFlow in template above and those don't need performer -->
+    </xsl:template>
+
+	<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Sid ACE-7095 
+	DataMapper Attribute value switchers specifically for Invoke 
+	BizProcess to Invoke Asynch Sub-process task conversion... 
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	-->
+    <xsl:template mode="CopyInvokeBizProcessDataMapper" match="@MapperContext">
+    	<xsl:attribute name="MapperContext">ProcessToSubProcess</xsl:attribute>
+    </xsl:template>
+
+    <xsl:template mode="CopyInvokeBizProcessDataMapper" match="@xpdExt:TargetContributorId">
+    	<xsl:attribute name="xpdExt:TargetContributorId">ProcessToSubProcess.DataMapperContent</xsl:attribute>
+    </xsl:template>
+    
+    <!-- Default when in mode CopyInvokeBizProcessDataMapper is to 'copy as-is'   -->
+    <xsl:template mode="CopyInvokeBizProcessDataMapper" match="@* | node() | text()">
+    	<xsl:copy>
+			<xsl:apply-templates mode="CopyInvokeBizProcessDataMapper" select="@* | node() | text()"/>
+		</xsl:copy>
+	</xsl:template>
+    
+	<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	-->
+
 
 	<!--
 	===============================================================================
@@ -698,7 +834,7 @@
 		<!--  Not outputting the version element to target will effectively remove it -->
 	</xsl:template>
 	
-	<!--
+		<!--
 	===============================================================================
 	Remove Publish as REST service attributes and the hidden pageflow that supports the service API
 	===============================================================================
@@ -710,7 +846,7 @@
 	<xsl:template match="xpdl2:WorkflowProcess/xpdExt:RESTServices">
 		<!-- Do nothing (e.g. do not output the element)-->
 	</xsl:template>
-
+	
 	<!--
 	===============================================================================
 	Sid ACE-7608 Remove xpdExt:BxUseUnqualifiedPropertyNames and <xpdExt:BpmRuntimeConfiguration /> 

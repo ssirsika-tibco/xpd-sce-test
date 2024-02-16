@@ -5465,8 +5465,15 @@ public class Xpdl2ModelUtil {
             Event event = activity.getEvent();
             if (event instanceof StartEvent) {
 
+				/*
+				 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event handlers
+				 * and Event Sub-processes
+				 */
                 StartEvent start = (StartEvent) event;
-                if (TriggerType.MESSAGE_LITERAL.equals(start.getTrigger())) {
+				TriggerType trigger = start.getTrigger();
+				if (TriggerType.MESSAGE_LITERAL.equals(trigger)
+						|| (TriggerType.NONE_LITERAL.equals(trigger) && isEventSubProcessStartEvent(activity)))
+				{
 
                     /*
                      * Message start events can have correlation data associated
@@ -5476,10 +5483,17 @@ public class Xpdl2ModelUtil {
             } else if (event instanceof IntermediateEvent) {
 
                 IntermediateEvent intermediate = (IntermediateEvent) event;
-                if (TriggerType.MESSAGE_LITERAL
-                        .equals(intermediate.getTrigger())) {
+				/*
+				 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event handlers
+				 * and Event Sub-processes
+				 */
+				TriggerType trigger = intermediate.getTrigger();
+				if (TriggerType.MESSAGE_LITERAL.equals(trigger)
+						|| (TriggerType.NONE_LITERAL.equals(trigger) && isEventHandlerActivity(activity)))
+				{
                     /* Catch events can have correlation data associated */
-                    if (CatchThrow.CATCH.equals(intermediate
+					if (TriggerType.NONE_LITERAL.equals(trigger)
+							|| CatchThrow.CATCH.equals(intermediate
                             .getTriggerResultMessage().getCatchThrow())) {
 
                         correlationActivity = true;

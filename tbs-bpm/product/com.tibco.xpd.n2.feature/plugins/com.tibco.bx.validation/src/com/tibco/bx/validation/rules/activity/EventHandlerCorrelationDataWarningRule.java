@@ -4,9 +4,6 @@
 
 package com.tibco.bx.validation.rules.activity;
 
-import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
-import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
-import com.tibco.xpd.processwidget.adapters.EventTriggerType;
 import com.tibco.xpd.validation.xpdl2.rules.ProcessActivitiesValidationRule;
 import com.tibco.xpd.xpdl2.Activity;
 
@@ -36,13 +33,17 @@ public class EventHandlerCorrelationDataWarningRule extends ProcessActivitiesVal
      */
     @Override
     protected void validate(Activity activity) {
-        if (EventObjectUtil.isEventHandlerOrEventSubProcessStartEventActivity(activity)) {
-            if (EventTriggerType.EVENT_NONE_LITERAL.equals(EventObjectUtil.getEventTriggerType(activity))) {
-                if (!ProcessInterfaceUtil.getCorrelationDataFields(activity.getProcess()).isEmpty()) {
-                    addIssue("bx.correlation.not.supported.on.event.handlers", activity); //$NON-NLS-1$
-                }
-            }
-        }
+		/*
+		 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event handlers and
+		 * Event Sub-processes
+		 */
+    	// if (EventObjectUtil.isEventHandlerOrEventSubProcessStartEventActivity(activity)) {
+		// if (EventTriggerType.EVENT_NONE_LITERAL.equals(EventObjectUtil.getEventTriggerType(activity))) {
+		// if (!ProcessInterfaceUtil.getCorrelationDataFields(activity.getProcess()).isEmpty()) {
+		// addIssue("bx.correlation.not.supported.on.event.handlers", activity); //$NON-NLS-1$
+		// }
+		// }
+		// }
     }
 
 }

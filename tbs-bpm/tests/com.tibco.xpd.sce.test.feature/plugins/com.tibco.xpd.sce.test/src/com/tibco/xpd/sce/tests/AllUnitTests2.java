@@ -11,6 +11,7 @@ import com.tibco.xpd.sce.tests.bpel.transform.BpelDataFieldDescriptorTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelGlobalSignalsTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelIncomingRequestActivityTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelIncomingRequestWithCorrelationTimeOutSetTest;
+import com.tibco.xpd.sce.tests.bpel.transform.BpelIncomingRequestCorrelationTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelLocalSignalsTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelSharedResourceTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelSubProcessConversionTest;
@@ -20,6 +21,7 @@ import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
 import com.tibco.xpd.sce.tests.importmigration.CaseSignalMigrationTest;
 import com.tibco.xpd.sce.tests.importmigration.GlobalSignalMigrationTest;
+import com.tibco.xpd.sce.tests.importmigration.InvokeBizProcessToAsynchSubProcessMigrationsTest;
 import com.tibco.xpd.sce.tests.importmigration.JsToDataMapperMigrationsTest;
 import com.tibco.xpd.sce.tests.importmigration.ScriptMigrationTests;
 import com.tibco.xpd.sce.tests.importmigration.SystemActionMigrationTest;
@@ -51,6 +53,7 @@ public class AllUnitTests2 {
         suite.addTestSuite(GlobalSignalMigrationTest.class);
         suite.addTestSuite(JsToDataMapperMigrationsTest.class);
         suite.addTestSuite(CaseSignalMigrationTest.class);
+		suite.addTestSuite(InvokeBizProcessToAsynchSubProcessMigrationsTest.class);
 
         /*
          * BPEL transformation tests
@@ -63,6 +66,7 @@ public class AllUnitTests2 {
 		suite.addTestSuite(BpelIncomingRequestWithCorrelationTimeOutSetTest.class);
         suite.addTestSuite(BpelIncomingRequestActivityTest.class);
         suite.addTestSuite(BpelCaseDataOperationActivityTest.class);
+		suite.addTestSuite(BpelIncomingRequestCorrelationTest.class);
 
         /*
          * Miscellaneous

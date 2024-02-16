@@ -44,6 +44,7 @@ import com.tibco.xpd.xpdExtension.AllocationStrategy;
 import com.tibco.xpd.xpdExtension.AllocationStrategyType;
 import com.tibco.xpd.xpdExtension.AssociatedParameters;
 import com.tibco.xpd.xpdExtension.ConstantPeriod;
+import com.tibco.xpd.xpdExtension.EventHandlerInitialisers;
 import com.tibco.xpd.xpdExtension.RescheduleTimerScript;
 import com.tibco.xpd.xpdExtension.RescheduleTimerSelectionType;
 import com.tibco.xpd.xpdExtension.RescheduleTimers;
@@ -1565,6 +1566,13 @@ public class EventObjectUtil {
                         // Remove existing event type specific child
                         switch (currEventType.getValue()) {
                         case EventTriggerType.EVENT_MESSAGE_CATCH:
+								/*
+								 * Sid XPD-6836 If changing from Catch message to plain incoming-request type, then copy
+								 * any event-handler properties to the correct location for incoming request
+								 */
+								moveEventHandlerPropertiesToIncomingRequest(ed, cmd, activity, event,
+										event.getEventTriggerTypeNode());
+
                             cmd.append(SetCommand.create(ed,
                                     event,
                                     Xpdl2Package.eINSTANCE
@@ -1833,6 +1841,14 @@ public class EventObjectUtil {
                         // Remove existing child.
                         switch (currEventType.getValue()) {
                         case EventTriggerType.EVENT_MESSAGE_CATCH:
+								/*
+								 * Sid XPD-6836 If changing from Catch message to plain incoming-request type, then copy
+								 * any event-handler properties to the correct location for incoming request
+								 */
+								moveEventHandlerPropertiesToIncomingRequest(ed, cmd, activity, event,
+										event.getEventTriggerTypeNode());
+
+								// Intentionally fall through to message-throw code...
                         case EventTriggerType.EVENT_MESSAGE_THROW:
                             cmd.append(SetCommand.create(ed,
                                     event,
@@ -2201,10 +2217,52 @@ public class EventObjectUtil {
     }
 
     /**
-     * @param ed
-     * @param eventType
-     * @param cmd
-     */
+	 * Sid XPD-6836 Copy any event-handler properties from the current event trigger node to the correct location for
+	 * incoming request
+	 * 
+	 * @param ed
+	 * @param cmd
+	 * @param activity
+	 * @param eventTriggerTypeNode
+	 */
+	private static void moveEventHandlerPropertiesToIncomingRequest(EditingDomain ed, CompoundCommand cmd,
+			Activity activity,
+			Event eventElement,
+			EObject eventTriggerTypeNode)
+	{
+		if (eventTriggerTypeNode instanceof TriggerResultMessage)
+		{
+			/* xpdExtEventHandlerInitialisers moves from TriggerResultMessage to xpdl:Activity */
+			EventHandlerInitialisers initialisers = (EventHandlerInitialisers) Xpdl2ModelUtil.getOtherElement(
+					(TriggerResultMessage) eventTriggerTypeNode,
+					XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerInitialisers());
+
+			if (initialisers != null)
+			{
+				/* Copy the element and add it directly to the activity (safer to copy than re-parenting) */
+				EventHandlerInitialisers initialisersCopy = EcoreUtil.copy(initialisers);
+
+				cmd.append(Xpdl2ModelUtil.getSetOtherElementCommand(ed, activity,
+						XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerInitialisers(), initialisersCopy));
+			}
+
+			/*
+			 * xpdExt:EventHandlerFlowStrategy attribute moves from TriggerResultMessage to either
+			 * xpdl:Activity/xpdl:Event/xpdl:Startevent | xpdl:IntermediateEvent
+			 */
+			Object flowStrategy = Xpdl2ModelUtil.getOtherAttribute((TriggerResultMessage) eventTriggerTypeNode,
+					XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy());
+
+			cmd.append(Xpdl2ModelUtil.getSetOtherAttributeCommand(ed, eventElement,
+					XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy(), flowStrategy));
+		}
+	}
+
+	/**
+	 * @param ed
+	 * @param eventType
+	 * @param cmd
+	 */
     private static void appendSetResourcePatternsCommand(EditingDomain ed,
             Activity activity, EventTriggerType eventType, CompoundCommand cmd) {
 

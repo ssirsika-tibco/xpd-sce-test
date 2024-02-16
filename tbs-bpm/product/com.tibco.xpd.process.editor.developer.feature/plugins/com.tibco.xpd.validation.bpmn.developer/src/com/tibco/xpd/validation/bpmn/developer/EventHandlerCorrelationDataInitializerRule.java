@@ -196,12 +196,21 @@ public class EventHandlerCorrelationDataInitializerRule extends
         List<ActivityRef> ret = Collections.<ActivityRef> emptyList();
 
         Object eo = eventHandler.getEvent().getEventTriggerTypeNode();
-        if (eo instanceof TriggerResultMessage) {
+		/*
+		 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event handlers and
+		 * Event Sub-processes.
+		 * 
+		 * Have to put EventHandlerInitialisers element on the Activity for Incoming Request events as they do not have
+		 * a trigger type node.
+		 */
+		if (eo instanceof TriggerResultMessage || eo == null)
+		{
             TriggerResultMessage trm = (TriggerResultMessage) eo;
 
             EventHandlerInitialisers evtHdlInitialisers =
                     (EventHandlerInitialisers) Xpdl2ModelUtil
-                            .getOtherElement(trm, XpdExtensionPackage.eINSTANCE
+							.getOtherElement(trm == null ? eventHandler : trm,
+									XpdExtensionPackage.eINSTANCE
                                     .getDocumentRoot_EventHandlerInitialisers());
 
             if (evtHdlInitialisers != null) {
@@ -212,7 +221,7 @@ public class EventHandlerCorrelationDataInitializerRule extends
 
                     ret = new ArrayList<ActivityRef>();
                     for (ActivityRef activityRef : activityRefs) {
-                        ret.add(activityRef);
+						ret.add(activityRef);
                     }
                 }
             }

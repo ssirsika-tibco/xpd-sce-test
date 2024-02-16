@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://example.com/bomwithgeneralisations" xmlns:tns1="http://example.com/bomwithgeneralisations"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://example.com/bomwithgeneralisations">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/ProjectMigrationTest_Generalization/Business Objects/BOMWithGeneralisations.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="PrimTypeShouldBeUnaffected" id="_0_128HMiEe69zd_jSOGMMA"
+      name="PrimTypeShouldBeUnaffected">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:totalDigits value="15"/>
+      <xsd:fractionDigits value="4"/>
+      <xsd:pattern value="[+-]?([1-9][0-9]{0,10}|0)(\.[0-9]{0,4})?"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="EnumsShouldBeUnaffected" id="_wUp6MHMiEe69zd_jSOGMMA"
+      name="EnumsShouldBeUnaffected">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="ENUMLIT1" value="ENUMLIT1"/>
+      <xsd:enumeration ecore:name="ENUMLIT2" value="ENUMLIT2"/>
+      <xsd:enumeration ecore:name="ENUMLIT3" value="ENUMLIT3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="MainClass" id="_WpKlsHMdEe6hCdVPlVAsvA" name="MainClass">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns1:SuperClass1">
+        <xsd:sequence>
+          <xsd:element ecore:name="maText" id="_Xih2oHMdEe6hCdVPlVAsvA" maxOccurs="1"
+              minOccurs="0" name="maText">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element ecore:name="maFloatingPointNumber" id="_Y1SfAHMdEe6hCdVPlVAsvA"
+              default="123" maxOccurs="1" minOccurs="1" name="maFloatingPointNumber">
+            <xsd:simpleType>
+              <xsd:restriction base="tns1:double_StudioGeneratedTemplate">
+                <xsd:minInclusive value="1"/>
+                <xsd:maxInclusive value="999"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element ecore:name="childComposedFromMainClass" id="_50Y18nMgEe69zd_jSOGMMA"
+              maxOccurs="1" minOccurs="1" name="childComposedFromMainClass" type="IncludedInMainClass"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="SuperClass1" id="_chY9UHMdEe6hCdVPlVAsvA" name="SuperClass1">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns1:SuperDuperClass1">
+        <xsd:sequence>
+          <xsd:element ecore:name="s1aFixedPointNumber" id="_iHpbMHMdEe6hCdVPlVAsvA"
+              default="123" maxOccurs="1" minOccurs="0" name="s1aFixedPointNumber">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="10"/>
+                <xsd:fractionDigits value="2"/>
+                <xsd:pattern value="[+-]?([1-9][0-9]{0,7}|0)(\.[0-9]{0,2})?"/>
+                <xsd:minInclusive value="1"/>
+                <xsd:maxInclusive value="99999"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element ecore:name="s2aDateTimeTZ" id="_BEP2QHMeEe6hCdVPlVAsvA" maxOccurs="1"
+              minOccurs="0" name="s2aDateTimeTZ">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:dateTime">
+                <xsd:pattern value=".+T.+(Z|[+-].+)"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element ecore:name="childComposedFromSuperClass" id="_ZoF4InMhEe69zd_jSOGMMA"
+              maxOccurs="1" minOccurs="1" name="childComposedFromSuperClass" type="IncludedInSuperClass"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="SuperDuperClass1" id="_MnCkAHMeEe6hCdVPlVAsvA" name="SuperDuperClass1">
+    <xsd:sequence>
+      <xsd:element ecore:name="sd1aInteger" id="_PfOSEHMeEe6hCdVPlVAsvA" maxOccurs="1"
+          minOccurs="0" name="sd1aInteger" type="xsd:int"/>
+      <xsd:element ecore:name="childArrayComposedFromSuperDuperClass" id="_MdqowXMiEe69zd_jSOGMMA"
+          maxOccurs="unbounded" minOccurs="0" name="childArrayComposedFromSuperDuperClass"
+          type="IncludedInSuperDuperClass"/>
+      <xsd:element ecore:name="sd1aNonDiagramComposedAttribute" id="_Z8hakHMiEe69zd_jSOGMMA"
+          maxOccurs="1" minOccurs="0" name="sd1aNonDiagramComposedAttribute" type="tns1:IncludedInSuperDuperClass"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="IncludedInMainClass" id="_3UVUAHMgEe69zd_jSOGMMA" name="IncludedInMainClass">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns1:SuperChildClass">
+        <xsd:sequence>
+          <xsd:element ecore:name="imc1" id="_4v-yoHMgEe69zd_jSOGMMA" maxOccurs="1"
+              minOccurs="0" name="imc1">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element ecore:name="imc2" id="_5FOC0HMgEe69zd_jSOGMMA" maxOccurs="1"
+              minOccurs="0" name="imc2">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="SuperChildClass" id="_75AZEHMgEe69zd_jSOGMMA" name="SuperChildClass">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns1:SuperDuperChildInheritedwithoutDiagramRelationship">
+        <xsd:sequence>
+          <xsd:element ecore:name="scc1" id="_A9CToHMhEe69zd_jSOGMMA" maxOccurs="1"
+              minOccurs="0" name="scc1">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element ecore:name="scc2" id="_CIXeUHMhEe69zd_jSOGMMA" maxOccurs="1"
+              minOccurs="0" name="scc2">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="IncludedInSuperClass" id="_LbfPgHMhEe69zd_jSOGMMA"
+      name="IncludedInSuperClass">
+    <xsd:sequence>
+      <xsd:element ecore:name="isc1" id="_U1aMQHMhEe69zd_jSOGMMA" maxOccurs="1" minOccurs="0"
+          name="isc1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="isc2" id="_WVkXcHMhEe69zd_jSOGMMA" maxOccurs="1" minOccurs="0"
+          name="isc2">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="IncludedInSuperDuperClass" id="_It2IEHMiEe69zd_jSOGMMA"
+      name="IncludedInSuperDuperClass">
+    <xsd:sequence>
+      <xsd:element ecore:name="isdc1" id="_WLKBwHMiEe69zd_jSOGMMA" maxOccurs="1" minOccurs="0"
+          name="isdc1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="isdc2" id="_XjZAAHMiEe69zd_jSOGMMA" maxOccurs="1" minOccurs="0"
+          name="isdc2">
+        <xsd:simpleType>
+          <xsd:restriction base="tns1:PrimTypeShouldBeUnaffected">
+            <xsd:totalDigits value="15"/>
+            <xsd:fractionDigits value="4"/>
+            <xsd:pattern value="[+-]?([1-9][0-9]{0,10}|0)(\.[0-9]{0,4})?"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="CaseClass" id="_HtY7MHMjEe69zd_jSOGMMA" name="CaseClass">
+    <xsd:sequence>
+      <xsd:element ecore:name="caseID" id="_JE6HwHMjEe69zd_jSOGMMA" maxOccurs="1"
+          minOccurs="0" name="caseID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:totalDigits value="19"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="caseState" id="_KVuPYHMjEe69zd_jSOGMMA" maxOccurs="1"
+          minOccurs="0" name="caseState" type="tns1:EnumsShouldBeUnaffected"/>
+      <xsd:element ecore:name="globalChild" id="_ChzKoXMkEe69zd_jSOGMMA" maxOccurs="1"
+          minOccurs="1" name="globalChild" type="GlobalClass"/>
+      <xsd:element ecore:name="summary" id="_MZqnoHMkEe69zd_jSOGMMA" maxOccurs="1"
+          minOccurs="0" name="summary">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="GlobalClass" id="_aC1ogHMjEe69zd_jSOGMMA" name="GlobalClass">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns1:SuperGlobalClass">
+        <xsd:sequence>
+          <xsd:element ecore:name="gc1" id="_JopRgHMkEe69zd_jSOGMMA" maxOccurs="1"
+              minOccurs="0" name="gc1">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element ecore:name="gc2" id="_Sap5sHMkEe69zd_jSOGMMA" maxOccurs="1"
+              minOccurs="0" name="gc2" type="xsd:int"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="SuperGlobalClass" id="_HpkVsHMkEe69zd_jSOGMMA" name="SuperGlobalClass">
+    <xsd:sequence>
+      <xsd:element ecore:name="sgc1" id="_ZmgcYHMkEe69zd_jSOGMMA" maxOccurs="1" minOccurs="0"
+          name="sgc1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="sgc2" id="_av6UcHMkEe69zd_jSOGMMA" maxOccurs="1" minOccurs="0"
+          name="sgc2">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="CaseClass2" id="_eANnkHMkEe69zd_jSOGMMA" name="CaseClass2">
+    <xsd:sequence>
+      <xsd:element ecore:name="caseIdentifier" id="_jK3ukHMkEe69zd_jSOGMMA" maxOccurs="1"
+          minOccurs="0" name="caseIdentifier">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:totalDigits value="19"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="SuperDuperChildInheritedwithoutDiagramRelationship"
+      id="_VYORgHM5Ee69zd_jSOGMMA" name="SuperDuperChildInheritedwithoutDiagramRelationship">
+    <xsd:sequence>
+      <xsd:element ecore:name="sdciwdrText" id="_do9_sHM5Ee69zd_jSOGMMA" maxOccurs="1"
+          minOccurs="0" name="sdciwdrText">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="sdciwdrInteger" id="_f7ajcHM5Ee69zd_jSOGMMA" maxOccurs="1"
+          minOccurs="0" name="sdciwdrInteger" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="double_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:double">
+      <xsd:minInclusive value="-179.76931348623157E+306"/>
+      <xsd:maxInclusive value="179.76931348623157E+306"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="PrimTypeShouldBeUnaffectedElement">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:PrimTypeShouldBeUnaffected"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="EnumsShouldBeUnaffectedElement">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:EnumsShouldBeUnaffected"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="MainClassElement" type="MainClass"/>
+  <xsd:element name="SuperClass1Element" type="SuperClass1"/>
+  <xsd:element name="SuperDuperClass1Element" type="SuperDuperClass1"/>
+  <xsd:element name="IncludedInMainClassElement" type="IncludedInMainClass"/>
+  <xsd:element name="SuperChildClassElement" type="SuperChildClass"/>
+  <xsd:element name="IncludedInSuperClassElement" type="IncludedInSuperClass"/>
+  <xsd:element name="IncludedInSuperDuperClassElement" type="IncludedInSuperDuperClass"/>
+  <xsd:element name="CaseClassElement" type="CaseClass"/>
+  <xsd:element name="GlobalClassElement" type="GlobalClass"/>
+  <xsd:element name="SuperGlobalClassElement" type="SuperGlobalClass"/>
+  <xsd:element name="CaseClass2Element" type="CaseClass2"/>
+  <xsd:element name="SuperDuperChildInheritedwithoutDiagramRelationshipElement" type="SuperDuperChildInheritedwithoutDiagramRelationship"/>
+</xsd:schema>

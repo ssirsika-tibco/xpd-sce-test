@@ -66,12 +66,19 @@ public class EventHandlerCorrelationDataRemoveInitialiserEntriesResolution
             /*
              * XPD-7075: Resolution valid event for Signal Events.
              */
-            if (trmObj instanceof TriggerResultMessage
+			/*
+			 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event handlers and
+			 * Event Sub-processes.
+			 * 
+			 * Have to put EventHandlerInitialisers element on the Activity for Incoming Request events as they do not
+			 * have a trigger type node.
+			 */
+			if (trmObj == null || trmObj instanceof TriggerResultMessage
                     || trmObj instanceof TriggerResultSignal) {
 
                 EventHandlerInitialisers evtHdlInitialisers =
                         (EventHandlerInitialisers) Xpdl2ModelUtil
-                                .getOtherElement((OtherElementsContainer) trmObj,
+								.getOtherElement(trmObj == null ? activity : (OtherElementsContainer) trmObj,
                                         XpdExtensionPackage.eINSTANCE
                                                 .getDocumentRoot_EventHandlerInitialisers());
 

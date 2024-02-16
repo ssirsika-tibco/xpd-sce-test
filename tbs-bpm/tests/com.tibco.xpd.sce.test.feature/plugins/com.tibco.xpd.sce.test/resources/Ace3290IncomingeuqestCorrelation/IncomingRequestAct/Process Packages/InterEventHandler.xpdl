@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_HNXJQK1cEemheL-rDtMNiw" xpdExt:DisplayName="InterEventHandler" Name="InterEventHandler">
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_HNXJQK1cEemheL-rDtMNiw" xpdExt:DisplayName="InterEventHandler" Name="InterEventHandler">
   <xpdl2:PackageHeader xpdExt:Language="en_GB">
     <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
     <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
@@ -106,6 +106,9 @@
               <xpdExt:Information ScriptGrammar="JavaScript">var x = &quot;complete&quot;;</xpdExt:Information>
             </xpdExt:AuditEvent>
           </xpdExt:Audit>
+          <xpdExt:EventHandlerInitialisers Id="_qDtKwMc7Ee69LrvnggjflQ">
+            <xpdExt:ActivityRef xpdExt:IdRef="_J9kAAq1cEemheL-rDtMNiw"/>
+          </xpdExt:EventHandlerInitialisers>
         </xpdl2:Activity>
         <xpdl2:Activity Id="_X4pa0q1cEemheL-rDtMNiw" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
           <xpdl2:Implementation>

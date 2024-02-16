@@ -219,14 +219,13 @@ public class ConvertEventHandlers {
             BPELUtils.addExtensionAttribute(onEvent, N2PEConstants.CORRELATE_IMMEDIATE, "yes"); //$NON-NLS-1$
         }
         
-        // Sid ACE-6815 Disable event handler correlation until supported by run-time
-//        /* 
-//         * Sid ACE-6365 Support correlation data for incoming request receive tasks.
-//         */
-//        Correlations correlations = ConvertCorrelations.convertIncomingRequestCorrelations(context, xpdlActivity);
-//        if (correlations != null) {
-//            onEvent.setCorrelations(correlations);
-//        }
+        /* 
+         * Sid ACE-6365 Support correlation data for incoming request receive tasks.
+         */
+        Correlations correlations = ConvertCorrelations.convertIncomingRequestCorrelations(context, xpdlActivity);
+        if (correlations != null) {
+            onEvent.setCorrelations(correlations);
+        }
         
         context.syncXpdlId(onEvent, xpdlActivity);
         
@@ -319,7 +318,21 @@ public class ConvertEventHandlers {
              BPELUtils.addExtensionAttribute(onEvent, N2PEConstants.EVENTHANDLER_BLOCK_UNTIL_COMPLETED, "yes"); //$NON-NLS-1$
          }
 
-
+		/*
+		 * ACE-6836 Re-enable Correlation Data and Hence Event initialisers for Incoming Request Event handlers and
+		 * Event Sub-processes
+		 */
+		EventHandlerInitialisers eventHandlerInitialisers = XPDLUtils.getEventHandlerInitialisers(xpdlActivity);
+		if (eventHandlerInitialisers != null)
+		{
+			BPELUtils.addExtensionAttribute(onEvent, "delayedStart", "yes"); //$NON-NLS-1$ //$NON-NLS-2$
+			EList<ActivityRef> activityRefs = eventHandlerInitialisers.getActivityRef();
+			for (ActivityRef activityRef : activityRefs)
+			{
+				addEventInitializer(activityRef.getIdRef(), xpdlActivity.getId());
+			}
+		}
+		
         return onEvent;
     }
 

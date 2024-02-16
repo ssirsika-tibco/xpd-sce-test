@@ -310,9 +310,6 @@ public abstract class AbstractBaseValidationTest
         /*
          * Go thru each resource and then execute any selected quick fixes.
          */
-        failed = false;
-        failedStrings = new StringBuffer();
-
         Set<IResource> changedResources = new HashSet<IResource>();
         boolean someQuickFixesDone = false;
 
@@ -381,9 +378,6 @@ public abstract class AbstractBaseValidationTest
         if (failed) {
             fail(failedStrings.toString());
         }
-
-        failed = false;
-        failedStrings = new StringBuffer();
 
         if (someQuickFixesDone) {
             /*
