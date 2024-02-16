@@ -1,0 +1,35 @@
+<?xml  version="1.0"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>---Universal Installer Silent Installation Properties---</comment>
+
+<!--accept the license agreement-->
+<entry key="acceptLicense">true</entry>
+
+<!--the root installation directory-->
+<!--if the product does not support multiple instances and TIBCO_HOME has already been set then-->
+<!--this value is ignored and the existing TIBCO_HOME is used as the installation root-->
+<entry key="installationRoot">/opt/TIBCO/studio-bpm</entry>
+
+<!--If using an existing environment then the installationRoot AND environmentName MUST match a pre-existing environment-->
+<!--If creating a new environment then the installationRoot AND environmentName MUST BE UNIQUE and not match a pre-existing environment-->
+<entry key="environmentName">studio-bpm</entry>
+
+<!--Profiles Selection-->
+<!-- The 'selectedProfiles' value is a comma separated list of profiles to install. If a profile is listed which does not exist, then it is ignored. At least one profile must be listed if useInstallProfile is set to true -->
+<!-- if useInstallProfile is set to true then product Feature Settings will be ignored -->
+<entry key="useInstallProfile">true</entry>
+<entry key="selectedProfiles">Solution Designer Hotfix</entry>
+
+<!--Product Feature Settings
+In order to perform feature based silent installation, set 'useInstallProfile' entry to 'false' and then add product feature entries using the following format:
+
+<entry key="feature_<featureName>_<productID>">true</entry>
+
+For example:
+
+<entry key="feature_BPM Development Tools Hotfix 1_business-studio-bpm-edition">true</entry>
+<entry key="feature_Docker Configuration for Automated CI/CD Hotfix 1_business-studio-bpm-edition">true</entry>
+-->
+
+</properties>

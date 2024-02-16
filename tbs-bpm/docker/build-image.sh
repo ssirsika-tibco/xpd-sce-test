@@ -3,10 +3,11 @@ echo Building TIBCO BPM Studio docker image tibco/bpm-studio:$$IMAGE_TAG_VERSION
 echo
 
 function usage() {
-  echo Usage: ${0} -acceptLGPL [installer-file] [-h]
+  echo Usage: ${0} -acceptLGPL [installer-file] [hotfix-installer-file] [-h]
   echo Where:
   echo -e '\t -acceptLGPL = confirm acceptance of the LGPL license.'
   echo -e '\t installer-path = full path of the TIBCO Business Studio - BPM Edition installer.'
+  echo -e '\t hotfix-installer-path = full path of the TIBCO Business Studio - BPM Edition hotfix installer.'
   echo -e '\t -h display this usage message.'
   echo
 }
@@ -25,7 +26,11 @@ while [ "$1" != "" ]; do
 
     * )
       if [ -r $1 ]; then
-        installFile=$1
+        if [ -z "$installFile" ]; then
+          installFile=$1
+        elif [ -z "$hotfixInstallFile" ]; then
+          hotfixInstallFile=$1
+        fi
       fi
   esac
   shift
@@ -47,6 +52,12 @@ if [[ ! -z "$installFile" ]] && [[ -n $installFile ]]; then
   cp $installFile image_template/.
 fi
 
+# if hotfix install file provided on command line
+if [[ ! -z "$hotfixInstallFile" ]] && [[ -n $hotfixInstallFile ]]; then
+  echo Copying Hotfix Installer $hotfixInstallFile
+  cp $hotfixInstallFile image_template/.
+fi
+
 # does the installer file exist
 if [ ! -f ./image_template/TIB_business-studio-bpm-edition_?.?.?_linux*.zip ]; then
   echo You must provide a Linux version of the TIBCO Business Studio - BPM Edition installer.
@@ -61,6 +72,10 @@ fi
 # Build Docker Image
 docker build -t tibco/bpm-studio:$$IMAGE_TAG_VERSION$$ ./image_template
 
-echo Removing temporary install image...	
-docker rmi $(docker images -q --filter label=maintainer="TIBCO Software Inc" --filter label=image=bpm-studio-installation)
+# Remove temporary install image if it exists
+images=$(docker images -q --filter label=maintainer="TIBCO Software Inc" --filter label=image=bpm-studio-installation)
 
+if [ -n "$images" ]; then
+    echo Removing temporary install image...	
+    docker rmi $images
+fi

@@ -42,15 +42,16 @@ is done using the docker image build utility located in this folder. This will
 add a docker image called tibco/bpm-studio to your docker environment.
 
 Where the local environment is Linux, use:
-  ./build-image.sh [<studio-installer>]
+  ./build-image.sh [<studio-installer>] [<studio-hf-installer>]
 
 Where the local environment is Microsoft Windows, use:
-  build-image.bat [<studio-installer>]
+  build-image.bat [<studio-installer>] [<studio-hf-installer>]
 
 where:
-  <studio-installer> is the full path of the Linux TIBCO Business Studio - 
-  BPM Edition Installer file. This is optional if you have already copied the 
-  installation set archive zip file to the image_template folder.
+  <studio-installer> and [<studio-hf-installer>] are the full paths to the Linux TIBCO Business Studio - BPM Edition Installer 
+  and Linux TIBCO Business Studio - BPM Edition Hotfix Installer (if a hotfix needs to be installed) files, respectively. 
+  Both parameters are optional if you have already copied the installation set archive zip files (i.e main studio installer and hotfix installer, if need to be applied)
+  to the image_template folder.
 
 ** IMPORTANT **
   Building the docker image requires the download and installation of software

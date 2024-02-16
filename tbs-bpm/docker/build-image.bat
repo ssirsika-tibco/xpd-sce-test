@@ -9,15 +9,22 @@ REM also identify installFile (parameter without leading '-')
 
 FOR %%a IN (%*) DO (
   SET arg=%%a
-  IF "!arg:~0,1!" EQU "-" ( SET "option!arg!=%%a" ) ELSE ( SET installFile=!arg! )
+  IF "!arg:~0,1!" EQU "-" ( SET "option!arg!=%%a" ) ELSE (
+    IF NOT DEFINED installFile (
+      SET installFile=!arg!
+    ) ELSE (
+      SET hotfixFile=!arg!
+    )
+  )
 )
 
 REM if help requested
 IF DEFINED option-h (
-  ECHO Usage: %0 -acceptLGPL [installer-file] [-h]
+  ECHO Usage: %0 -acceptLGPL [installer-file] [hotfix-file] [-h]
   ECHO Where:
   ECHO   -acceptLGPL = confirm acceptance of the LGPL license.
   ECHO   installer-file = full path of the TIBCO Business Studio - BPM Edition installer.
+  ECHO   hotfix-file = full path of the TIBCO Business Studio - BPM Edition hotfix installer (optional).
   ECHO   -h display this usage message.
   ECHO.
   EXIT /b -1
@@ -45,18 +52,30 @@ IF NOT EXIST .\image_template\TIB_business-studio-bpm-edition_?.?.?_linux*.zip (
   ECHO and must be copied to the sub-folder image_template.
   ECHO.
   ECHO Alternatively, specify the location of the file on the command line.
-  ECHO Usage: %0 -acceptLGPL [installer-file] [-h]
+  ECHO Usage: %0 -acceptLGPL [installer-file] [hotfix-file] [-h]
   ECHO Where:
   ECHO   -acceptLGPL = confirm acceptance of the LGPL license.
   ECHO   installer-file = full path of the TIBCO Business Studio - BPM Edition installer.
+  ECHO   hotfix-file = full path of the TIBCO Business Studio - BPM Edition hotfix installer (optional).
   ECHO   -h display this usage message.
   ECHO.
   EXIT /b -1
 )
 
+REM was hotfix installer supplied on command line args
+IF DEFINED hotfixFile (
+  ECHO Copying Hotfix Installer %!hotfixFile!
+  COPY %!hotfixFile! image_template\
+)
+
 docker build -t tibco/bpm-studio:$$IMAGE_TAG_VERSION$$ .\image_template
 
-ECHO Removing temporary install image...	
-docker images -q --filter label=maintainer="TIBCO Software Inc" --filter label=image=bpm-studio-installation > .install_images.tmp
-FOR /f %%i in (.install_images.tmp) DO ( docker rmi %%i )
-DEL .install_images.tmp
+REM Remove temporary install image if it exists
+FOR /F "tokens=* USEBACKQ" %%F IN (`docker images -q --filter label=maintainer^="TIBCO Software Inc" --filter label=image=bpm-studio-installation`) DO (
+    SET "images=%%F"
+)
+
+IF NOT "%images%"=="" (
+    echo Removing temporary install image...
+    docker rmi %images%
+)
