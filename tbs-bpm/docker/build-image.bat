@@ -24,7 +24,7 @@ IF DEFINED option-h (
   ECHO Where:
   ECHO   -acceptLGPL = confirm acceptance of the LGPL license.
   ECHO   installer-file = full path of the TIBCO Business Studio - BPM Edition installer.
-  ECHO   hotfix-file = full path of the TIBCO Business Studio - BPM Edition hotfix installer (optional).
+  ECHO   hotfix-file = full path of the TIBCO Business Studio - BPM Edition hotfix installer ^(optional^).
   ECHO   -h display this usage message.
   ECHO.
   EXIT /b -1
@@ -52,11 +52,12 @@ IF NOT EXIST .\image_template\TIB_business-studio-bpm-edition_?.?.?_linux*.zip (
   ECHO and must be copied to the sub-folder image_template.
   ECHO.
   ECHO Alternatively, specify the location of the file on the command line.
+  ECHO.
   ECHO Usage: %0 -acceptLGPL [installer-file] [hotfix-file] [-h]
   ECHO Where:
   ECHO   -acceptLGPL = confirm acceptance of the LGPL license.
   ECHO   installer-file = full path of the TIBCO Business Studio - BPM Edition installer.
-  ECHO   hotfix-file = full path of the TIBCO Business Studio - BPM Edition hotfix installer (optional).
+  ECHO   hotfix-file = full path of the TIBCO Business Studio - BPM Edition hotfix installer ^(optional^).
   ECHO   -h display this usage message.
   ECHO.
   EXIT /b -1

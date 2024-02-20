@@ -65,7 +65,14 @@ if [ ! -f ./image_template/TIB_business-studio-bpm-edition_?.?.?_linux*.zip ]; t
   echo and must be copied to the sub-folder image_template.
   echo
   echo Alternatively, specify the location of the file on the command line.
-  usage
+  echo
+  echo Usage: ${0} -acceptLGPL [installer-file] [hotfix-installer-file] [-h]
+  echo Where:
+  echo -e '\t -acceptLGPL = confirm acceptance of the LGPL license.'
+  echo -e '\t installer-path = full path of the TIBCO Business Studio - BPM Edition installer.'
+  echo -e '\t hotfix-installer-path = full path of the TIBCO Business Studio - BPM Edition hotfix installer.'
+  echo -e '\t -h display this usage message.'
+  echo
   exit 1
 fi
 
