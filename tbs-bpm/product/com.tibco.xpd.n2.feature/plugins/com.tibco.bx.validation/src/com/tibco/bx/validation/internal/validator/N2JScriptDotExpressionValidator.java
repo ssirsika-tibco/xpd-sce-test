@@ -22,7 +22,6 @@ import org.eclipse.uml2.uml.Type;
 import com.tibco.bx.validation.internal.Messages;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
-import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.n2.cds.script.IRestScriptRelevantData;
 import com.tibco.xpd.n2.cds.script.RestJsClass;
 import com.tibco.xpd.n2.cds.utils.CDSUtils;
@@ -265,11 +264,16 @@ public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidat
 
                 String genericType = convertSpecificToGenericType(type);
                 if (genericType != null) {
-                    if (genericType.equals(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME)) {
-                        if (methodName.equals("split")) {//$NON-NLS-1$
-                            return false;
-                        }
-                    } else if (genericType.equals(JsConsts.REGULAR_EXPRESSION)) {
+					/*
+					 * Nikita - ACE-7011 Now we support the split method for String objects. Removed the check to
+					 * disable it.
+					 * 
+					 * Due to inadequate code commentary not really sure why it was added in the first place. Tested e2e
+					 * to confirm 'split' works okay
+					 */
+
+					if (genericType.equals(JsConsts.REGULAR_EXPRESSION))
+					{
                         if (methodName.equals("exec")) {//$NON-NLS-1$
                             return false;
                         }

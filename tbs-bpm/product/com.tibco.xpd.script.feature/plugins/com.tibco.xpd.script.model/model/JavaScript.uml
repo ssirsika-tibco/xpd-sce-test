@@ -272,6 +272,15 @@
       </ownedParameter>
       <ownedParameter xmi:id="_h2GGEvxqEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
     </ownedOperation>
+    <ownedOperation xmi:id="_String_endsWith_" name="endsWith">
+      <ownedParameter xmi:id="_String_endsWith_searchString_" name="searchString" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_String_endsWith_returnValue_" type="_RaDDAPxtEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_endsWith_withPosition_" name="endsWith">
+      <ownedParameter xmi:id="_String_endsWith_withPosition_searchString_" name="searchString" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_String_endsWith_withPosition_endPosition_" name="endPosition" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_String_endsWith_withPosition_returnValue_" type="_RaDDAPxtEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
     <ownedOperation xmi:id="_Yke7UPxrEduQPNEkUL8doA" name="indexOf">
       <ownedParameter xmi:id="_Yke7UfxrEduQPNEkUL8doA" name="str1" type="_W0LRQNGrEduWapZ5a676CA"/>
       <ownedParameter xmi:id="_Yke7VPxrEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
@@ -290,10 +299,27 @@
       <ownedParameter xmi:id="_oybJkvxrEduQPNEkUL8doA" name="index" type="__1YCoPx9EduQPNEkUL8doA"/>
       <ownedParameter xmi:id="_oybJk_xrEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
+    <ownedOperation xmi:id="_String_match_" name="match">
+      <ownedParameter xmi:id="_String_match_str1_" name="str1" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_String_match_returnValue_" type="_JZXmkPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_repeat_" name="repeat">
+      <ownedParameter xmi:id="_String_repeat_count_" name="count" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_String_repeat_returnValue_" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
     <ownedOperation xmi:id="_lihwYPy-EduQPNEkUL8doA" name="replace">
       <ownedParameter xmi:id="_lihwYfy-EduQPNEkUL8doA" name="str1" type="_W0LRQNGrEduWapZ5a676CA"/>
       <ownedParameter xmi:id="_lihwYvy-EduQPNEkUL8doA" name="str2" type="_W0LRQNGrEduWapZ5a676CA"/>
       <ownedParameter xmi:id="_lihwY_y-EduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_replaceAll_" name="replaceAll">
+      <ownedParameter xmi:id="_String_replaceAll_str1_" name="str1" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_String_replaceAll_str2_" name="str2" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_String_replaceAll_returnValue" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_search_" name="search">
+      <ownedParameter xmi:id="_String_search_str1_" name="str1" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_String_search_returnValue_" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_RGYm4Py_EduQPNEkUL8doA" name="slice">
       <ownedParameter xmi:id="_RGYm4fy_EduQPNEkUL8doA" name="startIndex" type="__1YCoPx9EduQPNEkUL8doA"/>
@@ -303,6 +329,27 @@
       <ownedParameter xmi:id="_XypDgfy_EduQPNEkUL8doA" name="startIndex" type="__1YCoPx9EduQPNEkUL8doA"/>
       <ownedParameter xmi:id="_b33McPy_EduQPNEkUL8doA" name="lastIndex" type="__1YCoPx9EduQPNEkUL8doA"/>
       <ownedParameter xmi:id="_XypDgvy_EduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_split_" name="split">
+      <ownedParameter xmi:id="_String_split_returnValue_" type="_JZXmkPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_split_noLimit_" name="split">
+      <ownedParameter xmi:id="_String_split_noLimit_separator_" name="separator" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_String_split_noLimit_returnValue_" type="_JZXmkPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_split_limit_" name="split">
+      <ownedParameter xmi:id="_String_split_limit_separator_" name="separator" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_String_split_limit_limit_" name="limit" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_String_split_limit_returnValue_" type="_JZXmkPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_startsWith_" name="startsWith">
+      <ownedParameter xmi:id="_String_startsWith_searchString_" name="searchString" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_String_startsWith_returnValue_" type="_RaDDAPxtEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_startsWith_withPosition_" name="startsWith">
+      <ownedParameter xmi:id="_String_startsWith_withPosition_searchString_" name="searchString" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_String_startsWith_withPosition_endPosition_" name="endPosition" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_String_startsWith_withPosition_returnValue_" type="_RaDDAPxtEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_02bzwPzIEduQPNEkUL8doA" name="substr">
       <ownedParameter xmi:id="_02bzwfzIEduQPNEkUL8doA" name="startIndex" type="__1YCoPx9EduQPNEkUL8doA"/>
@@ -324,11 +371,31 @@
       <ownedParameter xmi:id="_CQvcwvzJEduQPNEkUL8doA" name="endIndex" type="__1YCoPx9EduQPNEkUL8doA"/>
       <ownedParameter xmi:id="_CQvcw_zJEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
     </ownedOperation>
+    <ownedOperation xmi:id="_String_toLocaleLowerCase_" name="toLocaleLowerCase">
+      <ownedParameter xmi:id="_String_toLocaleLowerCase_returnValue_" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_toLocaleLowerCase_withLocales_" name="toLocaleLowerCase">
+      <ownedParameter xmi:id="_String_toLocaleLowerCase_withLocales_locales_" name="locales" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_String_toLocaleLowerCase_withLocales_returnValue_" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_toLocaleUpperCase_" name="toLocaleUpperCase">
+      <ownedParameter xmi:id="_String_toLocaleUpperCase_returnValue_" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_toLocaleUpperCase_withLocales_" name="toLocaleUpperCase">
+      <ownedParameter xmi:id="_String_toLocaleUpperCase_withLocales_locales_" name="locales" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_String_toLocaleUpperCase_withLocales_returnValue_" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
     <ownedOperation xmi:id="_JneZwPzJEduQPNEkUL8doA" name="toLowerCase">
       <ownedParameter xmi:id="_JneZw_zJEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_NQE4IPzJEduQPNEkUL8doA" name="toUpperCase">
       <ownedParameter xmi:id="_NQE4IfzJEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_trim_" name="trim">
+      <ownedParameter xmi:id="_String_trim_returnValue_" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_String_valueOf_" name="valueOf">
+      <ownedParameter xmi:id="_String_valueOf_returnValue_" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_ECzxkPxsEduQPNEkUL8doA" name="RegExp">
