@@ -859,7 +859,12 @@ public class GenerateRascTask extends Task {
 					errorMarkers.add(marker);
                 }
             }
-			hasError = !errorMarkers.isEmpty();
+			// If error flag is already set then do nothing.
+			if (!hasError)
+			{
+				hasError = !errorMarkers.isEmpty();
+			}
+
 			if (hasError && aMonitor != null)
 			{
 				// Only show error message once.
