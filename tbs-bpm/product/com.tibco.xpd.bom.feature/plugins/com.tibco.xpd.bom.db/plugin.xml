@@ -39,6 +39,9 @@
          </enablement>
       </commonWizard>
 </extension>
+<!-- Sid ACE-7806 remove the Import BPM from Database wizard as we have 
+     removed Data Source Explorer (which would be required to setup DB profile for wixard) -->
+     <!-- 
 <extension
       point="org.eclipse.ui.importWizards">
    <wizard
@@ -49,6 +52,7 @@
          name="%wizard.name.0">
    </wizard>
 </extension>
+-->
 <extension
       point="org.eclipse.core.expressions.propertyTesters">
    <propertyTester
