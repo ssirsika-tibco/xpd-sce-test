@@ -26,7 +26,12 @@ You will need a zip archive for the current Linux version of the TIBCO Business
 Studio BPM-Edition installation set, for example...
   TIB_business-studio-bpm-edition_$$IMAGE_TAG_VERSION$$_linux_x86_64.zip
 
-This installation set should be added to the folder...
+To apply a Business Studio hotfix to the docker image you can
+provide the appropriate TIBCO Business Studio
+BPM-Edition Hotfix installation set, for example... 
+  TIB_business-studio-bpm-edition_$$IMAGE_TAG_VERSION$$_HF-001.zip
+
+These installation set(s) should be added to the folder...
   <TIBCO Studio Home>/docker_cicd/image_template
   
   Note: this is the default location for the install set. The docker image
@@ -48,10 +53,13 @@ Where the local environment is Microsoft Windows, use:
   build-image.bat [<studio-installer>] [<studio-hf-installer>]
 
 where:
-  <studio-installer> and [<studio-hf-installer>] are the full paths to the Linux TIBCO Business Studio - BPM Edition Installer 
-  and Linux TIBCO Business Studio - BPM Edition Hotfix Installer (if a hotfix needs to be installed) files, respectively. 
-  Both parameters are optional if you have already copied the installation set archive zip files (i.e main studio installer and hotfix installer, if need to be applied)
-  to the image_template folder.
+  <studio-installer> and [<studio-hf-installer>] are the full paths to the
+  Linux TIBCO Business Studio - BPM Edition Installer and Linux TIBCO Business
+  Studio - BPM Edition Hotfix Installer (if a hotfix needs to be installed)
+  files, respectively. 
+  Both parameters are optional if you have already copied the installation set
+  archive zip files i.e main studio installer (and hotfix installer, if need to
+  be applied) to the image_template folder.
 
 ** IMPORTANT **
   Building the docker image requires the download and installation of software
