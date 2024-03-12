@@ -26,20 +26,20 @@
 	
     <updatesites id="gatherer.update-sites.list">
 		
-		<!-- test framework should now come from spin-->
-        <!--updatesite url="http://dragonfly.na.tibco.com/devtools" /-->
-		<!-- update site for com.tibco.n2.common.model.feature -->
-        <!--updatesite url="http://n2build2003/shared-builds/site.xml"/-->		
+		
+        
+		
+        		
         <updatesite url="${reldist.update.site}"/>
         <updatesite url="${reldist.update.site.old}"/>
-		<!-- for getting svn features -->
+		
 		<!-- JA: Should not be necessary for now. Uncomment later.
 		<updatesite url="http://spin.tibco.com/ganymede/thirdparty/site.xml"/>
 		-->
-		<!-- <updatesite url="http://studiobuild2.emea.tibco.com/userContent/from_studiobuild1/jenkins_job_LocalUpdateSite_workspace/Subclipse-1.6.5/site.xml"/> -->
+		
 
-		<!-- temp update site to get 'org.eclipse.m2m.qvt.oml.runtime' from tibco update site -->
-		<!--updatesite url="http://forms-int.na.tibco.com/updates/"/-->
+		
+		
 		
 		<!-- New oxygen test feature. -->
 		<updatesite url="http://studiobuild2.emea.tibco.com/userContent/from_studiobuild1/jenkins_job_LocalUpdateSite_workspace/eclipse-test-framework-4.19/site.xml"/>
@@ -47,7 +47,7 @@
 
         <!-- We need 3.7 site just for org.tigris.subversion.clientadapter.feature" version="1.8.12" which isn't on later sites -->
 		<updatesite url="http://spin.tibco.com/eclipse-3.7/thirdparty/site.xml"/>
-		<!-- <updatesite url="http://spin.tibco.com/eclipse-4.4/thirdparty/site.xml"/> -->
+		
 		<updatesite url="http://spin.tibco.com/eclipse-4.7/thirdparty/site.xml"/>
  		<updatesite url="http://spin.tibco.com/eclipse-4.11/thirdparty/site.xml"/>
 
