@@ -71,6 +71,9 @@ public class JScriptAssignmentExpressionValidator
                             performExtraAssignmentValidation(evaluateLHS,
                                     evaluateRHS,
                                     (Token) token);
+                            
+                            
+							validateVariableAssignment(rhsExpression, (Token) token);
                         }
                     }
                     // Check if the types for lhs and rhs of the assignment
@@ -94,7 +97,30 @@ public class JScriptAssignmentExpressionValidator
         return result;
     }
 
-    /**
+	/**
+	 * Function to validate the variable assignment.
+	 * 
+	 * <p>
+	 * Chaitanya : As part of ACE-7866 we introduced new additional validation for varible assignment of 'bpmScripts'.
+	 * </p>
+	 * <p>
+	 * i.e. which basically prevented the assignment of below 'bpmScripts' expressions for varible.
+	 * </p>
+	 * 
+	 * <ul>
+	 * <li>[variable_name] = 'bpmScripts';</li>
+	 * <li>[variable_name] = 'bpmScripts.[ProjectName]'</li>
+	 * </ul>
+	 * 
+	 * @param rhsExpression
+	 * @param token
+	 */
+	protected void validateVariableAssignment(AST rhsExpression, Token token)
+	{
+		// Do Nothing.
+	}
+
+	/**
      * Opportunity to perform some extra validation
      * 
      * @param lhsValidateResult

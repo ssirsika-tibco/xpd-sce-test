@@ -22,6 +22,10 @@ public class Messages extends NLS {
 
     public static String JScriptASTTreeValidator_MIAddlInstanceScriptEvaluateToZero1;
 
+	public static String		JScriptAssignmentExpressionValidator_AssignmentOfBPMScriptReference;
+
+	public static String		JScriptAssignmentExpressionValidator_AssignmentOf_ProjectReference_UsingBPMScript;
+
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);

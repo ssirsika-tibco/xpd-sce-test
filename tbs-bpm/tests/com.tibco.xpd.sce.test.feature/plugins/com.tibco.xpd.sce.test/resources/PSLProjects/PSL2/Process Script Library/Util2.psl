@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" Id="_1IAMsKYgEe6JsJLOl_5kqQ">
+  <xpdl2:PackageHeader>
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>Fri Dec 29 13:34:02 IST 2023</xpdl2:Created>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader>
+    <xpdl2:Author>ssirsika</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_1IAMsaYgEe6JsJLOl_5kqQ">
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_1IAMsqYgEe6JsJLOl_5kqQ" Name="divide">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">
+ 						 return bpmScripts.PSL3.Util3.getNumber(parameter1) / bpmScripts  .  PSL3  .  Util3  .  getNumberRnd(parameter2);	
+				</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_1IAMs6YgEe6JsJLOl_5kqQ" Name="parameter1">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_1IAMtKYgEe6JsJLOl_5kqQ" Name="parameter2">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_1IAMtaYgEe6JsJLOl_5kqQ" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_1IAMsqYgEe6JsJLOl_5kqj" Name="checkStatus">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">
+ 					return bpmScripts.PSL3.Util3.isTrue(parameter1) + bpmScripts.PSL1.Util1.add(parameter1, parameter2);	
+				</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_1IAMs6YgEe6JsJLOl_5kqj" Name="parameter1">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_1IAMtKYgEe6JsJLOl_5kqj" Name="parameter2">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_1IAMtaYgEe6JsJLOl_5kqj" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

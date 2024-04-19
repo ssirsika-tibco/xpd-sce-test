@@ -29,29 +29,30 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='ReplyImmediateDataMappings' kind='empty'"
  * @generated
  */
-public interface ReplyImmediateDataMappings extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface ReplyImmediateDataMappings extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Data Mappings</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdl2.DataMapping}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Data Mappings</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Data Mappings</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getReplyImmediateDataMappings_DataMappings()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='DataMapping' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<DataMapping> getDataMappings();
+	/**
+	 * Returns the value of the '<em><b>Data Mappings</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdl2.DataMapping}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Data Mappings</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data Mappings</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getReplyImmediateDataMappings_DataMappings()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DataMapping' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<DataMapping> getDataMappings();
 
 } // ReplyImmediateDataMappings

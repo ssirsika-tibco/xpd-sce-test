@@ -11,7 +11,7 @@ import com.tibco.xpd.implementer.resources.xpdl2.internal.Messages;
 import com.tibco.xpd.implementer.script.SubProcScriptUtil;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.process.js.model.ProcessJsConsts;
-import com.tibco.xpd.processeditor.xpdl2.properties.script.AbstractProcessScriptProvider;
+import com.tibco.xpd.process.js.model.script.AbstractProcessScriptProvider;
 import com.tibco.xpd.xpdExtension.ScriptInformation;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.DataMapping;
@@ -135,7 +135,7 @@ public class SubProcAndCatchBpmnErrorEventScriptProvider extends
     }
 
     /**
-     * @see com.tibco.xpd.processeditor.xpdl2.properties.script.AbstractProcessScriptProvider#getDefaultDestination()
+     * @see com.tibco.xpd.process.js.model.script.AbstractProcessScriptProvider#getDefaultDestination()
      * 
      * @return
      */

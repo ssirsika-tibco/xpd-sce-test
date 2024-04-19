@@ -29,46 +29,47 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='ProcessResourcePatterns' kind='elementOnly'"
  * @generated
  */
-public interface ProcessResourcePatterns extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface ProcessResourcePatterns extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Separation Of Duties Activities</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdExtension.SeparationOfDutiesActivities}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Separation Of Duties Activities</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Separation Of Duties Activities</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getProcessResourcePatterns_SeparationOfDutiesActivities()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='SeparationOfDutiesActivities' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<SeparationOfDutiesActivities> getSeparationOfDutiesActivities();
+	/**
+	 * Returns the value of the '<em><b>Separation Of Duties Activities</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdExtension.SeparationOfDutiesActivities}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Separation Of Duties Activities</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Separation Of Duties Activities</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getProcessResourcePatterns_SeparationOfDutiesActivities()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='SeparationOfDutiesActivities' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<SeparationOfDutiesActivities> getSeparationOfDutiesActivities();
 
-    /**
-     * Returns the value of the '<em><b>Retain Familiar Activities</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdExtension.RetainFamiliarActivities}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Retain Familiar Activities</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Retain Familiar Activities</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getProcessResourcePatterns_RetainFamiliarActivities()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='RetainFamiliarActivities' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<RetainFamiliarActivities> getRetainFamiliarActivities();
+	/**
+	 * Returns the value of the '<em><b>Retain Familiar Activities</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdExtension.RetainFamiliarActivities}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Retain Familiar Activities</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Retain Familiar Activities</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getProcessResourcePatterns_RetainFamiliarActivities()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='RetainFamiliarActivities' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<RetainFamiliarActivities> getRetainFamiliarActivities();
 
 } // ProcessResourcePatterns

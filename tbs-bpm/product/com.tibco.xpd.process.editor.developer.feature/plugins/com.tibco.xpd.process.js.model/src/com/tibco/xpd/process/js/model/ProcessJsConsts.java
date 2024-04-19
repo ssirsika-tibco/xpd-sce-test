@@ -15,6 +15,8 @@ public class ProcessJsConsts {
 
     public static final String SCRIPT_TASK = "ScriptTask"; //$NON-NLS-1$
 
+	public static final String	SCRIPT_LIBRARY_FUNCTION	 = "ScriptLibraryFunction"; //$NON-NLS-1$
+
     public static final String PERFORMER_SCRIPT = "PerformerDataField"; //$NON-NLS-1$
 
     public static final String WEBSERVICE_TASK = "WebServiceTask"; //$NON-NLS-1$

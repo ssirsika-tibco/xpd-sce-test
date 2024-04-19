@@ -56,7 +56,16 @@ public class SaveUtil {
         CommandProvider commandProvider = jScriptSourceViewer
                 .getCommandProvider();
         if (commandProvider != null) {
-            commandProvider.executeSaveCommand(scriptDoc);
+			/**
+			 * ACE-7401 :- Project dependencies required for references of Process Script Function
+			 * 
+			 * SID: If command failed/aborted then resynch the editor with the model.
+			 */
+			if (!commandProvider.executeSaveCommand(scriptDoc))
+			{
+				jScriptSourceViewer.setInputString(commandProvider.getScriptFromModel());
+				jScriptSourceViewer.doRefresh();
+			}
         }
     }
 

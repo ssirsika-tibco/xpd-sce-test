@@ -28,6 +28,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.activities.WorkbenchActivityHelper;
+import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.ui.part.PageBook;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory;
 
@@ -56,6 +57,19 @@ public abstract class BaseScriptSection extends
 
     private static final Logger LOG = XpdResourcesPlugin.getDefault()
             .getLogger();
+
+	/**
+	 * if {@link #isUseOwnScriptInfoProviderInstance()} is true then this field stores the instance that was created on the last
+	 * call to {@link #getScriptInfoProvider(String)} for a given grammarid
+	 */
+	private AbstractScriptInfoProvider							scriptInfoProviderOwnInstance			= null;
+
+	/**
+	 * if {@link #isUseOwnScriptInfoProviderInstance()} is true then this field stores the grammarId for which
+	 * {@link #scriptInfoProviderOwnInstance} was created. Therefore if grammar is changed then
+	 * {@link #scriptInfoProviderOwnInstance} can be replaced.
+	 */
+	private String												scriptInfoProviderOwnInstanceGrammarId	= "";
 
     /**
      * 
@@ -109,6 +123,10 @@ public abstract class BaseScriptSection extends
      * grammar dropdown.
      */
     private Composite grammarRHSControlContainer;
+
+	private FormText											scriptDefinitionLabel;
+
+	private String scriptDefinitionLabelStr;
 
     /**
      * Class contains the implementation extension and the book page that
@@ -185,11 +203,38 @@ public abstract class BaseScriptSection extends
         readGrammarDestinationBindingElement();
     }
 
+	/**
+	 * @return <code>false</code> to use singleton instance of ScriptInfoProvider (default) or <code>true</code> to
+	 *         create a new instance of {@link AbstractScriptInfoProvider} for the given grammar for every individual
+	 *         instance of the subclass. The latter is useful when the lifecycle is not controlled by Tabbed property 
+	 *         Sheets and therefore it is necessary to maintain separate providers each with their own input object.
+	 */
+	protected boolean isUseOwnScriptInfoProviderInstance()
+	{
+		return false;
+	}
+
     /**
      * @param grammarId
      * @return
      */
     protected AbstractScriptInfoProvider getScriptInfoProvider(String grammarId) {
+		// SID: when sub-class requires individual instance of AbstractScriptInfoProvider for given grammar then use
+		// existing or create new and save it for next call.
+		boolean useOwnScriptInfoProviderInstance = isUseOwnScriptInfoProviderInstance();
+
+		if (useOwnScriptInfoProviderInstance && scriptInfoProviderOwnInstanceGrammarId.equals(grammarId))
+		{
+			if (scriptInfoProviderOwnInstance != null) {
+				return scriptInfoProviderOwnInstance;
+			}
+		}
+		else
+		{
+			scriptInfoProviderOwnInstance = null;
+			scriptInfoProviderOwnInstanceGrammarId = "";
+		}
+
         Collection<String> enabledDestinations =
                 getEnabledDestinations(getInput());
 
@@ -200,7 +245,9 @@ public abstract class BaseScriptSection extends
                         ScriptGrammarContributionsUtil.INSTANCE
                                 .getScriptInfoProvider(destination,
                                         getScriptContext(),
-                                        grammarId);
+										grammarId, 
+										// SID: request new instance of provider if required.
+										useOwnScriptInfoProviderInstance);
                 if (scriptInfoProvider != null) {
                     break;
                 }
@@ -232,7 +279,9 @@ public abstract class BaseScriptSection extends
                             ScriptGrammarContributionsUtil.INSTANCE
                                     .getScriptInfoProvider(destination,
                                             getScriptContext(),
-                                            grammarId);
+											grammarId, 
+											// SID: request new instance of provider if required.
+											useOwnScriptInfoProviderInstance);
                     if (scriptInfoProvider != null) {
                         break;
                     }
@@ -245,6 +294,15 @@ public abstract class BaseScriptSection extends
             }
 
         }
+
+		// SID: when sub-class requires individual instance of AbstractScriptInfoProvider for given grammar then save it
+		// for next call. Also save the grammarId the provider is for, so that if grammar changes we will recreate the
+		// provider.
+		if (useOwnScriptInfoProviderInstance)
+		{
+			scriptInfoProviderOwnInstance = scriptInfoProvider;
+			scriptInfoProviderOwnInstanceGrammarId = grammarId;
+		}
 
         return scriptInfoProvider;
     }
@@ -307,33 +365,46 @@ public abstract class BaseScriptSection extends
         GridData gd = new GridData(GridData.FILL_HORIZONTAL);
         grammarLineContainer.setLayoutData(gd);
 
-        GridLayout gl = new GridLayout(4, false);
-        gl.marginWidth = 0;
-        gl.marginHeight = 0;
-
+		GridLayout gl = new GridLayout(4, false);
         grammarLineContainer.setLayout(gl);
 
         /* LHS Label */
-        String scriptDefinitionLabel = getScriptDefinitionLabel();
-        Label lbl =
-                toolkit.createLabel(grammarLineContainer,
-                        scriptDefinitionLabel != null ? scriptDefinitionLabel
-                                : "", //$NON-NLS-1$
-                        SWT.NONE);
+        scriptDefinitionLabelStr = getScriptDefinitionLabel();
+		scriptDefinitionLabel = new NoFocusFormText(grammarLineContainer, SWT.WRAP);
+		toolkit.adapt(scriptDefinitionLabel, false, false);
 
-        gd = new GridData();
-        if (scriptDefinitionLabel == null
-                || scriptDefinitionLabel.length() == 0) {
-            gd.heightHint = 0;
-        }
-        lbl.setLayoutData(gd);
+		if (scriptDefinitionLabelStr != null)
+		{
+			scriptDefinitionLabel.setText(scriptDefinitionLabelStr,
+				shouldParseScriptDefinitionLabel(), false);
+		}
+
+
+		// SID: Setup the label and grammar line container layout depending on whether it contains any data
+		if (scriptDefinitionLabelStr == null || scriptDefinitionLabelStr.length() == 0)
+		{
+			// SID: If not showing label then don't fill LHS with empty label
+			gd = new GridData(SWT.NONE, SWT.CENTER, false, false);
+			gd.heightHint = 1;
+			// SID: If we don't have a label then remove margins
+			gl.marginWidth = 0;
+			gl.marginHeight = 0;
+		}
+		else
+		{
+			// SID: Set a width hint to start with otherwise layout will take the text-width as the nominal width
+			gd = new GridData(SWT.FILL, SWT.CENTER, true, false);
+			gd.widthHint = 1;
+		}
+
+		scriptDefinitionLabel.setLayoutData(gd);
 
         /* Grammar selection label and combo. */
         Composite grammarSelectionContainer =
                 toolkit.createComposite(grammarLineContainer);
         // grammarSelectionContainer.setBackground(new Color(null, 0, 0, 255));
 
-        gd = new GridData();
+		gd = new GridData(SWT.RIGHT, SWT.CENTER, false, false);
         grammarSelectionContainer.setLayoutData(gd);
 
         gl = new GridLayout(2, false);
@@ -356,8 +427,8 @@ public abstract class BaseScriptSection extends
              * it's defined.
              */
             gd = new GridData();
-            if (scriptDefinitionLabel != null
-                    && scriptDefinitionLabel.length() > 0) {
+			if (scriptDefinitionLabelStr != null && scriptDefinitionLabelStr.length() > 0)
+			{
                 gd.horizontalIndent = 10;
             }
             label.setLayoutData(gd);
@@ -374,19 +445,23 @@ public abstract class BaseScriptSection extends
             grammarTypesCombo.setLayoutData(new GridData());
         }
 
-        /*
-         * SPacer to right-justify grammarRHSControlCOntainer
-         */
-        Composite spacer = toolkit.createComposite(grammarLineContainer);
-        gl = new GridLayout();
-        gl.marginHeight = 0;
-        gl.marginWidth = 0;
-        spacer.setLayout(gl);
-        spacer.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		/*
+		 * SPacer to right-justify grammarRHSControlCOntainer
+		 */
+		Composite spacer = toolkit.createComposite(grammarLineContainer);
+		gl = new GridLayout();
+		gl.marginHeight = 0;
+		gl.marginWidth = 0;
+		spacer.setLayout(gl);
 
-        /*
-         * RHS container for controls inserted by selected
-         */
+		// SID: Want spacer to the right of grammar combo to take up no space if has no content.
+		gd = new GridData();
+		gd.widthHint = 1;
+		spacer.setLayoutData(gd);
+
+		/*
+		 * RHS container for controls inserted by selected
+		 */
         grammarRHSControlContainer =
                 toolkit.createComposite(grammarLineContainer);
         // grammarRHSControlContainer.setBackground(new Color(null, 0, 255,
@@ -394,17 +469,19 @@ public abstract class BaseScriptSection extends
 
         grammarRHSControlContainer.setLayoutData(new GridData());
 
-        gl = new GridLayout();
-        gl.marginHeight = 0;
-        grammarRHSControlContainer.setLayout(gl);
+		gl = new GridLayout();
+		gl.marginWidth = 0;
 
-        /*
+		gl.marginHeight = 0;
+		grammarRHSControlContainer.setLayout(gl);
+
+		/*
          * Sid XPD-4021 - allow sub-classes to create controls alongside grammar
          * dropdown.
-         */
+		 */
         grammarExtraContainer =
                 createGrammarAreaExtras(sectionComposite, toolkit);
-        // grammarExtraContainer.setBackground(new Color(null, 255, 0, 255));
+		// grammarExtraContainer.setBackground(new Color(null, 255, 0, 255));
 
         gd = new GridData(GridData.FILL_HORIZONTAL);
         grammarExtraContainer.setLayoutData(gd);
@@ -454,9 +531,18 @@ public abstract class BaseScriptSection extends
                 editorSection.grammarElement.getISectionExec()
                         .setScriptContext(getScriptContext());
                 // At the moment, selects the first one from the list.
-                editorSection.grammarElement.getISectionExec()
-                        .createControls(editorSection.page,
-                                getPropertySheetPage());
+
+				if (getPropertySheetPage() != null)
+				{
+
+					editorSection.grammarElement.getISectionExec().createControls(editorSection.page,
+							getPropertySheetPage());
+
+				}
+				else
+				{
+					editorSection.grammarElement.getISectionExec().createControls(editorSection.page, toolkit);
+				}
 
             } catch (CoreException e) {
                 LOG.error(e);
@@ -470,12 +556,12 @@ public abstract class BaseScriptSection extends
     }
 
     /**
-     * @param parent
-     * @param toolkit
-     * 
+	 * @param parent
+	 * @param toolkit
+	 * 
      * @return The control for the right hand side of the grammar selection
      *         combo.
-     */
+	 */
     protected Composite createGrammarAreaExtras(Composite parent,
             XpdFormToolkit toolkit) {
         Composite cmp = toolkit.createComposite(parent);
@@ -492,6 +578,15 @@ public abstract class BaseScriptSection extends
     protected String getScriptDefinitionLabel() {
         return null;
     }
+
+	/**
+	 * Override this method to specify if script definition label should be parsed or not. As ScriptDefinitationLabel
+	 * control is a {@link FormText}, overriding class control the parsing condition. By default, parsing is disabled.
+	 */
+	protected boolean shouldParseScriptDefinitionLabel()
+	{
+		return false;
+	}
 
     protected boolean showDetails(EditorSectionComposite editorSection) {
         boolean showDetails = false;
@@ -580,7 +675,8 @@ public abstract class BaseScriptSection extends
 
                             Display.getDefault().asyncExec(new Runnable() {
 
-                                public void run() {
+                                @Override
+								public void run() {
                                     refresh();
 
                                 }
@@ -682,6 +778,7 @@ public abstract class BaseScriptSection extends
         if (destIdToEditorSectionCompositeMap.isEmpty()) {
             return;
         }
+
         String currentSetGrammarId = getFixedCurrentSetScriptGrammarId();
         EditorSectionComposite currentImpl = null;
         // Script grammar name will be null during transition from one grammar
@@ -895,6 +992,19 @@ public abstract class BaseScriptSection extends
             }
             enableEditorSection(false, currentImpl);
         }
+
+		// Refresh script definition label, if changed.
+
+		String newScriptDefinitionLabelStr = getScriptDefinitionLabel();
+		if (newScriptDefinitionLabelStr != null)
+		{
+			if (!newScriptDefinitionLabelStr.equals(scriptDefinitionLabelStr))
+			{
+				scriptDefinitionLabel.setText(newScriptDefinitionLabelStr, true, false);
+				scriptDefinitionLabelStr = newScriptDefinitionLabelStr;
+				sectionComposite.layout(true);
+			}
+		}
     }
 
     /**
@@ -1454,4 +1564,35 @@ public abstract class BaseScriptSection extends
 
         }
     }
+
+	/**
+	 * Special {@link FormText} class with focus disabled.
+	 *
+	 * @author ssirsika
+	 * @since 04-Mar-2024
+	 */
+	private class NoFocusFormText extends FormText
+	{
+
+		/**
+		 * @param parent
+		 * @param style
+		 */
+		public NoFocusFormText(Composite parent, int style)
+		{
+			super(parent, style);
+		}
+
+		/**
+		 * @see org.eclipse.ui.forms.widgets.FormText#setFocus()
+		 *
+		 * @return
+		 */
+		@Override
+		public boolean setFocus()
+		{
+			// Do nothing here to disable the focus.
+			return true;
+		}
+	}
 }

@@ -101,7 +101,10 @@ import com.tibco.xpd.xpdl2.util.XpdlSearchUtil;
 public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
 
     public enum Xpdl2FileType {
-        PROCESS, TASK_LIBRARY, DECISION_FLOW
+		PROCESS,
+		TASK_LIBRARY,
+		DECISION_FLOW,
+		SCRIPT_LIBRARY
     }
 
     public final static String XPDL2_SCHEMA_LOCATION =
@@ -1055,6 +1058,30 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
     public Xpdl2FileType getXpdl2FileType() {
         return xpdl2FileType;
     }
+
+	/**
+	 * Function to determine weather the passed <code>Object</code> fileType is one of passed list of
+	 * <code>Xpdl2FileType</code>.
+	 * 
+	 * @param fileType
+	 * @param toTest
+	 * @return true if the passed passed <code>Object</code> fileType is one of passed list of
+	 *         <code>Xpdl2FileType</code> or else false
+	 */
+	public boolean isOneOfXpdl2FileType(Xpdl2FileType[] fileType)
+	{
+
+		for (int i = 0; i < fileType.length; i++)
+		{
+			Xpdl2FileType xpdl2FileType = fileType[i];
+
+			if (xpdl2FileType.equals(this.getXpdl2FileType()))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 
     public void forceCleanup() {
         cleanup();

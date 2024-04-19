@@ -27,29 +27,30 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='ProcessDataWorkItemAttributeMappings_._type' kind='elementOnly'"
  * @generated
  */
-public interface ProcessDataWorkItemAttributeMappings extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface ProcessDataWorkItemAttributeMappings extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Data Work Item Attribute Mapping</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdExtension.DataWorkItemAttributeMapping}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Data Work Item Attribute Mapping</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Data Work Item Attribute Mapping</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getProcessDataWorkItemAttributeMappings_DataWorkItemAttributeMapping()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='DataWorkItemAttributeMapping' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<DataWorkItemAttributeMapping> getDataWorkItemAttributeMapping();
+	/**
+	 * Returns the value of the '<em><b>Data Work Item Attribute Mapping</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdExtension.DataWorkItemAttributeMapping}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Data Work Item Attribute Mapping</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data Work Item Attribute Mapping</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getProcessDataWorkItemAttributeMappings_DataWorkItemAttributeMapping()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DataWorkItemAttributeMapping' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<DataWorkItemAttributeMapping> getDataWorkItemAttributeMapping();
 
 } // ProcessDataWorkItemAttributeMappings

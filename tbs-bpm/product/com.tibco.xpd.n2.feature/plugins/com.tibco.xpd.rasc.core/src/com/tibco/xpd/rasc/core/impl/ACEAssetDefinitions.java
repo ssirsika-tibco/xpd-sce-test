@@ -42,4 +42,7 @@ public class ACEAssetDefinitions {
 
     public final static String FORMS_FILE_EXTENSION = "form"; //$NON-NLS-1$
 
+	public final static String	PSL_SPECIAL_FOLDER_KIND			= "psl";		//$NON-NLS-1$
+
+	public final static String	PSL_FILE_EXTENSION				= "psl";		//$NON-NLS-1$
 }

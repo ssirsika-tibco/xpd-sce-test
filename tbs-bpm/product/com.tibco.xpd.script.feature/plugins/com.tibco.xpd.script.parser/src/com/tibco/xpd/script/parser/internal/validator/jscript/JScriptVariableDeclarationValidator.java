@@ -7,14 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import antlr.Token;
-import antlr.collections.AST;
-
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.script.model.client.JsClass;
 import com.tibco.xpd.script.parser.Messages;
+import com.tibco.xpd.script.parser.antlr.JScriptTokenTypes;
 import com.tibco.xpd.script.parser.internal.expr.IExpr;
 import com.tibco.xpd.script.parser.internal.validator.IValidateResult;
+
+import antlr.Token;
+import antlr.collections.AST;
 /**
  * 
  * Expression validator for the validation of variable declarations
@@ -24,7 +25,8 @@ import com.tibco.xpd.script.parser.internal.validator.IValidateResult;
 public class JScriptVariableDeclarationValidator extends
         AbstractExpressionValidator {
 
-    public void validate(AST variableDefAST, Token token) {
+    @Override
+	public void validate(AST variableDefAST, Token token) {
         if (variableDefAST != null) {
             String variableName =
                     getVariableName(variableDefAST.getFirstChild());
@@ -33,12 +35,72 @@ public class JScriptVariableDeclarationValidator extends
             } else {
                 logUnexpectedExpressionValidatorProblem();
             }
+
+			AST lhsVariableExpression = getLHSVariableExpression(variableDefAST.getFirstChild());
+            
+			if (lhsVariableExpression != null)
+			{
+				AST equalOperatorExp = lhsVariableExpression.getNextSibling();
+				if (equalOperatorExp != null && JScriptTokenTypes.ASSIGN == equalOperatorExp.getType())
+				{
+					AST rhsExp = equalOperatorExp.getFirstChild();
+					
+					if (rhsExp != null && JScriptTokenTypes.EXPR == rhsExp.getType())
+					{
+						AST rhsVaribleExpression = rhsExp.getFirstChild();
+						validateVarDeclarationAssignment(rhsVaribleExpression, token);
+					}
+
+				}
+			}
+            
         } else {
             logUnexpectedExpressionValidatorProblem();
         }
     }
     
-    @Override
+	/**
+	 * Function to validate the variable declaration assignment.
+	 * 
+	 * <p>
+	 * Chaitanya : As part of ACE-7866 we introduced new additional validation for varible declartion assignment of
+	 * 'bpmScripts'.
+	 * </p>
+	 * <p>
+	 * i.e. which basically prevented the assignment of below 'bpmScripts' expressions for varible declaration.
+	 * </p>
+	 * 
+	 * <ul>
+	 * <li>var [variable_name] = 'bpmScripts';</li>
+	 * <li>var [variable_name] = 'bpmScripts.[ProjectName]'</li>
+	 * </ul>
+	 * 
+	 * @param rhsExpression
+	 * @param token
+	 */
+	protected void validateVarDeclarationAssignment(AST rhsExpression, Token token)
+	{
+		// Do Nothing.
+	}
+
+	/**
+	 * Retrieves the left-hand side (LHS) variable expression from the given AST node representing a variable
+	 * definition.
+	 *
+	 * @param variableDefAST
+	 *            The abstract syntax tree (AST) node representing the variable definition.
+	 * @return The AST node representing the LHS variable expression.
+	 */
+	private AST getLHSVariableExpression(AST variableDefAST)
+	{
+		if (variableDefAST != null)
+		{
+			return variableDefAST.getNextSibling();
+		}
+		return null;
+	}
+
+	@Override
     public IValidateResult evaluate(IExpr expression) {
         return super.evaluate(expression);
     }

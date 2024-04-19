@@ -34,128 +34,143 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class EventHandlerInitialisersImpl extends NamedElementImpl implements EventHandlerInitialisers {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public class EventHandlerInitialisersImpl extends NamedElementImpl implements EventHandlerInitialisers
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String		copyright	= "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved.";	//$NON-NLS-1$
 
-    /**
-     * The cached value of the '{@link #getActivityRef() <em>Activity Ref</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getActivityRef()
-     * @generated
-     * @ordered
-     */
-    protected EList<ActivityRef> activityRef;
+	/**
+	 * The cached value of the '{@link #getActivityRef() <em>Activity Ref</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActivityRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ActivityRef>	activityRef;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected EventHandlerInitialisersImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EventHandlerInitialisersImpl()
+	{
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return XpdExtensionPackage.Literals.EVENT_HANDLER_INITIALISERS;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass()
+	{
+		return XpdExtensionPackage.Literals.EVENT_HANDLER_INITIALISERS;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<ActivityRef> getActivityRef() {
-        if (activityRef == null) {
-            activityRef = new EObjectContainmentEList<ActivityRef>(ActivityRef.class, this,
-                    XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF);
-        }
-        return activityRef;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ActivityRef> getActivityRef()
+	{
+		if (activityRef == null)
+		{
+			activityRef = new EObjectContainmentEList<ActivityRef>(ActivityRef.class, this,
+					XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF);
+		}
+		return activityRef;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-        case XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF:
-            return ((InternalEList<?>) getActivityRef()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF:
+				return ((InternalEList< ? >) getActivityRef()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-        case XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF:
-            return getActivityRef();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF:
+				return getActivityRef();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-        case XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF:
-            getActivityRef().clear();
-            getActivityRef().addAll((Collection<? extends ActivityRef>) newValue);
-            return;
-        }
-        super.eSet(featureID, newValue);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF:
+				getActivityRef().clear();
+				getActivityRef().addAll((Collection< ? extends ActivityRef>) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID) {
-        switch (featureID) {
-        case XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF:
-            getActivityRef().clear();
-            return;
-        }
-        super.eUnset(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF:
+				getActivityRef().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-        case XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF:
-            return activityRef != null && !activityRef.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF:
+				return activityRef != null && !activityRef.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //EventHandlerInitialisersImpl

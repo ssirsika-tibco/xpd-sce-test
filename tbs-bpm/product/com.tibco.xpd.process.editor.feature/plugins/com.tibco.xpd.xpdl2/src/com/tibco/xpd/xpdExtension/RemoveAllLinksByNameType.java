@@ -21,35 +21,36 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='RemoveAllLinksByName_._type' kind='empty'"
  * @generated
  */
-public interface RemoveAllLinksByNameType extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface RemoveAllLinksByNameType extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Association Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Association Name</em>' attribute.
-     * @see #setAssociationName(String)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getRemoveAllLinksByNameType_AssociationName()
-     * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-     *        extendedMetaData="kind='attribute' name='AssociationName'"
-     * @generated
-     */
-    String getAssociationName();
+	/**
+	 * Returns the value of the '<em><b>Association Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Association Name</em>' attribute.
+	 * @see #setAssociationName(String)
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getRemoveAllLinksByNameType_AssociationName()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 *        extendedMetaData="kind='attribute' name='AssociationName'"
+	 * @generated
+	 */
+	String getAssociationName();
 
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType#getAssociationName <em>Association Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Association Name</em>' attribute.
-     * @see #getAssociationName()
-     * @generated
-     */
-    void setAssociationName(String value);
+	/**
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType#getAssociationName <em>Association Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Association Name</em>' attribute.
+	 * @see #getAssociationName()
+	 * @generated
+	 */
+	void setAssociationName(String value);
 
 } // RemoveAllLinksByNameType

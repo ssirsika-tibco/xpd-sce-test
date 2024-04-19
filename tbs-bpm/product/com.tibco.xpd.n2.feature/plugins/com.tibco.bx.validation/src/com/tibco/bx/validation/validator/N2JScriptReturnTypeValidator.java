@@ -4,12 +4,15 @@
 
 package com.tibco.bx.validation.validator;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
-import antlr.Token;
-import antlr.collections.AST;
-
 import com.tibco.bx.validation.internal.Messages;
+import com.tibco.xpd.processscriptlibrary.resource.editor.util.PslEditorUtil;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.script.model.internal.client.ITypeResolution;
 import com.tibco.xpd.script.model.jscript.JScriptUtils;
@@ -18,7 +21,14 @@ import com.tibco.xpd.script.parser.internal.validator.IValidateResult;
 import com.tibco.xpd.script.parser.internal.validator.jscript.JScriptReturnTypeValidator;
 import com.tibco.xpd.script.parser.util.ParseUtil;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
+import com.tibco.xpd.xpdl2.Activity;
+import com.tibco.xpd.xpdl2.DataField;
+import com.tibco.xpd.xpdl2.DataType;
+import com.tibco.xpd.xpdl2.ProcessRelevantData;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
+
+import antlr.Token;
+import antlr.collections.AST;
 
 /**
  * Replacement for the default return type validator to enforce return types
@@ -30,7 +40,7 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  */
 public class N2JScriptReturnTypeValidator extends JScriptReturnTypeValidator {
 
-    /**
+	/**
      * @see com.tibco.xpd.script.parser.internal.validator.jscript.AbstractExpressionValidator#validate(antlr.collections.AST,
      *      antlr.Token)
      * 
@@ -101,22 +111,37 @@ public class N2JScriptReturnTypeValidator extends JScriptReturnTypeValidator {
          */
         boolean isDataMapperScenario = isDataMapperMappingScript();
 
-        if (isDataMapperScenario) {
+		boolean isPSLfunctionWithNonVoidReturnScenario = isPSLfunctionWithNonVoidReturnScenario();
+
+		if (isDataMapperScenario || isPSLfunctionWithNonVoidReturnScenario)
+		{
             if (statType != JScriptTokenTypes.LITERAL_return) {
                 String errorMessage =
                         Messages.N2FunctionStatementValidator_LastStatementReturn;
                 addErrorMessage(token, errorMessage);
             }
         }
-
-        // Check that there are no other return statements
-        validateOtherReturns(astTree, lastStatementAST, token);
+        
+        
+		boolean isProcessScriptLibraryFunctionScenario = isProcessScriptLibraryFunction();
+		/*
+		 * Chaitanya ACE-8027: Validate return statements for PSL Functions.
+		 * 
+		 * We ignore the problem marker "Return statements can only be on the last line of script" for Process Script
+		 * Library Functions.
+		 */
+		if (!isProcessScriptLibraryFunctionScenario)
+		{
+			// Check that there are no other return statements
+			validateOtherReturns(astTree, lastStatementAST, token);
+		}
     }
 
-    /**
-     * @return <code>true</code> if we are validating a user defined mapping
-     *         script within a DataMapper mapping grammar scenario.
-     */
+
+	/**
+	 * @return <code>true</code> if we are validating a user defined mapping script within a DataMapper mapping grammar
+	 *         scenario.
+	 */
     protected boolean isDataMapperMappingScript() {
         boolean isDataMapperScenario = false;
         if (getInfoObject() != null) {
@@ -130,6 +155,101 @@ public class N2JScriptReturnTypeValidator extends JScriptReturnTypeValidator {
         }
         return isDataMapperScenario;
     }
+
+	/**
+	 * Function to determine weather the current input in selection is a script library function.
+	 * 
+	 * @return true if the current input in selection is a script library function or else false.
+	 */
+	protected boolean isProcessScriptLibraryFunction()
+	{
+		boolean isProcessScriptLibraryFunction = false;
+		EObject input = getInput(getInfoObject());
+
+		if (input != null)
+		{
+			isProcessScriptLibraryFunction = PslEditorUtil.isScriptLibraryFunction(input);
+		}
+		return isProcessScriptLibraryFunction;
+	}
+
+	/**
+	 * Function to determine weather the $RETURN type parameter in process script library function is of type non-void
+	 * return.
+	 * 
+	 * @return true if the $RETURN type parameter in a script library function is of type non-void return or else false.
+	 */
+	protected boolean isReturnTypeParamaterOfTypeNonVoidReturn()
+	{
+		boolean isReturnTypeParameterOfTypeNonVoidReturnScenario = false;
+		ProcessRelevantData processRelevantDataForReturnTypeParameter = getProcessRelevantDataForReturnTypeParameter();
+
+		if (processRelevantDataForReturnTypeParameter != null)
+		{
+			DataType dataType = processRelevantDataForReturnTypeParameter.getDataType();
+			isReturnTypeParameterOfTypeNonVoidReturnScenario = (dataType != null);
+		}
+
+		return isReturnTypeParameterOfTypeNonVoidReturnScenario;
+	}
+
+	/**
+	 * Function that returns the {@link EList}<{@link DataField}> from the current input selection (i.e.
+	 * {@link Activity}) context.
+	 * 
+	 * @return
+	 */
+	protected EList<DataField> getProcessDataList()
+	{
+
+		EObject input = getInput(getInfoObject());
+
+		if (input instanceof Activity)
+		{
+			return ((Activity) input).getDataFields();
+		}
+
+		return null;
+	}
+
+	/**
+	 * Function that returns $RETURN type parameter in the currently selected Activity. (i.e. Process Script Library
+	 * Function.)
+	 * 
+	 * @return Returns the {@link ProcessRelevantData} for $RETURN type parameter in the currently selected Activity.
+	 */
+	protected ProcessRelevantData getProcessRelevantDataForReturnTypeParameter()
+	{
+		Collection<DataField> activityDataList = new ArrayList<DataField>();
+		ProcessRelevantData processDataForReturnTypeParameter = null;
+		activityDataList = getProcessDataList();
+
+		if (activityDataList != null)
+		{
+			for (Iterator iterator = activityDataList.iterator(); iterator.hasNext();)
+			{
+				ProcessRelevantData processRelevantData = (ProcessRelevantData) iterator.next();
+				if (PslEditorUtil.RETURN_PARAMETER_NAME.equals(processRelevantData.getName()))
+				{
+					processDataForReturnTypeParameter = processRelevantData;
+				}
+			}
+		}
+
+		return processDataForReturnTypeParameter;
+	}
+
+	/**
+	 * Function to determine weather the current input in selection is a script library function and the $RETURN type
+	 * parameter in PSL function is of type non-void return.
+	 * 
+	 * @return true if the the current input in selection is a script library function and the $RETURN type parameter in
+	 *         PSL function is of type non-void return or else false.
+	 */
+	protected boolean isPSLfunctionWithNonVoidReturnScenario()
+	{
+		return isProcessScriptLibraryFunction() && isReturnTypeParamaterOfTypeNonVoidReturn();
+	}
 
     /**
      * @param astTree

@@ -22,6 +22,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -63,6 +64,7 @@ import com.tibco.xpd.xpdl2.GraphicalNode;
 import com.tibco.xpd.xpdl2.IntermediateEvent;
 import com.tibco.xpd.xpdl2.Lane;
 import com.tibco.xpd.xpdl2.MessageFlow;
+import com.tibco.xpd.xpdl2.NamedElement;
 import com.tibco.xpd.xpdl2.NodeGraphicsInfo;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Participant;
@@ -826,7 +828,17 @@ public class Xpdl2ProcessDiagramUtils {
                                 resultCmd,
                                 copyOfPasteObjects);
             }
-
+            
+			//
+			// Nikita ACE-7384 Resolve the names of pasted activities in a process
+            if (resultCmd != null) {
+                resultCmd =
+                		resolvePasteActivities(ed,
+                                tgtProcess,
+                                resultCmd,
+                                copyOfPasteObjects);
+            }            
+            
             //
             // Resolve the pasting of data fields.
             if (resultCmd != null) {
@@ -1035,6 +1047,132 @@ public class Xpdl2ProcessDiagramUtils {
         return true;
     }
 
+	/**
+	 * ACE-7384 Returns the new name for an element based on the existence of other elements in a container
+	 * 
+	 * @param originalName
+	 * @param existingElements
+	 * @return
+	 */
+	private static String getCopyOfPasteName(String originalName, List< ? extends NamedElement> existingElements)
+	{
+		if (originalName == null)
+		{
+			originalName = ""; //$NON-NLS-1$
+		}
+
+		Set<String> existingNames = new HashSet<String>();
+
+		for (NamedElement el : existingElements)
+		{
+			String name = el.getName();
+			if (name == null || name.length() == 0)
+			{
+				name = "?"; //$NON-NLS-1$
+			}
+			existingNames.add(name);
+		}
+
+		String finalName = originalName;
+		if (existingNames.contains(finalName))
+		{
+			// Try Copy_Of_ first.
+			finalName = Messages.CopyOf_tokenNoSpaces + finalName;
+
+			int idx = 1;
+
+			while (existingNames.contains(finalName))
+			{
+				// Already a CopyOf... use a sequence number.
+				idx++;
+				finalName = String.format(Messages.CopyNOf_tokenNoSpaces, idx) + originalName;
+			}
+		}
+
+		return finalName;
+	}
+
+	/**
+	 * ACE-7384 Returns the new display for an element based on the existence of other elements in a container
+	 * 
+	 * @param originalName
+	 * @param existingElements
+	 * @return
+	 */
+	private static String getCopyOfPasteDisplayName(String originalName,
+			Collection< ? extends NamedElement> existingElements)
+	{
+		if (originalName == null)
+		{
+			originalName = ""; //$NON-NLS-1$
+		}
+
+		Set<String> existingNames = new HashSet<String>();
+
+		for (NamedElement el : existingElements)
+		{
+			String name = Xpdl2ModelUtil.getDisplayNameOrName(el);
+			if (name == null || name.length() == 0)
+			{
+				name = "?"; //$NON-NLS-1$
+			}
+			existingNames.add(name);
+		}
+
+		String finalName = originalName;
+		if (existingNames.contains(finalName))
+		{
+			// Try Copy_Of_ first.
+			finalName = Messages.CopyOf_tokenNoSpaces + finalName;
+
+			int idx = 1;
+
+			while (existingNames.contains(finalName))
+			{
+				// Already a CopyOf... use a sequence number.
+				idx++;
+				finalName = String.format(Messages.CopyNOf_tokenNoSpaces, idx) + originalName;
+			}
+		}
+
+		return finalName;
+	}
+
+	/**
+	 * ACE-7384 Resolves the name of an activity being pasted in a Process to avoid the same name conflict
+	 * 
+	 * @param ed
+	 * @param tgtProcess
+	 * @param resultCmd
+	 * @param copyOfPasteObjects
+	 * @return
+	 */
+	private static CompoundCommand resolvePasteActivities(EditingDomain ed, Process tgtProcess,
+			CompoundCommand resultCmd, Collection copyOfPasteObjects)
+	{
+		List<NamedElement> activities = new ArrayList<NamedElement>();
+		activities.addAll(tgtProcess.getActivities());
+
+		for (Iterator iter = copyOfPasteObjects.iterator(); iter.hasNext();)
+		{
+			Object obj = iter.next();
+
+			if (obj instanceof Activity)
+			{
+				Activity activity = ((Activity) obj);
+				String name = getCopyOfPasteName(activity.getName(), activities);
+				EAttribute ea = XpdExtensionPackage.eINSTANCE.getDocumentRoot_DisplayName();
+				String token = getCopyOfPasteDisplayName((String) Xpdl2ModelUtil.getOtherAttribute(activity, ea),
+						activities);
+
+				activity.setName(name);
+				Xpdl2ModelUtil.setOtherAttribute(activity, ea, token);
+			}
+		}
+
+		return resultCmd;
+
+	}
     /**
      * Paste type declarations in the copyOfPasteObjects into the target
      * process. If a type declaration already exists in the target process with

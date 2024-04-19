@@ -15,9 +15,12 @@ import org.eclipse.swt.custom.CTabItem;
 import com.tibco.xpd.processeditor.xpdl2.properties.messages.Messages;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.processwidget.adapters.TaskType;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.script.ui.internal.BaseScriptSection;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
 import com.tibco.xpd.xpdl2.Activity;
+import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl;
+import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl.Xpdl2FileType;
 import com.tibco.xpd.xpdl2.util.DecisionFlowUtil;
 
 /**
@@ -124,8 +127,24 @@ public class TaskAuditScriptSection extends AbstractAuditScriptSection {
             if (baseObj instanceof Activity && !DecisionFlowUtil.isDecisionsContent(baseObj)) {
                 Activity act = (Activity) baseObj;
 
+				Xpdl2WorkingCopyImpl xpdl2Wc = (Xpdl2WorkingCopyImpl) WorkingCopyUtil.getWorkingCopyFor(act);
+
                 TaskType type = TaskObjectUtil.getTaskTypeStrict(act);
-                if (type != null && !TaskType.USER_LITERAL.equals(type)) {
+
+        		/**
+        		 * Show the TaskAuditScriptSection (i.e. Scripts Tab in the UI) tab properties section for below file types extensions. 
+        		 * 
+        		 * - xpdl 
+        		 * - tasks 
+        		 * - dflow.
+        		 * 
+        		 * These conditions were required to be added as part of ACE-7362 i.e. creating property panel for the
+        		 * Script Function Type Selection from .psl file (i.e. Process Script Library)
+        		 */
+				if (type != null && !TaskType.USER_LITERAL.equals(type)
+						&& xpdl2Wc.isOneOfXpdl2FileType(new Xpdl2FileType[]{Xpdl2FileType.PROCESS,
+								Xpdl2FileType.DECISION_FLOW, Xpdl2FileType.TASK_LIBRARY}))
+				{
                     return true;
                 }
             }

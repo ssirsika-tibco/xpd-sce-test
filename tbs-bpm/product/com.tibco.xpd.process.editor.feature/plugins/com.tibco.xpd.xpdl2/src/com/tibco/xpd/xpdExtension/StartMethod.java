@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * <copyright> </copyright>
  *
  * $Id$
  */
@@ -16,12 +15,13 @@ package com.tibco.xpd.xpdExtension;
  * @model extendedMetaData="name='StartMethod' kind='elementOnly'"
  * @generated
  */
-public interface StartMethod extends InterfaceMethod {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface StartMethod extends InterfaceMethod
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
 } // StartMethod

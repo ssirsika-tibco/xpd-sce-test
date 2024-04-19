@@ -430,6 +430,11 @@ public class RascControllerImpl implements RascController {
                 ACEAssetDefinitions.FORMS_FILE_EXTENSION)) {
             projectType = DeploymenProjectType.forms;
 
+        } else if (hasAssets(aProject,
+                ACEAssetDefinitions.PSL_SPECIAL_FOLDER_KIND,
+                ACEAssetDefinitions.PSL_FILE_EXTENSION)) {
+            projectType = DeploymenProjectType.script;
+
         }
 
         if (projectType != null) {
@@ -467,7 +472,7 @@ public class RascControllerImpl implements RascController {
      * @since 15 Jul 2020
      */
     private enum DeploymenProjectType {
-        process, data, organization, globalsignal, worklistfacade, forms
+        process, data, organization, globalsignal, worklistfacade, forms, script
     }
 
     /**

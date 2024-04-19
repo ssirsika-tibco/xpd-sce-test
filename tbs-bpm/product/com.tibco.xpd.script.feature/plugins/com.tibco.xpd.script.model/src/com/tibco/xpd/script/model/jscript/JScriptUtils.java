@@ -2113,12 +2113,32 @@ public class JScriptUtils {
     public static String getUmlElementComment(NamedElement element) {
         String toReturn = null;
 
-        /*
-         * Look at element label alone, UML will load from resource bundle
-         * .properties file for a message matching the qualified name of the UML
-         * element.
-         */
-        toReturn = element.getLabel();
+		/*
+		 * ACE-7400: First check for comments in the the UML.
+		 */
+		EList<Comment> ownedComments = element.getOwnedComments();
+		if (ownedComments != null && !ownedComments.isEmpty())
+		{
+			toReturn = "";//$NON-NLS-1$
+			for (Comment comment : ownedComments)
+			{
+				String body = comment.getBody();
+				if (body != null)
+				{
+					toReturn += body;
+				}
+			}
+		}
+
+		// If still return is empty or null, i.e we don't find any comment body.
+		if (toReturn == null || toReturn.isEmpty())
+		{
+			/*
+			 * Look at element label alone, UML will load from resource bundle .properties file for a message matching
+			 * the qualified name of the UML element.
+			 */
+			toReturn = element.getLabel();
+		}
 
         if (toReturn == null || toReturn.equals(element.getName())
                 && (element instanceof Operation)) {
@@ -2175,24 +2195,6 @@ public class JScriptUtils {
                 }
             }
 
-        }
-
-        /*
-         * If the default name is returned (it means that no message property
-         * replacement was found) then look for an explicitly defined comment in
-         * the UML.
-         */
-        if (toReturn == null || toReturn.equals(element.getName())) {
-            EList<Comment> ownedComments = element.getOwnedComments();
-            if (ownedComments != null && !ownedComments.isEmpty()) {
-                toReturn = "";//$NON-NLS-1$
-                for (Comment comment : ownedComments) {
-                    String body = comment.getBody();
-                    if (body != null) {
-                        toReturn += body;
-                    }
-                }
-            }
         }
 
         return toReturn;

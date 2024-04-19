@@ -30,57 +30,58 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='NamespacePrefixMap' kind='empty'"
  * @generated
  */
-public interface NamespacePrefixMap extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface NamespacePrefixMap extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Namespace Entries</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdExtension.NamespaceMapEntry}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Namespace Entries</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Namespace Entries</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getNamespacePrefixMap_NamespaceEntries()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='NamespaceEntry' namespace='##targetNamespace' wrap='NamespaceEntries'"
-     * @generated
-     */
-    EList<NamespaceMapEntry> getNamespaceEntries();
+	/**
+	 * Returns the value of the '<em><b>Namespace Entries</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdExtension.NamespaceMapEntry}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Namespace Entries</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Namespace Entries</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getNamespacePrefixMap_NamespaceEntries()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='NamespaceEntry' namespace='##targetNamespace' wrap='NamespaceEntries'"
+	 * @generated
+	 */
+	EList<NamespaceMapEntry> getNamespaceEntries();
 
-    /**
-     * Returns the value of the '<em><b>Prefix Mapping Disabled</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Prefix Mapping Disabled</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Prefix Mapping Disabled</em>' attribute.
-     * @see #setPrefixMappingDisabled(boolean)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getNamespacePrefixMap_PrefixMappingDisabled()
-     * @model default="false" unique="false" dataType="org.eclipse.emf.ecore.xml.type.Boolean" required="true"
-     *        extendedMetaData="kind='attribute' name='PrefixMappingDisabled'"
-     * @generated
-     */
-    boolean isPrefixMappingDisabled();
+	/**
+	 * Returns the value of the '<em><b>Prefix Mapping Disabled</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Prefix Mapping Disabled</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Prefix Mapping Disabled</em>' attribute.
+	 * @see #setPrefixMappingDisabled(boolean)
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getNamespacePrefixMap_PrefixMappingDisabled()
+	 * @model default="false" unique="false" dataType="org.eclipse.emf.ecore.xml.type.Boolean" required="true"
+	 *        extendedMetaData="kind='attribute' name='PrefixMappingDisabled'"
+	 * @generated
+	 */
+	boolean isPrefixMappingDisabled();
 
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.NamespacePrefixMap#isPrefixMappingDisabled <em>Prefix Mapping Disabled</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Prefix Mapping Disabled</em>' attribute.
-     * @see #isPrefixMappingDisabled()
-     * @generated
-     */
-    void setPrefixMappingDisabled(boolean value);
+	/**
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.NamespacePrefixMap#isPrefixMappingDisabled <em>Prefix Mapping Disabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Prefix Mapping Disabled</em>' attribute.
+	 * @see #isPrefixMappingDisabled()
+	 * @generated
+	 */
+	void setPrefixMappingDisabled(boolean value);
 
 } // NamespacePrefixMap

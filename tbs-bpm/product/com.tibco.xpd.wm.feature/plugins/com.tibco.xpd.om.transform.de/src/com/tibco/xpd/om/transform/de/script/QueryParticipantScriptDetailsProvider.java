@@ -46,7 +46,8 @@ public class QueryParticipantScriptDetailsProvider extends
      * @param document
      */
     @Override
-    public void executeSaveCommand(IDocument document) {
+	public boolean executeSaveCommand(IDocument document)
+	{
 
         String modifiedScript = document.get();
         EObject eObject = getInput();
@@ -67,6 +68,7 @@ public class QueryParticipantScriptDetailsProvider extends
             }
         }
 
+		return true;
     }
 
     /**

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_tz_EwPZqEe6qP54o_4-7Lw">
+  <xpdl2:PackageHeader>
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>Tue Apr 09 17:44:29 IST 2024</xpdl2:Created>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader>
+    <xpdl2:Author>nkelkar</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_tz_EwfZqEe6qP54o_4-7Lw">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_t0I1wPZqEe6qP54o_4-7Lw" Name="function1" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">//Test&#xD;
+var a = true&#xD;
+if (a) {&#xD;
+	return;&#xD;
+	&#xD;
+	&#xD;
+	&#xD;
+}&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_t0I1wfZqEe6qP54o_4-7Lw" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_t0I1wvZqEe6qP54o_4-7Lw" Name="parameter">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="FLOAT">
+                  <xpdl2:Precision>0</xpdl2:Precision>
+                  <xpdl2:Scale>2</xpdl2:Scale>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_t0I1w_ZqEe6qP54o_4-7Lw" Name="parameter2">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="FLOAT">
+                  <xpdl2:Precision>10</xpdl2:Precision>
+                  <xpdl2:Scale>15</xpdl2:Scale>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_CTenwPZrEe6qP54o_4-7Lw" Name="parameter3" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="FLOAT">
+                  <xpdl2:Precision>10</xpdl2:Precision>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+              <xpdl2:Description>Add your parameter3 summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_ckZW0fZrEe6qP54o_4-7Lw" Name="parameter4" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+              <xpdl2:Description>Add your parameter4 summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_iPYjsfZrEe6qP54o_4-7Lw" Name="parameter5" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location=""/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+              <xpdl2:Description>Add your parameter5 summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_vgWqgPZrEe6qP54o_4-7Lw" Name="function2" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_vgWqgfZrEe6qP54o_4-7Lw" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_vgWqgvZrEe6qP54o_4-7Lw" Name="parameter">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_vgWqg_ZrEe6qP54o_4-7Lw" Name="parameter">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_1dMcYfZrEe6qP54o_4-7Lw" Name="parameter 2" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+              <xpdl2:Description>Add your parameter2 summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_EVkl4fZsEe6qP54o_4-7Lw" Name="ThisParameterNameLengthWillBeMoreThan100Characters_________ExpectingAnErrorToBeRaisedForThisParameter" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+              <xpdl2:Description>Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...Add your parameter2 summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

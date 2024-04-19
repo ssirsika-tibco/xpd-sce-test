@@ -29,66 +29,67 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='TaskLibraryReference' kind='elementOnly'"
  * @generated
  */
-public interface TaskLibraryReference extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface TaskLibraryReference extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Task Library Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Task Library Id</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Task Library Id</em>' attribute.
-     * @see #setTaskLibraryId(String)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getTaskLibraryReference_TaskLibraryId()
-     * @model dataType="com.tibco.xpd.xpdl2.IdReferenceString" required="true"
-     *        extendedMetaData="kind='attribute' name='TaskLibraryId'"
-     * @generated
-     */
-    String getTaskLibraryId();
+	/**
+	 * Returns the value of the '<em><b>Task Library Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Task Library Id</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Task Library Id</em>' attribute.
+	 * @see #setTaskLibraryId(String)
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getTaskLibraryReference_TaskLibraryId()
+	 * @model dataType="com.tibco.xpd.xpdl2.IdReferenceString" required="true"
+	 *        extendedMetaData="kind='attribute' name='TaskLibraryId'"
+	 * @generated
+	 */
+	String getTaskLibraryId();
 
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.TaskLibraryReference#getTaskLibraryId <em>Task Library Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Task Library Id</em>' attribute.
-     * @see #getTaskLibraryId()
-     * @generated
-     */
-    void setTaskLibraryId(String value);
+	/**
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.TaskLibraryReference#getTaskLibraryId <em>Task Library Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Task Library Id</em>' attribute.
+	 * @see #getTaskLibraryId()
+	 * @generated
+	 */
+	void setTaskLibraryId(String value);
 
-    /**
-     * Returns the value of the '<em><b>Package Ref</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Package Ref</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Package Ref</em>' attribute.
-     * @see #setPackageRef(String)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getTaskLibraryReference_PackageRef()
-     * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-     *        extendedMetaData="kind='attribute' name='PackageRef'"
-     * @generated
-     */
-    String getPackageRef();
+	/**
+	 * Returns the value of the '<em><b>Package Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Package Ref</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Package Ref</em>' attribute.
+	 * @see #setPackageRef(String)
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getTaskLibraryReference_PackageRef()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='attribute' name='PackageRef'"
+	 * @generated
+	 */
+	String getPackageRef();
 
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.TaskLibraryReference#getPackageRef <em>Package Ref</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Package Ref</em>' attribute.
-     * @see #getPackageRef()
-     * @generated
-     */
-    void setPackageRef(String value);
+	/**
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.TaskLibraryReference#getPackageRef <em>Package Ref</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Package Ref</em>' attribute.
+	 * @see #getPackageRef()
+	 * @generated
+	 */
+	void setPackageRef(String value);
 
 } // TaskLibraryReference

@@ -14,7 +14,6 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.text.IDocument;
 
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
-import com.tibco.xpd.script.parser.util.ParseUtil;
 import com.tibco.xpd.script.sourceviewer.client.CommandProvider;
 import com.tibco.xpd.script.sourceviewer.client.IScriptInfoProvider;
 import com.tibco.xpd.script.sourceviewer.client.IScriptInfoProviderExt;
@@ -47,7 +46,8 @@ public abstract class AbstractScriptInfoProvider implements
      * 
      * @return
      */
-    public String getDecriptionLabel() {
+    @Override
+	public String getDecriptionLabel() {
         return null;
     }
 
@@ -70,7 +70,8 @@ public abstract class AbstractScriptInfoProvider implements
      * @param input
      * @return
      */
-    public EObject getRelevantEObject(EObject input) {
+    @Override
+	public EObject getRelevantEObject(EObject input) {
         return null;
     }
 
@@ -80,7 +81,8 @@ public abstract class AbstractScriptInfoProvider implements
      * @param input
      * @return
      */
-    public String getScript(EObject input) {
+    @Override
+	public String getScript(EObject input) {
         return null;
     }
 
@@ -94,7 +96,8 @@ public abstract class AbstractScriptInfoProvider implements
      * @param grammar
      * @return
      */
-    public Command getSetScriptCommand(EditingDomain ed, EObject input,
+    @Override
+	public Command getSetScriptCommand(EditingDomain ed, EObject input,
             String script, String grammar) {
         // Subclass implementation required.
         return UnexecutableCommand.INSTANCE;
@@ -109,7 +112,8 @@ public abstract class AbstractScriptInfoProvider implements
      * @param scriptGrammar
      * @return
      */
-    public Command getSetScriptGrammarCommand(EditingDomain editingDomain,
+    @Override
+	public Command getSetScriptGrammarCommand(EditingDomain editingDomain,
             EObject scriptContainer, String scriptGrammar) {
         // Subclass implementation required.
         return UnexecutableCommand.INSTANCE;
@@ -121,7 +125,8 @@ public abstract class AbstractScriptInfoProvider implements
      * @param object
      * @return
      */
-    public Boolean isNewScriptInformation(EObject object) {
+    @Override
+	public Boolean isNewScriptInformation(EObject object) {
         return Boolean.FALSE;
     }
 
@@ -130,7 +135,8 @@ public abstract class AbstractScriptInfoProvider implements
      * 
      * @return
      */
-    public List getComplexScriptRelevantData() {
+    @Override
+	public List getComplexScriptRelevantData() {
         return Collections.EMPTY_LIST;
     }
 
@@ -139,17 +145,24 @@ public abstract class AbstractScriptInfoProvider implements
      * 
      * @return
      */
-    public List<IScriptRelevantData> getScriptRelevantData() {
+    @Override
+	public List<IScriptRelevantData> getScriptRelevantData() {
         return Collections.EMPTY_LIST;
     }
 
     /**
-     * @see com.tibco.xpd.script.sourceviewer.client.CommandProvider#executeSaveCommand(org.eclipse.jface.text.IDocument)
-     * 
-     * @param document
-     */
-    public void executeSaveCommand(IDocument document) {
-        // Derived class will provide implementation
+	 * @see com.tibco.xpd.script.sourceviewer.client.CommandProvider#executeSaveCommand(org.eclipse.jface.text.IDocument)
+	 * 
+	 * @param document
+	 * @return {true} if the save command is executed sucessfully or else returns {false} in when save command is not
+	 *         executed or aborted. Since AbstractScriptInfoProvider implements executeSaveCommand as default , we have
+	 *         defaulted it to true. (i.e. SubClasses of AbstractScriptInfoProvider can implement their own version of
+	 *         executeSaveCommand)
+	 */
+    @Override
+	public boolean executeSaveCommand(IDocument document)
+	{
+		return true;
     }
 
     /**
@@ -207,8 +220,20 @@ public abstract class AbstractScriptInfoProvider implements
         this.cachedSrdList = cachedSrdList;
     }
     
-    public void clearCachedInfo() {
+    @Override
+	public void clearCachedInfo() {
 //        ParseUtil.nulifySRDReferences(getCachedSrdList());
         setCachedSrdList(null);
     }
+
+	/**
+	 * @see com.tibco.xpd.script.sourceviewer.client.CommandProvider#getScriptFromModel()
+	 *
+	 * @return
+	 */
+	@Override
+	public String getScriptFromModel()
+	{
+		return getScript(getInput());
+	}
 }

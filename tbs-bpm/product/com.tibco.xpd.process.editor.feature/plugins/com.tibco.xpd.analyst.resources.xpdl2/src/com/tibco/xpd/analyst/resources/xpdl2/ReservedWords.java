@@ -72,6 +72,11 @@ public class ReservedWords {
      */
     public static final String BX_PROCESS_ID_VAR_NAME = "__PROCESS_ID__"; //$NON-NLS-1$
 
+	/**
+	 * ACE-7400 : name of the process script library (PSL) wrapper.
+	 */
+	public static final String	PROCESS_SCRIPT_LIBRARY_WRAPPER_NAME		= "bpmScripts";		//$NON-NLS-1$
+
     /* Sid ACE-1118 Changed to set for lookup efficiency */
     private static Set<String> symbolTableKeyWords;
 

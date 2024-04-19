@@ -97,30 +97,28 @@ public class ExpressionScopeProvider implements IScopeProvider {
             new InterestingAncestorType(DurationCalculation.class, false) };
 
     /**
-     * Return <code>true</code> if we should validate all expressions under the
-     * given changed object.
-     * <p>
-     * Nominally we check if changed object is something in an object with a
-     * limited scope that can contain expressions (i.e. activity and transitions
-     * but NOT whole process). This allows us to be future proof enough to catch
-     * any expression under the {@link InterestingAncestorType} type objects
-     * WITHOUT re-validating all expressions in a large object like the whole
-     * process.
-     * <p>
-     * In some cases (Activity), we want to future proof to catch any change
-     * under activity but because all scripts are grand children of it we don't
-     * want to re-validate all expressions in whole activity for a minor change
-     * directly in activity. In those cases we set the
-     * {@link InterestingAncestorType#onlyInterestedInChildChanges}=true to
-     * prevent re-validating everything under activity IF activity is the
-     * changed object. Therefore we re-validate only the expressions under the
-     * changed child objects of activity.
-     * 
-     * @param changedObject
-     * @return <code>true</code> if should validate all expressions under the
-     *         given changed object.
-     */
-    private boolean shouldValidateChangedObjectExpressions(EObject changedObject) {
+	 * Return <code>true</code> if we should validate all expressions under the given changed object.
+	 * <p>
+	 * Nominally we check if changed object is something in an object with a limited scope that can contain expressions
+	 * (i.e. activity and transitions but NOT whole process). This allows us to be future proof enough to catch any
+	 * expression under the {@link InterestingAncestorType} type objects WITHOUT re-validating all expressions in a
+	 * large object like the whole process.
+	 * <p>
+	 * In some cases (Activity), we want to future proof to catch any change under activity but because all scripts are
+	 * grand children of it we don't want to re-validate all expressions in whole activity for a minor change directly
+	 * in activity. In those cases we set the {@link InterestingAncestorType#onlyInterestedInChildChanges}=true to
+	 * prevent re-validating everything under activity IF activity is the changed object. Therefore we re-validate only
+	 * the expressions under the changed child objects of activity.
+	 * 
+	 * ACE-7402: Changed to protected so that extending classes can override the implementation.
+	 * 
+	 * @param changedObject
+	 * @param notifications
+	 *            Notifications received for the changedObject
+	 * @return <code>true</code> if should validate all expressions under the given changed object.
+	 */
+	protected boolean shouldValidateChangedObjectExpressions(EObject changedObject, Collection<Notification> notifications)
+	{
         for (InterestingAncestorType interestingClassType : interestingAncestorClassTypes) {
 
             EObject anc =
@@ -207,7 +205,9 @@ public class ExpressionScopeProvider implements IScopeProvider {
                      * and if so, get all those expressions and add to the
                      * list-to-validate.
                      */
-                    if (shouldValidateChangedObjectExpressions(changedObject)) {
+					if (shouldValidateChangedObjectExpressions(changedObject,
+							((LiveValidationItem) item).getNotifications()))
+					{
                         affectedObjects
                                 .addAll(getAffectedExpressions(changedObject,
                                         destination,

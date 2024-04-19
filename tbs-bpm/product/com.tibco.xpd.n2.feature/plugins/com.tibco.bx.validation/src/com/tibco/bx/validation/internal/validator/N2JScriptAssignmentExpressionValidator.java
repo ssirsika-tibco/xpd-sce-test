@@ -19,6 +19,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.n2.cds.utils.CDSUtils;
 import com.tibco.xpd.n2.pe.util.PEN2Utils;
+import com.tibco.xpd.process.js.parser.validator.AbstractJScriptAssignmentExpressionValidator;
 import com.tibco.xpd.processeditor.xpdl2.util.ProcessRelevantDataUtil;
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
@@ -34,7 +35,6 @@ import com.tibco.xpd.script.parser.antlr.JScriptTokenTypes;
 import com.tibco.xpd.script.parser.internal.expr.IExpr;
 import com.tibco.xpd.script.parser.internal.validator.IValidateResult;
 import com.tibco.xpd.script.parser.internal.validator.jscript.AntlrExprImpl;
-import com.tibco.xpd.script.parser.internal.validator.jscript.JScriptAssignmentExpressionValidator;
 import com.tibco.xpd.xpdExtension.InitialValues;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.FormalParameter;
@@ -45,7 +45,7 @@ import antlr.Token;
 import antlr.collections.AST;
 
 public class N2JScriptAssignmentExpressionValidator
-        extends JScriptAssignmentExpressionValidator {
+		extends AbstractJScriptAssignmentExpressionValidator {
 
     private final static String[] priorityValidValues =
             new String[] { "100", "200", "300", "400" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$//$NON-NLS-4$

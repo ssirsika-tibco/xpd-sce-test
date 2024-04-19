@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * <copyright> </copyright>
  *
  * $Id$
  */
@@ -30,39 +29,40 @@ import com.tibco.xpd.xpdl2.Expression;
  * @model extendedMetaData="name='MultiInstanceScripts' kind='elementOnly'"
  * @generated
  */
-public interface MultiInstanceScripts extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface MultiInstanceScripts extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Additional Instances</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Additional Instances</em>' containment reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Additional Instances</em>' containment reference.
-     * @see #setAdditionalInstances(Expression)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getMultiInstanceScripts_AdditionalInstances()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='AdditionalInstances' namespace='##targetNamespace'"
-     * @generated
-     */
-    Expression getAdditionalInstances();
+	/**
+	 * Returns the value of the '<em><b>Additional Instances</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Additional Instances</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Additional Instances</em>' containment reference.
+	 * @see #setAdditionalInstances(Expression)
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getMultiInstanceScripts_AdditionalInstances()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='AdditionalInstances' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Expression getAdditionalInstances();
 
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.MultiInstanceScripts#getAdditionalInstances <em>Additional Instances</em>}' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Additional Instances</em>' containment reference.
-     * @see #getAdditionalInstances()
-     * @generated
-     */
-    void setAdditionalInstances(Expression value);
+	/**
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.MultiInstanceScripts#getAdditionalInstances <em>Additional Instances</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Additional Instances</em>' containment reference.
+	 * @see #getAdditionalInstances()
+	 * @generated
+	 */
+	void setAdditionalInstances(Expression value);
 
 } // MultiInstanceScripts

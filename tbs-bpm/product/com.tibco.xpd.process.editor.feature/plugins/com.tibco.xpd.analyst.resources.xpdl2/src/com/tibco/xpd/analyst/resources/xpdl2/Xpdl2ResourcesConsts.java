@@ -499,4 +499,6 @@ public class Xpdl2ResourcesConsts {
      */
     public static final String DEFAULT_SUBPROCESS_TASK_PRIORITY_VALUE = "300"; //$NON-NLS-1$
 
+	public static final String		PSL_FILE_EXTENSION									= "psl";							//$NON-NLS-1$
+
 }

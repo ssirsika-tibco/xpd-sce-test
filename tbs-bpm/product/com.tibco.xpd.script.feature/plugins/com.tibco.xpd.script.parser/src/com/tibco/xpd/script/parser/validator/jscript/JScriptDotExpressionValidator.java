@@ -123,7 +123,7 @@ public class JScriptDotExpressionValidator extends AbstractExpressionValidator {
         return result;
     }
 
-    private IValidateResult processExpressionAfterDot(IExpr expression, IScriptRelevantData type, AST astExpression,
+	protected IValidateResult processExpressionAfterDot(IExpr expression, IScriptRelevantData type, AST astExpression,
             AST firstChild, Token token, boolean isStaticReference) {
         if (type != null) {
             List<IScriptRelevantData> resolvedTypes = getResolutionTypes(type);
@@ -497,4 +497,21 @@ public class JScriptDotExpressionValidator extends AbstractExpressionValidator {
          */
         super.addErrorMessage(token, errorMessage, additionalAttributes);
     }
+
+	/**
+	 * @see com.tibco.xpd.script.parser.internal.validator.AbstractValidator#addErrorMessage(antlr.Token,
+	 *      java.lang.String, java.util.List, java.lang.String, java.util.Map)
+	 *
+	 * @param token
+	 * @param errorMessage
+	 * @param additionalAttributes
+	 * @param alterativeIssueId
+	 * @param additionalInfoMap
+	 */
+	@Override
+	protected void addErrorMessage(Token token, String errorMessage, List<String> additionalAttributes,
+			String alterativeIssueId, Map<String, String> additionalInfoMap)
+	{
+		super.addErrorMessage(token, errorMessage, additionalAttributes, alterativeIssueId, additionalInfoMap);
+	}
 }

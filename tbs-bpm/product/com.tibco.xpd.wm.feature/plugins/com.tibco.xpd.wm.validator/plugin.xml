@@ -133,5 +133,20 @@
 			</scriptContribution>
 		</destination>
 	</extension>
+    <extension
+          point="com.tibco.xpd.script.ui.scriptGrammarDestinationBinding">
+       <destination
+             destinationId="n2.psl">
+          <scriptContribution
+                scriptContext="ScriptLibraryFunction">
+             <scriptRelevantDataContributor
+                   class="com.tibco.xpd.wm.validator.ScriptLibraryTargetEnvDependentScriptDataProvider"
+                   grammarId="JavaScript"
+                   id="com.tibco.xpd.wm.validator.ScriptLibraryTargetEnvDependentScriptDataProvider"
+                   name="com.tibco.xpd.wm.validator.ScriptLibraryTargetEnvDependentScriptDataProvider">
+             </scriptRelevantDataContributor>
+          </scriptContribution>
+       </destination>
+    </extension>
    
 </plugin>

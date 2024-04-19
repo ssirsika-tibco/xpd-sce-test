@@ -42,6 +42,8 @@ public interface ProcessScriptContextConstants {
 
     public static final String SUB_PROCESS_TASK = "SubProcessTask"; //$NON-NLS-1$
 
+	public static final String	PROCESS_SCRIPT_LIBRARY_FUNCTION			= "ScriptLibraryFunction";				//$NON-NLS-1$
+
     public static final String DATA_MAPPER_PE_MAPPING_SCRIPTS =
             "DataMapperPEMappingScripts"; //$NON-NLS-1$
 

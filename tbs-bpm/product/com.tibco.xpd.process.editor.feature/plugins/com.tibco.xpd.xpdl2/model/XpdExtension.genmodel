@@ -153,6 +153,11 @@
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//BusinessServicePublishType/Desktop"/>
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//BusinessServicePublishType/Mobile"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="XpdExtension.ecore#//LibraryFunctionUseIn">
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//LibraryFunctionUseIn/All"/>
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//LibraryFunctionUseIn/ProcessManager"/>
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//LibraryFunctionUseIn/WorkManager"/>
+    </genEnums>
     <genDataTypes ecoreDataType="XpdExtension.ecore#//AuditEventTypeObject"/>
     <genDataTypes ecoreDataType="XpdExtension.ecore#//SecurityPolicyObject"/>
     <genDataTypes ecoreDataType="XpdExtension.ecore#//SoapBindingStyleObject"/>
@@ -353,6 +358,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/businessServicePublishType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/suppressMaxMappingsError"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/fieldFormat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/useIn"/>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//DurationCalculation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//DurationCalculation/years"/>

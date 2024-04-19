@@ -6,6 +6,7 @@ import java.util.IllegalFormatException;
 import java.util.List;
 import java.util.Map;
 
+import com.tibco.xpd.resources.util.XpdUtil;
 import com.tibco.xpd.script.parser.Messages;
 
 public class ErrorMessage {
@@ -19,6 +20,10 @@ public class ErrorMessage {
     private ErrorType errorType;
 
     private List<String> additionalAttributes;
+
+	private Map<String, String>	additionalInfoMap;
+
+	private String				alternativeIssueId;
 
     public ErrorMessage(int lineNumber, int columnNumber, String errorMessage) {
         this.lineNumber = lineNumber;
@@ -42,6 +47,19 @@ public class ErrorMessage {
         this.errorType = errorType;
         this.additionalAttributes = additionalAttributes;
     }
+
+	public ErrorMessage(int lineNumber, int columnNumber, String errorMessage, ErrorType errorType,
+			List<String> additionalAttributes, String alternativeIssueId, Map<String, String> additionalInfoMap)
+	{
+		this.lineNumber = lineNumber;
+		this.columnNumber = columnNumber;
+		this.errorMessage = errorMessage;
+		this.errorType = errorType;
+		this.additionalAttributes = additionalAttributes;
+
+		this.alternativeIssueId = alternativeIssueId;
+		this.additionalInfoMap = additionalInfoMap;
+	}
 
     /**
      * @param lineNumber
@@ -124,14 +142,27 @@ public class ErrorMessage {
     }
 
     public Map<String, String> getAdditionalInfoMap() {
-        Map<String, String> additionalInfoMap = new HashMap<String, String>();
-        additionalInfoMap.put("LineNumber", Integer.toString(lineNumber)); //$NON-NLS-1$
-        additionalInfoMap.put("ColumnNumber", Integer.toString(columnNumber)); //$NON-NLS-1$
-        additionalInfoMap.put("ErrorMessage", getErrorMessage()); //$NON-NLS-1$
+		if (additionalInfoMap == null)
+		{
+    		additionalInfoMap = new HashMap<String, String>();
+    	}
+
+		additionalInfoMap.put("LineNumber", Integer.toString(lineNumber)); //$NON-NLS-1$
+		additionalInfoMap.put("ColumnNumber", Integer.toString(columnNumber)); //$NON-NLS-1$
+		additionalInfoMap.put("ErrorMessage", getErrorMessage()); //$NON-NLS-1$
+
         return additionalInfoMap;
     }
 
-    @Override
+	/**
+	 * @return the alternativeIssueId to raise or null if need to raise the standard script issue id.
+	 */
+	public String getAlternativeIssueId()
+	{
+		return alternativeIssueId;
+	}
+
+	@Override
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;
@@ -148,7 +179,9 @@ public class ErrorMessage {
             if (this.lineNumber == eMessage.lineNumber
                     && this.columnNumber == eMessage.columnNumber
                     && this.errorType.equals(eMessage.errorType)
-                    && this.errorMessage == eMessage.errorMessage) {
+                    && this.errorMessage == eMessage.errorMessage
+                    && XpdUtil.safeEquals(this.alternativeIssueId, eMessage.alternativeIssueId)) {
+            	
                 // Ok that's all the simple variables equal
                 // Check the additional info.
 

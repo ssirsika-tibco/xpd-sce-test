@@ -21,38 +21,39 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='LinkCaseDocOperation' kind='empty'"
  * @generated
  */
-public interface LinkCaseDocOperation extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface LinkCaseDocOperation extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Target Case Ref Field</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Case Reference field identifying the Case Object to which the document has to be linked.Type String.
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Target Case Ref Field</em>' attribute.
-     * @see #setTargetCaseRefField(String)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getLinkCaseDocOperation_TargetCaseRefField()
-     * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-     *        extendedMetaData="kind='attribute' name='TargetCaseRefField'"
-     * @generated
-     */
-    String getTargetCaseRefField();
+	/**
+	 * Returns the value of the '<em><b>Target Case Ref Field</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Case Reference field identifying the Case Object to which the document has to be linked.Type String.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Target Case Ref Field</em>' attribute.
+	 * @see #setTargetCaseRefField(String)
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getLinkCaseDocOperation_TargetCaseRefField()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 *        extendedMetaData="kind='attribute' name='TargetCaseRefField'"
+	 * @generated
+	 */
+	String getTargetCaseRefField();
 
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.LinkCaseDocOperation#getTargetCaseRefField <em>Target Case Ref Field</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Target Case Ref Field</em>' attribute.
-     * @see #getTargetCaseRefField()
-     * @generated
-     */
-    void setTargetCaseRefField(String value);
+	/**
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.LinkCaseDocOperation#getTargetCaseRefField <em>Target Case Ref Field</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Case Ref Field</em>' attribute.
+	 * @see #getTargetCaseRefField()
+	 * @generated
+	 */
+	void setTargetCaseRefField(String value);
 
 } // LinkCaseDocOperation

@@ -30,93 +30,94 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='PilingInformation' kind='empty'"
  * @generated
  */
-public interface PilingInfo extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface PilingInfo extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Piling Allowed</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Piling Allowed</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Piling Allowed</em>' attribute.
-     * @see #isSetPilingAllowed()
-     * @see #unsetPilingAllowed()
-     * @see #setPilingAllowed(boolean)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getPilingInfo_PilingAllowed()
-     * @model unique="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
-     *        extendedMetaData="kind='attribute' name='PilingAllowed'"
-     * @generated
-     */
-    boolean isPilingAllowed();
+	/**
+	 * Returns the value of the '<em><b>Piling Allowed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Piling Allowed</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Piling Allowed</em>' attribute.
+	 * @see #isSetPilingAllowed()
+	 * @see #unsetPilingAllowed()
+	 * @see #setPilingAllowed(boolean)
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getPilingInfo_PilingAllowed()
+	 * @model unique="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 *        extendedMetaData="kind='attribute' name='PilingAllowed'"
+	 * @generated
+	 */
+	boolean isPilingAllowed();
 
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.PilingInfo#isPilingAllowed <em>Piling Allowed</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Piling Allowed</em>' attribute.
-     * @see #isSetPilingAllowed()
-     * @see #unsetPilingAllowed()
-     * @see #isPilingAllowed()
-     * @generated
-     */
-    void setPilingAllowed(boolean value);
+	/**
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.PilingInfo#isPilingAllowed <em>Piling Allowed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Piling Allowed</em>' attribute.
+	 * @see #isSetPilingAllowed()
+	 * @see #unsetPilingAllowed()
+	 * @see #isPilingAllowed()
+	 * @generated
+	 */
+	void setPilingAllowed(boolean value);
 
-    /**
-     * Unsets the value of the '{@link com.tibco.xpd.xpdExtension.PilingInfo#isPilingAllowed <em>Piling Allowed</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetPilingAllowed()
-     * @see #isPilingAllowed()
-     * @see #setPilingAllowed(boolean)
-     * @generated
-     */
-    void unsetPilingAllowed();
+	/**
+	 * Unsets the value of the '{@link com.tibco.xpd.xpdExtension.PilingInfo#isPilingAllowed <em>Piling Allowed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetPilingAllowed()
+	 * @see #isPilingAllowed()
+	 * @see #setPilingAllowed(boolean)
+	 * @generated
+	 */
+	void unsetPilingAllowed();
 
-    /**
-     * Returns whether the value of the '{@link com.tibco.xpd.xpdExtension.PilingInfo#isPilingAllowed <em>Piling Allowed</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Piling Allowed</em>' attribute is set.
-     * @see #unsetPilingAllowed()
-     * @see #isPilingAllowed()
-     * @see #setPilingAllowed(boolean)
-     * @generated
-     */
-    boolean isSetPilingAllowed();
+	/**
+	 * Returns whether the value of the '{@link com.tibco.xpd.xpdExtension.PilingInfo#isPilingAllowed <em>Piling Allowed</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Piling Allowed</em>' attribute is set.
+	 * @see #unsetPilingAllowed()
+	 * @see #isPilingAllowed()
+	 * @see #setPilingAllowed(boolean)
+	 * @generated
+	 */
+	boolean isSetPilingAllowed();
 
-    /**
-     * Returns the value of the '<em><b>Max Piliable Items</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Max Piliable Items</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Max Piliable Items</em>' attribute.
-     * @see #setMaxPiliableItems(String)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getPilingInfo_MaxPiliableItems()
-     * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"
-     *        extendedMetaData="kind='attribute' name='MaxPilableItems'"
-     * @generated
-     */
-    String getMaxPiliableItems();
+	/**
+	 * Returns the value of the '<em><b>Max Piliable Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Max Piliable Items</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Max Piliable Items</em>' attribute.
+	 * @see #setMaxPiliableItems(String)
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getPilingInfo_MaxPiliableItems()
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='attribute' name='MaxPilableItems'"
+	 * @generated
+	 */
+	String getMaxPiliableItems();
 
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.PilingInfo#getMaxPiliableItems <em>Max Piliable Items</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Max Piliable Items</em>' attribute.
-     * @see #getMaxPiliableItems()
-     * @generated
-     */
-    void setMaxPiliableItems(String value);
+	/**
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.PilingInfo#getMaxPiliableItems <em>Max Piliable Items</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Max Piliable Items</em>' attribute.
+	 * @see #getMaxPiliableItems()
+	 * @generated
+	 */
+	void setMaxPiliableItems(String value);
 
 } // PilingInfo

@@ -60,9 +60,9 @@ public class RescheduleTimerEventScriptSection extends BaseProcessScriptSection 
         Composite container = toolkit.createComposite(parent);
 
         GridLayout gl = new GridLayout(3, false);
-        gl.marginTop = gl.marginHeight;
+		// gl.marginTop = gl.marginHeight;
         gl.marginLeft = gl.marginWidth;
-        gl.marginHeight = 0;
+		// gl.marginHeight = 0;
         gl.marginWidth = 0;
         container.setLayout(gl);
 

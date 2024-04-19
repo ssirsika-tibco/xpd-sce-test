@@ -20,7 +20,9 @@ import com.tibco.xpd.xpdl2.Process;
  */
 public class TaskScriptTool extends ScriptTool {
 
-	private Activity activity = null;
+	private Activity	activity	= null;
+
+	private String		scriptType	= ProcessJsConsts.SCRIPT_TASK;
 
 	public TaskScriptTool(Activity activity) {
 		super(activity);
@@ -39,12 +41,25 @@ public class TaskScriptTool extends ScriptTool {
 	
 	@Override
 	protected String getScriptType() {		
-		return ProcessJsConsts.SCRIPT_TASK;
+		return scriptType;
 	}
 	
 	@Override
 	protected Activity getActivity() {
 	    return this.activity;
+	}
+
+	/**
+	 * Overrides the script type associated with the current task script tool
+	 * 
+	 * @param newScriptType
+	 * @return
+	 */
+	public String overrideScriptType(String newScriptType)
+	{
+		scriptType = newScriptType;
+
+		return newScriptType;
 	}
 
 }

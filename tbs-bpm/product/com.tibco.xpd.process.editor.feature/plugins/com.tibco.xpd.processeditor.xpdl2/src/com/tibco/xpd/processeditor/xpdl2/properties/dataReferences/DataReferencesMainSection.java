@@ -17,6 +17,7 @@ import org.eclipse.ui.IWorkbenchPart;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataContextReferenceResolver;
 import com.tibco.xpd.processeditor.xpdl2.properties.messages.Messages;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.ui.properties.AbstractFilteredTransactionalSection;
 import com.tibco.xpd.ui.properties.ExpandableSectionStacker;
 import com.tibco.xpd.ui.properties.ExpandableSectionStacker.ISectionContentCreator;
@@ -25,6 +26,8 @@ import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.Transition;
 import com.tibco.xpd.xpdl2.Xpdl2Package;
 import com.tibco.xpd.xpdl2.resolvers.ProcessDataReferenceAndContexts;
+import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl;
+import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl.Xpdl2FileType;
 
 /**
  * Property section to show the process data references made by the input
@@ -82,13 +85,44 @@ public class DataReferencesMainSection extends
     public boolean select(Object toTest) {
         EObject baseSelectObject = getBaseSelectObject(toTest);
 
-        if (baseSelectObject instanceof Activity
-                || baseSelectObject instanceof Transition) {
+		/**
+		 * Show the  Data reference tab properties section for below file types extensions. 
+		 * 
+		 * - xpdl 
+		 * - tasks 
+		 * - dflow.
+		 * 
+		 * These conditions were required to be added as part of ACE-7362 i.e. creating property panel for the
+		 * Script Function Type Selection from .psl file (i.e. Process Script Library)
+		 */
+		if (isActivityWithSupportedXpdl2FileType(baseSelectObject) || baseSelectObject instanceof Transition)
+		{
             return true;
         }
 
         return false;
     }
+
+	/**
+	 * Method to determine weather passed <code>EObject</code> is instance of Activity with supported Xpdl2FileType
+	 * extension.
+	 * 
+	 * @param obj
+	 * @return true when the passed <code>EObject</code> is instance of Activity with supported Xpdl2FileType extension
+	 *         else false.
+	 */
+	private boolean isActivityWithSupportedXpdl2FileType(EObject obj)
+	{
+		if (!(obj instanceof Activity))
+		{
+			return false;
+		}
+
+		Xpdl2WorkingCopyImpl xpdl2Wc = (Xpdl2WorkingCopyImpl) WorkingCopyUtil.getWorkingCopyFor(obj);
+
+		return xpdl2Wc != null && xpdl2Wc.isOneOfXpdl2FileType(
+				new Xpdl2FileType[]{Xpdl2FileType.PROCESS, Xpdl2FileType.DECISION_FLOW, Xpdl2FileType.TASK_LIBRARY});
+	}
 
     /**
      * @see com.tibco.xpd.ui.properties.AbstractXpdSection#doCreateControls(org.eclipse.swt.widgets.Composite,

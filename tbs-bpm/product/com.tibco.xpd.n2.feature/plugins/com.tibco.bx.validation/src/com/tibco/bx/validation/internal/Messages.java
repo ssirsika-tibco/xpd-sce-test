@@ -30,6 +30,12 @@ public class Messages extends NLS {
 
     public static String AddReferredProjectDestinationsResolution_PleaseCommitProject_title;
 
+	public static String		N2FunctionStatementValidator_PSFunctionWithNonVoidReturnTypeParamter_NoReturnType;
+
+	public static String		N2FunctionStatementValidator_PSFunctionWithNonVoidReturnTypeParamter_AssignmentOperationBetween;
+
+	public static String		N2FunctionStatementValidator_PSFunctionWithNonVoidReturnTypeParamter_AssignmentMultiplicityOperationBetween;
+
     public static String BpmErrorsWarningsPreferencePage_desc;
 
     public static String CancelScriptDataMapperMappingRule_ScriptDescription;
@@ -195,6 +201,10 @@ public class Messages extends NLS {
     public static String N2ConditionalExprValidator_Unable_to_validateConditionalExpression;
 
     public static String N2FunctionStatementValidator_LastStatementReturn;
+
+	public static String		N2FunctionStatementValidator_PSFunctionWithVoidReturnTypeParamter_LastStatementWithReturnValue;
+
+	public static String		N2FunctionStatementValidator_PSFunctionWithNonVoidReturnTypeParamter_LastStatementWithReturn;
 
     public static String N2JScriptAssignmentExpressionValidator_CompositeRelationshipsAssignment_1;
 

@@ -2779,7 +2779,42 @@ public class ProcessScriptUtil {
     public static Command getSetScriptTaskScriptCommand(
             EditingDomain editingDomain, String newScript, Activity activity,
             String grammar) {
-        CompoundCommand cmd = null;
+		return interalGetSetScriptCommand(editingDomain, newScript, activity, grammar,
+				Messages.ProcessScriptUtil_SetScriptTaskScript_menu);
+    }
+
+	/**
+	 * Get command to set PSL function script in the underline script task
+	 * 
+	 * @param editingDomain
+	 * @param newScript
+	 * @param activity
+	 * @param grammar
+	 * @return
+	 */
+	public static Command getSetPSLFunctionScriptCommand(EditingDomain editingDomain, String newScript,
+			Activity activity, String grammar)
+	{
+
+		return interalGetSetScriptCommand(editingDomain, newScript, activity, grammar,
+				Messages.ProcessScriptUtil_SetPSLFunctionScript_menu);
+	}
+
+	/**
+	 * Returns a command to set the Script in the ScriptTask
+	 * 
+	 * @param editingDomain
+	 * @param newScript
+	 * @param activity
+	 * @param grammar
+	 * @param aLabel
+	 *            Label of the command
+	 * @return Command to set the script in the activity.
+	 */
+	private static Command interalGetSetScriptCommand(EditingDomain editingDomain, String newScript, Activity activity,
+			String grammar, String aLabel)
+	{
+		CompoundCommand cmd = null;
 
         Implementation implementation = activity.getImplementation();
         if (implementation instanceof Task) {
@@ -2793,7 +2828,7 @@ public class ProcessScriptUtil {
 
                 if (hasScriptChanged(newScript, grammar, currScript)) {
                     cmd = new CompoundCommand();
-                    cmd.setLabel(Messages.ProcessScriptUtil_SetScriptTaskScript_menu);
+					cmd.setLabel(aLabel);
 
                     Expression expression =
                             Xpdl2Factory.eINSTANCE.createExpression();

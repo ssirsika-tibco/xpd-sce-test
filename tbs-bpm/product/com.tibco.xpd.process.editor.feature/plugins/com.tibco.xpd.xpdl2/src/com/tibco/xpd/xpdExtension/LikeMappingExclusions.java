@@ -23,28 +23,29 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='LikeMappingExclusions' kind='empty'"
  * @generated
  */
-public interface LikeMappingExclusions extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface LikeMappingExclusions extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Exclusions</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdExtension.LikeMappingExclusion}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Contains path of target array element to be exclude during like mapping.
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Exclusions</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getLikeMappingExclusions_Exclusions()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='LikeMappingExclusion' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<LikeMappingExclusion> getExclusions();
+	/**
+	 * Returns the value of the '<em><b>Exclusions</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdExtension.LikeMappingExclusion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Contains path of target array element to be exclude during like mapping.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Exclusions</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getLikeMappingExclusions_Exclusions()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='LikeMappingExclusion' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<LikeMappingExclusion> getExclusions();
 
 } // LikeMappingExclusions

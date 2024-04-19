@@ -5,15 +5,16 @@ package com.tibco.xpd.script.parser.internal.validator;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import antlr.Token;
-import antlr.collections.AST;
+import java.util.Map;
 
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.script.parser.Activator;
 import com.tibco.xpd.script.parser.internal.util.ValidationConstants;
 import com.tibco.xpd.script.parser.validator.ErrorMessage;
 import com.tibco.xpd.script.parser.validator.ErrorType;
+
+import antlr.Token;
+import antlr.collections.AST;
 
 public abstract class AbstractValidator implements IValidator {
     
@@ -23,30 +24,42 @@ public abstract class AbstractValidator implements IValidator {
 	
 	protected List<ErrorMessage> warningList = new ArrayList<ErrorMessage>();	
 	
+	public static final String		PROJECTNAME_REFERENCE_ADDITIONAL_INFO	= "project";							//$NON-NLS-1$
+
+	@Override
 	public List<ErrorMessage> getErrorMessageList() {
 		return this.errorList;
 	}
 	
+	@Override
 	public List<ErrorMessage> getWarningMessageList() {
 		return this.warningList;
 	}
 
     protected void addErrorMessage(Token token, String errorMessage) {
-	    addErrorMessage(token, errorMessage, null, null);
+		addErrorMessage(token, errorMessage, null, null, null, null);
 	}
 	
     protected void addErrorMessage(Token token, String errorMessage,
             List<String> additionalAttributes) {
-        addErrorMessage(token, errorMessage, null, additionalAttributes);
+		addErrorMessage(token, errorMessage, null, additionalAttributes, null, null);
     }
+
+	protected void addErrorMessage(Token token, String errorMessage, List<String> additionalAttributes,
+			String alterativeIssueId, Map<String, String> additionalInfoMap)
+	{
+		addErrorMessage(token, errorMessage, null, additionalAttributes, alterativeIssueId, additionalInfoMap);
+	}
 	
     protected void addErrorMessage(Token token, String errorMessage,
             ErrorType errorType) {
-        addErrorMessage(token, errorMessage, errorType, null);
+		addErrorMessage(token, errorMessage, errorType, null, null, null);
     }
     
 	protected void addErrorMessage(Token token, String errorMessage,
-            ErrorType errorType, List<String> additionalAttributes) {
+			ErrorType errorType, List<String> additionalAttributes, String alterativeIssueId,
+			Map<String, String> additionalInfoMap)
+	{
         if (errorType == null) {
             errorType =
                     new ErrorType(
@@ -54,7 +67,8 @@ public abstract class AbstractValidator implements IValidator {
         }
         ErrorMessage msg =
                 new ErrorMessage(token.getLine(), token.getColumn(),
-                        errorMessage, errorType, additionalAttributes);
+						errorMessage, errorType, additionalAttributes, alterativeIssueId, additionalInfoMap);
+
         boolean b = errorList.contains(msg);
         if (!b) {
             errorList.add(msg);
@@ -97,6 +111,7 @@ public abstract class AbstractValidator implements IValidator {
 		return true;
 	}
 
+	@Override
 	public void validate(AST expression, Token token) {
 	    // Do nothing, this method is deprecated, use evaluate(IExpr expr) instead
 	}

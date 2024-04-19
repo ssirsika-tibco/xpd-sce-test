@@ -12,7 +12,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import com.tibco.xpd.implementer.resources.xpdl2.internal.Messages;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.process.js.model.ProcessJsConsts;
-import com.tibco.xpd.processeditor.xpdl2.properties.script.AbstractProcessScriptProvider;
+import com.tibco.xpd.process.js.model.script.AbstractProcessScriptProvider;
 import com.tibco.xpd.processeditor.xpdl2.util.ScriptInformationUtil;
 import com.tibco.xpd.xpdExtension.ScriptInformation;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
@@ -165,7 +165,7 @@ public class CatchSignalEventScriptProvider extends
     }
 
     /**
-     * @see com.tibco.xpd.processeditor.xpdl2.properties.script.AbstractProcessScriptProvider#getDefaultDestination()
+     * @see com.tibco.xpd.process.js.model.script.AbstractProcessScriptProvider#getDefaultDestination()
      * 
      * @return
      */

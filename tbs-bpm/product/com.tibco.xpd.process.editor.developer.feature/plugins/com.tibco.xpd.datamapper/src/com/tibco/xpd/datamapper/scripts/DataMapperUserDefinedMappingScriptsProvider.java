@@ -12,7 +12,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.text.IDocument;
 
 import com.tibco.xpd.datamapper.internal.Messages;
-import com.tibco.xpd.processeditor.xpdl2.properties.script.AbstractProcessScriptProvider;
+import com.tibco.xpd.process.js.model.script.AbstractProcessScriptProvider;
 import com.tibco.xpd.processeditor.xpdl2.util.ScriptInformationUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.script.model.JsConsts;
@@ -169,7 +169,7 @@ public final class DataMapperUserDefinedMappingScriptsProvider extends
     }
 
     /**
-     * @see com.tibco.xpd.processeditor.xpdl2.properties.script.AbstractProcessScriptProvider#getDefaultDestination()
+     * @see com.tibco.xpd.process.js.model.script.AbstractProcessScriptProvider#getDefaultDestination()
      * 
      * @return
      */
@@ -197,12 +197,13 @@ public final class DataMapperUserDefinedMappingScriptsProvider extends
     }
 
     /**
-     * @see com.tibco.xpd.processeditor.xpdl2.properties.script.AbstractProcessScriptProvider#executeSaveCommand(org.eclipse.jface.text.IDocument)
+     * @see com.tibco.xpd.process.js.model.script.AbstractProcessScriptProvider#executeSaveCommand(org.eclipse.jface.text.IDocument)
      * 
      * @param document
      */
     @Override
-    public void executeSaveCommand(IDocument document) {
+	public void doExecuteSaveCommand(IDocument document)
+	{
         String modifiedScript = document.get();
         if (getInput() == null) {
             return;

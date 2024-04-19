@@ -325,11 +325,13 @@ public class ScriptGrammarContributionsUtil {
      * @param destination
      * @param scriptContext
      * @param grammarId
+     * @param createNewInstance Do not use cached singleton instance of script info provider, create a new one.
      * @return
      * @throws CoreException
      */
     public AbstractScriptInfoProvider getScriptInfoProvider(String destination,
-            String scriptContext, String grammarId) throws CoreException {
+			String scriptContext, String grammarId, boolean createNewInstance) throws CoreException
+	{
         // Gets the list of context bindings for a given destination id
         Set<ScriptContextGrammarBinding> scriptContextBindingElements =
                 getScriptContextBindingElement(destination, scriptContext);
@@ -345,17 +347,32 @@ public class ScriptGrammarContributionsUtil {
                 scriptGrammarReferenceElement =
                         scriptGrammarReferenceElementFromScriptContexts.get(0);
                 returnElement =
-                        scriptGrammarReferenceElement.getScriptInfoProvider();
+						scriptGrammarReferenceElement.getScriptInfoProvider(createNewInstance);
             }
         }
         return returnElement;
     }
 
     /**
-     * @param scriptContextBindingElements
+     * Returns the script info provider for a given destination, context and
+     * grammar.
+     * 
+     * @param destination
+     * @param scriptContext
      * @param grammarId
      * @return
+     * @throws CoreException
      */
+    public AbstractScriptInfoProvider getScriptInfoProvider(String destination,
+            String scriptContext, String grammarId) throws CoreException {
+		return getScriptInfoProvider(destination, scriptContext, grammarId, false);
+    }
+
+	/**
+	 * @param scriptContextBindingElements
+	 * @param grammarId
+	 * @return
+	 */
     private List<ScriptGrammarReferenceElement> getScriptGrammarReferenceElementFromScriptContexts(
             Collection<ScriptContextGrammarBinding> scriptContextBindingElements,
             String grammarId) {

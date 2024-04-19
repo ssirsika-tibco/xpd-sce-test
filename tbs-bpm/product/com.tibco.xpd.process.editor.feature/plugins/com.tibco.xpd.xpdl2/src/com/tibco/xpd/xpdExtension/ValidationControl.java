@@ -27,29 +27,30 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='ValidationControl' kind='empty'"
  * @generated
  */
-public interface ValidationControl extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface ValidationControl extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Validation Issue Overrides</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdExtension.ValidationIssueOverride}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Validation Issue Overrides</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Validation Issue Overrides</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getValidationControl_ValidationIssueOverrides()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='ValidationIssueOverride' namespace='##targetNamespace' wrap='ValidationIssueOverrides'"
-     * @generated
-     */
-    EList<ValidationIssueOverride> getValidationIssueOverrides();
+	/**
+	 * Returns the value of the '<em><b>Validation Issue Overrides</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdExtension.ValidationIssueOverride}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Validation Issue Overrides</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Validation Issue Overrides</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getValidationControl_ValidationIssueOverrides()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ValidationIssueOverride' namespace='##targetNamespace' wrap='ValidationIssueOverrides'"
+	 * @generated
+	 */
+	EList<ValidationIssueOverride> getValidationIssueOverrides();
 
 } // ValidationControl

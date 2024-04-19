@@ -736,6 +736,8 @@ public class Messages extends NLS {
 
     public static String ParametersSection_AddDataFieldButton_tooltip;
 
+	public static String		PSLPropertyPanel_Parameters_Description;
+
     public static String ParametersSection_DeleteDataFieldButton_tooltip;
 
     public static String ParametersSection_Mode_In;

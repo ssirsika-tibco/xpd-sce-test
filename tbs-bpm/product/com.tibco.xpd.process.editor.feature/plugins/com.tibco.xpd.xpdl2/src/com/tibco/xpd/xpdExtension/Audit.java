@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * <copyright> </copyright>
  *
  * $Id$
  */
@@ -31,46 +30,47 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @model extendedMetaData="name='Audit_._type' kind='elementOnly'"
  * @generated
  */
-public interface Audit extends EObject {
+public interface Audit extends EObject
+{
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Audit Event</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdExtension.AuditEvent}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Audit to perform for particular events that happen to activity.
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Audit Event</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getAudit_AuditEvent()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='AuditEvent' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<AuditEvent> getAuditEvent();
+	/**
+	 * Returns the value of the '<em><b>Audit Event</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdExtension.AuditEvent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Audit to perform for particular events that happen to activity.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Audit Event</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getAudit_AuditEvent()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='AuditEvent' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<AuditEvent> getAuditEvent();
 
-    /**
-     * Returns the value of the '<em><b>Any</b></em>' attribute list.
-     * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Any</em>' attribute list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Any</em>' attribute list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getAudit_Any()
-     * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
-     *        extendedMetaData="kind='elementWildcard' wildcards='##other' name=':1' processing='lax'"
-     * @generated
-     */
-    FeatureMap getAny();
+	/**
+	 * Returns the value of the '<em><b>Any</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Any</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Any</em>' attribute list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getAudit_Any()
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
+	 *        extendedMetaData="kind='elementWildcard' wildcards='##other' name=':1' processing='lax'"
+	 * @generated
+	 */
+	FeatureMap getAny();
 
 } // Audit

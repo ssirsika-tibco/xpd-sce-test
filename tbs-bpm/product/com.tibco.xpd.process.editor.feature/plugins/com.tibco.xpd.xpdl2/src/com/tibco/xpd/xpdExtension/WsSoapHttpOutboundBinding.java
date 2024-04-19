@@ -22,66 +22,67 @@ package com.tibco.xpd.xpdExtension;
  * @model extendedMetaData="name='WsSoapHttpOutboundBinding' kind='elementOnly'"
  * @generated
  */
-public interface WsSoapHttpOutboundBinding extends WsSoapBinding {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface WsSoapHttpOutboundBinding extends WsSoapBinding
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Outbound Security</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Outbound Security</em>' containment reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Outbound Security</em>' containment reference.
-     * @see #setOutboundSecurity(WsSoapSecurity)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getWsSoapHttpOutboundBinding_OutboundSecurity()
-     * @model containment="true" required="true"
-     *        extendedMetaData="kind='element' name='OutboundSecurity' namespace='##targetNamespace'"
-     * @generated
-     */
-    WsSoapSecurity getOutboundSecurity();
+	/**
+	 * Returns the value of the '<em><b>Outbound Security</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Outbound Security</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Outbound Security</em>' containment reference.
+	 * @see #setOutboundSecurity(WsSoapSecurity)
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getWsSoapHttpOutboundBinding_OutboundSecurity()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='OutboundSecurity' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	WsSoapSecurity getOutboundSecurity();
 
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.WsSoapHttpOutboundBinding#getOutboundSecurity <em>Outbound Security</em>}' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Outbound Security</em>' containment reference.
-     * @see #getOutboundSecurity()
-     * @generated
-     */
-    void setOutboundSecurity(WsSoapSecurity value);
+	/**
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.WsSoapHttpOutboundBinding#getOutboundSecurity <em>Outbound Security</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Outbound Security</em>' containment reference.
+	 * @see #getOutboundSecurity()
+	 * @generated
+	 */
+	void setOutboundSecurity(WsSoapSecurity value);
 
-    /**
-     * Returns the value of the '<em><b>Http Client Instance Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Http Client Instance Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Http Client Instance Name</em>' attribute.
-     * @see #setHttpClientInstanceName(String)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getWsSoapHttpOutboundBinding_HttpClientInstanceName()
-     * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-     *        extendedMetaData="kind='attribute' name='HttpClientInstanceName'"
-     * @generated
-     */
-    String getHttpClientInstanceName();
+	/**
+	 * Returns the value of the '<em><b>Http Client Instance Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Http Client Instance Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Http Client Instance Name</em>' attribute.
+	 * @see #setHttpClientInstanceName(String)
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getWsSoapHttpOutboundBinding_HttpClientInstanceName()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='attribute' name='HttpClientInstanceName'"
+	 * @generated
+	 */
+	String getHttpClientInstanceName();
 
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.WsSoapHttpOutboundBinding#getHttpClientInstanceName <em>Http Client Instance Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Http Client Instance Name</em>' attribute.
-     * @see #getHttpClientInstanceName()
-     * @generated
-     */
-    void setHttpClientInstanceName(String value);
+	/**
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.WsSoapHttpOutboundBinding#getHttpClientInstanceName <em>Http Client Instance Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Http Client Instance Name</em>' attribute.
+	 * @see #getHttpClientInstanceName()
+	 * @generated
+	 */
+	void setHttpClientInstanceName(String value);
 
 } // WsSoapHttpOutboundBinding

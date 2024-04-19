@@ -110,6 +110,8 @@ public class Messages extends NLS {
 
     public static String ExpressionValidator_PropertyInvalid_For_Data_Type;
 
+	public static String		ExpressionValidator_ProjectRefereceFor_bpmScripts_Type_NotAdded;
+
     public static String ExpressionValidator_AssignmentOperationBetween;
 
     public static String AbstractExpressionValidator_ScriptRelevantDataFactoryNotRegistered;

@@ -25,6 +25,7 @@ import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.n2.cds.script.IRestScriptRelevantData;
 import com.tibco.xpd.n2.cds.script.RestJsClass;
 import com.tibco.xpd.n2.cds.utils.CDSUtils;
+import com.tibco.xpd.process.js.parser.validator.AbstractDotExpressionValidator;
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.DefaultScriptRelevantData;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
@@ -38,7 +39,6 @@ import com.tibco.xpd.script.model.client.globaldata.CaseClassCriteriaJsMethodPar
 import com.tibco.xpd.script.model.client.globaldata.CaseUMLScriptRelevantData;
 import com.tibco.xpd.script.model.internal.client.ITypeResolution;
 import com.tibco.xpd.script.model.jscript.JScriptUtils;
-import com.tibco.xpd.script.parser.validator.jscript.JScriptDotExpressionValidator;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
@@ -52,7 +52,7 @@ import antlr.Token;
  *         etc... ie: FactoryClass.method(""); ie: field.method("");
  * 
  */
-public class N2JScriptDotExpressionValidator extends JScriptDotExpressionValidator {
+public class N2JScriptDotExpressionValidator extends AbstractDotExpressionValidator {
 
     /**
      * auditLog method name on Process java script class from PEJavaScript.uml

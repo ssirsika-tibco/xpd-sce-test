@@ -15,12 +15,13 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='DeleteCaseReferenceOperationType' kind='elementOnly' namespace='##targetNamespace'"
  * @generated
  */
-public interface DeleteCaseReferenceOperationType extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface DeleteCaseReferenceOperationType extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
 } // DeleteCaseReferenceOperationType

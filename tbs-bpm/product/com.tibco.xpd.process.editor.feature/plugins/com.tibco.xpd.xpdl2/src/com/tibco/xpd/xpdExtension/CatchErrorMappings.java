@@ -34,39 +34,40 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='CatchErrorMappings' kind='elementOnly'"
  * @generated
  */
-public interface CatchErrorMappings extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface CatchErrorMappings extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Message</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Message</em>' containment reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Message</em>' containment reference.
-     * @see #setMessage(Message)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getCatchErrorMappings_Message()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='Message' namespace='##targetNamespace'"
-     * @generated
-     */
-    Message getMessage();
+	/**
+	 * Returns the value of the '<em><b>Message</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Message</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Message</em>' containment reference.
+	 * @see #setMessage(Message)
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getCatchErrorMappings_Message()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Message' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Message getMessage();
 
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.CatchErrorMappings#getMessage <em>Message</em>}' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Message</em>' containment reference.
-     * @see #getMessage()
-     * @generated
-     */
-    void setMessage(Message value);
+	/**
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.CatchErrorMappings#getMessage <em>Message</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Message</em>' containment reference.
+	 * @see #getMessage()
+	 * @generated
+	 */
+	void setMessage(Message value);
 
 } // CatchErrorMappings

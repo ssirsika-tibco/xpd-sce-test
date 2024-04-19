@@ -35,129 +35,144 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class FindByQueryOperationImpl extends EObjectImpl implements FindByQueryOperation {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public class FindByQueryOperationImpl extends EObjectImpl implements FindByQueryOperation
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String						copyright	= "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved.";	//$NON-NLS-1$
 
-    /**
-     * The cached value of the '{@link #getCaseDocumentQueryExpression() <em>Case Document Query Expression</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getCaseDocumentQueryExpression()
-     * @generated
-     * @ordered
-     */
-    protected EList<CaseDocumentQueryExpression> caseDocumentQueryExpression;
+	/**
+	 * The cached value of the '{@link #getCaseDocumentQueryExpression() <em>Case Document Query Expression</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCaseDocumentQueryExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CaseDocumentQueryExpression>	caseDocumentQueryExpression;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected FindByQueryOperationImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FindByQueryOperationImpl()
+	{
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return XpdExtensionPackage.Literals.FIND_BY_QUERY_OPERATION;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass()
+	{
+		return XpdExtensionPackage.Literals.FIND_BY_QUERY_OPERATION;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<CaseDocumentQueryExpression> getCaseDocumentQueryExpression() {
-        if (caseDocumentQueryExpression == null) {
-            caseDocumentQueryExpression =
-                    new EObjectContainmentEList<CaseDocumentQueryExpression>(CaseDocumentQueryExpression.class, this,
-                            XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION);
-        }
-        return caseDocumentQueryExpression;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CaseDocumentQueryExpression> getCaseDocumentQueryExpression()
+	{
+		if (caseDocumentQueryExpression == null)
+		{
+			caseDocumentQueryExpression = new EObjectContainmentEList<CaseDocumentQueryExpression>(
+					CaseDocumentQueryExpression.class, this,
+					XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION);
+		}
+		return caseDocumentQueryExpression;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-        case XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION:
-            return ((InternalEList<?>) getCaseDocumentQueryExpression()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION:
+				return ((InternalEList< ? >) getCaseDocumentQueryExpression()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-        case XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION:
-            return getCaseDocumentQueryExpression();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION:
+				return getCaseDocumentQueryExpression();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-        case XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION:
-            getCaseDocumentQueryExpression().clear();
-            getCaseDocumentQueryExpression().addAll((Collection<? extends CaseDocumentQueryExpression>) newValue);
-            return;
-        }
-        super.eSet(featureID, newValue);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION:
+				getCaseDocumentQueryExpression().clear();
+				getCaseDocumentQueryExpression().addAll((Collection< ? extends CaseDocumentQueryExpression>) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID) {
-        switch (featureID) {
-        case XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION:
-            getCaseDocumentQueryExpression().clear();
-            return;
-        }
-        super.eUnset(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION:
+				getCaseDocumentQueryExpression().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-        case XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION:
-            return caseDocumentQueryExpression != null && !caseDocumentQueryExpression.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION:
+				return caseDocumentQueryExpression != null && !caseDocumentQueryExpression.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //FindByQueryOperationImpl

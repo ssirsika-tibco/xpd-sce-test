@@ -64,6 +64,7 @@ import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.processwidget.adapters.ActivityMarkerType;
 import com.tibco.xpd.processwidget.adapters.TaskType;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.ui.properties.AbstractTransactionalSection;
 import com.tibco.xpd.ui.properties.AbstractXpdSection;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
@@ -78,6 +79,8 @@ import com.tibco.xpd.xpdl2.Pool;
 import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.Task;
 import com.tibco.xpd.xpdl2.Xpdl2Package;
+import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl;
+import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl.Xpdl2FileType;
 import com.tibco.xpd.xpdl2.util.DecisionFlowUtil;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
@@ -1642,8 +1645,24 @@ public class TaskGeneralSection extends SashDividedNamedElementSection {
     public boolean select(Object toTest) {
         if (super.select(toTest)) {
             Activity act = (Activity) getBaseSelectObject(toTest);
+
+			Xpdl2WorkingCopyImpl xpdl2Wc = (Xpdl2WorkingCopyImpl) WorkingCopyUtil.getWorkingCopyFor(act);
+
             Process process = Xpdl2ModelUtil.getProcess(act);
-            if (!DecisionFlowUtil.isDecisionFlow(process)) {
+    		/**
+    		 * Show the TaskGeneralSelection (i.e. General tab in the UI) tab properties section for below file types extensions. 
+    		 * 
+    		 * - xpdl 
+    		 * - tasks 
+    		 * - dflow.
+    		 * 
+    		 * These conditions were required to be added as part of ACE-7362 i.e. creating property panel for the
+    		 * Script Function Type Selection from .psl file (i.e. Process Script Library)
+    		 */
+			if (!DecisionFlowUtil.isDecisionFlow(process)
+					&& xpdl2Wc.isOneOfXpdl2FileType(new Xpdl2FileType[]{Xpdl2FileType.PROCESS,
+							Xpdl2FileType.DECISION_FLOW, Xpdl2FileType.TASK_LIBRARY}))
+			{
                 //
                 // We consider anything that isn't a Gateway(route) or Event to
                 // be a

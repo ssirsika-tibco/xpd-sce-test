@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * <copyright> </copyright>
  *
  * $Id$
  */
@@ -37,3052 +36,3185 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class XpdExtensionItemProviderAdapterFactory extends XpdExtensionAdapterFactory
-        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
-
-    /**
-     * This keeps track of the root adapter factory that delegates to this adapter factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ComposedAdapterFactory parentAdapterFactory;
-
-    /**
-     * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected IChangeNotifier changeNotifier = new ChangeNotifier();
-
-    /**
-     * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Collection<Object> supportedTypes = new ArrayList<Object>();
-
-    /**
-     * This constructs an instance.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public XpdExtensionItemProviderAdapterFactory() {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ActivityRef} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ActivityRefItemProvider activityRefItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ActivityRef}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createActivityRefAdapter() {
-        if (activityRefItemProvider == null) {
-            activityRefItemProvider = new ActivityRefItemProvider(this);
-        }
-
-        return activityRefItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ActivityResourcePatterns} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ActivityResourcePatternsItemProvider activityResourcePatternsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ActivityResourcePatterns}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createActivityResourcePatternsAdapter() {
-        if (activityResourcePatternsItemProvider == null) {
-            activityResourcePatternsItemProvider = new ActivityResourcePatternsItemProvider(this);
-        }
-
-        return activityResourcePatternsItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AllocationStrategy} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected AllocationStrategyItemProvider allocationStrategyItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AllocationStrategy}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createAllocationStrategyAdapter() {
-        if (allocationStrategyItemProvider == null) {
-            allocationStrategyItemProvider = new AllocationStrategyItemProvider(this);
-        }
-
-        return allocationStrategyItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AssociatedCorrelationFields} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected AssociatedCorrelationFieldsItemProvider associatedCorrelationFieldsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AssociatedCorrelationFields}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createAssociatedCorrelationFieldsAdapter() {
-        if (associatedCorrelationFieldsItemProvider == null) {
-            associatedCorrelationFieldsItemProvider = new AssociatedCorrelationFieldsItemProvider(this);
-        }
-
-        return associatedCorrelationFieldsItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AssociatedCorrelationField} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected AssociatedCorrelationFieldItemProvider associatedCorrelationFieldItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AssociatedCorrelationField}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createAssociatedCorrelationFieldAdapter() {
-        if (associatedCorrelationFieldItemProvider == null) {
-            associatedCorrelationFieldItemProvider = new AssociatedCorrelationFieldItemProvider(this);
-        }
-
-        return associatedCorrelationFieldItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AssociatedParameter} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected AssociatedParameterItemProvider associatedParameterItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AssociatedParameter}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createAssociatedParameterAdapter() {
-        if (associatedParameterItemProvider == null) {
-            associatedParameterItemProvider = new AssociatedParameterItemProvider(this);
-        }
-
-        return associatedParameterItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AssociatedParameters} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected AssociatedParametersItemProvider associatedParametersItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AssociatedParameters}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createAssociatedParametersAdapter() {
-        if (associatedParametersItemProvider == null) {
-            associatedParametersItemProvider = new AssociatedParametersItemProvider(this);
-        }
-
-        return associatedParametersItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.Audit} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected AuditItemProvider auditItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.Audit}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createAuditAdapter() {
-        if (auditItemProvider == null) {
-            auditItemProvider = new AuditItemProvider(this);
-        }
-
-        return auditItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AuditEvent} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected AuditEventItemProvider auditEventItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AuditEvent}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createAuditEventAdapter() {
-        if (auditEventItemProvider == null) {
-            auditEventItemProvider = new AuditEventItemProvider(this);
-        }
-
-        return auditEventItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.BusinessProcess} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected BusinessProcessItemProvider businessProcessItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.BusinessProcess}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createBusinessProcessAdapter() {
-        if (businessProcessItemProvider == null) {
-            businessProcessItemProvider = new BusinessProcessItemProvider(this);
-        }
-
-        return businessProcessItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CalendarReference} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CalendarReferenceItemProvider calendarReferenceItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CalendarReference}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCalendarReferenceAdapter() {
-        if (calendarReferenceItemProvider == null) {
-            calendarReferenceItemProvider = new CalendarReferenceItemProvider(this);
-        }
-
-        return calendarReferenceItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CatchErrorMappings} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CatchErrorMappingsItemProvider catchErrorMappingsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CatchErrorMappings}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCatchErrorMappingsAdapter() {
-        if (catchErrorMappingsItemProvider == null) {
-            catchErrorMappingsItemProvider = new CatchErrorMappingsItemProvider(this);
-        }
-
-        return catchErrorMappingsItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ConstantPeriod} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ConstantPeriodItemProvider constantPeriodItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ConstantPeriod}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createConstantPeriodAdapter() {
-        if (constantPeriodItemProvider == null) {
-            constantPeriodItemProvider = new ConstantPeriodItemProvider(this);
-        }
-
-        return constantPeriodItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ConditionalParticipant} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ConditionalParticipantItemProvider conditionalParticipantItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ConditionalParticipant}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createConditionalParticipantAdapter() {
-        if (conditionalParticipantItemProvider == null) {
-            conditionalParticipantItemProvider = new ConditionalParticipantItemProvider(this);
-        }
-
-        return conditionalParticipantItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ReplyImmediateDataMappings} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ReplyImmediateDataMappingsItemProvider replyImmediateDataMappingsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ReplyImmediateDataMappings}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createReplyImmediateDataMappingsAdapter() {
-        if (replyImmediateDataMappingsItemProvider == null) {
-            replyImmediateDataMappingsItemProvider = new ReplyImmediateDataMappingsItemProvider(this);
-        }
-
-        return replyImmediateDataMappingsItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CorrelationDataMappings} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CorrelationDataMappingsItemProvider correlationDataMappingsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CorrelationDataMappings}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCorrelationDataMappingsAdapter() {
-        if (correlationDataMappingsItemProvider == null) {
-            correlationDataMappingsItemProvider = new CorrelationDataMappingsItemProvider(this);
-        }
-
-        return correlationDataMappingsItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.Discriminator} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DiscriminatorItemProvider discriminatorItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.Discriminator}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDiscriminatorAdapter() {
-        if (discriminatorItemProvider == null) {
-            discriminatorItemProvider = new DiscriminatorItemProvider(this);
-        }
-
-        return discriminatorItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DocumentRoot} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DocumentRootItemProvider documentRootItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DocumentRoot}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDocumentRootAdapter() {
-        if (documentRootItemProvider == null) {
-            documentRootItemProvider = new DocumentRootItemProvider(this);
-        }
-
-        return documentRootItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DurationCalculation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DurationCalculationItemProvider durationCalculationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DurationCalculation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDurationCalculationAdapter() {
-        if (durationCalculationItemProvider == null) {
-            durationCalculationItemProvider = new DurationCalculationItemProvider(this);
-        }
-
-        return durationCalculationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DynamicOrganizationMappings} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DynamicOrganizationMappingsItemProvider dynamicOrganizationMappingsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DynamicOrganizationMappings}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDynamicOrganizationMappingsAdapter() {
-        if (dynamicOrganizationMappingsItemProvider == null) {
-            dynamicOrganizationMappingsItemProvider = new DynamicOrganizationMappingsItemProvider(this);
-        }
-
-        return dynamicOrganizationMappingsItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DynamicOrganizationMapping} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DynamicOrganizationMappingItemProvider dynamicOrganizationMappingItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DynamicOrganizationMapping}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDynamicOrganizationMappingAdapter() {
-        if (dynamicOrganizationMappingItemProvider == null) {
-            dynamicOrganizationMappingItemProvider = new DynamicOrganizationMappingItemProvider(this);
-        }
-
-        return dynamicOrganizationMappingItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DynamicOrgIdentifierRef} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DynamicOrgIdentifierRefItemProvider dynamicOrgIdentifierRefItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DynamicOrgIdentifierRef}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDynamicOrgIdentifierRefAdapter() {
-        if (dynamicOrgIdentifierRefItemProvider == null) {
-            dynamicOrgIdentifierRefItemProvider = new DynamicOrgIdentifierRefItemProvider(this);
-        }
-
-        return dynamicOrgIdentifierRefItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ErrorMethod} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ErrorMethodItemProvider errorMethodItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ErrorMethod}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createErrorMethodAdapter() {
-        if (errorMethodItemProvider == null) {
-            errorMethodItemProvider = new ErrorMethodItemProvider(this);
-        }
-
-        return errorMethodItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ErrorThrowerInfo} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ErrorThrowerInfoItemProvider errorThrowerInfoItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ErrorThrowerInfo}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createErrorThrowerInfoAdapter() {
-        if (errorThrowerInfoItemProvider == null) {
-            errorThrowerInfoItemProvider = new ErrorThrowerInfoItemProvider(this);
-        }
-
-        return errorThrowerInfoItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.EventHandlerInitialisers} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected EventHandlerInitialisersItemProvider eventHandlerInitialisersItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.EventHandlerInitialisers}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createEventHandlerInitialisersAdapter() {
-        if (eventHandlerInitialisersItemProvider == null) {
-            eventHandlerInitialisersItemProvider = new EventHandlerInitialisersItemProvider(this);
-        }
-
-        return eventHandlerInitialisersItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.FaultMessage} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected FaultMessageItemProvider faultMessageItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.FaultMessage}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createFaultMessageAdapter() {
-        if (faultMessageItemProvider == null) {
-            faultMessageItemProvider = new FaultMessageItemProvider(this);
-        }
-
-        return faultMessageItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.FormImplementation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected FormImplementationItemProvider formImplementationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.FormImplementation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createFormImplementationAdapter() {
-        if (formImplementationItemProvider == null) {
-            formImplementationItemProvider = new FormImplementationItemProvider(this);
-        }
-
-        return formImplementationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ImplementedInterface} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ImplementedInterfaceItemProvider implementedInterfaceItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ImplementedInterface}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createImplementedInterfaceAdapter() {
-        if (implementedInterfaceItemProvider == null) {
-            implementedInterfaceItemProvider = new ImplementedInterfaceItemProvider(this);
-        }
-
-        return implementedInterfaceItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.InitialValues} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected InitialValuesItemProvider initialValuesItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.InitialValues}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createInitialValuesAdapter() {
-        if (initialValuesItemProvider == null) {
-            initialValuesItemProvider = new InitialValuesItemProvider(this);
-        }
-
-        return initialValuesItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.InitialParameterValue} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected InitialParameterValueItemProvider initialParameterValueItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.InitialParameterValue}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createInitialParameterValueAdapter() {
-        if (initialParameterValueItemProvider == null) {
-            initialParameterValueItemProvider = new InitialParameterValueItemProvider(this);
-        }
-
-        return initialParameterValueItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.IntermediateMethod} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected IntermediateMethodItemProvider intermediateMethodItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.IntermediateMethod}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createIntermediateMethodAdapter() {
-        if (intermediateMethodItemProvider == null) {
-            intermediateMethodItemProvider = new IntermediateMethodItemProvider(this);
-        }
-
-        return intermediateMethodItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.MultiInstanceScripts} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected MultiInstanceScriptsItemProvider multiInstanceScriptsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.MultiInstanceScripts}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createMultiInstanceScriptsAdapter() {
-        if (multiInstanceScriptsItemProvider == null) {
-            multiInstanceScriptsItemProvider = new MultiInstanceScriptsItemProvider(this);
-        }
-
-        return multiInstanceScriptsItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.NamespacePrefixMap} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected NamespacePrefixMapItemProvider namespacePrefixMapItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.NamespacePrefixMap}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createNamespacePrefixMapAdapter() {
-        if (namespacePrefixMapItemProvider == null) {
-            namespacePrefixMapItemProvider = new NamespacePrefixMapItemProvider(this);
-        }
-
-        return namespacePrefixMapItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.NamespaceMapEntry} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected NamespaceMapEntryItemProvider namespaceMapEntryItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.NamespaceMapEntry}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createNamespaceMapEntryAdapter() {
-        if (namespaceMapEntryItemProvider == null) {
-            namespaceMapEntryItemProvider = new NamespaceMapEntryItemProvider(this);
-        }
-
-        return namespaceMapEntryItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.PilingInfo} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected PilingInfoItemProvider pilingInfoItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.PilingInfo}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createPilingInfoAdapter() {
-        if (pilingInfoItemProvider == null) {
-            pilingInfoItemProvider = new PilingInfoItemProvider(this);
-        }
-
-        return pilingInfoItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.PortTypeOperation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected PortTypeOperationItemProvider portTypeOperationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.PortTypeOperation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createPortTypeOperationAdapter() {
-        if (portTypeOperationItemProvider == null) {
-            portTypeOperationItemProvider = new PortTypeOperationItemProvider(this);
-        }
-
-        return portTypeOperationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ProcessInterface} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ProcessInterfaceItemProvider processInterfaceItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ProcessInterface}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createProcessInterfaceAdapter() {
-        if (processInterfaceItemProvider == null) {
-            processInterfaceItemProvider = new ProcessInterfaceItemProvider(this);
-        }
-
-        return processInterfaceItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ProcessInterfaces} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ProcessInterfacesItemProvider processInterfacesItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ProcessInterfaces}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createProcessInterfacesAdapter() {
-        if (processInterfacesItemProvider == null) {
-            processInterfacesItemProvider = new ProcessInterfacesItemProvider(this);
-        }
-
-        return processInterfacesItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ProcessResourcePatterns} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ProcessResourcePatternsItemProvider processResourcePatternsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ProcessResourcePatterns}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createProcessResourcePatternsAdapter() {
-        if (processResourcePatternsItemProvider == null) {
-            processResourcePatternsItemProvider = new ProcessResourcePatternsItemProvider(this);
-        }
-
-        return processResourcePatternsItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RescheduleTimerScript} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RescheduleTimerScriptItemProvider rescheduleTimerScriptItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RescheduleTimerScript}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRescheduleTimerScriptAdapter() {
-        if (rescheduleTimerScriptItemProvider == null) {
-            rescheduleTimerScriptItemProvider = new RescheduleTimerScriptItemProvider(this);
-        }
-
-        return rescheduleTimerScriptItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RescheduleTimers} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RescheduleTimersItemProvider rescheduleTimersItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RescheduleTimers}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRescheduleTimersAdapter() {
-        if (rescheduleTimersItemProvider == null) {
-            rescheduleTimersItemProvider = new RescheduleTimersItemProvider(this);
-        }
-
-        return rescheduleTimersItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RetainFamiliarActivities} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RetainFamiliarActivitiesItemProvider retainFamiliarActivitiesItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RetainFamiliarActivities}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRetainFamiliarActivitiesAdapter() {
-        if (retainFamiliarActivitiesItemProvider == null) {
-            retainFamiliarActivitiesItemProvider = new RetainFamiliarActivitiesItemProvider(this);
-        }
-
-        return retainFamiliarActivitiesItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.Retry} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RetryItemProvider retryItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.Retry}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRetryAdapter() {
-        if (retryItemProvider == null) {
-            retryItemProvider = new RetryItemProvider(this);
-        }
-
-        return retryItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ScriptInformation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ScriptInformationItemProvider scriptInformationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ScriptInformation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createScriptInformationAdapter() {
-        if (scriptInformationItemProvider == null) {
-            scriptInformationItemProvider = new ScriptInformationItemProvider(this);
-        }
-
-        return scriptInformationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.SeparationOfDutiesActivities} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected SeparationOfDutiesActivitiesItemProvider separationOfDutiesActivitiesItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.SeparationOfDutiesActivities}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createSeparationOfDutiesActivitiesAdapter() {
-        if (separationOfDutiesActivitiesItemProvider == null) {
-            separationOfDutiesActivitiesItemProvider = new SeparationOfDutiesActivitiesItemProvider(this);
-        }
-
-        return separationOfDutiesActivitiesItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.SignalData} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected SignalDataItemProvider signalDataItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.SignalData}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createSignalDataAdapter() {
-        if (signalDataItemProvider == null) {
-            signalDataItemProvider = new SignalDataItemProvider(this);
-        }
-
-        return signalDataItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.StartMethod} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected StartMethodItemProvider startMethodItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.StartMethod}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createStartMethodAdapter() {
-        if (startMethodItemProvider == null) {
-            startMethodItemProvider = new StartMethodItemProvider(this);
-        }
-
-        return startMethodItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.StructuredDiscriminator} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected StructuredDiscriminatorItemProvider structuredDiscriminatorItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.StructuredDiscriminator}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createStructuredDiscriminatorAdapter() {
-        if (structuredDiscriminatorItemProvider == null) {
-            structuredDiscriminatorItemProvider = new StructuredDiscriminatorItemProvider(this);
-        }
-
-        return structuredDiscriminatorItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.TaskLibraryReference} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected TaskLibraryReferenceItemProvider taskLibraryReferenceItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.TaskLibraryReference}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createTaskLibraryReferenceAdapter() {
-        if (taskLibraryReferenceItemProvider == null) {
-            taskLibraryReferenceItemProvider = new TaskLibraryReferenceItemProvider(this);
-        }
-
-        return taskLibraryReferenceItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.TransformScript} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected TransformScriptItemProvider transformScriptItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.TransformScript}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createTransformScriptAdapter() {
-        if (transformScriptItemProvider == null) {
-            transformScriptItemProvider = new TransformScriptItemProvider(this);
-        }
-
-        return transformScriptItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.UserTaskScripts} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected UserTaskScriptsItemProvider userTaskScriptsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.UserTaskScripts}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createUserTaskScriptsAdapter() {
-        if (userTaskScriptsItemProvider == null) {
-            userTaskScriptsItemProvider = new UserTaskScriptsItemProvider(this);
-        }
-
-        return userTaskScriptsItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ValidationControl} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ValidationControlItemProvider validationControlItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ValidationControl}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createValidationControlAdapter() {
-        if (validationControlItemProvider == null) {
-            validationControlItemProvider = new ValidationControlItemProvider(this);
-        }
-
-        return validationControlItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ValidationIssueOverride} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ValidationIssueOverrideItemProvider validationIssueOverrideItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ValidationIssueOverride}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createValidationIssueOverrideAdapter() {
-        if (validationIssueOverrideItemProvider == null) {
-            validationIssueOverrideItemProvider = new ValidationIssueOverrideItemProvider(this);
-        }
-
-        return validationIssueOverrideItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsdlEventAssociation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsdlEventAssociationItemProvider wsdlEventAssociationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsdlEventAssociation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsdlEventAssociationAdapter() {
-        if (wsdlEventAssociationItemProvider == null) {
-            wsdlEventAssociationItemProvider = new WsdlEventAssociationItemProvider(this);
-        }
-
-        return wsdlEventAssociationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WorkItemPriority} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WorkItemPriorityItemProvider workItemPriorityItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WorkItemPriority}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWorkItemPriorityAdapter() {
-        if (workItemPriorityItemProvider == null) {
-            workItemPriorityItemProvider = new WorkItemPriorityItemProvider(this);
-        }
-
-        return workItemPriorityItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.XpdExtDataObjectAttributes} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected XpdExtDataObjectAttributesItemProvider xpdExtDataObjectAttributesItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.XpdExtDataObjectAttributes}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createXpdExtDataObjectAttributesAdapter() {
-        if (xpdExtDataObjectAttributesItemProvider == null) {
-            xpdExtDataObjectAttributesItemProvider = new XpdExtDataObjectAttributesItemProvider(this);
-        }
-
-        return xpdExtDataObjectAttributesItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.XpdExtProperty} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected XpdExtPropertyItemProvider xpdExtPropertyItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.XpdExtProperty}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createXpdExtPropertyAdapter() {
-        if (xpdExtPropertyItemProvider == null) {
-            xpdExtPropertyItemProvider = new XpdExtPropertyItemProvider(this);
-        }
-
-        return xpdExtPropertyItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.XpdExtAttribute} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected XpdExtAttributeItemProvider xpdExtAttributeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.XpdExtAttribute}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createXpdExtAttributeAdapter() {
-        if (xpdExtAttributeItemProvider == null) {
-            xpdExtAttributeItemProvider = new XpdExtAttributeItemProvider(this);
-        }
-
-        return xpdExtAttributeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.XpdExtAttributes} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected XpdExtAttributesItemProvider xpdExtAttributesItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.XpdExtAttributes}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createXpdExtAttributesAdapter() {
-        if (xpdExtAttributesItemProvider == null) {
-            xpdExtAttributesItemProvider = new XpdExtAttributesItemProvider(this);
-        }
-
-        return xpdExtAttributesItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.UpdateCaseOperationType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected UpdateCaseOperationTypeItemProvider updateCaseOperationTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.UpdateCaseOperationType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createUpdateCaseOperationTypeAdapter() {
-        if (updateCaseOperationTypeItemProvider == null) {
-            updateCaseOperationTypeItemProvider = new UpdateCaseOperationTypeItemProvider(this);
-        }
-
-        return updateCaseOperationTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AddLinkAssociationsType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected AddLinkAssociationsTypeItemProvider addLinkAssociationsTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AddLinkAssociationsType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createAddLinkAssociationsTypeAdapter() {
-        if (addLinkAssociationsTypeItemProvider == null) {
-            addLinkAssociationsTypeItemProvider = new AddLinkAssociationsTypeItemProvider(this);
-        }
-
-        return addLinkAssociationsTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RemoveLinkAssociationsType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RemoveLinkAssociationsTypeItemProvider removeLinkAssociationsTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RemoveLinkAssociationsType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRemoveLinkAssociationsTypeAdapter() {
-        if (removeLinkAssociationsTypeItemProvider == null) {
-            removeLinkAssociationsTypeItemProvider = new RemoveLinkAssociationsTypeItemProvider(this);
-        }
-
-        return removeLinkAssociationsTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RemoveAllLinksByNameTypeItemProvider removeAllLinksByNameTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRemoveAllLinksByNameTypeAdapter() {
-        if (removeAllLinksByNameTypeItemProvider == null) {
-            removeAllLinksByNameTypeItemProvider = new RemoveAllLinksByNameTypeItemProvider(this);
-        }
-
-        return removeAllLinksByNameTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CaseReferenceOperationsType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CaseReferenceOperationsTypeItemProvider caseReferenceOperationsTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CaseReferenceOperationsType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCaseReferenceOperationsTypeAdapter() {
-        if (caseReferenceOperationsTypeItemProvider == null) {
-            caseReferenceOperationsTypeItemProvider = new CaseReferenceOperationsTypeItemProvider(this);
-        }
-
-        return caseReferenceOperationsTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.GlobalDataOperation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected GlobalDataOperationItemProvider globalDataOperationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.GlobalDataOperation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createGlobalDataOperationAdapter() {
-        if (globalDataOperationItemProvider == null) {
-            globalDataOperationItemProvider = new GlobalDataOperationItemProvider(this);
-        }
-
-        return globalDataOperationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DeleteByCaseIdentifierType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DeleteByCaseIdentifierTypeItemProvider deleteByCaseIdentifierTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DeleteByCaseIdentifierType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDeleteByCaseIdentifierTypeAdapter() {
-        if (deleteByCaseIdentifierTypeItemProvider == null) {
-            deleteByCaseIdentifierTypeItemProvider = new DeleteByCaseIdentifierTypeItemProvider(this);
-        }
-
-        return deleteByCaseIdentifierTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CompositeIdentifierType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CompositeIdentifierTypeItemProvider compositeIdentifierTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CompositeIdentifierType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCompositeIdentifierTypeAdapter() {
-        if (compositeIdentifierTypeItemProvider == null) {
-            compositeIdentifierTypeItemProvider = new CompositeIdentifierTypeItemProvider(this);
-        }
-
-        return compositeIdentifierTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DeleteCaseReferenceOperationType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DeleteCaseReferenceOperationTypeItemProvider deleteCaseReferenceOperationTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DeleteCaseReferenceOperationType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDeleteCaseReferenceOperationTypeAdapter() {
-        if (deleteCaseReferenceOperationTypeItemProvider == null) {
-            deleteCaseReferenceOperationTypeItemProvider = new DeleteCaseReferenceOperationTypeItemProvider(this);
-        }
-
-        return deleteCaseReferenceOperationTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DeleteByCompositeIdentifiersType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DeleteByCompositeIdentifiersTypeItemProvider deleteByCompositeIdentifiersTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DeleteByCompositeIdentifiersType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDeleteByCompositeIdentifiersTypeAdapter() {
-        if (deleteByCompositeIdentifiersTypeItemProvider == null) {
-            deleteByCompositeIdentifiersTypeItemProvider = new DeleteByCompositeIdentifiersTypeItemProvider(this);
-        }
-
-        return deleteByCompositeIdentifiersTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CreateCaseOperationType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CreateCaseOperationTypeItemProvider createCaseOperationTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CreateCaseOperationType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCreateCaseOperationTypeAdapter() {
-        if (createCaseOperationTypeItemProvider == null) {
-            createCaseOperationTypeItemProvider = new CreateCaseOperationTypeItemProvider(this);
-        }
-
-        return createCaseOperationTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CaseAccessOperationsType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CaseAccessOperationsTypeItemProvider caseAccessOperationsTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CaseAccessOperationsType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCaseAccessOperationsTypeAdapter() {
-        if (caseAccessOperationsTypeItemProvider == null) {
-            caseAccessOperationsTypeItemProvider = new CaseAccessOperationsTypeItemProvider(this);
-        }
-
-        return caseAccessOperationsTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DataWorkItemAttributeMapping} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DataWorkItemAttributeMappingItemProvider dataWorkItemAttributeMappingItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DataWorkItemAttributeMapping}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDataWorkItemAttributeMappingAdapter() {
-        if (dataWorkItemAttributeMappingItemProvider == null) {
-            dataWorkItemAttributeMappingItemProvider = new DataWorkItemAttributeMappingItemProvider(this);
-        }
-
-        return dataWorkItemAttributeMappingItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ProcessDataWorkItemAttributeMappings} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ProcessDataWorkItemAttributeMappingsItemProvider processDataWorkItemAttributeMappingsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ProcessDataWorkItemAttributeMappings}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createProcessDataWorkItemAttributeMappingsAdapter() {
-        if (processDataWorkItemAttributeMappingsItemProvider == null) {
-            processDataWorkItemAttributeMappingsItemProvider =
-                    new ProcessDataWorkItemAttributeMappingsItemProvider(this);
-        }
-
-        return processDataWorkItemAttributeMappingsItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.BpmRuntimeConfiguration} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected BpmRuntimeConfigurationItemProvider bpmRuntimeConfigurationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.BpmRuntimeConfiguration}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createBpmRuntimeConfigurationAdapter() {
-        if (bpmRuntimeConfigurationItemProvider == null) {
-            bpmRuntimeConfigurationItemProvider = new BpmRuntimeConfigurationItemProvider(this);
-        }
-
-        return bpmRuntimeConfigurationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.EnablementType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected EnablementTypeItemProvider enablementTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.EnablementType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createEnablementTypeAdapter() {
-        if (enablementTypeItemProvider == null) {
-            enablementTypeItemProvider = new EnablementTypeItemProvider(this);
-        }
-
-        return enablementTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.InitializerActivitiesType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected InitializerActivitiesTypeItemProvider initializerActivitiesTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.InitializerActivitiesType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createInitializerActivitiesTypeAdapter() {
-        if (initializerActivitiesTypeItemProvider == null) {
-            initializerActivitiesTypeItemProvider = new InitializerActivitiesTypeItemProvider(this);
-        }
-
-        return initializerActivitiesTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AdHocTaskConfigurationType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected AdHocTaskConfigurationTypeItemProvider adHocTaskConfigurationTypeItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AdHocTaskConfigurationType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createAdHocTaskConfigurationTypeAdapter() {
-        if (adHocTaskConfigurationTypeItemProvider == null) {
-            adHocTaskConfigurationTypeItemProvider = new AdHocTaskConfigurationTypeItemProvider(this);
-        }
-
-        return adHocTaskConfigurationTypeItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RequiredAccessPrivileges} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RequiredAccessPrivilegesItemProvider requiredAccessPrivilegesItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RequiredAccessPrivileges}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRequiredAccessPrivilegesAdapter() {
-        if (requiredAccessPrivilegesItemProvider == null) {
-            requiredAccessPrivilegesItemProvider = new RequiredAccessPrivilegesItemProvider(this);
-        }
-
-        return requiredAccessPrivilegesItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.VisibleForCaseStates} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected VisibleForCaseStatesItemProvider visibleForCaseStatesItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.VisibleForCaseStates}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createVisibleForCaseStatesAdapter() {
-        if (visibleForCaseStatesItemProvider == null) {
-            visibleForCaseStatesItemProvider = new VisibleForCaseStatesItemProvider(this);
-        }
-
-        return visibleForCaseStatesItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CaseService} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CaseServiceItemProvider caseServiceItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CaseService}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCaseServiceAdapter() {
-        if (caseServiceItemProvider == null) {
-            caseServiceItemProvider = new CaseServiceItemProvider(this);
-        }
-
-        return caseServiceItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DocumentOperation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DocumentOperationItemProvider documentOperationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DocumentOperation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDocumentOperationAdapter() {
-        if (documentOperationItemProvider == null) {
-            documentOperationItemProvider = new DocumentOperationItemProvider(this);
-        }
-
-        return documentOperationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CaseDocRefOperations} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CaseDocRefOperationsItemProvider caseDocRefOperationsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CaseDocRefOperations}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCaseDocRefOperationsAdapter() {
-        if (caseDocRefOperationsItemProvider == null) {
-            caseDocRefOperationsItemProvider = new CaseDocRefOperationsItemProvider(this);
-        }
-
-        return caseDocRefOperationsItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CaseDocFindOperations} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CaseDocFindOperationsItemProvider caseDocFindOperationsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CaseDocFindOperations}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCaseDocFindOperationsAdapter() {
-        if (caseDocFindOperationsItemProvider == null) {
-            caseDocFindOperationsItemProvider = new CaseDocFindOperationsItemProvider(this);
-        }
-
-        return caseDocFindOperationsItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.MoveCaseDocOperation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected MoveCaseDocOperationItemProvider moveCaseDocOperationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.MoveCaseDocOperation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createMoveCaseDocOperationAdapter() {
-        if (moveCaseDocOperationItemProvider == null) {
-            moveCaseDocOperationItemProvider = new MoveCaseDocOperationItemProvider(this);
-        }
-
-        return moveCaseDocOperationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.UnlinkCaseDocOperation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected UnlinkCaseDocOperationItemProvider unlinkCaseDocOperationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.UnlinkCaseDocOperation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createUnlinkCaseDocOperationAdapter() {
-        if (unlinkCaseDocOperationItemProvider == null) {
-            unlinkCaseDocOperationItemProvider = new UnlinkCaseDocOperationItemProvider(this);
-        }
-
-        return unlinkCaseDocOperationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.LinkCaseDocOperation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected LinkCaseDocOperationItemProvider linkCaseDocOperationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.LinkCaseDocOperation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createLinkCaseDocOperationAdapter() {
-        if (linkCaseDocOperationItemProvider == null) {
-            linkCaseDocOperationItemProvider = new LinkCaseDocOperationItemProvider(this);
-        }
-
-        return linkCaseDocOperationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.LinkSystemDocumentOperation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected LinkSystemDocumentOperationItemProvider linkSystemDocumentOperationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.LinkSystemDocumentOperation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createLinkSystemDocumentOperationAdapter() {
-        if (linkSystemDocumentOperationItemProvider == null) {
-            linkSystemDocumentOperationItemProvider = new LinkSystemDocumentOperationItemProvider(this);
-        }
-
-        return linkSystemDocumentOperationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DeleteCaseDocOperation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DeleteCaseDocOperationItemProvider deleteCaseDocOperationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DeleteCaseDocOperation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDeleteCaseDocOperationAdapter() {
-        if (deleteCaseDocOperationItemProvider == null) {
-            deleteCaseDocOperationItemProvider = new DeleteCaseDocOperationItemProvider(this);
-        }
-
-        return deleteCaseDocOperationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.FindByFileNameOperation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected FindByFileNameOperationItemProvider findByFileNameOperationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.FindByFileNameOperation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createFindByFileNameOperationAdapter() {
-        if (findByFileNameOperationItemProvider == null) {
-            findByFileNameOperationItemProvider = new FindByFileNameOperationItemProvider(this);
-        }
-
-        return findByFileNameOperationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.FindByQueryOperation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected FindByQueryOperationItemProvider findByQueryOperationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.FindByQueryOperation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createFindByQueryOperationAdapter() {
-        if (findByQueryOperationItemProvider == null) {
-            findByQueryOperationItemProvider = new FindByQueryOperationItemProvider(this);
-        }
-
-        return findByQueryOperationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CaseDocumentQueryExpression} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CaseDocumentQueryExpressionItemProvider caseDocumentQueryExpressionItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CaseDocumentQueryExpression}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCaseDocumentQueryExpressionAdapter() {
-        if (caseDocumentQueryExpressionItemProvider == null) {
-            caseDocumentQueryExpressionItemProvider = new CaseDocumentQueryExpressionItemProvider(this);
-        }
-
-        return caseDocumentQueryExpressionItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ServiceProcessConfiguration} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ServiceProcessConfigurationItemProvider serviceProcessConfigurationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ServiceProcessConfiguration}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createServiceProcessConfigurationAdapter() {
-        if (serviceProcessConfigurationItemProvider == null) {
-            serviceProcessConfigurationItemProvider = new ServiceProcessConfigurationItemProvider(this);
-        }
-
-        return serviceProcessConfigurationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ScriptDataMapper} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ScriptDataMapperItemProvider scriptDataMapperItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ScriptDataMapper}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createScriptDataMapperAdapter() {
-        if (scriptDataMapperItemProvider == null) {
-            scriptDataMapperItemProvider = new ScriptDataMapperItemProvider(this);
-        }
-
-        return scriptDataMapperItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DataMapperArrayInflation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DataMapperArrayInflationItemProvider dataMapperArrayInflationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DataMapperArrayInflation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDataMapperArrayInflationAdapter() {
-        if (dataMapperArrayInflationItemProvider == null) {
-            dataMapperArrayInflationItemProvider = new DataMapperArrayInflationItemProvider(this);
-        }
-
-        return dataMapperArrayInflationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.LikeMappingExclusion} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected LikeMappingExclusionItemProvider likeMappingExclusionItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.LikeMappingExclusion}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createLikeMappingExclusionAdapter() {
-        if (likeMappingExclusionItemProvider == null) {
-            likeMappingExclusionItemProvider = new LikeMappingExclusionItemProvider(this);
-        }
-
-        return likeMappingExclusionItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.LikeMappingExclusions} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected LikeMappingExclusionsItemProvider likeMappingExclusionsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.LikeMappingExclusions}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createLikeMappingExclusionsAdapter() {
-        if (likeMappingExclusionsItemProvider == null) {
-            likeMappingExclusionsItemProvider = new LikeMappingExclusionsItemProvider(this);
-        }
-
-        return likeMappingExclusionsItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RestServiceOperation} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RestServiceOperationItemProvider restServiceOperationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RestServiceOperation}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRestServiceOperationAdapter() {
-        if (restServiceOperationItemProvider == null) {
-            restServiceOperationItemProvider = new RestServiceOperationItemProvider(this);
-        }
-
-        return restServiceOperationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RESTServices} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RESTServicesItemProvider restServicesItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RESTServices}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRESTServicesAdapter() {
-        if (restServicesItemProvider == null) {
-            restServicesItemProvider = new RESTServicesItemProvider(this);
-        }
-
-        return restServicesItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RestServiceResource} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RestServiceResourceItemProvider restServiceResourceItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RestServiceResource}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRestServiceResourceAdapter() {
-        if (restServiceResourceItemProvider == null) {
-            restServiceResourceItemProvider = new RestServiceResourceItemProvider(this);
-        }
-
-        return restServiceResourceItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RestServiceResourceSecurity} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RestServiceResourceSecurityItemProvider restServiceResourceSecurityItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RestServiceResourceSecurity}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRestServiceResourceSecurityAdapter() {
-        if (restServiceResourceSecurityItemProvider == null) {
-            restServiceResourceSecurityItemProvider = new RestServiceResourceSecurityItemProvider(this);
-        }
-
-        return restServiceResourceSecurityItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsdlGeneration} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsdlGenerationItemProvider wsdlGenerationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsdlGeneration}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsdlGenerationAdapter() {
-        if (wsdlGenerationItemProvider == null) {
-            wsdlGenerationItemProvider = new WsdlGenerationItemProvider(this);
-        }
-
-        return wsdlGenerationItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.EmailResource} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected EmailResourceItemProvider emailResourceItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.EmailResource}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createEmailResourceAdapter() {
-        if (emailResourceItemProvider == null) {
-            emailResourceItemProvider = new EmailResourceItemProvider(this);
-        }
-
-        return emailResourceItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.JdbcResource} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected JdbcResourceItemProvider jdbcResourceItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.JdbcResource}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createJdbcResourceAdapter() {
-        if (jdbcResourceItemProvider == null) {
-            jdbcResourceItemProvider = new JdbcResourceItemProvider(this);
-        }
-
-        return jdbcResourceItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ParticipantSharedResource} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ParticipantSharedResourceItemProvider participantSharedResourceItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ParticipantSharedResource}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createParticipantSharedResourceAdapter() {
-        if (participantSharedResourceItemProvider == null) {
-            participantSharedResourceItemProvider = new ParticipantSharedResourceItemProvider(this);
-        }
-
-        return participantSharedResourceItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsBinding} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsBindingItemProvider wsBindingItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsBinding}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsBindingAdapter() {
-        if (wsBindingItemProvider == null) {
-            wsBindingItemProvider = new WsBindingItemProvider(this);
-        }
-
-        return wsBindingItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsInbound} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsInboundItemProvider wsInboundItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsInbound}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsInboundAdapter() {
-        if (wsInboundItemProvider == null) {
-            wsInboundItemProvider = new WsInboundItemProvider(this);
-        }
-
-        return wsInboundItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsOutbound} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsOutboundItemProvider wsOutboundItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsOutbound}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsOutboundAdapter() {
-        if (wsOutboundItemProvider == null) {
-            wsOutboundItemProvider = new WsOutboundItemProvider(this);
-        }
-
-        return wsOutboundItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsResource} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsResourceItemProvider wsResourceItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsResource}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsResourceAdapter() {
-        if (wsResourceItemProvider == null) {
-            wsResourceItemProvider = new WsResourceItemProvider(this);
-        }
-
-        return wsResourceItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSecurityPolicy} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsSecurityPolicyItemProvider wsSecurityPolicyItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSecurityPolicy}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsSecurityPolicyAdapter() {
-        if (wsSecurityPolicyItemProvider == null) {
-            wsSecurityPolicyItemProvider = new WsSecurityPolicyItemProvider(this);
-        }
-
-        return wsSecurityPolicyItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSoapBinding} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsSoapBindingItemProvider wsSoapBindingItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSoapBinding}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsSoapBindingAdapter() {
-        if (wsSoapBindingItemProvider == null) {
-            wsSoapBindingItemProvider = new WsSoapBindingItemProvider(this);
-        }
-
-        return wsSoapBindingItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSoapHttpInboundBinding} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsSoapHttpInboundBindingItemProvider wsSoapHttpInboundBindingItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSoapHttpInboundBinding}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsSoapHttpInboundBindingAdapter() {
-        if (wsSoapHttpInboundBindingItemProvider == null) {
-            wsSoapHttpInboundBindingItemProvider = new WsSoapHttpInboundBindingItemProvider(this);
-        }
-
-        return wsSoapHttpInboundBindingItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSoapHttpOutboundBinding} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsSoapHttpOutboundBindingItemProvider wsSoapHttpOutboundBindingItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSoapHttpOutboundBinding}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsSoapHttpOutboundBindingAdapter() {
-        if (wsSoapHttpOutboundBindingItemProvider == null) {
-            wsSoapHttpOutboundBindingItemProvider = new WsSoapHttpOutboundBindingItemProvider(this);
-        }
-
-        return wsSoapHttpOutboundBindingItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSoapJmsInboundBinding} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsSoapJmsInboundBindingItemProvider wsSoapJmsInboundBindingItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSoapJmsInboundBinding}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsSoapJmsInboundBindingAdapter() {
-        if (wsSoapJmsInboundBindingItemProvider == null) {
-            wsSoapJmsInboundBindingItemProvider = new WsSoapJmsInboundBindingItemProvider(this);
-        }
-
-        return wsSoapJmsInboundBindingItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSoapJmsOutboundBinding} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsSoapJmsOutboundBindingItemProvider wsSoapJmsOutboundBindingItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSoapJmsOutboundBinding}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsSoapJmsOutboundBindingAdapter() {
-        if (wsSoapJmsOutboundBindingItemProvider == null) {
-            wsSoapJmsOutboundBindingItemProvider = new WsSoapJmsOutboundBindingItemProvider(this);
-        }
-
-        return wsSoapJmsOutboundBindingItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSoapSecurity} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsSoapSecurityItemProvider wsSoapSecurityItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSoapSecurity}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsSoapSecurityAdapter() {
-        if (wsSoapSecurityItemProvider == null) {
-            wsSoapSecurityItemProvider = new WsSoapSecurityItemProvider(this);
-        }
-
-        return wsSoapSecurityItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsVirtualBinding} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsVirtualBindingItemProvider wsVirtualBindingItemProvider;
-
-    /**
-     * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsVirtualBinding}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWsVirtualBindingAdapter() {
-        if (wsVirtualBindingItemProvider == null) {
-            wsVirtualBindingItemProvider = new WsVirtualBindingItemProvider(this);
-        }
-
-        return wsVirtualBindingItemProvider;
-    }
-
-    /**
-     * This returns the root adapter factory that contains this factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
-    }
-
-    /**
-     * This sets the composed adapter factory that contains this factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
-        this.parentAdapterFactory = parentAdapterFactory;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isFactoryForType(Object type) {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
-    }
-
-    /**
-     * This implementation substitutes the factory itself as the key for the adapter.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter adapt(Notifier notifier, Object type) {
-        return super.adapt(notifier, this);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object adapt(Object object, Object type) {
-        if (isFactoryForType(type)) {
-            Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
-                return adapter;
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * This adds a listener.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void addListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.addListener(notifyChangedListener);
-    }
-
-    /**
-     * This removes a listener.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void removeListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.removeListener(notifyChangedListener);
-    }
-
-    /**
-     * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void fireNotifyChanged(Notification notification) {
-        changeNotifier.fireNotifyChanged(notification);
-
-        if (parentAdapterFactory != null) {
-            parentAdapterFactory.fireNotifyChanged(notification);
-        }
-    }
-
-    /**
-     * This disposes all of the item providers created by this factory. 
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void dispose() {
-        if (activityRefItemProvider != null)
-            activityRefItemProvider.dispose();
-        if (activityResourcePatternsItemProvider != null)
-            activityResourcePatternsItemProvider.dispose();
-        if (allocationStrategyItemProvider != null)
-            allocationStrategyItemProvider.dispose();
-        if (associatedCorrelationFieldsItemProvider != null)
-            associatedCorrelationFieldsItemProvider.dispose();
-        if (associatedCorrelationFieldItemProvider != null)
-            associatedCorrelationFieldItemProvider.dispose();
-        if (associatedParameterItemProvider != null)
-            associatedParameterItemProvider.dispose();
-        if (associatedParametersItemProvider != null)
-            associatedParametersItemProvider.dispose();
-        if (auditItemProvider != null)
-            auditItemProvider.dispose();
-        if (auditEventItemProvider != null)
-            auditEventItemProvider.dispose();
-        if (businessProcessItemProvider != null)
-            businessProcessItemProvider.dispose();
-        if (calendarReferenceItemProvider != null)
-            calendarReferenceItemProvider.dispose();
-        if (catchErrorMappingsItemProvider != null)
-            catchErrorMappingsItemProvider.dispose();
-        if (constantPeriodItemProvider != null)
-            constantPeriodItemProvider.dispose();
-        if (conditionalParticipantItemProvider != null)
-            conditionalParticipantItemProvider.dispose();
-        if (replyImmediateDataMappingsItemProvider != null)
-            replyImmediateDataMappingsItemProvider.dispose();
-        if (correlationDataMappingsItemProvider != null)
-            correlationDataMappingsItemProvider.dispose();
-        if (discriminatorItemProvider != null)
-            discriminatorItemProvider.dispose();
-        if (documentRootItemProvider != null)
-            documentRootItemProvider.dispose();
-        if (durationCalculationItemProvider != null)
-            durationCalculationItemProvider.dispose();
-        if (dynamicOrganizationMappingsItemProvider != null)
-            dynamicOrganizationMappingsItemProvider.dispose();
-        if (dynamicOrganizationMappingItemProvider != null)
-            dynamicOrganizationMappingItemProvider.dispose();
-        if (dynamicOrgIdentifierRefItemProvider != null)
-            dynamicOrgIdentifierRefItemProvider.dispose();
-        if (emailResourceItemProvider != null)
-            emailResourceItemProvider.dispose();
-        if (errorMethodItemProvider != null)
-            errorMethodItemProvider.dispose();
-        if (errorThrowerInfoItemProvider != null)
-            errorThrowerInfoItemProvider.dispose();
-        if (eventHandlerInitialisersItemProvider != null)
-            eventHandlerInitialisersItemProvider.dispose();
-        if (faultMessageItemProvider != null)
-            faultMessageItemProvider.dispose();
-        if (formImplementationItemProvider != null)
-            formImplementationItemProvider.dispose();
-        if (implementedInterfaceItemProvider != null)
-            implementedInterfaceItemProvider.dispose();
-        if (initialValuesItemProvider != null)
-            initialValuesItemProvider.dispose();
-        if (initialParameterValueItemProvider != null)
-            initialParameterValueItemProvider.dispose();
-        if (intermediateMethodItemProvider != null)
-            intermediateMethodItemProvider.dispose();
-        if (jdbcResourceItemProvider != null)
-            jdbcResourceItemProvider.dispose();
-        if (multiInstanceScriptsItemProvider != null)
-            multiInstanceScriptsItemProvider.dispose();
-        if (namespacePrefixMapItemProvider != null)
-            namespacePrefixMapItemProvider.dispose();
-        if (namespaceMapEntryItemProvider != null)
-            namespaceMapEntryItemProvider.dispose();
-        if (participantSharedResourceItemProvider != null)
-            participantSharedResourceItemProvider.dispose();
-        if (pilingInfoItemProvider != null)
-            pilingInfoItemProvider.dispose();
-        if (portTypeOperationItemProvider != null)
-            portTypeOperationItemProvider.dispose();
-        if (processInterfaceItemProvider != null)
-            processInterfaceItemProvider.dispose();
-        if (processInterfacesItemProvider != null)
-            processInterfacesItemProvider.dispose();
-        if (processResourcePatternsItemProvider != null)
-            processResourcePatternsItemProvider.dispose();
-        if (rescheduleTimerScriptItemProvider != null)
-            rescheduleTimerScriptItemProvider.dispose();
-        if (rescheduleTimersItemProvider != null)
-            rescheduleTimersItemProvider.dispose();
-        if (restServicesItemProvider != null)
-            restServicesItemProvider.dispose();
-        if (restServiceResourceItemProvider != null)
-            restServiceResourceItemProvider.dispose();
-        if (restServiceResourceSecurityItemProvider != null)
-            restServiceResourceSecurityItemProvider.dispose();
-        if (retainFamiliarActivitiesItemProvider != null)
-            retainFamiliarActivitiesItemProvider.dispose();
-        if (retryItemProvider != null)
-            retryItemProvider.dispose();
-        if (scriptInformationItemProvider != null)
-            scriptInformationItemProvider.dispose();
-        if (separationOfDutiesActivitiesItemProvider != null)
-            separationOfDutiesActivitiesItemProvider.dispose();
-        if (signalDataItemProvider != null)
-            signalDataItemProvider.dispose();
-        if (startMethodItemProvider != null)
-            startMethodItemProvider.dispose();
-        if (structuredDiscriminatorItemProvider != null)
-            structuredDiscriminatorItemProvider.dispose();
-        if (taskLibraryReferenceItemProvider != null)
-            taskLibraryReferenceItemProvider.dispose();
-        if (transformScriptItemProvider != null)
-            transformScriptItemProvider.dispose();
-        if (userTaskScriptsItemProvider != null)
-            userTaskScriptsItemProvider.dispose();
-        if (validationControlItemProvider != null)
-            validationControlItemProvider.dispose();
-        if (validationIssueOverrideItemProvider != null)
-            validationIssueOverrideItemProvider.dispose();
-        if (wsdlEventAssociationItemProvider != null)
-            wsdlEventAssociationItemProvider.dispose();
-        if (workItemPriorityItemProvider != null)
-            workItemPriorityItemProvider.dispose();
-        if (wsdlGenerationItemProvider != null)
-            wsdlGenerationItemProvider.dispose();
-        if (wsBindingItemProvider != null)
-            wsBindingItemProvider.dispose();
-        if (wsInboundItemProvider != null)
-            wsInboundItemProvider.dispose();
-        if (wsOutboundItemProvider != null)
-            wsOutboundItemProvider.dispose();
-        if (wsResourceItemProvider != null)
-            wsResourceItemProvider.dispose();
-        if (wsSecurityPolicyItemProvider != null)
-            wsSecurityPolicyItemProvider.dispose();
-        if (wsSoapBindingItemProvider != null)
-            wsSoapBindingItemProvider.dispose();
-        if (wsSoapHttpInboundBindingItemProvider != null)
-            wsSoapHttpInboundBindingItemProvider.dispose();
-        if (wsSoapHttpOutboundBindingItemProvider != null)
-            wsSoapHttpOutboundBindingItemProvider.dispose();
-        if (wsSoapJmsInboundBindingItemProvider != null)
-            wsSoapJmsInboundBindingItemProvider.dispose();
-        if (wsSoapJmsOutboundBindingItemProvider != null)
-            wsSoapJmsOutboundBindingItemProvider.dispose();
-        if (wsSoapSecurityItemProvider != null)
-            wsSoapSecurityItemProvider.dispose();
-        if (wsVirtualBindingItemProvider != null)
-            wsVirtualBindingItemProvider.dispose();
-        if (xpdExtDataObjectAttributesItemProvider != null)
-            xpdExtDataObjectAttributesItemProvider.dispose();
-        if (xpdExtPropertyItemProvider != null)
-            xpdExtPropertyItemProvider.dispose();
-        if (xpdExtAttributeItemProvider != null)
-            xpdExtAttributeItemProvider.dispose();
-        if (xpdExtAttributesItemProvider != null)
-            xpdExtAttributesItemProvider.dispose();
-        if (updateCaseOperationTypeItemProvider != null)
-            updateCaseOperationTypeItemProvider.dispose();
-        if (addLinkAssociationsTypeItemProvider != null)
-            addLinkAssociationsTypeItemProvider.dispose();
-        if (removeLinkAssociationsTypeItemProvider != null)
-            removeLinkAssociationsTypeItemProvider.dispose();
-        if (removeAllLinksByNameTypeItemProvider != null)
-            removeAllLinksByNameTypeItemProvider.dispose();
-        if (caseReferenceOperationsTypeItemProvider != null)
-            caseReferenceOperationsTypeItemProvider.dispose();
-        if (globalDataOperationItemProvider != null)
-            globalDataOperationItemProvider.dispose();
-        if (deleteByCaseIdentifierTypeItemProvider != null)
-            deleteByCaseIdentifierTypeItemProvider.dispose();
-        if (compositeIdentifierTypeItemProvider != null)
-            compositeIdentifierTypeItemProvider.dispose();
-        if (deleteCaseReferenceOperationTypeItemProvider != null)
-            deleteCaseReferenceOperationTypeItemProvider.dispose();
-        if (deleteByCompositeIdentifiersTypeItemProvider != null)
-            deleteByCompositeIdentifiersTypeItemProvider.dispose();
-        if (createCaseOperationTypeItemProvider != null)
-            createCaseOperationTypeItemProvider.dispose();
-        if (caseAccessOperationsTypeItemProvider != null)
-            caseAccessOperationsTypeItemProvider.dispose();
-        if (dataWorkItemAttributeMappingItemProvider != null)
-            dataWorkItemAttributeMappingItemProvider.dispose();
-        if (processDataWorkItemAttributeMappingsItemProvider != null)
-            processDataWorkItemAttributeMappingsItemProvider.dispose();
-        if (bpmRuntimeConfigurationItemProvider != null)
-            bpmRuntimeConfigurationItemProvider.dispose();
-        if (enablementTypeItemProvider != null)
-            enablementTypeItemProvider.dispose();
-        if (initializerActivitiesTypeItemProvider != null)
-            initializerActivitiesTypeItemProvider.dispose();
-        if (adHocTaskConfigurationTypeItemProvider != null)
-            adHocTaskConfigurationTypeItemProvider.dispose();
-        if (requiredAccessPrivilegesItemProvider != null)
-            requiredAccessPrivilegesItemProvider.dispose();
-        if (visibleForCaseStatesItemProvider != null)
-            visibleForCaseStatesItemProvider.dispose();
-        if (caseServiceItemProvider != null)
-            caseServiceItemProvider.dispose();
-        if (documentOperationItemProvider != null)
-            documentOperationItemProvider.dispose();
-        if (caseDocRefOperationsItemProvider != null)
-            caseDocRefOperationsItemProvider.dispose();
-        if (caseDocFindOperationsItemProvider != null)
-            caseDocFindOperationsItemProvider.dispose();
-        if (moveCaseDocOperationItemProvider != null)
-            moveCaseDocOperationItemProvider.dispose();
-        if (unlinkCaseDocOperationItemProvider != null)
-            unlinkCaseDocOperationItemProvider.dispose();
-        if (linkCaseDocOperationItemProvider != null)
-            linkCaseDocOperationItemProvider.dispose();
-        if (linkSystemDocumentOperationItemProvider != null)
-            linkSystemDocumentOperationItemProvider.dispose();
-        if (deleteCaseDocOperationItemProvider != null)
-            deleteCaseDocOperationItemProvider.dispose();
-        if (findByFileNameOperationItemProvider != null)
-            findByFileNameOperationItemProvider.dispose();
-        if (findByQueryOperationItemProvider != null)
-            findByQueryOperationItemProvider.dispose();
-        if (caseDocumentQueryExpressionItemProvider != null)
-            caseDocumentQueryExpressionItemProvider.dispose();
-        if (serviceProcessConfigurationItemProvider != null)
-            serviceProcessConfigurationItemProvider.dispose();
-        if (scriptDataMapperItemProvider != null)
-            scriptDataMapperItemProvider.dispose();
-        if (dataMapperArrayInflationItemProvider != null)
-            dataMapperArrayInflationItemProvider.dispose();
-        if (likeMappingExclusionItemProvider != null)
-            likeMappingExclusionItemProvider.dispose();
-        if (likeMappingExclusionsItemProvider != null)
-            likeMappingExclusionsItemProvider.dispose();
-        if (restServiceOperationItemProvider != null)
-            restServiceOperationItemProvider.dispose();
-    }
+		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String			copyright		= "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved.";	//$NON-NLS-1$
+
+	/**
+	 * This keeps track of the root adapter factory that delegates to this adapter factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComposedAdapterFactory	parentAdapterFactory;
+
+	/**
+	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IChangeNotifier			changeNotifier	= new ChangeNotifier();
+
+	/**
+	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Collection<Object>		supportedTypes	= new ArrayList<Object>();
+
+	/**
+	 * This constructs an instance.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XpdExtensionItemProviderAdapterFactory()
+	{
+		supportedTypes.add(IEditingDomainItemProvider.class);
+		supportedTypes.add(IStructuredItemContentProvider.class);
+		supportedTypes.add(ITreeItemContentProvider.class);
+		supportedTypes.add(IItemLabelProvider.class);
+		supportedTypes.add(IItemPropertySource.class);
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ActivityRef} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActivityRefItemProvider activityRefItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ActivityRef}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActivityRefAdapter()
+	{
+		if (activityRefItemProvider == null)
+		{
+			activityRefItemProvider = new ActivityRefItemProvider(this);
+		}
+
+		return activityRefItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ActivityResourcePatterns} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActivityResourcePatternsItemProvider activityResourcePatternsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ActivityResourcePatterns}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActivityResourcePatternsAdapter()
+	{
+		if (activityResourcePatternsItemProvider == null)
+		{
+			activityResourcePatternsItemProvider = new ActivityResourcePatternsItemProvider(this);
+		}
+
+		return activityResourcePatternsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AllocationStrategy} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AllocationStrategyItemProvider allocationStrategyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AllocationStrategy}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAllocationStrategyAdapter()
+	{
+		if (allocationStrategyItemProvider == null)
+		{
+			allocationStrategyItemProvider = new AllocationStrategyItemProvider(this);
+		}
+
+		return allocationStrategyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AssociatedCorrelationFields} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AssociatedCorrelationFieldsItemProvider associatedCorrelationFieldsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AssociatedCorrelationFields}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAssociatedCorrelationFieldsAdapter()
+	{
+		if (associatedCorrelationFieldsItemProvider == null)
+		{
+			associatedCorrelationFieldsItemProvider = new AssociatedCorrelationFieldsItemProvider(this);
+		}
+
+		return associatedCorrelationFieldsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AssociatedCorrelationField} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AssociatedCorrelationFieldItemProvider associatedCorrelationFieldItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AssociatedCorrelationField}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAssociatedCorrelationFieldAdapter()
+	{
+		if (associatedCorrelationFieldItemProvider == null)
+		{
+			associatedCorrelationFieldItemProvider = new AssociatedCorrelationFieldItemProvider(this);
+		}
+
+		return associatedCorrelationFieldItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AssociatedParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AssociatedParameterItemProvider associatedParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AssociatedParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAssociatedParameterAdapter()
+	{
+		if (associatedParameterItemProvider == null)
+		{
+			associatedParameterItemProvider = new AssociatedParameterItemProvider(this);
+		}
+
+		return associatedParameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AssociatedParameters} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AssociatedParametersItemProvider associatedParametersItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AssociatedParameters}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAssociatedParametersAdapter()
+	{
+		if (associatedParametersItemProvider == null)
+		{
+			associatedParametersItemProvider = new AssociatedParametersItemProvider(this);
+		}
+
+		return associatedParametersItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.Audit} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AuditItemProvider auditItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.Audit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAuditAdapter()
+	{
+		if (auditItemProvider == null)
+		{
+			auditItemProvider = new AuditItemProvider(this);
+		}
+
+		return auditItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AuditEvent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AuditEventItemProvider auditEventItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AuditEvent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAuditEventAdapter()
+	{
+		if (auditEventItemProvider == null)
+		{
+			auditEventItemProvider = new AuditEventItemProvider(this);
+		}
+
+		return auditEventItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.BusinessProcess} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BusinessProcessItemProvider businessProcessItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.BusinessProcess}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBusinessProcessAdapter()
+	{
+		if (businessProcessItemProvider == null)
+		{
+			businessProcessItemProvider = new BusinessProcessItemProvider(this);
+		}
+
+		return businessProcessItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CalendarReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CalendarReferenceItemProvider calendarReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CalendarReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCalendarReferenceAdapter()
+	{
+		if (calendarReferenceItemProvider == null)
+		{
+			calendarReferenceItemProvider = new CalendarReferenceItemProvider(this);
+		}
+
+		return calendarReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CatchErrorMappings} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CatchErrorMappingsItemProvider catchErrorMappingsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CatchErrorMappings}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCatchErrorMappingsAdapter()
+	{
+		if (catchErrorMappingsItemProvider == null)
+		{
+			catchErrorMappingsItemProvider = new CatchErrorMappingsItemProvider(this);
+		}
+
+		return catchErrorMappingsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ConstantPeriod} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConstantPeriodItemProvider constantPeriodItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ConstantPeriod}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConstantPeriodAdapter()
+	{
+		if (constantPeriodItemProvider == null)
+		{
+			constantPeriodItemProvider = new ConstantPeriodItemProvider(this);
+		}
+
+		return constantPeriodItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ConditionalParticipant} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConditionalParticipantItemProvider conditionalParticipantItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ConditionalParticipant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConditionalParticipantAdapter()
+	{
+		if (conditionalParticipantItemProvider == null)
+		{
+			conditionalParticipantItemProvider = new ConditionalParticipantItemProvider(this);
+		}
+
+		return conditionalParticipantItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ReplyImmediateDataMappings} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ReplyImmediateDataMappingsItemProvider replyImmediateDataMappingsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ReplyImmediateDataMappings}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createReplyImmediateDataMappingsAdapter()
+	{
+		if (replyImmediateDataMappingsItemProvider == null)
+		{
+			replyImmediateDataMappingsItemProvider = new ReplyImmediateDataMappingsItemProvider(this);
+		}
+
+		return replyImmediateDataMappingsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CorrelationDataMappings} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CorrelationDataMappingsItemProvider correlationDataMappingsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CorrelationDataMappings}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCorrelationDataMappingsAdapter()
+	{
+		if (correlationDataMappingsItemProvider == null)
+		{
+			correlationDataMappingsItemProvider = new CorrelationDataMappingsItemProvider(this);
+		}
+
+		return correlationDataMappingsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.Discriminator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DiscriminatorItemProvider discriminatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.Discriminator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDiscriminatorAdapter()
+	{
+		if (discriminatorItemProvider == null)
+		{
+			discriminatorItemProvider = new DiscriminatorItemProvider(this);
+		}
+
+		return discriminatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DocumentRoot} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DocumentRootItemProvider documentRootItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DocumentRoot}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDocumentRootAdapter()
+	{
+		if (documentRootItemProvider == null)
+		{
+			documentRootItemProvider = new DocumentRootItemProvider(this);
+		}
+
+		return documentRootItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DurationCalculation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DurationCalculationItemProvider durationCalculationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DurationCalculation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDurationCalculationAdapter()
+	{
+		if (durationCalculationItemProvider == null)
+		{
+			durationCalculationItemProvider = new DurationCalculationItemProvider(this);
+		}
+
+		return durationCalculationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DynamicOrganizationMappings} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DynamicOrganizationMappingsItemProvider dynamicOrganizationMappingsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DynamicOrganizationMappings}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDynamicOrganizationMappingsAdapter()
+	{
+		if (dynamicOrganizationMappingsItemProvider == null)
+		{
+			dynamicOrganizationMappingsItemProvider = new DynamicOrganizationMappingsItemProvider(this);
+		}
+
+		return dynamicOrganizationMappingsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DynamicOrganizationMapping} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DynamicOrganizationMappingItemProvider dynamicOrganizationMappingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DynamicOrganizationMapping}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDynamicOrganizationMappingAdapter()
+	{
+		if (dynamicOrganizationMappingItemProvider == null)
+		{
+			dynamicOrganizationMappingItemProvider = new DynamicOrganizationMappingItemProvider(this);
+		}
+
+		return dynamicOrganizationMappingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DynamicOrgIdentifierRef} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DynamicOrgIdentifierRefItemProvider dynamicOrgIdentifierRefItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DynamicOrgIdentifierRef}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDynamicOrgIdentifierRefAdapter()
+	{
+		if (dynamicOrgIdentifierRefItemProvider == null)
+		{
+			dynamicOrgIdentifierRefItemProvider = new DynamicOrgIdentifierRefItemProvider(this);
+		}
+
+		return dynamicOrgIdentifierRefItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ErrorMethod} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ErrorMethodItemProvider errorMethodItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ErrorMethod}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createErrorMethodAdapter()
+	{
+		if (errorMethodItemProvider == null)
+		{
+			errorMethodItemProvider = new ErrorMethodItemProvider(this);
+		}
+
+		return errorMethodItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ErrorThrowerInfo} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ErrorThrowerInfoItemProvider errorThrowerInfoItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ErrorThrowerInfo}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createErrorThrowerInfoAdapter()
+	{
+		if (errorThrowerInfoItemProvider == null)
+		{
+			errorThrowerInfoItemProvider = new ErrorThrowerInfoItemProvider(this);
+		}
+
+		return errorThrowerInfoItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.EventHandlerInitialisers} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EventHandlerInitialisersItemProvider eventHandlerInitialisersItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.EventHandlerInitialisers}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEventHandlerInitialisersAdapter()
+	{
+		if (eventHandlerInitialisersItemProvider == null)
+		{
+			eventHandlerInitialisersItemProvider = new EventHandlerInitialisersItemProvider(this);
+		}
+
+		return eventHandlerInitialisersItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.FaultMessage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FaultMessageItemProvider faultMessageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.FaultMessage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFaultMessageAdapter()
+	{
+		if (faultMessageItemProvider == null)
+		{
+			faultMessageItemProvider = new FaultMessageItemProvider(this);
+		}
+
+		return faultMessageItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.FormImplementation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FormImplementationItemProvider formImplementationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.FormImplementation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFormImplementationAdapter()
+	{
+		if (formImplementationItemProvider == null)
+		{
+			formImplementationItemProvider = new FormImplementationItemProvider(this);
+		}
+
+		return formImplementationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ImplementedInterface} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImplementedInterfaceItemProvider implementedInterfaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ImplementedInterface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createImplementedInterfaceAdapter()
+	{
+		if (implementedInterfaceItemProvider == null)
+		{
+			implementedInterfaceItemProvider = new ImplementedInterfaceItemProvider(this);
+		}
+
+		return implementedInterfaceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.InitialValues} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InitialValuesItemProvider initialValuesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.InitialValues}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInitialValuesAdapter()
+	{
+		if (initialValuesItemProvider == null)
+		{
+			initialValuesItemProvider = new InitialValuesItemProvider(this);
+		}
+
+		return initialValuesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.InitialParameterValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InitialParameterValueItemProvider initialParameterValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.InitialParameterValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInitialParameterValueAdapter()
+	{
+		if (initialParameterValueItemProvider == null)
+		{
+			initialParameterValueItemProvider = new InitialParameterValueItemProvider(this);
+		}
+
+		return initialParameterValueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.IntermediateMethod} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntermediateMethodItemProvider intermediateMethodItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.IntermediateMethod}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntermediateMethodAdapter()
+	{
+		if (intermediateMethodItemProvider == null)
+		{
+			intermediateMethodItemProvider = new IntermediateMethodItemProvider(this);
+		}
+
+		return intermediateMethodItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.MultiInstanceScripts} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MultiInstanceScriptsItemProvider multiInstanceScriptsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.MultiInstanceScripts}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMultiInstanceScriptsAdapter()
+	{
+		if (multiInstanceScriptsItemProvider == null)
+		{
+			multiInstanceScriptsItemProvider = new MultiInstanceScriptsItemProvider(this);
+		}
+
+		return multiInstanceScriptsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.NamespacePrefixMap} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NamespacePrefixMapItemProvider namespacePrefixMapItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.NamespacePrefixMap}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNamespacePrefixMapAdapter()
+	{
+		if (namespacePrefixMapItemProvider == null)
+		{
+			namespacePrefixMapItemProvider = new NamespacePrefixMapItemProvider(this);
+		}
+
+		return namespacePrefixMapItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.NamespaceMapEntry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NamespaceMapEntryItemProvider namespaceMapEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.NamespaceMapEntry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNamespaceMapEntryAdapter()
+	{
+		if (namespaceMapEntryItemProvider == null)
+		{
+			namespaceMapEntryItemProvider = new NamespaceMapEntryItemProvider(this);
+		}
+
+		return namespaceMapEntryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.PilingInfo} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PilingInfoItemProvider pilingInfoItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.PilingInfo}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPilingInfoAdapter()
+	{
+		if (pilingInfoItemProvider == null)
+		{
+			pilingInfoItemProvider = new PilingInfoItemProvider(this);
+		}
+
+		return pilingInfoItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.PortTypeOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PortTypeOperationItemProvider portTypeOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.PortTypeOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPortTypeOperationAdapter()
+	{
+		if (portTypeOperationItemProvider == null)
+		{
+			portTypeOperationItemProvider = new PortTypeOperationItemProvider(this);
+		}
+
+		return portTypeOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ProcessInterface} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProcessInterfaceItemProvider processInterfaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ProcessInterface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProcessInterfaceAdapter()
+	{
+		if (processInterfaceItemProvider == null)
+		{
+			processInterfaceItemProvider = new ProcessInterfaceItemProvider(this);
+		}
+
+		return processInterfaceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ProcessInterfaces} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProcessInterfacesItemProvider processInterfacesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ProcessInterfaces}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProcessInterfacesAdapter()
+	{
+		if (processInterfacesItemProvider == null)
+		{
+			processInterfacesItemProvider = new ProcessInterfacesItemProvider(this);
+		}
+
+		return processInterfacesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ProcessResourcePatterns} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProcessResourcePatternsItemProvider processResourcePatternsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ProcessResourcePatterns}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProcessResourcePatternsAdapter()
+	{
+		if (processResourcePatternsItemProvider == null)
+		{
+			processResourcePatternsItemProvider = new ProcessResourcePatternsItemProvider(this);
+		}
+
+		return processResourcePatternsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RescheduleTimerScript} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RescheduleTimerScriptItemProvider rescheduleTimerScriptItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RescheduleTimerScript}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRescheduleTimerScriptAdapter()
+	{
+		if (rescheduleTimerScriptItemProvider == null)
+		{
+			rescheduleTimerScriptItemProvider = new RescheduleTimerScriptItemProvider(this);
+		}
+
+		return rescheduleTimerScriptItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RescheduleTimers} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RescheduleTimersItemProvider rescheduleTimersItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RescheduleTimers}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRescheduleTimersAdapter()
+	{
+		if (rescheduleTimersItemProvider == null)
+		{
+			rescheduleTimersItemProvider = new RescheduleTimersItemProvider(this);
+		}
+
+		return rescheduleTimersItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RetainFamiliarActivities} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RetainFamiliarActivitiesItemProvider retainFamiliarActivitiesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RetainFamiliarActivities}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRetainFamiliarActivitiesAdapter()
+	{
+		if (retainFamiliarActivitiesItemProvider == null)
+		{
+			retainFamiliarActivitiesItemProvider = new RetainFamiliarActivitiesItemProvider(this);
+		}
+
+		return retainFamiliarActivitiesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.Retry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RetryItemProvider retryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.Retry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRetryAdapter()
+	{
+		if (retryItemProvider == null)
+		{
+			retryItemProvider = new RetryItemProvider(this);
+		}
+
+		return retryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ScriptInformation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScriptInformationItemProvider scriptInformationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ScriptInformation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScriptInformationAdapter()
+	{
+		if (scriptInformationItemProvider == null)
+		{
+			scriptInformationItemProvider = new ScriptInformationItemProvider(this);
+		}
+
+		return scriptInformationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.SeparationOfDutiesActivities} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SeparationOfDutiesActivitiesItemProvider separationOfDutiesActivitiesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.SeparationOfDutiesActivities}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSeparationOfDutiesActivitiesAdapter()
+	{
+		if (separationOfDutiesActivitiesItemProvider == null)
+		{
+			separationOfDutiesActivitiesItemProvider = new SeparationOfDutiesActivitiesItemProvider(this);
+		}
+
+		return separationOfDutiesActivitiesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.SignalData} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SignalDataItemProvider signalDataItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.SignalData}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSignalDataAdapter()
+	{
+		if (signalDataItemProvider == null)
+		{
+			signalDataItemProvider = new SignalDataItemProvider(this);
+		}
+
+		return signalDataItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.StartMethod} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StartMethodItemProvider startMethodItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.StartMethod}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStartMethodAdapter()
+	{
+		if (startMethodItemProvider == null)
+		{
+			startMethodItemProvider = new StartMethodItemProvider(this);
+		}
+
+		return startMethodItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.StructuredDiscriminator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StructuredDiscriminatorItemProvider structuredDiscriminatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.StructuredDiscriminator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStructuredDiscriminatorAdapter()
+	{
+		if (structuredDiscriminatorItemProvider == null)
+		{
+			structuredDiscriminatorItemProvider = new StructuredDiscriminatorItemProvider(this);
+		}
+
+		return structuredDiscriminatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.TaskLibraryReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskLibraryReferenceItemProvider taskLibraryReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.TaskLibraryReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskLibraryReferenceAdapter()
+	{
+		if (taskLibraryReferenceItemProvider == null)
+		{
+			taskLibraryReferenceItemProvider = new TaskLibraryReferenceItemProvider(this);
+		}
+
+		return taskLibraryReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.TransformScript} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TransformScriptItemProvider transformScriptItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.TransformScript}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTransformScriptAdapter()
+	{
+		if (transformScriptItemProvider == null)
+		{
+			transformScriptItemProvider = new TransformScriptItemProvider(this);
+		}
+
+		return transformScriptItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.UserTaskScripts} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UserTaskScriptsItemProvider userTaskScriptsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.UserTaskScripts}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUserTaskScriptsAdapter()
+	{
+		if (userTaskScriptsItemProvider == null)
+		{
+			userTaskScriptsItemProvider = new UserTaskScriptsItemProvider(this);
+		}
+
+		return userTaskScriptsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ValidationControl} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValidationControlItemProvider validationControlItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ValidationControl}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValidationControlAdapter()
+	{
+		if (validationControlItemProvider == null)
+		{
+			validationControlItemProvider = new ValidationControlItemProvider(this);
+		}
+
+		return validationControlItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ValidationIssueOverride} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValidationIssueOverrideItemProvider validationIssueOverrideItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ValidationIssueOverride}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValidationIssueOverrideAdapter()
+	{
+		if (validationIssueOverrideItemProvider == null)
+		{
+			validationIssueOverrideItemProvider = new ValidationIssueOverrideItemProvider(this);
+		}
+
+		return validationIssueOverrideItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsdlEventAssociation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsdlEventAssociationItemProvider wsdlEventAssociationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsdlEventAssociation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsdlEventAssociationAdapter()
+	{
+		if (wsdlEventAssociationItemProvider == null)
+		{
+			wsdlEventAssociationItemProvider = new WsdlEventAssociationItemProvider(this);
+		}
+
+		return wsdlEventAssociationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WorkItemPriority} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WorkItemPriorityItemProvider workItemPriorityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WorkItemPriority}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWorkItemPriorityAdapter()
+	{
+		if (workItemPriorityItemProvider == null)
+		{
+			workItemPriorityItemProvider = new WorkItemPriorityItemProvider(this);
+		}
+
+		return workItemPriorityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.XpdExtDataObjectAttributes} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XpdExtDataObjectAttributesItemProvider xpdExtDataObjectAttributesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.XpdExtDataObjectAttributes}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXpdExtDataObjectAttributesAdapter()
+	{
+		if (xpdExtDataObjectAttributesItemProvider == null)
+		{
+			xpdExtDataObjectAttributesItemProvider = new XpdExtDataObjectAttributesItemProvider(this);
+		}
+
+		return xpdExtDataObjectAttributesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.XpdExtProperty} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XpdExtPropertyItemProvider xpdExtPropertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.XpdExtProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXpdExtPropertyAdapter()
+	{
+		if (xpdExtPropertyItemProvider == null)
+		{
+			xpdExtPropertyItemProvider = new XpdExtPropertyItemProvider(this);
+		}
+
+		return xpdExtPropertyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.XpdExtAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XpdExtAttributeItemProvider xpdExtAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.XpdExtAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXpdExtAttributeAdapter()
+	{
+		if (xpdExtAttributeItemProvider == null)
+		{
+			xpdExtAttributeItemProvider = new XpdExtAttributeItemProvider(this);
+		}
+
+		return xpdExtAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.XpdExtAttributes} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XpdExtAttributesItemProvider xpdExtAttributesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.XpdExtAttributes}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXpdExtAttributesAdapter()
+	{
+		if (xpdExtAttributesItemProvider == null)
+		{
+			xpdExtAttributesItemProvider = new XpdExtAttributesItemProvider(this);
+		}
+
+		return xpdExtAttributesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.UpdateCaseOperationType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UpdateCaseOperationTypeItemProvider updateCaseOperationTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.UpdateCaseOperationType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUpdateCaseOperationTypeAdapter()
+	{
+		if (updateCaseOperationTypeItemProvider == null)
+		{
+			updateCaseOperationTypeItemProvider = new UpdateCaseOperationTypeItemProvider(this);
+		}
+
+		return updateCaseOperationTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AddLinkAssociationsType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AddLinkAssociationsTypeItemProvider addLinkAssociationsTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AddLinkAssociationsType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAddLinkAssociationsTypeAdapter()
+	{
+		if (addLinkAssociationsTypeItemProvider == null)
+		{
+			addLinkAssociationsTypeItemProvider = new AddLinkAssociationsTypeItemProvider(this);
+		}
+
+		return addLinkAssociationsTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RemoveLinkAssociationsType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RemoveLinkAssociationsTypeItemProvider removeLinkAssociationsTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RemoveLinkAssociationsType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRemoveLinkAssociationsTypeAdapter()
+	{
+		if (removeLinkAssociationsTypeItemProvider == null)
+		{
+			removeLinkAssociationsTypeItemProvider = new RemoveLinkAssociationsTypeItemProvider(this);
+		}
+
+		return removeLinkAssociationsTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RemoveAllLinksByNameTypeItemProvider removeAllLinksByNameTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RemoveAllLinksByNameType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRemoveAllLinksByNameTypeAdapter()
+	{
+		if (removeAllLinksByNameTypeItemProvider == null)
+		{
+			removeAllLinksByNameTypeItemProvider = new RemoveAllLinksByNameTypeItemProvider(this);
+		}
+
+		return removeAllLinksByNameTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CaseReferenceOperationsType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CaseReferenceOperationsTypeItemProvider caseReferenceOperationsTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CaseReferenceOperationsType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCaseReferenceOperationsTypeAdapter()
+	{
+		if (caseReferenceOperationsTypeItemProvider == null)
+		{
+			caseReferenceOperationsTypeItemProvider = new CaseReferenceOperationsTypeItemProvider(this);
+		}
+
+		return caseReferenceOperationsTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.GlobalDataOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GlobalDataOperationItemProvider globalDataOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.GlobalDataOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGlobalDataOperationAdapter()
+	{
+		if (globalDataOperationItemProvider == null)
+		{
+			globalDataOperationItemProvider = new GlobalDataOperationItemProvider(this);
+		}
+
+		return globalDataOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DeleteByCaseIdentifierType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DeleteByCaseIdentifierTypeItemProvider deleteByCaseIdentifierTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DeleteByCaseIdentifierType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDeleteByCaseIdentifierTypeAdapter()
+	{
+		if (deleteByCaseIdentifierTypeItemProvider == null)
+		{
+			deleteByCaseIdentifierTypeItemProvider = new DeleteByCaseIdentifierTypeItemProvider(this);
+		}
+
+		return deleteByCaseIdentifierTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CompositeIdentifierType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompositeIdentifierTypeItemProvider compositeIdentifierTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CompositeIdentifierType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompositeIdentifierTypeAdapter()
+	{
+		if (compositeIdentifierTypeItemProvider == null)
+		{
+			compositeIdentifierTypeItemProvider = new CompositeIdentifierTypeItemProvider(this);
+		}
+
+		return compositeIdentifierTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DeleteCaseReferenceOperationType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DeleteCaseReferenceOperationTypeItemProvider deleteCaseReferenceOperationTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DeleteCaseReferenceOperationType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDeleteCaseReferenceOperationTypeAdapter()
+	{
+		if (deleteCaseReferenceOperationTypeItemProvider == null)
+		{
+			deleteCaseReferenceOperationTypeItemProvider = new DeleteCaseReferenceOperationTypeItemProvider(this);
+		}
+
+		return deleteCaseReferenceOperationTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DeleteByCompositeIdentifiersType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DeleteByCompositeIdentifiersTypeItemProvider deleteByCompositeIdentifiersTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DeleteByCompositeIdentifiersType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDeleteByCompositeIdentifiersTypeAdapter()
+	{
+		if (deleteByCompositeIdentifiersTypeItemProvider == null)
+		{
+			deleteByCompositeIdentifiersTypeItemProvider = new DeleteByCompositeIdentifiersTypeItemProvider(this);
+		}
+
+		return deleteByCompositeIdentifiersTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CreateCaseOperationType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CreateCaseOperationTypeItemProvider createCaseOperationTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CreateCaseOperationType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCreateCaseOperationTypeAdapter()
+	{
+		if (createCaseOperationTypeItemProvider == null)
+		{
+			createCaseOperationTypeItemProvider = new CreateCaseOperationTypeItemProvider(this);
+		}
+
+		return createCaseOperationTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CaseAccessOperationsType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CaseAccessOperationsTypeItemProvider caseAccessOperationsTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CaseAccessOperationsType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCaseAccessOperationsTypeAdapter()
+	{
+		if (caseAccessOperationsTypeItemProvider == null)
+		{
+			caseAccessOperationsTypeItemProvider = new CaseAccessOperationsTypeItemProvider(this);
+		}
+
+		return caseAccessOperationsTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DataWorkItemAttributeMapping} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataWorkItemAttributeMappingItemProvider dataWorkItemAttributeMappingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DataWorkItemAttributeMapping}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataWorkItemAttributeMappingAdapter()
+	{
+		if (dataWorkItemAttributeMappingItemProvider == null)
+		{
+			dataWorkItemAttributeMappingItemProvider = new DataWorkItemAttributeMappingItemProvider(this);
+		}
+
+		return dataWorkItemAttributeMappingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ProcessDataWorkItemAttributeMappings} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProcessDataWorkItemAttributeMappingsItemProvider processDataWorkItemAttributeMappingsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ProcessDataWorkItemAttributeMappings}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProcessDataWorkItemAttributeMappingsAdapter()
+	{
+		if (processDataWorkItemAttributeMappingsItemProvider == null)
+		{
+			processDataWorkItemAttributeMappingsItemProvider = new ProcessDataWorkItemAttributeMappingsItemProvider(
+					this);
+		}
+
+		return processDataWorkItemAttributeMappingsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.BpmRuntimeConfiguration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BpmRuntimeConfigurationItemProvider bpmRuntimeConfigurationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.BpmRuntimeConfiguration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBpmRuntimeConfigurationAdapter()
+	{
+		if (bpmRuntimeConfigurationItemProvider == null)
+		{
+			bpmRuntimeConfigurationItemProvider = new BpmRuntimeConfigurationItemProvider(this);
+		}
+
+		return bpmRuntimeConfigurationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.EnablementType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnablementTypeItemProvider enablementTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.EnablementType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnablementTypeAdapter()
+	{
+		if (enablementTypeItemProvider == null)
+		{
+			enablementTypeItemProvider = new EnablementTypeItemProvider(this);
+		}
+
+		return enablementTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.InitializerActivitiesType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InitializerActivitiesTypeItemProvider initializerActivitiesTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.InitializerActivitiesType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInitializerActivitiesTypeAdapter()
+	{
+		if (initializerActivitiesTypeItemProvider == null)
+		{
+			initializerActivitiesTypeItemProvider = new InitializerActivitiesTypeItemProvider(this);
+		}
+
+		return initializerActivitiesTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.AdHocTaskConfigurationType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AdHocTaskConfigurationTypeItemProvider adHocTaskConfigurationTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.AdHocTaskConfigurationType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAdHocTaskConfigurationTypeAdapter()
+	{
+		if (adHocTaskConfigurationTypeItemProvider == null)
+		{
+			adHocTaskConfigurationTypeItemProvider = new AdHocTaskConfigurationTypeItemProvider(this);
+		}
+
+		return adHocTaskConfigurationTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RequiredAccessPrivileges} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RequiredAccessPrivilegesItemProvider requiredAccessPrivilegesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RequiredAccessPrivileges}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRequiredAccessPrivilegesAdapter()
+	{
+		if (requiredAccessPrivilegesItemProvider == null)
+		{
+			requiredAccessPrivilegesItemProvider = new RequiredAccessPrivilegesItemProvider(this);
+		}
+
+		return requiredAccessPrivilegesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.VisibleForCaseStates} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VisibleForCaseStatesItemProvider visibleForCaseStatesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.VisibleForCaseStates}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVisibleForCaseStatesAdapter()
+	{
+		if (visibleForCaseStatesItemProvider == null)
+		{
+			visibleForCaseStatesItemProvider = new VisibleForCaseStatesItemProvider(this);
+		}
+
+		return visibleForCaseStatesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CaseService} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CaseServiceItemProvider caseServiceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CaseService}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCaseServiceAdapter()
+	{
+		if (caseServiceItemProvider == null)
+		{
+			caseServiceItemProvider = new CaseServiceItemProvider(this);
+		}
+
+		return caseServiceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DocumentOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DocumentOperationItemProvider documentOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DocumentOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDocumentOperationAdapter()
+	{
+		if (documentOperationItemProvider == null)
+		{
+			documentOperationItemProvider = new DocumentOperationItemProvider(this);
+		}
+
+		return documentOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CaseDocRefOperations} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CaseDocRefOperationsItemProvider caseDocRefOperationsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CaseDocRefOperations}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCaseDocRefOperationsAdapter()
+	{
+		if (caseDocRefOperationsItemProvider == null)
+		{
+			caseDocRefOperationsItemProvider = new CaseDocRefOperationsItemProvider(this);
+		}
+
+		return caseDocRefOperationsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CaseDocFindOperations} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CaseDocFindOperationsItemProvider caseDocFindOperationsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CaseDocFindOperations}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCaseDocFindOperationsAdapter()
+	{
+		if (caseDocFindOperationsItemProvider == null)
+		{
+			caseDocFindOperationsItemProvider = new CaseDocFindOperationsItemProvider(this);
+		}
+
+		return caseDocFindOperationsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.MoveCaseDocOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MoveCaseDocOperationItemProvider moveCaseDocOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.MoveCaseDocOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMoveCaseDocOperationAdapter()
+	{
+		if (moveCaseDocOperationItemProvider == null)
+		{
+			moveCaseDocOperationItemProvider = new MoveCaseDocOperationItemProvider(this);
+		}
+
+		return moveCaseDocOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.UnlinkCaseDocOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnlinkCaseDocOperationItemProvider unlinkCaseDocOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.UnlinkCaseDocOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnlinkCaseDocOperationAdapter()
+	{
+		if (unlinkCaseDocOperationItemProvider == null)
+		{
+			unlinkCaseDocOperationItemProvider = new UnlinkCaseDocOperationItemProvider(this);
+		}
+
+		return unlinkCaseDocOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.LinkCaseDocOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LinkCaseDocOperationItemProvider linkCaseDocOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.LinkCaseDocOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLinkCaseDocOperationAdapter()
+	{
+		if (linkCaseDocOperationItemProvider == null)
+		{
+			linkCaseDocOperationItemProvider = new LinkCaseDocOperationItemProvider(this);
+		}
+
+		return linkCaseDocOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.LinkSystemDocumentOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LinkSystemDocumentOperationItemProvider linkSystemDocumentOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.LinkSystemDocumentOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLinkSystemDocumentOperationAdapter()
+	{
+		if (linkSystemDocumentOperationItemProvider == null)
+		{
+			linkSystemDocumentOperationItemProvider = new LinkSystemDocumentOperationItemProvider(this);
+		}
+
+		return linkSystemDocumentOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DeleteCaseDocOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DeleteCaseDocOperationItemProvider deleteCaseDocOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DeleteCaseDocOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDeleteCaseDocOperationAdapter()
+	{
+		if (deleteCaseDocOperationItemProvider == null)
+		{
+			deleteCaseDocOperationItemProvider = new DeleteCaseDocOperationItemProvider(this);
+		}
+
+		return deleteCaseDocOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.FindByFileNameOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FindByFileNameOperationItemProvider findByFileNameOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.FindByFileNameOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFindByFileNameOperationAdapter()
+	{
+		if (findByFileNameOperationItemProvider == null)
+		{
+			findByFileNameOperationItemProvider = new FindByFileNameOperationItemProvider(this);
+		}
+
+		return findByFileNameOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.FindByQueryOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FindByQueryOperationItemProvider findByQueryOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.FindByQueryOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFindByQueryOperationAdapter()
+	{
+		if (findByQueryOperationItemProvider == null)
+		{
+			findByQueryOperationItemProvider = new FindByQueryOperationItemProvider(this);
+		}
+
+		return findByQueryOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.CaseDocumentQueryExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CaseDocumentQueryExpressionItemProvider caseDocumentQueryExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.CaseDocumentQueryExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCaseDocumentQueryExpressionAdapter()
+	{
+		if (caseDocumentQueryExpressionItemProvider == null)
+		{
+			caseDocumentQueryExpressionItemProvider = new CaseDocumentQueryExpressionItemProvider(this);
+		}
+
+		return caseDocumentQueryExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ServiceProcessConfiguration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServiceProcessConfigurationItemProvider serviceProcessConfigurationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ServiceProcessConfiguration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServiceProcessConfigurationAdapter()
+	{
+		if (serviceProcessConfigurationItemProvider == null)
+		{
+			serviceProcessConfigurationItemProvider = new ServiceProcessConfigurationItemProvider(this);
+		}
+
+		return serviceProcessConfigurationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ScriptDataMapper} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScriptDataMapperItemProvider scriptDataMapperItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ScriptDataMapper}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScriptDataMapperAdapter()
+	{
+		if (scriptDataMapperItemProvider == null)
+		{
+			scriptDataMapperItemProvider = new ScriptDataMapperItemProvider(this);
+		}
+
+		return scriptDataMapperItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.DataMapperArrayInflation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataMapperArrayInflationItemProvider dataMapperArrayInflationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.DataMapperArrayInflation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataMapperArrayInflationAdapter()
+	{
+		if (dataMapperArrayInflationItemProvider == null)
+		{
+			dataMapperArrayInflationItemProvider = new DataMapperArrayInflationItemProvider(this);
+		}
+
+		return dataMapperArrayInflationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.LikeMappingExclusion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LikeMappingExclusionItemProvider likeMappingExclusionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.LikeMappingExclusion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLikeMappingExclusionAdapter()
+	{
+		if (likeMappingExclusionItemProvider == null)
+		{
+			likeMappingExclusionItemProvider = new LikeMappingExclusionItemProvider(this);
+		}
+
+		return likeMappingExclusionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.LikeMappingExclusions} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LikeMappingExclusionsItemProvider likeMappingExclusionsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.LikeMappingExclusions}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLikeMappingExclusionsAdapter()
+	{
+		if (likeMappingExclusionsItemProvider == null)
+		{
+			likeMappingExclusionsItemProvider = new LikeMappingExclusionsItemProvider(this);
+		}
+
+		return likeMappingExclusionsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RestServiceOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RestServiceOperationItemProvider restServiceOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RestServiceOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRestServiceOperationAdapter()
+	{
+		if (restServiceOperationItemProvider == null)
+		{
+			restServiceOperationItemProvider = new RestServiceOperationItemProvider(this);
+		}
+
+		return restServiceOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RESTServices} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RESTServicesItemProvider restServicesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RESTServices}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRESTServicesAdapter()
+	{
+		if (restServicesItemProvider == null)
+		{
+			restServicesItemProvider = new RESTServicesItemProvider(this);
+		}
+
+		return restServicesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RestServiceResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RestServiceResourceItemProvider restServiceResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RestServiceResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRestServiceResourceAdapter()
+	{
+		if (restServiceResourceItemProvider == null)
+		{
+			restServiceResourceItemProvider = new RestServiceResourceItemProvider(this);
+		}
+
+		return restServiceResourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.RestServiceResourceSecurity} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RestServiceResourceSecurityItemProvider restServiceResourceSecurityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.RestServiceResourceSecurity}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRestServiceResourceSecurityAdapter()
+	{
+		if (restServiceResourceSecurityItemProvider == null)
+		{
+			restServiceResourceSecurityItemProvider = new RestServiceResourceSecurityItemProvider(this);
+		}
+
+		return restServiceResourceSecurityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsdlGeneration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsdlGenerationItemProvider wsdlGenerationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsdlGeneration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsdlGenerationAdapter()
+	{
+		if (wsdlGenerationItemProvider == null)
+		{
+			wsdlGenerationItemProvider = new WsdlGenerationItemProvider(this);
+		}
+
+		return wsdlGenerationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.EmailResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EmailResourceItemProvider emailResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.EmailResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEmailResourceAdapter()
+	{
+		if (emailResourceItemProvider == null)
+		{
+			emailResourceItemProvider = new EmailResourceItemProvider(this);
+		}
+
+		return emailResourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.JdbcResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JdbcResourceItemProvider jdbcResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.JdbcResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJdbcResourceAdapter()
+	{
+		if (jdbcResourceItemProvider == null)
+		{
+			jdbcResourceItemProvider = new JdbcResourceItemProvider(this);
+		}
+
+		return jdbcResourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.ParticipantSharedResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParticipantSharedResourceItemProvider participantSharedResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.ParticipantSharedResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParticipantSharedResourceAdapter()
+	{
+		if (participantSharedResourceItemProvider == null)
+		{
+			participantSharedResourceItemProvider = new ParticipantSharedResourceItemProvider(this);
+		}
+
+		return participantSharedResourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsBinding} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsBindingItemProvider wsBindingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsBinding}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsBindingAdapter()
+	{
+		if (wsBindingItemProvider == null)
+		{
+			wsBindingItemProvider = new WsBindingItemProvider(this);
+		}
+
+		return wsBindingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsInbound} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsInboundItemProvider wsInboundItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsInbound}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsInboundAdapter()
+	{
+		if (wsInboundItemProvider == null)
+		{
+			wsInboundItemProvider = new WsInboundItemProvider(this);
+		}
+
+		return wsInboundItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsOutbound} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsOutboundItemProvider wsOutboundItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsOutbound}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsOutboundAdapter()
+	{
+		if (wsOutboundItemProvider == null)
+		{
+			wsOutboundItemProvider = new WsOutboundItemProvider(this);
+		}
+
+		return wsOutboundItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsResourceItemProvider wsResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsResourceAdapter()
+	{
+		if (wsResourceItemProvider == null)
+		{
+			wsResourceItemProvider = new WsResourceItemProvider(this);
+		}
+
+		return wsResourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSecurityPolicy} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsSecurityPolicyItemProvider wsSecurityPolicyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSecurityPolicy}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsSecurityPolicyAdapter()
+	{
+		if (wsSecurityPolicyItemProvider == null)
+		{
+			wsSecurityPolicyItemProvider = new WsSecurityPolicyItemProvider(this);
+		}
+
+		return wsSecurityPolicyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSoapBinding} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsSoapBindingItemProvider wsSoapBindingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSoapBinding}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsSoapBindingAdapter()
+	{
+		if (wsSoapBindingItemProvider == null)
+		{
+			wsSoapBindingItemProvider = new WsSoapBindingItemProvider(this);
+		}
+
+		return wsSoapBindingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSoapHttpInboundBinding} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsSoapHttpInboundBindingItemProvider wsSoapHttpInboundBindingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSoapHttpInboundBinding}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsSoapHttpInboundBindingAdapter()
+	{
+		if (wsSoapHttpInboundBindingItemProvider == null)
+		{
+			wsSoapHttpInboundBindingItemProvider = new WsSoapHttpInboundBindingItemProvider(this);
+		}
+
+		return wsSoapHttpInboundBindingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSoapHttpOutboundBinding} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsSoapHttpOutboundBindingItemProvider wsSoapHttpOutboundBindingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSoapHttpOutboundBinding}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsSoapHttpOutboundBindingAdapter()
+	{
+		if (wsSoapHttpOutboundBindingItemProvider == null)
+		{
+			wsSoapHttpOutboundBindingItemProvider = new WsSoapHttpOutboundBindingItemProvider(this);
+		}
+
+		return wsSoapHttpOutboundBindingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSoapJmsInboundBinding} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsSoapJmsInboundBindingItemProvider wsSoapJmsInboundBindingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSoapJmsInboundBinding}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsSoapJmsInboundBindingAdapter()
+	{
+		if (wsSoapJmsInboundBindingItemProvider == null)
+		{
+			wsSoapJmsInboundBindingItemProvider = new WsSoapJmsInboundBindingItemProvider(this);
+		}
+
+		return wsSoapJmsInboundBindingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSoapJmsOutboundBinding} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsSoapJmsOutboundBindingItemProvider wsSoapJmsOutboundBindingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSoapJmsOutboundBinding}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsSoapJmsOutboundBindingAdapter()
+	{
+		if (wsSoapJmsOutboundBindingItemProvider == null)
+		{
+			wsSoapJmsOutboundBindingItemProvider = new WsSoapJmsOutboundBindingItemProvider(this);
+		}
+
+		return wsSoapJmsOutboundBindingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsSoapSecurity} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsSoapSecurityItemProvider wsSoapSecurityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsSoapSecurity}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsSoapSecurityAdapter()
+	{
+		if (wsSoapSecurityItemProvider == null)
+		{
+			wsSoapSecurityItemProvider = new WsSoapSecurityItemProvider(this);
+		}
+
+		return wsSoapSecurityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.tibco.xpd.xpdExtension.WsVirtualBinding} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsVirtualBindingItemProvider wsVirtualBindingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.tibco.xpd.xpdExtension.WsVirtualBinding}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWsVirtualBindingAdapter()
+	{
+		if (wsVirtualBindingItemProvider == null)
+		{
+			wsVirtualBindingItemProvider = new WsVirtualBindingItemProvider(this);
+		}
+
+		return wsVirtualBindingItemProvider;
+	}
+
+	/**
+	 * This returns the root adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComposeableAdapterFactory getRootAdapterFactory()
+	{
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+	}
+
+	/**
+	 * This sets the composed adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory)
+	{
+		this.parentAdapterFactory = parentAdapterFactory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isFactoryForType(Object type)
+	{
+		return supportedTypes.contains(type) || super.isFactoryForType(type);
+	}
+
+	/**
+	 * This implementation substitutes the factory itself as the key for the adapter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter adapt(Notifier notifier, Object type)
+	{
+		return super.adapt(notifier, this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object adapt(Object object, Object type)
+	{
+		if (isFactoryForType(type))
+		{
+			Object adapter = super.adapt(object, type);
+			if (!(type instanceof Class< ? >) || (((Class< ? >) type).isInstance(adapter)))
+			{
+				return adapter;
+			}
+		}
+
+		return null;
+	}
+
+	/**
+	 * This adds a listener.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void addListener(INotifyChangedListener notifyChangedListener)
+	{
+		changeNotifier.addListener(notifyChangedListener);
+	}
+
+	/**
+	 * This removes a listener.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void removeListener(INotifyChangedListener notifyChangedListener)
+	{
+		changeNotifier.removeListener(notifyChangedListener);
+	}
+
+	/**
+	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void fireNotifyChanged(Notification notification)
+	{
+		changeNotifier.fireNotifyChanged(notification);
+
+		if (parentAdapterFactory != null)
+		{
+			parentAdapterFactory.fireNotifyChanged(notification);
+		}
+	}
+
+	/**
+	 * This disposes all of the item providers created by this factory. 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void dispose()
+	{
+		if (activityRefItemProvider != null) activityRefItemProvider.dispose();
+		if (activityResourcePatternsItemProvider != null) activityResourcePatternsItemProvider.dispose();
+		if (allocationStrategyItemProvider != null) allocationStrategyItemProvider.dispose();
+		if (associatedCorrelationFieldsItemProvider != null) associatedCorrelationFieldsItemProvider.dispose();
+		if (associatedCorrelationFieldItemProvider != null) associatedCorrelationFieldItemProvider.dispose();
+		if (associatedParameterItemProvider != null) associatedParameterItemProvider.dispose();
+		if (associatedParametersItemProvider != null) associatedParametersItemProvider.dispose();
+		if (auditItemProvider != null) auditItemProvider.dispose();
+		if (auditEventItemProvider != null) auditEventItemProvider.dispose();
+		if (businessProcessItemProvider != null) businessProcessItemProvider.dispose();
+		if (calendarReferenceItemProvider != null) calendarReferenceItemProvider.dispose();
+		if (catchErrorMappingsItemProvider != null) catchErrorMappingsItemProvider.dispose();
+		if (constantPeriodItemProvider != null) constantPeriodItemProvider.dispose();
+		if (conditionalParticipantItemProvider != null) conditionalParticipantItemProvider.dispose();
+		if (replyImmediateDataMappingsItemProvider != null) replyImmediateDataMappingsItemProvider.dispose();
+		if (correlationDataMappingsItemProvider != null) correlationDataMappingsItemProvider.dispose();
+		if (discriminatorItemProvider != null) discriminatorItemProvider.dispose();
+		if (documentRootItemProvider != null) documentRootItemProvider.dispose();
+		if (durationCalculationItemProvider != null) durationCalculationItemProvider.dispose();
+		if (dynamicOrganizationMappingsItemProvider != null) dynamicOrganizationMappingsItemProvider.dispose();
+		if (dynamicOrganizationMappingItemProvider != null) dynamicOrganizationMappingItemProvider.dispose();
+		if (dynamicOrgIdentifierRefItemProvider != null) dynamicOrgIdentifierRefItemProvider.dispose();
+		if (emailResourceItemProvider != null) emailResourceItemProvider.dispose();
+		if (errorMethodItemProvider != null) errorMethodItemProvider.dispose();
+		if (errorThrowerInfoItemProvider != null) errorThrowerInfoItemProvider.dispose();
+		if (eventHandlerInitialisersItemProvider != null) eventHandlerInitialisersItemProvider.dispose();
+		if (faultMessageItemProvider != null) faultMessageItemProvider.dispose();
+		if (formImplementationItemProvider != null) formImplementationItemProvider.dispose();
+		if (implementedInterfaceItemProvider != null) implementedInterfaceItemProvider.dispose();
+		if (initialValuesItemProvider != null) initialValuesItemProvider.dispose();
+		if (initialParameterValueItemProvider != null) initialParameterValueItemProvider.dispose();
+		if (intermediateMethodItemProvider != null) intermediateMethodItemProvider.dispose();
+		if (jdbcResourceItemProvider != null) jdbcResourceItemProvider.dispose();
+		if (multiInstanceScriptsItemProvider != null) multiInstanceScriptsItemProvider.dispose();
+		if (namespacePrefixMapItemProvider != null) namespacePrefixMapItemProvider.dispose();
+		if (namespaceMapEntryItemProvider != null) namespaceMapEntryItemProvider.dispose();
+		if (participantSharedResourceItemProvider != null) participantSharedResourceItemProvider.dispose();
+		if (pilingInfoItemProvider != null) pilingInfoItemProvider.dispose();
+		if (portTypeOperationItemProvider != null) portTypeOperationItemProvider.dispose();
+		if (processInterfaceItemProvider != null) processInterfaceItemProvider.dispose();
+		if (processInterfacesItemProvider != null) processInterfacesItemProvider.dispose();
+		if (processResourcePatternsItemProvider != null) processResourcePatternsItemProvider.dispose();
+		if (rescheduleTimerScriptItemProvider != null) rescheduleTimerScriptItemProvider.dispose();
+		if (rescheduleTimersItemProvider != null) rescheduleTimersItemProvider.dispose();
+		if (restServicesItemProvider != null) restServicesItemProvider.dispose();
+		if (restServiceResourceItemProvider != null) restServiceResourceItemProvider.dispose();
+		if (restServiceResourceSecurityItemProvider != null) restServiceResourceSecurityItemProvider.dispose();
+		if (retainFamiliarActivitiesItemProvider != null) retainFamiliarActivitiesItemProvider.dispose();
+		if (retryItemProvider != null) retryItemProvider.dispose();
+		if (scriptInformationItemProvider != null) scriptInformationItemProvider.dispose();
+		if (separationOfDutiesActivitiesItemProvider != null) separationOfDutiesActivitiesItemProvider.dispose();
+		if (signalDataItemProvider != null) signalDataItemProvider.dispose();
+		if (startMethodItemProvider != null) startMethodItemProvider.dispose();
+		if (structuredDiscriminatorItemProvider != null) structuredDiscriminatorItemProvider.dispose();
+		if (taskLibraryReferenceItemProvider != null) taskLibraryReferenceItemProvider.dispose();
+		if (transformScriptItemProvider != null) transformScriptItemProvider.dispose();
+		if (userTaskScriptsItemProvider != null) userTaskScriptsItemProvider.dispose();
+		if (validationControlItemProvider != null) validationControlItemProvider.dispose();
+		if (validationIssueOverrideItemProvider != null) validationIssueOverrideItemProvider.dispose();
+		if (wsdlEventAssociationItemProvider != null) wsdlEventAssociationItemProvider.dispose();
+		if (workItemPriorityItemProvider != null) workItemPriorityItemProvider.dispose();
+		if (wsdlGenerationItemProvider != null) wsdlGenerationItemProvider.dispose();
+		if (wsBindingItemProvider != null) wsBindingItemProvider.dispose();
+		if (wsInboundItemProvider != null) wsInboundItemProvider.dispose();
+		if (wsOutboundItemProvider != null) wsOutboundItemProvider.dispose();
+		if (wsResourceItemProvider != null) wsResourceItemProvider.dispose();
+		if (wsSecurityPolicyItemProvider != null) wsSecurityPolicyItemProvider.dispose();
+		if (wsSoapBindingItemProvider != null) wsSoapBindingItemProvider.dispose();
+		if (wsSoapHttpInboundBindingItemProvider != null) wsSoapHttpInboundBindingItemProvider.dispose();
+		if (wsSoapHttpOutboundBindingItemProvider != null) wsSoapHttpOutboundBindingItemProvider.dispose();
+		if (wsSoapJmsInboundBindingItemProvider != null) wsSoapJmsInboundBindingItemProvider.dispose();
+		if (wsSoapJmsOutboundBindingItemProvider != null) wsSoapJmsOutboundBindingItemProvider.dispose();
+		if (wsSoapSecurityItemProvider != null) wsSoapSecurityItemProvider.dispose();
+		if (wsVirtualBindingItemProvider != null) wsVirtualBindingItemProvider.dispose();
+		if (xpdExtDataObjectAttributesItemProvider != null) xpdExtDataObjectAttributesItemProvider.dispose();
+		if (xpdExtPropertyItemProvider != null) xpdExtPropertyItemProvider.dispose();
+		if (xpdExtAttributeItemProvider != null) xpdExtAttributeItemProvider.dispose();
+		if (xpdExtAttributesItemProvider != null) xpdExtAttributesItemProvider.dispose();
+		if (updateCaseOperationTypeItemProvider != null) updateCaseOperationTypeItemProvider.dispose();
+		if (addLinkAssociationsTypeItemProvider != null) addLinkAssociationsTypeItemProvider.dispose();
+		if (removeLinkAssociationsTypeItemProvider != null) removeLinkAssociationsTypeItemProvider.dispose();
+		if (removeAllLinksByNameTypeItemProvider != null) removeAllLinksByNameTypeItemProvider.dispose();
+		if (caseReferenceOperationsTypeItemProvider != null) caseReferenceOperationsTypeItemProvider.dispose();
+		if (globalDataOperationItemProvider != null) globalDataOperationItemProvider.dispose();
+		if (deleteByCaseIdentifierTypeItemProvider != null) deleteByCaseIdentifierTypeItemProvider.dispose();
+		if (compositeIdentifierTypeItemProvider != null) compositeIdentifierTypeItemProvider.dispose();
+		if (deleteCaseReferenceOperationTypeItemProvider != null)
+			deleteCaseReferenceOperationTypeItemProvider.dispose();
+		if (deleteByCompositeIdentifiersTypeItemProvider != null)
+			deleteByCompositeIdentifiersTypeItemProvider.dispose();
+		if (createCaseOperationTypeItemProvider != null) createCaseOperationTypeItemProvider.dispose();
+		if (caseAccessOperationsTypeItemProvider != null) caseAccessOperationsTypeItemProvider.dispose();
+		if (dataWorkItemAttributeMappingItemProvider != null) dataWorkItemAttributeMappingItemProvider.dispose();
+		if (processDataWorkItemAttributeMappingsItemProvider != null)
+			processDataWorkItemAttributeMappingsItemProvider.dispose();
+		if (bpmRuntimeConfigurationItemProvider != null) bpmRuntimeConfigurationItemProvider.dispose();
+		if (enablementTypeItemProvider != null) enablementTypeItemProvider.dispose();
+		if (initializerActivitiesTypeItemProvider != null) initializerActivitiesTypeItemProvider.dispose();
+		if (adHocTaskConfigurationTypeItemProvider != null) adHocTaskConfigurationTypeItemProvider.dispose();
+		if (requiredAccessPrivilegesItemProvider != null) requiredAccessPrivilegesItemProvider.dispose();
+		if (visibleForCaseStatesItemProvider != null) visibleForCaseStatesItemProvider.dispose();
+		if (caseServiceItemProvider != null) caseServiceItemProvider.dispose();
+		if (documentOperationItemProvider != null) documentOperationItemProvider.dispose();
+		if (caseDocRefOperationsItemProvider != null) caseDocRefOperationsItemProvider.dispose();
+		if (caseDocFindOperationsItemProvider != null) caseDocFindOperationsItemProvider.dispose();
+		if (moveCaseDocOperationItemProvider != null) moveCaseDocOperationItemProvider.dispose();
+		if (unlinkCaseDocOperationItemProvider != null) unlinkCaseDocOperationItemProvider.dispose();
+		if (linkCaseDocOperationItemProvider != null) linkCaseDocOperationItemProvider.dispose();
+		if (linkSystemDocumentOperationItemProvider != null) linkSystemDocumentOperationItemProvider.dispose();
+		if (deleteCaseDocOperationItemProvider != null) deleteCaseDocOperationItemProvider.dispose();
+		if (findByFileNameOperationItemProvider != null) findByFileNameOperationItemProvider.dispose();
+		if (findByQueryOperationItemProvider != null) findByQueryOperationItemProvider.dispose();
+		if (caseDocumentQueryExpressionItemProvider != null) caseDocumentQueryExpressionItemProvider.dispose();
+		if (serviceProcessConfigurationItemProvider != null) serviceProcessConfigurationItemProvider.dispose();
+		if (scriptDataMapperItemProvider != null) scriptDataMapperItemProvider.dispose();
+		if (dataMapperArrayInflationItemProvider != null) dataMapperArrayInflationItemProvider.dispose();
+		if (likeMappingExclusionItemProvider != null) likeMappingExclusionItemProvider.dispose();
+		if (likeMappingExclusionsItemProvider != null) likeMappingExclusionsItemProvider.dispose();
+		if (restServiceOperationItemProvider != null) restServiceOperationItemProvider.dispose();
+	}
 
 }

@@ -1366,9 +1366,10 @@ public class ActionUtil {
             // Because for paste of these as ancillaries to process we will say
             // 'don't bother if they already exist in destination container with
             // same name').
-            renameCopyOfDataFields(mainObjs, destEObject);
-            renameCopyOfFormalParams(mainObjs, destEObject);
-            renameCopyOfParticipants(mainObjs, destEObject);
+			renameCopyOfDataFields(mainObjs, destEObject);
+			renameCopyOfFormalParams(mainObjs, destEObject);
+			renameCopyOfParticipants(mainObjs, destEObject);
+			renameCopyOfActivities(mainObjs, destEObject);
         }
 
         //
@@ -2195,6 +2196,52 @@ public class ActionUtil {
 
         return;
     }
+
+	/**
+	 * ACE-7384 Renames an activity being pasted in a Process to avoid the same name conflict
+	 * 
+	 * @param copyObjs
+	 * @param destEObject
+	 */
+	private static void renameCopyOfActivities(Collection copyObjs, EObject destEObject)
+	{
+		EObject container = destEObject;
+
+		while (container != null && !(container instanceof Process))
+		{
+			container = container.eContainer();
+		}
+
+		if (container != null)
+		{
+			List<NamedElement> activities = new ArrayList<NamedElement>();
+			activities.addAll(((Process) container).getActivities());
+
+			for (Iterator iter = copyObjs.iterator(); iter.hasNext();)
+			{
+				Object obj = iter.next();
+
+				if (obj instanceof Activity)
+				{
+					Activity activity = ((Activity) obj);
+					String name = getCopyOfPasteName(activity.getName(), activities);
+					
+					EAttribute ea = XpdExtensionPackage.eINSTANCE.getDocumentRoot_DisplayName();
+					
+					String displayName = (String) Xpdl2ModelUtil.getOtherAttribute(activity, ea);
+					if (displayName != null)
+					{
+						String token = getCopyOfPasteDisplayName(displayName, activities);
+						Xpdl2ModelUtil.setOtherAttribute(activity, ea, token);
+					}
+
+					activity.setName(name);
+				}
+			}
+		}
+
+		return;
+	}
 
     private static void setGroupAttributes(CompoundCommand cmd,
             EditingDomain ed, Collection<? extends EObject> copyObjs,

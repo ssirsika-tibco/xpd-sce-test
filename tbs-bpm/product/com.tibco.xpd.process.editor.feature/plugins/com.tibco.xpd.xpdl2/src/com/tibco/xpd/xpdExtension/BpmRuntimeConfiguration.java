@@ -26,39 +26,40 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='BpmRuntimeConfiguration' kind='elementOnly'"
  * @generated
  */
-public interface BpmRuntimeConfiguration extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface BpmRuntimeConfiguration extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Incoming Request Timeout</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Incoming Request Timeout</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Incoming Request Timeout</em>' attribute.
-     * @see #setIncomingRequestTimeout(Integer)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getBpmRuntimeConfiguration_IncomingRequestTimeout()
-     * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.IntObject"
-     *        extendedMetaData="kind='attribute' name='IncomingRequestTimeout'"
-     * @generated
-     */
-    Integer getIncomingRequestTimeout();
+	/**
+	 * Returns the value of the '<em><b>Incoming Request Timeout</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Incoming Request Timeout</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Incoming Request Timeout</em>' attribute.
+	 * @see #setIncomingRequestTimeout(Integer)
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getBpmRuntimeConfiguration_IncomingRequestTimeout()
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.IntObject"
+	 *        extendedMetaData="kind='attribute' name='IncomingRequestTimeout'"
+	 * @generated
+	 */
+	Integer getIncomingRequestTimeout();
 
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.BpmRuntimeConfiguration#getIncomingRequestTimeout <em>Incoming Request Timeout</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Incoming Request Timeout</em>' attribute.
-     * @see #getIncomingRequestTimeout()
-     * @generated
-     */
-    void setIncomingRequestTimeout(Integer value);
+	/**
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.BpmRuntimeConfiguration#getIncomingRequestTimeout <em>Incoming Request Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Incoming Request Timeout</em>' attribute.
+	 * @see #getIncomingRequestTimeout()
+	 * @generated
+	 */
+	void setIncomingRequestTimeout(Integer value);
 
 } // BpmRuntimeConfiguration

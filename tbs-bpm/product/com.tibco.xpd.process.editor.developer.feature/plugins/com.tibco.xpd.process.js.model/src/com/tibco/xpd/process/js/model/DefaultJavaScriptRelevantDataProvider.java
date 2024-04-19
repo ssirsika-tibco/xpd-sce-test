@@ -18,6 +18,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.destinations.ui.DestinationUtil;
 import com.tibco.xpd.process.js.model.util.ProcessUtil;
+import com.tibco.xpd.processscriptlibrary.resource.indexer.ProcessScriptLibraryIndexProvider.IndexType;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
@@ -68,18 +69,36 @@ public class DefaultJavaScriptRelevantDataProvider extends
         List<ProcessRelevantData> processDataList =
                 getAssociatedProcessRelevantData();
 
+		List<IScriptRelevantData> results = new ArrayList<>();
         if (!processDataList.isEmpty()) {
             /*
              * Sid ACE-1317: Wrap the process data to be associated with this script context in a special "data" object.
              */
-            IScriptRelevantData dataWrapper = AceScriptProcessDataWrapperFactory.getDefault()
-                    .createProcessDataWrapper(getDataWrapperObjectName(), processDataList);
-
-            return Collections.singletonList(dataWrapper);
+			results.add(AceScriptProcessDataWrapperFactory.getDefault()
+					.createProcessDataWrapper(getDataWrapperObjectName(), processDataList));
         }
 
-        return Collections.emptyList();
+		IndexType indexType = getTargetProcessScriptLibraryIndexType();
+		// ACE-7400 : Add 'bpmScript' specific relevant data.
+		results.add(BpmScriptWrapperFactory.getDefault()
+				.createBpmScriptWrapper(ReservedWords.PROCESS_SCRIPT_LIBRARY_WRAPPER_NAME, indexType));
+
+		return results;
     }
+
+	/**
+	 * Return the {@link IndexType} for process script library used as target reference. Child classes can override to
+	 * provide any specific {@link IndexType}.
+	 * 
+	 * @return {@link IndexType}
+	 */
+	protected IndexType getTargetProcessScriptLibraryIndexType()
+	{
+		// Find the target PSL reference type
+		boolean pageflowOrSubType = Xpdl2ModelUtil.isPageflowOrSubType(getProcess());
+
+		return pageflowOrSubType ? IndexType.PSL_WM_PARAM_REF : IndexType.PSL_PE_PARAM_REF;
+	}
 
     /**
      * Process data is wrapped in a data field descriptor object called "data". To use a different set of data and / or

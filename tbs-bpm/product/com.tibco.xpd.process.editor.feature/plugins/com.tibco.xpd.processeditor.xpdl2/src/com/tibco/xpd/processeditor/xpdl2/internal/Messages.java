@@ -507,6 +507,8 @@ public class Messages extends NLS {
 
     public static String NamedElementPropertiesSection_NameLabel;
 
+	public static String NamedElementPropertiesSection_DescriptionLabel;
+
     public static String NamedElementSection_displayNameLabel;
 
     public static String NamedElementSection_InvalidGeneratedNameMessage;
@@ -1521,6 +1523,8 @@ public class Messages extends NLS {
 
     public static String ProcessScriptUtil_SetCancelledScriptCommand;
 
+	public static String ProcessScriptUtil_SetPSLFunctionScript_menu;
+
     public static String ProcessScriptUtil_SetRescheduleGrammar_menu;
 
     public static String ProcessScriptUtil_SetRescheduleScript_menu;
@@ -2140,6 +2144,11 @@ public class Messages extends NLS {
     public static String WsSoapJmsMessageConfigurationSection_SECONDS_LABEL;
 
     public static String WsSoapJmsMessageConfigurationSection_ZERO_PRIORITY;
+    
+    public static String CopyOf_tokenNoSpaces;
+
+    public static String CopyNOf_tokenNoSpaces;
+    
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);

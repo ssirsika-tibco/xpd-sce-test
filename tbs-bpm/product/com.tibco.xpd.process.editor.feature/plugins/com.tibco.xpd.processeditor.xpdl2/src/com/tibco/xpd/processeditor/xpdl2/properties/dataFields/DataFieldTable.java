@@ -7,6 +7,7 @@ package com.tibco.xpd.processeditor.xpdl2.properties.dataFields;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.common.command.Command;
@@ -56,6 +57,7 @@ import com.tibco.xpd.xpdl2.BasicTypeType;
 import com.tibco.xpd.xpdl2.DataField;
 import com.tibco.xpd.xpdl2.DataType;
 import com.tibco.xpd.xpdl2.DeclaredType;
+import com.tibco.xpd.xpdl2.Description;
 import com.tibco.xpd.xpdl2.Expression;
 import com.tibco.xpd.xpdl2.ExternalReference;
 import com.tibco.xpd.xpdl2.Length;
@@ -82,6 +84,20 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
 
     protected IContentProvider contentProvider;
 
+	private int					options					= 0;
+
+	public static final int		HIDE_LABEL_COLUMN		= 0x01;
+
+	public static final int		DISABLE_NAME_COLUMN		= 0x02;
+
+	public static final int		HIDE_READONLY_COLUMN		= 0x04;
+
+	public static final int		ADD_VOID_TYPE				= 0x08;
+
+	public static final int		HIDE_TYPE_DECLARATION_COLUMN	= 0x10;
+
+	public static final int		ADD_DESCRIPTION_COLUMN			= 0x20;
+
     /**
      * @param parent
      * @param toolkit
@@ -89,8 +105,13 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
      * @param b
      */
     public DataFieldTable(Composite parent, XpdToolkit toolkit,
-            EditingDomain editingDomain) {
+			EditingDomain editingDomain, int options)
+	{
         super(parent, toolkit, null, false);
+
+		this.options = options;
+
+
         this.editingDomain = editingDomain;
         if (null != editingDomain) {
             createContents(parent, toolkit, null);
@@ -99,6 +120,11 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
             getViewer().setFilters(filters);
         }
     }
+
+	public DataFieldTable(Composite parent, XpdToolkit toolkit, EditingDomain editingDomain)
+	{
+		this(parent, toolkit, editingDomain, 0);
+	}
 
     /**
      * @return the editingDomain
@@ -159,11 +185,61 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
     @Override
     protected void addColumns(ColumnViewer viewer) {
 
-        new LabelColumn(editingDomain, viewer);
-        if (CapabilityUtil.isDeveloperActivityEnabled()) {
-            new NameColumn(editingDomain, viewer);
+    	
+		// Only add Label column if not optionally set to hidden (hide label column bit NOT set in options)
+		if ((options & HIDE_LABEL_COLUMN) == 0)
+		{
+			new LabelColumn(editingDomain, viewer);
+		}
+
+		if (CapabilityUtil.isDeveloperActivityEnabled())
+		{
+			if (((options & DISABLE_NAME_COLUMN) == DISABLE_NAME_COLUMN)
+					|| ((options & HIDE_LABEL_COLUMN) == HIDE_LABEL_COLUMN))
+			{
+				boolean disableColumn = false;
+				String columnInitialText = ""; //$NON-NLS-1$
+				
+				if(((options & DISABLE_NAME_COLUMN) == DISABLE_NAME_COLUMN)) {
+					 disableColumn = true;
+					 columnInitialText = "<return>"; //$NON-NLS-1$
+				}
+				
+				new NameColumn(editingDomain, viewer, disableColumn, columnInitialText) {
+					/**
+					 * ACE-7394 : IF we are hiding the label column then show the type images for Name column.
+					 * 
+					 * @see com.tibco.xpd.resources.ui.components.AbstractColumn#getShowImage()
+					 *
+					 * @return
+					 */
+					@Override
+					protected boolean getShowImage() {
+						return ((options & HIDE_LABEL_COLUMN) == HIDE_LABEL_COLUMN);
+					}
+				};
+			}
+			else {
+				new NameColumn(editingDomain, viewer);
+			}
+
         }
-        new ReadOnlyColumn(editingDomain, viewer);
+
+		/**
+		 * ACE-7966 : Chaitanya Add Parameter description editing facility for PSL Parameter table.
+		 * Only add Description column when the ADD_DESCRIPTION_COLUMN bit is SET in options.
+		 */
+		if ((options & ADD_DESCRIPTION_COLUMN) == ADD_DESCRIPTION_COLUMN)
+		{
+			new DescriptionColumn(editingDomain, viewer);
+		}
+
+		// Only add Read Only column if not optionally set to hidden (Read Only column bit NOT set in options)
+		if ((options & HIDE_READONLY_COLUMN) == 0)
+		{
+			new ReadOnlyColumn(editingDomain, viewer);
+		}
+
         new TypeColumn(editingDomain, viewer);
         new LengthColumn(editingDomain, viewer);
         new DecimalPlacesColumn(editingDomain, viewer);
@@ -179,39 +255,83 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
                 BOMTypeQuery.CASE_CLASS_TYPE, BOMTypeQuery.GLOBAL_CLASS_TYPE });
 
         new CaseRefTypeColumn(editingDomain, viewer);
-        new TypeDeclarationColumn(editingDomain, viewer);
 
-        if (CapabilityUtil.isDeveloperActivityEnabled()) {
-            setColumnProportions(new float[] { 0.1f, // Label,
-                    0.1f, // Name,
-                    0.060f, // Readonly
-                    0.1f, // Type,
-                    0.075f, // Length
-                    0.085f, // Decimals
-                    0.075f, // Is array
-                    0.1f, // External Reference
-                    0.1f, // Case Ref Type
-                    0.1f, // Type declaration.
-            });
-        } else {
-            setColumnProportions(new float[] { 0.1f, // Label,
-                    0.060f, // Readonly
-                    0.1f, // Type,
-                    0.075f, // Length
-                    0.085f, // Decimals
-                    0.075f, // Is array
-                    0.15f, // External Reference
-                    0.15f, // Case Ref Type
-                    0.15f, // Type declaration.
-            });
-        }
+		// Only add Type Declaration Column if not optionally set to hidden (hide label column bit NOT set in options)
+		if ((options & HIDE_TYPE_DECLARATION_COLUMN) == 0)
+		{
+			new TypeDeclarationColumn(editingDomain, viewer);
+		}
+
+		setColumnProportions(computeColumnsWidthProportions());
     }
 
     /**
-     * Get the input of this table.
-     * 
-     * @return
-     */
+	 * Function to add the colums width proportions into array , depedning upon weather the column is included or not in
+	 * the DataFieldTable.
+	 * 
+	 * @return
+	 */
+	private float[] computeColumnsWidthProportions()
+	{
+		List<Float> colList = new ArrayList<>();
+
+		// Only add Label column width proporations if not optionally set to hidden (hide label column bit NOT set in options)
+		if ((options & HIDE_LABEL_COLUMN) == 0)
+		{
+			colList.add(0.1f); // Label
+		}
+
+
+		if (CapabilityUtil.isDeveloperActivityEnabled())
+		{
+			colList.add(0.1f); // Name
+		}
+
+		/**
+		 * ACE-7966 : Chaitanya Add Parameter description editing facility for PSL Parameter table.
+		 * Only add Description column width proporations when the ADD_DESCRIPTION_COLUMN bit is SET in options.
+		 */
+		if ((options & ADD_DESCRIPTION_COLUMN) == ADD_DESCRIPTION_COLUMN)
+		{
+			colList.add(0.1f); // Description
+		}
+
+
+		// Only add Read only column width proporations if not optionally set to hidden (hide Read Only column bit NOT set in options)
+		if ((options & HIDE_READONLY_COLUMN) == 0)
+		{
+			colList.add(0.060f); // Readonly
+		}
+		
+
+		colList.add(0.1f); // Type
+		colList.add(0.075f); // Length
+		colList.add(0.085f); // Decimals
+		colList.add(0.075f); // Is array
+		colList.add(0.1f); // External Reference
+		colList.add(0.1f); // Case Ref Type
+
+		// Only add Type Declaration Column width proporations if not optionally set to hidden (hide label column bit NOT set in options)
+		if ((options & HIDE_LABEL_COLUMN) == 0)
+		{
+			colList.add(0.1f); // Type declaration
+		}
+
+		// Convert ArrayList to float[]
+		float[] col = new float[colList.size()];
+		for (int i = 0; i < colList.size(); i++)
+		{
+			col[i] = colList.get(i);
+		}
+
+		return col;
+	}
+
+	/**
+	 * Get the input of this table.
+	 * 
+	 * @return
+	 */
     private EObject getInput() {
         return (EObject) (getViewer() != null ? getViewer().getInput() : null);
     }
@@ -225,8 +345,8 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
      */
     @Override
     protected ViewerAddAction createAddAction(ColumnViewer viewer) {
-        return new TableAddAction(viewer, Messages.PropertiesSection_AddLabel,
-                Messages.DataFieldsSection_AddDataFieldButton_tooltip) {
+        return new TableAddAction(viewer, getAddLabel(),
+                getAddTooltip()) {
 
             @Override
             protected Object addRow(StructuredViewer viewer) {
@@ -244,14 +364,31 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
                             getUniqueDataFieldName(firstCellVal, dataField);
 
                     dataField.setName(NameUtil.getInternalName(propName, true));
-                    Xpdl2ModelUtil.setOtherAttribute(dataField,
-                            XpdExtensionPackage.eINSTANCE
-                                    .getDocumentRoot_DisplayName(),
-                            propName);
+
+					if ((options & HIDE_LABEL_COLUMN) == 0)
+					{
+						Xpdl2ModelUtil.setOtherAttribute(dataField,
+								XpdExtensionPackage.eINSTANCE.getDocumentRoot_DisplayName(), propName);
+					}
+
+					
+					/**
+					 * ACE-7966 : Chaitanya Add Parameter description editing facility for PSL Parameter table.
+					 * Add description object while adding new row, when the ADD_DESCRIPTION_COLUMN bit is SET in options.
+					 */
+					if ((options & ADD_DESCRIPTION_COLUMN) == ADD_DESCRIPTION_COLUMN)
+					{
+						String descMessage = Messages.PSLPropertyPanel_Parameters_Description;
+						String descValue = String.format(descMessage, propName);
+
+						Description description = Xpdl2Factory.eINSTANCE.createDescription();
+						description.setValue(descValue);
+						dataField.setDescription(description);
+					}
 
                     CompoundCommand cmd =
                             new CompoundCommand(
-                                    Messages.DataFieldsSection_createDataField_menu);
+                                    getAddFieldCommandLabel());
                     cmd.append(AddCommand.create(editingDomain,
                             input,
                             Xpdl2Package.eINSTANCE.getDataField(),
@@ -264,7 +401,7 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
             }
 
             protected String getNewRowFirstCellVal() {
-                String propName = Messages.DataFieldsSection_FieldName_value;
+                String propName = getAddFieldNamePrefix();
                 DataField dataField = createFileTemplate(propName);
                 String uniqueDataFieldName =
                         getUniqueDataFieldName(propName, dataField);
@@ -279,10 +416,14 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
                 Xpdl2Factory fact = Xpdl2Factory.eINSTANCE;
                 DataField input = fact.createDataField();
                 input.setName(NameUtil.getInternalName(dataFieldName, true));
-                Xpdl2ModelUtil.setOtherAttribute(input,
-                        XpdExtensionPackage.eINSTANCE
-                                .getDocumentRoot_DisplayName(),
-                        dataFieldName);
+                
+				if ((options & HIDE_LABEL_COLUMN) == 0)
+				{
+                    Xpdl2ModelUtil.setOtherAttribute(input,
+                            XpdExtensionPackage.eINSTANCE
+                                    .getDocumentRoot_DisplayName(),
+                            dataFieldName);
+                }
                 // Set basic string type
                 BasicType basicType = fact.createBasicType();
                 basicType.setType(BasicTypeType.STRING_LITERAL);
@@ -385,8 +526,8 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
     @Override
     protected ViewerDeleteAction createDeleteAction(ColumnViewer viewer) {
         return new TableDeleteAction(viewer,
-                Messages.PropertiesSection_DeleteLabel,
-                Messages.DataFieldsSection_DeleteDataFieldButton_tooltip) {
+                getDeleteLabel(),
+                getDeleteToolTip()) {
 
             @Override
             protected void deleteRows(IStructuredSelection selection) {
@@ -422,7 +563,68 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
         return movableFeatures;
     }
 
-    protected class ReadOnlyColumn extends AbstractColumn {
+	/**
+	 * Gets the tooltip for "Add Button" while adding new "Item/Row" to the table.
+	 * 
+	 * @return
+	 */
+	protected String getAddTooltip()
+	{
+		return Messages.DataFieldsSection_AddDataFieldButton_tooltip;
+	}
+
+	/**
+	 * Gets the Label for "Add Button" while adding new "Item/Row" to the table.
+	 * 
+	 * @return
+	 */
+	protected String getAddLabel()
+	{
+		return Messages.PropertiesSection_AddLabel;
+	}
+
+	/**
+	 * Gets the command label while adding new "Item/Row" to the table.
+	 * 
+	 * @return
+	 */
+	protected String getAddFieldCommandLabel()
+	{
+		return Messages.DataFieldsSection_createDataField_menu;
+	}
+
+	/**
+	 * Gets the Field Name Prefix used while adding new "Item/Row" to the table.
+	 * 
+	 * @return
+	 */
+	protected String getAddFieldNamePrefix()
+	{
+		return Messages.DataFieldsSection_FieldName_value;
+	}
+
+	/**
+	 * Gets the Label for "Delete Button" while deleting selected "Item/Row" from the table.
+	 * 
+	 * @return
+	 */
+	protected String getDeleteToolTip()
+	{
+		return Messages.DataFieldsSection_DeleteDataFieldButton_tooltip;
+	}
+
+	/**
+	 * Gets the tooltip for "Delete Button" while deleting selected "Item/Row" from the table.
+	 * 
+	 * @return
+	 */
+	protected String getDeleteLabel()
+	{
+		return Messages.PropertiesSection_DeleteLabel;
+	}
+
+	protected class ReadOnlyColumn extends AbstractColumn
+	{
         private final CheckboxCellEditor editor;
 
         EditingDomain editingDomain;
@@ -583,7 +785,11 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
         @Override
         protected CellEditor getCellEditor(Object element) {
             if (element instanceof ProcessRelevantData) {
-                return editor;
+				DataType dataType = ((ProcessRelevantData) element).getDataType();
+				if (dataType != null)
+				{
+					return editor;
+				}
             }
             return null;
         }
@@ -611,10 +817,19 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
             if (element instanceof ProcessRelevantData) {
                 ProcessRelevantData processRelevantData =
                         (ProcessRelevantData) element;
-                if (processRelevantData.isIsArray()) {
-                    return CheckboxCellEditor.getImgChecked();
-                }
-                return CheckboxCellEditor.getImgUnchecked();
+
+				if (((ProcessRelevantData) element).getDataType() != null)
+				{
+					if (processRelevantData.isIsArray())
+					{
+						return CheckboxCellEditor.getImgChecked();
+					}
+					return CheckboxCellEditor.getImgUnchecked();
+				}
+				else
+				{
+					return null;
+				}
             }
             return super.getImage(element);
         }
@@ -657,10 +872,20 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
          * com.tibco.xpd.resources.ui.components.AbstractColumn#getText(java
          * .lang.Object)
          */
-        @Override
-        protected String getText(Object element) {
-            return null;
-        }
+		@Override
+		protected String getText(Object element)
+		{
+			if (element instanceof ProcessRelevantData)
+			{
+				ProcessRelevantData processRelevantData = (ProcessRelevantData) element;
+
+				if (((ProcessRelevantData) element).getDataType() == null)
+				{
+					return "NA";
+				}
+			}
+			return null;
+		}
 
         /*
          * (non-Javadoc)
@@ -690,6 +915,38 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
         public TypeColumn(EditingDomain editingDomain, ColumnViewer viewer) {
             super(editingDomain, viewer);
             this.editingDomain = editingDomain;
+		}
+
+		/**
+         * @see com.tibco.xpd.processeditor.xpdl2.properties.AbstractProcessRelevantDataTable.AbstractTypeColumn#getTypes()
+         *
+         * @return
+         */
+        @Override
+        protected Map<String, String> getTypes()
+        {
+        	Map<String, String> typeMap = super.getTypes();
+        	
+        	
+        	// ACE-7880 :- If we are hiding the Type Declaration column , remove the Type Declaration options from the Type column.
+			if ((options & HIDE_TYPE_DECLARATION_COLUMN) == HIDE_TYPE_DECLARATION_COLUMN)
+			{
+				if (typeMap.get(ProcessRelevantDataUtil.TYPE_DECLARATION_TYPE) != null)
+				{
+					typeMap.remove(ProcessRelevantDataUtil.TYPE_DECLARATION_TYPE);
+				}
+        	}
+        	
+
+			// ACE-7394 :- Added VOID type for PSL (i.e. Process Script Library) Return Parameters.
+			if ((options & ADD_VOID_TYPE) == ADD_VOID_TYPE)
+			{
+				String typeName = "Void (no return)"; //$NON-NLS-1$
+				String typeLit = ProcessRelevantDataUtil.VOID_REFERNCE_TYPE;
+				typeMap.put(typeLit, typeName);
+			}
+
+			return typeMap;
         }
 
         /*
@@ -721,6 +978,10 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
                      */
                     currentType = ProcessRelevantDataUtil.CASE_REFERENCE_TYPE;
                 }
+				else if (dataType == null)
+				{
+					currentType = ProcessRelevantDataUtil.VOID_REFERNCE_TYPE;
+				}
 
                 int typeIndex = getTypeIndex((String) value);
 
@@ -736,6 +997,13 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
                                 Xpdl2Package.eINSTANCE
                                         .getProcessRelevantData_DataType(),
                                 newDataType));
+
+						// For Void Type (i.e. when newDataType is null) unset the isArray if already set.
+						if (prd.isSetIsArray() && newDataType == null)
+						{
+							cmd.append(SetCommand.create(editingDomain, prd,
+									Xpdl2Package.eINSTANCE.getProcessRelevantData_IsArray(), false));
+						}
                     }
                 }
             }

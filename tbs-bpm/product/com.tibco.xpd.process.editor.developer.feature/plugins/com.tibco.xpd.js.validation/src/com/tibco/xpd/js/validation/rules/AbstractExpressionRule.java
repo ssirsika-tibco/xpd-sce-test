@@ -5,7 +5,6 @@ package com.tibco.xpd.js.validation.rules;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -115,6 +114,7 @@ public abstract class AbstractExpressionRule extends Xpdl2ValidationRule {
     /** Sid ACE-1378 Track that we only complain once above validation off. */
     private static boolean validationOffErrorDone = false;
 
+
     /**
      * @see com.tibco.xpd.validation.xpdl2.rules.Xpdl2ValidationRule#validate(java.lang.Object)
      * 
@@ -217,12 +217,7 @@ public abstract class AbstractExpressionRule extends Xpdl2ValidationRule {
      * @return standard Additional info map to add to problems
      */
     protected Map<String, String> getAdditionalInfoMap(ErrorMessage errorMessage) {
-        Map<String, String> additionalInfoMap = new HashMap<String, String>();
-        additionalInfoMap.put("LineNumber", Integer.toString(errorMessage //$NON-NLS-1$
-                .getLineNumber()));
-        additionalInfoMap.put("ColumnNumber", Integer.toString(errorMessage //$NON-NLS-1$
-                .getColumnNumber()));
-        additionalInfoMap.put("ErrorMessage", errorMessage.getErrorMessage()); //$NON-NLS-1$
+		Map<String, String> additionalInfoMap = errorMessage.getAdditionalInfoMap();
         additionalInfoMap.put("ScriptContext", getScriptContext()); //$NON-NLS-1$
         return additionalInfoMap;
     }
@@ -269,7 +264,17 @@ public abstract class AbstractExpressionRule extends Xpdl2ValidationRule {
                                     target);
                 }
             }
-            addIssue(issueId, eObject, tempMsgList, additionalInfoMap);
+
+			String alternativeIssueId = errorMessage.getAlternativeIssueId();
+
+			if (alternativeIssueId != null && !alternativeIssueId.isEmpty())
+			{
+				addIssue(alternativeIssueId, eObject, tempMsgList, additionalInfoMap);
+			}
+			else
+			{
+				addIssue(issueId, eObject, tempMsgList, additionalInfoMap);
+			}
         }
     }
 

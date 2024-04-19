@@ -9,6 +9,18 @@ public class Messages extends NLS {
     public static String Activator_Error_Reading_ClassContributor;
 
     public static String Activator_Error_Reading_Model_ModelContibution;
+
+	public static String BpmScriptWrapperFactory_ParamTooltipDesc;
+
+	public static String BpmScriptWrapperFactory_Operation_Description_1;
+
+	public static String BpmScriptWrapperFactory_Operation_Description_2;
+
+	public static String BpmScriptWrapperFactory_Operation_Description_3;
+
+	public static String BpmScriptWrapperFactory_Parameter_description;
+
+	public static String BpmScriptWrapperFactory_ReturnParamTooltipDesc;
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);

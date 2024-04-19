@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * <copyright> </copyright>
  *
  * $Id$
  */
@@ -29,30 +28,31 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='ExtendedAttributes'"
  * @generated
  */
-public interface XpdExtAttributes extends EObject {
+public interface XpdExtAttributes extends EObject
+{
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdExtension.XpdExtAttribute}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Attributes</em>' reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Attributes</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getXpdExtAttributes_Attributes()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='Attribute' namespace='##targetNamespace' wrap='Attributes'"
-     * @generated
-     */
-    EList<XpdExtAttribute> getAttributes();
+	/**
+	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdExtension.XpdExtAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Attributes</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Attributes</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getXpdExtAttributes_Attributes()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Attribute' namespace='##targetNamespace' wrap='Attributes'"
+	 * @generated
+	 */
+	EList<XpdExtAttribute> getAttributes();
 
 } // XpdExtAttributes

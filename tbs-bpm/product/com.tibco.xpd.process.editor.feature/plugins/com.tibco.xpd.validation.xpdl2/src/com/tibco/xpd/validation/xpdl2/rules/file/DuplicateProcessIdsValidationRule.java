@@ -86,9 +86,8 @@ public class DuplicateProcessIdsValidationRule implements IValidationRule {
                 }
             }
             if (invalid) {
-                scope.createIssue("com.tibco.xpd.validation.xpdl2.duplicateIDsInTheFile", wc //$NON-NLS-1$
-                                .getEclipseResources().get(0)
-                                .getProjectRelativePath().toString(),
+				scope.createIssue(getDuplicateIdsInFileIssueId(),
+						wc.getEclipseResources().get(0).getProjectRelativePath().toString(),
                         "", //$NON-NLS-1$
                         Arrays.asList(wc.getEclipseResources().get(0).getName()));
             } else {
@@ -126,9 +125,8 @@ public class DuplicateProcessIdsValidationRule implements IValidationRule {
                     map.put(ValidationActivator.LINKED_RESOURCE,
                             uris.toString());
 
-                    scope.createIssue("com.tibco.xpd.validation.xpdl2.duplicateIDs", wc //$NON-NLS-1$
-                                    .getEclipseResources().get(0)
-                                    .getProjectRelativePath().toString(),
+					scope.createIssue(getDuplicateIdIssueId(),
+							wc.getEclipseResources().get(0).getProjectRelativePath().toString(),
                             "", //$NON-NLS-1$
                             Arrays.asList(sb.toString()),
                             map);
@@ -218,8 +216,7 @@ public class DuplicateProcessIdsValidationRule implements IValidationRule {
         List<IResource> allXpdl =
                 SpecialFolderUtil
                         .getAllDeepResourcesInSpecialFolderOfKind(project,
-                                Xpdl2ResourcesConsts.PROCESSES_SPECIAL_FOLDER_KIND,
-                                Xpdl2ResourcesConsts.XPDL_EXTENSION,
+								getSpecialFolderKind(), getFileExtension(),
                                 false);
 
         if (allXpdl != null) {
@@ -232,5 +229,45 @@ public class DuplicateProcessIdsValidationRule implements IValidationRule {
         }
 
     }
+
+	/**
+	 * Returns the Special Folder Kind that a file exists in
+	 * 
+	 * @return
+	 */
+	protected String getSpecialFolderKind()
+	{
+		return Xpdl2ResourcesConsts.PROCESSES_SPECIAL_FOLDER_KIND;
+	}
+
+	/**
+	 * Returns the File extension for the file to be validated
+	 * 
+	 * @return
+	 */
+	protected String getFileExtension()
+	{
+		return Xpdl2ResourcesConsts.XPDL_EXTENSION;
+	}
+
+	/**
+	 * Returns the issue ID for the issue being created for duplicate IDs in a package
+	 * 
+	 * @return
+	 */
+	protected String getDuplicateIdIssueId()
+	{
+		return "com.tibco.xpd.validation.xpdl2.duplicateIDs"; //$NON-NLS-1$
+	}
+
+	/**
+	 * Returns the issue ID for the issue being created for duplicate IDs in a file
+	 * 
+	 * @return
+	 */
+	protected String getDuplicateIdsInFileIssueId()
+	{
+		return "com.tibco.xpd.validation.xpdl2.duplicateIDsInTheFile"; //$NON-NLS-1$
+	}
 
 }

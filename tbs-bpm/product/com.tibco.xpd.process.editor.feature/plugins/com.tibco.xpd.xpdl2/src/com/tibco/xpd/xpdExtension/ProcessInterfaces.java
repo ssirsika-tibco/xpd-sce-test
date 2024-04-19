@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * <copyright> </copyright>
  *
  * $Id$
  */
@@ -29,28 +28,29 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='ProcessInterfaces' kind='elementOnly'"
  * @generated
  */
-public interface ProcessInterfaces extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface ProcessInterfaces extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Process Interface</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdExtension.ProcessInterface}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Lists the process interface associated with the package.
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Process Interface</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getProcessInterfaces_ProcessInterface()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='ProcessInterface' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<ProcessInterface> getProcessInterface();
+	/**
+	 * Returns the value of the '<em><b>Process Interface</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdExtension.ProcessInterface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Lists the process interface associated with the package.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Process Interface</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getProcessInterfaces_ProcessInterface()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ProcessInterface' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ProcessInterface> getProcessInterface();
 
 } // ProcessInterfaces

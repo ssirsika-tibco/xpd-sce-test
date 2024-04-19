@@ -36,6 +36,23 @@
       </destination>
    </extension>
 
+   <!-- Script Grammar Binding contributions for New validation destination for PSL files -->
+   <extension
+         point="com.tibco.xpd.validation.destinations">
+      <destination
+            id="n2.psl"
+            name="%n2pe.destination.name"
+            selectable="true"
+            version="">
+         <filter
+               class="com.tibco.bx.validation.PslFileFilter"/>
+         <validationProvider
+               id="com.tibco.bx.validation.provider.psl">
+         </validationProvider>
+
+      </destination>
+   </extension>
+   
    <extension
          point="com.tibco.xpd.destinations.globalDestinationEnvironment">
         <globalDestinationComponent
@@ -52,6 +69,22 @@
 	          globalDestinationComponentId="com.tibco.xpd.n2.core.n2GlobalDestination.n2pe"
 	          name="%n2GlobalDestination_label"
 	          validationDestinationId="n2pe1.x">
+	    </defaultGlobalDestinationComponent>
+
+        <globalDestinationComponent
+              globalDestinationId="com.tibco.xpd.n2.core.n2GlobalDestination"
+              id="com.tibco.xpd.n2.core.n2GlobalDestination.psl"
+              name="%n2pe.destination.name">
+        </globalDestinationComponent>
+        <globalDestinationComponentVersion
+              globalDestinationComponentId="com.tibco.xpd.n2.core.n2GlobalDestination.psl"
+              validationDestinationId="n2.psl">
+        </globalDestinationComponentVersion>
+	    <defaultGlobalDestinationComponent
+	          enabled="true"
+	          globalDestinationComponentId="com.tibco.xpd.n2.core.n2GlobalDestination.psl"
+	          name="%n2GlobalDestination_label"
+	          validationDestinationId="n2.psl">
 	    </defaultGlobalDestinationComponent>
    </extension>
       
@@ -224,6 +257,16 @@
             id="bx.validateScriptTask"
             message="%bx.validateScriptTask"
             severity="ERROR">
+      </issue>
+      
+       <issue
+            id="bx.validateScriptTaskForPSLReference"
+            message="%bx.validateScriptTask"
+            severity="ERROR">
+          <resolution
+               canApplyToMultiple="true"
+               id="resolution.bpmn.setAsReferencedProject">
+         </resolution>
       </issue>
       <issue
             id="bx.error.throwGlobalSignalMapToSignalScript"
@@ -431,6 +474,7 @@
             severity="WARNING">
       </issue>      
    </extension>
+   
    <extension
          point="com.tibco.xpd.validation.provider">
       <provider
@@ -2953,10 +2997,10 @@
                   name="com.tibco.xpd.n2.cds.reader.CdsExtendedJScriptProcessDefinitionReader">
             </classContributor>
             <scriptRelevantDataContributor
-                  class="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider"
+                  class="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider"
                   grammarId="JavaScript"
-                  id="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider"
-                  name="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider">
+                  id="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider"
+                  name="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider">
             </scriptRelevantDataContributor>
          </scriptContribution>
          <scriptContribution
@@ -2968,10 +3012,10 @@
                   name="com.tibco.xpd.n2.cds.reader.CdsExtendedJScriptProcessDefinitionReader">
             </classContributor>
             <scriptRelevantDataContributor
-                  class="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider"
+                  class="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider"
                   grammarId="JavaScript"
-                  id="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider"
-                  name="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider">
+                  id="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider"
+                  name="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider">
             </scriptRelevantDataContributor>
          </scriptContribution>
          <scriptContribution
@@ -2983,10 +3027,10 @@
                   name="com.tibco.xpd.n2.cds.reader.CdsExtendedJScriptProcessDefinitionReader">
             </classContributor>
             <scriptRelevantDataContributor
-                  class="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider"
+                  class="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider"
                   grammarId="JavaScript"
-                  id="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider"
-                  name="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider">
+                  id="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider"
+                  name="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider">
             </scriptRelevantDataContributor>
          </scriptContribution>
          <scriptContribution
@@ -3255,10 +3299,10 @@ s         <scriptContribution
                   name="com.tibco.xpd.n2.cds.reader.CdsExtendedJScriptProcessDefinitionReader">
             </classContributor>
             <scriptRelevantDataContributor
-                  class="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider"
+                  class="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider"
                   grammarId="JavaScript"
-                  id="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider"
-                  name="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider">
+                  id="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider"
+                  name="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider">
             </scriptRelevantDataContributor>
          </scriptContribution>
          <scriptContribution
@@ -3270,10 +3314,10 @@ s         <scriptContribution
                   name="com.tibco.xpd.n2.cds.reader.CdsExtendedJScriptProcessDefinitionReader">
             </classContributor>
             <scriptRelevantDataContributor
-                  class="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider"
+                  class="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider"
                   grammarId="JavaScript"
-                  id="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider"
-                  name="com.tibco.xpd.n2.cds.script.CdsDefaultJavaScriptRelevantDataProvider">
+                  id="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider"
+                  name="com.tibco.xpd.n2.cds.script.CdsWorkManagerJavaScriptRelevantDataProvider">
             </scriptRelevantDataContributor>
          </scriptContribution>
           </destination>
@@ -3665,11 +3709,33 @@ s         <scriptContribution
                id="com.tibco.bx.validation.identicalFolderNamesInPresentationResourcesSpecialFolderRule"
                validateType="PROJECT">
          </validator>
+         <validator
+               class="com.tibco.bx.validation.rules.PSLProjectNameValidator"
+               id="com.tibco.bx.validation.pslProjectNameValidationProvider"
+               validateType="PROJECT">
+         </validator>
+         <validator
+               class="com.tibco.bx.validation.rules.PSLFileNameRestrictionRule"
+               filter=".*[\\.]psl"
+               id="com.tibco.bx.validation.pslFileNameRestrictionRule"
+               validateType="FILE">
+         </validator>
       </provider>
       <issues>
          <issue
                id="bx.invalidProjectName"
                message="%bx.invalidProjectName"
+               preferenceDescription="%bx.bpminvalidProjectName.prefDesc"
+               preferenceGroupId="com.tibco.bx.validation.resources"
+               severity="ERROR">
+            <resolution
+                  canApplyToMultiple="false"
+                  id="resolution.bx.renameProject">
+            </resolution>
+         </issue>
+         <issue
+               id="bx.invalidPSLProjectName"
+               message="%bx.invalidPSLProjectName"
                preferenceDescription="%bx.bpminvalidProjectName.prefDesc"
                preferenceGroupId="com.tibco.bx.validation.resources"
                severity="ERROR">
@@ -3712,6 +3778,11 @@ s         <scriptContribution
          <issue
                id="bx.xpdlFileNameRestrictions"
                message="%bx.xpdlFileNameRestrictions"
+               severity="ERROR">
+         </issue>
+         <issue
+               id="bx.pslFileNameRestrictions"
+               message="%bx.pslFileNameRestrictions"
                severity="ERROR">
          </issue>
          <issue
@@ -4734,6 +4805,7 @@ s         <scriptContribution
          </scriptContribution>
       </destination>
    </extension>
+   
    <extension
          id="N2JavascriptTypeMatcher"
          name="%N2JavascriptTypeMatcher3"
@@ -5227,5 +5299,80 @@ s         <scriptContribution
          <run class="com.tibco.bx.validation.MixedAssetProjectNature"/>
       </runtime>
     </extension>
+    
+    <!-- Script Grammar Binding contributions for New validation destination for PSL files -->
+    <extension
+         point="com.tibco.xpd.script.ui.scriptGrammarDestinationBinding">
+      <destination
+            destinationId="n2.psl">
+         <scriptContribution
+               scriptContext="ScriptLibraryFunction">
+            <validationStrategy
+                  class="com.tibco.bx.validation.validator.N2JScriptFunctionValidationStrategy"
+                  grammarId="JavaScript"
+                  id="com.tibco.bx.validation.validator.N2JScriptFunctionValidationStrategy"
+                  name="com.tibco.bx.validation.validator.N2JScriptFunctionValidationStrategy">
+            </validationStrategy>
+            <classContributor
+                  class="com.tibco.xpd.n2.cds.reader.CdsDefaultJScriptProcessDefinitionReader"
+                  grammarId="JavaScript"
+                  id="com.tibco.xpd.n2.cds.reader.CdsDefaultJScriptProcessDefinitionReader"
+                  name="com.tibco.xpd.n2.cds.reader.CdsDefaultJScriptProcessDefinitionReader">
+            </classContributor>
+         </scriptContribution>
+         <scriptContextGrammarBinding
+               scriptContextReference="ScriptLibraryFunction">
+            <defaultGrammar
+                  id="JavaScript"
+                  resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider"
+                  scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider">
+            </defaultGrammar>
+         </scriptContextGrammarBinding>
+         <scriptContribution
+               scriptContext="ScriptLibraryFunction">
+            <classContributor
+                  class="com.tibco.xpd.n2.cds.reader.CdsExtendedJScriptProcessDefinitionReader"
+                  grammarId="JavaScript"
+                  id="com.tibco.xpd.n2.cds.reader.CdsExtendedJScriptProcessDefinitionReader"
+                  name="com.tibco.xpd.n2.cds.reader.CdsExtendedJScriptProcessDefinitionReader">
+            </classContributor>
+            <scriptRelevantDataContributor
+                  class="com.tibco.xpd.n2.cds.script.CdsProcessScriptLibraryJavaScriptRelevantDataProvider"
+                  grammarId="JavaScript"
+                  id="com.tibco.xpd.n2.cds.script.CdsProcessScriptLibraryJavaScriptRelevantDataProvider"
+                  name="com.tibco.xpd.n2.cds.script.CdsProcessScriptLibraryJavaScriptRelevantDataProvider">
+            </scriptRelevantDataContributor>
+         </scriptContribution>
+         
+         
+       </destination>
+   </extension>
+       
+   <!-- Validation rule provider for validation destination for PSL files -->
+   <extension
+         point="com.tibco.xpd.validation.provider">
+      <provider
+            id="com.tibco.bx.validation.provider.psl"
+            markerType="com.tibco.bx.validation.validationMarker"
+            name="Bx Scripts Expressions Validation Provider"
+            scopeProvider="com.tibco.xpd.validation.xpdl2.provider.ScriptLibraryExpressionScopeProvider">
+         <rule
+               class="com.tibco.bx.validation.rules.scripts.BxScriptLibraryFunctionRule">
+         </rule>
+   	  </provider>
+   	  
+   	  <issue
+            id="bx.validateScriptTask"
+            message="%bx.validateScriptTask"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="bx.warning.validateScriptTask"
+            message="%bx.warning.validateScriptTask"
+            severity="WARNING">
+      </issue>
+   	  
+   	</extension>
+    
 </plugin>
 

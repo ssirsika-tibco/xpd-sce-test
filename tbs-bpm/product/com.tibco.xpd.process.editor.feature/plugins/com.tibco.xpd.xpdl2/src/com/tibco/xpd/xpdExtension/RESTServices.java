@@ -28,29 +28,30 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='RESTServices'"
  * @generated
  */
-public interface RESTServices extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface RESTServices extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>REST Services</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdl2.Process}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>REST Services</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>REST Services</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getRESTServices_RESTServices()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='RESTService' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<com.tibco.xpd.xpdl2.Process> getRESTServices();
+	/**
+	 * Returns the value of the '<em><b>REST Services</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdl2.Process}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>REST Services</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>REST Services</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getRESTServices_RESTServices()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='RESTService' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<com.tibco.xpd.xpdl2.Process> getRESTServices();
 
 } // RESTServices

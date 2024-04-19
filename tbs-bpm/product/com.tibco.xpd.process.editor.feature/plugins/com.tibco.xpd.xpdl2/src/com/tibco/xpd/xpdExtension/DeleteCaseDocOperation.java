@@ -15,12 +15,13 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='DeleteCaseDocOperation' kind='empty'"
  * @generated
  */
-public interface DeleteCaseDocOperation extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface DeleteCaseDocOperation extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
 } // DeleteCaseDocOperation

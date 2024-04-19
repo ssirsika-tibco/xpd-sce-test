@@ -34,61 +34,62 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='TransformScript' kind='elementOnly'"
  * @generated
  */
-public interface TransformScript extends ExtendedAttributesContainer {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface TransformScript extends ExtendedAttributesContainer
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Data Mappings</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdl2.DataMapping}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Data Mappings</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Data Mappings</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getTransformScript_DataMappings()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='DataMapping' namespace='##targetNamespace' wrap='DataMappings'"
-     * @generated
-     */
-    EList<DataMapping> getDataMappings();
+	/**
+	 * Returns the value of the '<em><b>Data Mappings</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdl2.DataMapping}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Data Mappings</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data Mappings</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getTransformScript_DataMappings()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DataMapping' namespace='##targetNamespace' wrap='DataMappings'"
+	 * @generated
+	 */
+	EList<DataMapping> getDataMappings();
 
-    /**
-     * Returns the value of the '<em><b>Input Dom</b></em>' attribute list.
-     * The list contents are of type {@link java.lang.String}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * This attribute stores the input document for the transformation.
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Input Dom</em>' attribute list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getTransformScript_InputDom()
-     * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-     *        extendedMetaData="kind='elementOnly' name='InputDom' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<String> getInputDom();
+	/**
+	 * Returns the value of the '<em><b>Input Dom</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This attribute stores the input document for the transformation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Input Dom</em>' attribute list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getTransformScript_InputDom()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 *        extendedMetaData="kind='elementOnly' name='InputDom' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<String> getInputDom();
 
-    /**
-     * Returns the value of the '<em><b>Output Dom</b></em>' attribute list.
-     * The list contents are of type {@link java.lang.String}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * This attribute stores the output document for the transformation.
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Output Dom</em>' attribute list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getTransformScript_OutputDom()
-     * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-     *        extendedMetaData="kind='elementOnly' name='OutputDom' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<String> getOutputDom();
+	/**
+	 * Returns the value of the '<em><b>Output Dom</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This attribute stores the output document for the transformation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Output Dom</em>' attribute list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getTransformScript_OutputDom()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 *        extendedMetaData="kind='elementOnly' name='OutputDom' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<String> getOutputDom();
 
 } // TransformScript

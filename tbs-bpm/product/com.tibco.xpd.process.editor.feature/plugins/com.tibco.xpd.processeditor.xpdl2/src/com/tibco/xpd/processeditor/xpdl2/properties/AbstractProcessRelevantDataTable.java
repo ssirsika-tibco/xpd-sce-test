@@ -5,6 +5,7 @@
 package com.tibco.xpd.processeditor.xpdl2.properties;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -58,6 +59,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.bom.resources.ui.commonpicker.BOMTypeQuery;
 import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
+import com.tibco.xpd.processeditor.xpdl2.properties.dataFields.DataFieldTable;
 import com.tibco.xpd.processeditor.xpdl2.properties.general.TypeDeclarationPropertySection;
 import com.tibco.xpd.processeditor.xpdl2.util.ProcessRelevantDataUtil;
 import com.tibco.xpd.processwidget.ProcessWidgetConstants;
@@ -69,6 +71,7 @@ import com.tibco.xpd.resources.ui.components.XpdToolkit;
 import com.tibco.xpd.resources.ui.picker.PickerService;
 import com.tibco.xpd.resources.ui.picker.PickerTypeQuery;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
+import com.tibco.xpd.resources.util.XpdUtil;
 import com.tibco.xpd.ui.complexdatatype.ComplexDataTypeExtPointHelper;
 import com.tibco.xpd.ui.complexdatatype.ComplexDataTypeReference;
 import com.tibco.xpd.ui.complexdatatype.ComplexDataTypesMergedInfo;
@@ -78,6 +81,7 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.BasicType;
 import com.tibco.xpd.xpdl2.DataType;
 import com.tibco.xpd.xpdl2.DeclaredType;
+import com.tibco.xpd.xpdl2.Description;
 import com.tibco.xpd.xpdl2.ExternalReference;
 import com.tibco.xpd.xpdl2.Length;
 import com.tibco.xpd.xpdl2.Member;
@@ -193,6 +197,13 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
             declaredType.setTypeDeclarationId("");//$NON-NLS-1$
             dataType = declaredType;
             
+		}
+		/**
+		 * ACE-7394 : Added the Void Type to the PSL Function return type.
+		 */
+		else if ((type.equals(ProcessRelevantDataUtil.VOID_REFERNCE_TYPE)))
+		{
+			return null;
         } else {
             /*
              * Sid ACE-1094 We now use UIBasicTypes for all basic types so creatign data type is
@@ -560,9 +571,36 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
     protected class NameColumn extends AbstractColumn {
         private final TextCellEditor editor;
 
+		private String					columnInitialText		= "";
+
+		private boolean					disableColumn			= false;
+
         NameColumnCellEditorListener listener;
 
         private TableActivityListener tableManagerListener = null;
+
+		public NameColumn(EditingDomain editingDomain, ColumnViewer viewer, boolean disableColumn,
+				String columnInitialText)
+		{
+			this(editingDomain, viewer);
+
+			/**
+			 * ACE-7394 : Introduced the option of columnInitialText, to set Initial Text to column instead of reading
+			 * from model.
+			 */
+			this.columnInitialText = columnInitialText;
+			this.disableColumn = disableColumn;
+
+			/**
+			 * ACE-7394 : Introduced the option of disable column, 
+			 * and If column is disabled , clear the listener.
+			 */
+			if (disableColumn)
+			{
+				this.listener = null;
+				getEditor().getControl().setEnabled(false);
+			}
+		}
 
         public NameColumn(EditingDomain editingDomain, ColumnViewer viewer) {
             super(editingDomain, viewer, SWT.NONE,
@@ -622,6 +660,14 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
 
         }
 
+		/**
+		 * @return the editor
+		 */
+		public TextCellEditor getEditor()
+		{
+			return editor;
+		}
+
         @Override
         public void dispose() {
             IActivityManager activityManager =
@@ -643,11 +689,22 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
          */
         @Override
         protected CellEditor getCellEditor(Object element) {
+
+        	
+			/**
+			 * ACE-7394 : Introduced the option of disable column, so when column is disabled, the cell editor should
+			 * return null to stop editing.
+			 */
+			if (disableColumn)
+			{
+				return null;
+			}
+
             if (element instanceof TypeDeclaration
                     || element instanceof ProcessRelevantData
                     || element instanceof Participant) {
                 editor.setValidator(new NameValidator());
-                editor.addListener(listener);
+				editor.addListener(listener);
                 if (element instanceof ProcessRelevantData) {
                     object = (ProcessRelevantData) element;
                 }
@@ -698,7 +755,13 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
             if (element instanceof NamedElement) {
                 NamedElement namedElement = (NamedElement) element;
                 selected = namedElement;
-                return namedElement.getName();
+
+				/**
+				 * ACE-7394 : Introduced the option of columnInitialText, so when ever columnInitialText is set return
+				 * it instead of reading from model.
+				 */
+				return (columnInitialText != null && columnInitialText != "") ? columnInitialText
+						: namedElement.getName();
             }
             return null;
         }
@@ -714,6 +777,47 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
         protected Object getValueForEditor(Object element) {
             return getText(element);
         }
+
+		/*
+		 * ACE-7394 : Chaitanya For PSL Functions Tables
+		 * 
+		 * 1. Parameters Table (i.e. PslFunctionParameterTable.java )
+		 * 2. Return Type Table (i.e. PslFunctionReturnTypeTable.java )
+		 * 
+		 * we decided to show the type icons for the Name Column, so added method for getImage.
+		 * 
+		 * (non-Javadoc)
+		 * 
+		 * @see com.tibco.xpd.resources.ui.components.AbstractColumn#getImage(java .lang.Object)
+		 */
+		@Override
+		protected Image getImage(Object element)
+		{
+			final AdapterFactoryLabelProvider labelProvider;
+
+			// When Type set to void type (no return) do not return image.
+			if (getInput() != null && element instanceof ProcessRelevantData)
+			{
+				ProcessRelevantData processRelevantData = (ProcessRelevantData) element;
+
+				if (((ProcessRelevantData) element).getDataType() == null)
+				{
+					return null;
+				}
+			}
+
+			if (getInput() != null && element instanceof NamedElement)
+			{
+				WorkingCopy wc = WorkingCopyUtil.getWorkingCopyFor(getInput());
+				if (wc != null)
+				{
+					labelProvider = new AdapterFactoryLabelProvider(wc.getAdapterFactory());
+					return labelProvider.getImage(element);
+				}
+			}
+
+			return super.getImage(element);
+		}
 
         class NameColumnCellEditorListener implements ICellEditorListener {
             private TextCellEditor editor;
@@ -846,6 +950,138 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
             }
         }
     }
+    
+	/**
+	 * ACE-7966 : Chaitanya Add Parameter description editing facility for PSL Parameter table. </br>
+	 * 
+	 * Class for representating {@link Description} object in {@link DataFieldTable} as column.
+	 *
+	 * @author cbabar
+	 * @since Mar 27, 2024
+	 */
+	protected class DescriptionColumn extends AbstractColumn
+	{
+		private final TextCellEditor		editor;
+
+
+		public DescriptionColumn(EditingDomain editingDomain, ColumnViewer viewer)
+		{
+			super(editingDomain, viewer, SWT.NONE, Messages.NamedElementPropertiesSection_DescriptionLabel, 80);
+			editor = new TextCellEditor((Composite) viewer.getControl());
+		}
+
+		/**
+		 * @return the editor
+		 */
+		public TextCellEditor getEditor()
+		{
+			return editor;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see com.tibco.xpd.resources.ui.components.AbstractColumn#getCellEditor (java.lang.Object)
+		 */
+		@Override
+		protected CellEditor getCellEditor(Object element)
+		{
+				if (element instanceof ProcessRelevantData)
+				{
+					object = (ProcessRelevantData) element;
+					return editor;
+				}
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see com.tibco.xpd.resources.ui.components.AbstractColumn#getSetValueCommand (java.lang.Object,
+		 * java.lang.Object)
+		 */
+		@Override
+		protected Command getSetValueCommand(Object element, Object value)
+		{
+			CompoundCommand cmd = null;
+			if (element instanceof ProcessRelevantData)
+			{
+				ProcessRelevantData prd = (ProcessRelevantData) element;
+				Description descriptionElement = prd.getDescription();
+
+				String currentValue = (String) value; // i.e. 'value' represents currentValue
+				String previousValue = descriptionElement != null ? descriptionElement.getValue() : null;
+
+				Description newDescriptionElement = null;
+
+				/**
+				 * Check whether the value has changed from null/empty to not null/empty OR value has changed
+				 * to create a new description object.
+				 */
+				if (!XpdUtil.safeEquals(previousValue, currentValue))
+				{
+					newDescriptionElement = createNewDescription(currentValue);
+					cmd = new CompoundCommand();
+					cmd.append(SetCommand.create(getEditingDomain(), prd,
+							Xpdl2Package.eINSTANCE.getDescribedElement_Description(), newDescriptionElement));
+				}
+
+
+			}
+			return cmd;
+		}
+
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see com.tibco.xpd.resources.ui.components.AbstractColumn#getText(java .lang.Object)
+		 */
+		@Override
+		protected String getText(Object element)
+		{
+			if (element instanceof ProcessRelevantData)
+			{
+				ProcessRelevantData prd = (ProcessRelevantData) element;
+				Description descriptionElement = prd.getDescription();
+				String desc = descriptionElement != null ? descriptionElement.getValue() : null;
+				return desc != null ? desc : ""; //$NON-NLS-1$
+			}
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see com.tibco.xpd.resources.ui.components.AbstractColumn#getValueForEditor (java.lang.Object)
+		 */
+		@Override
+		protected Object getValueForEditor(Object element)
+		{
+			return getText(element);
+		}
+
+		/**
+		 * Function to create a new description object {@link Description} from the passed value.
+		 * 
+		 * @param value
+		 * @return Returns the newely created description object {@link Description} from the passed value or else
+		 *         returns null if passed value is null.
+		 */
+		private Description createNewDescription(String value)
+		{
+			if (value == null)
+			{
+				return null;
+			}
+			Description description = Xpdl2Factory.eINSTANCE.createDescription();
+			description.setValue(value);
+
+			return description;
+		}
+	}
+
 
     protected abstract class AbstractTypeColumn extends AbstractColumn {
         private ComboBoxViewerCellEditor editor;
@@ -856,13 +1092,26 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
                 ColumnViewer viewer) {
             super(editingDomain, viewer, SWT.NONE,
                     Messages.DataFieldsSection_TypeColumn_label, 60);
+
             Map<String, String> typeNameMap = getTypes();
+
             Object[] valuesArr = typeNameMap.values().toArray();
             if (valuesArr != null) {
                 String[] strValuesArr = new String[valuesArr.length];
                 for (int i = 0; i < valuesArr.length; i++) {
                     strValuesArr[i] = (String) valuesArr[i];
                 }
+
+
+				/**
+				 * ACE-7394 : Chaitanya : Sorted the list of Types present under Type Coloumn drop down.
+				 * 
+				 * 
+				 * Ideally it was expected to already haven been sorted, but since as part of ACE-7394 we have added new
+				 * Void Type return, just to make sure the list of Types still remains alphabetically sorted.
+				 */
+				Arrays.sort(strValuesArr);
+
                 /*
                  * XPD-6789: Saket: This editor should be read only.
                  */
@@ -878,7 +1127,8 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
         /**
          * @return
          */
-        private Map<String, String> getTypes() {
+		protected Map<String, String> getTypes()
+		{
             // Add basic types to the combo, NOTE: If new one added, order
             // alphabetically
             String typeName;
@@ -1037,6 +1287,13 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
                     text =
                             getTypeName(ProcessRelevantDataUtil.TYPE_DECLARATION_TYPE);
                 }
+				/**
+				 * ACE-7394 : Added the Void Type to the PSL Function return type.
+				 */
+				else if (prd.getDataType() == null)
+				{
+					text = getTypeName(ProcessRelevantDataUtil.VOID_REFERNCE_TYPE);
+				}
             }
             return text != null ? text : ""; //$NON-NLS-1$
         }

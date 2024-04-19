@@ -8,8 +8,12 @@ import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.emf.ecore.EObject;
 
 import com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.INavigatorGroup;
+import com.tibco.xpd.resources.WorkingCopy;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.xpdExtension.ProcessInterface;
 import com.tibco.xpd.xpdl2.Process;
+import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl;
+import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl.Xpdl2FileType;
 import com.tibco.xpd.xpdl2.util.DecisionFlowUtil;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
@@ -173,14 +177,13 @@ public class BpmnProcessPropertyTester extends PropertyTester {
      * @return true if the given object is the child content of a bpmn process
      */
     public static boolean isBpmnProcessContent(EObject eObject) {
-        while (eObject != null) {
-            if (eObject instanceof Process) {
-                if (isBpmnProcess((Process) eObject)) {
-                    return true;
-                }
-            }
-            eObject = eObject.eContainer();
-        }
+		// ACE-7365 : Changed to check for Working copy type.
+		WorkingCopy workingCopy = WorkingCopyUtil.getWorkingCopyFor(eObject);
+		if (workingCopy instanceof Xpdl2WorkingCopyImpl)
+		{
+			return ((Xpdl2WorkingCopyImpl) workingCopy).isOneOfXpdl2FileType(new Xpdl2FileType[]{Xpdl2FileType.PROCESS,
+					Xpdl2FileType.TASK_LIBRARY, Xpdl2FileType.DECISION_FLOW});
+		}
         return false;
     }
 }

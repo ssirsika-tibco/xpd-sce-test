@@ -26,6 +26,7 @@ import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.processwidget.adapters.TaskType;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
 import com.tibco.xpd.xpdExtension.AssociatedParameter;
 import com.tibco.xpd.xpdExtension.AssociatedParameters;
@@ -43,6 +44,8 @@ import com.tibco.xpd.xpdl2.ResultType;
 import com.tibco.xpd.xpdl2.StartEvent;
 import com.tibco.xpd.xpdl2.TriggerType;
 import com.tibco.xpd.xpdl2.Xpdl2Package;
+import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl;
+import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl.Xpdl2FileType;
 import com.tibco.xpd.xpdl2.util.DecisionFlowUtil;
 import com.tibco.xpd.xpdl2.util.ReplyActivityUtil;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
@@ -87,6 +90,8 @@ public class ActivityAssociatedParameterSection extends
         if (eo != null) {
             if (Xpdl2Package.eINSTANCE.getActivity().isSuperTypeOf(eo.eClass())) {
                 Activity activity = (Activity) eo;
+
+				Xpdl2WorkingCopyImpl xpdl2Wc = (Xpdl2WorkingCopyImpl) WorkingCopyUtil.getWorkingCopyFor(activity);
 
                 if (activity.getRoute() != null) {
                     return false;
@@ -185,6 +190,18 @@ public class ActivityAssociatedParameterSection extends
                 case TaskType.USER:
                 case TaskType.SUBPROCESS:
                 case TaskType.SCRIPT:
+            		/**
+            		 * Show the ActivityAssociatedParameterSection (i.e. Interface tab in the UI) tab properties section for below file types extensions. 
+            		 * 
+            		 * - xpdl 
+            		 * - tasks 
+            		 * - dflow.
+            		 * 
+            		 * These conditions were required to be added as part of ACE-7362 i.e. creating property panel for the
+            		 * Script Function Type Selection from .psl file (i.e. Process Script Library)
+            		 */
+					return xpdl2Wc.isOneOfXpdl2FileType(new Xpdl2FileType[]{Xpdl2FileType.PROCESS,
+							Xpdl2FileType.DECISION_FLOW, Xpdl2FileType.TASK_LIBRARY});
                 case TaskType.SEND:
                 case TaskType.SERVICE:
                 case TaskType.NONE:

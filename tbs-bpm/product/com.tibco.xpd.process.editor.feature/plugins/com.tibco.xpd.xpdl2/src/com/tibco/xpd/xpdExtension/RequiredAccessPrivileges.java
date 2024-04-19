@@ -29,29 +29,30 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='RequiredAccessPrivileges' kind='elementOnly'"
  * @generated
  */
-public interface RequiredAccessPrivileges extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface RequiredAccessPrivileges extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Privilege Reference</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdl2.ExternalReference}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Privilege Reference</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Privilege Reference</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getRequiredAccessPrivileges_PrivilegeReference()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='PrivilegeReference' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<ExternalReference> getPrivilegeReference();
+	/**
+	 * Returns the value of the '<em><b>Privilege Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdl2.ExternalReference}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Privilege Reference</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Privilege Reference</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getRequiredAccessPrivileges_PrivilegeReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='PrivilegeReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ExternalReference> getPrivilegeReference();
 
 } // RequiredAccessPrivileges

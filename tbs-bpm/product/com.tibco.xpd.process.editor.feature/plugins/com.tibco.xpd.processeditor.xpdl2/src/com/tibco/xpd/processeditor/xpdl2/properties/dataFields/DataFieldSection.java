@@ -19,10 +19,13 @@ import org.eclipse.swt.widgets.Control;
 import com.tibco.xpd.analyst.resources.xpdl2.processeditorconfiguration.ProcessEditorConfigurationUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.processeditorconfiguration.ProcessEditorElementType;
 import com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.DataFieldGroup;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.ui.properties.AbstractTransactionalSection;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.Process;
+import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl;
+import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl.Xpdl2FileType;
 import com.tibco.xpd.xpdl2.util.DecisionFlowUtil;
 
 /**
@@ -151,25 +154,45 @@ public class DataFieldSection extends AbstractTransactionalSection {
                 if (eo != null && eo.eResource() != null) {
                     if (eo instanceof Activity) {
                         Activity activity = (Activity) eo;
-                        /**
-                         * data fields tab must not be shown for gateways and
-                         * data fields tab must not be shown for activities in
-                         * decision flows
-                         */
-                        if (activity.getRoute() == null
-                                && !DecisionFlowUtil.isDecisionFlow(activity
-                                        .getProcess())) {
-                            /*
-                             * Sid XPD-2516: Don't show fields table section if
-                             * processEditorConfiguration section has an active
-                             * exclusion for participants.
+                        
+						Xpdl2WorkingCopyImpl xpdl2Wc = (Xpdl2WorkingCopyImpl) WorkingCopyUtil.getWorkingCopyFor(activity);
+                        
+    					/**
+    					 * Show the  Data Fields tab properties section for below file types extensions. 
+    					 * 
+    					 * - xpdl 
+    					 * - tasks 
+    					 * - dflow.
+    					 * 
+    					 * These conditions were required to be added as part of ACE-7362 i.e. creating property panel for the
+    					 * Script Function Type Selection from .psl file (i.e. Process Script Library)
+    					 */
+						if (xpdl2Wc.isOneOfXpdl2FileType(new Xpdl2FileType[]{Xpdl2FileType.PROCESS,
+								Xpdl2FileType.DECISION_FLOW, Xpdl2FileType.TASK_LIBRARY}))
+						{
+                            
+                            /**
+                             * data fields tab must not be shown for gateways and
+                             * data fields tab must not be shown for activities in
+                             * decision flows
                              */
-                            if (!ProcessEditorConfigurationUtil
-                                    .getExcludedElementTypes(activity.getProcess())
-                                    .contains(ProcessEditorElementType.datafield)) {
-                                return true;
+                            if (activity.getRoute() == null
+                                    && !DecisionFlowUtil.isDecisionFlow(activity
+                                            .getProcess())) {
+                                /*
+                                 * Sid XPD-2516: Don't show fields table section if
+                                 * processEditorConfiguration section has an active
+                                 * exclusion for participants.
+                                 */
+                                if (!ProcessEditorConfigurationUtil
+                                        .getExcludedElementTypes(activity.getProcess())
+                                        .contains(ProcessEditorElementType.datafield)) {
+                                    return true;
+                                }
                             }
+                        	
                         }
+                        
 
                     } else if (eo instanceof Process) {
                         Process process = (Process) eo;

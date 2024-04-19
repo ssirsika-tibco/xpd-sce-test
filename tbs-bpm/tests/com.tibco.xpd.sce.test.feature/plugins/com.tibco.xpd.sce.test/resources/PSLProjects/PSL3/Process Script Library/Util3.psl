@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" Id="_R3iAUKYuEe6JsJLOl_5kqQ">
+  <xpdl2:PackageHeader>
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>Fri Dec 29 15:10:19 IST 2023</xpdl2:Created>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader>
+    <xpdl2:Author>ssirsika</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_R3iAUaYuEe6JsJLOl_5kqQ">
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_R3iAUqYuEe6JsJLOl_5kqQ" Name="getNumberRnd">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">
+                	return bpmScripts.PSL2.Util2.divide(parameter2,0);
+                </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_R3iAU6YuEe6JsJLOl_5kqQ" Name="parameter1">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_R3iAVKYuEe6JsJLOl_5kqQ" Name="parameter2">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_R3iAVaYuEe6JsJLOl_5kqQ" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_R3iAUqYuEe6JsJLOl_5kqa" Name="getNumber">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">
+                	return parameter1;
+                </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_R3iAU6YuEe6JsJLOl_5kqa" Name="parameter1">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_R3iAVKYuEe6JsJLOl_5kqa" Name="parameter2">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_R3iAVaYuEe6JsJLOl_5kqa" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_R3iAUqYuEe6JsJLOl_5kqb" Name="isTrue">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">
+                	if(parameter1 == bpmScripts.PSL1.Util1.multiply(1,2)){
+                		return bpmScripts.PSL2.Util2.divide(parameter2,0);
+                	}
+                </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_R3iAU6YuEe6JsJLOl_5kqb" Name="parameter1">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_R3iAVKYuEe6JsJLOl_5kqb" Name="parameter2">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_R3iAVaYuEe6JsJLOl_5kqb" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

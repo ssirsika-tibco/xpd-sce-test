@@ -20,6 +20,7 @@ import com.tibco.xpd.sce.tests.javascript.JavascriptNumberValidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptScriptUtilTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptStringTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptTempArrayTest;
+import com.tibco.xpd.sce.tests.processscriptlibrary.ProcessScriptLibraryReferenceProviderTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.BrmModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.GlobalSignalRascContributorTest;
@@ -84,6 +85,8 @@ public class AllUnitTests {
         suite.addTestSuite(GetAuthenticatedUserValidationTest.class);
 		suite.addTestSuite(JavascriptDateTimeUtilTest.class);
 
+		// Process Script Library tests
+		suite.addTestSuite(ProcessScriptLibraryReferenceProviderTest.class);
         return suite;
     }
 }

@@ -27,29 +27,30 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='DynamicOrganizationMappings' kind='empty'"
  * @generated
  */
-public interface DynamicOrganizationMappings extends EObject {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface DynamicOrganizationMappings extends EObject
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Dynamic Organization Mapping</b></em>' containment reference list.
-     * The list contents are of type {@link com.tibco.xpd.xpdExtension.DynamicOrganizationMapping}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Dynamic Organization Mapping</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Dynamic Organization Mapping</em>' containment reference list.
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getDynamicOrganizationMappings_DynamicOrganizationMapping()
-     * @model containment="true"
-     *        extendedMetaData="kind='element' name='DynamicOrganizationMapping' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<DynamicOrganizationMapping> getDynamicOrganizationMapping();
+	/**
+	 * Returns the value of the '<em><b>Dynamic Organization Mapping</b></em>' containment reference list.
+	 * The list contents are of type {@link com.tibco.xpd.xpdExtension.DynamicOrganizationMapping}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dynamic Organization Mapping</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dynamic Organization Mapping</em>' containment reference list.
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getDynamicOrganizationMappings_DynamicOrganizationMapping()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DynamicOrganizationMapping' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<DynamicOrganizationMapping> getDynamicOrganizationMapping();
 
 } // DynamicOrganizationMappings

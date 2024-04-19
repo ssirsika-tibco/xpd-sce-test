@@ -4,21 +4,17 @@
 
 package com.tibco.xpd.validation.bpmn.rules;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.validation.xpdl2.rules.PackageValidationRule;
-import com.tibco.xpd.xpdExtension.ProcessInterface;
-import com.tibco.xpd.xpdExtension.ProcessInterfaces;
 import com.tibco.xpd.xpdl2.BasicType;
 import com.tibco.xpd.xpdl2.BasicTypeType;
-import com.tibco.xpd.xpdl2.DataField;
 import com.tibco.xpd.xpdl2.DataType;
-import com.tibco.xpd.xpdl2.FormalParameter;
 import com.tibco.xpd.xpdl2.NamedElement;
 import com.tibco.xpd.xpdl2.Package;
-import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
 import com.tibco.xpd.xpdl2.TypeDeclaration;
 
@@ -56,36 +52,29 @@ public class BasicTypeLengthRule extends PackageValidationRule {
     @Override
     public void validate(Package pckg) {
         if (null != pckg) {
-            List<DataField> dataFields = pckg.getDataFields();
-            validateFieldsOrParamsLength(dataFields);
 
-            List<TypeDeclaration> typeDeclarations = pckg.getTypeDeclarations();
-            validateTypeDeclLength(typeDeclarations);
+			List<TypeDeclaration> typeDeclarations = pckg.getTypeDeclarations();
+			validateTypeDeclLength(typeDeclarations);
 
-            List<Process> processes = pckg.getProcesses();
-            for (Process process : processes) {
-                List<DataField> fields = process.getDataFields();
-                validateFieldsOrParamsLength(fields);
-
-                List<FormalParameter> parameters =
-                        process.getFormalParameters();
-                validateFieldsOrParamsLength(parameters);
-            }
-
-            ProcessInterfaces processInterfaces =
-                    ProcessInterfaceUtil.getProcessInterfaces(pckg);
-            if (null != processInterfaces) {
-                List<ProcessInterface> processInterfaceList =
-                        processInterfaces.getProcessInterface();
-                for (ProcessInterface processInterface : processInterfaceList) {
-                    List<FormalParameter> formalParameters =
-                            processInterface.getFormalParameters();
-                    validateFieldsOrParamsLength(formalParameters);
-                }
-            }
+			List<ProcessRelevantData> dataFields = getDataFields(pckg);
+			if (dataFields.size() > 0)
+			{
+				validateFieldsOrParamsLength(dataFields);
+			}
         }
     }
 
+	/**
+	 * Returns the list of data fields to be validated for length and scale
+	 * 
+	 * @param pckg
+	 * @return
+	 */
+	protected List<ProcessRelevantData> getDataFields(Package pckg)
+	{
+		return new ArrayList<>(ProcessInterfaceUtil.getAllDataInPackage(pckg));
+
+	}
     /**
      * Validates the numeric type declaration in the given list.
      * 

@@ -34,128 +34,143 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class LikeMappingExclusionsImpl extends EObjectImpl implements LikeMappingExclusions {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public class LikeMappingExclusionsImpl extends EObjectImpl implements LikeMappingExclusions
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String				copyright	= "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved.";	//$NON-NLS-1$
 
-    /**
-     * The cached value of the '{@link #getExclusions() <em>Exclusions</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getExclusions()
-     * @generated
-     * @ordered
-     */
-    protected EList<LikeMappingExclusion> exclusions;
+	/**
+	 * The cached value of the '{@link #getExclusions() <em>Exclusions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExclusions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LikeMappingExclusion>	exclusions;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected LikeMappingExclusionsImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LikeMappingExclusionsImpl()
+	{
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return XpdExtensionPackage.Literals.LIKE_MAPPING_EXCLUSIONS;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass()
+	{
+		return XpdExtensionPackage.Literals.LIKE_MAPPING_EXCLUSIONS;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<LikeMappingExclusion> getExclusions() {
-        if (exclusions == null) {
-            exclusions = new EObjectContainmentEList<LikeMappingExclusion>(LikeMappingExclusion.class, this,
-                    XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS);
-        }
-        return exclusions;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<LikeMappingExclusion> getExclusions()
+	{
+		if (exclusions == null)
+		{
+			exclusions = new EObjectContainmentEList<LikeMappingExclusion>(LikeMappingExclusion.class, this,
+					XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS);
+		}
+		return exclusions;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-        case XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS:
-            return ((InternalEList<?>) getExclusions()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS:
+				return ((InternalEList< ? >) getExclusions()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-        case XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS:
-            return getExclusions();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS:
+				return getExclusions();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-        case XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS:
-            getExclusions().clear();
-            getExclusions().addAll((Collection<? extends LikeMappingExclusion>) newValue);
-            return;
-        }
-        super.eSet(featureID, newValue);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS:
+				getExclusions().clear();
+				getExclusions().addAll((Collection< ? extends LikeMappingExclusion>) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID) {
-        switch (featureID) {
-        case XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS:
-            getExclusions().clear();
-            return;
-        }
-        super.eUnset(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS:
+				getExclusions().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-        case XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS:
-            return exclusions != null && !exclusions.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS:
+				return exclusions != null && !exclusions.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //LikeMappingExclusionsImpl

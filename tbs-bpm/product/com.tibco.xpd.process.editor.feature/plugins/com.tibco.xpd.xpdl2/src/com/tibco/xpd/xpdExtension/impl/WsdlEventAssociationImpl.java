@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * <copyright> </copyright>
  *
  * $Id$
  */
@@ -27,148 +26,160 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class WsdlEventAssociationImpl extends EObjectImpl implements WsdlEventAssociation {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public class WsdlEventAssociationImpl extends EObjectImpl implements WsdlEventAssociation
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String		copyright			= "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved.";	//$NON-NLS-1$
 
-    /**
-     * The default value of the '{@link #getEventId() <em>Event Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getEventId()
-     * @generated
-     * @ordered
-     */
-    protected static final String EVENT_ID_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getEventId() <em>Event Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEventId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String	EVENT_ID_EDEFAULT	= null;
 
-    /**
-     * The cached value of the '{@link #getEventId() <em>Event Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getEventId()
-     * @generated
-     * @ordered
-     */
-    protected String eventId = EVENT_ID_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getEventId() <em>Event Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEventId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String				eventId				= EVENT_ID_EDEFAULT;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WsdlEventAssociationImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WsdlEventAssociationImpl()
+	{
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return XpdExtensionPackage.Literals.WSDL_EVENT_ASSOCIATION;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass()
+	{
+		return XpdExtensionPackage.Literals.WSDL_EVENT_ASSOCIATION;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getEventId() {
-        return eventId;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEventId()
+	{
+		return eventId;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setEventId(String newEventId) {
-        String oldEventId = eventId;
-        eventId = newEventId;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.WSDL_EVENT_ASSOCIATION__EVENT_ID,
-                    oldEventId, eventId));
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEventId(String newEventId)
+	{
+		String oldEventId = eventId;
+		eventId = newEventId;
+		if (eNotificationRequired()) eNotify(new ENotificationImpl(this, Notification.SET,
+				XpdExtensionPackage.WSDL_EVENT_ASSOCIATION__EVENT_ID, oldEventId, eventId));
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-        case XpdExtensionPackage.WSDL_EVENT_ASSOCIATION__EVENT_ID:
-            return getEventId();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.WSDL_EVENT_ASSOCIATION__EVENT_ID:
+				return getEventId();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-        case XpdExtensionPackage.WSDL_EVENT_ASSOCIATION__EVENT_ID:
-            setEventId((String) newValue);
-            return;
-        }
-        super.eSet(featureID, newValue);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.WSDL_EVENT_ASSOCIATION__EVENT_ID:
+				setEventId((String) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID) {
-        switch (featureID) {
-        case XpdExtensionPackage.WSDL_EVENT_ASSOCIATION__EVENT_ID:
-            setEventId(EVENT_ID_EDEFAULT);
-            return;
-        }
-        super.eUnset(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.WSDL_EVENT_ASSOCIATION__EVENT_ID:
+				setEventId(EVENT_ID_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-        case XpdExtensionPackage.WSDL_EVENT_ASSOCIATION__EVENT_ID:
-            return EVENT_ID_EDEFAULT == null ? eventId != null : !EVENT_ID_EDEFAULT.equals(eventId);
-        }
-        return super.eIsSet(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.WSDL_EVENT_ASSOCIATION__EVENT_ID:
+				return EVENT_ID_EDEFAULT == null ? eventId != null : !EVENT_ID_EDEFAULT.equals(eventId);
+		}
+		return super.eIsSet(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy())
-            return super.toString();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
 
-        StringBuilder result = new StringBuilder(super.toString());
-        result.append(" (eventId: "); //$NON-NLS-1$
-        result.append(eventId);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (eventId: "); //$NON-NLS-1$
+		result.append(eventId);
+		result.append(')');
+		return result.toString();
+	}
 
 } //WsdlEventAssociationImpl

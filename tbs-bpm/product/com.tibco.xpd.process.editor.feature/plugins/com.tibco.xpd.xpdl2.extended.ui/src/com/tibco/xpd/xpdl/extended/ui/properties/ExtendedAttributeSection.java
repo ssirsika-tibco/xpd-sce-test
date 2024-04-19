@@ -3,6 +3,7 @@ package com.tibco.xpd.xpdl.extended.ui.properties;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -41,6 +42,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.navigator.CommonNavigator;
 
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.ui.properties.AbstractFilteredTransactionalSection;
 import com.tibco.xpd.ui.properties.TextFieldVerifier;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
@@ -755,11 +757,32 @@ public class ExtendedAttributeSection extends
         if (object instanceof EObject) {
             eo = (EObject) object;
         } else if (object instanceof IAdaptable) {
-            eo = (EObject) ((IAdaptable) object).getAdapter(EObject.class);
+            eo = ((IAdaptable) object).getAdapter(EObject.class);
         }
         if (eo != null) {
             if (eo instanceof ExtendedAttributesContainer || isOther(eo)) {
-                return true;
+
+				IFile file = WorkingCopyUtil.getFile(eo);
+
+				if (file != null)
+				{
+					String fileExtension = file.getFileExtension();
+
+					/**
+					 * Show the extended attributes properties section for below file types extensions. 
+					 * 
+					 * - xpdl 
+					 * - tasks 
+					 * - dflow.
+					 * 
+					 * These conditions were required to be added as part of ACE-7362 i.e. creating property panel for the
+					 * Script Function Type Selection from .psl file (i.e. Process Script Library)
+					 */
+					if ("xpdl".equals(fileExtension) || "tasks".equals(fileExtension) || "dflow".equals(fileExtension)) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					{
+						return true;
+					}
+				}
             }
         }
         return false;

@@ -29,176 +29,198 @@ import com.tibco.xpd.xpdl2.Process;
  *
  * @generated
  */
-public class ActivityRefImpl extends EObjectImpl implements ActivityRef {
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public class ActivityRefImpl extends EObjectImpl implements ActivityRef
+{
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String		copyright		= "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved.";	//$NON-NLS-1$
 
-    /**
-     * The default value of the '{@link #getIdRef() <em>Id Ref</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getIdRef()
-     * @generated
-     * @ordered
-     */
-    protected static final String ID_REF_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getIdRef() <em>Id Ref</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getIdRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String	ID_REF_EDEFAULT	= null;
 
-    /**
-     * The cached value of the '{@link #getIdRef() <em>Id Ref</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getIdRef()
-     * @generated
-     * @ordered
-     */
-    protected String idRef = ID_REF_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getIdRef() <em>Id Ref</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getIdRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected String				idRef			= ID_REF_EDEFAULT;
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    protected ActivityRefImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActivityRefImpl()
+	{
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return XpdExtensionPackage.Literals.ACTIVITY_REF;
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass()
+	{
+		return XpdExtensionPackage.Literals.ACTIVITY_REF;
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    public String getIdRef() {
-        return idRef;
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getIdRef()
+	{
+		return idRef;
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    public void setIdRef(String newIdRef) {
-        String oldIdRef = idRef;
-        idRef = newIdRef;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.ACTIVITY_REF__ID_REF, oldIdRef,
-                    idRef));
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIdRef(String newIdRef)
+	{
+		String oldIdRef = idRef;
+		idRef = newIdRef;
+		if (eNotificationRequired()) eNotify(new ENotificationImpl(this, Notification.SET,
+				XpdExtensionPackage.ACTIVITY_REF__ID_REF, oldIdRef, idRef));
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated NOT
-     */
-    public Activity getActivity() {
-        Activity activity = null;
-        Process process = getProcess(this);
-        if (process != null) {
-            activity = process.getActivity(idRef);
-            if (activity == null) {
-                for (Object next : process.getActivitySets()) {
-                    if (next instanceof ActivitySet) {
-                        ActivitySet set = (ActivitySet) next;
-                        activity = set.getActivity(idRef);
-                        if (activity != null) {
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        return activity;
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public Activity getActivity()
+	{
+		Activity activity = null;
+		Process process = getProcess(this);
+		if (process != null)
+		{
+			activity = process.getActivity(idRef);
+			if (activity == null)
+			{
+				for (Object next : process.getActivitySets())
+				{
+					if (next instanceof ActivitySet)
+					{
+						ActivitySet set = (ActivitySet) next;
+						activity = set.getActivity(idRef);
+						if (activity != null)
+						{
+							break;
+						}
+					}
+				}
+			}
+		}
+		return activity;
+	}
 
-    /**
-     * @param eo
-     *            The object to get the process for.
-     * @return The process.
-     */
-    private Process getProcess(EObject eo) {
-        Process process = null;
-        if (eo instanceof Process) {
-            process = (Process) eo;
-        } else if (eo != null) {
-            process = getProcess(eo.eContainer());
-        }
-        return process;
-    }
+	/**
+	 * @param eo
+	 *            The object to get the process for.
+	 * @return The process.
+	 */
+	private Process getProcess(EObject eo)
+	{
+		Process process = null;
+		if (eo instanceof Process)
+		{
+			process = (Process) eo;
+		}
+		else if (eo != null)
+		{
+			process = getProcess(eo.eContainer());
+		}
+		return process;
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-        case XpdExtensionPackage.ACTIVITY_REF__ID_REF:
-            return getIdRef();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.ACTIVITY_REF__ID_REF:
+				return getIdRef();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-        case XpdExtensionPackage.ACTIVITY_REF__ID_REF:
-            setIdRef((String) newValue);
-            return;
-        }
-        super.eSet(featureID, newValue);
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.ACTIVITY_REF__ID_REF:
+				setIdRef((String) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID) {
-        switch (featureID) {
-        case XpdExtensionPackage.ACTIVITY_REF__ID_REF:
-            setIdRef(ID_REF_EDEFAULT);
-            return;
-        }
-        super.eUnset(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.ACTIVITY_REF__ID_REF:
+				setIdRef(ID_REF_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-        case XpdExtensionPackage.ACTIVITY_REF__ID_REF:
-            return ID_REF_EDEFAULT == null ? idRef != null : !ID_REF_EDEFAULT.equals(idRef);
-        }
-        return super.eIsSet(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
+			case XpdExtensionPackage.ACTIVITY_REF__ID_REF:
+				return ID_REF_EDEFAULT == null ? idRef != null : !ID_REF_EDEFAULT.equals(idRef);
+		}
+		return super.eIsSet(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy())
-            return super.toString();
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
 
-        StringBuilder result = new StringBuilder(super.toString());
-        result.append(" (idRef: "); //$NON-NLS-1$
-        result.append(idRef);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (idRef: "); //$NON-NLS-1$
+		result.append(idRef);
+		result.append(')');
+		return result.toString();
+	}
 
 } // ActivityRefImpl

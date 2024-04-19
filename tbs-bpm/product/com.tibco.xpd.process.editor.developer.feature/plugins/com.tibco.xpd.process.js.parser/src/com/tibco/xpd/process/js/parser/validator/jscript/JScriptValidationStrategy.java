@@ -1,13 +1,13 @@
 package com.tibco.xpd.process.js.parser.validator.jscript;
 
 import com.tibco.xpd.process.js.parser.validator.AbstractProcessValidationStrategy;
+import com.tibco.xpd.process.js.parser.validator.ProcessJScriptVariableDeclarationValidator;
 import com.tibco.xpd.script.parser.internal.validator.IValidator;
 import com.tibco.xpd.script.parser.internal.validator.jscript.JScriptConditionalExprValidator;
 import com.tibco.xpd.script.parser.internal.validator.jscript.JScriptExpressionValidator;
 import com.tibco.xpd.script.parser.internal.validator.jscript.JScriptMethodDefinitionValidator;
 import com.tibco.xpd.script.parser.internal.validator.jscript.JScriptNewExpressionValidator;
 import com.tibco.xpd.script.parser.internal.validator.jscript.JScriptUndefinedVarUseValidator;
-import com.tibco.xpd.script.parser.internal.validator.jscript.JScriptVariableDeclarationValidator;
 import com.tibco.xpd.script.parser.validator.IExpressionValidator;
 import com.tibco.xpd.script.parser.validator.jscript.JScriptMethodCallValidator;
 
@@ -69,7 +69,7 @@ public class JScriptValidationStrategy extends
     @Override
     protected IExpressionValidator getVariableDeclarationValidator() {
         if (varDeclaratorValidator == null) {
-            varDeclaratorValidator = new JScriptVariableDeclarationValidator();
+			varDeclaratorValidator = new ProcessJScriptVariableDeclarationValidator();
         }
         return varDeclaratorValidator;
     }

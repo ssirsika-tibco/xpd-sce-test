@@ -28,69 +28,70 @@ import com.tibco.xpd.xpdl2.Expression;
  * @model extendedMetaData="name='RescheduleTimerScript' namespace='##targetNamespace' kind='mixed'"
  * @generated
  */
-public interface RescheduleTimerScript extends Expression {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface RescheduleTimerScript extends Expression
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Returns the value of the '<em><b>Duration Relative To</b></em>' attribute.
-     * The literals are from the enumeration {@link com.tibco.xpd.xpdExtension.RescheduleDurationType}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Duration Relative To</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Duration Relative To</em>' attribute.
-     * @see com.tibco.xpd.xpdExtension.RescheduleDurationType
-     * @see #isSetDurationRelativeTo()
-     * @see #unsetDurationRelativeTo()
-     * @see #setDurationRelativeTo(RescheduleDurationType)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getRescheduleTimerScript_DurationRelativeTo()
-     * @model unsettable="true" required="true"
-     *        extendedMetaData="kind='attribute' name='DurationRelativeTo'"
-     * @generated
-     */
-    RescheduleDurationType getDurationRelativeTo();
+	/**
+	 * Returns the value of the '<em><b>Duration Relative To</b></em>' attribute.
+	 * The literals are from the enumeration {@link com.tibco.xpd.xpdExtension.RescheduleDurationType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Duration Relative To</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Duration Relative To</em>' attribute.
+	 * @see com.tibco.xpd.xpdExtension.RescheduleDurationType
+	 * @see #isSetDurationRelativeTo()
+	 * @see #unsetDurationRelativeTo()
+	 * @see #setDurationRelativeTo(RescheduleDurationType)
+	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getRescheduleTimerScript_DurationRelativeTo()
+	 * @model unsettable="true" required="true"
+	 *        extendedMetaData="kind='attribute' name='DurationRelativeTo'"
+	 * @generated
+	 */
+	RescheduleDurationType getDurationRelativeTo();
 
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.RescheduleTimerScript#getDurationRelativeTo <em>Duration Relative To</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Duration Relative To</em>' attribute.
-     * @see com.tibco.xpd.xpdExtension.RescheduleDurationType
-     * @see #isSetDurationRelativeTo()
-     * @see #unsetDurationRelativeTo()
-     * @see #getDurationRelativeTo()
-     * @generated
-     */
-    void setDurationRelativeTo(RescheduleDurationType value);
+	/**
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.RescheduleTimerScript#getDurationRelativeTo <em>Duration Relative To</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Duration Relative To</em>' attribute.
+	 * @see com.tibco.xpd.xpdExtension.RescheduleDurationType
+	 * @see #isSetDurationRelativeTo()
+	 * @see #unsetDurationRelativeTo()
+	 * @see #getDurationRelativeTo()
+	 * @generated
+	 */
+	void setDurationRelativeTo(RescheduleDurationType value);
 
-    /**
-     * Unsets the value of the '{@link com.tibco.xpd.xpdExtension.RescheduleTimerScript#getDurationRelativeTo <em>Duration Relative To</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetDurationRelativeTo()
-     * @see #getDurationRelativeTo()
-     * @see #setDurationRelativeTo(RescheduleDurationType)
-     * @generated
-     */
-    void unsetDurationRelativeTo();
+	/**
+	 * Unsets the value of the '{@link com.tibco.xpd.xpdExtension.RescheduleTimerScript#getDurationRelativeTo <em>Duration Relative To</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetDurationRelativeTo()
+	 * @see #getDurationRelativeTo()
+	 * @see #setDurationRelativeTo(RescheduleDurationType)
+	 * @generated
+	 */
+	void unsetDurationRelativeTo();
 
-    /**
-     * Returns whether the value of the '{@link com.tibco.xpd.xpdExtension.RescheduleTimerScript#getDurationRelativeTo <em>Duration Relative To</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Duration Relative To</em>' attribute is set.
-     * @see #unsetDurationRelativeTo()
-     * @see #getDurationRelativeTo()
-     * @see #setDurationRelativeTo(RescheduleDurationType)
-     * @generated
-     */
-    boolean isSetDurationRelativeTo();
+	/**
+	 * Returns whether the value of the '{@link com.tibco.xpd.xpdExtension.RescheduleTimerScript#getDurationRelativeTo <em>Duration Relative To</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Duration Relative To</em>' attribute is set.
+	 * @see #unsetDurationRelativeTo()
+	 * @see #getDurationRelativeTo()
+	 * @see #setDurationRelativeTo(RescheduleDurationType)
+	 * @generated
+	 */
+	boolean isSetDurationRelativeTo();
 
 } // RescheduleTimerScript

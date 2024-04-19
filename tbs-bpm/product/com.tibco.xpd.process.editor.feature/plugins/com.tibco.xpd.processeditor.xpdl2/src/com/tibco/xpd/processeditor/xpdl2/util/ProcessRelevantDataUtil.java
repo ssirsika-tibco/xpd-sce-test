@@ -55,6 +55,11 @@ public class ProcessRelevantDataUtil {
 
     public static final String CASE_REFERENCE_TYPE = "Case Ref Type"; //$NON-NLS-1$
 
+	/**
+	 * ACE-7394 : Added the Void Type to the PSL Function return type.
+	 */
+	public static final String	VOID_REFERNCE_TYPE				= "Void Type";			//$NON-NLS-1$
+
 
     public static EObject createNewParticipantType(String type) {
         EObject dataType = null;

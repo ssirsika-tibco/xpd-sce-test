@@ -867,12 +867,15 @@ public class ScriptGrammarDestinationBindingElement {
         }
 
         /**
+         * @param createNewInstance Do not use cached singleton instance of script info provider, create a new one.
+         * 
          * @return the scriptInfoProvider
          * @throws CoreException
          */
-        public AbstractScriptInfoProvider getScriptInfoProvider()
+		public AbstractScriptInfoProvider getScriptInfoProvider(boolean createNewInstance)
                 throws CoreException {
-            if (scriptInfoProvider != null) {
+			if (scriptInfoProvider != null && !createNewInstance)
+			{
                 return scriptInfoProvider;
             }
 
@@ -885,8 +888,19 @@ public class ScriptGrammarDestinationBindingElement {
                             scriptGrammarReferenceConfigElement
                                     .createExecutableExtension(ATT_SCRIPT_INFO_PROVIDER);
                     if (executableExtension instanceof AbstractScriptInfoProvider) {
-                        scriptInfoProvider =
+                    	
+                    	    
+						if (!createNewInstance)
+						{
+							scriptInfoProvider =
                                 (AbstractScriptInfoProvider) executableExtension;
+						}
+						else
+						{
+							/* Do not use cached singleton instance of script info provider, create a new one. */
+							return (AbstractScriptInfoProvider) executableExtension;
+						}
+
                     }
                 }
             }

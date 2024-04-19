@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * <copyright> </copyright>
  *
  * $Id$
  */
@@ -17,23 +16,25 @@ import com.tibco.xpd.xpdl2.extension.ResourceExtensions;
  * @see com.tibco.xpd.processeditor.xpdl2.xpdExtension.util.XpdExtensionResourceFactoryImpl
  * @generated NOT
  */
-public class XpdExtensionResourceImpl extends ResourceExtensions {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+public class XpdExtensionResourceImpl extends ResourceExtensions
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
 
-    /**
-     * Creates an instance of the resource.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param uri the URI of the new resource.
-     * @generated
-     */
-    public XpdExtensionResourceImpl(URI uri) {
-        super(uri);
-    }
+	/**
+	 * Creates an instance of the resource.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param uri the URI of the new resource.
+	 * @generated
+	 */
+	public XpdExtensionResourceImpl(URI uri)
+	{
+		super(uri);
+	}
 
 } //XpdExtensionResourceImpl

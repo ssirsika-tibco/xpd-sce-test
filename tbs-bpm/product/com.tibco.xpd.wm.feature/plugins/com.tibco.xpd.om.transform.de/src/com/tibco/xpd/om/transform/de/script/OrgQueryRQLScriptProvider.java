@@ -36,7 +36,8 @@ public class OrgQueryRQLScriptProvider extends AbstractScriptInfoProvider {
      * @param document
      */
     @Override
-    public void executeSaveCommand(IDocument document) {
+	public boolean executeSaveCommand(IDocument document)
+	{
         String modifiedScript = document.get();
         EObject eObject = getInput();
         if (eObject != null) {
@@ -53,6 +54,8 @@ public class OrgQueryRQLScriptProvider extends AbstractScriptInfoProvider {
                 }
             }
         }
+
+		return true;
 
     }
 

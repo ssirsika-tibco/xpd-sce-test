@@ -23,12 +23,13 @@ import com.tibco.xpd.xpdl2.Message;
  * @model extendedMetaData="name='FaultMessage' kind='elementOnly'"
  * @generated
  */
-public interface FaultMessage extends Message {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
+public interface FaultMessage extends Message
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
 } // FaultMessage

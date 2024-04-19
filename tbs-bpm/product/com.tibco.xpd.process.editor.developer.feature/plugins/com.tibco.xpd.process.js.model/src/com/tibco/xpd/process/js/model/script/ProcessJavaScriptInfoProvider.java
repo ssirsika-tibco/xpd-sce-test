@@ -26,7 +26,6 @@ import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.script.ui.ScriptGrammarContributionsUtil;
-import com.tibco.xpd.script.ui.internal.AbstractScriptInfoProvider;
 import com.tibco.xpd.xpdExtension.AdHocExecutionTypeType;
 import com.tibco.xpd.xpdExtension.AdHocTaskConfigurationType;
 import com.tibco.xpd.xpdExtension.ScriptInformation;
@@ -47,7 +46,8 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @author rsomayaj
  * 
  */
-public class ProcessJavaScriptInfoProvider extends AbstractScriptInfoProvider {
+public class ProcessJavaScriptInfoProvider extends AbstractSaveableProcessScriptInfoProvider
+{
 
     private static final String SINGLE_LINE_COMMENT = "//"; //$NON-NLS-1$"
 
@@ -57,7 +57,8 @@ public class ProcessJavaScriptInfoProvider extends AbstractScriptInfoProvider {
      * @param document
      */
     @Override
-    public void executeSaveCommand(IDocument document) {
+	public void doExecuteSaveCommand(IDocument document)
+	{
         String modifiedScript = document.get();
         if (getInput() == null) {
             return;
@@ -305,6 +306,10 @@ public class ProcessJavaScriptInfoProvider extends AbstractScriptInfoProvider {
                 .equals(ProcessScriptContextConstants.SCRIPT_TASK)) {
             return getScriptTaskEObject();
         } else if (scriptContext
+				.equals(ProcessScriptContextConstants.PROCESS_SCRIPT_LIBRARY_FUNCTION))
+		{
+            return getScriptTaskEObject();
+        } else if (scriptContext
                 .equals(ProcessScriptContextConstants.ADHOC_PRECONDITION)) {
             return getAdhocScriptEObject();
         } else if (scriptContext
@@ -380,6 +385,10 @@ public class ProcessJavaScriptInfoProvider extends AbstractScriptInfoProvider {
                 .equals(ProcessScriptContextConstants.SCRIPT_TASK)) {
             return ProcessScriptUtil.getScriptTaskScript((Activity) getInput());
 
+        } else if (scriptContext
+				.equals(ProcessScriptContextConstants.PROCESS_SCRIPT_LIBRARY_FUNCTION))
+		{
+        	return ProcessScriptUtil.getScriptTaskScript((Activity) getInput());
         } else if (scriptContext
                 .equals(ProcessScriptContextConstants.ADHOC_PRECONDITION)) {
             return ProcessScriptUtil
@@ -571,6 +580,13 @@ public class ProcessJavaScriptInfoProvider extends AbstractScriptInfoProvider {
                                 getScriptGrammar());
 
             } else if (scriptContext
+					.equals(ProcessScriptContextConstants.PROCESS_SCRIPT_LIBRARY_FUNCTION))
+			{
+				return ProcessScriptUtil.getSetPSLFunctionScriptCommand(editingDomain, strScript, (Activity) eObject,
+						getScriptGrammar());
+
+			}
+			else if (scriptContext
                     .equals(ProcessScriptContextConstants.ADHOC_PRECONDITION)) {
                 return ProcessScriptUtil
                         .getSetAdhocScriptCommand(editingDomain,
@@ -754,6 +770,18 @@ public class ProcessJavaScriptInfoProvider extends AbstractScriptInfoProvider {
                                     true,
                                     scriptContext);
         } else if (scriptContext
+				.equals(ProcessScriptContextConstants.PROCESS_SCRIPT_LIBRARY_FUNCTION))
+		{
+        	toReturn =
+                    ProcessScriptUtil
+                            .getSetScriptTaskGrammarCommand(editingDomain,
+                                    scriptGrammar,
+                                    scriptContainer,
+
+                                    true,
+                                    scriptContext);
+
+		} else if (scriptContext
                 .equals(ProcessScriptContextConstants.ADHOC_PRECONDITION)) {
             toReturn =
                     ProcessScriptUtil.getSetAdhocGrammarCommand(editingDomain,
