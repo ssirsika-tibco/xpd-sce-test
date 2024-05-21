@@ -141,7 +141,19 @@ public abstract class AbstractUMLScriptRelevantData extends
 
     @Override
     public String getType() {
-        return this.getClassName();
+		/* Sid ACE-8226 detect special system classes (like bpmScripts) and remove the system tag from the type name. */
+		String typeName = this.getClassName();
+
+		if (typeName.endsWith("$$"))
+		{
+			int i = typeName.indexOf("_$$");
+
+			if (i > 0)
+			{
+				typeName = typeName.substring(0, i);
+			}
+		}
+		return typeName;
     }
 
     public Class getMultipleClass() {

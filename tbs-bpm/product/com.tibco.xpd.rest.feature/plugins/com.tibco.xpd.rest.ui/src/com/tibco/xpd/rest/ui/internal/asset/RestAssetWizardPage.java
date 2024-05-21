@@ -28,6 +28,7 @@ import com.tibco.xpd.resources.projectconfig.projectassets.IAssetProjectProperty
 import com.tibco.xpd.resources.projectconfig.projectassets.SpecialFolderAssetConfiguration;
 import com.tibco.xpd.rest.ui.RestServicesUtil;
 import com.tibco.xpd.rest.ui.internal.Messages;
+import com.tibco.xpd.rsd.ui.RsdImage;
 import com.tibco.xpd.rsd.wc.RsdWorkingCopy;
 
 /**
@@ -51,6 +52,8 @@ public class RestAssetWizardPage extends AbstractSpecialFolderAssetWizardPage {
         setDescription(Messages.RestAssetWizardPage_RestServices_desc);
         rsdFileName = RestServicesUtil.RSD_DEFAULT_FILENAME;
 
+		/* Sid ACE-7330: Show correct wizard banner icon for asset type. */
+        setImageDescriptor(RsdImage.getImageDescriptor(RsdImage.NEW_RSD_WIZBAN));
     }
 
     @Override

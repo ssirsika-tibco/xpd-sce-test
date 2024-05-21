@@ -3,6 +3,7 @@
  */
 package com.tibco.xpd.sce.tests.validation;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 
 import com.tibco.xpd.core.test.util.TestResourceInfo;
@@ -28,6 +29,12 @@ import com.tibco.xpd.resources.util.ProjectImporter;
  */
 public class PSLValidBPMScriptsVariableAssignmentValidationTest extends AbstractN2BaseValidationTest {
 
+	private ProjectImporter	projectImporterProcessProject;
+
+	private ProjectImporter	projectImporterScriptLibrary0;
+
+	private ProjectImporter	projectImporterScriptLibrary1;
+
 	public PSLValidBPMScriptsVariableAssignmentValidationTest() {
 		super(true);
 	}
@@ -43,27 +50,35 @@ public class PSLValidBPMScriptsVariableAssignmentValidationTest extends Abstract
 		/*
 		 * Project with valid PSL 'bpmScripts' variable assignment - so should have no problems.
 		 */
+		IProject scriptLib0Project = ResourcesPlugin.getWorkspace().getRoot().getProject("ScriptLibrary_0");
+
 		assertFalse("PSLValidBPMScriptsVariableAssignmentValidationTest/ScriptLibrary_0" //$NON-NLS-1$
-				+ " project should not have any ERROR level problem markers", //$NON-NLS-1$
+				+ " project should not have any ERROR level problem markers: \n" //$NON-NLS-1$
+				+ TestUtil.getErrorProblemMarkerList(scriptLib0Project, true),
 				TestUtil.hasErrorProblemMarker(
-						ResourcesPlugin.getWorkspace().getRoot()
-								.getProject("ScriptLibrary_0"), //$NON-NLS-1$
+						scriptLib0Project, // $NON-NLS-1$
 						true, "testPSLValidBPMScriptsVariableAssignmentValidationTest"));
 
 		/*
 		 * Project with valid PSL 'bpmScripts' variable assignment - so should have no problems.
 		 */
+		IProject scriptLib1Project = ResourcesPlugin.getWorkspace().getRoot().getProject("ScriptLibrary_1");
+
 		assertFalse("PSLValidBPMScriptsVariableAssignmentValidationTest/ScriptLibrary_1" //$NON-NLS-1$
-				+ " project should not have any ERROR level problem markers", //$NON-NLS-1$
-				TestUtil.hasErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject("ScriptLibrary_1"), //$NON-NLS-1$
+				+ " project should not have any ERROR level problem markers: \n" //$NON-NLS-1$
+				+ TestUtil.getErrorProblemMarkerList(scriptLib1Project, true),
+				TestUtil.hasErrorProblemMarker(scriptLib1Project, // $NON-NLS-1$
 						true, "testPSLValidBPMScriptsVariableAssignmentValidationTest"));
 
 		/*
 		 * Project with valid PSL 'bpmScripts' variable assignment - so should have no problems.
 		 */
+		IProject processProject = ResourcesPlugin.getWorkspace().getRoot().getProject("ProcessProject");
+
 		assertFalse("PSLValidBPMScriptsVariableAssignmentValidationTest/ProcessProject" //$NON-NLS-1$
-				+ " project should not have any ERROR level problem markers", //$NON-NLS-1$
-				TestUtil.hasErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject("ProcessProject"), //$NON-NLS-1$
+				+ " project should not have any ERROR level problem markers: \n" //$NON-NLS-1$
+				+ TestUtil.getErrorProblemMarkerList(processProject, true),
+				TestUtil.hasErrorProblemMarker(processProject, // $NON-NLS-1$
 						true, "testPSLValidBPMScriptsVariableAssignmentValidationTest"));
 
         return;
@@ -102,7 +117,7 @@ public class PSLValidBPMScriptsVariableAssignmentValidationTest extends Abstract
 	{
 
 		// Import project which should not have any problem markers after the validation
-		ProjectImporter projectImporterProcessProject = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
+		projectImporterProcessProject = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
 				new String[]{"resources/PSLValidBPMScriptsVariableAssignmentValidationTest/ProcessProject/"}, //$NON-NLS-1$
 				new String[]{"ProcessProject"}); // $NON-NLS-1$ //$NON-NLS-1$
 
@@ -111,7 +126,7 @@ public class PSLValidBPMScriptsVariableAssignmentValidationTest extends Abstract
 				projectImporterProcessProject != null);
 
 		// Import project which should not have any problem markers after the validation
-		ProjectImporter projectImporterScriptLibrary0 = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
+		projectImporterScriptLibrary0 = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
 				new String[]{"resources/PSLValidBPMScriptsVariableAssignmentValidationTest/ScriptLibrary_0/"}, //$NON-NLS-1$
 				new String[]{"ScriptLibrary_0"}); // $NON-NLS-1$ //$NON-NLS-1$
 
@@ -120,7 +135,7 @@ public class PSLValidBPMScriptsVariableAssignmentValidationTest extends Abstract
 				projectImporterScriptLibrary0 != null);
 
 		// Import project which should not have any problem markers after the validation
-		ProjectImporter projectImporterScriptLibrary1 = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
+		projectImporterScriptLibrary1 = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
 				new String[]{"resources/PSLValidBPMScriptsVariableAssignmentValidationTest/ScriptLibrary_1/"}, //$NON-NLS-1$
 				new String[]{"ScriptLibrary_1"}); // $NON-NLS-1$ //$NON-NLS-1$
 
@@ -128,6 +143,32 @@ public class PSLValidBPMScriptsVariableAssignmentValidationTest extends Abstract
 				"Failed to load projects from \"resources/PSLValidBPMScriptsVariableAssignmentValidationTest/ScriptLibrary_1\"", //$NON-NLS-1$
 				projectImporterScriptLibrary1 != null);
 
+	}
+
+	/**
+	 * @see com.tibco.xpd.core.test.util.AbstractBaseResourceTest#tearDown()
+	 *
+	 * @throws Exception
+	 */
+	@Override
+	protected void tearDown() throws Exception
+	{
+		if (projectImporterProcessProject != null)
+		{
+			projectImporterProcessProject.performDelete();
+		}
+
+		if (projectImporterScriptLibrary1 != null)
+		{
+			projectImporterScriptLibrary1.performDelete();
+		}
+
+		if (projectImporterScriptLibrary0 != null)
+		{
+			projectImporterScriptLibrary0.performDelete();
+		}
+
+		super.tearDown();
 	}
 
 }

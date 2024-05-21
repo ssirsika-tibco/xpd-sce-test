@@ -119,7 +119,17 @@ public class DefaultJsMethod extends DefaultMultipleJsClassResolver implements
                 } else {
                     buffer.append(","); //$NON-NLS-1$
                 }
-                buffer.append(jsParam.getType());
+
+				/* Sid ACE-8226 Case references should be distinguished from BOM class in popup help */
+				String typeName = jsParam.getType();
+
+				if (jsParam.isSpecificTypeCaseReference())
+				{
+					typeName = JsConsts.CASE_REFERENCE + "<" + typeName + ">"; //$NON-NLS-1$//$NON-NLS-2$
+				}
+
+				buffer.append(typeName);
+
                 if (jsParam.canRepeat()) {
 
                     /* for List/Array */

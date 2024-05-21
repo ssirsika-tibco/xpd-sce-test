@@ -574,7 +574,7 @@ public class ProcessUtil {
                 if (JsConsts.STRING.equalsIgnoreCase(literal)) {
                     psrdType = JsConsts.STRING;
                 } else if (JsConsts.FLOAT.equalsIgnoreCase(literal)) {
-                    psrdType = JsConsts.FLOAT;
+					psrdType = JsConsts.FLOAT;
                 } else if (JsConsts.INTEGER.equalsIgnoreCase(literal)) {
                     psrdType = JsConsts.INTEGER;
                 } else if (ProcessJsConsts.DATETIME.equalsIgnoreCase(literal)) {

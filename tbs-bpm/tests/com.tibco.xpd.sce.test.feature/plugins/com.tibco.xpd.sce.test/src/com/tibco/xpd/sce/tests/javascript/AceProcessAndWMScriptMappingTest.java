@@ -68,7 +68,8 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
              * 
              * So we need to allow for that.
              */
-            assertFalse("DataWrappingMapperTests project has no error level problem markers.", //$NON-NLS-1$
+			assertFalse("DataWrappingMapperTests project has no error level problem markers: \n" //$NON-NLS-1$
+					+ TestUtil.getErrorProblemMarkerList(mapperProject, true),
                     TestUtil.hasErrorProblemMarker(mapperProject,
                             true,
                             Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured"),

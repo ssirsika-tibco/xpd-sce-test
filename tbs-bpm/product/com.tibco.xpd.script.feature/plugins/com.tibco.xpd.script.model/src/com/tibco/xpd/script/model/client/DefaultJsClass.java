@@ -17,7 +17,10 @@ import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Operation;
+import org.eclipse.uml2.uml.Parameter;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Type;
+import org.eclipse.uml2.uml.UMLFactory;
 
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.script.model.Activator;
@@ -44,6 +47,21 @@ public class DefaultJsClass extends DefaultMultipleJsClassResolver implements
      * enumeration icon.
      */
     public static final String BOM_ENUM_SUFFIX = "_$$enumeration$$"; //$NON-NLS-1$
+
+	/**
+	 * Sid ACE-7330 Suffix for the container of PSL project classes for content assist.
+	 */
+	public static final String			PSL_PROJECTS_CONTAINER_CLASS_SUFFIX	= "_$$processScriptLibraryProjectContainer$$";	//$NON-NLS-1$
+
+	/**
+	 * Sid ACE-7330 Suffix for the container of PSL project classes for content assist.
+	 */
+	public static final String			PSL_FILES_CONTAINER_CLASS_SUFFIX	= "_$$processScriptLibraryFileContainer$$";		//$NON-NLS-1$
+
+	/**
+	 * Sid ACE-7330 Suffix for the container of PSL project classes for content assist.
+	 */
+	public static final String			PSL_FUNCTIONS_CONTAINER_CLASS_SUFFIX	= "_$$processScriptLibraryFunctionContainer$$";	//$NON-NLS-1$
 
     private Class umlClass;
 
@@ -420,7 +438,44 @@ public class DefaultJsClass extends DefaultMultipleJsClassResolver implements
     protected JsMethod createJsMethod(Operation operation) {
         DefaultJsMethod jsMethod =
                 new DefaultJsMethod(operation, multipleClass);
-        jsMethod.setIcon(WorkingCopyUtil.getImage(operation));
+
+		/*
+		 * Sid ACE-7330 - If container class has suffix the project-level class to indicate it is a PSL
+		 * projects/files/functions container, use PSL file icon.
+		 */
+		if (operation.eContainer() instanceof Class && ((Class) operation.eContainer()).getName() != null
+				&& ((Class) operation.eContainer()).getName().endsWith(PSL_FUNCTIONS_CONTAINER_CLASS_SUFFIX))
+		{
+			Image icon = null;
+
+			JsMethodParam returnType = jsMethod.getReturnType();
+			if (returnType != null)
+			{
+				Parameter umlParam = returnType.getUMLParameter();
+				if (umlParam != null)
+				{
+					Type umlType = umlParam.getType();
+
+					if (umlType != null)
+					{
+						/*
+						 * get-image only works property for UML properties (where icon is derived from type), so create
+						 * a temporary one just to get proper icon.
+						 */
+						Property tmpProperty = UMLFactory.eINSTANCE.createProperty();
+						tmpProperty.setType(umlType);
+						icon = WorkingCopyUtil.getImage(tmpProperty);
+						jsMethod.setIcon(icon);
+					}
+				}
+			}
+
+		}
+		else
+		{
+			jsMethod.setIcon(WorkingCopyUtil.getImage(operation));
+		}
+
         return jsMethod;
     }
 
@@ -451,7 +506,30 @@ public class DefaultJsClass extends DefaultMultipleJsClassResolver implements
                 && ((Class) property.eContainer()).getName().endsWith(BOM_ENUM_SUFFIX)) {
             jsReference.setIcon(Activator.getDefault().getImageRegistry().get(JsConsts.CDS_BOM_ENUMERATION_LITERAL_ICON));
 
-        } else {
+		}
+		else if (property.eContainer() instanceof Class && ((Class) property.eContainer()).getName() != null
+				&& ((Class) property.eContainer()).getName().endsWith(BOM_ENUM_SUFFIX))
+		{
+			jsReference
+					.setIcon(Activator.getDefault().getImageRegistry().get(JsConsts.CDS_BOM_ENUMERATION_LITERAL_ICON));
+
+		}
+		/*
+		 * Sid ACE-7330 - If container class has suffix the project-level class to indicate it is a PSL
+		 * projects/files/functions container, use PSL file icon.
+		 */
+		else if (property.eContainer() instanceof Class && ((Class) property.eContainer()).getName() != null
+				&& ((Class) property.eContainer()).getName().endsWith(PSL_PROJECTS_CONTAINER_CLASS_SUFFIX))
+		{
+			jsReference.setIcon(Activator.getDefault().getImageRegistry().get(JsConsts.PSL_PROJECT_LITERAL_ICON));
+		}
+		else if (property.eContainer() instanceof Class && ((Class) property.eContainer()).getName() != null
+				&& ((Class) property.eContainer()).getName().endsWith(PSL_FILES_CONTAINER_CLASS_SUFFIX))
+		{
+			jsReference.setIcon(Activator.getDefault().getImageRegistry().get(JsConsts.PSL_FILE_LITERAL_ICON));
+		}
+		else
+		{
             jsReference.setIcon(WorkingCopyUtil.getImage(property));
         }
 

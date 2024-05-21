@@ -18,6 +18,7 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import com.tibco.xpd.processscriptlibrary.resource.ProcessScriptLibraryResourcePluginActivtor;
+import com.tibco.xpd.processscriptlibrary.resource.config.ProcessScriptLibraryConstants;
 import com.tibco.xpd.processscriptlibrary.resource.editor.util.PslEditorUtil;
 import com.tibco.xpd.processscriptlibrary.resource.internal.Messages;
 import com.tibco.xpd.ui.wizards.newproject.BasicNewXpdResourceWizard;
@@ -64,8 +65,8 @@ public class ProcessScriptLibraryCreationWizard extends BasicNewXpdResourceWizar
 
 		setWindowTitle(Messages.ProcessScriptLibraryCreationWizard_Title);
 
-		setDefaultPageImageDescriptor(ProcessScriptLibraryResourcePluginActivtor
-				.getBundledImageDescriptor(ProcessScriptLibraryResourcePluginActivtor.PSL_WIZARD_IMAGE));
+		setDefaultPageImageDescriptor(ProcessScriptLibraryResourcePluginActivtor.getDefault().getImageRegistry()
+				.getDescriptor(ProcessScriptLibraryConstants.IMG_SCRIPT_FILE_WIZARD));
 
 		setNeedsProgressMonitor(true);
 	}

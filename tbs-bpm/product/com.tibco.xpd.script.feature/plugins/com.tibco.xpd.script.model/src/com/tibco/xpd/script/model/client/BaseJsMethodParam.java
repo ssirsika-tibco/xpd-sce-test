@@ -264,4 +264,16 @@ public class BaseJsMethodParam implements JsMethodParam, IJsElementExt,
         return null;
     }
 
+	/**
+	 * @see com.tibco.xpd.script.model.client.JsMethodParam#isSpecificTypeCaseReference()
+	 *
+	 * @return
+	 */
+	@Override
+	public boolean isSpecificTypeCaseReference()
+	{
+		// Sid ACE-8226 Specific type Case-reference params are handled in DefaultJsMethodParam
+		return false;
+	}
+
 }

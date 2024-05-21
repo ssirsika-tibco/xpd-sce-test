@@ -56,7 +56,12 @@ public class GsdAssetWizardPage extends
         super("GSDAssetWizard"); //$NON-NLS-1$
         setTitle(Messages.GlobalSignalDefinitionAssetWizardPage_WizardTitle);
         setDescription(Messages.GlobalSignalDefinitionAssetWizardPage_WizardDesc);
-        gsdFileName = getDefaultFileName();
+        
+		/* Sid ACE-7330: Show correct wizard banner icon for asset type. */
+		setImageDescriptor(GsdResourcePlugin.imageDescriptorFromPlugin(GsdResourcePlugin.PLUGIN_ID,
+				"icons/obj16/globalSignalDefinitionWizard.png"));
+
+		gsdFileName = getDefaultFileName();
     }
 
     /**

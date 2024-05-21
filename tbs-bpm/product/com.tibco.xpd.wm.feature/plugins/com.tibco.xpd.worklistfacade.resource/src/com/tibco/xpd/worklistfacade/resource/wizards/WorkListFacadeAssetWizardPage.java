@@ -52,6 +52,11 @@ public class WorkListFacadeAssetWizardPage extends
         setTitle(Messages.WorkListFacadeAssetWizardPage_WLFAssetWizardTitle);
         setDescription(Messages.WorkListFacadeAssetWizardPage_WLFAssetWizardPageDescription);
         wlfFilename = getDefaultFileName();
+
+		/* Sid ACE-7330: Show correct wizard banner icon for asset type. */
+		setImageDescriptor(WorkListFacadeResourcePlugin.imageDescriptorFromPlugin(
+				WorkListFacadeResourcePlugin.PLUGIN_ID, "icons/obj16/workListFacadeWizard.png"));
+
     }
 
     /**

@@ -35,8 +35,6 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.ide.IDE;
 
-import com.tibco.xpd.processeditor.xpdl2.ProcessEditorConstants;
-import com.tibco.xpd.processeditor.xpdl2.Xpdl2ProcessEditorPlugin;
 import com.tibco.xpd.processeditor.xpdl2.packageeditor.HyperLinkListViewer;
 import com.tibco.xpd.processscriptlibrary.resource.ProcessScriptLibraryResourcePluginActivtor;
 import com.tibco.xpd.processscriptlibrary.resource.config.ProcessScriptLibraryConstants;
@@ -115,8 +113,8 @@ public class ProcessScriptLibraryPackageEditorFormPage extends FormPage
 
 		form.setText(PslEditorUtil.removePSLExtension(getTitle()));
 
-		form.setImage(
-				Xpdl2ProcessEditorPlugin.getDefault().getImageRegistry().get(ProcessEditorConstants.IMG_PACKAGEFILE));
+		form.setImage(ProcessScriptLibraryResourcePluginActivtor.getDefault().getImageRegistry()
+				.get(ProcessScriptLibraryConstants.IMG_SCRIPT_FILE));
 
 		form.getBody().setLayout(new GridLayout());
 
@@ -359,7 +357,7 @@ public class ProcessScriptLibraryPackageEditorFormPage extends FormPage
 		public AddFunctionAction()
 		{
 			super(Messages.ProcessScriptLibraryPackageEditorFormPage_CreatePSLFnDesc, ProcessScriptLibraryResourcePluginActivtor.getDefault()
-					.getImageRegistry().getDescriptor(ProcessScriptLibraryConstants.IMG_SCRIPT_FUNCTION));
+					.getImageRegistry().getDescriptor(ProcessScriptLibraryConstants.IMG_SCRIPT_FUNCTION_NEW));
 		}
 
 		/**
@@ -427,9 +425,11 @@ public class ProcessScriptLibraryPackageEditorFormPage extends FormPage
 			if (object instanceof AddFunctionAction)
 			{
 				return ProcessScriptLibraryResourcePluginActivtor.getDefault().getImageRegistry()
-						.get(ProcessScriptLibraryConstants.IMG_SCRIPT_FUNCTION);
+						.get(ProcessScriptLibraryConstants.IMG_SCRIPT_FUNCTION_NEW);
 			}
-			return super.getImage(object);
+
+			return ProcessScriptLibraryResourcePluginActivtor.getDefault().getImageRegistry()
+					.get(ProcessScriptLibraryConstants.IMG_SCRIPT_FUNCTION);
 		}
 	}
 }

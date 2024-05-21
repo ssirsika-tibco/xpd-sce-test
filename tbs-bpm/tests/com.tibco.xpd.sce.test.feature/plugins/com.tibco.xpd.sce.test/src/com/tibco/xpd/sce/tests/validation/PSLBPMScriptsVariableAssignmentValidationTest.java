@@ -438,7 +438,7 @@ public class PSLBPMScriptsVariableAssignmentValidationTest extends AbstractN2Bas
 			    		"/ScriptLibrary_0/Process Script Library/ScriptLibrary_0.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_b3rREPfnEe6vA_0fNHbCEg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:14 column:1, Functions that return a value must end with a return statement with value. (ScriptLibrary_0:function1)", //$NON-NLS-1$ 
+			    		"BPM  : At Line:14 column:1, Return statements without a value are not supported for functions that return a non-void type. (ScriptLibrary_0:function1)", //$NON-NLS-1$ 
 			    		""), //$NON-NLS-1$ 
 			    		
 			

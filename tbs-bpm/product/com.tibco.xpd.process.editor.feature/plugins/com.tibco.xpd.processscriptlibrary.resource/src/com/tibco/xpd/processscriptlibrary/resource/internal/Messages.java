@@ -82,6 +82,8 @@ public class Messages extends NLS
 
 	public static String PslEditorUtil_CaseRef_label;
 
+	public static String PslEditorUtil_FileNameSuffix;
+
 	public static String PslEditorUtil_NewScriptFnCommandTitle;
 
 	public static String PslEditorUtil_UnresolvedRefMsg;
@@ -109,6 +111,8 @@ public class Messages extends NLS
 	public static String		PSLElements_invalidNameErrorMessage;
 
 	public static String		PSLPropertySection_NameMustBeUnique;
+
+	public static String		ScriptFunction_title;
 
 	static
 	{

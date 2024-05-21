@@ -111,9 +111,7 @@ public class N2JScriptReturnTypeValidator extends JScriptReturnTypeValidator {
          */
         boolean isDataMapperScenario = isDataMapperMappingScript();
 
-		boolean isPSLfunctionWithNonVoidReturnScenario = isPSLfunctionWithNonVoidReturnScenario();
-
-		if (isDataMapperScenario || isPSLfunctionWithNonVoidReturnScenario)
+		if (isDataMapperScenario)
 		{
             if (statType != JScriptTokenTypes.LITERAL_return) {
                 String errorMessage =
@@ -121,6 +119,31 @@ public class N2JScriptReturnTypeValidator extends JScriptReturnTypeValidator {
                 addErrorMessage(token, errorMessage);
             }
         }
+
+		/*
+		 * Chaitanya ACE-8027: Validate return statements for PSL Functions.
+		 * 
+		 * Purpose: As part of ACE-8027, we introduced the use of "return" statements in Process Script Library
+		 * Functions.
+		 * 
+		 * Description: We now support the use of "return" statements in Process Script Library Functions. We need to
+		 * consider the following cases:
+		 * 
+		 * 1. We want to raise a validation to-do when the last statement for Process Script Library Functions with a
+		 * NON-VOID RETURN type is NOT a "return" statement.
+		 */
+		boolean isPSLfunctionWithNonVoidReturnScenario = isPSLfunctionWithNonVoidReturnScenario();
+		if (isPSLfunctionWithNonVoidReturnScenario)
+		{
+			// For Process Script Library Functions with NON Void Return must always end with return statement.
+			if (statType != JScriptTokenTypes.LITERAL_return)
+			{
+				String errorMessage = Messages.N2FunctionStatementValidator_PSFunctionWithNonVoidReturnTypeParamter_LastStatementWithReturn;
+				addErrorMessage(token, errorMessage);
+			}
+				
+		}
+		
         
         
 		boolean isProcessScriptLibraryFunctionScenario = isProcessScriptLibraryFunction();

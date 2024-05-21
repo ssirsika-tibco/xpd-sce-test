@@ -132,4 +132,15 @@ public class DefaultJsFactoryMethodParam implements JsMethodParam,
         return umlElement;
     }
 
+	/**
+	 * @see com.tibco.xpd.script.model.client.JsMethodParam#isSpecificTypeCaseReference()
+	 *
+	 * @return
+	 */
+	public boolean isSpecificTypeCaseReference()
+	{
+		// Sid ACE-8226 Specific type Case-reference params are handled in DefaultJsMethodParam
+		return false;
+	}
+
 }

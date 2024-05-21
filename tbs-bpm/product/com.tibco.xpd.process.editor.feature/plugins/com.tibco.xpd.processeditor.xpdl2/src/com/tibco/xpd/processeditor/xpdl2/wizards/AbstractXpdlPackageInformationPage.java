@@ -28,6 +28,7 @@ import org.eclipse.ui.fieldassist.ContentAssistCommandAdapter;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.analyst.resources.xpdl2.newproject.BusinessProcessAssetConfig;
 import com.tibco.xpd.analyst.resources.xpdl2.wizards.pages.IPackageTextAndContainerPage;
+import com.tibco.xpd.processeditor.xpdl2.Xpdl2ProcessEditorPlugin;
 import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
@@ -118,6 +119,11 @@ public abstract class AbstractXpdlPackageInformationPage extends WizardPage
         super(PAGE_ID);
         setTitle(Messages.PackageInformationPage_TITLE);
         setMessage(Messages.PackageInformationPage_MESSAGE);
+
+		/* Sid ACE-7330: Show correct wizard banner icon for asset type. */
+        setImageDescriptor(Xpdl2ProcessEditorPlugin.imageDescriptorFromPlugin(Xpdl2ProcessEditorPlugin.ID,
+				"icons/wizards/NewPackageWizard.png"));
+
         /**
          * if project is passed, project preferences are returned. if null is
          * passed workspace preferences are returned

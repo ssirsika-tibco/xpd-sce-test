@@ -24,7 +24,7 @@ public class ProcessScriptFunctionParam implements ProcessScriptLibraryElement
 	/**
 	 * Represents the index (position) of the param in a PSL function
 	 */
-	private String	index;
+	private int										index;
 
 	private String	length;
 
@@ -58,7 +58,10 @@ public class ProcessScriptFunctionParam implements ProcessScriptLibraryElement
 		this(aName);
 
 		this.description = aIndexerItem.get(ProcessScriptLibraryIndexProvider.PSL_FUNCTION_PARAM_DESCRIPTION);
-		this.index = aIndexerItem.get(ProcessScriptLibraryIndexProvider.PSL_FUNCTION_PARAM_INDEX);
+
+		/* Sid ACE-8226 Should tgreat index as an integer as we only use it to sort parameters into correct order. */
+		this.index = Integer.parseInt(aIndexerItem.get(ProcessScriptLibraryIndexProvider.PSL_FUNCTION_PARAM_INDEX));
+
 		this.isArray = Boolean
 				.parseBoolean(aIndexerItem.get(ProcessScriptLibraryIndexProvider.PSL_FUNCTION_PARAM_IS_ARRAY));
 		this.length = aIndexerItem.get(ProcessScriptLibraryIndexProvider.PSL_FUNCTION_PARAM_LENGTH);
@@ -93,7 +96,7 @@ public class ProcessScriptFunctionParam implements ProcessScriptLibraryElement
 	/**
 	 * @return the index
 	 */
-	public String getIndex()
+	public int getIndex()
 	{
 		return index;
 	}

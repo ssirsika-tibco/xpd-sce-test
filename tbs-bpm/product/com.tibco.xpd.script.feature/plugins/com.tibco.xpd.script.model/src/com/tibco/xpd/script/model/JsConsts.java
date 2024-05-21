@@ -54,10 +54,14 @@ public class JsConsts {
 
     public static final String CDS_BOM_ENUMERATION_LITERAL_ICON = "icons/full/obj16/EnumerationLiteral.png"; //$NON-NLS-1$
 
+	public static final String		PSL_PROJECT_LITERAL_ICON			= "icons/full/obj16/processScriptsFolder.png";																																							//$NON-NLS-1$
+
+	public static final String		PSL_FILE_LITERAL_ICON				= "icons/full/obj16/processScriptsFile.png";																																							//$NON-NLS-1$
+
     public static final String[] IMAGES =
             new String[] { JS_CLASS, XPATH_IMG_CLASS, ICON_JSATTRIBUTE,
                     CASE_REF_TYPE, CASE_REF_TYPE_ARRAY, CDS_FACTORY_ARRAY, CDS_BOM_PACKAGE_ICON, CDS_BOM_ENUMERATION_ICON,
-                    CDS_BOM_ENUMERATION_LITERAL_ICON };
+					CDS_BOM_ENUMERATION_LITERAL_ICON, PSL_PROJECT_LITERAL_ICON, PSL_FILE_LITERAL_ICON};
 
     public static final String VAR_TYPE = "VarType"; //$NON-NLS-1$
 
@@ -200,6 +204,21 @@ public class JsConsts {
     public static final String CRITERIA = "Criteria"; //$NON-NLS-1$
 
     public static final String DQL_STRING = "DQLString"; //$NON-NLS-1$
+
+	/**
+	 * Sid ACE-8226 Value that can be added to eAnnotations of JS method UML parameters to indicate that the parameter
+	 * is a case-reference for a specific Case Class type
+	 */
+	public static final String		METHOD_PARAM_SPECIFIC_TYPE_CASEREF	= "CaseRefParamIsSpecificType";						//$NON-NLS-1$
+
+	/**
+	 * Sid ACE-8226 Suffix for the Fully qualified Class name that can be added to eAnnotations of the JS attribute that
+	 * represents a data field detail the case class that this is a case reference for. (Only applies to data fields
+	 * because we
+	 * 
+	 * e.g. "CaseRefAttributeSpecificTypeQualifiedName:com.example.data::CaseClass1"
+	 */
+	public static final String		UML_ATTRIBUTE_CASEREF_SPECIFIC_TYPENAME_SUFFIX	= "CaseRefAttributeSpecificTypeQualifiedName:";	//$NON-NLS-1$
 
     /**
      * Shared transactional editing domain id

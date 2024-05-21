@@ -19,6 +19,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
+import com.tibco.xpd.om.modeler.custom.Activator;
 import com.tibco.xpd.om.modeler.custom.internal.Messages;
 import com.tibco.xpd.om.resources.OMResourcesActivator;
 import com.tibco.xpd.resources.projectconfig.projectassets.AbstractSpecialFolderAssetWizardPage;
@@ -45,6 +46,9 @@ public class OMAssetWizardPage extends AbstractSpecialFolderAssetWizardPage {
         setTitle(Messages.OMAssetWizardPage_Title_label);
         setDescription(Messages.OMAssetWizardPage_Description_label);
         omFileName = DEFAULT_OM_FILENAME; //$NON-NLS-1$
+
+		/* Sid ACE-7330: Show correct wizard banner icon for asset type. */
+		setImageDescriptor(Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/wizban/NewOMModel.png"));
 
     }
 
@@ -73,7 +77,8 @@ public class OMAssetWizardPage extends AbstractSpecialFolderAssetWizardPage {
         return folderName;
     }
 
-    public void updateConfiguration() {
+    @Override
+	public void updateConfiguration() {
         Object conf = getConfiguration();
 
         if (conf instanceof SpecialFolderAssetConfiguration) {
@@ -177,17 +182,20 @@ public class OMAssetWizardPage extends AbstractSpecialFolderAssetWizardPage {
 
         txtFileName.addModifyListener(new ModifyListener() {
 
-            public void modifyText(ModifyEvent e) {
+            @Override
+			public void modifyText(ModifyEvent e) {
                 omFileName = txtFileName.getText();
             }
         });
 
         txtFileName.addFocusListener(new FocusListener() {
 
-            public void focusGained(FocusEvent e) {
+            @Override
+			public void focusGained(FocusEvent e) {
             }
 
-            public void focusLost(FocusEvent e) {
+            @Override
+			public void focusLost(FocusEvent e) {
                 String name = txtFileName.getText();
 
                 if (!name.endsWith(".om")) { //$NON-NLS-1$

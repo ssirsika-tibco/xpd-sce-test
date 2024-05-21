@@ -19,6 +19,7 @@ import com.tibco.xpd.script.model.client.JsClass;
 import com.tibco.xpd.script.model.client.JsMethodParam;
 import com.tibco.xpd.script.model.client.JsReference;
 import com.tibco.xpd.script.model.client.JsUmlAttribute;
+import com.tibco.xpd.script.model.client.globaldata.CaseUMLScriptRelevantData;
 import com.tibco.xpd.script.model.internal.client.ITypeResolution;
 
 /**
@@ -118,7 +119,22 @@ public class JScriptGenericsService {
         if (genericContext instanceof ITypeResolution) {
             ITypeResolution typeResolution = (ITypeResolution) genericContext;
             Object ext = typeResolution.getExtendedInfo();
-            if (ext instanceof JsUmlAttribute) {
+
+			/*
+			 * Sid ACE-8226 For CaseUMLScriptRelevant data return the original type name as the generic context type
+			 * (i.e. for caseRefArray.pushAll(<srcarray>), the srcarray type we return here will be the UML class).
+			 * 
+			 * Higher level functions can sort out difference between caseref and caseobject of same type.			 
+			 */
+
+			if (genericContext instanceof CaseUMLScriptRelevantData
+					&& ((CaseUMLScriptRelevantData) genericContext).getJsClass() != null)
+			{
+				type = ((CaseUMLScriptRelevantData) genericContext).getJsClass().getUmlClass();
+			}
+
+			else if (ext instanceof JsUmlAttribute)
+			{
                 JsUmlAttribute att = (JsUmlAttribute) ext;
                 type = att.getUmlType();
             } else if (ext instanceof JsClass) {

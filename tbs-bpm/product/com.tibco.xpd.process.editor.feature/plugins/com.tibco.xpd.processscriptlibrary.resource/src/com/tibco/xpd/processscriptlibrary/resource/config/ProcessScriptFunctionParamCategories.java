@@ -123,7 +123,8 @@ public enum ProcessScriptFunctionParamCategories
 				case TIME_LITERAL:
 					return TIME;
 				case DATETIME_LITERAL:
-					return TIME;
+					/* Sid ACE-8226 Fixed defect in created typecategory for date-time type (UTB 'TIME' here) */
+					return DATE_TIME_TIMEZONE;
 				case BOOLEAN_LITERAL:
 					return BOOLEAN;
 				case PERFORMER_LITERAL:

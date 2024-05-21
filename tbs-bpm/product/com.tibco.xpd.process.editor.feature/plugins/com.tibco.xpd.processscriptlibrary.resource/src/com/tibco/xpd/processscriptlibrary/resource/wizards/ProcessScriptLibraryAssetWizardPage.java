@@ -23,6 +23,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
+import com.tibco.xpd.processscriptlibrary.resource.ProcessScriptLibraryResourcePluginActivtor;
 import com.tibco.xpd.processscriptlibrary.resource.config.ProcessScriptLibraryConstants;
 import com.tibco.xpd.processscriptlibrary.resource.editor.util.PslEditorUtil;
 import com.tibco.xpd.processscriptlibrary.resource.internal.Messages;
@@ -68,6 +69,10 @@ public class ProcessScriptLibraryAssetWizardPage extends AbstractSpecialFolderAs
 		setTitle(Messages.ProcessScriptLibraryAssetWizardPage_title);
 		setDescription(Messages.ProcessScriptLibraryAssetWizardPage_desc);
 		pslFileName = Messages.ProcessScriptLibrary_DefaultPslFile_name;
+
+		/* Sid ACE-7330: Show correct wizard banner icon for asset type. */
+		setImageDescriptor(ProcessScriptLibraryResourcePluginActivtor.imageDescriptorFromPlugin(
+				ProcessScriptLibraryResourcePluginActivtor.PLUGIN_ID, "icons/obj16/processScriptsFileWizard.png"));
 
 		createPackage();
 	}
@@ -246,7 +251,8 @@ public class ProcessScriptLibraryAssetWizardPage extends AbstractSpecialFolderAs
 			 * If current package file name is unset, default or equivalent same-name for previously selected project
 			 * name then update it to equivalent of new project name.
 			 */
-			String nameForOldName = oldName + "." + ProcessScriptLibraryConstants.PSL_FILE_EXTENSION; //$NON-NLS-1$
+			String nameForOldName = oldName + Messages.PslEditorUtil_FileNameSuffix + "." //$NON-NLS-1$
+					+ ProcessScriptLibraryConstants.PSL_FILE_EXTENSION;
 
 			if (pslFileName == null || pslFileName.length() == 0
 					|| pslFileName.equals(
@@ -254,7 +260,8 @@ public class ProcessScriptLibraryAssetWizardPage extends AbstractSpecialFolderAs
 					|| pslFileName.equals(nameForOldName))
 			{
 
-				pslFileName = newName + "." + ProcessScriptLibraryConstants.PSL_FILE_EXTENSION; //$NON-NLS-1$
+				pslFileName = newName + Messages.PslEditorUtil_FileNameSuffix + "." //$NON-NLS-1$
+						+ ProcessScriptLibraryConstants.PSL_FILE_EXTENSION;
 
 				if (txtFileName != null && !txtFileName.isDisposed())
 				{

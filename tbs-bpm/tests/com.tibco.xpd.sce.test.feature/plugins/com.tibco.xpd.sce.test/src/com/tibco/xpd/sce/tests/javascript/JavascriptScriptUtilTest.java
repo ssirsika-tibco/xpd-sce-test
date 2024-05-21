@@ -130,7 +130,7 @@ public class JavascriptScriptUtilTest extends AbstractN2BaseValidationTest {
 				"/JavascriptScriptUtilTest/Process Packages/JavascriptScriptUtilTest.xpdl", //$NON-NLS-1$
 				"bx.validateScriptTask", //$NON-NLS-1$
 				"_OdaT8L0JEemp76kOVRbOLw", //$NON-NLS-1$
-				"BPM  : At Line:17 column:72, The Class Type Name parameter must identify a valid Class (<package name>.<class name>) (JavascriptScriptUtilTestProcess:ScriptTask)", //$NON-NLS-1$
+				"BPM  : At Line:18 column:72, The Class Type Name parameter must identify a valid Class (<package name>.<class name>) (JavascriptScriptUtilTestProcess:ScriptTask)", //$NON-NLS-1$
 				""),
 				new ValidationsTestProblemMarkerInfo(
 				"/JavascriptScriptUtilTest/Process Packages/JavascriptScriptUtilTest.xpdl", //$NON-NLS-1$

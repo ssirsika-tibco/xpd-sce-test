@@ -37,7 +37,11 @@ public class ProcessScriptLibraryResourcePluginActivtor extends AbstractUIPlugin
 			.createLogger(PLUGIN_ID);
 
 	private static final String[]								IMAGES				= new String[]{
-			ProcessScriptLibraryConstants.IMG_SCRIPT_FUNCTION};
+			ProcessScriptLibraryConstants.IMG_SCRIPT_FILE,																				//
+			ProcessScriptLibraryConstants.IMG_SCRIPT_FUNCTION,																			//
+			ProcessScriptLibraryConstants.IMG_SCRIPT_FUNCTION_FOLDER,																	//
+			ProcessScriptLibraryConstants.IMG_SCRIPT_FUNCTION_NEW,																		//
+			ProcessScriptLibraryConstants.IMG_SCRIPT_FILE_WIZARD};
 
 	/**
 	 * Process Script Library Format Version value.

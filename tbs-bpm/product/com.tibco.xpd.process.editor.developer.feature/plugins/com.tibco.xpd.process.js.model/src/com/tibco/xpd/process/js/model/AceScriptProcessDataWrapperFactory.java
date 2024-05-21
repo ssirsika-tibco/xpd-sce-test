@@ -203,6 +203,17 @@ public class AceScriptProcessDataWrapperFactory {
                     wrapperResourceSet,
                     JsConsts.CASE_REFERENCE));
 
+			/*
+			 * Sid ACE-8226 In order to support passing of specific Case class Case-Reference type to script library
+			 * functions, we need to record the actual Case Class that this case-ref is for.
+			 */
+			if (baseType instanceof Class)
+			{
+				Class clazz = (Class) baseType;
+				property.createEAnnotation(
+						JsConsts.UML_ATTRIBUTE_CASEREF_SPECIFIC_TYPENAME_SUFFIX + clazz.getQualifiedName());
+			}
+
         } else if (baseType instanceof BasicType) {
             /* Handle simple types first. */
 

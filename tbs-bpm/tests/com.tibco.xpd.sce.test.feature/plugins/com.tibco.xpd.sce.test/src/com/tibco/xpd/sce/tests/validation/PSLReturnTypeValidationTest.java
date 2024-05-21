@@ -54,7 +54,7 @@ public class PSLReturnTypeValidationTest extends AbstractN2BaseValidationTest {
 			    		"/PSLReturnTypeValidationTest/Process Script Library/PSLReturnTypeValidationTest.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_lREScfM-Ee6xou8OpmkOyg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:10 column:1, Return type 'bpmScripts' with differing multiplicities is not compatible with the function return type 'Time'. (PSLReturnTypeValidationTest:function1)", //$NON-NLS-1$ 
+						"BPM  : At Line:10 column:1, Return type 'bpmScripts' with differing multiplicities is not compatible with the function return type 'Time[]'. (PSLReturnTypeValidationTest:function1)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -62,14 +62,14 @@ public class PSLReturnTypeValidationTest extends AbstractN2BaseValidationTest {
 			    		"/PSLReturnTypeValidationTest/Process Script Library/PSLReturnTypeValidationTest.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_lREScfM-Ee6xou8OpmkOyg", //$NON-NLS-1$ 
-						"BPM  : At Line:14 column:1, Return type 'String' with differing multiplicities is not compatible with the function return type 'Time'. (PSLReturnTypeValidationTest:function1)", //$NON-NLS-1$
+						"BPM  : At Line:14 column:1, Return type 'String' with differing multiplicities is not compatible with the function return type 'Time[]'. (PSLReturnTypeValidationTest:function1)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
 						"/PSLReturnTypeValidationTest/Process Script Library/PSLReturnTypeValidationTest.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_lREScfM-Ee6xou8OpmkOyg", //$NON-NLS-1$
-						"BPM  : At Line:15 column:1, Last statement must be a return. (PSLReturnTypeValidationTest:function1)", //$NON-NLS-1$
+						"BPM  : At Line:15 column:1, Functions that return a value must end with a return statement. (PSLReturnTypeValidationTest:function1)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -77,7 +77,7 @@ public class PSLReturnTypeValidationTest extends AbstractN2BaseValidationTest {
 			    		"/PSLReturnTypeValidationTest/Process Script Library/PSLReturnTypeValidationTest.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_lREScfM-Ee6xou8OpmkOyg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:5 column:1, Functions that return a value must end with a return statement with value. (PSLReturnTypeValidationTest:function1)", //$NON-NLS-1$ 
+			    		"BPM  : At Line:5 column:1, Return statements without a value are not supported for functions that return a non-void type. (PSLReturnTypeValidationTest:function1)", //$NON-NLS-1$ 
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -85,7 +85,7 @@ public class PSLReturnTypeValidationTest extends AbstractN2BaseValidationTest {
 			    		"/PSLReturnTypeValidationTest/Process Script Library/PSLReturnTypeValidationTest.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_lREScfM-Ee6xou8OpmkOyg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:9 column:1, Return type 'Date' with differing multiplicities is not compatible with the function return type 'Time'. (PSLReturnTypeValidationTest:function1)", //$NON-NLS-1$ 
+						"BPM  : At Line:9 column:1, Return type 'Date' with differing multiplicities is not compatible with the function return type 'Time[]'. (PSLReturnTypeValidationTest:function1)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -125,7 +125,7 @@ public class PSLReturnTypeValidationTest extends AbstractN2BaseValidationTest {
 			    		"/PSLReturnTypeValidationTest/Process Script Library/PSLReturnTypeValidationTest.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_sex2UPM-Ee6xou8OpmkOyg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:5 column:1, Functions that return a value must end with a return statement with value. (PSLReturnTypeValidationTest:function3)", //$NON-NLS-1$ 
+			    		"BPM  : At Line:5 column:1, Return statements without a value are not supported for functions that return a non-void type. (PSLReturnTypeValidationTest:function3)", //$NON-NLS-1$ 
 			    		""), //$NON-NLS-1$ 
 			    		
 			                

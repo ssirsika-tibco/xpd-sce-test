@@ -32,6 +32,7 @@ import com.tibco.xpd.processscriptlibrary.resource.config.ProcessScriptLibraryVi
 import com.tibco.xpd.processscriptlibrary.resource.indexer.ProcessScriptLibraryIndexProvider.IndexType;
 import com.tibco.xpd.processscriptlibrary.resource.util.ProcessScriptLibraryUtil;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.DefaultJsClass;
 import com.tibco.xpd.script.model.client.DefaultUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
@@ -106,7 +107,12 @@ public class BpmScriptWrapperFactory
 			 * Create the UML class that houses the properties that represent process script library.
 			 */
 			Class wrapperClass = UMLFactory.eINSTANCE.createClass();
-			wrapperClass.setName(wrapperObjectName);
+			/*
+			 * Sid ACE-7330 - suffix the bpmScripts-level class to indicate it is a PSL projects container, then
+			 * DefaultJsClass.createJsReference() will use PSL project icon.
+			 */
+			String jsClassName = wrapperObjectName + DefaultJsClass.PSL_PROJECTS_CONTAINER_CLASS_SUFFIX;
+			wrapperClass.setName(jsClassName);
 
 			wrapperPackage.getPackagedElements().add(wrapperClass);
 
@@ -125,7 +131,7 @@ public class BpmScriptWrapperFactory
 			DefaultJsClass jsClass = new DefaultJsClass(wrapperClass);
 
 			DefaultUMLScriptRelevantData scriptData = new DefaultUMLScriptRelevantData(wrapperObjectName,
-					wrapperObjectName, false, jsClass);
+					jsClassName, false, jsClass);
 
 			/*
 			 * Sid ACE-5814 Noticed this throws exception for RASC generation command line (as we're running in headless
@@ -191,10 +197,15 @@ public class BpmScriptWrapperFactory
 		{
 			Property property = UMLFactory.eINSTANCE.createProperty();
 			property.setName(alibraryProject.getName());
+			String a = property.getName();
 
 			Class pslFileCollector = UMLFactory.eINSTANCE.createClass();
 			// This name is not used while showing the content assist suggests.
-			pslFileCollector.setName("PSLFiles-" + alibraryProject.getName()); //$NON-NLS-1$
+			/*
+			 * Sid ACE-7330 - suffix the project-level class to indicate it is a PSL files container, then
+			 * DefaultJsClass.createJsReference() will use PSL file icon.
+			 */
+			pslFileCollector.setName(alibraryProject.getName() + DefaultJsClass.PSL_FILES_CONTAINER_CLASS_SUFFIX);
 			property.setType(pslFileCollector);
 
 			wrapperClass.getOwnedAttributes().add(property);
@@ -219,7 +230,11 @@ public class BpmScriptWrapperFactory
 
 			Class pslFunctionCollector = UMLFactory.eINSTANCE.createClass();
 			// This name is not used while showing the content assist suggests.
-			pslFunctionCollector.setName("Functions-" + aLibrary.getName()); //$NON-NLS-1$
+			/*
+			 * Sid ACE-7330 - suffix the file-level class to indicate it is a PSL functions container, then
+			 * DefaultJsClass.createJsReference() will use PSL function icon.
+			 */
+			pslFunctionCollector.setName(aLibrary.getName() + DefaultJsClass.PSL_FUNCTIONS_CONTAINER_CLASS_SUFFIX);
 			libProp.setType(pslFunctionCollector);
 
 			if (aContext instanceof Class)
@@ -274,6 +289,25 @@ public class BpmScriptWrapperFactory
 				Parameter umlParam = UMLFactory.eINSTANCE.createParameter();
 				umlParam.setName(aParameter.getName());
 				umlParam.setType(resolveType(aParameter));
+				/*
+				 * Sid ACE-8226 Need to set multiplicity of parameter for correct validation of parameters when function
+				 * is used.
+				 */
+				if (aParameter.isArray())
+				{
+					umlParam.setUpper(-1);
+				}
+
+				/*
+				 * Sid ACE-8226 In order to support passing of specific Case class Case-Reference type to script library
+				 * functions, we need to record that this parameter is a Cas-Ref for the actual Case Class type of the
+				 * library function.
+				 */
+				if (ProcessScriptFunctionParamCategories.BOM_CASE_REF.equals(aParameter.getTypeCategory()))
+				{
+					umlParam.createEAnnotation(JsConsts.METHOD_PARAM_SPECIFIC_TYPE_CASEREF);
+				}
+
 				appendParamDescToOperationComment(operation, aParameter, umlParam);
 
 				// If return parameter then set the direction
@@ -329,33 +363,42 @@ public class BpmScriptWrapperFactory
 		{
 			StringBuilder result = new StringBuilder(System.lineSeparator());
 			Type type = anUmlParam.getType();
+
+			/* Sid ACE-8226 Case references should be distinguished from BOM class in popup help */
+			String typeName = ""; //$NON-NLS-1$
+			
+			if (type != null)
+			{
+				typeName = type.getName();
+
+				if (ProcessScriptFunctionParamCategories.BOM_CASE_REF.equals(aParam.getTypeCategory()))
+				{
+					typeName = JsConsts.CASE_REFERENCE + "<" + typeName + ">"; //$NON-NLS-1$//$NON-NLS-2$
+				}
+
+				if (aParam.isArray())
+				{
+					typeName += "[]"; //$NON-NLS-1$
+				}
+			}
+			else {
+				typeName = ProcessScriptLibraryConstants.VOID_TYPE;
+			}
+
 			if (aParam.isReturnParam())
 			{
 				result.append(Messages.BpmScriptWrapperFactory_ReturnParamTooltipDesc).append(SPACE);
-				if (type != null)
-				{
-					result.append(type.getName());
+				result.append(typeName);
 
-					if (aParam.isArray())
-					{
-						result.append("[ ]"); //$NON-NLS-1$
-					}
-				}
-				else
-				{
-					result.append(ProcessScriptLibraryConstants.VOID_TYPE);
-				}
-			} else {
+			}
+			else
+			{
 				result.append(Messages.BpmScriptWrapperFactory_ParamTooltipDesc).append(SPACE);
 				result.append(anUmlParam.getName());
 				if (type != null)
 				{
-					result.append(":").append(type.getName()); //$NON-NLS-1$
-
-					if (aParam.isArray())
-					{
-						result.append("[ ]"); //$NON-NLS-1$
-					}
+					result.append(":"); //$NON-NLS-1$
+					result.append(typeName);
 				}
 			}
 

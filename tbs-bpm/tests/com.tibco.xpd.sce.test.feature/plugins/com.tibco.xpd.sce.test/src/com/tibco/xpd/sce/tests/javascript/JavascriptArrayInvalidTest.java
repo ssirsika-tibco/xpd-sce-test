@@ -65,7 +65,7 @@ public class JavascriptArrayInvalidTest extends AbstractN2BaseValidationTest {
                         "/JavascriptArrayTest/Process Packages/JavascriptArrayInvalidTest.xpdl", //$NON-NLS-1$
                         "bx.validateScriptTask", //$NON-NLS-1$
                         "_bIkxMHvdEemwf9lclz0wQg", //$NON-NLS-1$
-                        "BPM  : At Line:6 column:41, Method pushAll is not applicable for the provided argument types (Text) (JavascriptArrayInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:6 column:41, Method pushAll is not applicable for the provided argument types (Text[]) (JavascriptArrayInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
                         ""), //$NON-NLS-1$
 
         };

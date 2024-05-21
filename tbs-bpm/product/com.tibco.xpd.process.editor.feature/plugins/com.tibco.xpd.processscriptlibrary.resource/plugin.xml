@@ -6,7 +6,7 @@
       <asset
             configuration="com.tibco.xpd.processscriptlibrary.resource.project.ProcessScriptLibraryAssetConfiguration"
             configurator="com.tibco.xpd.processscriptlibrary.resource.project.ProcessScriptLibraryAssetConfigurator"
-            icon="icons/obj16/scriptLibraryFolder.png"
+            icon="icons/obj16/processScriptsFolder.png"
             id="com.tibco.xpd.asset.processScriptLibrary"
             name="%asset.name"
             visible="true">
@@ -32,7 +32,7 @@
          point="com.tibco.xpd.resources.specialFolders">
       <folder
             allowDuplicateResources="false"
-            icon="icons/obj16/scriptLibraryFolder.png"
+            icon="icons/obj16/processScriptsFolder.png"
             issueId="processPackage.duplicateResourceIssue"
             kind="psl"
             multiple="false"
@@ -115,7 +115,7 @@
       <wizard
             category="com.tibco.xpd.newWizard.modeling.category"
             finalPerspective="com.tibco.xpd.bpm.modeling.perspective"
-            icon="icons/obj16/scriptLibraryFolder.png"
+            icon="icons/obj16/processScriptsFolder.png"
             id="com.tibco.xpd.newProject.ProcessScriptsDeveloper"
             name="%developer_project_title"
             preferredPerspectives="com.tibco.xpd.bpm.modeling.perspective,com.tibco.modeling.perspective,com.tibco.xpd.n2.LiveDevelopment"
@@ -126,6 +126,7 @@
 	            <parameter name="title" value="%developer_project_wizard_title" />
 	            <parameter name="presetDestinationEnv" value="CE" />
 	            <parameter name="hideProjectVersion" value="true" />
+            	<parameter name="bannerIcon" value="icons/obj16/processScriptsFileWizard.png" />
            </class>
     <description>
        %developer_project_description
@@ -162,7 +163,7 @@
          <navigatorContent
                activeByDefault="true"
                contentProvider="com.tibco.xpd.processscriptlibrary.resource.ui.navigator.PSLContentProvider"
-               icon="icons/obj16/scriptLibraryFolder.png"
+               icon="icons/obj16/processScriptsFolder.png"
                id="com.tibco.xpd.projectExplorer.pslContent"
                labelProvider="com.tibco.xpd.processscriptlibrary.resource.ui.navigator.PSLLabelProvider"
                name="Project Script Library Content"
@@ -336,6 +337,29 @@
               </or>
            </enablement>
         </actionProvider>
+
+           <commonSorter
+             class="com.tibco.xpd.ui.projectexplorer.sorter.ResourceSorterWithIgnoredDirtyMarker">
+	          <parentExpression>
+	             <or>
+	                <and>
+	                   <instanceof
+	                         value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+	                   </instanceof>
+	                   <test
+	                         property="com.tibco.xpd.resources.specialfolder.isOfKind"
+	                         value="psl">
+	                   </test>
+	                </and>             
+	                <instanceof
+	                      value="org.eclipse.core.resources.IFolder">
+	                </instanceof>
+	                <instanceof
+	                      value="org.eclipse.core.resources.IFile">
+	                </instanceof>
+	             </or>
+	          </parentExpression>
+	       </commonSorter>       
 	     
 	      </navigatorContent>
        <!--Add new Project wizard menu to New menu -->      
@@ -423,7 +447,7 @@
             category="com.tibco.xpd.newWizard.modeling.category/com.tibco.xpd.processScriptLibraryDefinition.categoryPSL"
             class="com.tibco.xpd.processscriptlibrary.resource.wizards.ProcessScriptLibraryCreationWizard"
             finalPerspective="com.tibco.xpd.bpm.modeling.perspective"
-            icon="icons/obj16/NewPSLFile.png"
+            icon="icons/obj16/processScriptsFileNew.png"
             id="com.tibco.xpd.psl.PSLWizardID"
             name="%newFileWizardName"
             preferredPerspectives="com.tibco.xpd.bpm.modeling.perspective,com.tibco.modeling.perspective,com.tibco.xpd.n2.LiveDevelopment">
@@ -441,7 +465,7 @@
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <propertyContributor
             contributorId="com.tibco.xpd.processscriptlibrary.resource.propertyContributor"
-            labelProvider="com.tibco.xpd.processscriptlibrary.resource.ui.navigator.PSLLabelProvider"
+            labelProvider="com.tibco.xpd.processscriptlibrary.resource.ui.navigator.PSLPropertySheetLabelProvider"
             typeMapper="com.tibco.xpd.processscriptlibrary.resource.editor.PropertyTypeMapper">
          <propertyCategory
                category="general">
@@ -480,21 +504,6 @@
                indented="false"
                label="%property_tab_description">
          </propertyTab>
-         <propertyTab
-               afterTab="top"
-               category="advanced"
-               id="com.tibco.xpd.processscriptlibrary.propertyTabs.extended"
-               image="icons/tabExtended.gif"
-               indented="false"
-               label="%property_tab_extended">
-         </propertyTab>
-         <propertyTab
-               afterTab="com.tibco.xpd.processscriptlibrary.propertyTabs.extended"
-               category="advanced"
-               id="com.tibco.xpd.processscriptlibrary.propertyTabs.advanced"
-               indented="false"
-               label="%property_tab_advanced">
-         </propertyTab>
         </propertyTabs>
   </extension>
    
@@ -519,21 +528,6 @@
                image="icons/tabDescription.png"
                indented="false"
                label="%property_tab_description">
-         </propertyTab>
-         <propertyTab
-               afterTab="top"
-               category="advanced"
-               id="com.tibco.xpd.processscriptlibrary.propertyTabs.extended"
-               image="icons/tabExtended.gif"
-               indented="false"
-               label="%property_tab_extended">
-         </propertyTab>
-         <propertyTab
-               afterTab="com.tibco.xpd.processscriptlibrary.propertyTabs.extended"
-               category="advanced"
-               id="com.tibco.xpd.processscriptlibrary.propertyTabs.advanced"
-               indented="false"
-               label="%property_tab_advanced">
          </propertyTab>
         </propertyTabs>
   </extension>
@@ -592,7 +586,7 @@
             class="com.tibco.xpd.processscriptlibrary.resource.editor.ProcessScriptLibraryEditor"
             contributorClass="com.tibco.xpd.processscriptlibrary.resource.editor.ProcessScriptLibraryEditorContributor"
             default="false"
-            icon="icons/obj16/scriptFunction.png"
+            icon="icons/obj16/processScriptFunction.png"
             id="com.tibco.xpd.processscriptlibrary.editor"
             name="Script Library Editor">
       </editor>
@@ -600,7 +594,7 @@
             class="com.tibco.xpd.processscriptlibrary.resource.editor.ProcessScriptLibraryPackageEditor"
             default="false"
             extensions="psl"
-            icon="icons/obj16/NewPSLFile.png"
+            icon="icons/obj16/processScriptsFile.png"
             id="com.tibco.xpd.processscriptlibrary.resource.package.editor"
             name="Script Library Package Editor">
       </editor>

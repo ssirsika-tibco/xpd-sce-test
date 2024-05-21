@@ -13,6 +13,8 @@ import org.eclipse.core.runtime.IExecutableExtensionFactory;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.Bundle;
 
 import com.tibco.xpd.resources.ui.XpdResourcesUIActivator;
@@ -157,6 +159,8 @@ public class XpdProjectWizardFactory implements IExecutableExtensionFactory,
         public static final String PARAM_HIDE_PROJECT_VERSION =
                 "hideProjectVersion"; //$NON-NLS-1$
 
+		public static final String	PARAM_WIZARD_BANNER_ICON		= "bannerIcon";
+
         public String title;
 
         public String[] assets;
@@ -174,6 +178,8 @@ public class XpdProjectWizardFactory implements IExecutableExtensionFactory,
         public String presetDestinationEnv;
 
         public boolean hideProjectVersion;
+
+		public ImageDescriptor		bannerIcon;
     }
 
     private ConfigurationData configData;
@@ -222,6 +228,11 @@ public class XpdProjectWizardFactory implements IExecutableExtensionFactory,
             if (configData.hideProjectVersion) {
                 wizard.hideProjectVersion();
             }
+
+			if (configData.bannerIcon != null)
+			{
+				wizard.setBannerIcon(configData.bannerIcon);
+			}
 
         } else {
             throw new CoreException(new Status(IStatus.ERROR,
@@ -392,6 +403,16 @@ public class XpdProjectWizardFactory implements IExecutableExtensionFactory,
                     }
                 }
             }
+
+			if (configMap != null && configMap.containsKey(ConfigurationData.PARAM_WIZARD_BANNER_ICON))
+			{
+				String bannerIconPath = configMap.get(ConfigurationData.PARAM_WIZARD_BANNER_ICON);
+				if (bannerIconPath != null && !bannerIconPath.isEmpty())
+				{
+					configData.bannerIcon = AbstractUIPlugin.imageDescriptorFromPlugin(config.getNamespaceIdentifier(),
+							bannerIconPath);
+				}
+			}
         }
     }
 
@@ -430,7 +451,9 @@ public class XpdProjectWizardFactory implements IExecutableExtensionFactory,
                 || param.equals(ConfigurationData.PARAM_SORTER)
                 || param.equals(ConfigurationData.PARAM_TITLE)
                 || param.equals(ConfigurationData.PARAM_PRESET_DESTINATION_ENV)
-                || param.equals(ConfigurationData.PARAM_HIDE_PROJECT_VERSION)) {
+				|| param.equals(ConfigurationData.PARAM_HIDE_PROJECT_VERSION)
+				|| param.equals(ConfigurationData.PARAM_WIZARD_BANNER_ICON))
+		{
             return true;
         }
         return false;

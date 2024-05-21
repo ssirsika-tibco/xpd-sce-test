@@ -417,6 +417,8 @@ public class PslEditorUtil
 			fileName = Messages.ProcessScriptLibraryEditorUtil_DefautlFacade_FileName;
 		}
 
+		fileName += Messages.PslEditorUtil_FileNameSuffix;
+
 		/*
 		 * Check and derive the next unique filename.
 		 */

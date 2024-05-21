@@ -24,6 +24,7 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
+import com.tibco.xpd.resources.util.XpdUtil;
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.AbstractUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.BaseJsMethodParam;
@@ -45,8 +46,10 @@ import com.tibco.xpd.script.model.client.JsExpressionMethod;
 import com.tibco.xpd.script.model.client.JsMethod;
 import com.tibco.xpd.script.model.client.JsMethodParam;
 import com.tibco.xpd.script.model.client.JsReference;
+import com.tibco.xpd.script.model.client.JsUmlAttribute;
 import com.tibco.xpd.script.model.client.ParameterCoercionCriteria;
 import com.tibco.xpd.script.model.client.globaldata.CaseJsMethodParam;
+import com.tibco.xpd.script.model.client.globaldata.CaseUMLScriptRelevantData;
 import com.tibco.xpd.script.model.internal.client.DefaultJsEnumeration;
 import com.tibco.xpd.script.model.internal.client.IDataTypeMapper;
 import com.tibco.xpd.script.model.internal.client.IGlobalDataDefinitionReader;
@@ -2017,7 +2020,24 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                                         genericContext,
                                         jsMethodParam);
                             }
-                        } else {
+						}
+						/*
+						 * Sid ACE-8226 Allow for Javascript method params that are *specific* BOM types (such as those
+						 * for Script library functions
+						 */
+						else if (jsMethodParam.getUMLParameter() != null
+								&& jsMethodParam.getUMLParameter().getType() instanceof Class
+								&& !gs.isGeneric(jsMethodParam)) // This check is not 'any-object' param like for
+																	// array.pushAll(array) etc
+						{
+							lhsDataType = createUMLScriptRelevantData(jsMethodParam.getName(),
+									jsMethodParam.canRepeat(), (Class) jsMethodParam.getUMLParameter().getType(),
+									genericContext, jsMethodParam);
+
+						}
+
+						else
+						{
 
                             lhsDataType = createScriptRelevantData(
                                     jsMethodParam.getName(),
@@ -2567,7 +2587,19 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         String specificTypeStr = null;
 
         if (specificType != null) {
-            specificTypeStr = JScriptUtils.getFQType(specificType);
+			/*
+			 * Sid ACE-8226 In 5.6 we re-introduced top level data (not wrapped in "data" JS class object) for PSL
+			 * functions. These are created as CaseUMLScriptRelevantData objects, so the generic type for these is
+			 * 'CaseReference' (i.e. when comparing a function that returns 'any case-ref' then the LHS should be
+			 * treated as 'any case-ref')
+			 */
+			 if (specificType instanceof CaseUMLScriptRelevantData)
+			 {
+				 return JsConsts.CASE_REFERENCE;
+			 }
+
+			specificTypeStr = JScriptUtils.getFQType(specificType);
+
             if (specificType.isArray()) {
                 List<IScriptRelevantData> resolutionTypes =
                         getResolutionTypes(specificType);
@@ -2817,6 +2849,78 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
     @SuppressWarnings("restriction")
     protected boolean isExplicitAssignmentAllowance(
             IScriptRelevantData lhsDataType, IScriptRelevantData rhsDataType) {
+
+		/*
+		 * Sid ACE-8226 Handle assignment to case-references of specific type 
+		 */
+		if (isSpecificTypeCaseReference(lhsDataType))
+		{
+			/* If LHS of assignment is specific case ref type then it can be assigned from RHS of specific case-type case ref... */
+			if (isSpecificTypeCaseReference(rhsDataType))
+			{
+				/* ...PROVIDED that both their specific case-types are the same. */
+				return XpdUtil.safeEquals(getCaseTypeForCaseReference(lhsDataType),
+						getCaseTypeForCaseReference(rhsDataType));
+			}
+			/*
+			 * If LHS of assignment is specific case ref type, then it can be assigned from a method that returns a
+			 * generic 'any-case-ref' result
+			 */
+			else if (JsConsts.CASE_REFERENCE.equals(rhsDataType.getType()))
+			{
+				return true;
+			}
+			/* Can assighn null to case-reference on LHS */
+			else if (JsConsts.NULL.equals(convertSpecificToGenericType(rhsDataType)))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		/* Handle assignment from case-references of specific type */
+		if (isSpecificTypeCaseReference(rhsDataType))
+		{
+			/*
+			 * If RHS of assignment is specific case ref type then it can be assigned to LHS of specific case-type case
+			 * ref...
+			 */
+			if (isSpecificTypeCaseReference(lhsDataType))
+			{
+				/* ...PROVIDED that both their specific case-types are the same. */
+				return XpdUtil.safeEquals(getCaseTypeForCaseReference(lhsDataType),
+						getCaseTypeForCaseReference(rhsDataType));
+			}
+			/*
+			 * If RHS of assignment is specific case ref type, then it can be passed to a method param that is a generic
+			 * 'any-case-ref'
+			 */
+			else if (JsConsts.CASE_REFERENCE.equals(lhsDataType.getType()))
+			{
+
+				return true;
+			}
+			/*
+			 * If RHS is specific case-ref then it can be assigned to method param that is generic 'Object' type (such
+			 * as bpm.scriptUtil.copy())
+			 */
+			else if (JsConsts.OBJECT.equals(lhsDataType.getType()))
+			{
+
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+
+		}
+
+		/*
+		 * Deal with non case reference data
+		 */
         String lhsTypeStr = convertSpecificToGenericType(lhsDataType);
         
         /*
@@ -2873,6 +2977,237 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         return false;
     }
 
+	/**
+	 * Sid ACE-8226
+	 * 
+	 * @param scriptRelevantData
+	 * 
+	 * @return true if script relevant data is a specific case type case reference
+	 */
+	@SuppressWarnings("restriction")
+	public boolean isSpecificTypeCaseReference(IScriptRelevantData scriptRelevantData)
+	{
+		if (scriptRelevantData instanceof DefaultUMLScriptRelevantData)
+		{
+			if (((DefaultUMLScriptRelevantData) scriptRelevantData).isSpecificTypeCaseReference())
+			{
+				return true;
+			}
+		}
+
+		if (scriptRelevantData instanceof ITypeResolution)
+		{
+			Object extendedInfo = ((ITypeResolution) scriptRelevantData).getExtendedInfo();
+
+			if (extendedInfo != null && extendedInfo instanceof JsUmlAttribute)
+			{
+				/* Case ref field in process data (i.e. data.caseref) */
+				if (((JsUmlAttribute) extendedInfo).getQualifiedCaseReferenceClassName() != null)
+				{
+					return true;
+				}
+			}
+			else if (extendedInfo instanceof JsMethodParam && ((ITypeResolution) scriptRelevantData)
+					.getGenericContextType() instanceof CaseUMLScriptRelevantData)
+			{
+				/*
+				 * scriptRelevant data is a wrapper for a Method Param, that is declared as a 'correct type for method
+				 * parent property type i.e. case1RefArray.pushAll( <param of case1 ref type> )
+				 */
+				CaseUMLScriptRelevantData caseRefGenericContext = (CaseUMLScriptRelevantData) ((ITypeResolution) scriptRelevantData)
+						.getGenericContextType();
+
+				if (caseRefGenericContext.getJsClass() != null
+						&& caseRefGenericContext.getJsClass().getUmlClass() != null)
+				{
+					return true;
+				}
+			}
+			else if (extendedInfo instanceof JsMethodParam && ((ITypeResolution) scriptRelevantData)
+					.getGenericContextType() instanceof ITypeResolution  )
+			{
+				ITypeResolution genericContextType = (ITypeResolution) ((ITypeResolution) scriptRelevantData).getGenericContextType();
+				
+				if (genericContextType instanceof DefaultScriptRelevantData
+						&& JsConsts.CASE_REFERENCE.equals(((DefaultScriptRelevantData) genericContextType).getType()))
+				{
+					/* This is a method param for a method off a case-reference parameter (which don't normally have methods BUT could do if it's an caseRefArray.push/pushAll() 
+					 * 
+					 * So see if we can grab the specific case type from the datafield that the method is being executed on */
+					if (((DefaultScriptRelevantData) genericContextType)
+							.getExtendedInfo() instanceof DefaultJsAttribute)
+					{
+						DefaultJsAttribute hostAttribute = (DefaultJsAttribute) ((DefaultScriptRelevantData) genericContextType)
+								.getExtendedInfo();
+
+						String caseClassName = hostAttribute.getQualifiedCaseReferenceClassName();
+
+						if (caseClassName != null && !caseClassName.isEmpty())
+						{
+							return true;
+						}
+					}
+				}
+			}
+
+		}
+
+		return false;
+	}
+
+	/**
+	 * Sid ACE-8226 There is now a wider definition of what constitutes a case-reference
+	 * 
+	 * <li>Generic 'any case ref' data function params/returns</li>
+	 * <li>Specific case-ref type params</li>
+	 * <li>Process data class caseRef attributes</li>
+	 * <li>Top level PSL function caseRef parameters</li>
+	 * 
+	 * This function deals with them all.
+	 * 
+	 * @param scriptRelevantData
+	 * 
+	 * @return true is script relevant data is a specific case type case reference
+	 */
+	@SuppressWarnings("restriction")
+	public boolean isCaseReference(IScriptRelevantData scriptRelevantData)
+	{
+		if (scriptRelevantData instanceof CaseUMLScriptRelevantData)
+		{
+			/*
+			 * As far as I can tell CaseUMLScriptRelevant data is used only for top-level data fields and (possibly)
+			 * generic 'any ref' function parameters/returns (i.e. bpm.caseData.xxxxx())
+			 */
+			return true;
+		}
+
+		if (JsConsts.CASE_REFERENCE.equals(scriptRelevantData.getType()))
+		{
+			return true;
+		}
+
+		if (scriptRelevantData instanceof DefaultUMLScriptRelevantData)
+		{
+			if (((DefaultUMLScriptRelevantData) scriptRelevantData).isSpecificTypeCaseReference())
+			{
+				return true;
+			}
+		}
+
+		if (scriptRelevantData instanceof ITypeResolution)
+		{
+			Object extendedInfo = ((ITypeResolution) scriptRelevantData).getExtendedInfo();
+
+			if (extendedInfo != null && extendedInfo instanceof JsUmlAttribute)
+			{
+				if (((JsUmlAttribute) extendedInfo).getQualifiedCaseReferenceClassName() != null)
+				{
+					/* Case ref field in process data (i.e. data.caseref) */
+					return true;
+				}
+			}
+			else if (extendedInfo instanceof JsMethodParam && ((ITypeResolution) scriptRelevantData)
+					.getGenericContextType() instanceof CaseUMLScriptRelevantData)
+			{
+				/*
+				 * scriptRelevant data is a wrapper for a Method Param, that is declared as a 'correct type for method
+				 * parent property type i.e. case1RefArray.pushAll( <param of case1 ref type> )
+				 */
+				return true;
+			}
+
+		}
+
+		return false;
+	}
+
+	/**
+	 * Sid ACE-8226
+	 * 
+	 * @param scriptRelevantData
+	 * 
+	 * @return Fully qualified Case class type name if the script relevant data is a specific case type case reference
+	 */
+	@SuppressWarnings("restriction")
+	public String getCaseTypeForCaseReference(IScriptRelevantData scriptRelevantData)
+	{
+		if (scriptRelevantData instanceof DefaultUMLScriptRelevantData)
+		{
+			String caseTypeName = ((DefaultUMLScriptRelevantData) scriptRelevantData).getCaseTypeForCaseReference();
+
+			if (caseTypeName != null)
+			{
+				return caseTypeName;
+			}
+
+		}
+
+		if (scriptRelevantData instanceof ITypeResolution)
+		{
+			Object extendedInfo = ((ITypeResolution) scriptRelevantData).getExtendedInfo();
+
+			if (extendedInfo != null && extendedInfo instanceof JsUmlAttribute)
+			{
+				/* Case ref field in process data (i.e. data.caseref) */
+				String caseTypeName = ((JsUmlAttribute) extendedInfo).getQualifiedCaseReferenceClassName();
+
+				if (caseTypeName != null)
+				{
+					return caseTypeName;
+				}
+			}
+			else if (extendedInfo instanceof JsMethodParam && ((ITypeResolution) scriptRelevantData)
+					.getGenericContextType() instanceof CaseUMLScriptRelevantData)
+			{
+				/*
+				 * scriptRelevant data is a wrapper for a Method Param, that is declared as a 'correct type for method
+				 * parent property type i.e. case1RefArray.pushAll( <param of case1 ref type> )
+				 */
+				CaseUMLScriptRelevantData caseRefGenericContext = (CaseUMLScriptRelevantData) ((ITypeResolution) scriptRelevantData)
+						.getGenericContextType();
+
+				if (caseRefGenericContext.getJsClass() != null
+						&& caseRefGenericContext.getJsClass().getUmlClass() != null)
+				{
+					return caseRefGenericContext.getJsClass().getUmlClass().getQualifiedName();
+				}
+			}
+			else if (extendedInfo instanceof JsMethodParam
+					&& ((ITypeResolution) scriptRelevantData).getGenericContextType() instanceof ITypeResolution)
+			{
+				ITypeResolution genericContextType = (ITypeResolution) ((ITypeResolution) scriptRelevantData)
+						.getGenericContextType();
+
+				if (genericContextType instanceof DefaultScriptRelevantData
+						&& JsConsts.CASE_REFERENCE.equals(((DefaultScriptRelevantData) genericContextType).getType()))
+				{
+					/*
+					 * This is a method param for a method off a case-reference parameter (which don't normally have
+					 * methods BUT could do if it's an caseRefArray.push/pushAll()
+					 * 
+					 * So see if we can grab the specific case type from the datafield that the method is being executed
+					 * on
+					 */
+					if (((DefaultScriptRelevantData) genericContextType)
+							.getExtendedInfo() instanceof DefaultJsAttribute)
+					{
+						DefaultJsAttribute hostAttribute = (DefaultJsAttribute) ((DefaultScriptRelevantData) genericContextType)
+								.getExtendedInfo();
+
+						String caseClassName = hostAttribute.getQualifiedCaseReferenceClassName();
+
+						if (caseClassName != null && !caseClassName.isEmpty())
+						{
+							return caseClassName;
+						}
+					}
+				}
+			}
+
+		}
+
+		return null;
+	}
     protected boolean isXMLGregorianCalendarType(String type) {
         if (type != null && (type.equals(JsConsts.TIME)
                 || type.equals(JsConsts.DATE) || type.equals(JsConsts.DATETIME)
@@ -2946,7 +3281,17 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
 
     protected String parseTypeMessage(IScriptRelevantData type) {
         String typeStr = type.getType();
-        if (JScriptUtils.isGenericType(typeStr)
+
+		/* Sid ACE-8226 If case reference type, then see if we can append the case class type to it */
+		if (isCaseReference(type))
+		{
+			String caseClassName = getCaseTypeForCaseReference(type);
+			if (caseClassName != null)
+			{
+				typeStr = JsConsts.CASE_REFERENCE + "<" + caseClassName + ">"; //$NON-NLS-1$//$NON-NLS-2$
+			}
+		}
+		else if (JScriptUtils.isGenericType(typeStr)
                 || JScriptUtils.isDynamicComplexType(type,
                         getSupportedJsClasses(getInfoObject()))) {
             typeStr = convertSpecificToGenericType(type);
@@ -2956,11 +3301,26 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 typeStr = objectSubType;
             }
         }
-        // Strip the enum suffix from enum types
-        if (typeStr.endsWith(DefaultJsClass.BOM_ENUM_SUFFIX)) {
-            typeStr = typeStr.substring(0, typeStr.length() - DefaultJsClass.BOM_ENUM_SUFFIX.length());
-        }
-        return typeStr;
+  
+		// ACE-8167 For 'Float' types set up the type text to be 'Decimal'
+		if (JsConsts.FLOAT.equalsIgnoreCase(typeStr))
+		{
+			typeStr = JsConsts.DECIMAL;
+		}
+
+		// Strip the enum suffix from enum types
+		if (typeStr.endsWith(DefaultJsClass.BOM_ENUM_SUFFIX))
+		{
+			typeStr = typeStr.substring(0, typeStr.length() - DefaultJsClass.BOM_ENUM_SUFFIX.length());
+		}
+
+		/* Sid ACE-8226 improve reporting of arrays in problem markers. */
+		if (type.isArray())
+		{
+			typeStr += "[]"; //$NON-NLS-1$
+		}
+
+		return typeStr;
     }
 
     /**
@@ -3046,15 +3406,61 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
             if (key != null) {
                 IScriptRelevantData type = parameters.get(key);
                 if (type != null) {
-                    String typeName = type.getType();
+					/*
+					 * Sid ACE-8226 improve reporting of class objects case refs in problem markers.
+					 */
+					String typeName = type.getType();
+
+					if (isCaseReference(type))
+					{
+						String caseClassName = getCaseTypeForCaseReference(type);
+						if (caseClassName != null)
+						{
+							typeName = JsConsts.CASE_REFERENCE + "<" + caseClassName + ">"; //$NON-NLS-1$//$NON-NLS-2$
+						}
+					}
+					else if (type instanceof AbstractUMLScriptRelevantData)
+					{
+						AbstractUMLScriptRelevantData umlType = (AbstractUMLScriptRelevantData) type;
+
+						if (umlType.getJsClass() != null && umlType.getJsClass().getUmlClass() != null)
+						{
+							/*
+							 * Don't show UML fully qualified type names from base JavaScript namespace (it's implied
+							 * and therefore not necessary).
+							 */
+							if (umlType.getJsClass().getUmlClass().getNamespace() == null
+									|| "JavaScript".equals(umlType.getJsClass().getUmlClass().getNamespace().getName()))
+							{
+								typeName = typeName = umlType.getJsClass().getUmlClass().getName();
+							}
+							else
+							{
+								/*
+								 * For user-defined classes use fully qualified with BOM pkg namespace to help user see
+								 * difference betwen class1 in BOM1 and class1 in BOM2
+								 */
+								typeName = umlType.getJsClass().getUmlClass().getQualifiedName();
+							}
+						}
+
+					}
                     // XPD-7360: Added List type to error message.
-                    if (JScriptUtils.isContextlessType(type)
+					else if (JScriptUtils.isContextlessType(type)
                             && type instanceof ITypeResolution) {
                         IScriptRelevantData genericType =
                                 ((ITypeResolution) type)
                                         .getGenericContextType();
-                        typeName += "<" + genericType.getType() + ">"; //$NON-NLS-1$ //$NON-NLS-2$
+						typeName += "<" + genericType.getType() + ">"; //$NON-NLS-1$ //$NON-NLS-2$
                     }
+
+
+					/* Sid ACE-8226 improve reporting of arrays in problem markers. */
+					if (type.isArray())
+					{
+						typeName += "[]"; //$NON-NLS-1$
+					}
+
                     paramNames.append(typeName);
                     if (iterator.hasNext()) {
                         paramNames.append(",");//$NON-NLS-1$

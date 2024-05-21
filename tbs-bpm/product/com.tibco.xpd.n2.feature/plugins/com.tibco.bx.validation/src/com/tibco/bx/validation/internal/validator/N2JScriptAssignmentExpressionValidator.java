@@ -736,26 +736,11 @@ public class N2JScriptAssignmentExpressionValidator
 
     @Override
     protected String parseTypeMessage(IScriptRelevantData scriptRelevantData) {
-        /*
-         * Customise Type message to include, PaginatedList/List if applicable,
-         * To show correct message for e.g. "Assignment of PaginatedList from
-         * List is not supported" , ALSO include <Type> otherwise messages like
-         * "Assignment of PaginatedList  from PaginatedList  is not supported"
-         * is not clear enough. which should rather be
-         * "Assignment of PaginatedList<com.example.xpd5365.OrderRef> from PaginatedList<com.example.xpd5365.CustomerRef> is not supported"
-         */
-        String collectionType = null;
-        if (scriptRelevantData.isArray()) {
-
-            collectionType = JsConsts.ARRAY;
-        }
-
-        if (collectionType != null) {
-
-            return String.format("%1s<%2s>", //$NON-NLS-1$
-                    collectionType,
-                    scriptRelevantData.getType());
-        }
+		/*
+		 * Sid ACE-8226 improve reporting of case refs in problem markers. and Standardise representation of arrays.
+		 * 
+		 * Allow the suprtclass to deal with Arrays as "MyArray[]" rather then overriding wth "Array<MyArray>"
+		 */
         return super.parseTypeMessage(scriptRelevantData);
     }
 

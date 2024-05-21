@@ -96,7 +96,7 @@ public class PSLProjectNameValidatorTest extends AbstractN2BaseValidationTest
 	@Override
 	protected String getTestPlugInId()
 	{
-		return "com.tibco.xpd.n2.test"; //$NON-NLS-1$
+		return "com.tibco.xpd.sce.test"; //$NON-NLS-1$
 	}
 
 }

@@ -143,7 +143,7 @@ public class CaseDataTaskInvalidTest extends AbstractN2BaseValidationTest {
                         "/CaseDataTaskInvalidTest/Process Packages/CaseDataTaskInvalidTest.xpdl", //$NON-NLS-1$
                         "bx.validateScriptTask", //$NON-NLS-1$
                         "_M7e4ULKvEemYQ8BLJRMPWQ", //$NON-NLS-1$
-                        "BPM  : At Line:5 column:42, Method readAll is not applicable for the provided argument types (Text) (CaseDataTaskInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:5 column:42, Method readAll is not applicable for the provided argument types (Text[]) (CaseDataTaskInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
                         ""), //$NON-NLS-1$
 
                 new ValidationsTestProblemMarkerInfo(
@@ -164,14 +164,14 @@ public class CaseDataTaskInvalidTest extends AbstractN2BaseValidationTest {
                         "/CaseDataTaskInvalidTest/Process Packages/CaseDataTaskInvalidTest.xpdl", //$NON-NLS-1$
                         "bx.validateScriptTask", //$NON-NLS-1$
                         "_M7e4ULKvEemYQ8BLJRMPWQ", //$NON-NLS-1$
-                        "BPM  : At Line:6 column:30, Assignment of Text from CaseReference is not supported (CaseDataTaskInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:6 column:30, Assignment of Text from CaseReference<com.example.data::MyCase> is not supported (CaseDataTaskInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
                         ""), //$NON-NLS-1$
 
                 new ValidationsTestProblemMarkerInfo(
                         "/CaseDataTaskInvalidTest/Process Packages/CaseDataTaskInvalidTest.xpdl", //$NON-NLS-1$
                         "bx.validateScriptTask", //$NON-NLS-1$
                         "_M7e4ULKvEemYQ8BLJRMPWQ", //$NON-NLS-1$
-                        "BPM  : At Line:7 column:30, Assignment of CaseReference from Text is not supported (CaseDataTaskInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:7 column:30, Assignment of CaseReference<com.example.data::MyCase> from Text is not supported (CaseDataTaskInvalidTestProcess:ScriptTask)", //$NON-NLS-1$
                         ""), //$NON-NLS-1$
 
                 new ValidationsTestProblemMarkerInfo(

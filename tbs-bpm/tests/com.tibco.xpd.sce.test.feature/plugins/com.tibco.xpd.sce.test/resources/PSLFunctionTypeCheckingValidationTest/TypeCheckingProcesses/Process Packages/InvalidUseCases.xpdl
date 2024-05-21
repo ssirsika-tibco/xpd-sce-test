@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_BwaOIBawEe-CIqEineWfWg" xpdExt:DisplayName="InvalidUseCases" Name="InvalidUseCases">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2024-05-20</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_O_vAGBa5Ee-CIqEineWfWg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_O_vAEBa5Ee-CIqEineWfWg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_O_vAGRa5Ee-CIqEineWfWg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_DPLSNxawEe-CIqEineWfWg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_BxKcEBawEe-CIqEineWfWg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_DPLSOBawEe-CIqEineWfWg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_BxKcEBawEe-CIqEineWfWg" xpdExt:DisplayName="InvalidUseCases-Process" Name="InvalidUseCasesProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_-m6gJBOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcText" Name="srcText">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gJROaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcDateTime" Name="srcDateTime">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gJhOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcNumber" Name="srcNumber" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gJxOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcClass1Bom" Name="srcClass1Bom" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_M5QEsBEnEe-gheWdQI7vSg"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter3 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gKBOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcClass2Bom" Name="srcClass2Bom" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_NI31EBEnEe-gheWdQI7vSg"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter4 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gKROaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcCase1Bom" Name="srcCase1Bom" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter5 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gKhOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcCase2Bom" Name="srcCase2Bom" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_yYyCjRFBEe-rxNg_OmVOeQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter6 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gKxOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcCase1Ref" Name="srcCase1Ref" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gLBOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcCase2Ref" Name="srcCase2Ref" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_yYyCjRFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gLROaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayText" Name="srcArrayText" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter3 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gLhOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayDateTime" Name="srcArrayDateTime" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter4 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gLxOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayNumber" Name="srcArrayNumber" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gMBOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayClass1Bom" Name="srcArrayClass1Bom" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_M5QEsBEnEe-gheWdQI7vSg"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter2 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gMROaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayClass2Bom" Name="srcArrayClass2Bom" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_NI31EBEnEe-gheWdQI7vSg"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter5 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gMhOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayCase1Bom" Name="srcArrayCase1Bom" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter6 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gMxOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayCase2Bom" Name="srcArrayCase2Bom" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_yYyCjRFBEe-rxNg_OmVOeQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gNBOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayCase1Ref" Name="srcArrayCase1Ref" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-m6gNROaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayCase2Ref" Name="srcArrayCase2Ref" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_yYyCjRFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_zBEH0RQdEe-fuvwZ8PuNhw" xpdExt:DisplayName="anotherPkgCase1Bom" Name="anotherPkgCase1Bom" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Another.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tPtaABNpEe-5hebOehLeMg"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_4Svc0RQdEe-fuvwZ8PuNhw" xpdExt:DisplayName="anotherPkgCase1Ref" Name="anotherPkgCase1Ref" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="Another.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tPtaABNpEe-5hebOehLeMg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_6C-EURQdEe-fuvwZ8PuNhw" xpdExt:DisplayName="anotherPkgClass1Bom" Name="anotherPkgClass1Bom" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Another.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tPnT4RNpEe-5hebOehLeMg"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_DPLSORawEe-CIqEineWfWg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_DPLSOBawEe-CIqEineWfWg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_DPLSOhawEe-CIqEineWfWg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_DPLSOBawEe-CIqEineWfWg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_D7dJYRawEe-CIqEineWfWg" Name="invalidPslFunctionCallFromPslFunctionTests" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="invalidPslFunctionCallFromPslFunctionTests" xpdExt:RequireNewTransaction="false">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">//&#xD;
+// Tests for invalid PSL function call from PSL function use cases.&#xD;
+//&#xD;
+     &#xD;
+// Incorrect BOM Case class parameter type&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.bomCaseParamAndReturn(data.srcCase2Bom, data.srcCase1Bom); &#xD;
+// Incorrect BOM Case Class parameter type - Same NAME but from different BOM package&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.bomCaseParamAndReturn(data.anotherPkgCase1Bom, data.srcCase2Bom);  &#xD;
+// Incorrect BOM Case Class parameter type - factory method for wrong class type&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.bomCaseParamAndReturn(factory.com_example_data.createCase2(), factory.com_example_data.createCase1());  &#xD;
+// Incorrect BOM Case Class parameter type - factory method for SAME NAME class but from different BOM package&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.bomCaseParamAndReturn(factory.com_example_another.createCase1(), factory.com_example_another.createCase2());  &#xD;
+// Incorrect BOM Case class return type assignment&#xD;
+data.srcCase2Bom = bpmScripts.Utilities.UtilitiesLibrary.bomCaseParamAndReturn(data.srcCase1Bom, data.srcCase2Bom);  &#xD;
+&#xD;
+// Incorrect BOM standard class parameter type&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.bomClassParamAndReturn(data.srcClass2Bom, data.srcClass1Bom);&#xD;
+// Same but where source param is BOM child attribute&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.bomClassParamAndReturn(data.srcClass1Bom, data.srcClass2Bom.class1);&#xD;
+// Incorrect BOM standard Class parameter type - Same NAME but from different BOM package&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.bomClassParamAndReturn(data.anotherPkgClass1Bom, data.srcCase2Bom);  &#xD;
+// Incorrect BOM standard Class parameter type - factory method for wrong class type&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.bomClassParamAndReturn(factory.com_example_data.createClass2(), factory.com_example_data.createClass1());  &#xD;
+// Incorrect BOM standard Class parameter type - factory method for SAME NAME class but from different BOM package&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.bomClassParamAndReturn(factory.com_example_another.createClass1(), factory.com_example_another.createClass2());  &#xD;
+&#xD;
+// Incorrect BOM standard class return type assignment&#xD;
+data.srcClass2Bom = bpmScripts.Utilities.UtilitiesLibrary.bomClassParamAndReturn(data.srcClass1Bom, data.srcClass2Bom);&#xD;
+// BOM standard class params where src is incorrect class return from other PSL function&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.bomClassParamAndReturn(data.srcClass1Bom, bpmScripts.Utilities.UtilitiesLibrary.returnClass1());&#xD;
+&#xD;
+// Incorrect Case-type Case References passed for specific-case-typed params&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.caseRefParamAndReturn(data.srcCase2Ref, data.srcCase1Ref);&#xD;
+// Incorrect assignment to wrong case-ref type from specific-case-typed case-ref return&#xD;
+data.srcCase2Ref = bpmScripts.Utilities.UtilitiesLibrary.caseRefParamAndReturn(data.srcCase1Ref, data.srcCase2Ref);&#xD;
+// Incorrect assignment Case Object from specific-case-typed  case-ref return of same type&#xD;
+data.srcCase1Bom = bpmScripts.Utilities.UtilitiesLibrary.caseRefParamAndReturn(data.srcCase1Ref, data.srcCase2Ref);&#xD;
+// Incorrect Case References where src param is return from other PSL function&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.caseRefParamAndReturn(data.srcCase1Ref, bpmScripts.Utilities.UtilitiesLibrary.returnCase1Ref());&#xD;
+&#xD;
+// Invalid Primitive types parameter passing&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.primitiveTypes(data.srcText, data.srcText, data.srcDateTime);&#xD;
+// Incorrect  return type assignment&#xD;
+data.srcNumber = bpmScripts.Utilities.UtilitiesLibrary.primitiveTypes(data.srcText, data.srcNumber, data.srcDateTime);&#xD;
+&#xD;
+// Array BOM Case classes pass wrong type array as parameter&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.arrayBomCaseParamAndReturn(data.srcArrayCase2Bom, data.srcArrayCase1Bom); &#xD;
+// Array BOM Case classes pass correct type bit NON-array as parameter&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.arrayBomCaseParamAndReturn(data.srcCase1Bom, data.srcCase2Bom); &#xD;
+// Array BOM Case classes assignment from wrong return type&#xD;
+data.srcArrayCase2Bom.pushAll(bpmScripts.Utilities.UtilitiesLibrary.arrayBomCaseParamAndReturn(data.srcArrayCase1Bom, data.srcArrayCase2Bom)); &#xD;
+// Array BOM Case classes assignment to correct but NON-array return type&#xD;
+data.srcCase1Bom = bpmScripts.Utilities.UtilitiesLibrary.arrayBomCaseParamAndReturn(data.srcArrayCase1Bom, data.srcArrayCase2Bom); &#xD;
+&#xD;
+// Array BOM standard classes pass wrong type array as parameter&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.arrayBomClassParamAndReturn(data.srcArrayClass2Bom, data.srcArrayClass1Bom); &#xD;
+// Array BOM standard classes pass correct type bit NON-array as parameter&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.arrayBomClassParamAndReturn(data.srcClass1Bom, data.srcClass2Bom); &#xD;
+// Array BOM standard classes assignment from wrong return type&#xD;
+data.srcArrayClass2Bom.pushAll(bpmScripts.Utilities.UtilitiesLibrary.arrayBomClassParamAndReturn(data.srcArrayClass1Bom, data.srcArrayClass2Bom)); &#xD;
+// Array BOM standard classes assignment to correct but NON-array return type&#xD;
+data.srcClass1Bom = bpmScripts.Utilities.UtilitiesLibrary.arrayBomClassParamAndReturn(data.srcArrayClass1Bom, data.srcArrayClass2Bom); &#xD;
+// Non-array BOM classes assignment to correct but array return type&#xD;
+data.srcArrayClass1Bom.pushAll(bpmScripts.Utilities.UtilitiesLibrary.returnClass1());&#xD;
+&#xD;
+// Incorrect array Case-type Case References passed for specific-case-typed params&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.arrayCaseRefParamAndReturn(data.srcArrayCase2Ref, data.srcArrayCase1Ref);&#xD;
+// Incorrect assignment from for Array specific-case-typed return&#xD;
+data.srcArrayCase2Ref.pushAll(bpmScripts.Utilities.UtilitiesLibrary.arrayCaseRefParamAndReturn(data.srcArrayCase1Ref, data.srcArrayCase2Ref));&#xD;
+// Incorrect assignment Case Object from specific-case-typed  case-ref return of same type&#xD;
+data.srcArrayCase2Bom.pushAll(bpmScripts.Utilities.UtilitiesLibrary.arrayCaseRefParamAndReturn(data.srcArrayCase1Ref, data.srcArrayCase2Ref));&#xD;
+// Incorrect Array Case References where src param is return from other PSL function&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.arrayCaseRefParamAndReturn(data.srcArrayCase1Ref, bpmScripts.Utilities.UtilitiesLibrary.returnCase1Ref());&#xD;
+&#xD;
+// Array Primitive types incorrect parameter types&#xD;
+bpmScripts.Utilities.UtilitiesLibrary.arrayPrimitiveTypes(data.srcArrayText, data.srcArrayText, data.srcArrayDateTime);&#xD;
+// Array Primitive types incorrect return assignment  types&#xD;
+data.srcArrayNumber.pushAll(bpmScripts.Utilities.UtilitiesLibrary.arrayPrimitiveTypes(data.srcArrayText, data.srcArrayNumber, data.srcArrayDateTime));&#xD;
+// Array Primitive types incorrect return assignment to correct but NON-array type&#xD;
+data.srcDateTime = bpmScripts.Utilities.UtilitiesLibrary.arrayPrimitiveTypes(data.srcArrayText, data.srcArrayNumber, data.srcArrayDateTime);&#xD;
+// Non-Array Primitive types incorrect return assignment to correct but array type&#xD;
+data.srcArrayNumber.pushAll(bpmScripts.Utilities.UtilitiesLibrary.returnNumber());&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_DPLSOBawEe-CIqEineWfWg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="224.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_DPLSOxawEe-CIqEineWfWg" Name="" From="_D7dJYRawEe-CIqEineWfWg" To="_DPLSOhawEe-CIqEineWfWg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_D7dJYhawEe-CIqEineWfWg" xpdExt:DisplayName="" Name="" From="_DPLSORawEe-CIqEineWfWg" To="_D7dJYRawEe-CIqEineWfWg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_O_vAEBa5Ee-CIqEineWfWg" xpdExt:DisplayName="invalidPslFunctionGeneralRegressionTests" Name="invalidPslFunctionGeneralRegressionTests">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_-nDqEROaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcText" Name="srcText">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqEhOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcDateTime" Name="srcDateTime">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqExOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcNumber" Name="srcNumber" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqFBOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcClass1Bom" Name="srcClass1Bom" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_M5QEsBEnEe-gheWdQI7vSg"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter3 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqFROaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcClass2Bom" Name="srcClass2Bom" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_NI31EBEnEe-gheWdQI7vSg"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter4 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqFhOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcCase1Bom" Name="srcCase1Bom" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter5 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqFxOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcCase2Bom" Name="srcCase2Bom" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_yYyCjRFBEe-rxNg_OmVOeQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter6 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqGBOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcCase1Ref" Name="srcCase1Ref" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqGROaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcCase2Ref" Name="srcCase2Ref" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_yYyCjRFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqGhOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayText" Name="srcArrayText" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter3 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqGxOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayDateTime" Name="srcArrayDateTime" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter4 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqHBOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayNumber" Name="srcArrayNumber" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqHROaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayClass1Bom" Name="srcArrayClass1Bom" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_M5QEsBEnEe-gheWdQI7vSg"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter2 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqHhOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayClass2Bom" Name="srcArrayClass2Bom" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_NI31EBEnEe-gheWdQI7vSg"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter5 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqHxOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayCase1Bom" Name="srcArrayCase1Bom" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter6 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqIBOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayCase2Bom" Name="srcArrayCase2Bom" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_yYyCjRFBEe-rxNg_OmVOeQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqIROaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayCase1Ref" Name="srcArrayCase1Ref" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqIhOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="srcArrayCase2Ref" Name="srcArrayCase2Ref" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_yYyCjRFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqIxOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="secondCase1Ref" Name="secondCase1Ref" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqJBOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="secondCase1RefArray" Name="secondCase1RefArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqJROaEe-fuvwZ8PuNhw" xpdExt:DisplayName="secondDateTime" Name="secondDateTime" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqJhOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="secondCase1Bom" Name="secondCase1Bom" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-nDqJxOaEe-fuvwZ8PuNhw" xpdExt:DisplayName="secondCase1BomArray" Name="secondCase1BomArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_O_vAGha5Ee-CIqEineWfWg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_O_vAGRa5Ee-CIqEineWfWg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_O_vAGxa5Ee-CIqEineWfWg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_O_vAGRa5Ee-CIqEineWfWg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nvuu8Ra5Ee-CIqEineWfWg" Name="invalidPslFunctionGeneralRegressionTests" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="invalidPslFunctionGeneralRegressionTests" xpdExt:RequireNewTransaction="false">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">//&#xD;
+// Tests invalid use cases for general regression and normal pre-PSL scripting tests from PSL function.&#xD;
+//&#xD;
+&#xD;
+// Basic assignments&#xD;
+data.secondDateTime = data.srcText;&#xD;
+data.secondCase1Ref = data.srcCase2Ref;&#xD;
+data.secondCase1RefArray = data.srcArrayCase2Ref;&#xD;
+data.secondCase1RefArray.pushAll(data.srcCase1Ref); &#xD;
+data.secondCase1RefArray.pushAll(data.srcArrayCase2Ref); &#xD;
+data.srcClass2Bom = data.srcClass2Bom.class1;&#xD;
+ &#xD;
+// Invocation of existing caseData methods that take generic 'any case / case-ref' as parameters / returns&#xD;
+data.srcArrayCase1Bom.pushAll(bpm.caseData.findAll(&quot;com.example.data.Case1AAA&quot;, 1, 10));&#xD;
+data.srcCase1Bom = bpm.caseData.findByCaseIdentifier(data.srcText, &quot;com.example.data.Case1BBB&quot;);&#xD;
+data.srcArrayCase1Bom.pushAll(bpm.caseData.findByCriteria(data.srcText,&quot;com.example.data.Case1CCC&quot;,data.srcNumber, 10));&#xD;
+data.srcArrayCase1Bom.pushAll(bpm.caseData.findBySimpleSearch(data.srcText,&quot;com.example.data.Case1DDD&quot;,data.srcNumber, 10));&#xD;
+data.srcCase1Ref = bpm.caseData.read(data.srcCase1Ref);&#xD;
+data.srcArrayCase1Ref.pushAll(bpm.caseData.readAll(data.srcArrayCase1Ref));&#xD;
+data.srcClass1Bom = bpm.caseData.readAll(data.srcArrayCase1Ref);&#xD;
+bpm.caseData.readAll(data.srcArrayCase1Bom);&#xD;
+&#xD;
+// Invocation of utilitiy methods that accept / return generic 'any BOM' values&#xD;
+data.srcCase1Bom = bpm.scriptUtil.copy(data.srcArrayText);&#xD;
+data.srcText = bpm.scriptUtil.copy(data.srcArrayCase1Ref);&#xD;
+data.secondCase1Ref = bpm.scriptUtil.copy(data.srcCase1Ref); // We should be careful about what we allow to be assigned to case-refs!&#xD;
+data.secondCase1BomArray.pushAll(bpm.scriptUtil.copyAll(data.srcCase1Bom));&#xD;
+data.secondCase1Bom = bpm.scriptUtil.copyAll(data.srcArrayCase1Bom);&#xD;
+data.srcArrayText.pushAll(bpm.scriptUtil.copyAll(data.srcCase1Ref));&#xD;
+data.secondCase1RefArray.pushAll(bpm.scriptUtil.copyAll(data.srcArrayCase1Ref)); // We should be careful about what we allow to be assigned to case-refs!&#xD;
+data.secondCase1Ref = bpm.scriptUtil.parseData(data.srcText, &quot;com.example.data.Case1XXX&quot;);&#xD;
+data.secondCase1Ref = bpm.scriptUtil.stringify(data.srcCase1Bom);&#xD;
+&#xD;
+// Use BOM parameter attributes&#xD;
+data.srcClass2Bom = data.srcClass2Bom.class1;&#xD;
+data.srcText = data.srcClass2Bom.class1.charAt(data.srcNumber);&#xD;
+&#xD;
+// Use PSL function returns in params&#xD;
+// Primitive type return&#xD;
+bpm.caseData.findAll(&quot;com.example.data.Case1&quot;, bpmScripts.Utilities.UtilitiesLibrary.returnCase1Ref(), bpmScripts.Utilities.UtilitiesLibrary.returnClass1());&#xD;
+// Case reference function return used as parameter and case object return&#xD;
+data.srcCase1Bom = bpm.caseData.read(bpmScripts.Utilities.UtilitiesLibrary.returnText());&#xD;
+data.srcCase1Ref = bpm.caseData.read(bpmScripts.Utilities.UtilitiesLibrary.returnCase1Ref());&#xD;
+&#xD;
+// Assignment of Case / BOM classes from factory methods&#xD;
+data.srcCase1Ref = factory.com_example_data.createCase1();&#xD;
+data.srcCase2Bom = factory.com_example_data.createCase1();&#xD;
+data.srcClass2Bom = factory.com_example_data.createClass1();&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_O_vAGRa5Ee-CIqEineWfWg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="196.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_O_vAHBa5Ee-CIqEineWfWg" Name="" From="_nvuu8Ra5Ee-CIqEineWfWg" To="_O_vAGxa5Ee-CIqEineWfWg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_nvuu8ha5Ee-CIqEineWfWg" xpdExt:DisplayName="" Name="" From="_O_vAGha5Ee-CIqEineWfWg" To="_nvuu8Ra5Ee-CIqEineWfWg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

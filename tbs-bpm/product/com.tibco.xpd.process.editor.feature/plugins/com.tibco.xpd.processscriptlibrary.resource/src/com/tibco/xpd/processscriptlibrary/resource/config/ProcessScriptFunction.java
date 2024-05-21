@@ -5,6 +5,7 @@
 package com.tibco.xpd.processscriptlibrary.resource.config;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
@@ -24,11 +25,13 @@ public class ProcessScriptFunction extends AbstractProcessScriptLibraryElement
 
 	private List<ProcessScriptFunctionParam>	params				= new ArrayList<>();
 
-	private List<ProcessScriptFunctionParam>	paramsWithoutReturn	= new ArrayList<>();
+	/** Sid ACE-8226 Tracks whether params list has changed since it was last sorted. */
+	private boolean								paramsListUnsorted	= false;
 
 	private String								description;
 
 	private ProcessScriptLibrary				processScriptLibrary;
+
 
 	/**
 	 * 
@@ -51,6 +54,18 @@ public class ProcessScriptFunction extends AbstractProcessScriptLibraryElement
 	@Override
 	public List<ProcessScriptFunctionParam> getChildren()
 	{
+		/*
+		 * Sid ACE-8226 We must sort the parameter list by index because the order in which they are read from indexer
+		 * DB is not guaranteed to be the same as they were written.
+		 * 
+		 * But don't do it every time, just if params list has changed since we sorted.
+		 */
+		if (paramsListUnsorted)
+		{
+			params.sort(new ParamSortComparator());
+			paramsListUnsorted = false;
+		}
+
 		return params;
 	}
 
@@ -84,11 +99,19 @@ public class ProcessScriptFunction extends AbstractProcessScriptLibraryElement
 	public ProcessScriptFunctionParam addChild(String aChildName, IndexerItem aIndexerItem)
 	{
 		ProcessScriptFunctionParam newPslFunctionParam = new ProcessScriptFunctionParam(aChildName, aIndexerItem);
-		getChildren().add(newPslFunctionParam);
-		if (!newPslFunctionParam.isReturnParam())
-		{
-			paramsWithoutReturn.add(newPslFunctionParam);
-		}
+
+		/*
+		 * Sid ACE-8226 Add to params field directly because getChildren() will sort params and don't want to
+		 * continually do that whilst building the list of params.
+		 */
+		params.add(newPslFunctionParam);
+
+		/*
+		 * Tag the list as unsorted, so next getChildren() will sort the parms by index position (and don't keep
+		 * separate list of paramsWithoutReturn, we can just sort that out when building the syntax description).
+		 */
+		paramsListUnsorted = true;
+
 		return newPslFunctionParam;
 	}
 
@@ -111,14 +134,23 @@ public class ProcessScriptFunction extends AbstractProcessScriptLibraryElement
 				.append(DOT_STR).append(processScriptLibrary.getProcessScriptLibraryProject().getName()).append(DOT_STR)
 				.append(processScriptLibrary.getNameWithoutExtension()).append(DOT_STR).append(name).append("("); //$NON-NLS-1$
 
-		for (int i = 0; i < paramsWithoutReturn.size(); i++)
-		{
+		/*
+		 * Sid ACE-8226 Use getChildren() (full params list) and allow for $RETURN param, rather than separately
+		 * maintained paramsWithoutReturn list. This makes it much easier to maintain a sorted list of params without
+		 * having to worry about 2 separate list sort status.
+		 */
+		boolean doneFirstParam = false;
 
-			ProcessScriptFunctionParam param = paramsWithoutReturn.get(i);
-			syntax.append(param.getName());
-			if (i < paramsWithoutReturn.size() - 1)
+		for (ProcessScriptFunctionParam param : getChildren())
+		{
+			if (!param.isReturnParam())
 			{
-				syntax.append(", "); //$NON-NLS-1$
+				if (doneFirstParam)
+				{
+					syntax.append(", ");
+				}
+
+				syntax.append(param.getName());
 			}
 		}
 		syntax.append(")"); //$NON-NLS-1$
@@ -143,4 +175,21 @@ public class ProcessScriptFunction extends AbstractProcessScriptLibraryElement
 	{
 		return "ProcessScriptFunction : " + name; //$NON-NLS-1$
 	}
+
+	/**
+	 * Sid ACE-8226 PSL Function parameter list sorter. Sorts params by index (which is taken from the order they appear
+	 * in function datafields definition).
+	 *
+	 * @author aallway
+	 * @since 20 May 2024
+	 */
+	private final class ParamSortComparator implements Comparator<ProcessScriptFunctionParam>
+	{
+		@Override
+		public int compare(ProcessScriptFunctionParam o1, ProcessScriptFunctionParam o2)
+		{
+			return o1.getIndex() - o2.getIndex();
+		}
+	}
+
 }

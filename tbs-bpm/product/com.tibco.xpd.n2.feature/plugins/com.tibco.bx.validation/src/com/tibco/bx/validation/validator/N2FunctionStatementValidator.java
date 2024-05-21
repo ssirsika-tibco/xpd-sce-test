@@ -23,6 +23,7 @@ import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.script.model.client.JsClassDefinitionReader;
 import com.tibco.xpd.script.parser.antlr.JScriptTokenTypes;
+import com.tibco.xpd.script.parser.internal.expr.IExpr;
 import com.tibco.xpd.script.parser.internal.validator.IValidateResult;
 import com.tibco.xpd.script.ui.ScriptGrammarContributionsUtil;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
@@ -137,41 +138,29 @@ public class N2FunctionStatementValidator extends N2ExpressionValidator {
 			 * Description: We now support the use of "return" statements in Process Script Library Functions. We need
 			 * to consider the following cases:
 			 * 
-			 * 1. We want to raise a validation to-do when the last statement for Process Script Library Functions with
-			 * a NON-VOID RETURN type is NOT a "return" statement.
-			 * 
-			 * 2. We want to raise a validation to-do when the return type for Process Script Library Functions with a
+			 * 1. We want to raise a validation to-do when the return type for Process Script Library Functions with a
 			 * NON-VOID RETURN type is not compatible with the return type from the statement. NON-VOID RETURN type
 			 * (i.e. Return Type Parameter from PSL) is not compatible with the return type from the statement (i.e.
 			 * return "<any_statement_or_expression>").
 			 * 
-			 * 3. We want to raise a validation to-do when the last statement for Process Script Library Functions with
-			 * a VOID RETURN type is a "return" statement.
+			 * 2. We want to raise a validation to-do when the last statement for Process Script Library Functions with
+			 * a VOID RETURN type is a "return" statement with value.
 			 */
 			boolean isReturnTypeParameterOfTypeNonVoidReturnScenario = isReturnTypeParamaterOfTypeNonVoidReturn();
 			if (isProcessScriptLibraryFunctionScenario)
 			{
 				if (isReturnTypeParameterOfTypeNonVoidReturnScenario)
 				{
-					// For Process Script Library Functions with NON Void Return must always end with return statement.
-					if (statType != JScriptTokenTypes.LITERAL_return)
+					// For Process Script Library Functions with NON Void Return having return statement , must have
+					// return value compltiable with NON Void Return Parameter Type.
+					if (delegateEvaluateExpression != null && delegateEvaluateExpression.getType() != null)
 					{
-						String errorMessage = Messages.N2FunctionStatementValidator_PSFunctionWithNonVoidReturnTypeParamter_LastStatementWithReturn;
-						addErrorMessage(token, errorMessage);
-					}
-					else
-					{
-						// For Process Script Library Functions with NON Void Return having return statement , must have
-						// return value compltiable with NON Void Return Parameter Type.
-						if (delegateEvaluateExpression != null && delegateEvaluateExpression.getType() != null)
-						{
-							IScriptRelevantData rhsDataType = delegateEvaluateExpression.getType();
+						IScriptRelevantData rhsDataType = delegateEvaluateExpression.getType();
 
-							IScriptRelevantData lhsReturnDataType = convertToScriptRelevantData(
-									getProcessRelevantDataForReturnTypeParameter());
+						IScriptRelevantData lhsReturnDataType = convertToScriptRelevantData(
+								getProcessRelevantDataForReturnTypeParameter(), delegateEvaluateExpression.getExpr());
 
-							evaluateAssignmentOperator(token, lhsReturnDataType, rhsDataType);
-						}
+						evaluateAssignmentOperator(token, lhsReturnDataType, rhsDataType);
 					}
 				}
 				else
@@ -341,12 +330,26 @@ public class N2FunctionStatementValidator extends N2ExpressionValidator {
 	 * Function to convert passed {@link ProcessRelevantData} into {@link IScriptRelevantData}.
 	 * 
 	 * @param processData
+	 * @param hostExpr
+	 *            The host expression that the given process DataField is referenced in
+	 * 
 	 * @return Returns the {@link IScriptRelevantData} for passed {@link ProcessRelevantData}
 	 */
-	protected IScriptRelevantData convertToScriptRelevantData(ProcessRelevantData processData)
+	protected IScriptRelevantData convertToScriptRelevantData(ProcessRelevantData processData, IExpr hostExpr)
 	{
-		return CDSUtils.convertToScriptRelevantData(processData, getProject(),
+		/*
+		 * Sid ACE-8226 Return data type was missing it's 'generic context' which could lead to type comparison issues
+		 * with return data.
+		 * 
+		 * So after creating the data field update generic context within it.
+		 */
+		IScriptRelevantData relevantData = CDSUtils.convertToScriptRelevantData(processData, getProject(),
 				readContributedDefinitionReaders(getProcessDestinationList(getProcess())));
+
+		updateResult(hostExpr, relevantData,
+				createGenericContext(relevantData, isGenericContextArray(relevantData, relevantData)));
+
+		return relevantData;
 	}
 
 	/**

@@ -34,6 +34,7 @@ import com.tibco.xpd.sce.tests.validation.PSLBPMScriptsVariableAssignmentValidat
 import com.tibco.xpd.sce.tests.validation.PSLFileNameValidatorTest;
 import com.tibco.xpd.sce.tests.validation.PSLFunctionNameValidator;
 import com.tibco.xpd.sce.tests.validation.PSLFunctionParameterValidation;
+import com.tibco.xpd.sce.tests.validation.PSLFunctionTypeCheckingValidationTest;
 import com.tibco.xpd.sce.tests.validation.PSLProjectNameValidatorTest;
 import com.tibco.xpd.sce.tests.validation.PSLProjectReferenceValidationTest;
 import com.tibco.xpd.sce.tests.validation.PSLReturnTypeValidationTest;
@@ -110,6 +111,8 @@ public class AllUnitTestsValidation {
 		suite.addTestSuite(PSLValidBPMScriptsVariableAssignmentValidationTest.class);
 
 		suite.addTestSuite(PSLValidReturnTypeValidationTest.class);
+
+		suite.addTestSuite(PSLFunctionTypeCheckingValidationTest.class);
 
         return suite;
     }

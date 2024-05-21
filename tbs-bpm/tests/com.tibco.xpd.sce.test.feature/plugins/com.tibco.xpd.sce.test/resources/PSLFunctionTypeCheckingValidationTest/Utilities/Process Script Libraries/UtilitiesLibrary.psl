@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_wgqIMBEKEe-gheWdQI7vSg">
+  <xpdl2:PackageHeader>
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>Mon May 13 11:25:37 BST 2024</xpdl2:Created>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader>
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_wgw14BEKEe-gheWdQI7vSg">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_9ubFABFBEe-rxNg_OmVOeQ" Name="caseRefParamAndReturn" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">return case1RefParam;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_9ubFARFBEe-rxNg_OmVOeQ" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_9ubFAhFBEe-rxNg_OmVOeQ" Name="case1RefParam">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_UFQjwBNpEe-5hebOehLeMg" Name="case2RefParam" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_yYyCjRFBEe-rxNg_OmVOeQ"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_fpSnoBNpEe-5hebOehLeMg" Name="bomClassParamAndReturn" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">return bomClass1Param;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_fpSnoRNpEe-5hebOehLeMg" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_M5QEsBEnEe-gheWdQI7vSg"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_fpSnohNpEe-5hebOehLeMg" Name="bomClass1Param">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_M5QEsBEnEe-gheWdQI7vSg"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_fpSnoxNpEe-5hebOehLeMg" Name="bomClass2Param">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_NI31EBEnEe-gheWdQI7vSg"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_LjjL9BNqEe-5hebOehLeMg" Name="bomCaseParamAndReturn" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">return bomCase1Param;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_LjjL9RNqEe-5hebOehLeMg" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_LjjL9hNqEe-5hebOehLeMg" Name="bomCase1Param">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_LjjL9xNqEe-5hebOehLeMg" Name="bomCase2Param">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_yYyCjRFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_aCkaQBNqEe-5hebOehLeMg" Name="primitiveTypes" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">return dateTimeParam; </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_aCkaQRNqEe-5hebOehLeMg" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATETIME"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_aCkaQhNqEe-5hebOehLeMg" Name="textParam">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_aCkaQxNqEe-5hebOehLeMg" Name="numberParam">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="FLOAT"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_f_H4QRNqEe-5hebOehLeMg" Name="dateTimeParam" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATETIME"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_l1RzYRNqEe-5hebOehLeMg" Name="arrayBomClassParamAndReturn" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">return bomClass1Param;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_l1RzYhNqEe-5hebOehLeMg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_M5QEsBEnEe-gheWdQI7vSg"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_l1RzYxNqEe-5hebOehLeMg" Name="bomClass1Param" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_M5QEsBEnEe-gheWdQI7vSg"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_l1RzZBNqEe-5hebOehLeMg" Name="bomClass2Param" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_NI31EBEnEe-gheWdQI7vSg"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_l1RzZRNqEe-5hebOehLeMg" Name="arrayBomCaseParamAndReturn" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">return bomCase1Param;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_l1RzZhNqEe-5hebOehLeMg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_l1RzZxNqEe-5hebOehLeMg" Name="bomCase1Param" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_l1RzaBNqEe-5hebOehLeMg" Name="bomCase2Param" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_yYyCjRFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_l1RzaRNqEe-5hebOehLeMg" Name="arrayPrimitiveTypes" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">return dateTimeParam;      </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_l1RzahNqEe-5hebOehLeMg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATETIME"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_l1RzaxNqEe-5hebOehLeMg" Name="textParam" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_l1RzbBNqEe-5hebOehLeMg" Name="numberParam" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="FLOAT"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_l1RzbRNqEe-5hebOehLeMg" Name="dateTimeParam" IsArray="true" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATETIME"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_l1RzbhNqEe-5hebOehLeMg" Name="arrayCaseRefParamAndReturn" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">return case1RefParam;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_l1RzbxNqEe-5hebOehLeMg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_l1RzcBNqEe-5hebOehLeMg" Name="case1RefParam" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_l1RzcRNqEe-5hebOehLeMg" Name="case2RefParam" IsArray="true" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_yYyCjRFBEe-rxNg_OmVOeQ"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Zf1KsBOYEe-fuvwZ8PuNhw" Name="returnClass1" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">return null;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_Zf1KsROYEe-fuvwZ8PuNhw" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_M5QEsBEnEe-gheWdQI7vSg"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_foqKIBOYEe-fuvwZ8PuNhw" Name="returnCase1Ref" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return null;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_foqKIROYEe-fuvwZ8PuNhw" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_rhN3EBOZEe-fuvwZ8PuNhw" Name="returnNumber" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return 0;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_rhN3EROZEe-fuvwZ8PuNhw" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="FLOAT"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_5O-DsBOdEe-fuvwZ8PuNhw" Name="returnCase1RefArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return case1RefArray; </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_5O-DsROdEe-fuvwZ8PuNhw" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_5O-DshOdEe-fuvwZ8PuNhw" Name="case1RefArray" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nDzL8BaLEe-fuvwZ8PuNhw" Name="returnText" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return null;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_nDzL8RaLEe-fuvwZ8PuNhw" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_IK4sIBaNEe-fuvwZ8PuNhw" Name="returnCase1Bom" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return null;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_IK4sIRaNEe-fuvwZ8PuNhw" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_UcBtoBaNEe-fuvwZ8PuNhw" Name="returnCase1BomArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_UcBtoRaNEe-fuvwZ8PuNhw" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eFJkARaNEe-fuvwZ8PuNhw" Name="parameter" IsArray="true" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tFye0BFBEe-rxNg_OmVOeQ"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue></xpdl2:InitialValue>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_gmWVcBaNEe-fuvwZ8PuNhw" Name="returnClass1Array" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_gmWVcRaNEe-fuvwZ8PuNhw" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_M5QEsBEnEe-gheWdQI7vSg"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_gmWVchaNEe-fuvwZ8PuNhw" Name="parameter" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_M5QEsBEnEe-gheWdQI7vSg"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_1bs-QBaOEe-fuvwZ8PuNhw" Name="returnVoid" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_1bs-QRaOEe-fuvwZ8PuNhw" Name="$RETURN">
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_eYG_chaREe-fuvwZ8PuNhw" Name="returnCase2Ref" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return null;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_eYG_cxaREe-fuvwZ8PuNhw" Name="$RETURN" IsArray="false">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_yYyCjRFBEe-rxNg_OmVOeQ"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_SYpHUBaSEe-fuvwZ8PuNhw" Name="returnDateTimeArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_SYpHURaSEe-fuvwZ8PuNhw" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATETIME"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_SYpHUhaSEe-fuvwZ8PuNhw" Name="parameter" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATETIME"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

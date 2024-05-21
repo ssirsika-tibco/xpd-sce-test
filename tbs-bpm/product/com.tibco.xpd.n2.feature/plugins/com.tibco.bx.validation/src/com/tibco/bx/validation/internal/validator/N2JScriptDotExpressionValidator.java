@@ -926,7 +926,9 @@ public class N2JScriptDotExpressionValidator extends AbstractDotExpressionValida
      * @return true if both source and target are of CaseRef type. CaseRef type can only be assignment to a CaseRef
      *         type.
      */
-    private boolean isValidCaseRefAssignment(IScriptRelevantData lhsDataType, IScriptRelevantData rhsDataType) {
+	@SuppressWarnings("restriction")
+	private boolean isValidCaseRefAssignment(IScriptRelevantData lhsDataType, IScriptRelevantData rhsDataType)
+	{
 
         boolean validCaseRefAssignment = true;
 
@@ -946,24 +948,41 @@ public class N2JScriptDotExpressionValidator extends AbstractDotExpressionValida
             lhsDataType = ((ITypeResolution) lhsDataType).getGenericContextType();
         }
 
-        /*
-         * Invalid when lhs is CaseUMLScriptRelevantData and rhs is NOT CaseUMLScriptRelevantData
-         */
-        if (lhsDataType instanceof CaseUMLScriptRelevantData && !(rhsDataType instanceof CaseUMLScriptRelevantData)) {
+		/*
+		 * Sid ACE-8226 There is now a wider definition of what constitutes a case-reference other than generic any-case
+		 * reference data (specific case-ref type params, process data class caseRef attributes, top level PSL function
+		 * caseRef parameters) etc So use isCaseReference() function that deals with them all.
+		 */
+		boolean lhsIsCaseRef = isCaseReference(lhsDataType);
+		boolean rhsisCaseRef = isCaseReference(rhsDataType);
 
-            validCaseRefAssignment = false;
-
-        }
-        /*
-         * Invalid when lhs is NEITHER CaseUMLScriptRelevantData NOR Object, but rhs is CaseUMLScriptRelevantData.
-         */
-
-        if (!(lhsDataType instanceof CaseUMLScriptRelevantData) && rhsDataType instanceof CaseUMLScriptRelevantData) {
-
-            validCaseRefAssignment = false;
-
-        }
-
+		/*
+		 * Valid when RHS is case reference and LHS is generic Object (which is also allowed for things like
+		 * bpm.scriptUtil.copy(textField)
+		 */
+		if (!JsConsts.OBJECT.equals(lhsDataType.getType()))
+		{
+		    /*
+		     * Invalid when lhs is CaseUMLScriptRelevantData and rhs is NOT CaseUMLScriptRelevantData
+		     */
+		
+			if (lhsIsCaseRef && !rhsisCaseRef)
+			{
+		
+		        validCaseRefAssignment = false;
+		
+		    }
+		    /*
+		     * Invalid when lhs is NEITHER CaseUMLScriptRelevantData NOR Object, but rhs is CaseUMLScriptRelevantData.
+		     */
+			if (!lhsIsCaseRef && rhsisCaseRef)
+			{
+		
+		        validCaseRefAssignment = false;
+		
+		    }
+		}
+		
         return validCaseRefAssignment;
     }
 

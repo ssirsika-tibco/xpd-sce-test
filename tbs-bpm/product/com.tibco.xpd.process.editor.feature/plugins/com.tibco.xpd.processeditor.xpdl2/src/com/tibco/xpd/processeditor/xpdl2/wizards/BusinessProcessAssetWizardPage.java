@@ -26,6 +26,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.analyst.resources.xpdl2.newproject.BusinessProcessAssetConfig;
 import com.tibco.xpd.analyst.resources.xpdl2.wizards.pages.AbstractXpdlProjectSelectPage;
 import com.tibco.xpd.analyst.resources.xpdl2.wizards.pages.IPackageTextAndContainerPage;
+import com.tibco.xpd.processeditor.xpdl2.Xpdl2ProcessEditorPlugin;
 import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
 import com.tibco.xpd.resources.projectconfig.projectassets.AbstractSpecialFolderAssetWizardPage;
 import com.tibco.xpd.resources.projectconfig.projectassets.IAssetProjectPropertyChangeListener;
@@ -71,6 +72,12 @@ public class BusinessProcessAssetWizardPage extends
         super("processPackageSelection"); //$NON-NLS-1$
         setTitle(Messages.BusinessProcessAssetWizardPage_ProcessAssetWindowTitle_title);
         setMessage(Messages.BusinessProcessAssetWizardPage_WindowDesc_shortdesc);
+
+		/* Sid ACE-7330: Show correct wizard banner icon for asset type. */
+		setImageDescriptor(
+				Xpdl2ProcessEditorPlugin.imageDescriptorFromPlugin(Xpdl2ProcessEditorPlugin.ID,
+						"icons/wizards/NewPackageWizard.png"));
+
         createPackage();
     }
 

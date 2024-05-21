@@ -53,4 +53,12 @@ public interface JsMethodParam {
 	 */
 	public IScriptRelevantData getScriptRelevantData();
 
+	/**
+	 * Sid ACE-8226
+	 * 
+	 * @return <code>true</code> if this is a method parameter that is a specific case class case-reference type
+	 *         parameter
+	 */
+	boolean isSpecificTypeCaseReference();
+
 }

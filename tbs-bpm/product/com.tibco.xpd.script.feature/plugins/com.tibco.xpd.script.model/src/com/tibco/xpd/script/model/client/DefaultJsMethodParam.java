@@ -185,4 +185,26 @@ public class DefaultJsMethodParam implements JsMethodParam, IJsElementExt {
         return false;
     }
 
+	/**
+	 * @see com.tibco.xpd.script.model.client.JsMethodParam#isSpecificTypeCaseReference()
+	 *
+	 * @return
+	 */
+	@Override
+	public boolean isSpecificTypeCaseReference()
+	{
+		/*
+		 * Method parameters that are are tagged with an eAnnotation, JsConsts.METHOD_PARAM_SPECIFIC_TYPE_CASEREF, are
+		 * specific-case-type case references.
+		 * 
+		 * Currently this is only possible for process script library function parameters, there are handled by
+		 * BpmScriptWrapperFactory
+		 */
+		if (parameter != null && parameter.getEAnnotation(JsConsts.METHOD_PARAM_SPECIFIC_TYPE_CASEREF) != null)
+		{
+			return true;
+		}
+		return false;
+	}
+
 }

@@ -27,6 +27,7 @@ import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.IWizardNode;
 import org.eclipse.jface.wizard.IWizardPage;
@@ -195,6 +196,9 @@ public class XpdProjectWizard extends BasicNewXpdResourceWizard {
     private boolean hideProjectVersion;
 
     private String presetDestinationEnv;
+
+	/* Sid ACE-7330: Allow consumer to optionally set the project selection page banner icon. */
+	private ImageDescriptor				bannerIcon;
 
     /**
      * Constructor.
@@ -383,6 +387,12 @@ public class XpdProjectWizard extends BasicNewXpdResourceWizard {
                 .setTitle(Messages.NewAnalysisProject_projectPage_title);
         newProjectCreationPage
                 .setDescription(Messages.NewAnalysisProject_projectPage_shortdesc);
+
+    	/* Sid ACE-7330: Allow consumer to optionally set the project selection page banner icon. */
+		if (bannerIcon != null)
+		{
+			newProjectCreationPage.setImageDescriptor(bannerIcon);
+		}
 
         /*
          * If a default project version is provided by the wizard contribution
@@ -578,5 +588,26 @@ public class XpdProjectWizard extends BasicNewXpdResourceWizard {
     public void hideProjectVersion() {
         this.hideProjectVersion = true;
     }
+
+	/**
+	 * Sid ACE-7330: Allow consumer to optionally set the project selection page banner icon. 
+	 * 
+	 * @return the bannerIcon
+	 */
+	public final ImageDescriptor getBannerIcon()
+	{
+		return bannerIcon;
+	}
+
+	/**
+	 * Sid ACE-7330: Allow consumer to optionally set the project selection page banner icon. 
+	 * 
+	 * @param bannerIcon
+	 *            the bannerIcon to set
+	 */
+	public final void setBannerIcon(ImageDescriptor bannerIcon)
+	{
+		this.bannerIcon = bannerIcon;
+	}
 
 }

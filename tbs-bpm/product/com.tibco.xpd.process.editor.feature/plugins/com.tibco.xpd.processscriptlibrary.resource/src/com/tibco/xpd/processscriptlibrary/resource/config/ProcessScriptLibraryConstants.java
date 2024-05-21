@@ -13,8 +13,15 @@ package com.tibco.xpd.processscriptlibrary.resource.config;
 public final class ProcessScriptLibraryConstants
 {
 
+	public static final String	IMG_SCRIPT_FILE				= "icons/obj16/processScriptsFile.png";				//$NON-NLS-1$
 
-	public static final String IMG_SCRIPT_FUNCTION = "icons/obj16/scriptFunction.png"; //$NON-NLS-1$
+	public static final String IMG_SCRIPT_FUNCTION = "icons/obj16/processScriptFunction.png"; //$NON-NLS-1$
+
+	public static final String	IMG_SCRIPT_FUNCTION_FOLDER	= "icons/obj16/processScriptFunctionsFolder.png";	//$NON-NLS-1$
+
+	public static final String	IMG_SCRIPT_FUNCTION_NEW		= "icons/obj16/processScriptFunctionNew.png";		//$NON-NLS-1$
+
+	public static final String	IMG_SCRIPT_FILE_WIZARD		= "icons/obj16/processScriptsFileWizard.png";		//$NON-NLS-1$
 
 	/**
 	 *  private constructor

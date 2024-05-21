@@ -266,6 +266,27 @@ public abstract class AbstractBaseValidationTest
             List<ValidationsTestProblemMarkerInfo> liveMarkerInfos =
                     getProblemMarkers(problemResource);
 
+			if (log)
+			{
+				System.out.println("Problems Markers for resource : " + problemResource.getFullPath().toString());
+				System.out.println("=========================================================================="); //$NON-NLS-1$
+
+				for (ValidationsTestProblemMarkerInfo liveMarkerInfo : liveMarkerInfos)
+				{
+					System.out.println("    Marker: " //$NON-NLS-1$
+							+ liveMarkerInfo.getProblemText() + " (Location: " //$NON-NLS-1$
+							+ liveMarkerInfo.getLocationURI() + ")"); //$NON-NLS-1$
+
+					if (liveMarkerInfo.getQuickFixLabel() != null && liveMarkerInfo.getQuickFixLabel().length() > 0)
+					{
+						System.out.println("       Fix: " //$NON-NLS-1$
+								+ liveMarkerInfo.getQuickFixLabel());
+					}
+				}
+				System.out.println("=========================================================================="); //$NON-NLS-1$
+
+			}
+
             for (ValidationsTestProblemMarkerInfo markerInfo : resourceMarkerInfos) {
 
                 ValidationsTestProblemMarkerInfo liveMarkerInfo = null;
@@ -504,4 +525,13 @@ public abstract class AbstractBaseValidationTest
 
         TestUtil.waitForValidatior();
     }
+
+	/**
+	 * @param log
+	 *            the log to set
+	 */
+	public void setLog(boolean logOn)
+	{
+		this.log = logOn;
+	}
 }

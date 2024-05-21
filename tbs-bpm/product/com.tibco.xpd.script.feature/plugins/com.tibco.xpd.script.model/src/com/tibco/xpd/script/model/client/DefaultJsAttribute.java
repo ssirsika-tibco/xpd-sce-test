@@ -5,6 +5,7 @@ package com.tibco.xpd.script.model.client;
 
 import java.util.List;
 
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Element;
@@ -270,5 +271,45 @@ public class DefaultJsAttribute extends DefaultMultipleJsClassResolver
         }
         return false;
     }
+
+	/**
+	 * @see com.tibco.xpd.script.model.client.JsUmlAttribute#getQualifiedCaseReferenceClassName()
+	 *
+	 *      (in the case of case reference data fields, all are specific case-reference types)
+	 *
+	 * @return
+	 */
+	@Override
+	public String getQualifiedCaseReferenceClassName()
+	{
+		/*
+		 * Data fields that are case references are created with a special eAnnotation with suffix
+		 * JsConsts.UML_ATTRIBUTE_CASEREF_SPECIFIC_TYPENAME_SUFFIX followed by fully qualified case class name.
+		 * 
+		 * Currently this is done in AceScriptProcessDataWrapperFactory whilst creating the properties that represent
+		 * datafields inside the "data" wrapper object.
+		 */
+		if (JsConsts.CASE_REFERENCE.equals(getBaseDataType()) && property != null)
+		{
+			for (EAnnotation eAnnotation : property.getEAnnotations())
+			{
+				String annotationSource = eAnnotation.getSource();
+
+				if (annotationSource != null
+						&& annotationSource.startsWith(JsConsts.UML_ATTRIBUTE_CASEREF_SPECIFIC_TYPENAME_SUFFIX))
+				{
+					String caseClassName = annotationSource
+							.substring(JsConsts.UML_ATTRIBUTE_CASEREF_SPECIFIC_TYPENAME_SUFFIX.length());
+
+					if (caseClassName != null && !caseClassName.isEmpty())
+					{
+						return caseClassName;
+					}
+				}
+			}
+		}
+
+		return null;
+	}
 
 }

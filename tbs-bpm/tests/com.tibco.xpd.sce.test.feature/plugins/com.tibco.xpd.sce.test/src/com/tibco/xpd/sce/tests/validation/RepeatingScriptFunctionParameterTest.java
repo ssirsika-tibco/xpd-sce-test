@@ -39,6 +39,7 @@ public class RepeatingScriptFunctionParameterTest extends AbstractN2BaseValidati
      */
     @Override
     protected void customTestResourceSetup() {
+
         /*
          * This test doesn't create files via the normal getTestResources() because we want to import and migrate a
          * whole project from AMX BPM.
@@ -53,6 +54,21 @@ public class RepeatingScriptFunctionParameterTest extends AbstractN2BaseValidati
                 projectImporter != null);
     }
 
+	/**
+	 * @see com.tibco.xpd.core.test.util.AbstractBaseResourceTest#tearDown()
+	 *
+	 * @throws Exception
+	 */
+	@Override
+	protected void tearDown() throws Exception
+	{
+		if (projectImporter != null)
+		{
+			projectImporter.performDelete();
+		}
+
+		super.tearDown();
+	}
 
 	/**
      * RepeatingScriptFunctionParameterTest

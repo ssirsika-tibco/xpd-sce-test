@@ -22,4 +22,11 @@ public interface JsUmlAttribute extends JsAttributeEx {
      */
     Type getUmlType();
 
+	/**
+	 * Sid ACE-8226
+	 * 
+	 * @return Case class type if this is a UML property that represents a case-reference type data field or
+	 *         <code>null</code> if not a specific case class case reference type
+	 */
+	String getQualifiedCaseReferenceClassName();
 }

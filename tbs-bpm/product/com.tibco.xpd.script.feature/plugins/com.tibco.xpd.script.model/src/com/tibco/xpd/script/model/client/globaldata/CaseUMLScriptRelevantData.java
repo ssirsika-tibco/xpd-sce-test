@@ -66,4 +66,40 @@ public class CaseUMLScriptRelevantData extends DefaultUMLScriptRelevantData {
             super.addClass(umlClass, multipleClass);
         }
     }
+
+	/**
+	 * @see com.tibco.xpd.script.model.client.DefaultUMLScriptRelevantData#isSpecificTypeCaseReference()
+	 *
+	 * @return
+	 */
+	@Override
+	public boolean isSpecificTypeCaseReference()
+	{
+		if (this.getCaseTypeForCaseReference() != null)
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * @see com.tibco.xpd.script.model.client.DefaultUMLScriptRelevantData#getCaseTypeForCaseReference()
+	 *
+	 * @return
+	 */
+	@Override
+	public String getCaseTypeForCaseReference()
+	{
+		if (getJsClass().getUmlClass() != null)
+		{
+			String umlClass = getJsClass().getUmlClass().getQualifiedName();
+			if (umlClass != null && !umlClass.isEmpty())
+			{
+				return umlClass;
+			}
+		}
+
+		return null;
+	}
 }

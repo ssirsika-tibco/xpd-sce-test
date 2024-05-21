@@ -30,4 +30,51 @@ public class DefaultUMLScriptRelevantData extends AbstractUMLScriptRelevantData 
     public URI getURI() {
         return null;
     }
+
+	/**
+	 * Sid ACE-8226
+	 * 
+	 * @return <code>true</code> if this is a method parameter that is a specific case class case-reference type
+	 *         parameter
+	 */
+	public boolean isSpecificTypeCaseReference()
+	{
+		Object extendedInfo = getExtendedInfo();
+
+		if (extendedInfo instanceof JsMethodParam && ((JsMethodParam) extendedInfo).isSpecificTypeCaseReference())
+		{
+			return true;
+		}
+		else if (extendedInfo instanceof JsUmlAttribute
+				&& ((JsUmlAttribute) extendedInfo).getQualifiedCaseReferenceClassName() != null)
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * If the data is a specific case type case reference, return the case class type
+	 * 
+	 * @return The fully qualified case class type name or <code>null</code> if this is not a specific case type case
+	 *         reference
+	 */
+	public String getCaseTypeForCaseReference()
+	{
+		Object extendedInfo = getExtendedInfo();
+
+		if (extendedInfo instanceof JsMethodParam && ((JsMethodParam) extendedInfo).isSpecificTypeCaseReference())
+		{
+			return ((JsMethodParam) extendedInfo).getUMLParameter().getType().getQualifiedName();
+		}
+		else if (extendedInfo instanceof JsUmlAttribute
+				&& ((JsUmlAttribute) extendedInfo).getQualifiedCaseReferenceClassName() != null)
+		{
+			return ((JsUmlAttribute) extendedInfo).getQualifiedCaseReferenceClassName();
+		}
+
+		return null;
+	}
+
 }

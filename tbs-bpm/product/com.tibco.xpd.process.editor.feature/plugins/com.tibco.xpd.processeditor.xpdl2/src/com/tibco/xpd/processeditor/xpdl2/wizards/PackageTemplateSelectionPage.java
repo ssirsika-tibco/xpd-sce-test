@@ -201,7 +201,12 @@ public class PackageTemplateSelectionPage extends WizardPage implements
         // configuration object or add it to the package being created-
         setTitle(Messages.PackageTemplateSelectionPage_TITLE);
         setMessage(Messages.PackageTemplateSelectionPage_MESSAGE);
-        createProcess();
+
+		/* Sid ACE-7330: Show correct wizard banner icon for asset type. */
+		setImageDescriptor(Xpdl2ProcessEditorPlugin.imageDescriptorFromPlugin(Xpdl2ProcessEditorPlugin.ID,
+				"icons/wizards/NewPackageWizard.png"));
+
+		createProcess();
     }
 
     /*

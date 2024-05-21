@@ -28,6 +28,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
+import com.tibco.xpd.bom.modeler.custom.Activator;
 import com.tibco.xpd.bom.modeler.custom.internal.Messages;
 import com.tibco.xpd.bom.modeler.diagram.part.BOMDiagramEditorPlugin;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
@@ -55,7 +56,11 @@ public class BOMAssetWizardPage extends AbstractSpecialFolderAssetWizardPage {
         super("BomAssetWizard");//$NON-NLS-1$
         setTitle(com.tibco.xpd.bom.modeler.diagram.part.Messages.BOMAssetWizardPage_Title_label);
         setDescription(com.tibco.xpd.bom.modeler.diagram.part.Messages.BOMAssetWizardPage_Description_label);
-        bomFilename = getDefaultFileName(); //$NON-NLS-1$
+		bomFilename = getDefaultFileName();
+
+		/* Sid ACE-7330: Show correct wizard banner icon for asset type. */
+		setImageDescriptor(
+				Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/wizban/BOMWizardBanner.png"));
     }
 
     /**
