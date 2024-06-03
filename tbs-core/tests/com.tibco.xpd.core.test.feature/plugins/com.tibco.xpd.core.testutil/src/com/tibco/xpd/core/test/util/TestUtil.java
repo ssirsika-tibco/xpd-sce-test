@@ -746,6 +746,25 @@ public class TestUtil {
         return;
     }
 
+	/**
+	 * Use this build and wait if you get intermittent build issues.
+	 */
+	public static void fullBuildAndWait()
+	{
+
+		try
+		{
+			ResourcesPlugin.getWorkspace().build(IncrementalProjectBuilder.FULL_BUILD, new NullProgressMonitor());
+			
+			TestUtil.waitForJobsEx(ResourcesPlugin.FAMILY_AUTO_BUILD);
+
+		}
+		catch (CoreException e)
+		{
+			e.printStackTrace();
+		}
+		return;
+	}
 
     public static void buildAndWait(IProject project) {
         try {
