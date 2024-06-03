@@ -410,7 +410,7 @@ public abstract class AbstractBpelTransformTest extends TestCase {
             assertTrue(name + " project does not exist", project.isAccessible());
         }
 
-        TestUtil.buildAndWait();
+		TestUtil.fullBuildAndWait();
         return projectImporter;
     }
 
