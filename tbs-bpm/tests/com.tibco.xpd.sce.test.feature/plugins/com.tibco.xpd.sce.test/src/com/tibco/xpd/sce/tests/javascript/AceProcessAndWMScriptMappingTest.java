@@ -789,7 +789,7 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
                 "Failed to load projects from resources/WrappedProcessDataTests/", //$NON-NLS-1$
                 projectImporter != null);
 
-        TestUtil.buildAndWait();
+		TestUtil.fullBuildAndWait();
 
         return projectImporter;
     }
