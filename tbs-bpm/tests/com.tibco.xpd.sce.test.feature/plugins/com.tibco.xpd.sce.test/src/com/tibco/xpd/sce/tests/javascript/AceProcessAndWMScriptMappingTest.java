@@ -774,10 +774,10 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
         ProjectImporter projectImporter = TestUtil.importProjectsFromZip(
                 "com.tibco.xpd.sce.test", //$NON-NLS-1$
                 new String[] {
+						"resources/WrappedProcessDataTests/DataWrappingOrganisation/", //$NON-NLS-1$
                         "resources/WrappedProcessDataTests/DataWrappingData/", //$NON-NLS-1$
                         "resources/WrappedProcessDataTests/DataWappingGlobalSignal/", //$NON-NLS-1$
                         "resources/WrappedProcessDataTests/DataWrappingREST/", //$NON-NLS-1$
-                        "resources/WrappedProcessDataTests/DataWrappingOrganisation/", //$NON-NLS-1$
                         "resources/WrappedProcessDataTests/DataWrappingMapperTests/" }, //$NON-NLS-1$
                 new String[] { "DataWrappingData", //$NON-NLS-1$
                         "DataWappingGlobalSignal", //$NON-NLS-1$
