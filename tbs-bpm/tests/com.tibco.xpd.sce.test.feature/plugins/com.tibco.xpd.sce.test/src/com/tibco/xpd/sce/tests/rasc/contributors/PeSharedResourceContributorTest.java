@@ -447,7 +447,7 @@ public class PeSharedResourceContributorTest extends TestCase {
                     project.isAccessible());
         }
 
-        TestUtil.buildAndWait();
+		TestUtil.fullBuildAndWait();
         return projectImporter;
     }
 
