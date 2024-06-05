@@ -283,7 +283,11 @@ public class ProcessScriptLibraryEditor extends FormEditor implements ITabbedPro
 	@Override
 	public void gotoMarker(IMarker marker)
 	{
-		// TODO Auto-generated method stub
+		/*
+		 * Sid ACE-8170 Simply set focus which should ultimately set focus on script editing controls in the editor
+		 * section.
+		 */
+		setFocus();
 
 	}
 
@@ -403,7 +407,29 @@ public class ProcessScriptLibraryEditor extends FormEditor implements ITabbedPro
 	private void closeEditor()
 	{
 		Display d = PlatformUI.getWorkbench().getDisplay();
-		d.syncExec(() -> getSite().getPage().closeEditor(ProcessScriptLibraryEditor.this, false));
+
+		// ACE-7759 To avoid a NPE from being thrown, check if the editor input is not null before closing the editor
+		if (getEditorInput() != null && getSite().getPage().findEditor(getEditorInput()) != null)
+		{
+			/* Handle normally when Editor Input is Available. */
+			d.syncExec(() -> runCloseEditor());
+		}
+		else
+		{
+			/*
+			 * When the editor input is null, the editor will be closed when the run() method of the runnable is invoked
+			 * by the UI thread at the next reasonable opportunity.
+			 */
+			d.asyncExec(() -> runCloseEditor());
+		}
+	}
+
+	/**
+	 * Closes the ProcessScriptLibraryEditor editor
+	 */
+	private void runCloseEditor()
+	{
+		getSite().getPage().closeEditor(ProcessScriptLibraryEditor.this, false);
 	}
 
 	/**

@@ -94,10 +94,15 @@ public class DefaultJavaScriptRelevantDataProvider extends
 	 */
 	protected IndexType getTargetProcessScriptLibraryIndexType()
 	{
-		// Find the target PSL reference type
-		boolean pageflowOrSubType = Xpdl2ModelUtil.isPageflowOrSubType(getProcess());
-
-		return pageflowOrSubType ? IndexType.PSL_WM_PARAM_REF : IndexType.PSL_PE_PARAM_REF;
+		/*
+		 * Sid ACE-8291 If we follow the example of inclusion of bpm.process or bpm.workManager, then the basic process
+		 * scripts (i.e script task, initiate, schedule etc NOT OpenUserTask etc) actually have bpm.process. Only
+		 * Open/Close user task have bpm.workManager, so we should follow suit here and always return 'include
+		 * process/any-target bpmScripts functions.
+		 * 
+		 * (A subclass CdsWorkManagerJavaScriptRelevantDataProvider deals with Open/Close etc user tasks scripts
+		 */
+		return IndexType.PSL_PE_PARAM_REF;
 	}
 
     /**

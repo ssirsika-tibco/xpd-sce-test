@@ -208,11 +208,16 @@ public class JavaScriptContentAssistProcessor extends AbstractTibcoContentAssist
         } catch (BadLocationException e) {
             e.printStackTrace();
         }
+		/*
+		 * ACE-8239 This old XPD-7432 fix for providing content assist for return statements ONLY worked when first
+		 * statement in script was a return. Now fixed properly in recursiveProcessDocOrBracketedContent()
+		 */
         // XPD-7432 Ignore return when calculating completion strings.
-        if (doc.toString().startsWith("return ")) { //$NON-NLS-1$
-            doc.delete(0, 7);
-            cursorLocation -= 7;
-        }
+		// if (doc.toString().startsWith("return ")) { //$NON-NLS-1$
+		// doc.delete(0, 7);
+		// cursorLocation -= 7;
+		// }
+
         if (!normaliseCommentsAndStrings(doc, cursorLocation)) {
             /*
              * Doc position is in middle of string or comment, so nothing we can do.
@@ -378,7 +383,23 @@ public class JavaScriptContentAssistProcessor extends AbstractTibcoContentAssist
              * The user pressed ctrl+space after whitespace after a java identifier and not after a joining period after
              * an identifier - we can't do anything about that and shouldn't offer any auto complete.
              */
-            return null;
+
+			/*
+			 * Sid ACE-8239 return javaidentifier may be followed whitespace without some other character like "." or
+			 * "[" etc
+			 */
+			if ("return".equals(currentJavaIdentifier.toString().trim())) //$NON-NLS-1$
+			{
+				/*
+				 * Make out like we're in 'free spaec not following a var/statement as that is what is available to a
+				 * return statement
+				 */
+				currentJavaIdentifier = new StringBuffer(""); //$NON-NLS-1$
+			}
+			else
+			{
+				return null;
+			}
 
         }
 

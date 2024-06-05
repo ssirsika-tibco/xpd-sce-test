@@ -8,6 +8,7 @@ import java.util.Collections;
 
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
@@ -84,10 +85,29 @@ public class ProcessScriptLibraryFormPage extends FormPage
 	@Override
 	public void setFocus()
 	{
-		super.setFocus();
+		/* Sid ACE-8170 Before setting focus, refresh the underling script section to ensure controls are endabled/disabled etc */
 		if (pslScriptSection != null)
 		{
 			pslScriptSection.refresh();
 		}
+
+		/*
+		 * Sid ACE-8170 Then set the focus on the Script Editing Controls container (setFocus() recurs thru descendants to find the
+		 * first focusable control and set focus on that.
+		 * 
+		 * No setting focus on the editor will set focus on this form-page and we will then set focus on first script
+		 * editing control for the currently selected script grammar.
+		 */
+		Control editingControl = pslScriptSection.getScriptEditingControlsContainer();
+
+		if (editingControl != null && !editingControl.isDisposed())
+		{
+			editingControl.setFocus();
+		}
+		else
+		{
+			super.setFocus();
+		}
 	}
+
 }

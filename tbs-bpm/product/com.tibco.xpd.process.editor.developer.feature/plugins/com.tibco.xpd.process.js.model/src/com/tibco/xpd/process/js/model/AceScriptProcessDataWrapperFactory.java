@@ -20,6 +20,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.process.js.model.internal.Messages;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.DefaultJsClass;
@@ -150,6 +151,10 @@ public class AceScriptProcessDataWrapperFactory {
                             wrapperObjectName,
                             false, jsClass);
 
+			/* Sid ACE-8307 provide some popup help guidance for static classes. */
+			scriptData.setAdditionalInfo(
+					Messages.AceScriptProcessDataWrapperFactory_DataClass_ContentAssist_Popup_Help);
+            
             /*
              * Sid ACE-5814 Noticed this throws exception for RASC generation command line (as we're running in headless
              * mode and accessing UI components) - so conditionalised.

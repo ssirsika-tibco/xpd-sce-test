@@ -67,7 +67,17 @@ public class GsdLabelProvider extends ProjectExplorerLabelProvider {
                 || element instanceof PayloadDataField) {
 
             image = WorkingCopyUtil.getImage((EObject) element);
+		}
+		/*
+		 * Sid ACE-8054 Need to handle navigator group since INavigatorGroup contribution used to be handdled under XPDL
+		 * content but that has been removed now as clashed with PSL file
+		 */
+		else if (element instanceof INavigatorGroup)
+		{
+			// Get the navigator group image
+			return ((INavigatorGroup) element).getImage();
         }
+
 
         return image != null ? image : super.getImage(element);
     }

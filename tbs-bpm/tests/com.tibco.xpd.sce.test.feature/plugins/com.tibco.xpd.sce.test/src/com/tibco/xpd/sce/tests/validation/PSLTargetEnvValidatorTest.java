@@ -3,6 +3,7 @@
  */
 package com.tibco.xpd.sce.tests.validation;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 
 import com.tibco.xpd.core.test.util.TestResourceInfo;
@@ -37,6 +38,9 @@ import com.tibco.xpd.resources.util.ProjectImporter;
  * 
  * Test also imports a valid project which should not raise any validation related to target environment.
  * 
+ * Sid ACE-8291 Now includes tests for Process projects with all valid/invalid PSL function references from most
+ * scripting scenarios (i.e. all with correct function target-env for scripting scenario)
+ * 
  * @author ssirsika
  * @since 05 Apr 2024
  */
@@ -58,14 +62,28 @@ public class PSLTargetEnvValidatorTest extends AbstractN2BaseValidationTest
 		doTestValidations();
 
 		/*
-		 * Project with valid target environment configuration for process and work manager - so should have no
+		 * PSL Project with valid target environment configuration for process and work manager - so should have no
 		 * problems.
 		 */
+		IProject validPslProject = ResourcesPlugin.getWorkspace().getRoot().getProject("PSLValidTargetPrj");
 		assertFalse("PSLValidTargetPrj" //$NON-NLS-1$
-				+ " project should not have any ERROR level problem markers", //$NON-NLS-1$
+				+ " project should not have any ERROR level problem markers, but has errors...\n" //$NON-NLS-1$
+				+ TestUtil.getErrorProblemMarkerList(validPslProject, true),
 				TestUtil.hasErrorProblemMarker(
-						ResourcesPlugin.getWorkspace().getRoot().getProject("PSLValidTargetPrj"), true, //$NON-NLS-1$
+						validPslProject, true, // $NON-NLS-1$
 						"testPSLTargetEnvValidatorTest")); //$NON-NLS-1$
+
+		/*
+		 * Process project with all valid PSL function references from most scripting scenarios (i.e. all with correct
+		 * function target-env for scripting scenario)
+		 */
+		IProject validProcessProject = ResourcesPlugin.getWorkspace().getRoot().getProject("PSLValidTargetProcess");
+		assertFalse("PSLValidTargetPrj" //$NON-NLS-1$
+				+ " project should not have any ERROR level problem markers, but has errors..." //$NON-NLS-1$
+				+ TestUtil.getErrorProblemMarkerList(validProcessProject, true),
+				TestUtil.hasErrorProblemMarker(validProcessProject, true, // $NON-NLS-1$
+						"testPSLTargetEnvValidatorTest")); //$NON-NLS-1$
+
 	}
 
 	@Override
@@ -76,7 +94,7 @@ public class PSLTargetEnvValidatorTest extends AbstractN2BaseValidationTest
 			    		"/PSLInvalidTargetPrj/Process Script Library/PSLInvalidTargetPrj.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_5thZEvL9Ee6EX8CPBg4ixQ", //$NON-NLS-1$ 
-			    		"BPM  : At Line:1 column:29, Property process is invalid for the current context (PSLInvalidTargetPrj:AnyFn)", //$NON-NLS-1$ 
+						"BPM  : At Line:1 column:29, Property process is invalid for the current context (PSLInvalidTargetPrj.psl:AnyFn)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -84,7 +102,7 @@ public class PSLTargetEnvValidatorTest extends AbstractN2BaseValidationTest
 			    		"/PSLInvalidTargetPrj/Process Script Library/PSLInvalidTargetPrj.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_5thZEvL9Ee6EX8CPBg4ixQ", //$NON-NLS-1$ 
-			    		"BPM  : At Line:2 column:30, Property workManager is invalid for the current context (PSLInvalidTargetPrj:AnyFn)", //$NON-NLS-1$ 
+						"BPM  : At Line:2 column:30, Property workManager is invalid for the current context (PSLInvalidTargetPrj.psl:AnyFn)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -92,7 +110,7 @@ public class PSLTargetEnvValidatorTest extends AbstractN2BaseValidationTest
 			    		"/PSLInvalidTargetPrj/Process Script Library/PSLInvalidTargetPrj.psl", //$NON-NLS-1$ 
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"__1yX0PL9Ee6EX8CPBg4ixQ", //$NON-NLS-1$
-						"BPM  : At Line:2 column:30, Property workManager is invalid for the current context (PSLInvalidTargetPrj:ProcessMgFn)", //$NON-NLS-1$
+						"BPM  : At Line:2 column:30, Property workManager is invalid for the current context (PSLInvalidTargetPrj.psl:ProcessMgFn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 			
@@ -100,10 +118,267 @@ public class PSLTargetEnvValidatorTest extends AbstractN2BaseValidationTest
 			    		"/PSLInvalidTargetPrj/Process Script Library/PSLInvalidTargetPrj.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_BcBV0PL-Ee6EX8CPBg4ixQ", //$NON-NLS-1$ 
-			    		"BPM  : At Line:1 column:29, Property process is invalid for the current context (PSLInvalidTargetPrj:WorkMgrFn)", //$NON-NLS-1$ 
+						"BPM  : At Line:1 column:29, Property process is invalid for the current context (PSLInvalidTargetPrj.psl:WorkMgrFn)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
-			   
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"js.error.dataMapperScriptInformation", //$NON-NLS-1$
+						"_CPYt0B8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : Data Mapper Script::At Line:1 column:30, Property workManager is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask2DataMappingScripts:Script1)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"js.error.dataMapperScriptInformation", //$NON-NLS-1$
+						"_CPYt0B8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : Data Mapper Script::At Line:2 column:68, Method WorkMgrFn is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask2DataMappingScripts:Script1)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"js.error.dataMapperScriptInformation", //$NON-NLS-1$
+						"_CPYt0B8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : Data Mapper Script::At Line:3 column:1, Last statement must be a return. (PSLInvalidTargetProcessProcess:UserTask2DataMappingScripts:Script1)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"js.error.dataMapperScriptInformation", //$NON-NLS-1$
+						"_GFXg4B8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : Data Mapper Script::At Line:1 column:25, Property process is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask2DataMappingScripts:Script1)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"js.error.dataMapperScriptInformation", //$NON-NLS-1$
+						"_GFXg4B8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : Data Mapper Script::At Line:2 column:70, Method ProcessMgFn is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask2DataMappingScripts:Script1)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"js.error.dataMapperScriptInformation", //$NON-NLS-1$
+						"_GFXg4B8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : Data Mapper Script::At Line:3 column:1, Last statement must be a return. (PSLInvalidTargetProcessProcess:UserTask2DataMappingScripts:Script1)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"js.error.dataMapperScriptInformation", //$NON-NLS-1$
+						"_HYwl8R8wEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : Data Mapper Script::At Line:1 column:30, Property workManager is invalid for the current context (PSLInvalidTargetProcessPageflow:DataMappingScriptTask:Script1)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"js.error.dataMapperScriptInformation", //$NON-NLS-1$
+						"_HYwl8R8wEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : Data Mapper Script::At Line:2 column:68, Method WorkMgrFn is invalid for the current context (PSLInvalidTargetProcessPageflow:DataMappingScriptTask:Script1)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.validateScriptTask", //$NON-NLS-1$
+						"_LmoKHB8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : At Line:1 column:30, Property workManager is invalid for the current context (PSLInvalidTargetProcessPageflow:ScriptTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.validateScriptTask", //$NON-NLS-1$
+						"_LmoKHB8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : At Line:2 column:68, Method WorkMgrFn is invalid for the current context (PSLInvalidTargetProcessPageflow:ScriptTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.taskCompleteScript", //$NON-NLS-1$
+						"_LmoKHR8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : CompleteScript::At Line:1 column:30, Property workManager is invalid for the current context (PSLInvalidTargetProcessPageflow:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.taskCompleteScript", //$NON-NLS-1$
+						"_LmoKHR8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : CompleteScript::At Line:2 column:68, Method WorkMgrFn is invalid for the current context (PSLInvalidTargetProcessPageflow:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.taskInitiateScript", //$NON-NLS-1$
+						"_LmoKHR8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : InitiateScript::At Line:1 column:30, Property workManager is invalid for the current context (PSLInvalidTargetProcessPageflow:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.taskInitiateScript", //$NON-NLS-1$
+						"_LmoKHR8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : InitiateScript::At Line:2 column:68, Method WorkMgrFn is invalid for the current context (PSLInvalidTargetProcessPageflow:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"js.error.dataMapperScriptInformation", //$NON-NLS-1$
+						"_LmoKIx8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : Data Mapper Script::At Line:1 column:30, Property workManager is invalid for the current context (PSLInvalidTargetProcessPageflow:UserTask2DataMappingScripts:Script1)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"js.error.dataMapperScriptInformation", //$NON-NLS-1$
+						"_LmoKIx8vEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : Data Mapper Script::At Line:2 column:68, Method WorkMgrFn is invalid for the current context (PSLInvalidTargetProcessPageflow:UserTask2DataMappingScripts:Script1)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.validateScriptTask", //$NON-NLS-1$
+						"_MIYosR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : At Line:1 column:30, Property workManager is invalid for the current context (PSLInvalidTargetProcessProcess:ScriptTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.validateScriptTask", //$NON-NLS-1$
+						"_MIYosR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : At Line:2 column:68, Method WorkMgrFn is invalid for the current context (PSLInvalidTargetProcessProcess:ScriptTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.taskCancelScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : CancelScript::At Line:1 column:30, Property workManager is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.taskCancelScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : CancelScript::At Line:2 column:68, Method WorkMgrFn is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.taskCompleteScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : CompleteScript::At Line:1 column:30, Property workManager is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.taskCompleteScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : CompleteScript::At Line:2 column:68, Method WorkMgrFn is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.taskInitiateScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : InitiateScript::At Line:1 column:30, Property workManager is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.taskInitiateScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : InitiateScript::At Line:2 column:68, Method WorkMgrFn is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.taskTimoutScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : TimeoutScript::At Line:1 column:30, Property workManager is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.taskTimoutScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : TimeoutScript::At Line:2 column:68, Method WorkMgrFn is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.userTaskCloseScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : CloseScript::At Line:1 column:25, Property process is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.userTaskCloseScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : CloseScript::At Line:2 column:70, Method ProcessMgFn is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.userTaskOpenScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : OpenScript::At Line:1 column:25, Property process is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.userTaskOpenScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : OpenScript::At Line:2 column:70, Method ProcessMgFn is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.userTaskRescheduleScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : RescheduleScript::At Line:1 column:25, Property process is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.userTaskRescheduleScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : RescheduleScript::At Line:2 column:70, Method ProcessMgFn is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.userTaskScheduleScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : ScheduleScript::At Line:1 column:25, Property process is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.userTaskScheduleScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : ScheduleScript::At Line:2 column:70, Method ProcessMgFn is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.userTaskSubmitScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : SubmitScript::At Line:1 column:25, Property process is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.error.userTaskSubmitScript", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : SubmitScript::At Line:2 column:70, Method ProcessMgFn is invalid for the current context (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
+
+				new ValidationsTestProblemMarkerInfo(
+						"/PSLInvalidTargetProcess/Process Packages/PSLInvalidTargetProcess.xpdl", //$NON-NLS-1$
+						"bx.timeoutScriptWithNoAttachedEvent", //$NON-NLS-1$
+						"_NZ3esR8uEe-kHO8m6fRaMw", //$NON-NLS-1$
+						"BPM  : Task Timeout script is not supported unless a timer event is attached to the task boundary (to define the timeout).   (PSLInvalidTargetProcessProcess:UserTask)", //$NON-NLS-1$
+						""), //$NON-NLS-1$
 
         };
     }
@@ -128,8 +403,10 @@ public class PSLTargetEnvValidatorTest extends AbstractN2BaseValidationTest
 
 		// Import project which should not have any problem markers after the validation
 		ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
-				new String[]{"resources/PSLTargetEnvValidatorTest/PSLValidTargetPrj/"}, //$NON-NLS-1$
-				new String[]{"PSLValidTargetPrj"}); // $NON-NLS-1$ //$NON-NLS-1$
+				new String[]{"resources/PSLTargetEnvValidatorTest/PSLValidTargetPrj/", //$NON-NLS-1$
+						"resources/PSLTargetEnvValidatorTest/PSLInvalidTargetProcess/", //$NON-NLS-1$
+						"resources/PSLTargetEnvValidatorTest/PSLValidTargetProcess/"}, //$NON-NLS-1$
+				new String[]{"PSLValidTargetPrj", "PSLInvalidTargetProcess", "PSLValidTargetProcess"}); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 		assertTrue("Failed to load projects from \"resources/PSLTargetEnvValidatorTest\"", //$NON-NLS-1$
 				projectImporter != null);

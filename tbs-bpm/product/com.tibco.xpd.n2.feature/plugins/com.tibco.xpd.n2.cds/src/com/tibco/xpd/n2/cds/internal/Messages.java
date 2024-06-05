@@ -6,7 +6,15 @@ public class Messages extends NLS {
     private static final String BUNDLE_NAME =
             "com.tibco.xpd.n2.cds.internal.messages"; //$NON-NLS-1$
 
-    public static String BOMCacheDeleteParticipant_DeleteParticipant_name;
+    public static String AceCdsFactoriesWrapperFactory_BomFactory_Content_Assist_Popup_Help;
+
+	public static String AceCdsFactoriesWrapperFactory_BomPkg_Content_Assist_Popup_Help;
+
+	public static String AceCdsFactoriesWrapperFactory_BomPkgEnum_Content_Assist_Popup_Help;
+
+	public static String AceCdsFactoriesWrapperFactory_BomPkgFactory_Content_Assist_Popup_Help;
+
+	public static String BOMCacheDeleteParticipant_DeleteParticipant_name;
 
     public static String BOMCacheDeleteParticipant_DeleteParticipantChange_name;
 

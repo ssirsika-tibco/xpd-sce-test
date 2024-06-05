@@ -22,6 +22,7 @@ import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.internal.resource.UMLResourceFactoryImpl;
 
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.process.js.model.internal.Messages;
 import com.tibco.xpd.processscriptlibrary.resource.config.ProcessScriptFunction;
 import com.tibco.xpd.processscriptlibrary.resource.config.ProcessScriptFunctionParam;
 import com.tibco.xpd.processscriptlibrary.resource.config.ProcessScriptFunctionParamCategories;
@@ -130,8 +131,12 @@ public class BpmScriptWrapperFactory
 			 */
 			DefaultJsClass jsClass = new DefaultJsClass(wrapperClass);
 
-			DefaultUMLScriptRelevantData scriptData = new DefaultUMLScriptRelevantData(wrapperObjectName,
-					jsClassName, false, jsClass);
+			DefaultUMLScriptRelevantData scriptData = new DefaultUMLScriptRelevantData(wrapperObjectName, jsClassName,
+					false, jsClass);
+			scriptData.setReadOnly(true);
+
+			/* Sid ACE-8307 provide some popup help guidance for static classes. */
+			scriptData.setAdditionalInfo(Messages.BpmScriptWrapperFactory_BpmScripts_ContentAssist_Popup_Help);
 
 			/*
 			 * Sid ACE-5814 Noticed this throws exception for RASC generation command line (as we're running in headless
@@ -156,11 +161,7 @@ public class BpmScriptWrapperFactory
 			 */
 			wrapperResourceSet.getResources().remove(wrapperResource);
 		}
-
 	}
-
-
-
 
 	/**
 	 * Visitor to build the UML Class structure to provide content assist.
@@ -199,6 +200,12 @@ public class BpmScriptWrapperFactory
 			property.setName(alibraryProject.getName());
 			String a = property.getName();
 
+			/* Sid ACE-8307 provide some popup help guidance for static classes. */
+			Comment comment = UMLFactory.eINSTANCE.createComment();
+			comment.setBody(
+					String.format(Messages.BpmScriptWrapperFactory_BpmScriptProject_ContentAssist_Popup_Help, alibraryProject.getName()));
+			property.getOwnedComments().add(comment);
+
 			Class pslFileCollector = UMLFactory.eINSTANCE.createClass();
 			// This name is not used while showing the content assist suggests.
 			/*
@@ -227,6 +234,11 @@ public class BpmScriptWrapperFactory
 
 			Property libProp = UMLFactory.eINSTANCE.createProperty();
 			libProp.setName(aLibrary.getNameWithoutExtension());
+
+			/* Sid ACE-8307 provide some popup help guidance for static classes. */
+			Comment comment = UMLFactory.eINSTANCE.createComment();
+			comment.setBody(String.format(Messages.BpmScriptWrapperFactory_BpmScriptLibrary_ContentAssist_Popup_Help, aLibrary.getName()));
+			libProp.getOwnedComments().add(comment);
 
 			Class pslFunctionCollector = UMLFactory.eINSTANCE.createClass();
 			// This name is not used while showing the content assist suggests.
@@ -387,13 +399,13 @@ public class BpmScriptWrapperFactory
 
 			if (aParam.isReturnParam())
 			{
-				result.append(Messages.BpmScriptWrapperFactory_ReturnParamTooltipDesc).append(SPACE);
+				result.append("@return").append(SPACE); //$NON-NLS-1$
 				result.append(typeName);
 
 			}
 			else
 			{
-				result.append(Messages.BpmScriptWrapperFactory_ParamTooltipDesc).append(SPACE);
+				result.append("@param").append(SPACE); //$NON-NLS-1$
 				result.append(anUmlParam.getName());
 				if (type != null)
 				{
@@ -422,15 +434,15 @@ public class BpmScriptWrapperFactory
 		{
 			String libName = aFunction.getProcessScriptLibrary().getNameWithoutExtension();
 			StringBuilder result = new StringBuilder(
-					String.format(Messages.BpmScriptWrapperFactory_Operation_Description_1, libName,
+					String.format(Messages.BpmScriptFunctionSynopsis_ContentAssist_Popup_Help, libName,
 							aFunction.getName()));
 			String description = aFunction.getDescription();
 			if (description != null && !description.trim().isEmpty())
 			{
-				result.append(String.format(Messages.BpmScriptWrapperFactory_Operation_Description_2, description));
+				result.append(String.format(Messages.BpmScriptFunctionUsage_ContentAssist_Popup_Help, description));
 			}
 
-			result.append(String.format(Messages.BpmScriptWrapperFactory_Operation_Description_3, aFunction.getSyntax()));
+			result.append(String.format(Messages.BpmScriptFunctionSyntax_ContentAssist_Popup_Help, aFunction.getSyntax()));
 			return result.toString();
 		}
 

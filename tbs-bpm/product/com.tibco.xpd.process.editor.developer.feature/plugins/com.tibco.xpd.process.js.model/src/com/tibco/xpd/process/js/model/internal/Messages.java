@@ -16,9 +16,23 @@ public class Messages extends NLS {
     private static final String BUNDLE_NAME =
             "com.tibco.xpd.process.js.model.internal.messages"; //$NON-NLS-1$
 
-    public static String AceScriptProcessDataWrapperObject_ProcessDataWrapperObject_description;
+    public static String AceScriptProcessDataWrapperFactory_DataClass_ContentAssist_Popup_Help;
 
-    public static String ProcessJavaScriptInfoProvider_AddInstsLoopScriptHeader_label;
+	public static String AceScriptProcessDataWrapperObject_ProcessDataWrapperObject_description;
+
+    public static String BpmScriptFunctionSynopsis_ContentAssist_Popup_Help;
+
+	public static String BpmScriptFunctionSyntax_ContentAssist_Popup_Help;
+
+	public static String BpmScriptFunctionUsage_ContentAssist_Popup_Help;
+
+	public static String BpmScriptWrapperFactory_BpmScriptLibrary_ContentAssist_Popup_Help;
+
+	public static String BpmScriptWrapperFactory_BpmScriptProject_ContentAssist_Popup_Help;
+
+	public static String BpmScriptWrapperFactory_BpmScripts_ContentAssist_Popup_Help;
+
+	public static String ProcessJavaScriptInfoProvider_AddInstsLoopScriptHeader_label;
 
     public static String ProcessJavaScriptInfoProvider_AutomaticAdhocTaskPreconditionScriptEnablement_label;
 

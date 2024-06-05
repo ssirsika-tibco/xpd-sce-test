@@ -28,12 +28,12 @@ public class PSLProjectNameValidatorTest extends AbstractN2BaseValidationTest
 	public void testPSLProjectNameValidatorTest() throws Exception
 	{
 		/*
-		 * Import two projects, '1ABC' is project with invalid name and 'ABC1' is project with valid name.
+		 * Import two projects, '1ABC' and '.ABC' is project with invalid name and 'ABC1' is project with valid name.
 		 */
 		ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
 				new String[]{"resources/PSLNameValidator/1ABC.zip", "resources/PSLNameValidator/ABC1.zip",
-						"resources/PSLNameValidator/A.B.C.zip"},
-				new String[]{"1ABC", "ABC1", "A.B.C"});
+						"resources/PSLNameValidator/A.B.C.zip", "resources/PSLNameValidator/.ABC.zip"},
+				new String[]{"1ABC", "ABC1", "A.B.C", ".ABC"});
 		try
 		{
 			buildAndWait();
@@ -63,6 +63,9 @@ public class PSLProjectNameValidatorTest extends AbstractN2BaseValidationTest
 						""),
 				new ValidationsTestProblemMarkerInfo("/A.B.C", "bx.invalidPSLProjectName", "",
 						"BPM : BPM Script project name can only contain the characters A-Z, a-z, 0-9 and underscore and must be a valid JavaScript identifier. (A.B.C)",
+						""),
+				new ValidationsTestProblemMarkerInfo("/.ABC", "bx.invalidPSLProjectName", "",
+						"BPM : BPM Script project name can only contain the characters A-Z, a-z, 0-9 and underscore and must be a valid JavaScript identifier. (.ABC)",
 						"")};
 	}
 

@@ -728,4 +728,10 @@
             label="%resolution.label.recreateobjectids.message">
       </resolution>
    </extension>
+      <extension
+            point="com.tibco.xpd.resources.workingCopyDependencyProvider">
+         <dependency
+               provider="com.tibco.xpd.processscriptlibrary.resource.indexer.PslReferencesToPslDependencyProvider">
+         </dependency>
+      </extension>
 </plugin>

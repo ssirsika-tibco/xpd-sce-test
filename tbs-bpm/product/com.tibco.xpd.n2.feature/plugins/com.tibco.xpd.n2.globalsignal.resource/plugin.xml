@@ -293,7 +293,15 @@
               	</instanceof>   
               	<instanceof
                     value="org.eclipse.emf.ecore.EObject">
-              	</instanceof>          
+              	</instanceof>
+               <and>
+                  <instanceof
+                        value="com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.INavigatorGroup">
+                  </instanceof>
+                  <test
+                        property="com.tibco.xpd.n2.globalsignal.resource.isGsdFileContent">
+                  </test>
+               </and>          
             </or>
        </possibleChildren>
        <override
@@ -379,8 +387,7 @@
          		<not>
                 	<test
                     	forcePluginActivation="true"
-                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
-                     	value="com.tibco.xpd.resources.lockedForProductionNature">
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature">
                   	</test>
                	</not> 
             	<or>            
@@ -1105,6 +1112,16 @@
             specialFolders="gsd">
       </documentViewerContribution>
    </extension>
+  <extension
+        point="org.eclipse.core.expressions.propertyTesters">
+     <propertyTester
+           class="com.tibco.xpd.n2.globalsignal.resource.GsdPropertyTester"
+           id="com.tibco.xpd.n2.globalsignal.resource.gsdPropertyTester"
+           namespace="com.tibco.xpd.n2.globalsignal.resource"
+           properties="isGsdFileContent"
+           type="java.lang.Object">
+     </propertyTester>
+  </extension>
    <!-- GSD File Export Documentation File Contribution -->
    <!-- ACE-2011: Remove Unsupported features. Documentation
    <extension

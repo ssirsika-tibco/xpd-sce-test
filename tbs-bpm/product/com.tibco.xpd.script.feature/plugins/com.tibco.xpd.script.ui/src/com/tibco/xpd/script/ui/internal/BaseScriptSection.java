@@ -1566,6 +1566,17 @@ public abstract class BaseScriptSection extends
     }
 
 	/**
+	 * Sid ACE-8170 Get the container of the actual grammar-specific editor control (i.e. the pagebook that has a page-per-grammar).
+	 * This can be used if the consumer wishes to set focus on an appropriate editor control.
+	 * 
+	 * @return The container of the grammar-specific script edititng controls.
+	 */
+	public Control getScriptEditingControlsContainer()
+	{
+		return implTypeBook;
+	}
+
+	/**
 	 * Special {@link FormText} class with focus disabled.
 	 *
 	 * @author ssirsika

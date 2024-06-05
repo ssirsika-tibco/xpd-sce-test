@@ -8,9 +8,15 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Collection;
 
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.swt.widgets.Display;
@@ -19,20 +25,28 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.ISaveablePart2;
 import org.eclipse.ui.ISaveablesSource;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.Saveable;
 import org.eclipse.ui.forms.editor.FormEditor;
+import org.eclipse.ui.ide.IDE;
+import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.part.FileEditorInput;
 
+import com.tibco.xpd.navigator.packageexplorer.editors.EditorInputFactory;
 import com.tibco.xpd.processscriptlibrary.resource.ProcessScriptLibraryResourcePluginActivtor;
 import com.tibco.xpd.processscriptlibrary.resource.internal.Messages;
 import com.tibco.xpd.resources.WorkingCopy;
+import com.tibco.xpd.resources.XpdProjectResourceFactory;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.ui.XpdResourcesUIActivator;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.resources.wc.NotificationPropertyChangeEvent;
 import com.tibco.xpd.xpdl2.Activity;
+import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Process;
+import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
  * Package editor for process script library editor.
@@ -41,7 +55,7 @@ import com.tibco.xpd.xpdl2.Process;
  * @since 26-Mar-2024
  */
 public class ProcessScriptLibraryPackageEditor extends FormEditor
-		implements PropertyChangeListener, INotifyChangedListener, ISaveablePart2, ISaveablesSource
+		implements PropertyChangeListener, INotifyChangedListener, ISaveablePart2, ISaveablesSource, IGotoMarker
 {
 
 	private static final String	PSL_PACKAGE_EDITOR_PAGE_ID	= "ProcessScriptLibraryPackageEditorPageID";	//$NON-NLS-1$
@@ -290,6 +304,80 @@ public class ProcessScriptLibraryPackageEditor extends FormEditor
 			return new Saveable[]{workingCopy.getSaveable()};
 		}
 		return new Saveable[0];
+	}
+
+	/**
+	 * @see org.eclipse.ui.ide.IGotoMarker#gotoMarker(org.eclipse.core.resources.IMarker)
+	 *
+	 *      Sid ACE-8170 handle open script function editor for script/parameter problem markers in PSL files By default
+	 *      the system will try to open the editor for the whole file (in our case also open open the PSL function
+	 *      editor when asked to 'goto marker' call on the pakcage editor.
+	 *
+	 * @param marker
+	 */
+	@Override
+	public void gotoMarker(IMarker marker)
+	{
+		/* Get the file and then working copy from the marker */
+		XpdProjectResourceFactory factory = XpdResourcesPlugin.getDefault()
+				.getXpdProjectResourceFactory(marker.getResource().getProject());
+
+		IResource res = marker.getResource();
+		WorkingCopy workingCopy = factory.getWorkingCopy(res);
+
+		if (workingCopy.isInvalidFile() || !(workingCopy.getRootElement() instanceof Package))
+		{
+			return;
+		}
+
+		Package xpdlPackage = (Package) workingCopy.getRootElement();
+		try
+		{
+			/* Get the specific model object that the marker was raised against. */
+			String location = (String) marker.getAttribute(IMarker.LOCATION);
+
+			Resource resource = xpdlPackage.eResource();
+			if (resource != null)
+			{
+				EObject target = resource.getEObject(location);
+				if (target != null)
+				{
+					/*
+					 * If the target model object of the marker is an Activity OR something under an activity then open
+					 * the function editor for the PSL function represented by the Activity
+					 */
+					Activity pslFunctionActivity = (Activity) Xpdl2ModelUtil.getAncestor(target, Activity.class);
+
+					if (pslFunctionActivity != null)
+					{
+						IConfigurationElement facConfig = XpdResourcesUIActivator
+								.getEditorFactoryConfigFor(pslFunctionActivity);
+
+						if (facConfig != null)
+						{
+							String editorId = facConfig.getAttribute("editorID"); //$NON-NLS-1$
+
+							EditorInputFactory f = (EditorInputFactory) facConfig.createExecutableExtension("factory"); //$NON-NLS-1$
+
+							IEditorInput input = f.getEditorInputFor(pslFunctionActivity);
+
+							IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+							IEditorPart part = IDE.openEditor(page, input, editorId);
+
+							if (part instanceof IGotoMarker)
+							{
+								((IGotoMarker) part).gotoMarker(marker);
+							}
+						}
+					}
+				}
+			}
+		}
+		catch (CoreException e)
+		{
+			// Ignore.
+		}
+
 	}
 
 }

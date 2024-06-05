@@ -430,7 +430,7 @@ public class PSLBPMScriptsVariableAssignmentValidationTest extends AbstractN2Bas
 			    		"/ScriptLibrary_0/Process Script Library/ScriptLibrary_0.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_b3rREPfnEe6vA_0fNHbCEg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:1 column:20, Direct assignment from 'bpmScripts' is not allowed. (ScriptLibrary_0:function1)", //$NON-NLS-1$ 
+						"BPM  : At Line:1 column:20, Direct assignment from 'bpmScripts' is not allowed. (ScriptLibrary_0.psl:function1)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -438,7 +438,7 @@ public class PSLBPMScriptsVariableAssignmentValidationTest extends AbstractN2Bas
 			    		"/ScriptLibrary_0/Process Script Library/ScriptLibrary_0.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_b3rREPfnEe6vA_0fNHbCEg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:14 column:1, Return statements without a value are not supported for functions that return a non-void type. (ScriptLibrary_0:function1)", //$NON-NLS-1$ 
+						"BPM  : At Line:14 column:1, Return statements without a value are not supported for functions that return a non-void type. (ScriptLibrary_0.psl:function1)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -446,7 +446,7 @@ public class PSLBPMScriptsVariableAssignmentValidationTest extends AbstractN2Bas
 			    		"/ScriptLibrary_0/Process Script Library/ScriptLibrary_0.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_b3rREPfnEe6vA_0fNHbCEg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:2 column:36, Direct assignment from project within 'bpmScripts' is not allowed. (ScriptLibrary_0:function1)", //$NON-NLS-1$ 
+						"BPM  : At Line:2 column:36, Direct assignment from project within 'bpmScripts' is not allowed. (ScriptLibrary_0.psl:function1)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -454,7 +454,7 @@ public class PSLBPMScriptsVariableAssignmentValidationTest extends AbstractN2Bas
 			    		"/ScriptLibrary_0/Process Script Library/ScriptLibrary_0.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_b3rREPfnEe6vA_0fNHbCEg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:8 column:16, Direct assignment from 'bpmScripts' is not allowed. (ScriptLibrary_0:function1)", //$NON-NLS-1$ 
+						"BPM  : At Line:8 column:16, Direct assignment from 'bpmScripts' is not allowed. (ScriptLibrary_0.psl:function1)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -462,7 +462,7 @@ public class PSLBPMScriptsVariableAssignmentValidationTest extends AbstractN2Bas
 			    		"/ScriptLibrary_0/Process Script Library/ScriptLibrary_0.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_b3rREPfnEe6vA_0fNHbCEg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:9 column:32, Direct assignment from project within 'bpmScripts' is not allowed. (ScriptLibrary_0:function1)", //$NON-NLS-1$ 
+						"BPM  : At Line:9 column:32, Direct assignment from project within 'bpmScripts' is not allowed. (ScriptLibrary_0.psl:function1)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			                

@@ -240,4 +240,10 @@
          priority="MEDIUM">
    </modelDefinitionReader>
 </extension>
+<extension
+      point="com.tibco.xpd.resources.workingCopyDependencyProvider">
+   <dependency
+         provider="com.tibco.xpd.process.js.model.providers.XpdlReferencesToPslDependencyProvider">
+   </dependency>
+</extension>
 </plugin>

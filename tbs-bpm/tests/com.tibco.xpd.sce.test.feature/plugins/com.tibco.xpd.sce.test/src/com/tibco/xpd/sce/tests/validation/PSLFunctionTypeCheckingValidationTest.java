@@ -565,709 +565,709 @@ public class PSLFunctionTypeCheckingValidationTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:10 column:140, Method bomCaseParamAndReturn is not applicable for the provided argument types (com.example.data::Case2,com.example.data::Case1) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:10 column:140, Method bomCaseParamAndReturn is not applicable for the provided argument types (com.example.data::Case2,com.example.data::Case1) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:12 column:146, Method bomCaseParamAndReturn is not applicable for the provided argument types (com.example.another::Case1,com.example.another::Case2) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:12 column:146, Method bomCaseParamAndReturn is not applicable for the provided argument types (com.example.another::Case1,com.example.another::Case2) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:14 column:100, Assignment of com.example.data.Case2 from com.example.data.Case1 is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:14 column:100, Assignment of com.example.data.Case2 from com.example.data.Case1 is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:17 column:89, Method bomClassParamAndReturn is not applicable for the provided argument types (com.example.data::Class2,com.example.data::Class1) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:17 column:89, Method bomClassParamAndReturn is not applicable for the provided argument types (com.example.data::Class2,com.example.data::Class1) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:19 column:96, Method bomClassParamAndReturn is not applicable for the provided argument types (com.example.data::Class1,com.example.data::Class1) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:19 column:96, Method bomClassParamAndReturn is not applicable for the provided argument types (com.example.data::Class1,com.example.data::Class1) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:21 column:95, Method bomClassParamAndReturn is not applicable for the provided argument types (com.example.another::Class1,com.example.data::Case2) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:21 column:95, Method bomClassParamAndReturn is not applicable for the provided argument types (com.example.another::Class1,com.example.data::Case2) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:23 column:143, Method bomClassParamAndReturn is not applicable for the provided argument types (com.example.data::Class2,com.example.data::Class1) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:23 column:143, Method bomClassParamAndReturn is not applicable for the provided argument types (com.example.data::Class2,com.example.data::Class1) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:25 column:149, Method bomClassParamAndReturn is not applicable for the provided argument types (com.example.another::Class1,com.example.another::Class2) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:25 column:149, Method bomClassParamAndReturn is not applicable for the provided argument types (com.example.another::Class1,com.example.another::Class2) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:28 column:104, Assignment of com.example.data.Class2 from com.example.data.Class1 is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:28 column:104, Assignment of com.example.data.Class2 from com.example.data.Class1 is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:30 column:129, Method bomClassParamAndReturn is not applicable for the provided argument types (com.example.data::Class1,com.example.data::Class1) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:30 column:129, Method bomClassParamAndReturn is not applicable for the provided argument types (com.example.data::Class1,com.example.data::Class1) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:33 column:86, Method caseRefParamAndReturn is not applicable for the provided argument types (CaseReference<com.example.data::Case2>,CaseReference<com.example.data::Case1>) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:33 column:86, Method caseRefParamAndReturn is not applicable for the provided argument types (CaseReference<com.example.data::Case2>,CaseReference<com.example.data::Case1>) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:35 column:100, Assignment of CaseReference<com.example.data::Case2> from CaseReference<com.example.data::Case1> is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:35 column:100, Assignment of CaseReference<com.example.data::Case2> from CaseReference<com.example.data::Case1> is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:37 column:100, Assignment of com.example.data.Case1 from CaseReference<com.example.data::Case1> is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:37 column:100, Assignment of com.example.data.Case1 from CaseReference<com.example.data::Case1> is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:39 column:129, Method caseRefParamAndReturn is not applicable for the provided argument types (CaseReference<com.example.data::Case1>,CaseReference<com.example.data::Case1>) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:39 column:129, Method caseRefParamAndReturn is not applicable for the provided argument types (CaseReference<com.example.data::Case1>,CaseReference<com.example.data::Case1>) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:42 column:84, Method primitiveTypes is not applicable for the provided argument types (String,String,DateTime) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:42 column:84, Method primitiveTypes is not applicable for the provided argument types (String,String,DateTime) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:44 column:98, Assignment of Decimal from DateTimeTZ is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:44 column:98, Assignment of Decimal from DateTimeTZ is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:47 column:101, Method arrayBomCaseParamAndReturn is not applicable for the provided argument types (com.example.data::Case2[],com.example.data::Case1[]) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:47 column:101, Method arrayBomCaseParamAndReturn is not applicable for the provided argument types (com.example.data::Case2[],com.example.data::Case1[]) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:49 column:91, Method arrayBomCaseParamAndReturn is not applicable for the provided argument types (com.example.data::Case1,com.example.data::Case2) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:49 column:91, Method arrayBomCaseParamAndReturn is not applicable for the provided argument types (com.example.data::Case1,com.example.data::Case2) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:51 column:120, Assignment of com.example.data.Case2[] from com.example.data.Case1[] is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:51 column:120, Assignment of com.example.data.Case2[] from com.example.data.Case1[] is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:53 column:115, Assignment of com.example.data.Case1 from com.example.data.Case1[] with different multiplicity is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:53 column:115, Assignment of com.example.data.Case1 from com.example.data.Case1[] with different multiplicity is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:56 column:104, Method arrayBomClassParamAndReturn is not applicable for the provided argument types (com.example.data::Class2[],com.example.data::Class1[]) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:56 column:104, Method arrayBomClassParamAndReturn is not applicable for the provided argument types (com.example.data::Class2[],com.example.data::Class1[]) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:58 column:94, Method arrayBomClassParamAndReturn is not applicable for the provided argument types (com.example.data::Class1,com.example.data::Class2) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:58 column:94, Method arrayBomClassParamAndReturn is not applicable for the provided argument types (com.example.data::Class1,com.example.data::Class2) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:6 column:86, Method bomCaseParamAndReturn is not applicable for the provided argument types (com.example.data::Case2,com.example.data::Case1) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:6 column:86, Method bomCaseParamAndReturn is not applicable for the provided argument types (com.example.data::Case2,com.example.data::Case1) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:60 column:124, Assignment of com.example.data.Class2[] from com.example.data.Class1[] is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:60 column:124, Assignment of com.example.data.Class2[] from com.example.data.Class1[] is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:62 column:119, Assignment of com.example.data.Class1 from com.example.data.Class1[] with different multiplicity is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:62 column:119, Assignment of com.example.data.Class1 from com.example.data.Class1[] with different multiplicity is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:64 column:73, Assignment of com.example.data.Class1[] from com.example.data.Class1 with different multiplicity is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:64 column:73, Assignment of com.example.data.Class1[] from com.example.data.Class1 with different multiplicity is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:67 column:101, Method arrayCaseRefParamAndReturn is not applicable for the provided argument types (CaseReference<com.example.data::Case2>[],CaseReference<com.example.data::Case1>[]) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:67 column:101, Method arrayCaseRefParamAndReturn is not applicable for the provided argument types (CaseReference<com.example.data::Case2>[],CaseReference<com.example.data::Case1>[]) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:69 column:120, Assignment of CaseReference<com.example.data::Case2>[] from CaseReference<com.example.data::Case1>[] is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:69 column:120, Assignment of CaseReference<com.example.data::Case2>[] from CaseReference<com.example.data::Case1>[] is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:71 column:120, Assignment of com.example.data.Case2[] from CaseReference<com.example.data::Case1>[] is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:71 column:120, Assignment of com.example.data.Case2[] from CaseReference<com.example.data::Case1>[] is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:73 column:139, Method arrayCaseRefParamAndReturn is not applicable for the provided argument types (CaseReference<com.example.data::Case1>[],CaseReference<com.example.data::Case1>) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:73 column:139, Method arrayCaseRefParamAndReturn is not applicable for the provided argument types (CaseReference<com.example.data::Case1>[],CaseReference<com.example.data::Case1>) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:76 column:104, Method arrayPrimitiveTypes is not applicable for the provided argument types (String[],String[],DateTime[]) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:76 column:104, Method arrayPrimitiveTypes is not applicable for the provided argument types (String[],String[],DateTime[]) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:78 column:123, Assignment of Decimal[] from DateTimeTZ[] is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:78 column:123, Assignment of Decimal[] from DateTimeTZ[] is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:8 column:93, Method bomCaseParamAndReturn is not applicable for the provided argument types (com.example.another::Case1,com.example.data::Case2) (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:8 column:93, Method bomCaseParamAndReturn is not applicable for the provided argument types (com.example.another::Case1,com.example.data::Case2) (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:80 column:120, Assignment of DateTime from DateTimeTZ[] with different multiplicity is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:80 column:120, Assignment of DateTime from DateTimeTZ[] with different multiplicity is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gIhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:82 column:70, Assignment of Decimal[] from Decimal with different multiplicity is not supported (Utilities:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
+						"BPM  : At Line:82 column:70, Assignment of Decimal[] from Decimal with different multiplicity is not supported (InvalidUseCases.psl:invalidPslFunctionCallFromPslFunctionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:10 column:46, Method pushAll is not applicable for the provided argument types (CaseReference<com.example.data::Case2>[]) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:10 column:46, Method pushAll is not applicable for the provided argument types (CaseReference<com.example.data::Case2>[]) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:11 column:35, Assignment of com.example.data.Class2 from com.example.data.Class1 is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:11 column:35, Assignment of com.example.data.Class2 from com.example.data.Class1 is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:14 column:76, Assignment of com.example.data.Case1[] from CaseReference[] is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:14 column:76, Assignment of com.example.data.Case1[] from CaseReference[] is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:14 column:76, The Case Type Name parameter must identify a valid Case Class (<package name>.<class name>) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:14 column:76, The Case Type Name parameter must identify a valid Case Class (<package name>.<class name>) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:15 column:86, Assignment of com.example.data.Case1 from CaseReference is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:15 column:86, Assignment of com.example.data.Case1 from CaseReference is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:15 column:86, The Case Type Name parameter must identify a valid Case Class (<package name>.<class name>) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:15 column:86, The Case Type Name parameter must identify a valid Case Class (<package name>.<class name>) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:16 column:98, Assignment of com.example.data.Case1[] from CaseReference[] is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:16 column:98, Assignment of com.example.data.Case1[] from CaseReference[] is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:16 column:98, The Case Type Name parameter must identify a valid Case Class (<package name>.<class name>) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:16 column:98, The Case Type Name parameter must identify a valid Case Class (<package name>.<class name>) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:17 column:102, Assignment of com.example.data.Case1[] from CaseReference[] is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:17 column:102, Assignment of com.example.data.Case1[] from CaseReference[] is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:17 column:102, The Case Type Name parameter must identify a valid Case Class (<package name>.<class name>) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:17 column:102, The Case Type Name parameter must identify a valid Case Class (<package name>.<class name>) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:18 column:45, Assignment of CaseReference<com.example.data::Case1> from Object is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:18 column:45, Assignment of CaseReference<com.example.data::Case1> from Object is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:19 column:58, Assignment of CaseReference<com.example.data::Case1>[] from Object[] is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:19 column:58, Assignment of CaseReference<com.example.data::Case1>[] from Object[] is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:20 column:54, Assignment of com.example.data.Class1 from Object[] with different multiplicity is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:20 column:54, Assignment of com.example.data.Class1 from Object[] with different multiplicity is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:21 column:39, Method readAll is not applicable for the provided argument types (com.example.data::Case1[]) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:21 column:39, Method readAll is not applicable for the provided argument types (com.example.data::Case1[]) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:24 column:48, Method copy is not applicable for the provided argument types (String[]) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:24 column:48, Method copy is not applicable for the provided argument types (String[]) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:25 column:48, Method copy is not applicable for the provided argument types (CaseReference<com.example.data::Case1>[]) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:25 column:48, Method copy is not applicable for the provided argument types (CaseReference<com.example.data::Case1>[]) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:26 column:50, Assignment of CaseReference<com.example.data::Case1> from Object is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:26 column:50, Assignment of CaseReference<com.example.data::Case1> from Object is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:27 column:58, Method copyAll is not applicable for the provided argument types (com.example.data::Case1) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:27 column:58, Method copyAll is not applicable for the provided argument types (com.example.data::Case1) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:28 column:58, Assignment of com.example.data.Case1 from Object[] with different multiplicity is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:28 column:58, Assignment of com.example.data.Case1 from Object[] with different multiplicity is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:29 column:51, Method copyAll is not applicable for the provided argument types (CaseReference<com.example.data::Case1>) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:29 column:51, Method copyAll is not applicable for the provided argument types (CaseReference<com.example.data::Case1>) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:30 column:63, Assignment of CaseReference<com.example.data::Case1>[] from Object[] is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:30 column:63, Assignment of CaseReference<com.example.data::Case1>[] from Object[] is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:31 column:80, Assignment of CaseReference<com.example.data::Case1> from Object is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:31 column:80, Assignment of CaseReference<com.example.data::Case1> from Object is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:31 column:80, The Class Type Name parameter must identify a valid Class (<package name>.<class name>) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:31 column:80, The Class Type Name parameter must identify a valid Class (<package name>.<class name>) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:32 column:55, Assignment of CaseReference<com.example.data::Case1> from String is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:32 column:55, Assignment of CaseReference<com.example.data::Case1> from String is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:35 column:35, Assignment of com.example.data.Class2 from com.example.data.Class1 is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:35 column:35, Assignment of com.example.data.Class2 from com.example.data.Class1 is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:36 column:48, Method charAt is invalid for the current context (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:36 column:48, Method charAt is invalid for the current context (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:40 column:160, Method findAll is not applicable for the provided argument types (String,CaseReference<com.example.data::Case1>,com.example.data::Class1) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:40 column:160, Method findAll is not applicable for the provided argument types (String,CaseReference<com.example.data::Case1>,com.example.data::Class1) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:42 column:84, Method read is not applicable for the provided argument types (Text) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:42 column:84, Method read is not applicable for the provided argument types (Text) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:43 column:88, Assignment of CaseReference<com.example.data::Case1> from Object is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:43 column:88, Assignment of CaseReference<com.example.data::Case1> from Object is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:46 column:53, Assignment of CaseReference<com.example.data::Case1> from com.example.data.Case1 is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:46 column:53, Assignment of CaseReference<com.example.data::Case1> from com.example.data.Case1 is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:47 column:53, Assignment of com.example.data.Case2 from com.example.data.Case1 is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:47 column:53, Assignment of com.example.data.Case2 from com.example.data.Case1 is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:48 column:55, Assignment of com.example.data.Class2 from com.example.data.Class1 is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:48 column:55, Assignment of com.example.data.Class2 from com.example.data.Class1 is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:6 column:25, Assignment of DateTime from String is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:6 column:25, Assignment of DateTime from String is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:7 column:29, Assignment of CaseReference<com.example.data::Case1> from CaseReference<com.example.data::Case2> is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:7 column:29, Assignment of CaseReference<com.example.data::Case1> from CaseReference<com.example.data::Case2> is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:8 column:39, Assignment of CaseReference<com.example.data::Case1>[] from CaseReference<com.example.data::Case2>[] is not supported (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:8 column:39, Assignment of CaseReference<com.example.data::Case1>[] from CaseReference<com.example.data::Case2>[] is not supported (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:9 column:41, Method pushAll is not applicable for the provided argument types (CaseReference<com.example.data::Case1>) (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:9 column:41, Method pushAll is not applicable for the provided argument types (CaseReference<com.example.data::Case1>) (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.warning.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:24 column:48, Unable to determine type, operation may not be supported and content assist will not be available (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:24 column:48, Unable to determine type, operation may not be supported and content assist will not be available (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.warning.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:25 column:48, Unable to determine type, operation may not be supported and content assist will not be available (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:25 column:48, Unable to determine type, operation may not be supported and content assist will not be available (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.warning.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:27 column:58, Unable to determine type, operation may not be supported and content assist will not be available (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:27 column:58, Unable to determine type, operation may not be supported and content assist will not be available (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.warning.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:29 column:51, Unable to determine type, operation may not be supported and content assist will not be available (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:29 column:51, Unable to determine type, operation may not be supported and content assist will not be available (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.warning.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:36 column:48, Unable to determine type, operation may not be supported and content assist will not be available (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:36 column:48, Unable to determine type, operation may not be supported and content assist will not be available (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.warning.validateScriptTask", //$NON-NLS-1$
 						"_-m6gNhOaEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:42 column:84, Unable to determine type, operation may not be supported and content assist will not be available (Utilities:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
+						"BPM  : At Line:42 column:84, Unable to determine type, operation may not be supported and content assist will not be available (InvalidUseCases.psl:invalidPslFunctionGeneralRegressionTests)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_2GUrwBaSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:4 column:1, Return type 'CaseReference<com.example.data::Case1>' with differing multiplicities is not compatible with the function return type 'CaseReference<com.example.data::Case1>[]'. (Utilities:invalidCaseRefArrayReturn)", //$NON-NLS-1$
+						"BPM  : At Line:4 column:1, Return type 'CaseReference<com.example.data::Case1>' with differing multiplicities is not compatible with the function return type 'CaseReference<com.example.data::Case1>[]'. (InvalidUseCases.psl:invalidCaseRefArrayReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_2GUrwBaSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:8 column:1, Return type 'CaseReference<com.example.another::Case1>[]' is not compatible with the function return type 'CaseReference<com.example.data::Case1>[]'. (Utilities:invalidCaseRefArrayReturn)", //$NON-NLS-1$
+						"BPM  : At Line:8 column:1, Return type 'CaseReference<com.example.another::Case1>[]' is not compatible with the function return type 'CaseReference<com.example.data::Case1>[]'. (InvalidUseCases.psl:invalidCaseRefArrayReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjfhRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:11 column:1, Return type 'DateTime[]' with differing multiplicities is not compatible with the function return type 'DateTime'. (Utilities:invalidPrimitiveTypeReturn)", //$NON-NLS-1$
+						"BPM  : At Line:11 column:1, Return type 'DateTime[]' with differing multiplicities is not compatible with the function return type 'DateTime'. (InvalidUseCases.psl:invalidPrimitiveTypeReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjfhRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:16 column:1, Return type 'Number' is not compatible with the function return type 'DateTime'. (Utilities:invalidPrimitiveTypeReturn)", //$NON-NLS-1$
+						"BPM  : At Line:16 column:1, Return type 'Number' is not compatible with the function return type 'DateTime'. (InvalidUseCases.psl:invalidPrimitiveTypeReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjfhRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:21 column:1, Return type 'CaseReference<com.example.data::Case1>' is not compatible with the function return type 'DateTime'. (Utilities:invalidPrimitiveTypeReturn)", //$NON-NLS-1$
+						"BPM  : At Line:21 column:1, Return type 'CaseReference<com.example.data::Case1>' is not compatible with the function return type 'DateTime'. (InvalidUseCases.psl:invalidPrimitiveTypeReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjfhRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:26 column:1, Return type 'DateTimeTZ[]' with differing multiplicities is not compatible with the function return type 'DateTime'. (Utilities:invalidPrimitiveTypeReturn)", //$NON-NLS-1$
+						"BPM  : At Line:26 column:1, Return type 'DateTimeTZ[]' with differing multiplicities is not compatible with the function return type 'DateTime'. (InvalidUseCases.psl:invalidPrimitiveTypeReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjfhRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:30 column:1, Return statements without a value are not supported for functions that return a non-void type. (Utilities:invalidPrimitiveTypeReturn)", //$NON-NLS-1$
+						"BPM  : At Line:30 column:1, Return statements without a value are not supported for functions that return a non-void type. (InvalidUseCases.psl:invalidPrimitiveTypeReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjfhRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:6 column:1, Return type 'String' is not compatible with the function return type 'DateTime'. (Utilities:invalidPrimitiveTypeReturn)", //$NON-NLS-1$
+						"BPM  : At Line:6 column:1, Return type 'String' is not compatible with the function return type 'DateTime'. (InvalidUseCases.psl:invalidPrimitiveTypeReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjghRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:11 column:1, Return type 'com.example.data.Class1[]' with differing multiplicities is not compatible with the function return type 'com.example.data.Class1'. (Utilities:invalidBomClassReturn)", //$NON-NLS-1$
+						"BPM  : At Line:11 column:1, Return type 'com.example.data.Class1[]' with differing multiplicities is not compatible with the function return type 'com.example.data.Class1'. (InvalidUseCases.psl:invalidBomClassReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjghRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:16 column:1, Return type 'String' is not compatible with the function return type 'com.example.data.Class1'. (Utilities:invalidBomClassReturn)", //$NON-NLS-1$
+						"BPM  : At Line:16 column:1, Return type 'String' is not compatible with the function return type 'com.example.data.Class1'. (InvalidUseCases.psl:invalidBomClassReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjghRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:21 column:1, Return type 'String' is not compatible with the function return type 'com.example.data.Class1'. (Utilities:invalidBomClassReturn)", //$NON-NLS-1$
+						"BPM  : At Line:21 column:1, Return type 'String' is not compatible with the function return type 'com.example.data.Class1'. (InvalidUseCases.psl:invalidBomClassReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjghRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:26 column:1, Return type 'com.example.data.Case1' is not compatible with the function return type 'com.example.data.Class1'. (Utilities:invalidBomClassReturn)", //$NON-NLS-1$
+						"BPM  : At Line:26 column:1, Return type 'com.example.data.Case1' is not compatible with the function return type 'com.example.data.Class1'. (InvalidUseCases.psl:invalidBomClassReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjghRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:31 column:1, Return type 'com.example.data.Class1[]' with differing multiplicities is not compatible with the function return type 'com.example.data.Class1'. (Utilities:invalidBomClassReturn)", //$NON-NLS-1$
+						"BPM  : At Line:31 column:1, Return type 'com.example.data.Class1[]' with differing multiplicities is not compatible with the function return type 'com.example.data.Class1'. (InvalidUseCases.psl:invalidBomClassReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjghRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:35 column:1, Return statements without a value are not supported for functions that return a non-void type. (Utilities:invalidBomClassReturn)", //$NON-NLS-1$
+						"BPM  : At Line:35 column:1, Return statements without a value are not supported for functions that return a non-void type. (InvalidUseCases.psl:invalidBomClassReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjghRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:6 column:1, Return type 'com.example.data.Case1' is not compatible with the function return type 'com.example.data.Class1'. (Utilities:invalidBomClassReturn)", //$NON-NLS-1$
+						"BPM  : At Line:6 column:1, Return type 'com.example.data.Case1' is not compatible with the function return type 'com.example.data.Class1'. (InvalidUseCases.psl:invalidBomClassReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjhhRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:11 column:1, Return type 'CaseReference<com.example.data::Case1>[]' with differing multiplicities is not compatible with the function return type 'CaseReference<com.example.data::Case1>'. (Utilities:invalidCaseRefReturn)", //$NON-NLS-1$
+						"BPM  : At Line:11 column:1, Return type 'CaseReference<com.example.data::Case1>[]' with differing multiplicities is not compatible with the function return type 'CaseReference<com.example.data::Case1>'. (InvalidUseCases.psl:invalidCaseRefReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjhhRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:16 column:1, Return type 'CaseReference<com.example.another::Case1>' is not compatible with the function return type 'CaseReference<com.example.data::Case1>'. (Utilities:invalidCaseRefReturn)", //$NON-NLS-1$
+						"BPM  : At Line:16 column:1, Return type 'CaseReference<com.example.another::Case1>' is not compatible with the function return type 'CaseReference<com.example.data::Case1>'. (InvalidUseCases.psl:invalidCaseRefReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjhhRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:21 column:1, Return type 'CaseReference<com.example.data::Case2>' is not compatible with the function return type 'CaseReference<com.example.data::Case1>'. (Utilities:invalidCaseRefReturn)", //$NON-NLS-1$
+						"BPM  : At Line:21 column:1, Return type 'CaseReference<com.example.data::Case2>' is not compatible with the function return type 'CaseReference<com.example.data::Case1>'. (InvalidUseCases.psl:invalidCaseRefReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjhhRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:26 column:1, Return type 'String' is not compatible with the function return type 'CaseReference<com.example.data::Case1>'. (Utilities:invalidCaseRefReturn)", //$NON-NLS-1$
+						"BPM  : At Line:26 column:1, Return type 'String' is not compatible with the function return type 'CaseReference<com.example.data::Case1>'. (InvalidUseCases.psl:invalidCaseRefReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjhhRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:31 column:1, Return type 'String' is not compatible with the function return type 'CaseReference<com.example.data::Case1>'. (Utilities:invalidCaseRefReturn)", //$NON-NLS-1$
+						"BPM  : At Line:31 column:1, Return type 'String' is not compatible with the function return type 'CaseReference<com.example.data::Case1>'. (InvalidUseCases.psl:invalidCaseRefReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjhhRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:35 column:1, Return statements without a value are not supported for functions that return a non-void type. (Utilities:invalidCaseRefReturn)", //$NON-NLS-1$
+						"BPM  : At Line:35 column:1, Return statements without a value are not supported for functions that return a non-void type. (InvalidUseCases.psl:invalidCaseRefReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjhhRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:6 column:1, Return type 'CaseReference<com.example.data::Case2>' is not compatible with the function return type 'CaseReference<com.example.data::Case1>'. (Utilities:invalidCaseRefReturn)", //$NON-NLS-1$
+						"BPM  : At Line:6 column:1, Return type 'CaseReference<com.example.data::Case2>' is not compatible with the function return type 'CaseReference<com.example.data::Case1>'. (InvalidUseCases.psl:invalidCaseRefReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjiRRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:11 column:1, Return type 'com.example.data.Class1' is not compatible with the function return type 'com.example.data.Case1'. (Utilities:invalidBomCaseReturn)", //$NON-NLS-1$
+						"BPM  : At Line:11 column:1, Return type 'com.example.data.Class1' is not compatible with the function return type 'com.example.data.Case1'. (InvalidUseCases.psl:invalidBomCaseReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjiRRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:16 column:1, Return type 'com.example.data.Case1[]' with differing multiplicities is not compatible with the function return type 'com.example.data.Case1'. (Utilities:invalidBomCaseReturn)", //$NON-NLS-1$
+						"BPM  : At Line:16 column:1, Return type 'com.example.data.Case1[]' with differing multiplicities is not compatible with the function return type 'com.example.data.Case1'. (InvalidUseCases.psl:invalidBomCaseReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjiRRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:21 column:1, Return type 'com.example.another.Case1' is not compatible with the function return type 'com.example.data.Case1'. (Utilities:invalidBomCaseReturn)", //$NON-NLS-1$
+						"BPM  : At Line:21 column:1, Return type 'com.example.another.Case1' is not compatible with the function return type 'com.example.data.Case1'. (InvalidUseCases.psl:invalidBomCaseReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjiRRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:26 column:1, Return type 'CaseReference<com.example.data::Case1>' is not compatible with the function return type 'com.example.data.Case1'. (Utilities:invalidBomCaseReturn)", //$NON-NLS-1$
+						"BPM  : At Line:26 column:1, Return type 'CaseReference<com.example.data::Case1>' is not compatible with the function return type 'com.example.data.Case1'. (InvalidUseCases.psl:invalidBomCaseReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjiRRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:31 column:1, Return type 'String' is not compatible with the function return type 'com.example.data.Case1'. (Utilities:invalidBomCaseReturn)", //$NON-NLS-1$
+						"BPM  : At Line:31 column:1, Return type 'String' is not compatible with the function return type 'com.example.data.Case1'. (InvalidUseCases.psl:invalidBomCaseReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjiRRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:36 column:1, Return type 'String' is not compatible with the function return type 'com.example.data.Case1'. (Utilities:invalidBomCaseReturn)", //$NON-NLS-1$
+						"BPM  : At Line:36 column:1, Return type 'String' is not compatible with the function return type 'com.example.data.Case1'. (InvalidUseCases.psl:invalidBomCaseReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjiRRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:46 column:1, Return type 'com.example.data.Class1' is not compatible with the function return type 'com.example.data.Case1'. (Utilities:invalidBomCaseReturn)", //$NON-NLS-1$
+						"BPM  : At Line:46 column:1, Return type 'com.example.data.Class1' is not compatible with the function return type 'com.example.data.Case1'. (InvalidUseCases.psl:invalidBomCaseReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjiRRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:51 column:1, Return type 'com.example.data.Case1[]' with differing multiplicities is not compatible with the function return type 'com.example.data.Case1'. (Utilities:invalidBomCaseReturn)", //$NON-NLS-1$
+						"BPM  : At Line:51 column:1, Return type 'com.example.data.Case1[]' with differing multiplicities is not compatible with the function return type 'com.example.data.Case1'. (InvalidUseCases.psl:invalidBomCaseReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjiRRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:55 column:1, Return statements without a value are not supported for functions that return a non-void type. (Utilities:invalidBomCaseReturn)", //$NON-NLS-1$
+						"BPM  : At Line:55 column:1, Return statements without a value are not supported for functions that return a non-void type. (InvalidUseCases.psl:invalidBomCaseReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_66sjiRRSEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:6 column:1, Return type 'com.example.data.Case2' is not compatible with the function return type 'com.example.data.Case1'. (Utilities:invalidBomCaseReturn)", //$NON-NLS-1$
+						"BPM  : At Line:6 column:1, Return type 'com.example.data.Case2' is not compatible with the function return type 'com.example.data.Case1'. (InvalidUseCases.psl:invalidBomCaseReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_GVhbEhaPEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:12 column:1, Return statements with value are not supported for functions with a Void return type. (Utilities:invalidReturnVoid)", //$NON-NLS-1$
+						"BPM  : At Line:12 column:1, Return statements with value are not supported for functions with a Void return type. (InvalidUseCases.psl:invalidReturnVoid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_GVhbEhaPEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:16 column:1, Return statements with value are not supported for functions with a Void return type. (Utilities:invalidReturnVoid)", //$NON-NLS-1$
+						"BPM  : At Line:16 column:1, Return statements with value are not supported for functions with a Void return type. (InvalidUseCases.psl:invalidReturnVoid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_GVhbEhaPEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:17 column:1, Return statements with value are not supported for functions with a Void return type. (Utilities:invalidReturnVoid)", //$NON-NLS-1$
+						"BPM  : At Line:17 column:1, Return statements with value are not supported for functions with a Void return type. (InvalidUseCases.psl:invalidReturnVoid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_GVhbEhaPEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:4 column:1, Return statements with value are not supported for functions with a Void return type. (Utilities:invalidReturnVoid)", //$NON-NLS-1$
+						"BPM  : At Line:4 column:1, Return statements with value are not supported for functions with a Void return type. (InvalidUseCases.psl:invalidReturnVoid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_GVhbEhaPEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:8 column:1, Return statements with value are not supported for functions with a Void return type. (Utilities:invalidReturnVoid)", //$NON-NLS-1$
+						"BPM  : At Line:8 column:1, Return statements with value are not supported for functions with a Void return type. (InvalidUseCases.psl:invalidReturnVoid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_YmZ_MxaUEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:14 column:1, Return type 'com.example.data.Case1' with differing multiplicities is not compatible with the function return type 'com.example.data.Case1[]'. (Utilities:invalidBomCaseArrayReturn)", //$NON-NLS-1$
+						"BPM  : At Line:14 column:1, Return type 'com.example.data.Case1' with differing multiplicities is not compatible with the function return type 'com.example.data.Case1[]'. (InvalidUseCases.psl:invalidBomCaseArrayReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_YmZ_MxaUEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:18 column:1, Return type 'CaseReference<com.example.data::Case1>[]' is not compatible with the function return type 'com.example.data.Case1[]'. (Utilities:invalidBomCaseArrayReturn)", //$NON-NLS-1$
+						"BPM  : At Line:18 column:1, Return type 'CaseReference<com.example.data::Case1>[]' is not compatible with the function return type 'com.example.data.Case1[]'. (InvalidUseCases.psl:invalidBomCaseArrayReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_YmZ_MxaUEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:4 column:1, Return type 'com.example.data.Case2[]' is not compatible with the function return type 'com.example.data.Case1[]'. (Utilities:invalidBomCaseArrayReturn)", //$NON-NLS-1$
+						"BPM  : At Line:4 column:1, Return type 'com.example.data.Case2[]' is not compatible with the function return type 'com.example.data.Case1[]'. (InvalidUseCases.psl:invalidBomCaseArrayReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/Utilities/Process Script Libraries/InvalidUseCases.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_YmZ_MxaUEe-fuvwZ8PuNhw", //$NON-NLS-1$
-						"BPM  : At Line:9 column:1, Return type 'String' with differing multiplicities is not compatible with the function return type 'com.example.data.Case1[]'. (Utilities:invalidBomCaseArrayReturn)", //$NON-NLS-1$
+						"BPM  : At Line:9 column:1, Return type 'String' with differing multiplicities is not compatible with the function return type 'com.example.data.Case1[]'. (InvalidUseCases.psl:invalidBomCaseArrayReturn)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 		};

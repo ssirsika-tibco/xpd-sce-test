@@ -602,14 +602,29 @@ public abstract class AbstractProcessDiagramEditor extends SceEditorPart
      */
     private void closeEditor() {
         Display d = PlatformUI.getWorkbench().getDisplay();
-        d.syncExec(new Runnable() {
-            @Override
-            public void run() {
-                getSite().getPage()
-                        .closeEditor(AbstractProcessDiagramEditor.this, false);
-            }
-        });
+		// ACE-7759 To avoid a NPE from being thrown, check if the editor input is not null before closing the editor
+		if (getEditorInput() != null && getSite().getPage().findEditor(getEditorInput()) != null)
+		{
+			/* Handle normally when Editor Input is Available. */
+			d.syncExec(() -> runCloseEditor());
+		}
+		else
+		{
+			/*
+			 * When the editor input is null, the editor will be closed when the run() method of the runnable is invoked
+			 * by the UI thread at the next reasonable opportunity.
+			 */
+			d.asyncExec(() -> runCloseEditor());
+		}
     }
+
+	/**
+	 * Closes the AbstractProcessDiagramEditor editor
+	 */
+	private void runCloseEditor()
+	{
+		getSite().getPage().closeEditor(AbstractProcessDiagramEditor.this, false);
+	}
 
     /**
      * Navigates to and selects the diagram object specified by the marker.

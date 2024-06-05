@@ -3,6 +3,7 @@
  */
 package com.tibco.xpd.sce.tests.validation;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 
 import com.tibco.xpd.core.test.util.TestResourceInfo;
@@ -72,17 +73,21 @@ public class PSLValidProjectReferenceValidationTest extends AbstractN2BaseValida
 		/*
 		 * Project with valid PSL Project Reference - so should have no problems.
 		 */
+		IProject sl0project = ResourcesPlugin.getWorkspace().getRoot().getProject("ScriptLibrary_0");
 		assertFalse("PSLValidProjectReferenceValidationTest" //$NON-NLS-1$
-				+ " project should not have any ERROR level problem markers", //$NON-NLS-1$
-				TestUtil.hasErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject("ScriptLibrary_0"), //$NON-NLS-1$
+				+ " project should not have any ERROR level problem markers. Errors...\n" //$NON-NLS-1$
+				+ TestUtil.getErrorProblemMarkerList(sl0project, true), //
+				TestUtil.hasErrorProblemMarker(sl0project, // $NON-NLS-1$
 						true, "testPSLValidProjectReferenceValidationTest"));
 
 		/*
 		 * Project with valid PSL Project Reference - so should have no problems.
 		 */
+		IProject sl1project = ResourcesPlugin.getWorkspace().getRoot().getProject("ScriptLibrary_1");
 		assertFalse("PSLValidProjectReferenceValidationTest" //$NON-NLS-1$
-				+ " project should not have any ERROR level problem markers", //$NON-NLS-1$
-				TestUtil.hasErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject("ScriptLibrary_1"), //$NON-NLS-1$
+				+ " project should not have any ERROR level problem markers. Errors...\n" //$NON-NLS-1$
+				+ TestUtil.getErrorProblemMarkerList(sl1project, true), //
+				TestUtil.hasErrorProblemMarker(sl1project, // $NON-NLS-1$
 						true, "testPSLValidProjectReferenceValidationTest"));
         return;
 	}

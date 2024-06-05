@@ -45,23 +45,23 @@ public class MyCompletionStringNode {
     public int getSortGroup() {
 
 		// Nikita ACE-7334 For JavaScript editor content assist, sort top level content list appropriately
+		/* Sid ACE-8307 sort by user data, then BPM related classes, then finally standard static JS classes. */
 
-		if (jsAttribute != null || jsReference != null || jsMethod != null || jsClass != null)
+		if ("bpm".equals(completionstring) || "bpmScripts".equals(completionstring)
+				|| "factory".equals(completionstring) || "pkg".equals(completionstring))
+		{
+			// Then BPM related "bpm" "bpmScripts" "factory", "pkg"
+			return 2;
+		}
+		else if (jsAttribute != null || jsReference != null || jsMethod != null || jsClass != null)
 		{
 			// Static JS Classes, sortGroup=2 indicates they will be shown after sortGroup 1
-			return 2;
+			return 3;
 		}
 		else
 		{
-			if (completionstring.equals("bpm"))
-			{
-				// User-defined "bpm" object (that the utility scripts are now located within) doesn't have same
-				// relevance as "data", "factory", "pkg"
-				// sortGroup=2 to group will other static JS classes
-				return 2;
-			}
 
-			// Show user-defined wrapper objects "data", "factory", "pkg" before everything else
+			// Show user-defined wrapper objects "data", before everything else
 			// i.e. it has the sortGroup=1 so that these classes are shown on top
 			return 1;
 		}

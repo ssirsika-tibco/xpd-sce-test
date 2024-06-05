@@ -147,7 +147,11 @@ public class ProcessScriptFunction extends AbstractProcessScriptLibraryElement
 			{
 				if (doneFirstParam)
 				{
-					syntax.append(", ");
+					syntax.append(", "); //$NON-NLS-1$
+				}
+				else
+				{
+					doneFirstParam = true;
 				}
 
 				syntax.append(param.getName());

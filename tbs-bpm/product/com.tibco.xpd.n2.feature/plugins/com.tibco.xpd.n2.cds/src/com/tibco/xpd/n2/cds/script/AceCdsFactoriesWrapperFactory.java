@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
+import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Operation;
@@ -26,12 +27,12 @@ import org.eclipse.uml2.uml.internal.resource.UMLResourceFactoryImpl;
 import com.tibco.bds.designtime.generator.BDSUtils;
 import com.tibco.bds.designtime.generator.CDSBOMIndexerService;
 import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
-import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
-import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
+import com.tibco.xpd.n2.cds.internal.Messages;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.script.model.client.DefaultJsClass;
 import com.tibco.xpd.script.model.client.DefaultUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
+import com.tibco.xpd.script.model.jscript.JScriptUtils;
 
 /**
  * Factory for creating the JavaScript ScriptRelevantData object(s) for BOM
@@ -153,6 +154,13 @@ public class AceCdsFactoriesWrapperFactory {
                 factoryPkgProperty.setName(factoryName);
                 factoryPkgProperty.setIsReadOnly(true);
 
+				/* Sid ACE-8307 provide some popup help guidance for static classes. */
+				Comment comment = UMLFactory.eINSTANCE.createComment();
+				comment.setBody(
+						String.format(Messages.AceCdsFactoriesWrapperFactory_BomPkgFactory_Content_Assist_Popup_Help,
+								bomPackage.getName()));
+				factoryPkgProperty.getOwnedComments().add(comment);
+
                 factoryWrapperClass.getOwnedAttributes()
                         .add(factoryPkgProperty);
 
@@ -171,6 +179,12 @@ public class AceCdsFactoriesWrapperFactory {
                 enumPkgProperty.setName(factoryName);
                 enumPkgProperty.setIsReadOnly(true);
 
+				/* Sid ACE-8307 provide some popup help guidance for static classes. */
+				Comment comment2 = UMLFactory.eINSTANCE.createComment();
+				comment2.setBody(
+						String.format(Messages.AceCdsFactoriesWrapperFactory_BomPkgEnum_Content_Assist_Popup_Help, bomPackage.getName()));
+				enumPkgProperty.getOwnedComments().add(comment2);
+
                 packageWrapperClass.getOwnedAttributes().add(enumPkgProperty);
 
                 /* Then configure it's type info. */
@@ -188,9 +202,16 @@ public class AceCdsFactoriesWrapperFactory {
              * Create the appropriate structure for the script contributions (a
              * DefaultJsClass wrapped in a DefaultUMLScriptRelevantData object.
              */
-            dataList.add(createScriptRelevantDataForClass(factoryWrapperClass));
+			/* Sid ACE-8307 provide some popup help guidance for static classes. */
+			IScriptRelevantData factoryRelevantData = createScriptRelevantDataForClass(factoryWrapperClass);
+			factoryRelevantData.setAdditionalInfo(
+					Messages.AceCdsFactoriesWrapperFactory_BomFactory_Content_Assist_Popup_Help);
+			dataList.add(factoryRelevantData);
 
-            dataList.add(createScriptRelevantDataForClass(packageWrapperClass));
+			IScriptRelevantData pkgRelevantData = createScriptRelevantDataForClass(packageWrapperClass);
+			pkgRelevantData.setAdditionalInfo(
+					Messages.AceCdsFactoriesWrapperFactory_BomPkg_Content_Assist_Popup_Help);
+			dataList.add(pkgRelevantData);
 
             return dataList;
 
@@ -221,16 +242,17 @@ public class AceCdsFactoriesWrapperFactory {
                 new DefaultUMLScriptRelevantData(clazz.getName(),
                         clazz.getName(), false, factoryJsClass);
 
-        /*
-         * Sid ACE-5814 Noticed this throws exception for RASC generation command line (as we're running in headless
-         * mode and accessing UI components) - so conditionalised.
-         */
-        if (!XpdResourcesPlugin.isInHeadlessMode()) {
-            scriptData.setIcon(Xpdl2ResourcesPlugin.getDefault().getImageRegistry()
-                    .get(Xpdl2ResourcesConsts.IMG_DATAFIELD_EXTERNALREFERENCE));
-        }
-
         scriptData.setReadOnly(true);
+
+		/*
+		 * Sid ACE-8307 for consistency use static JS class icon for content assisdt rather than complex type datafield
+		 * icon.
+		 */
+		if (!XpdResourcesPlugin.isInHeadlessMode())
+		{
+			scriptData.setIcon(JScriptUtils.getDefaultJavascriptIcon());
+		}
+
         return scriptData;
     }
 

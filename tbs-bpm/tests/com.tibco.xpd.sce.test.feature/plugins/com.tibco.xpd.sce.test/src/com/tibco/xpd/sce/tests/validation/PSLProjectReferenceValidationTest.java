@@ -110,7 +110,7 @@ public class PSLProjectReferenceValidationTest extends AbstractN2BaseValidationT
 			    		"/ScriptLibrary_0/Process Script Library/ScriptLibrary_0.psl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTaskForPSLReference", //$NON-NLS-1$ 
 			    		"_b3rREPfnEe6vA_0fNHbCEg", //$NON-NLS-1$ 
-						"BPM  : At Line:1 column:61, To use the script library project 'ScriptLibrary_1', it must be added to this project's references. (ScriptLibrary_0:function1)", //$NON-NLS-1$
+						"BPM  : At Line:1 column:61, To use the script library project 'ScriptLibrary_1', it must be added to this project's references. (ScriptLibrary_0.psl:function1)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			                

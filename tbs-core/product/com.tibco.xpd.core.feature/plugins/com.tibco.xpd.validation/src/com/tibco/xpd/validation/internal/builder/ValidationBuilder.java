@@ -1147,8 +1147,8 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
         public boolean visit(IResource resource) throws CoreException {
 
             /*
-             * If this is a derived / hidden resource then ignore it
-             */
+			 * If this is a derived / hidden resource then ignore it
+			 */
             if (shouldIgnoreResourceDelta(resource)) {
                 return false;
             }
@@ -1359,8 +1359,12 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
      * @return <code>true</code> if this resource should not be included for
      *         validation.
      */
-    private boolean shouldIgnoreResourceDelta(IResource resource) {
-        if (resource != null && resource.getName().startsWith(".")) { //$NON-NLS-1$
+	private boolean shouldIgnoreResourceDelta(IResource resource)
+	{
+		// ACE-8228 When a Project is renamed with leading dot, validation should be raised
+		// We need to allow validations for a IProject to go through for this to happen
+		if (resource != null && resource.getName().startsWith(".") && !(resource instanceof IProject)) //$NON-NLS-1$
+		{
             return true;
         }
         return false;
