@@ -82,7 +82,7 @@ public class PeSharedResourceContributorTest extends TestCase {
             when(rascContext.getVersion()).thenReturn(version);
             when(rascContext.getAppSummary()).thenReturn(appSummary);
 
-            TestUtil.buildAndWait();
+			TestUtil.fullBuildAndWait();
 
             if (TestUtil.hasErrorProblemMarker(project, true, "PeSharedResourceContributorTest")) {
                 fail(project.getName() + " has error markers (before generate): "
@@ -146,7 +146,7 @@ public class PeSharedResourceContributorTest extends TestCase {
             when(rascContext.getVersion()).thenReturn(version);
             when(rascContext.getAppSummary()).thenReturn(appSummary);
 
-            TestUtil.buildAndWait();
+			TestUtil.fullBuildAndWait();
 
             if (TestUtil.hasErrorProblemMarker(project, true, "PeSharedResourceContributorTest")) {
                 fail(project.getName() + " has error markers (before generate): "
@@ -238,7 +238,7 @@ public class PeSharedResourceContributorTest extends TestCase {
             when(rascContext.getVersion()).thenReturn(version);
             when(rascContext.getAppSummary()).thenReturn(appSummary);
 
-            TestUtil.buildAndWait();
+			TestUtil.fullBuildAndWait();
 
             if (TestUtil.hasErrorProblemMarker(project, true, "PeSharedResourceContributorTest")) {
                 fail(project.getName() + " has error markers (before generate): "
@@ -353,7 +353,7 @@ public class PeSharedResourceContributorTest extends TestCase {
             when(rascContext.getVersion()).thenReturn(version);
             when(rascContext.getAppSummary()).thenReturn(appSummary);
 
-            TestUtil.buildAndWait();
+			TestUtil.fullBuildAndWait();
 
             if (TestUtil.hasErrorProblemMarker(project, true, "PeSharedResourceContributorTest")) {
                 fail(project.getName() + " has error markers (before generate): "

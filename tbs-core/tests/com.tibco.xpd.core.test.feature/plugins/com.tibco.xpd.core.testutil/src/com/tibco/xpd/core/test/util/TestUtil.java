@@ -756,6 +756,7 @@ public class TestUtil {
 		{
 			ResourcesPlugin.getWorkspace().build(IncrementalProjectBuilder.FULL_BUILD, new NullProgressMonitor());
 			
+			TestUtil.waitForJobsEx(ResourcesPlugin.FAMILY_MANUAL_BUILD);
 			TestUtil.waitForJobsEx(ResourcesPlugin.FAMILY_AUTO_BUILD);
 
 		}
