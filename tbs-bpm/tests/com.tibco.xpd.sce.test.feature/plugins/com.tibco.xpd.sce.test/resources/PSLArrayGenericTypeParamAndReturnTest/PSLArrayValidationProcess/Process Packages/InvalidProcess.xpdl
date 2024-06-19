@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_pgZZQC2MEe-cQNuWxyx8bQ" xpdExt:DisplayName="InvalidPSLLibrary" Name="InvalidPSLLibrary">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2024-06-18</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_1BKGuC2MEe-cQNuWxyx8bQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_1BKGsC2MEe-cQNuWxyx8bQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_1BKGuS2MEe-cQNuWxyx8bQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_pzab5y2MEe-cQNuWxyx8bQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_pgZZQS2MEe-cQNuWxyx8bQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_pzab6C2MEe-cQNuWxyx8bQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_pgZZQS2MEe-cQNuWxyx8bQ" xpdExt:DisplayName="arrayGenericTypeFunctionsInvalid" Name="arrayGenericTypeFunctionsInvalid">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_3K2GJC2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="dateTimeArray" Name="dateTimeArray" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GJS2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="dateTime" Name="dateTime" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GJi2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="textArray" Name="textArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GJy2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="text" Name="text" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GKC2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="numArray" Name="numArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GKS2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="num" Name="num" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter2 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GKi2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="class1Array" Name="class1Array" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_q12S4CpjEe-9QL53lmBDkw"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GKy2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="class1" Name="class1" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_q12S4CpjEe-9QL53lmBDkw"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter2 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GLC2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="class2" Name="class2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_0qSBfCpjEe-9QL53lmBDkw"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GLS2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="case1RefArray" Name="case1RefArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_e5WqQC1ZEe-cQNuWxyx8bQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GLi2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="case1Ref" Name="case1Ref" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_e5WqQC1ZEe-cQNuWxyx8bQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GLy2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="case2Ref" Name="case2Ref" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_nAKZcC1ZEe-cQNuWxyx8bQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GMC2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="case1" Name="case1" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_e5WqQC1ZEe-cQNuWxyx8bQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GMS2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="boolArray" Name="boolArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GMi2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="bool" Name="bool" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GMy2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="timeArray" Name="timeArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GNC2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="time" Name="time" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GNS2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="uriArray" Name="uriArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType xpdExt:FieldFormat="URI" Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GNi2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="uri1" Name="uri1" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType xpdExt:FieldFormat="URI" Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GNy2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="dateArray" Name="dateArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GOC2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="date" Name="date" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter2 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GOS2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="performerArray" Name="performerArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GOi2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="performer" Name="performer" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter2 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GOy2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="floatArray" Name="floatArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3K2GPC2DEe-cQNuWxyx8bQ" xpdExt:DisplayName="float1" Name="float1" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_CTsNYS2FEe-cQNuWxyx8bQ" xpdExt:DisplayName="class2Array" Name="class2Array" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_0qSBfCpjEe-9QL53lmBDkw"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_VqaxgC2FEe-cQNuWxyx8bQ" xpdExt:DisplayName="case2RefArray" Name="case2RefArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_nAKZcC1ZEe-cQNuWxyx8bQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_pzab6S2MEe-cQNuWxyx8bQ" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_pzab6C2MEe-cQNuWxyx8bQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_pzab6i2MEe-cQNuWxyx8bQ" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_pzab6C2MEe-cQNuWxyx8bQ" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_n1KKAS2NEe-cQNuWxyx8bQ" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Generic type functions on arrays - but with various invalid param/return type combinations.&#xD;
+data.dateArray.push(new Number());      &#xD;
+data.dateArray.push(data.num);&#xD;
+data.dateArray.pushAll(data.numArray);&#xD;
+data.dateArray.push(&quot;abc&quot;);&#xD;
+data.dateArray.pushAll(data.textArray);&#xD;
+data.dateArray.push(data.class1);&#xD;
+data.dateArray.pushAll(data.class1Array);&#xD;
+data.num = data.dateArray.pop(); // Check generic returns&#xD;
+data.class1 = data.dateArray.pop();  // Check generic returns&#xD;
+data.case1Ref = data.dateArray.pop();  // Check generic returns&#xD;
+&#xD;
+data.dateTimeArray.push(new Number());      &#xD;
+data.dateTimeArray.push(data.num);&#xD;
+data.dateTimeArray.pushAll(data.numArray);&#xD;
+data.dateTimeArray.push(&quot;abc&quot;);&#xD;
+data.dateTimeArray.pushAll(data.textArray);&#xD;
+data.dateTimeArray.push(data.class1);&#xD;
+data.dateTimeArray.pushAll(data.class1Array);&#xD;
+data.num = data.dateTimeArray.pop(); // Check generic returns&#xD;
+data.class1 = data.dateTimeArray.pop();  // Check generic returns&#xD;
+data.case1Ref = data.dateTimeArray.pop();  // Check generic returns&#xD;
+&#xD;
+data.timeArray.push(new Number());      &#xD;
+data.timeArray.push(data.num);&#xD;
+data.timeArray.pushAll(data.numArray);&#xD;
+data.timeArray.push(&quot;abc&quot;);&#xD;
+data.timeArray.pushAll(data.textArray);&#xD;
+data.timeArray.push(data.class1);&#xD;
+data.timeArray.pushAll(data.class1Array);&#xD;
+data.num = data.timeArray.pop(); // Check generic returns&#xD;
+data.class1 = data.timeArray.pop();  // Check generic returns&#xD;
+data.case1Ref = data.timeArray.pop();  // Check generic returns&#xD;
+&#xD;
+data.textArray.push(data.class1);&#xD;
+data.textArray.push(data.case1Ref);&#xD;
+data.textArray.pushAll(data.class1Array);&#xD;
+data.textArray.pushAll(data.case1RefArray);&#xD;
+data.num = data.textArray.pop();  // Check generic returns&#xD;
+data.class1 = data.textArray.pop();&#xD;
+data.case1Ref = data.textArray.pop();&#xD;
+&#xD;
+data.numArray.push(&quot;abc&quot;); &#xD;
+data.numArray.push(data.date);   &#xD;
+data.numArray.pushAll(data.textArray);&#xD;
+data.numArray.push(data.text);   &#xD;
+data.numArray.pushAll(data.class1Array);&#xD;
+data.class1 = data.numArray.pop();  // Check generic returns&#xD;
+data.date = data.numArray.pop();  // Check generic returns&#xD;
+&#xD;
+data.floatArray.push(&quot;abc&quot;); &#xD;
+data.floatArray.push(data.date);   &#xD;
+data.floatArray.pushAll(data.textArray);&#xD;
+data.floatArray.push(data.text);   &#xD;
+data.floatArray.pushAll(data.class1Array);&#xD;
+data.class1 = data.floatArray.pop();  // Check generic returns&#xD;
+data.date = data.floatArray.pop();  // Check generic returns&#xD;
+&#xD;
+&#xD;
+data.class1Array.push(data.class2);&#xD;
+data.class1Array.push(data.text);&#xD;
+data.class1Array.pushAll(data.class2Array);&#xD;
+data.class2 = data.class1Array.pop();  // Check generic returns&#xD;
+data.text = data.class1Array.pop();  // Check generic returns&#xD;
+&#xD;
+data.case1RefArray.push(data.case2Ref);&#xD;
+data.case1RefArray.push(data.case1);&#xD;
+data.case1RefArray.pushAll(data.case2RefArray);&#xD;
+data.case2Ref = data.case1RefArray.pop();  // Check generic returns&#xD;
+data.case1 = data.case1RefArray.pop();  // Check generic returns&#xD;
+&#xD;
+data.boolArray.push(&quot;abc&quot;);&#xD;
+data.boolArray.push(data.num);&#xD;
+data.boolArray.pushAll(data.textArray);&#xD;
+data.num = data.boolArray.pop();  // Check generic returns&#xD;
+&#xD;
+data.uriArray.push(data.class1);&#xD;
+data.uriArray.pushAll(data.class1Array);&#xD;
+data.num = data.uriArray.pop();  // Check generic returns&#xD;
+&#xD;
+data.performerArray.push(data.class1);&#xD;
+data.performerArray.pushAll(data.class1Array);&#xD;
+data.num= data.performerArray.pop();  // Check generic returns&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_pzab6C2MEe-cQNuWxyx8bQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="307.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_pzab6y2MEe-cQNuWxyx8bQ" Name="" From="_n1KKAS2NEe-cQNuWxyx8bQ" To="_pzab6i2MEe-cQNuWxyx8bQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_n1KKAi2NEe-cQNuWxyx8bQ" xpdExt:DisplayName="" Name="" From="_pzab6S2MEe-cQNuWxyx8bQ" To="_n1KKAS2NEe-cQNuWxyx8bQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_1BKGsC2MEe-cQNuWxyx8bQ" xpdExt:DisplayName="standardUsageRegressionCheckInvalid" Name="standardUsageRegressionCheckInvalid">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_b-j-Qi2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="dateTime" Name="dateTime" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b-j-Qy2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="text" Name="text" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b-j-RC2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="num" Name="num" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter2 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b-j-RS2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="class1" Name="class1" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_q12S4CpjEe-9QL53lmBDkw"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter2 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b-j-Ri2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="class2" Name="class2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_0qSBfCpjEe-9QL53lmBDkw"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b-j-Ry2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="case1Ref" Name="case1Ref" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_e5WqQC1ZEe-cQNuWxyx8bQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b-j-SC2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="case2Ref" Name="case2Ref" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_nAKZcC1ZEe-cQNuWxyx8bQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b-j-SS2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="case1" Name="case1" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_e5WqQC1ZEe-cQNuWxyx8bQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b-j-Si2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="bool" Name="bool" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b-j-Sy2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="time" Name="time" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b-j-TC2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="uri1" Name="uri1" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType xpdExt:FieldFormat="URI" Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b-j-TS2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="date" Name="date" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter2 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b-j-Ti2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="performer" Name="performer" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter2 summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b-j-Ty2HEe-cQNuWxyx8bQ" xpdExt:DisplayName="float1" Name="float1" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+          <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_1BKGui2MEe-cQNuWxyx8bQ" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_1BKGuS2MEe-cQNuWxyx8bQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_1BKGuy2MEe-cQNuWxyx8bQ" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_1BKGuS2MEe-cQNuWxyx8bQ" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_q4AP8S2NEe-cQNuWxyx8bQ" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Test straight assignment of PSL params w.r.t type regression checking&#xD;
+data.dateTime = data.num;&#xD;
+data.text = data.class1;&#xD;
+data.text = data.case1Ref;&#xD;
+data.num = &quot;abc&quot; + data.text;&#xD;
+data.num = new Date();&#xD;
+data.class1 = factory.com_example_pslarrayvalidationdata.createClass2();&#xD;
+data.class2 = factory.com_example_pslarrayvalidationdata.createClass1();&#xD;
+data.case1Ref = &quot;any old rubbisH&quot;;&#xD;
+data.case1 = bpm.caseData.findAll(&quot;com.example.pslarrayvalidationdata.Case1&quot;,1,10);&#xD;
+data.bool = data.num;&#xD;
+data.bool = data.text;&#xD;
+data.time = new Number();&#xD;
+data.uri1 = data.class1;&#xD;
+data.date = data.text;&#xD;
+data.performer = data.class2;&#xD;
+data.performer = data.case2Ref;&#xD;
+data.float1 = data.bool;&#xD;
+&#xD;
+data.class1.dateArray.push(data.text);&#xD;
+data.class1.date = data.class2.textArray[0];&#xD;
+&#xD;
+data.num = data.text.charAt(data.class1.text) + data.text.concat(data.class2.textArray[0]);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_1BKGuS2MEe-cQNuWxyx8bQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="282.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_1BKGvC2MEe-cQNuWxyx8bQ" Name="" From="_q4AP8S2NEe-cQNuWxyx8bQ" To="_1BKGuy2MEe-cQNuWxyx8bQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_q4AP8i2NEe-cQNuWxyx8bQ" xpdExt:DisplayName="" Name="" From="_1BKGui2MEe-cQNuWxyx8bQ" To="_q4AP8S2NEe-cQNuWxyx8bQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

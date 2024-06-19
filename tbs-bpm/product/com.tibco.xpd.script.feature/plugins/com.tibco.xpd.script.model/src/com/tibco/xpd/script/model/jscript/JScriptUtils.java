@@ -817,9 +817,19 @@ public class JScriptUtils {
                 IScriptRelevantData scriptRelevantData = type;
                 if (scriptRelevantData instanceof DefaultScriptRelevantData) {
                     /*
-                     * TODO: remove this code if all types that a text list can
-                     * have is to be allowed (to be added) to ID/URI list
-                     */
+					 * TODO: remove this code if all types that a text list can have is to be allowed (to be added) to
+					 * ID/URI list
+					 * 
+					 * Sid I think this was a rubbish fix that worked for a specific named field - if you have a field
+					 * called 'uri' then it is prevented from being pushed to a uri array field, that is caused by this
+					 * function returning "uri" (the name of the field) is the field name is equal to the URI type name
+					 * (which is daft).
+					 * 
+					 * However, as this function may be called for Generic Context which I don't know if is passed with
+					 * relevant data name = type name (i.e. both "uri"). So without knowing what this _really_ fixes,
+					 * and a workaround to simply call the data field something other than "uri", I thought it was
+					 * safest to leave it here.
+					 */
                     if (JsConsts.ID
                             .equalsIgnoreCase(scriptRelevantData.getName())
                             || JsConsts.URI.equalsIgnoreCase(

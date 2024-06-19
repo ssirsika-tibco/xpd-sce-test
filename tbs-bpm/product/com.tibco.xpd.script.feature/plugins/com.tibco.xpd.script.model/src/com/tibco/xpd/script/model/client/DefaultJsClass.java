@@ -155,12 +155,33 @@ public class DefaultJsClass extends DefaultMultipleJsClassResolver implements
     public String getComment() {
         return JScriptUtils.getUmlElementComment(umlClass);
     }
-
+    
+    /**
+     * Return JsAttibute's for ONLY the primitive type child properties of the given class
+     */
     @Override
     public List<JsAttribute> getAttributeList() {
+		/*
+		 * Sid ACE-8452 now just a wrapper around the original function which now takes param to include all attributes.
+		 */
+		return getAttributeList(false);
+    }
+
+	/**
+	 * Return JsAttibute's for the child properties of the given class
+	 * 
+	 * Sid ACE-8452 Provide alternative to {@link #getAttributeList()} which for some reason I cannot fathom, ignores
+	 * non-primitive type attributes.
+	 * 
+	 * @param includeClassAndEnumAttributes
+	 *            if <code>true</code> then return JsAttribute for all attributes regardless of whether they are
+	 *            primitive type or other types.
+	 */
+	public List<JsAttribute> getAttributeList(boolean includeClassAndEnumAttributes)
+	{
         List<JsAttribute> attributeList = new ArrayList<JsAttribute>();
         // Add the uml and dynamic attributes to the list
-        List<JsAttribute> umlAttributeList = getUmlAttributeList();
+		List<JsAttribute> umlAttributeList = getUmlAttributeList(includeClassAndEnumAttributes);
         if (umlAttributeList != null) {
             attributeList.addAll(umlAttributeList);
         }
@@ -170,7 +191,17 @@ public class DefaultJsClass extends DefaultMultipleJsClassResolver implements
         return attributeList;
     }
 
-    private List<JsAttribute> getUmlAttributeList() {
+	/**
+	 * Return JsAttibute's for the child properties of the given class
+	 * 
+	 * Sid ACE-8452 Provide alternative to {@link #getAttributeList()} which for some reason I cannot fathom, ignores
+	 * non-primitive type attributes.
+	 * 
+	 * @param includeClassAndEnumAttributes
+	 *            if <code>true</code> then return JsAttribute for all attributes regardless of whether they are
+	 *            primitive type or other types.
+	 */
+	private List<JsAttribute> getUmlAttributeList(boolean includeClassAndEnumAttributes) {
         List<Property> allAttributes = new ArrayList<Property>();
 
         /* XPD-8147: Additional param for collectAllClassAttribtues() */
@@ -182,12 +213,13 @@ public class DefaultJsClass extends DefaultMultipleJsClassResolver implements
         List<JsAttribute> attributeList = new ArrayList<JsAttribute>();
         for (Property property : allAttributes) {
             if (property != null
-                    && !(property.getType() instanceof Class || property
-                            .getType() instanceof Enumeration)) {
+                    && (includeClassAndEnumAttributes || (!(property.getType() instanceof Class || property
+							.getType() instanceof Enumeration))))
+			{
                 JsAttribute defaultJsAttribute = createJsAttribute(property);
                 attributeList.add(defaultJsAttribute);
             }
-        }
+		}
         return attributeList;
     }
 
@@ -479,7 +511,8 @@ public class DefaultJsClass extends DefaultMultipleJsClassResolver implements
         return jsMethod;
     }
 
-    protected JsAttribute createJsAttribute(Property property) {
+	protected JsAttribute createJsAttribute(Property property)
+	{
         DefaultJsAttribute jsAttribute =
                 new DefaultJsAttribute(property, multipleClass);
         jsAttribute.setIcon(WorkingCopyUtil.getImage(property));
