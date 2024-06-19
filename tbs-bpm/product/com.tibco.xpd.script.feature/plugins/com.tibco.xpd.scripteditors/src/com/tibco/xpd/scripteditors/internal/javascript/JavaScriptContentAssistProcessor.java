@@ -615,9 +615,22 @@ public class JavaScriptContentAssistProcessor extends AbstractTibcoContentAssist
              */
             else if (ParseProcessingType.IN_SLASHSLASH_COMMENT.equals(parseProcessingType)) {
                 /*
-                 * Looking for end of line (replace everything else with whitespace..
-                 */
-                if ('\n' == charAtPos) {
+				 * Looking for end of line (replace everything else with whitespace..
+				 * 
+				 * Sid ACE-8457 In *rare* circumstance that script is ended by \r rather than \r\n or \n, then content
+				 * assist wasn't working. So if we come across a \r then process end of line.
+				 */
+				if ('\r' == charAtPos)
+				{
+					parseProcessingType = ParseProcessingType.NONE;
+
+					if ('\n' == nextChar)
+					{
+						pos++; // Skip both \r and \n
+					}
+				}
+				else if ('\n' == charAtPos)
+				{
                     parseProcessingType = ParseProcessingType.NONE;
                 } else {
                     doc.setCharAt(pos, ' ');
