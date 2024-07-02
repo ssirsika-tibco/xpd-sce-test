@@ -89,7 +89,16 @@ public class BOMMigrationExtensionHelper {
 
         for (BOMMigrationExtension ext : contributions) {
 
-            if (Integer.valueOf(ext.getVersion()) == version) {
+			/*
+			 * Sid ACE-8497 Used to do...
+			 * 
+			 * Integer.valueOf(ext.getVersion()) == version
+			 * 
+			 * That only works for single digits it seems. So now we've changed 4.x->5.x migration migrate any file from
+			 * v999 up to current version, then this wasn't working.
+			 */
+			if (version.equals(Integer.valueOf(ext.getVersion())))
+			{
                 Object execExt = ext.getExecutableExtension();
 
                 if (execExt instanceof IBOMMigration) {
