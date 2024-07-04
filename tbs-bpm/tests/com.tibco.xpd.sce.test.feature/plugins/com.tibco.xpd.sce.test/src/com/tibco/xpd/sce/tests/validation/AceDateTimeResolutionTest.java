@@ -69,12 +69,20 @@ public class AceDateTimeResolutionTest extends AbstractN2BaseValidationTest {
         ValidationsTestProblemMarkerInfo[] markerInfos =
                 new ValidationsTestProblemMarkerInfo[] {
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/SimpleData/Business Objects/SimpleData.bom",
-                                "ace.bom.illegal.property.type",
-                                "_2hQm0IICEemphOtix5ROHg",
-                                "BPM  : Only Text, Number, Date, Time, Date-Time with Timezone, URI and Boolean simple types are supported for attributes (IntegerAttribute (com.example.simpledata))",
-                                ""),
+						/*
+						 * Sid ACE-8511 possibly because of ACE-8497 fix for migration, the migration of Integer -->
+						 * Fixed Point Number is now working so shouldn't get this error.
+						 * 
+						 * This was due to Format-Version of UnsupportedAttribTypes being '6' as compared which caused
+						 * non-migration
+						 */
+						// new ValidationsTestProblemMarkerInfo(
+						// "/SimpleData/Business Objects/SimpleData.bom",
+						// "ace.bom.illegal.property.type",
+						// "_2hQm0IICEemphOtix5ROHg",
+						// "BPM : Only Text, Number, Date, Time, Date-Time with Timezone, URI and Boolean simple types
+						// are supported for attributes (IntegerAttribute (com.example.simpledata))",
+						// ""),
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/SimpleData/Business Objects/SimpleData.bom",
@@ -146,12 +154,20 @@ public class AceDateTimeResolutionTest extends AbstractN2BaseValidationTest {
                                 "BPM  : Only Text, Number, Date, Time, Date-Time with Timezone, URI and Boolean simple types are supported for attributes (IdAttribute (com.example.simpledata))",
                                 ""),
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/SimpleData/Business Objects/SimpleData.bom",
-                                "ace.bom.illegal.primitive.type",
-                                "_sGrCsIOAEemrg6n-Un21Hw",
-                                "BPM  : Only Text, Number, Date, Time, Date-Time with Timezone, URI and Boolean simple types are supported for Primitive Type definitions (IntegerType (com.example.simpledata))",
-                                ""),
+						/*
+						 * Sid ACE-8511 possibly because of ACE-8497 fix for migration, the migration of Integer -->
+						 * Fixed Point Number is now working so shouldn't get this error.
+						 * 
+						 * This was due to Format-Version of UnsupportedAttribTypes being '6' as compared which caused
+						 * non-migration
+						 */
+						// new ValidationsTestProblemMarkerInfo(
+						// "/SimpleData/Business Objects/SimpleData.bom",
+						// "ace.bom.illegal.primitive.type",
+						// "_sGrCsIOAEemrg6n-Un21Hw",
+						// "BPM : Only Text, Number, Date, Time, Date-Time with Timezone, URI and Boolean simple types
+						// are supported for Primitive Type definitions (IntegerType (com.example.simpledata))",
+						// ""),
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/SimpleData/Business Objects/SimpleData.bom",

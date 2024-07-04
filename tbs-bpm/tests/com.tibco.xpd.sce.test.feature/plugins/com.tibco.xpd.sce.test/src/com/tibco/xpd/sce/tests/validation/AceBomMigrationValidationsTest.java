@@ -33,6 +33,7 @@ public class AceBomMigrationValidationsTest
 
     public AceBomMigrationValidationsTest() {
         super(true);
+		cleanProjectAtEnd = false;
     }
 
     /**
@@ -128,12 +129,21 @@ public class AceBomMigrationValidationsTest
                                 "BPM  : Only Text, Number, Date, Time, Date-Time with Timezone, URI and Boolean simple types are supported for attributes (object (com.example.unsupportedattribtypes))", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedAttribTypes.bom", //$NON-NLS-1$
-                                "ace.bom.illegal.property.type", //$NON-NLS-1$
-                                "_baH5cGAsEemjK7MhjOTqUg", //$NON-NLS-1$
-                                "BPM  : Only Text, Number, Date, Time, Date-Time with Timezone, URI and Boolean simple types are supported for attributes (integer (com.example.unsupportedattribtypes))", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
+						/*
+						 * Sid ACE-8511 possibly because of ACE-8497 fix for migration, the migration of Integer -->
+						 * Fixed Point Number is now working so shouldn't get this error.
+						 * 
+						 * This was due to Format-Version of UnsupportedAttribTypes being '6' as compared which caused
+						 * non-migration
+						 */
+						// new ValidationsTestProblemMarkerInfo(
+						// "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedAttribTypes.bom",
+						// //$NON-NLS-1$
+						// "ace.bom.illegal.property.type", //$NON-NLS-1$
+						// "_baH5cGAsEemjK7MhjOTqUg", //$NON-NLS-1$
+						// "BPM : Only Text, Number, Date, Time, Date-Time with Timezone, URI and Boolean simple types
+						// are supported for attributes (integer (com.example.unsupportedattribtypes))", //$NON-NLS-1$
+						// ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedAttribTypes.bom", //$NON-NLS-1$
@@ -205,12 +215,22 @@ public class AceBomMigrationValidationsTest
                                 "BPM  : Only Text, Number, Date, Time, Date-Time with Timezone, URI and Boolean simple types are supported for Primitive Type definitions (ID PrimitiveType (com.example.unsupportedattribtypes))", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedAttribTypes.bom", //$NON-NLS-1$
-                                "ace.bom.illegal.primitive.type", //$NON-NLS-1$
-                                "_zqvvQGAtEemjK7MhjOTqUg", //$NON-NLS-1$
-                                "BPM  : Only Text, Number, Date, Time, Date-Time with Timezone, URI and Boolean simple types are supported for Primitive Type definitions (Integer PrimitiveType (com.example.unsupportedattribtypes))", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
+						/*
+						 * Sid ACE-8511 possibly because of ACE-8497 fix for migration, the migration of Integer -->
+						 * Fixed Point Number is now working so shouldn't get this error.
+						 * 
+						 * This was due to Format-Version of UnsupportedAttribTypes being '6' as compared which caused
+						 * non-migration
+						 */
+						// new ValidationsTestProblemMarkerInfo(
+						// "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedAttribTypes.bom",
+						// //$NON-NLS-1$
+						// "ace.bom.illegal.primitive.type", //$NON-NLS-1$
+						// "_zqvvQGAtEemjK7MhjOTqUg", //$NON-NLS-1$
+						// "BPM : Only Text, Number, Date, Time, Date-Time with Timezone, URI and Boolean simple types
+						// are supported for Primitive Type definitions (Integer PrimitiveType
+						// (com.example.unsupportedattribtypes))", //$NON-NLS-1$
+						// ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedAttribTypes.bom", //$NON-NLS-1$
@@ -240,12 +260,21 @@ public class AceBomMigrationValidationsTest
                                 "BPM  : Case classes must have a case state attribute (Unsupported Case Attribs (no case state, composite attribs) (com.example.unsupportedconstructs))", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
-                                "ace.bom.class.superclass", //$NON-NLS-1$
-                                "_BNma0GAvEemjK7MhjOTqUg", //$NON-NLS-1$
-                                "BPM  : Super-classing / generalisation is not supported for classes (Invalid Class Generalisation (com.example.unsupportedconstructs))", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
+						/*
+						 * Sid ACE-8511 possibly because of ACE-8497 fix for migration, the migration of Generalisation
+						 * is now working so shouldn't get this error.
+						 * 
+						 * This was due to Format-Version of UnsupportedAttribTypes being '6' as compared which caused
+						 * non-migration
+						 */
+						// new ValidationsTestProblemMarkerInfo(
+						// "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom",
+						// //$NON-NLS-1$
+						// "ace.bom.class.superclass", //$NON-NLS-1$
+						// "_BNma0GAvEemjK7MhjOTqUg", //$NON-NLS-1$
+						// "BPM : Super-classing / generalisation is not supported for classes (Invalid Class
+						// Generalisation (com.example.unsupportedconstructs))", //$NON-NLS-1$
+						// ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
@@ -289,12 +318,19 @@ public class AceBomMigrationValidationsTest
                                 "BPM  : Only case classes can contain case state attributes (caseState1 (com.example.unsupportedconstructs))", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
-                                "ace.bom.class.operation", //$NON-NLS-1$
-                                "_n4sLkGAvEemjK7MhjOTqUg", //$NON-NLS-1$
-                                "BPM  : Class operations are not supported (operationsAreUnsupported (com.example.unsupportedconstructs))", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
+						/*
+						 * Sid ACE-8511 possibly because of ACE-8497 fixing bom formatVersion comparison check for
+						 * migration the migration of Integer --> Fixed Point Number is now working so shouldn't get
+						 * this error.
+						 */
+						// new ValidationsTestProblemMarkerInfo(
+						// "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom",
+						// //$NON-NLS-1$
+						// "ace.bom.class.operation", //$NON-NLS-1$
+						// "_n4sLkGAvEemjK7MhjOTqUg", //$NON-NLS-1$
+						// "BPM : Class operations are not supported (operationsAreUnsupported
+						// (com.example.unsupportedconstructs))", //$NON-NLS-1$
+						// ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
