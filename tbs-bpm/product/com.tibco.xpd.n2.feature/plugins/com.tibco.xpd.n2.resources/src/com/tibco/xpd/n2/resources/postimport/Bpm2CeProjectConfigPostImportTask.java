@@ -59,7 +59,8 @@ import com.tibco.xpd.resources.util.XpdConsts;
  * <li>Replaces all destination environments with the "CE" destination</i>
  * <li>Remove all AMX-BPM build folders: .bpm, .bom2Xsd, .bomJars, .processOut, .deModulesOutput</li>
  * <li>Resets all project versions to <current major version>.0.0</li>
- * <li>Moves generated BOMs to user defined BOM folders</li>
+ * <li>Sid ACE-8350 <b>Removed migration</b> - "Moves generated BOMs to user defined BOM folders"</li>
+ * <li>Sid ACE-8350 Remove 'generated' config from Generated BOMs special folder</li>
  * <li>Removes unwanted user-visible special folders (Service Descriptors etc)</li>
  * <li>Removes unwanted project asset configurations</li>
  * <li>Removes unwanted project natures and builders</li>
@@ -113,7 +114,7 @@ public class Bpm2CeProjectConfigPostImportTask
 
                         removeSpecialBuildFolders(projectConfig, monitor);
 
-                        moveGeneratedBOMs(projectConfig, monitor);
+                        unsetGeneratedConfigOnGeneratedBomFolders(projectConfig, monitor);
 
                         removeUnwantedSpecialUserFolders(projectConfig,
                                 monitor);
@@ -308,79 +309,45 @@ public class Bpm2CeProjectConfigPostImportTask
     }
 
     /**
-     * Move generated BOM files to user defined "Business Objects" BOM folder
-     * 
-     * @param projectConfig
-     * @param monitor
-     * @throws CoreException
-     */
-    private void moveGeneratedBOMs(ProjectConfig projectConfig,
+	 * "Remove 'generated' config from generated BOM special folders
+	 * 
+	 * Sid ACE-8350 used to be "Move generated BOM files" but we don't want to do that anymore. Sid ACE-8358 Remove
+	 * 'generated' setting from previously generated BOMs special folders
+	 * 
+	 * @param projectConfig
+	 * @param monitor
+	 * @throws CoreException
+	 */
+    private void unsetGeneratedConfigOnGeneratedBomFolders(ProjectConfig projectConfig,
             SubMonitor monitor) throws CoreException {
         monitor.subTask(
                 Messages.Bpm2CeProjectConfigPostImportTask_MovingGenBOMs_status);
 
         try {
-            /*
-             * Find generated BOM folders...
-             */
-            SpecialFolder userBomSpecialFolder = null;
-
             SpecialFolders specialFolders = projectConfig.getSpecialFolders();
 
             if (specialFolders != null) {
-                /*
-                 * Copy the list as we may add a new special folder during
-                 * processing.
-                 */
-                Collection<SpecialFolder> copySpecialFolders =
-                        new ArrayList<>();
-                copySpecialFolders.addAll(specialFolders.getFolders());
-
-                for (SpecialFolder specialFolder : copySpecialFolders) {
+				/*
+				 * Sid ACE-8350/ACE-8358 We no longer remove "Generated Business Objects" special folders on migration
+				 * to 5.x
+				 *
+				 * Instead, we keep them and their .bom files in place, BUT we do need to remove the 'generated' config
+				 * from them so that they get validated.
+				 */
+				for (SpecialFolder specialFolder : specialFolders.getFolders())
+				{
                     if (BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND
                             .equals(specialFolder.getKind())
                             && BOMValidationUtil.GENERATED_BOM_FOLDER_TYPE
-                                    .equals(specialFolder.getGenerated())
-                            && specialFolder.getFolder() != null
-                            && specialFolder.getFolder().exists()) {
-
-                        /*
-                         * Find or create the a defined BOM folder in the given
-                         * project if we haven't already.
-                         */
-                        if (userBomSpecialFolder == null) {
-                            userBomSpecialFolder =
-                                    findOrCreateUserBomFolder(projectConfig,
-                                            specialFolders);
-                        }
-
-                        /*
-                         * Move all the generated BOM content to user defined
-                         * BOM folder.
-                         */
-                        moveBOMsToUserFolder(projectConfig,
-                                specialFolder,
-                                userBomSpecialFolder);
-
-                        /*
-                         * Note: We don't remove the generated BOM folder here,
-                         * that'll be done later in the migration process.
-                         */
+									.equals(specialFolder.getGenerated()))
+					{
+						specialFolder.setGenerated(null);
                     }
                 }
             }
-
-        } catch (CoreException e) {
-            e.printStackTrace();
-
-            String message =
-                    "During project import conversion caught error moving generated BOMs to user defined BOM folders: " //$NON-NLS-1$
-                            + e.getMessage();
-            BundleActivator.getDefault().getLogger().error(message);
-
-            throw new CoreException(new Status(IStatus.ERROR,
-                    BundleActivator.PLUGIN_ID, message));
-        } finally {
+		}
+		finally
+		{
             monitor.subTask(""); //$NON-NLS-1$
             monitor.worked(1);
         }

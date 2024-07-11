@@ -31,7 +31,8 @@ public class MoveBomsToBizDataProjectResolution
         super(Messages.MoveBomsToBizDataProjectResolution_SelectBizDataProject_title,
                 Messages.MoveBomsToBizDataProjectResolution_NoBizDataProjects_message,
                 Messages.MoveBomsToBizDataProjectResolution_Success_message,
-                Messages.MoveBomsToBizDataProjectResolution_ErrorMovingBOMS_message);
+				Messages.MoveBomsToBizDataProjectResolution_ErrorMovingBOMS_message,
+				AbstractMoveAssetsToOwnProjectResolution.MoveTargetType.PROJECT);
     }
 
     /**

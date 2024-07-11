@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://example.com/datawithservices1" xmlns:tns2="http://example.com/datawithservices1"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://example.com/datawithservices1">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/v433_DataWithServices/Business Objects/DataWithServices.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="Class1" id="_3r93wDerEe-NadEsOut8wA" name="Class1">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns2:Class2">
+        <xsd:sequence>
+          <xsd:element ecore:name="attribute1" id="_4MLo4DerEe-NadEsOut8wA" maxOccurs="1"
+              minOccurs="0" name="attribute1">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element ecore:name="attribute2" id="_4QEqYDerEe-NadEsOut8wA" maxOccurs="1"
+              minOccurs="0" name="attribute2">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element ecore:name="attribute3" id="_eK2YgDesEe-NadEsOut8wA" maxOccurs="1"
+              minOccurs="0" name="attribute3">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Class2" id="_360MEDerEe-NadEsOut8wA" name="Class2">
+    <xsd:sequence>
+      <xsd:element ecore:name="attribute1b" id="_4WXfoDerEe-NadEsOut8wA" maxOccurs="1"
+          minOccurs="0" name="attribute1b">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="attribute2b" id="_4aaSIDerEe-NadEsOut8wA" maxOccurs="1"
+          minOccurs="0" name="attribute2b">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Class1Element" type="Class1"/>
+  <xsd:element name="Class2Element" type="Class2"/>
+</xsd:schema>

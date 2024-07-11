@@ -29,7 +29,8 @@ public class MoveOrgsToOrgProjectResolution
         super(Messages.MoveOrgsToOrgProjectResolution2_SelectOrgProject_title,
                 Messages.MoveOrgsToOrgProjectResolution2_NoOrgProjects_message,
                 Messages.MoveOrgsToOrgProjectResolution2_Success_message,
-                Messages.MoveOrgsToOrgProjectResolution2_ErrorMovingOrgs_message);
+				Messages.MoveOrgsToOrgProjectResolution2_ErrorMovingOrgs_message,
+				AbstractMoveAssetsToOwnProjectResolution.MoveTargetType.SPECIAL_FOLDER);
     }
 
     /**

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.example.org/NewWSDLFile/" xmlns:tns1="http://www.example.org/NewWSDLFile/"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.example.org/NewWSDLFile/">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/v433_DataWithServices/Generated Business Objects/org.example.NewWSDLFile.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="NewOperation" nillable="false">
+    <xsd:complexType ecore:name="NewOperationType" id="org.example.NewWSDLFileNewOperationType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="in1" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="in" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="NewOperationResponse" nillable="false">
+    <xsd:complexType ecore:name="NewOperationResponseType" id="org.example.NewWSDLFileNewOperationResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="out" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="out" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="NewOperation2" nillable="false">
+    <xsd:complexType ecore:name="NewOperation2Type" id="org.example.NewWSDLFileNewOperation2Type"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="in1" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="in" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="NewOperation2Response" nillable="false">
+    <xsd:complexType ecore:name="NewOperation2ResponseType" id="org.example.NewWSDLFileNewOperation2ResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="out" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="out" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

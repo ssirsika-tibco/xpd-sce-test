@@ -39,7 +39,6 @@ import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.utils.BOMUtils;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
-import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.datamapper.api.DataMapperUtils;
 import com.tibco.xpd.presentation.channels.Channel;
@@ -55,6 +54,7 @@ import com.tibco.xpd.resources.projectconfig.ProjectDetails;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
 import com.tibco.xpd.resources.projectconfig.SpecialFolders;
 import com.tibco.xpd.resources.util.ProjectImporter;
+import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.resources.util.XpdConsts;
@@ -120,6 +120,37 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
             }
         }
     }
+
+	/**
+	 * Test ACE-8497 v4.3.3 Studio BOM fiels are not migrated.
+	 * 
+	 * (originally discovered during ACE-6518 task implementation, so test added here)
+	 */
+	public void testV433BOMDataProjectMigration()
+	{
+		String projectName = "v433_DataWithServices"; //$NON-NLS-1$
+		ProjectImporter projectImporter = null;
+
+		try
+		{
+			projectImporter = doTestProject(projectName, 1);
+
+			IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("v433_DataWithServices"); //$NON-NLS-1$
+
+			assertFalse(projectName
+					+ " project should import with no problem markers but has...\n" //$NON-NLS-1$
+					+ TestUtil.getErrorProblemMarkerList(project, true) + "\n", //$NON-NLS-1$
+					TestUtil.hasErrorProblemMarker(
+							project, true, "v433_DataWithServices")); //$NON-NLS-1$
+		}
+		finally
+		{
+			if (projectImporter != null)
+			{
+				projectImporter.performDelete();
+			}
+		}
+	}
 
     // @Test
     public void testOrgProjectMigration() {
@@ -778,7 +809,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
     }
 
     @Test
-    public void testGenBomMoveMigration1_UserBomAlreadyExists() {
+    public void testGenBomNotMovedMigration1_UserBomAlreadyExists() {
         String projectName = "ProjectMigrationTest_GenAndUserBOMData"; //$NON-NLS-1$
         ProjectImporter projectImporter = null;
 
@@ -788,38 +819,47 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
             IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 
             /*
-             * Check that the expected BOMs are in new location and not in old location.
-             */
-            assertTrue(
-                    "Generated BOM 'Generated Business Objects/org.example.NewWSDLFile.bom' should not be in generated BOM folder", //$NON-NLS-1$
-                    !project.getFile("Generated Business Objects/org.example.NewWSDLFile.bom") //$NON-NLS-1$
-                            .exists());
+			 * Sid ACE-8350 (NOW) Check that the expected BOMs are in SAME location and not moved to user-defined
+			 * location.
+			 */
+			IFile genBomFile = project.getFile("Generated Business Objects/org.example.NewWSDLFile.bom"); //$NON-NLS-1$
+			assertTrue(
+					"Generated BOM 'Generated Business Objects/org.example.NewWSDLFile.bom' should be left in generated BOM folder", //$NON-NLS-1$
+					genBomFile.exists());
 
-            assertTrue(
-                    "Generated BOM 'Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should not be in generated BOM folder", //$NON-NLS-1$
-                    !project.getFile("Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom") //$NON-NLS-1$
-                            .exists());
+			IFile genBomFile1 = project.getFile("Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom"); //$NON-NLS-1$
+			assertTrue(
+					"Generated BOM 'Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should be left in generated BOM folder", //$NON-NLS-1$
+					genBomFile1.exists());
+
+			/*
+			 * Sid ACE-8358 Check that generated business objects special folder has had 'generated' config unset, so
+			 * that it's now treated as a user defined boms folder.
+			 */
+			assertFalse(
+					"4.x Generated BOM 'Generated Business Objects' special folder should not be tagged as 'generated'", //$NON-NLS-1$
+					ProjectUtil.isGeneratedProject(projectName));
 
             IFile newWSDLFilebom = project.getFile("Business Objects/org.example.NewWSDLFile.bom"); //$NON-NLS-1$
             assertTrue(
-                    "Generated BOM 'Business Objects/org.example.NewWSDLFile.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
-                    newWSDLFilebom.exists());
+					"Generated BOM 'Business Objects/org.example.NewWSDLFile.bom' should have not been moved to user defined BOM folder", //$NON-NLS-1$
+					!newWSDLFilebom.exists());
 
             IFile subNewWsdlFile1bom = project.getFile("Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom"); //$NON-NLS-1$
             assertTrue(
-                    "Generated BOM 'Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
-                    subNewWsdlFile1bom.exists());
+					"Generated BOM 'Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should not have been moved to user defined BOM folder", //$NON-NLS-1$
+					!subNewWsdlFile1bom.exists());
 
             /*
              * Check that moved boms have had the 'global data capability' added
              */
             assertTrue(
-                    "Generated BOM 'Business Objects/org.example.NewWSDLFile.bom' should have had global data capability added", //$NON-NLS-1$
-                    BOMGlobalDataUtils.isGlobalDataBOM(newWSDLFilebom));
+					"Generated BOM 'Generated Business Objects/org.example.NewWSDLFile.bom' should have had global data capability added", //$NON-NLS-1$
+					BOMGlobalDataUtils.isGlobalDataBOM(genBomFile));
 
             assertTrue(
-                    "Generated BOM 'Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should have had global data capability added", //$NON-NLS-1$
-                    BOMGlobalDataUtils.isGlobalDataBOM(subNewWsdlFile1bom));
+					"Generated BOM 'Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should have had global data capability added", //$NON-NLS-1$
+					BOMGlobalDataUtils.isGlobalDataBOM(genBomFile1));
 
         } finally {
             if (projectImporter != null) {
@@ -828,77 +868,11 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         }
     }
 
-    @Test
-    public void testGenBomMoveMigration1_UserBomNotExist() {
-        String projectName = "ProjectMigrationTest_GenBOMOnly"; //$NON-NLS-1$
-        ProjectImporter projectImporter = null;
-
-        try {
-            projectImporter = doTestProject(projectName, 1);
-
-            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
-            /*
-             * Check that the expected BOMs are in new location and not in old location.
-             */
-            assertTrue(
-                    "Generated BOM 'Generated Business Objectsorg.example.ShouldMigrateToUserDefWSDL.bom' should not be in generated BOM folder", //$NON-NLS-1$
-                    !project.getFile("Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom") //$NON-NLS-1$
-                            .exists());
-
-            assertTrue(
-                    "Generated BOM 'Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom' should not be in generated BOM folder", //$NON-NLS-1$
-                    !project.getFile("Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom") //$NON-NLS-1$
-                            .exists());
-
-            IFile shouldMigrateToUserdDefWSDLbom =
-                    project.getFile("Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom"); //$NON-NLS-1$
-            assertTrue(
-                    "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
-                    shouldMigrateToUserdDefWSDLbom.exists());
-
-            IFile shouldMigrateToUserDefWSDL2bom =
-                    project.getFile("Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom"); //$NON-NLS-1$
-            assertTrue(
-                    "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
-                    shouldMigrateToUserDefWSDL2bom.exists());
-
-            /*
-             * Check that moved boms have had the 'global data capability' added
-             */
-            assertTrue(
-                    "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have had global data capability added", //$NON-NLS-1$
-                    BOMGlobalDataUtils.isGlobalDataBOM(shouldMigrateToUserdDefWSDLbom));
-
-            assertTrue(
-                    "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have had global data capability added", //$NON-NLS-1$
-                    BOMGlobalDataUtils.isGlobalDataBOM(shouldMigrateToUserDefWSDL2bom));
-
-            /* Check that special folder has been added. */
-            ProjectConfig projectConfig = XpdResourcesPlugin.getDefault().getProjectConfig(project);
-
-            boolean found = false;
-            for (SpecialFolder specialFolder : projectConfig.getSpecialFolders()
-                    .getFoldersOfKind(BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND)) {
-                if (specialFolder.getGenerated() == null) {
-                    if (specialFolder.getFolder().exists()) {
-                        if ("Business Objects" //$NON-NLS-1$
-                                .equals(specialFolder.getFolder().getName())) {
-                            found = true;
-                        }
-                    }
-                }
-            }
-
-            assertTrue("User defined 'Business Objects' folder is not configured as a Special Folder", //$NON-NLS-1$
-                    found);
-
-        } finally {
-            if (projectImporter != null) {
-                projectImporter.performDelete();
-            }
-        }
-
-    }
+	/**
+	 * Sid ACE-8350 As we no longer move generated BOMs to user defined BOMs folder, there's nothing really to test for
+	 * 'If user defined BOM folders doesn't exist' use case
+	 */
+	// public void testGenBomMoveMigration1_UserBomNotExist()
 
     @Test
     public void testPresentationChannelMigration() {
@@ -1679,28 +1653,6 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 
         assertTrue("Project should have no '.daabin' folder", //$NON-NLS-1$
                 !project.getFolder(".daabin").exists()); //$NON-NLS-1$
-
-        /*
-         * ACE-457 Check that unwanted 'Generate Business Objects' special folder was removed.
-         */
-        boolean found = false;
-
-        for (SpecialFolder specialFolder : projectConfig.getSpecialFolders()
-                .getFoldersOfKind(BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND)) {
-            if (BOMValidationUtil.GENERATED_BOM_FOLDER_TYPE.equals(specialFolder.getGenerated())) {
-                found = true;
-            }
-        }
-
-        if (!found) {
-            /*
-             * check the actual folder even if special folder removed from .config
-             */
-            found = projectConfig.getProject().getFolder("Generated Business Objects").exists(); //$NON-NLS-1$
-        }
-
-        assertTrue("'Generated Business Objects' folder has not been removed from Special Folders / file system", //$NON-NLS-1$
-                !found);
 
         /*
          * Make sure all generated/user defined WSDL folders have been removed.

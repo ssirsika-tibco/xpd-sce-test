@@ -56,28 +56,57 @@ import com.tibco.xpd.validation.resolutions.ResolutionException;
 public abstract class AbstractMoveAssetsToOwnProjectResolution
         implements IResolution {
 
-    private String dialogTitle;
-
-    private String noTargetProjectsMessage;
-
-    private String successFullyMovedMessage;
-
-    private String errorMovingAssetsMessage;
 
     /**
-     * @param dialogTitle
-     * @param noTargetProjectsMessage
-     * @param successFullyMovedMessage
-     * @param errorMovingAssetsMessage
-     */
+	 * Sid ACE-8356 new enum to direct type of behaviour required for asset move
+	 *
+	 * @author aallway
+	 * @since 4 Jul 2024
+	 */
+	public enum MoveTargetType
+	{
+		/**
+		 * Move all assets to single target special folder
+		 */
+		SPECIAL_FOLDER,
+		/**
+		 * Re-create folder structure of all assets in target folder (createing special folders in target project as
+		 * required.
+		 */
+		PROJECT
+	}
+
+	private MoveTargetType	moveTargetType;
+
+	private String			dialogTitle;
+
+	private String			noTargetProjectsMessage;
+
+	private String			successFullyMovedMessage;
+
+	private String			errorMovingAssetsMessage;
+
+	/**
+	 * @param dialogTitle
+	 * @param noTargetProjectsMessage
+	 * @param successFullyMovedMessage
+	 * @param errorMovingAssetsMessage
+	 * @param moveTargetType
+	 *            Allows selection of target type, allowing either move of all source assets to a single special folder
+	 *            OR all assets preserving original special folder structure.
+	 */
     protected AbstractMoveAssetsToOwnProjectResolution(String dialogTitle,
             String noTargetProjectsMessage, String successFullyMovedMessage,
-            String errorMovingAssetsMessage) {
+			String errorMovingAssetsMessage, MoveTargetType moveTargetType)
+	{
         super();
         this.dialogTitle = dialogTitle;
         this.noTargetProjectsMessage = noTargetProjectsMessage;
         this.successFullyMovedMessage = successFullyMovedMessage;
         this.errorMovingAssetsMessage = errorMovingAssetsMessage;
+
+		/* Sid ACE-8356 Allow selection of move target type. */
+		this.moveTargetType = moveTargetType;
     }
 
     /**
@@ -122,27 +151,40 @@ public abstract class AbstractMoveAssetsToOwnProjectResolution
         if (marker.getResource() instanceof IProject) {
             final IProject project = (IProject) marker.getResource();
             try {
-                /*
-                 * Ask user for the target special folder.
-                 */
-                SpecialFolder tgtSpecialFolder =
-                        getTargetSpecialFolder(project);
+				/*
+				 * Ask user for the target special folder or project depending on our startup configuration
+				 * 
+				 * Sid ACE-8356 refactored to allow for either project or special folder target
+				 */
+				Object target = getTargetSpecialFolderOrProject(project);
 
-                if (tgtSpecialFolder != null) {
-                    /*
-                     * Go thru all the source project's special folders moving
-                     * all assets from them into target.
-                     */
-                    List<SpecialFolder> srcSpecialFolders = SpecialFolderUtil
-                            .getAllSpecialFoldersOfKind(project,
-                                    getSpecialFolderKind());
+				if (target instanceof SpecialFolder || target instanceof IProject)
+				{
 
-                    if (srcSpecialFolders != null) {
-                        for (SpecialFolder srcSpecialFolder : srcSpecialFolders) {
-                            moveAssetsToUserFolder(srcSpecialFolder,
-                                    tgtSpecialFolder);
-                        }
-                    }
+					/*
+					 * Go thru all the source project's special folders moving all assets from them into target.
+					 */
+					List<SpecialFolder> srcSpecialFolders = SpecialFolderUtil.getAllSpecialFoldersOfKind(project,
+							getSpecialFolderKind());
+
+					if (srcSpecialFolders != null)
+					{
+						for (SpecialFolder srcSpecialFolder : srcSpecialFolders)
+						{
+							moveAssetsToUserFolder(srcSpecialFolder, target);
+						}
+					}
+
+					IProject tgtProject;
+
+					if (target instanceof SpecialFolder)
+					{
+						tgtProject = ((SpecialFolder) target).getProject();
+					}
+					else
+					{
+						tgtProject = (IProject) target;
+					}
 
                     /*
                      * Clean up the existing project (removing assets, special
@@ -159,7 +201,6 @@ public abstract class AbstractMoveAssetsToOwnProjectResolution
                             new ArrayList<IProject>(Arrays.asList(
                                     description.getReferencedProjects()));
 
-                    IProject tgtProject = tgtSpecialFolder.getProject();
                     if (!projectDependencies.contains(tgtProject)) {
                         projectDependencies.add(tgtProject);
 
@@ -179,6 +220,9 @@ public abstract class AbstractMoveAssetsToOwnProjectResolution
                             String.format(successFullyMovedMessage,
                                     tgtProject.getName()));
                 }
+				else {
+					throw new Exception("Unxpected selection from dialog"); //$NON-NLS-1$
+				}
 
             } catch (Exception e) {
                 BxValidationPlugin.getDefault().getLogger().error(e,
@@ -196,13 +240,14 @@ public abstract class AbstractMoveAssetsToOwnProjectResolution
     }
 
     /**
-     * Ask the user to select a target asset special folder
-     * 
-     * @param srcProject
-     * 
-     * @return the special folder chosen or <code>null</code> if user cancelled.
-     */
-    private SpecialFolder getTargetSpecialFolder(IProject srcProject) {
+	 * Ask the user to select a target asset special folder
+	 * 
+	 * @param srcProject
+	 * 
+	 * @return the projet OR special folder chosen or <code>null</code> if user cancelled.
+	 */
+	private Object getTargetSpecialFolderOrProject(IProject srcProject)
+	{
         List<IProject> targetProjects = getAllTargetProjects(srcProject);
 
         if (targetProjects.isEmpty()) {
@@ -216,14 +261,30 @@ public abstract class AbstractMoveAssetsToOwnProjectResolution
             return null;
         }
 
-        ISelectionStatusValidator validator =
-                new TypedElementSelectionValidator(
-                        new Class[] { SpecialFolder.class }, false);
+        /* Sid ACE-8356 Allow selection of move target type. */
+		ISelectionStatusValidator validator;
+		if (MoveTargetType.PROJECT.equals(moveTargetType))
+		{
+			validator = new TypedElementSelectionValidator(new Class[]{IProject.class}, false);
+		}
+		else
+		{
+			validator = new TypedElementSelectionValidator(new Class[]{SpecialFolder.class}, false);
+		}
 
         ArrayList<Object> rejectedElements = new ArrayList<Object>(0);
-        ViewerFilter typedFilter = new TypedViewerFilter(
-                new Class[] { IProject.class, SpecialFolder.class },
-                rejectedElements.toArray());
+        
+        /* Sid ACE-8356 Allow selection of move target type. */
+        ViewerFilter typedFilter;
+		if (MoveTargetType.PROJECT.equals(moveTargetType))
+		{
+			typedFilter = new TypedViewerFilter(new Class[]{IProject.class}, rejectedElements.toArray());
+		}
+		else
+		{
+			typedFilter = new TypedViewerFilter(new Class[]{IProject.class, SpecialFolder.class},
+					rejectedElements.toArray());
+		}
 
         ElementTreeSelectionDialog dialog =
                 new ElementTreeSelectionDialog(
@@ -240,8 +301,10 @@ public abstract class AbstractMoveAssetsToOwnProjectResolution
         if (dialog.open() == Dialog.OK) {
             Object selection = dialog.getFirstResult();
 
-            if (selection instanceof SpecialFolder) {
-                return (SpecialFolder) selection;
+			/* Sid ACE-8356 Allow selection of move target type. */
+			if (selection instanceof SpecialFolder || selection instanceof IProject)
+			{
+                return selection;
             }
         }
 
@@ -288,46 +351,111 @@ public abstract class AbstractMoveAssetsToOwnProjectResolution
     }
 
     /**
-     * Move all the assets in the given source project special folder to the
-     * target project
-     * 
-     * @param srcSpecialFolder
-     * @param tgtSpecialFolder
-     * @throws CoreException
-     */
+	 * Move all the assets in the given source project special folder to the target project or special-folder
+	 * 
+	 * @param srcSpecialFolder
+	 * @param target
+	 * @throws CoreException
+	 */
     private void moveAssetsToUserFolder(SpecialFolder srcSpecialFolder,
-            SpecialFolder tgtSpecialFolder) throws CoreException {
+			Object target) throws CoreException
+	{
+		/*
+		 * Sid ACE-8356 Refactored to support copying ass assets to single special-folder or (now) all assets to a
+		 * target project, replicating the original special folders.
+		 */
 
         IPath srcFolderPath = srcSpecialFolder.getFolder().getFullPath();
-        IFolder tgtFolder = tgtSpecialFolder.getFolder();
-        IPath tgtFolderPath = tgtFolder.getFullPath();
 
         /* Get all asset files from source folder. */
         Collection<IResource> assetFiles =
                 getSourceAssetsToMove(srcSpecialFolder);
 
-        /* Move them to target folder, creating target folder as we go. */
-        for (IResource assetFile : assetFiles) {
-            IContainer assetSrcFolder = assetFile.getParent();
+		if (!assetFiles.isEmpty())
+		{
+			SpecialFolder tgtSpecialFolder = null;
 
-            IPath assetSrcParentPath = assetSrcFolder.getFullPath();
-            IPath assetParentRelativePath =
-                    assetSrcParentPath.makeRelativeTo(srcFolderPath);
+			if (target instanceof SpecialFolder)
+			{
+				/*
+				 * Original behaviour of selecting a single target special folder to copy all source assets into
+				 */
+				tgtSpecialFolder = (SpecialFolder) target;
+			}
+			else
+			{
+				/*
+				 * Sid ACE-8356 If moving to folder then recreate the special folder in the target if it doesn't already
+				 * exist.
+				 */
+				IProject tgtProject = (IProject) target;
 
-            IPath assetTgtParentPath =
-                    tgtFolderPath.append(assetParentRelativePath);
+				/*
+				 * Create the **special folder's** physical itself if it doesn't exist. The code following this section
+				 * will then deal with adding the file (including any sub-folders) under the special folder.
+				 */
 
-            IFolder assetTgtFolder = ResourcesPlugin.getWorkspace().getRoot()
-                    .getFolder(assetTgtParentPath);
-            if (!assetTgtFolder.exists()) {
-                createFolder(assetTgtFolder);
-            }
+				/* First check if there's already a special folder with same name in the target project */
+				List<SpecialFolder> tgtSpecialFolders = SpecialFolderUtil.getAllSpecialFoldersOfKind(tgtProject,
+						getSpecialFolderKind());
 
-            IPath assetTgtFilePath =
-                    assetTgtParentPath.append(assetFile.getName());
-            assetFile.move(assetTgtFilePath, true, null);
+				if (tgtSpecialFolders != null)
+				{
+					for (SpecialFolder sf : tgtSpecialFolders)
+					{
+						if (srcSpecialFolder.getFolder().getName().equals(sf.getFolder().getName()))
+						{
+							tgtSpecialFolder = sf;
+							break;
+						}
+					}
+				}
 
-        }
+				if (tgtSpecialFolder == null)
+				{
+					/* Target special folder doesn't exist yet, create it. */
+					IFolder tgtPhysicalSpecialFolder = tgtProject
+							.getFolder(srcSpecialFolder.getFolder().getProjectRelativePath());
+
+					if (!tgtPhysicalSpecialFolder.exists())
+					{
+						createFolder(tgtPhysicalSpecialFolder);
+					}
+
+					/* Then make it a special-folder of the kinds we're dealing with. */
+					ProjectConfig config = XpdResourcesPlugin.getDefault().getProjectConfig(tgtProject);
+
+					tgtSpecialFolder = config.getSpecialFolders().addFolder(tgtPhysicalSpecialFolder,
+							getSpecialFolderKind());
+				}
+			}
+
+			/* Move them to target folder or project, creating target folder as we go. */
+			for (IResource assetFile : assetFiles)
+			{
+				IContainer assetSrcFolder = assetFile.getParent();
+
+				IPath assetTgtFilePath = null;
+
+				IFolder tgtFolder = tgtSpecialFolder.getFolder();
+				IPath tgtFolderPath = tgtFolder.getFullPath();
+
+				IPath assetSrcParentPath = assetSrcFolder.getFullPath();
+				IPath assetParentRelativePath = assetSrcParentPath.makeRelativeTo(srcFolderPath);
+
+				IPath assetTgtParentPath = tgtFolderPath.append(assetParentRelativePath);
+
+				IFolder assetTgtFolder = ResourcesPlugin.getWorkspace().getRoot().getFolder(assetTgtParentPath);
+				if (!assetTgtFolder.exists())
+				{
+					createFolder(assetTgtFolder);
+				}
+
+				assetTgtFilePath = assetTgtParentPath.append(assetFile.getName());
+
+				assetFile.move(assetTgtFilePath, true, null);
+			}
+		}
     }
 
     /**
