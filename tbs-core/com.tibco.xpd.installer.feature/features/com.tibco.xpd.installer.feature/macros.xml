@@ -94,7 +94,7 @@
     <target name="-copy-eclipse" unless="skip.copy-eclipse">
     	<echo>Coping Eclipse SDK to TP from: ${autobuild.dir.eclipse-4.19}</echo>
     	<copy todir="${installation.root}/components/eclipse">
-    		<fileset dir="${tp.base.eclipse.platform.location}">
+    		<fileset dir="${autobuild.dir.eclipse-4.19}">
     		</fileset>
     	</copy>
     </target>
