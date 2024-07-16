@@ -91,7 +91,7 @@
 
     <!-- Copy Eclipse SDK over the gathered set of features (TP). -->
 	<!-- TODO do the smarter TP unsing p2 -->
-    <target name="-copy-eclipse" if="tp.base.eclipse.platform.location" unless="skip.copy-eclipse">
+    <target name="-copy-eclipse" unless="skip.copy-eclipse">
     	<echo>Coping Eclipse SDK to TP from: ${tp.base.eclipse.platform.location}</echo>
     	<copy todir="${installation.root}/components/eclipse">
     		<fileset dir="${tp.base.eclipse.platform.location}">
