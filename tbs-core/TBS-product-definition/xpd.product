@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="TIBCO Business Studio" uid="com.tibco.xpd.branding.prod" id="com.tibco.xpd.branding.prod" application="org.eclipse.ui.ide.workbench" version="11.2.0" useFeatures="true" includeLaunchers="true">
+<product name="TIBCO Business Studio" uid="com.tibco.xpd.branding.prod" id="com.tibco.xpd.branding.prod" application="org.eclipse.ui.ide.workbench" version="11.2.1" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="icons/about_image.png"/>
@@ -644,8 +644,8 @@
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
-      <property name="osgi.instance.area.default" value="@user.home/workspace" />
       <property name="osgi.splashPath" value="platform:/base/plugins/com.tibco.xpd.branding,file:../../../eclipse-platform/bundlepool/1.0/org.eclipse.equinox.p2.touchpoint.eclipse/plugins/com.tibco.xpd.branding" />
+      <property name="osgi.instance.area.default" value="@user.home/workspace" />
    </configurations>
 
    <preferencesInfo>
