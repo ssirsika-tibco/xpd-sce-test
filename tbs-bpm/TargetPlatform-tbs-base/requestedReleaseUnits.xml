@@ -1,16 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feature id="design.gatherer" version="1.0.0" label="BPM Studio design-time gatherer">
+<feature id="design.gatherer" version="1.0.0" label="BPM Studio base Eclipse/TPCLs target platform">    
 	<requires>
 		<!--
 		====================================================================================================
 		====================================================================================================
 		====================================================================================================
 
-		STUDIO BPM and CORE FEATURES and BASE ECLIPSE DEPENDENCIES
+		TARGET PLATFORM FOR BASE ECLIPSE PLATFORM AND TPCL DEPENDENCIES
 		
-		  Everything here up to the "END STUDIO CORE FEATURES and BASE ECLIPSE DEPENDENCIES" comment below
-		  should be copied from ..\..\tbs-core\TargetPlatform-tbs-core content as is.
-
 		====================================================================================================
 		====================================================================================================
 		====================================================================================================
@@ -102,27 +99,6 @@
 		<import feature="org.eclipse.birt" version="4.9.0" match="compatible"/>
 		<!--  -->
 	
-		<!-- 
-		 THE Studio core features themselves (and installer feature, which I think is only used to build TP??) 
-		-->
-		<import feature="com.tibco.xpd.installer.feature" version="11.3.0" match="compatible" />
-
-		<import feature="com.tibco.xpd.product.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.core.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.core.feature.devdocs" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.deploy.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.scf.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.core.help.feature" version="11.6.0" match="compatible" />
-
-		<!--
-		====================================================================================================
-		END OF STUDIO CORE FEATURES and BASE ECLIPSE DEPENDENCIES
-		
-		  Everything below here is in addition to 
-		  the ..\..\tbs-core\TargetPlatform-tbs-core\requestedReleaseUnits.xml content. 
-		====================================================================================================
-	 	-->
-
 		<!-- Extra Features - Additional (over core feature) -->
 		<!-- Script dependences -->
 		<import feature="org.eclipse.wst.web_core.feature" version="3.21.0" match="compatible"/>
@@ -134,25 +110,6 @@
 		<import feature="org.eclipse.ocl" version="3.14.500" match="compatible"/>
 		<import feature="com.tibco.xpd.tpcl.org.google.gson.feature" version="2.8.5" match="compatible"/>
 	
-		<!-- 
-		   Extra features WST (WSDL services related features I think)
-		   TBD Probably no longer required in BPMe Studio
-		   ==============================================================
-		   org.eclipse.wst.ws_ui.feature (below) imports the following plugins WITHOUT versions
-			this confuses gathers because they appear in the eclipse411.deps and eclipse419.deps features.  
-			If we include *specific* version provided in eclipse419.deps then _hopefully_ it will satisfy gatherer.
-        -->		
-<!--
-	    <import plugin="org.eclipse.wst.command.env.ui" version="1.1.200"/>
-		<import plugin="org.eclipse.wst.command.env.infopop" version="1.0.200"/>
-		<import plugin="org.eclipse.wst.ws.explorer" version="1.0.1100"/>
-		<import plugin="org.eclipse.wst.ws.ui" version="1.1.300"/>
-		<import plugin="org.eclipse.wst.wsdl.ui" version="1.3.100"/>
-		<import plugin="org.eclipse.wst.ws.service.policy.ui" version="1.0.500"/>
-
-        <import feature="org.eclipse.wst.ws_ui.feature" match="compatible" version="3.9.100"/>
--->
-		<!--  -->
 
 		<!-- For the javax.xml.ws and javax.jws removed from Java-8 -->
 		<import feature="org.eclipse.jst.ws.jaxws.feature" version="1.2.700" match="compatible" />	
@@ -203,39 +160,21 @@
 		<import feature="com.tibco.tpcl.org.slf4j.log4j12.feature.eclipse" version="1.7.0.002" match="perfect"/>
  
 		<!-- Forms Features -->
+<!--
 		<import feature="com.tibco.forms.core.feature" version="11.6.0" match="compatible" />
 		<import feature="com.tibco.forms.client.feature" version="11.6.0" match="compatible" />
 		<import feature="com.tibco.xpd.forms.designer.feature" version="11.6.0" match="compatible" />
 		<import feature="com.tibco.xpd.forms.gwt.feature" version="11.6.0" match="compatible" />
 		<import feature="com.tibco.xpd.forms.process.feature" version="11.6.0" match="compatible" />
 		<import feature="com.tibco.xpd.forms.n2.feature" version="11.6.0" match="compatible" />
+-->
 
-		<!--
-		=================================================================================================
-		Base BPM Studio (in addition to Studio Core features and BPM features from other teams)
-		=================================================================================================
-		 -->
-		
-		<!-- BPM Base Features -->
-		<import feature="com.tibco.xpd.script.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.bom.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.om.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.process.editor.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.process.editor.developer.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.process.analyst.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.process.developer.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.tpcl.org.google.gson.feature" version="2.8.5" match="compatible"/>
 
-		<!-- PE Design time features (aka BX owned by us and stored in the Studio  REPO) -->
-		<import feature="com.tibco.bx.design.model.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.bx.designtime.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.bx.extension.designtime.feature" version="11.6.0" match="compatible" />
 
-		<!-- BPM N2 Features -->
-		<import feature="com.tibco.bds.designtime.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.n2.feature" version="11.6.0" match="compatible" />
-		<import feature="com.tibco.xpd.wm.feature" version="11.6.0" match="compatible" /> 
-		<!-- Documentation eclipse features. -->
-		<import feature="com.tibco.xpd.bpm.edition.doc.feature" version="11.6.0" match="compatible" />
+		<!-- 
+		 THE Studio core features themselves (and installer feature, which I think is only used to build TP??) 
+		-->
+		<!-- <import feature="com.tibco.xpd.installer.feature" version="11.3.0" match="compatible" /> -->
+
 	</requires>
 </feature>
