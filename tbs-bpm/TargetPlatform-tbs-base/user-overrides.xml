@@ -69,7 +69,9 @@
 	<!-- Default location of the eclipse that will be copied over the gathered TP. 
 	    (Sid ACE-8524: changed name of property autobuild.dir.eclipse-default as this is only used from com.tibco.xpd.installer.feature\macros.xml (our feature) 
 		Note that currently the com.tibco.xpd.installer.feature for 4.x has NOT been updated to use this, it still uses ${autobuild.dir.eclipse-4.19} property hard-coded-->
-	<property name="tp.base.eclipse.platform.location" location="${autobuild.dir.eclipse-4.19}"/>
+<!-- TODO - REMOVE - THIS ISN'T USED via infra\studio-builds\maven-build\build.xml (I THINK we won't use com.tibco.xpd.installer.feature -->
+	<!-- <property name="tp.base.eclipse.platform.location" location="${autobuild.dir.eclipse-4.19}"/> -->
+	
 	<!--<property name="autobuild.dir.eclipse-default" location="${autobuild.dir.eclipse-4.11}"/> -->
 
 
