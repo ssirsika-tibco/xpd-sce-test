@@ -147,26 +147,6 @@
                </or>
           </enablement>
       </commonWizard>
-      <commonWizard
-            menuGroupId="additions.xpd"
-            type="import"
-            wizardId="org.tigris.subversion.subclipse.ui.wizards.CheckoutWizard">
-         <enablement>
-            <or>
-                  <instanceof
-                        value="org.eclipse.core.resources.IWorkspaceRoot">
-                  </instanceof>
-                  <and>
-                     <instanceof
-                           value="java.util.Collection">
-                     </instanceof>
-                     <count
-                           value="0">
-                     </count>
-                  </and>
-               </or>
-          </enablement>
-      </commonWizard>
       <actionProvider
             class="com.tibco.xpd.resources.ui.internal.actions.ResourceRefactorActionProvider"
             id="com.tibco.xpd.projectExplorer.action.RefactorActions"
