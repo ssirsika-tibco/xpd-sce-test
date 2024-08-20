@@ -19,11 +19,14 @@
 					to prevent builder pulling in later versions that we aren't going to use in reality.
 				Also, this UTB org.tigris.subversion.clientadapter.feature, BUT actual installer contained 
 					org.tigris.subversion.clientadapter.**svnkit**.feature, so changed here so that target-platform is more equivalent to installer.
+		
+		 Sid XPD-8650 Remove SVNKit from Studio install. From now on, users will have to download and install SVNKit themselves 
+		
+			<import feature="org.tigris.subversion.subclipse" version="4.2.4" match="equivalent" />  
+			<import feature="org.tigris.subversion.clientadapter.svnkit.feature" version="1.8.12" match="equivalent" /> 
+			<import feature="org.tmatesoft.svnkit" version="1.8.12" match="equivalent" /> 
 		-->
-		<import feature="org.tigris.subversion.clientadapter.svnkit.feature" version="1.8.12" match="equivalent" /> <!-- Latest on spin = 1.10.1 -->
-		<import feature="org.tigris.subversion.subclipse" version="4.2.4" match="equivalent" />  <!-- Latest on spin = 4.3.0 -->
-		<import feature="org.tmatesoft.svnkit" version="1.8.12" match="equivalent" />  <!-- Latest on spin = 1.10.10 -->
-
+		
 		<!-- Eclipse Test Features and also mockito (so dev TP can be used to run tests).-->
 		<import feature="org.eclipse.test" version="3.7.1400" match="compatible" />
         <import feature="org.mockito.feature" version="1.9.5" match="compatible"/>
