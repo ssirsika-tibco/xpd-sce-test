@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensions xmlns="http://maven.apache.org/EXTENSIONS/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/EXTENSIONS/1.1.0 https://maven.apache.org/xsd/core-extensions-1.0.0.xsd">
+
+
+ <!--  
+ 	FOR MAVEN TYCHO BUILDS the help suggest you need to do this in https://www.vogella.com/tutorials/EclipseTycho/article.html
+ 	
+ 	BUT! It just causes errors like "Exception in thread "main" java.lang.UnsupportedClassVersionError: org/eclipse/core/runtime/IProgressMonitor has been compiled by a more recent version of the Java Runtime"
+ 	     when loading tycho maven extensions.
+ 	     So maybe this is only for later versions of tycho maven plugin (in the help it shows v4.0.8
+ 	       but we HAVE to use 2.7.5 as that's the last version to support Java-11.
+ 
+ <extension>
+    <groupId>org.eclipse.tycho</groupId>
+    <artifactId>tycho-build</artifactId>
+    <version>2.7.5</version>
+  </extension> 
+  
+  -->
+  
+</extensions>
+
