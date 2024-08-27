@@ -759,9 +759,12 @@ public class QuickFixToolTipControl {
                                 .getDefault()
                                 .getImage(QuickFixToolTipConstants.IMG_PREVIOUSDISABLED_SMALL_ICON));
 
-        //
-        // Re-layout
-        rootContainer.layout(true);
+		/*
+		 * Re-layout (Sid ACE-8370 fixed issued noticed during implementation that if 1st problem in tooltip is short
+		 * (1-liner) and subsequent is long (2-liner or more) then problem text doesn't get re-layed out to occupy spare
+		 * space to wrap. So now layout fixed to force 'changed' and 'all' to re-layout all descendant controls.
+		 */
+		rootContainer.layout(true, true);
 
         if (resizeParentShellOnUpdate) {
             Point sz = parentShell.computeSize(SWT.DEFAULT, SWT.DEFAULT, true);

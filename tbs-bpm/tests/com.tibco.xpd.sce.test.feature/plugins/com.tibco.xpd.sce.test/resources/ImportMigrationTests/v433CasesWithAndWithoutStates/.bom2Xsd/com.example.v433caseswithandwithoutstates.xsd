@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://example.com/v433caseswithandwithoutstates" xmlns:tns1="http://example.com/v433caseswithandwithoutstates"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://example.com/v433caseswithandwithoutstates">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/v433CasesWithAndWithoutStates/Business Objects/v433CasesWithAndWithoutStates.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="V4CaseStates" id="_Pndx0EBjEe-sAeKL9g10AA" name="V4CaseStates">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="ENUMLIT1" value="ENUMLIT1"/>
+      <xsd:enumeration ecore:name="ENUMLIT2" value="ENUMLIT2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="CaseWithStates" id="_E_4vIEBjEe-sAeKL9g10AA" name="CaseWithStates">
+    <xsd:sequence>
+      <xsd:element ecore:name="caseIdentifier1" id="_GW2iEEBjEe-sAeKL9g10AA" maxOccurs="1"
+          minOccurs="1" name="caseIdentifier1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="v4CaseState" id="_Mx4EwEBjEe-sAeKL9g10AA" maxOccurs="1"
+          minOccurs="0" name="v4CaseState" type="tns1:V4CaseStates"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="CaseWithoutStates" id="_IqWOsEBjEe-sAeKL9g10AA" name="CaseWithoutStates">
+    <xsd:sequence>
+      <xsd:element ecore:name="caseIdentifier1" id="_K18jkEBjEe-sAeKL9g10AA" maxOccurs="1"
+          minOccurs="1" name="caseIdentifier1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="SecondCaseWithoutStates" id="_EtsEmkBmEe-sAeKL9g10AA"
+      name="SecondCaseWithoutStates">
+    <xsd:sequence>
+      <xsd:element ecore:name="caseIdentifier1" id="_EtsEm0BmEe-sAeKL9g10AA" maxOccurs="1"
+          minOccurs="1" name="caseIdentifier1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="V4CaseStatesElement">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:V4CaseStates"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="CaseWithStatesElement" type="CaseWithStates"/>
+  <xsd:element name="CaseWithoutStatesElement" type="CaseWithoutStates"/>
+  <xsd:element name="SecondCaseWithoutStatesElement" type="SecondCaseWithoutStates"/>
+</xsd:schema>

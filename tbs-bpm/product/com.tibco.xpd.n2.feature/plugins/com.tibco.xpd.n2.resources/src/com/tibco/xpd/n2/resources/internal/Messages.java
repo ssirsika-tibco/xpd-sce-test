@@ -72,7 +72,11 @@ public class Messages extends NLS {
 
     public static String AllowUnqualifiedSubProcIdAdvProp_SetUnsetUnqualifiedNamesCommand_label;
 
-    public static String Bpm2CeBomMigration_RemoveXSDNotationProfile_cmd;
+    public static String Bpm2CeBomMigration_CaseStatesSuffix_label;
+
+	public static String Bpm2CeBomMigration_CaseStateSuffix_label;
+
+	public static String Bpm2CeBomMigration_RemoveXSDNotationProfile_cmd;
 
     public static String Bpm2CeProjectConfigPostImportTask_BusinessObjectsFolderName_label;
 

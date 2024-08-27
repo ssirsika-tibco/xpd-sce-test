@@ -20,24 +20,29 @@ import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
+import org.eclipse.uml2.uml.Type;
 import org.junit.Test;
 
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
+import com.tibco.xpd.bom.modeler.custom.terminalstates.TerminalStateProperties;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.utils.BOMUtils;
+import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.datamapper.api.DataMapperUtils;
@@ -100,6 +105,7 @@ import junit.framework.TestCase;
  * @author aallway
  * @since 22 Mar 2019
  */
+@SuppressWarnings("nls")
 public class Bpm2CeProjectMigrationTest extends TestCase {
 
     // @Test
@@ -122,7 +128,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
     }
 
 	/**
-	 * Test ACE-8497 v4.3.3 Studio BOM fiels are not migrated.
+	 * Test ACE-8497 v4.3.3 Studio BOM files are not migrated.
 	 * 
 	 * (originally discovered during ACE-6518 task implementation, so test added here)
 	 */
@@ -150,6 +156,124 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 				projectImporter.performDelete();
 			}
 		}
+	}
+
+	/**
+	 * Sid ACE-8366 / ACE-8371 - tests for automatic addition of case-state attribute along with corresponding new
+	 * enumeration class
+	 * 
+	 * @throws CoreException
+	 */
+	public void testBOMCaseStatesMigration() throws CoreException
+	{
+		String projectName = "v433CasesWithAndWithoutStates"; //$NON-NLS-1$
+		ProjectImporter projectImporter = null;
+
+		try
+		{
+			projectImporter = doTestProject(projectName, 1);
+
+			IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+
+			/*
+			 * We should have imported the project with only 1 error marker for the existing v4 case-state, which will
+			 * not have a terminal state set.
+			 */
+			Collection<IMarker> errorMarkers = TestUtil.getErrorMarkers(project, true);
+
+			IMarker errorMarker = errorMarkers.iterator().next();
+
+			if (errorMarkers.size() != 1
+					|| !"v433CasesWithAndWithoutStates.bom".equals(errorMarker.getResource().getName())
+					|| !"casestate.no.terminal.states.issue".equals(errorMarker.getAttribute("issueId"))
+					|| !"_Mx4EwEBjEe-sAeKL9g10AA".equals(errorMarker.getAttribute(IMarker.LOCATION)))
+			{
+				fail(projectName
+						+ " should import with a single problem marker 'BPM  : A Case State must have at least one Terminal State set (v4CaseState)' on v4CaseState in v433CasesWithAndWithoutStates.bom, but has...\n"
+						+ TestUtil.getErrorProblemMarkerList(project, true));
+			}
+
+			/*
+			 * Check contents of migrated BOM model
+			 */
+			WorkingCopy workingCopy = WorkingCopyUtil
+					.getWorkingCopy(project.getFile(new Path("Business Objects/v433CasesWithAndWithoutStates.bom")));
+			Model model = (Model) ((BOMWorkingCopy) workingCopy).getRootElement();
+
+			/*
+			 * Check CaseWithoutStates class has been correctly migrated for case-state
+			 */
+			checkAutoAddedCaseState(model, "CaseWithoutStates");
+
+			/*
+			 * Check SecondCaseWithoutStates class has been correctly migrated for case-state
+			 */
+			checkAutoAddedCaseState(model, "SecondCaseWithoutStates");
+		}
+		finally
+		{
+			if (projectImporter != null)
+			{
+				projectImporter.performDelete();
+			}
+		}
+	}
+
+	/**
+	 * Check case class should have had a case state attribute added and a corresponding enumeration with 2 literals
+	 * "Running" and "Complete"
+	 * 
+	 * Asserts if not configured correctly
+	 * 
+	 * Sid ACE-8366 / ACE-8371
+	 * 
+	 * @param model
+	 * @param caseClassName
+	 */
+	private void checkAutoAddedCaseState(Model model, String caseClassName)
+	{
+		Class caseClass = (Class) model.getPackagedElement(caseClassName);
+		assertTrue(BOMGlobalDataUtils.isCaseClass(caseClass));
+
+		// Must have property called 'caseState'
+		Property caseStateProperty = null;
+		for (Property property : caseClass.getOwnedAttributes())
+		{
+			if ("caseState".equals(property.getName()))
+			{
+				caseStateProperty = property;
+				break;
+			}
+		}
+
+		assertNotNull(caseStateProperty);
+
+		// Must be configured as a case-state
+		assertTrue(BOMGlobalDataUtils.isCaseState(caseStateProperty));
+
+		// Must be mandatory
+		assertEquals(1, caseStateProperty.getLower());
+		assertEquals(1, caseStateProperty.getUpper());
+
+		// Sid ACE-8588 Must have aggregation="composite"
+		assertEquals(AggregationKind.COMPOSITE_LITERAL, caseStateProperty.getAggregation());
+
+		// Enumeration type should have been created
+		Type caseStateType = caseStateProperty.getType();
+		assertTrue(caseStateType instanceof Enumeration);
+		// With name based on original case class
+		assertEquals(caseClass.getName() + "CaseStates", caseStateType.getName());
+
+		// With 2 enumerations
+		EList<EnumerationLiteral> caseStateLiterals = ((Enumeration) caseStateType).getOwnedLiterals();
+		assertEquals(2, caseStateLiterals.size());
+		assertEquals("RUNNING", caseStateLiterals.get(0).getName());
+		assertEquals("COMPLETE", caseStateLiterals.get(1).getName());
+		
+		// And COMPLETE is set to terminal state
+		Object terminalState = caseStateProperty.getValue(BOMGlobalDataUtils.getCaseStateStereotype(),
+				TerminalStateProperties.BOM_TERMINAL_STATES);
+		assertEquals(caseStateLiterals.get(1), ((EList) terminalState).get(0));
 	}
 
     // @Test
@@ -394,7 +518,8 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
             Class clazz = (Class) model.getPackagedElement("Customer"); //$NON-NLS-1$
             assertNotNull("Expected to find a Customer class", clazz);
 
-            assertEquals("Customer class should have 3 attributes", 3, clazz.getAttributes().size());
+			/* Sid ACE-8371 Now expect 4 attributes not 3, because we now create missing case-state attribute */
+			assertEquals("Customer class should have 4 attributes", 4, clazz.getAttributes().size());
 
             Property attr = getAttribute(clazz, "autoCaseIdentifier1");
             assertNotNull("Customer.autoCaseIdentifier1 property should exist", attr);
@@ -422,7 +547,8 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
             clazz = (Class) model.getPackagedElement("Person"); //$NON-NLS-1$
             assertNotNull("Expected to find a Person class", clazz);
 
-            assertEquals("Person class should have 4 attributes", 4, clazz.getAttributes().size());
+			/* Sid ACE-8371 Now expect 5 attributes not 3, because we now create missing case-state attribute */
+			assertEquals("Person class should have 5 attributes", 5, clazz.getAttributes().size());
 
             attr = getAttribute(clazz, "autoCaseIdentifier1");
             assertNotNull("Person.autoCaseIdentifier1 property should exist", attr);
@@ -1077,6 +1203,78 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 			 
         }
     }
+
+	/**
+	 * Sid ACE-8369 Added test for case class migration (initially case-id's change to mandatory, later other
+	 * migrations)...
+	 * 
+	 * <li>All case-id's should be changed to mandatory if not already</li>
+	 */
+	public void testCaseClassMigration()
+	{
+		String projectName = "ProjectMigrationTest_CaseData"; //$NON-NLS-1$
+
+		ProjectImporter projectImporter = null;
+
+		try
+		{
+			projectImporter = doTestProject(projectName, 1);
+
+			/*
+			 * General BOM's test will have checked that all case-id's are switched to mandatory, we should also check
+			 * what normal optional attributes are NOT set to mandatory.
+			 */
+			IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+
+			WorkingCopy bomWC = WorkingCopyUtil
+					.getWorkingCopy(project.getFile(new Path("Business Objects/ProjectMigrationTest_CaseData.bom")));
+
+			Model bomModel = (Model) bomWC.getRootElement();
+
+			Property optionalAttribute = getBomPropertyByName(bomModel, "optionalAttribute");
+			assertTrue(
+					"Property 'optionalAttribute' in ProjectMigrationTest_CaseData.bom should have been left as optional",
+					(optionalAttribute.getLower() == 0 && optionalAttribute.getUpper() == 1));
+
+			Property optionalArrayAttribute = getBomPropertyByName(bomModel, "optionalArrayAttribute");
+			assertTrue(
+					"Property 'optionalArrayAttribute' in ProjectMigrationTest_CaseData.bom should have been left as optional",
+					(optionalArrayAttribute.getLower() == 0 && optionalArrayAttribute.getUpper() == -1));
+
+		}
+		finally
+		{
+			if (projectImporter != null)
+			{
+				projectImporter.performDelete();
+			}
+		}
+	}
+
+	/**
+	 * Sid ACE-8369 Added handy getter for BOM properties.
+	 * 
+	 * @param bomModel
+	 * @param propertyName
+	 * 
+	 * @return BOM property with given name from any class in BOM model.
+	 */
+	private Property getBomPropertyByName(Model bomModel, String propertyName)
+	{
+		Property property = null;
+
+		EList<Element> allOwnedElements = bomModel.allOwnedElements();
+
+		for (Element element : allOwnedElements)
+		{
+			if (element instanceof Property && propertyName.equals(((Property) element).getName()))
+			{
+				property = (Property) element;
+				break;
+			}
+		}
+		return property;
+	}
     
 	/**
 	 * @return the Map of expected class<->attributes collection.
@@ -1107,7 +1305,8 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 		classToAttributeMap.put("SuperGlobalClass", Arrays.asList("sgc1", "sgc2"));
 		classToAttributeMap.put("CaseClass",
 				Arrays.asList("caseClass2", "summary", "globalChild", "caseState", "caseID"));
-		classToAttributeMap.put("CaseClass2", Arrays.asList("caseClass", "caseIdentifier"));
+		/* Sid ACE-8371 Now expect caseState attribute to be added automatically. */
+		classToAttributeMap.put("CaseClass2", Arrays.asList("caseClass", "caseIdentifier", "caseState"));
 		classToAttributeMap.put("LowerGeneralClass", Arrays.asList("lowerGeneralAtr", "middleBOMAtr", "baseBOMAtr"));
 		return classToAttributeMap;
 	}
@@ -1537,6 +1736,15 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                             + property.getName()
                             + "' should have been converted from Integer to Decimal, FixedPoint with Zero decimals", //$NON-NLS-1$
                             !(integerType.equals(property.getType())));
+                    
+					/* Sid ACE-8369 - All Case Id attributes should be set to mandatory */
+                    if (BOMGlobalDataUtils.isCID(property)) {
+						assertTrue("Case Identifier Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + property.getName()
+								+ "' should have been set to Mandatory (lower==1, upper==1) if it wasn't already", //$NON-NLS-1$
+								(property.getLower() == 1 && property.getUpper() == 1));
+                    }
+                    
 
                 } else if (element instanceof PrimitiveType) {
                     PrimitiveType primitiveType = (PrimitiveType) element;

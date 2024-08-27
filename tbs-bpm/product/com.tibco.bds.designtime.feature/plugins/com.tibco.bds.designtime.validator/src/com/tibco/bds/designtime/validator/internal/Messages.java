@@ -21,7 +21,13 @@ public class Messages extends NLS {
 
     public static String RenameModelResolution_setModelName_label;
 
-    static {
+    public static String SetAllCaseIdsInWorkspaceToTypeTextResolution_menu;
+
+	public static String SetAllCaseIdsInWorkspaceToTypeTextResolution_message;
+
+	public static String SetAllCaseIdsInWorkspaceToTypeTextResolution_title;
+
+	static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);
     }

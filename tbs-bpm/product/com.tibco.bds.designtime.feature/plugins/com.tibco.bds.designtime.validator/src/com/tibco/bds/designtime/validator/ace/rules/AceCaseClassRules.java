@@ -15,6 +15,7 @@ import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.bom.globaldata.api.AutoCaseIdProperties;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
+import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
@@ -45,8 +46,10 @@ public class AceCaseClassRules implements IValidationRule {
     private static final AutoCaseIdProperties AUTO_CID_PROPS =
             new AutoCaseIdProperties();
 
-    private static final String ISSUE_ACE_COMPOSITE_CASEID =
-            "ace.bom.composite.caseid"; //$NON-NLS-1$
+	/*
+	 * Sid ACE-8370 Composite case-id support - ace.bom.composite.caseid removed as covered by higher-level validation
+	 * that 'must be either single case id or multiple compoisite id's
+	 */
 
     private static final String ISSUE_ACE_CASE_MUST_HAVE_CASESTATE =
             "ace.bom.case.must.have.casestate"; //$NON-NLS-1$
@@ -201,6 +204,15 @@ public class AceCaseClassRules implements IValidationRule {
         List<Property> searchProperties = new ArrayList<>();
         List<Property> summaryProperties = new ArrayList<>();
 
+		/*
+		 * Sid ACE-8370 Sid ACE-8370 Composite case-id support - track what types of composite we have. Then we can
+		 * enforce rule
+		 * 
+		 * "Case classes must have either a single non-composite identifier or multiple composite case identifiers"
+		 */
+		int compositeCaseIdCount = 0;
+		boolean hasNonCompositeId = false;
+
 		// Nikita ACE-7540
 		// Construct a set of classes to be traversed to look for searchable attributes
 		// This is maintained to avoid an infinite loop(cycle) incase of class compositions
@@ -214,6 +226,18 @@ public class AceCaseClassRules implements IValidationRule {
 
             } else if (BOMGlobalDataUtils.isCID(property)) {
                 caseIdProperties.add(property);
+
+				/*
+				 * Sid ACE-8370 Sid ACE-8370 Composite case-id support - track types of case-id's used
+				 */
+				if (GlobalDataProfileManager.getInstance().isCompositeCaseIdentifier(property))
+				{
+					compositeCaseIdCount++;
+				}
+				else
+				{
+					hasNonCompositeId = true;
+				}
 
 			} else if (BOMGlobalDataUtils.isSummary(property)) {
 				summaryProperties.add(property);
@@ -247,8 +271,14 @@ public class AceCaseClassRules implements IValidationRule {
             }
         }
 
-        // There must be exactly one case identifier
-        if (caseIdProperties.size() != 1) {
+		/*
+		 * Sid ACE-8370 Sid ACE-8370 Composite case-id support - replaced 'Case classes must have a single case
+		 * identifier attribute' with...
+		 * 
+		 * "Case classes must have either a single non-composite identifier or multiple composite case identifiers"
+		 */
+		if ((hasNonCompositeId && caseIdProperties.size() != 1) || (!hasNonCompositeId && compositeCaseIdCount < 2))
+		{
             scope.createIssue(ISSUE_ACE_CASE_MUST_HAVE_CASEID,
                     BOMValidationUtil.getLocation(clazz),
                     clazz.eResource().getURIFragment(clazz));
@@ -329,12 +359,10 @@ public class AceCaseClassRules implements IValidationRule {
      * @param obj
      */
     private void validateProperty(IValidationScope scope, Property property) {
-        // Composite case identifiers are not supported
-        if (BOMGlobalDataUtils.isCompositeCID(property)) {
-            scope.createIssue(ISSUE_ACE_COMPOSITE_CASEID,
-                    BOMValidationUtil.getLocation(property),
-                    property.eResource().getURIFragment(property));
-        }
+		/*
+		 * Sid ACE-8370 Composite case-id support - ace.bom.composite.caseid removed as covered by higher-level
+		 * validation that 'must be either single case id or multiple compoisite id's
+		 */
 
         // Auto case identifier minimum digits must not be greater than 15
         if (BOMGlobalDataUtils.isAutoCID(property)) {

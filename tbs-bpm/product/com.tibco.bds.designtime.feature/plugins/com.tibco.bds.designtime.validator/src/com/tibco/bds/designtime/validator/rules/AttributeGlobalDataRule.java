@@ -252,13 +252,20 @@ public class AttributeGlobalDataRule implements IValidationRule {
                     int intValue = ((Integer) length).intValue();
                     if ((intValue < 0)
                             || (intValue > BDSConstants.CASE_DATA_STORE_DEFAULT_MAXIMUM_NUMERIC_PRECISION)) {
-                        String strLength =
-                                Integer.toString(BDSConstants.CASE_DATA_STORE_DEFAULT_MAXIMUM_NUMERIC_PRECISION);
-                        scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_NUMERIC_LENGTH,
-                                BOMValidationUtil.getLocation(prop),
-                                prop.eResource().getURIFragment(prop),
-                                Collections.singleton(strLength));
-                    }
+
+						/*
+						 * Sid ACE-8359 Don't raise "Attribute numeric lengths can not be larger than 15" for case-id
+						 * attributes, because they must be changed to text type anyway!
+						 */
+						if (!BOMGlobalDataUtils.isCID(prop))
+						{
+							String strLength = Integer
+									.toString(BDSConstants.CASE_DATA_STORE_DEFAULT_MAXIMUM_NUMERIC_PRECISION);
+							scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_NUMERIC_LENGTH,
+									BOMValidationUtil.getLocation(prop), prop.eResource().getURIFragment(prop),
+									Collections.singleton(strLength));
+						}
+					}
                 }
             }
         }
@@ -289,12 +296,18 @@ public class AttributeGlobalDataRule implements IValidationRule {
                     int intValue = ((Integer) length).intValue();
                     if ((intValue < 0)
                             || (intValue > BDSConstants.CASE_DATA_STORE_DEFAULT_MAXIMUM_NUMERIC_PRECISION)) {
-                        String strLength =
-                                Integer.toString(BDSConstants.CASE_DATA_STORE_DEFAULT_MAXIMUM_NUMERIC_PRECISION);
-                        scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_NUMERIC_LENGTH,
-                                BOMValidationUtil.getLocation(prop),
-                                prop.eResource().getURIFragment(prop),
-                                Collections.singleton(strLength));
+						/*
+						 * Sid ACE-8359 Don't raise "Attribute numeric lengths can not be larger than 15" for case-id
+						 * attributes, because they must be changed to text type anyway!
+						 */
+						if (!BOMGlobalDataUtils.isCID(prop))
+						{
+							String strLength = Integer
+									.toString(BDSConstants.CASE_DATA_STORE_DEFAULT_MAXIMUM_NUMERIC_PRECISION);
+							scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_NUMERIC_LENGTH,
+									BOMValidationUtil.getLocation(prop), prop.eResource().getURIFragment(prop),
+									Collections.singleton(strLength));
+						}
                     }
                 }
             }

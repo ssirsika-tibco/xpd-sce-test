@@ -6,6 +6,7 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
+import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
@@ -132,9 +133,16 @@ public class AceConstraintConfigurationRules implements IValidationRule {
 
         if (decimalPrimitiveType.equals(type)) {
             if (!validLength((PrimitiveType) type, property)) {
-                scope.createIssue(ISSUE_ACE_NUMBER_PROPERTY_MAX_LENGTH,
-                        BOMValidationUtil.getLocation(property),
-                        property.eResource().getURIFragment(property));
+				/*
+				 * Sid ACE-8359 Don't raise
+				 * "Number attributes are restricted to 15 significant and decimal places in total" for case-id
+				 * attributes, because they must be changed to text type anyway!
+				 */
+				if (!BOMGlobalDataUtils.isCID(property))
+				{
+					scope.createIssue(ISSUE_ACE_NUMBER_PROPERTY_MAX_LENGTH, BOMValidationUtil.getLocation(property),
+							property.eResource().getURIFragment(property));
+				}
             }
 
             else if (!validDecimals((PrimitiveType) type, property)) {

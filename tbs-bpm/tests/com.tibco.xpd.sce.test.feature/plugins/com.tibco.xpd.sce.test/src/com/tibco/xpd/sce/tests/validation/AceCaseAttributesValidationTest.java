@@ -44,12 +44,18 @@ public class AceCaseAttributesValidationTest
         ValidationsTestProblemMarkerInfo[] markerInfos =
                 new ValidationsTestProblemMarkerInfo[] {
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/CaseAttributesValidationTest/Business Objects/CaseAttributesValidationTest.bom", //$NON-NLS-1$
-                                "ace.bom.caseid.must.be.mandatory.nonarray", //$NON-NLS-1$
-                                "_TuXhcHJxEem0P8x9fz4Hqw", //$NON-NLS-1$
-                                "BPM  : Case identifier attribute must be mandatory and non-array (multiplicity must be 1) (autoCaseIdentifier1 (com.example.caseattributesvalidationtest))", //$NON-NLS-1$
-                                "Make the attribute mandatory and non-array"), //$NON-NLS-1$
+						/*
+						 * Sid ACE-8369 Case Id's are now set to mandatory automatically on migration to 5.x - so
+						 * problem marker will no longer exist...
+						 */
+						// new ValidationsTestProblemMarkerInfo(
+						// "/CaseAttributesValidationTest/Business Objects/CaseAttributesValidationTest.bom",
+						// //$NON-NLS-1$
+						// "ace.bom.caseid.must.be.mandatory.nonarray", //$NON-NLS-1$
+						// "_TuXhcHJxEem0P8x9fz4Hqw", //$NON-NLS-1$
+						// "BPM : Case identifier attribute must be mandatory and non-array (multiplicity must be 1)
+						// (autoCaseIdentifier1 (com.example.caseattributesvalidationtest))", //$NON-NLS-1$
+						// "Make the attribute mandatory and non-array"), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/CaseAttributesValidationTest/Business Objects/CaseAttributesValidationTest.bom", //$NON-NLS-1$
@@ -58,12 +64,15 @@ public class AceCaseAttributesValidationTest
                                 "BPM  : Case identifier attributes must be Text type (autoCaseIdentifier1 (com.example.caseattributesvalidationtest))", //$NON-NLS-1$
                                 "Change to Text type"), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/CaseAttributesValidationTest/Business Objects/CaseAttributesValidationTest.bom", //$NON-NLS-1$
-                                "ace.bom.casestate.must.be.mandatory.nonarray", //$NON-NLS-1$
-                                "_UlbFQHJxEem0P8x9fz4Hqw", //$NON-NLS-1$
-                                "BPM  : Case state attribute must be mandatory and non-array (multiplicity must be 1) (caseState1 (com.example.caseattributesvalidationtest))", //$NON-NLS-1$
-                                "Make the attribute mandatory and non-array"), //$NON-NLS-1$
+						/* Sid ACE-6504 Case-state is now automatically set to mandatory on migration from 4.x */
+						// new ValidationsTestProblemMarkerInfo(
+						// "/CaseAttributesValidationTest/Business Objects/CaseAttributesValidationTest.bom",
+						// //$NON-NLS-1$
+						// "ace.bom.casestate.must.be.mandatory.nonarray", //$NON-NLS-1$
+						// "_UlbFQHJxEem0P8x9fz4Hqw", //$NON-NLS-1$
+						// "BPM : Case state attribute must be mandatory and non-array (multiplicity must be 1)
+						// (caseState1 (com.example.caseattributesvalidationtest))", //$NON-NLS-1$
+						// "Make the attribute mandatory and non-array"), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/CaseAttributesValidationTest/Business Objects/CaseAttributesValidationTest.bom", //$NON-NLS-1$
