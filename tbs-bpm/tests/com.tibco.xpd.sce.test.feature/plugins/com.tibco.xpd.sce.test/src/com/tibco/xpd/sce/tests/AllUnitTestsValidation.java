@@ -12,6 +12,7 @@ import com.tibco.xpd.sce.tests.validation.AceBomTextPatternRemovalTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseAttributesValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseCompositionValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseServiceValidationRulesTest;
+import com.tibco.xpd.sce.tests.validation.AceCompositeCaseIdTest;
 import com.tibco.xpd.sce.tests.validation.AceDateTimeResolutionTest;
 import com.tibco.xpd.sce.tests.validation.AceDecPlacesValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceDuplicatePackageIDTest;
@@ -115,6 +116,9 @@ public class AllUnitTestsValidation {
 
 		suite.addTestSuite(PSLFunctionTypeCheckingValidationTest.class);
 		suite.addTestSuite(PSLArrayGenericTypeParamAndReturnTest.class);
-        return suite;
+
+		suite.addTestSuite(AceCompositeCaseIdTest.class);
+
+		return suite;
     }
 }

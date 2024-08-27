@@ -3,6 +3,8 @@
  */
 package com.tibco.xpd.bom.modeler.custom.internal.propertysection.general;
 
+import java.util.Collections;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
@@ -27,6 +29,7 @@ import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager.StereotypeKind;
 import com.tibco.xpd.bom.modeler.custom.internal.Messages;
 import com.tibco.xpd.bom.modeler.custom.internal.propertysection.AbstractGeneralSection;
+import com.tibco.xpd.bom.modeler.custom.terminalstates.TerminalStateProperties;
 import com.tibco.xpd.bom.resources.ui.util.BomUIUtil;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
@@ -204,64 +207,82 @@ public class TypedElementSection extends AbstractGeneralSection {
         @Override
         protected Command getClearValueCommand(EditingDomain editingDomain,
                 Type value) {
-            Command cmd = null;
+			CompoundCommand compoundCommand = new CompoundCommand();
             EObject input = getInput();
             if (input instanceof TypedElement) {
-                cmd = SetCommand.create(editingDomain,
+				compoundCommand.append(SetCommand.create(editingDomain,
                         input,
                         UMLPackage.eINSTANCE.getTypedElement_Type(),
-                        SetCommand.UNSET_VALUE);
+						SetCommand.UNSET_VALUE));
 
                 if (input instanceof Property) {
                     final Property prop = (Property) input;
 
                     Command clearSearchCmd = getClearSearchableCommand(prop);
                     if (clearSearchCmd != null) {
-                        CompoundCommand compoundCommand = new CompoundCommand();
                         // Add the existing command
-                        compoundCommand.append(cmd);
                         compoundCommand.append(clearSearchCmd);
-                        cmd = compoundCommand;
-                    }
+					}
+
+					/* Sid ACE-8527 clear terminal states if it's a case-state property. */
+					if (BOMGlobalDataUtils.isCaseState(prop))
+					{
+						Command clearTerminalStateCmd = getClearTerminalStatesCommand(prop);
+
+						if (clearTerminalStateCmd != null)
+						{
+							compoundCommand.append(clearTerminalStateCmd);
+						}
+					}
                 }
             }
-            return cmd;
+			return !compoundCommand.isEmpty() ? compoundCommand : null;
         }
 
         @Override
         protected Command getSetValueCommand(EditingDomain editingDomain,
                 Type value) {
-            Command cmd = null;
+			CompoundCommand compoundCommand = new CompoundCommand();
             EObject input = getInput();
             if (input instanceof TypedElement) {
-                cmd = SetCommand.create(editingDomain,
+				compoundCommand.append(SetCommand.create(editingDomain,
                         input,
                         UMLPackage.eINSTANCE.getTypedElement_Type(),
-                        value);
+						value));
 
-                if ((input instanceof Property)
-                        && (value instanceof PrimitiveType)) {
-                    PrimitiveType primType = PrimitivesUtil
-                            .getBasePrimitiveType((PrimitiveType) value);
+				if ((input instanceof Property))
+				{
+					final Property prop = (Property) input;
 
-                    // Clear searchable from durations
-                    if (PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME
-                            .equals(primType.getName())) {
-                        final Property prop = (Property) input;
-                        Command clearSearchCmd =
-                                getClearSearchableCommand(prop);
-                        if (clearSearchCmd != null) {
-                            CompoundCommand compoundCommand =
-                                    new CompoundCommand();
-                            // Add the existing command
-                            compoundCommand.append(cmd);
-                            compoundCommand.append(clearSearchCmd);
-                            cmd = compoundCommand;
-                        }
-                    }
+					if (value instanceof PrimitiveType)
+					{
+						PrimitiveType primType = PrimitivesUtil.getBasePrimitiveType((PrimitiveType) value);
+
+						// Clear searchable from durations
+						if (PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME.equals(primType.getName()))
+						{
+							Command clearSearchCmd = getClearSearchableCommand(prop);
+							if (clearSearchCmd != null)
+							{
+								// Add the existing command
+								compoundCommand.append(clearSearchCmd);
+							}
+						}
+					}
+
+					/* Sid ACE-8527 clear terminal states if it's a case-state property. */
+					if (BOMGlobalDataUtils.isCaseState(prop))
+					{
+						Command clearTerminalStateCmd = getClearTerminalStatesCommand(prop);
+
+						if (clearTerminalStateCmd != null)
+						{
+							compoundCommand.append(clearTerminalStateCmd);
+						}
+					}
                 }
             }
-            return cmd;
+			return !compoundCommand.isEmpty() ? compoundCommand : null;
         }
 
         /**
@@ -291,5 +312,35 @@ public class TypedElementSection extends AbstractGeneralSection {
             }
             return cmd;
         }
+
+		/**
+		 * Get command to unset the terminal states of the given case-state property
+		 * 
+		 * @param caseStateProperty
+		 * @return
+		 */
+		private Command getClearTerminalStatesCommand(final Property caseStateProperty)
+		{
+			Command cmd = null;
+			final Stereotype stereotype = GlobalDataProfileManager.getInstance()
+					.getStereotype(StereotypeKind.CASE_STATE);
+			// Check if the searchable stereotype is already applied
+			Stereotype appliedStereo = caseStateProperty.getAppliedStereotype(stereotype.getQualifiedName());
+			if (appliedStereo != null)
+			{
+				// Create command to remove the searchable stereotype
+				cmd = new RecordingCommand((TransactionalEditingDomain) getEditingDomain())
+				{
+					@Override
+					protected void doExecute()
+					{
+						// Remove the stereotype if not enabled
+						caseStateProperty.setValue(stereotype, TerminalStateProperties.BOM_TERMINAL_STATES,
+								Collections.emptyList());
+					}
+				};
+			}
+			return cmd;
+		}
     }
 }

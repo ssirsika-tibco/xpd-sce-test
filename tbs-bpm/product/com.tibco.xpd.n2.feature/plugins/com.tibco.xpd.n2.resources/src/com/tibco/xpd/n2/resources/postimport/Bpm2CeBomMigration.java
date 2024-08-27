@@ -20,10 +20,17 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.FigureUtilities;
+import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.uml2.uml.AggregationKind;
+import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Enumeration;
+import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Extension;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
@@ -31,10 +38,16 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
+import org.eclipse.uml2.uml.UMLFactory;
 
+import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager.StereotypeKind;
+import com.tibco.xpd.bom.modeler.custom.enumlitext.util.EnumLitValueUtil;
+import com.tibco.xpd.bom.modeler.custom.terminalstates.TerminalStateProperties;
 import com.tibco.xpd.bom.modeler.diagram.part.custom.utils.ClassHeaderColourUtil;
+import com.tibco.xpd.bom.modeler.diagram.util.BOMDiagramModelUtil;
+import com.tibco.xpd.bom.modeler.diagram.util.BOMDiagramModelUtil.BOMDiagramViewModelType;
 import com.tibco.xpd.bom.resources.migration.IBOMMigration;
 import com.tibco.xpd.bom.resources.ui.bomnotation.ShapeGradientStyle;
 import com.tibco.xpd.bom.resources.utils.BOMUtils;
@@ -45,8 +58,8 @@ import com.tibco.xpd.resources.XpdResourcesPlugin;
 /**
  * Performs migration changes to BOMs imported from AMX BPM Studio
  * 
- * This is run for FORMAT VERSION 6 (which marks the transition from last AMX
- * BPM (5) before first ACE (6) version.
+ * This is run for FORMAT VERSION 1000 (which marks the transition from last AMX BPM (5) before first ACE (1000)
+ * version.
  *
  * @author aallway
  * @since 9 Apr 2019
@@ -123,18 +136,248 @@ public class Bpm2CeBomMigration implements IBOMMigration {
 			cmd.append(c);
 		}
 
+		/*
+		 * Sid ACE-8369 make all case-id attributes Mandatory
+		 */
+		c = makeCaseIdsMandatory(domain, model);
+
+		if (c != null)
+		{
+			cmd.append(c);
+		}
+
+		/*
+		 * Sid ACE-8366 / Sid ACE-8371 Check for Case Classes with missing case-state attribute and add a case state and
+		 * case-states enumeration for each.
+		 */
+		c = addMissingCaseStates(domain, model);
+
+		if (c != null)
+		{
+			cmd.append(c);
+		}
+
         return !cmd.isEmpty() ? cmd : null;
     }
 
     /**
-     * Create command to remove the XSD Notation Profile (for boms generated
-     * from WSDL/XSD).
-     * 
-     * @param domain
-     * @param model
-     * @return Command or <code>null</code> is XsdNotationProfile not applied to
-     *         this BOM.
-     */
+	 * Sid ACE-8366 / Sid ACE-8371 Check for Case Classes with missing case-state attribute and add a case state and
+	 * case-states enumeration for each.
+	 * 
+	 * Also sets existing 4.x case-state attributes to mandatory.
+	 * 
+	 * @param domain
+	 * @param model
+	 * 
+	 * @return Command to add missing case-states or <code>null</code> if nothing to do.
+	 */
+	private Command addMissingCaseStates(TransactionalEditingDomain domain, Model model)
+	{
+		CompoundCommand cmd = new CompoundCommand();
+
+		EList<Element> allOwnedElements = model.allOwnedElements();
+
+		for (Element element : allOwnedElements)
+		{
+			if (element instanceof org.eclipse.uml2.uml.Class)
+			{
+				org.eclipse.uml2.uml.Class clazz = (Class) element;
+				if (BOMGlobalDataUtils.isCaseClass(clazz))
+				{
+					Property caseStateProperty = null;
+
+					for (Property property : clazz.getOwnedAttributes())
+					{
+						if (BOMGlobalDataUtils.isCaseState(property))
+						{
+							caseStateProperty = property;
+							break;
+						}
+					}
+
+					if (caseStateProperty == null)
+					{
+						/* Add missing case state and and a case-states enumeration for this case class. */
+						cmd.append(addCaseStateForClass(domain, clazz));
+					}
+					else
+					{
+						/* Else set the case state to mandatory for v5.x */
+						cmd.append(getSetPropertyMandatoryCommand(domain, caseStateProperty));
+					}
+				}
+			}
+		}
+
+		return !cmd.isEmpty() ? cmd : null;
+	}
+
+	/**
+	 * Sid ACE-8366 / Sid ACE-8371
+	 * 
+	 * Create a "Case Name Case States" and add a case state attribute of that type to the given case class. Then
+	 * finally set the terminal state to 'Complete'
+	 * 
+	 * @param domain
+	 * @param caseClazz
+	 */
+	private Command addCaseStateForClass(TransactionalEditingDomain domain, final Class caseClazz)
+	{
+		RecordingCommand cmd = new RecordingCommand(domain)
+		{
+			@Override
+			protected void doExecute()
+			{
+				/*
+				 * Sid ACE-8366 Create Case States enumeration for this case class.
+				 */
+				Enumeration caseStatesEnum = UMLFactory.eINSTANCE.createEnumeration();
+				caseClazz.getPackage().getPackagedElements().add(caseStatesEnum);
+
+				caseStatesEnum.setName(caseClazz.getName() + "CaseStates"); //$NON-NLS-1$
+				PrimitivesUtil.setDisplayLabel(caseStatesEnum,
+						PrimitivesUtil.getDisplayLabel(caseClazz) + " " //$NON-NLS-1$
+								+ Messages.Bpm2CeBomMigration_CaseStatesSuffix_label);
+
+				EnumerationLiteral runningLiteral = UMLFactory.eINSTANCE.createEnumerationLiteral();
+				caseStatesEnum.getOwnedLiterals().add(runningLiteral);
+				runningLiteral.setName("RUNNING"); //$NON-NLS-1$
+				PrimitivesUtil.setDisplayLabel(runningLiteral, "RUNNING"); //$NON-NLS-1$
+				EnumLitValueUtil.setSingleValue(runningLiteral, runningLiteral.getName());
+
+				EnumerationLiteral completeLiteral = UMLFactory.eINSTANCE.createEnumerationLiteral();
+				caseStatesEnum.getOwnedLiterals().add(completeLiteral);
+				completeLiteral.setName("COMPLETE"); //$NON-NLS-1$
+				PrimitivesUtil.setDisplayLabel(completeLiteral, "COMPLETE"); //$NON-NLS-1$
+				EnumLitValueUtil.setSingleValue(completeLiteral, completeLiteral.getName());
+
+				/*
+				 * Add diagram visual element for new Enumeration so we can position it
+				 */
+				View clazzViewModel = BOMDiagramModelUtil.getDiagramElementFromModel(domain, caseClazz);
+				
+				if (clazzViewModel instanceof Node)
+				{
+					Node enumDiagramNode = BOMDiagramModelUtil.createDiagramNode((View) clazzViewModel.eContainer(),
+							caseStatesEnum,
+							BOMDiagramViewModelType.enumeration);
+
+					if (((Node) clazzViewModel).getLayoutConstraint() instanceof Bounds)
+					{
+						Bounds caseClazzBounds = (Bounds) ((Node) clazzViewModel).getLayoutConstraint();
+
+						Bounds enumBounds = (Bounds) enumDiagramNode
+								.createLayoutConstraint(NotationPackage.eINSTANCE.getBounds());
+
+						enumBounds.setX(caseClazzBounds.getX());
+						enumBounds.setY(caseClazzBounds.getY() - 75);
+					}
+				}
+
+				/*
+				 * Sid ACE-8371 Create case state property
+				 */
+				Property caseStateProperty = UMLFactory.eINSTANCE.createProperty();
+				caseClazz.getOwnedAttributes().add(caseStateProperty);
+
+				/*
+				 * Sid ACE-8588 must set aggregation type as well, otherwise Bom->Cdm model transformation doesn't pick
+				 * up the attribute (and manually created attributes get this set, so we should do the same here of
+				 * coursed)
+				 */
+				caseStateProperty.setAggregation(AggregationKind.COMPOSITE_LITERAL);
+
+				caseStateProperty.setType(caseStatesEnum);
+				caseStateProperty.setName(caseClazz.getName() + "caseState"); //$NON-NLS-1$
+				caseStateProperty.setLower(1);
+				caseStateProperty.setUpper(1);
+				PrimitivesUtil.setDisplayLabel(caseStateProperty, Messages.Bpm2CeBomMigration_CaseStateSuffix_label);
+
+				/* Set as a case-state property... */
+				if (GlobalDataProfileManager.getInstance().add(caseStateProperty, StereotypeKind.CASE_STATE))
+				{
+
+					/* And then add the "Complete" state as a terminate state... */
+					Stereotype caseStateStereotype = BOMGlobalDataUtils.getCaseStateStereotype();
+
+					if (caseStateStereotype != null)
+					{
+						caseStateProperty.setValue(caseStateStereotype, TerminalStateProperties.BOM_TERMINAL_STATES,
+								java.util.Collections.singletonList(completeLiteral));
+					}
+				}
+			}
+		};
+
+		return cmd;
+	}
+
+	/**
+	 * Switch any Case Identifier attributes in the BOM to Mandatory if they are not already.
+	 * 
+	 * @param domain
+	 * @param model
+	 * 
+	 * @return Command or <code>null</code> if no changes necessary.
+	 */
+	private Command makeCaseIdsMandatory(TransactionalEditingDomain domain, Model model)
+	{
+		CompoundCommand cmd = new CompoundCommand();
+
+		EList<Element> allOwnedElements = model.allOwnedElements();
+
+		for (Element element : allOwnedElements)
+		{
+			/*
+			 * Switch integer properties to FixedPoint with zero decimals.
+			 */
+			if (element instanceof Property)
+			{
+				final Property property = (Property) element;
+
+				if (BOMGlobalDataUtils.isCID(property))
+				{
+					if (property.getLower() != 1 || property.getUpper() != 1) {
+						cmd.append(getSetPropertyMandatoryCommand(domain, property));
+					}
+				}
+			}
+		}
+
+		return !cmd.isEmpty() ? cmd : null;
+	}
+
+	/**
+	 * Set the given property to single instance, Mandatory
+	 * 
+	 * @param domain
+	 * @param property
+	 * 
+	 * @return Command to set the given property to single instance, Mandatory
+	 */
+	private RecordingCommand getSetPropertyMandatoryCommand(TransactionalEditingDomain domain, Property property)
+	{
+		RecordingCommand c = new RecordingCommand(domain)
+		{
+
+			@Override
+			protected void doExecute()
+			{
+				property.setLower(1);
+				property.setUpper(1);
+
+			}
+		};
+		return c;
+	}
+
+	/**
+	 * Create command to remove the XSD Notation Profile (for boms generated from WSDL/XSD).
+	 * 
+	 * @param domain
+	 * @param model
+	 * @return Command or <code>null</code> is XsdNotationProfile not applied to this BOM.
+	 */
     private Command removeXsdStereoType(TransactionalEditingDomain domain,
             final Model model) {
         Command result = null;

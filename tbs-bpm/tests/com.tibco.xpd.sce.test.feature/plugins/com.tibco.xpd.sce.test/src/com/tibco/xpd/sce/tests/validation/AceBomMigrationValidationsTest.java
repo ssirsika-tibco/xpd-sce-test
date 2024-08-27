@@ -246,19 +246,27 @@ public class AceBomMigrationValidationsTest
                                 "BPM  : Sub-packages are not supported (Sub-package (com.example.unsupportedconstructs))", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
-                                "ace.bom.case.must.have.caseid", //$NON-NLS-1$
-                                "_9kUfoGAxEemgPPDBEdhwDQ", //$NON-NLS-1$
-                                "BPM  : Case classes must have a single case identifier attribute (Unsupported Case Attribs (no case state, composite attribs) (com.example.unsupportedconstructs))", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
+						/*
+						 * Sid ACE-8370 Composite id's now supported, so should not expect this problem marker any more.
+						 */
+						// new ValidationsTestProblemMarkerInfo(
+						// "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom",
+						// //$NON-NLS-1$
+						// "ace.bom.case.must.have.caseid", //$NON-NLS-1$
+						// "_9kUfoGAxEemgPPDBEdhwDQ", //$NON-NLS-1$
+						// "BPM : Case classes must have a single case identifier attribute (Unsupported Case Attribs
+						// (no case state, composite attribs) (com.example.unsupportedconstructs))", //$NON-NLS-1$
+						// ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
-                                "ace.bom.case.must.have.casestate", //$NON-NLS-1$
-                                "_9kUfoGAxEemgPPDBEdhwDQ", //$NON-NLS-1$
-                                "BPM  : Case classes must have a case state attribute (Unsupported Case Attribs (no case state, composite attribs) (com.example.unsupportedconstructs))", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
+						/* Sid ACE-6504 Case-state is now automatically generated on migration from 4.x */
+						// new ValidationsTestProblemMarkerInfo(
+						// "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom",
+						// //$NON-NLS-1$
+						// "ace.bom.case.must.have.casestate", //$NON-NLS-1$
+						// "_9kUfoGAxEemgPPDBEdhwDQ", //$NON-NLS-1$
+						// "BPM : Case classes must have a case state attribute (Unsupported Case Attribs (no case
+						// state, composite attribs) (com.example.unsupportedconstructs))", //$NON-NLS-1$
+						// ""), //$NON-NLS-1$
 
 						/*
 						 * Sid ACE-8511 possibly because of ACE-8497 fix for migration, the migration of Generalisation
@@ -290,19 +298,26 @@ public class AceBomMigrationValidationsTest
                                 "BPM  : Only case classes can contain case state attributes (caseState1 (com.example.unsupportedconstructs))", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
-                                "ace.bom.casestate.must.be.mandatory.nonarray", //$NON-NLS-1$
-                                "_FPaRQmA0EemgPPDBEdhwDQ", //$NON-NLS-1$
-                                "BPM  : Case state attribute must be mandatory and non-array (multiplicity must be 1) (caseState1 (com.example.unsupportedconstructs))", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
+						/* Sid ACE-6504 Case-state is now automatically set to mandatory on migration from 4.x */
+//                        new ValidationsTestProblemMarkerInfo(
+//                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
+//                                "ace.bom.casestate.must.be.mandatory.nonarray", //$NON-NLS-1$
+//                                "_FPaRQmA0EemgPPDBEdhwDQ", //$NON-NLS-1$
+//                                "BPM  : Case state attribute must be mandatory and non-array (multiplicity must be 1) (caseState1 (com.example.unsupportedconstructs))", //$NON-NLS-1$
+//                                ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
-                                "ace.bom.caseid.must.be.mandatory.nonarray", //$NON-NLS-1$
-                                "_han0kWAyEemgPPDBEdhwDQ", //$NON-NLS-1$
-                                "BPM  : Case identifier attribute must be mandatory and non-array (multiplicity must be 1) (textCaseId (com.example.unsupportedconstructs))", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
+						/*
+						 * Sid ACE-8369 Case Id's are now set to mandatory automatically on migration to 5.x - so
+						 * problem marker will no longer exist...
+						 */
+						// new ValidationsTestProblemMarkerInfo(
+						// "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom",
+						// //$NON-NLS-1$
+						// "ace.bom.caseid.must.be.mandatory.nonarray", //$NON-NLS-1$
+						// "_han0kWAyEemgPPDBEdhwDQ", //$NON-NLS-1$
+						// "BPM : Case identifier attribute must be mandatory and non-array (multiplicity must be 1)
+						// (textCaseId (com.example.unsupportedconstructs))", //$NON-NLS-1$
+						// ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
@@ -332,12 +347,17 @@ public class AceBomMigrationValidationsTest
 						// (com.example.unsupportedconstructs))", //$NON-NLS-1$
 						// ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
-                                "ace.bom.composite.caseid", //$NON-NLS-1$
-                                "_OTl5UGAyEemgPPDBEdhwDQ", //$NON-NLS-1$
-                                "BPM  : Composite case identifier attributes are not supported (textCaseId (com.example.unsupportedconstructs))", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
+						/*
+						 * Sid ACE-8370 Composite id's now supported, so should not expect this problem marker any more.
+						 */
+						// new ValidationsTestProblemMarkerInfo(
+						// "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom",
+						// //$NON-NLS-1$
+						// "ace.bom.composite.caseid", //$NON-NLS-1$
+						// "_OTl5UGAyEemgPPDBEdhwDQ", //$NON-NLS-1$
+						// "BPM : Composite case identifier attributes are not supported (textCaseId
+						// (com.example.unsupportedconstructs))", //$NON-NLS-1$
+						// ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
@@ -353,12 +373,17 @@ public class AceBomMigrationValidationsTest
                                 "BPM  : Associations and Aggregations must be bidirectional. (Not -bi-directional (com.example.unsupportedconstructs))", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$
-                                "ace.bom.composite.caseid", //$NON-NLS-1$
-                                "_SQfzwGAyEemgPPDBEdhwDQ", //$NON-NLS-1$
-                                "BPM  : Composite case identifier attributes are not supported (textCaseId2 (com.example.unsupportedconstructs))", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
+						/*
+						 * Sid ACE-8370 Composite id's now supported, so should not expect this problem marker any more.
+						 */
+						// new ValidationsTestProblemMarkerInfo(
+						// "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom",
+						// //$NON-NLS-1$
+						// "ace.bom.composite.caseid", //$NON-NLS-1$
+						// "_SQfzwGAyEemgPPDBEdhwDQ", //$NON-NLS-1$
+						// "BPM : Composite case identifier attributes are not supported (textCaseId2
+						// (com.example.unsupportedconstructs))", //$NON-NLS-1$
+						// ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedConstructs.bom", //$NON-NLS-1$

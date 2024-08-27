@@ -24,9 +24,10 @@ public class CaseIdAttributeRequiredRule implements IValidationRule {
      * replaced by new ace specific, tighter issue.
      */
 
-
-    private static final String COMPOSITE_SINGLE_ISSUE_ID =
-            "bom.globaldata.class.case.compositecaseidentifier.single.issue"; //$NON-NLS-1$
+	/*
+	 * Sid ACE-8370 Composite case-id support - globaldataBOM.class.case.compositecaseidentifier.single.issue issue
+	 * remove as covered by higher-level validation that 'must be either single case id or multiple compoisite id's
+	 */
 
     private static final String COMPOSITE_MULTIPLE_ISSUE_ID =
             "bom.globaldata.class.case.compositecaseidentifier.multiplicity.issue"; //$NON-NLS-1$
@@ -92,11 +93,12 @@ public class CaseIdAttributeRequiredRule implements IValidationRule {
 
         // Check the case where only a single composite ID has been
         // specified in a class (need min of 2)
-        if (numCompIds == 1) {
-            scope.createIssue(COMPOSITE_SINGLE_ISSUE_ID,
-                    BOMValidationUtil.getLocation(gdClass),
-                    gdClass.eResource().getURIFragment(gdClass));
-        }
+
+		/*
+		 * Sid ACE-8370 Composite case-id support - globaldataBOM.class.case.compositecaseidentifier.single.issue issue
+		 * remove as covered by higher-level validation that 'must be either single case id or multiple compoisite id's
+		 */
+
         if ((compIdsExist == true) && (numCompIds > 0)) {
             // Already have a composite ID in this hierarchy so can not have
             // another

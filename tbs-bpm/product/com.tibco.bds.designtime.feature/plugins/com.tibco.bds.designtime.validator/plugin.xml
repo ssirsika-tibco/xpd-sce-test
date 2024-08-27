@@ -514,11 +514,9 @@
              message="%ace.bom.class.operation"
              severity="ERROR">
        </issue>
-       <issue
-             id="ace.bom.composite.caseid"
-             message="%ace.bom.composite.caseid"
-             severity="ERROR">
-       </issue>
+       
+       <!-- Sid ACE-8370 Composite case-id support - ace.bom.composite.caseid removed as covered by higher-level validation that 'must be either single case id or multiple compoisite id's -->
+
        <issue
              id="ace.bom.case.must.have.casestate"
              message="%ace.bom.case.must.have.casestate"
@@ -578,6 +576,10 @@
           <resolution
                 canApplyToMultiple="true"
                 id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyTextType">
+          </resolution>
+          <resolution
+                canApplyToMultiple="false"
+                id="com.tibco.xpd.n2.cds.validator.resolution.makeAllWorkspaceCaseIdsTextType">
           </resolution>
        </issue>
        <issue
@@ -747,6 +749,11 @@
             class="com.tibco.bds.designtime.validator.resolution.SetTypeTextResolution"
             id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyTextType"
             label="%makepropertytexttype_resolution_label">
+      </resolution>      
+      <resolution
+            class="com.tibco.bds.designtime.validator.resolution.SetAllCaseIdsInWorkspaceToTypeTextResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.makeAllWorkspaceCaseIdsTextType"
+            label="%make_all_workspace_caseids_texttype_resolution_label">
       </resolution>      
       <resolution
             class="com.tibco.bds.designtime.validator.resolution.SetTypeDateTimeTZResolution"
