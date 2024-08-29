@@ -37,7 +37,10 @@
 		<import feature="com.tibco.tpcl.eclipse419.deps.apache.lucene.feature" version="1.0.0" match="compatible"/>
 		<import feature="com.tibco.tpcl.eclipse419.deps.batik.feature" version="1.0.0" match="compatible"/>
 		<import feature="com.tibco.tpcl.eclipse419.deps.javax.feature" version="1.0.0" match="compatible"/>
+
+		<import feature="com.tibco.amx.xpd.tpcl.eclipse411.dependencies.feature" version="1.0.0" match="compatible" /> <!--  Required for javax.transaction 1.1.0 ref in com.tibco.tpcl.eclipse419.deps.jetty.feature -->
 		<import feature="com.tibco.tpcl.eclipse419.deps.jetty.feature" version="1.0.0" match="compatible" />
+
 		<import feature="com.tibco.tpcl.eclipse419.deps.apache.commons.feature" version="1.0.0" match="compatible" />
 
 		<!-- Apache TIBCO TPCLS's -->
@@ -59,6 +62,8 @@
 		<import feature="org.eclipse.zest" version="1.7.0" match="compatible"/>
 		
 		<import feature="org.eclipse.xsd" version="2.19.0" match="compatible"/>
+		<import feature="org.eclipse.xsd.edit" version="2.13.0" match="compatible"/>
+		
 		<import feature="org.eclipse.wst.ws_core.feature" version="3.21.0" match="compatible"/>
 		<import feature="org.eclipse.wst.common_core.feature" version="3.21.0" match="compatible"/>
 		<import feature="org.eclipse.wst.common_ui.feature" version="3.21.0" match="compatible"/>
@@ -90,6 +95,8 @@
 		<import feature="org.eclipse.datatools.sqldevtools.parsers.feature" version="1.14.102" match="compatible"/>
 		<import feature="org.eclipse.datatools.sqldevtools.sqlbuilder.feature" version="1.14.102" match="compatible"/>	
 		<import feature="org.eclipse.datatools.sqldevtools.feature" match="compatible" version="1.14.201"/>
+		<import feature="org.eclipse.datatools.sqldevtools.data.feature" match="compatible" version="1.14.201"/>
+		<import feature="org.eclipse.datatools.sqldevtools.schemaobjecteditor.feature" match="compatible" version="1.14.102"/>
 		<!-- =============== -->
 
 		<!-- TODO Sid 19/01/2024 - BIRT  shouldn't be required fore 5.x 
