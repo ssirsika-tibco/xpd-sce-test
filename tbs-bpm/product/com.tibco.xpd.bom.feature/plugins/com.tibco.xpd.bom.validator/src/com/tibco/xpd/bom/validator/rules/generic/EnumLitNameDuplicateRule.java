@@ -41,7 +41,7 @@ public class EnumLitNameDuplicateRule implements IValidationRule {
             if (!duplicateLits.isEmpty()) {
                 for (EnumerationLiteral enLit : duplicateLits) {
                     createIssues(scope,
-                            BOMValidationUtil.getLocation(enLit),
+							enLit.getName(),
                             ownedLits);
                 }
             }
