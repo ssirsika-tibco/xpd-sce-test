@@ -197,5 +197,23 @@
     	<ownedParameter xmi:id="_DateTimeUtil_addDuration_millisecond_" name="millisecond" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
     	<ownedParameter xmi:id="_DateTimeUtil_addDuration_dateTimeTZ_" type="_s3xegHIbEd-kC5ysQRjHHw" direction="return"/>
     </ownedOperation>    
+    <ownedOperation xmi:id="_DateTimeUtil_subtract_" name="subtract">
+    	<ownedParameter xmi:id="_DateTimeUtil_subtract_date1_" name="date1" type="_s3xegHIbEd-kC5ysQRjHHw"/>
+   		<ownedParameter xmi:id="_DateTimeUtil_subtract_date2_" name="date2" type="_s3xegHIbEd-kC5ysQRjHHw"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_subtract_return_" type="_DateTimeDuration_" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_DateTimeDuration_" name="DateTimeDuration" isAbstract="true">
+    <ownedAttribute xmi:id="_Duration_negative" name="negative" type="_aPzxAKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_years" name="years" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_months" name="months" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_days" name="days" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_hours" name="hours" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_minutes" name="minutes" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_seconds" name="seconds" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_milliSeconds" name="milliSeconds" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedOperation xmi:id="_Duration_toString_" name="toString">
+    	<ownedParameter xmi:id="_Duration_toString__return_" type="_L0lAYOANEd6NV_VD55whVg" direction="return"/>
+	</ownedOperation>
   </packagedElement>
 </uml:Model>
