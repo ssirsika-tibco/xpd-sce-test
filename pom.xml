@@ -19,10 +19,10 @@
 		<bpm.studio.branch>trunk</bpm.studio.branch>
 
 		<!-- The base root of the Studio target-platforms where the P2 repo's reside. -->
-		<bpm.studio.p2repos.location>http://studiobuild2/userContent/studio-build/${unqualifiedVersion}/${trunk}/tibco-build/installations</bpm.studio.p2repos.location>
+		<bpm.studio.p2repos.location>http://studiobuild2/userContent/bpm-studio-p2repos/${unqualifiedVersion}/${trunk}</bpm.studio.p2repos.location>
 
 		<!-- The location of the p2repo for the base Eclipse and TPCLs platform. -->
-		<bpm.studio.base.platform.p2repo>${bpm.studio.p2repos.location}/TargetPlatform-tbs-base/components/eclipse</bpm.studio.base.platform.p2repo>
+		<bpm.studio.base.platform.p2repo>${bpm.studio.p2repos.location}/base-platform</bpm.studio.base.platform.p2repo>
 	</properties>
 
 	<build>
