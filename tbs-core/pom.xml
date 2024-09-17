@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.tibco.xpd.bpm.studio</groupId>
+		<artifactId>com.tibco.xpd.bpm.studio</artifactId>
+		<version>5.6.0-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+
+	<groupId>com.tibco.xpd.bpm.studio</groupId>
+	<artifactId>com.tibco.xpd.bpm.core</artifactId>
+	<version>5.6.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<profiles>
+		<profile>
+			<id>tibco</id>
+			<repositories>
+				<repository>
+					<id>bpm-studio-base-platform-p2repo</id>
+					<name>bpm-studio-base-platform-p2repo</name>
+					<url>${bpm.studio.base.platform.p2repo}</url>
+					<layout>p2</layout>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
+	
+	<modules>
+		<module>com.tibco.xpd.installer.feature</module>
+		<module>product/com.tibco.xpd.core.feature</module>
+		<module>product/com.tibco.xpd.core.help.feature</module>
+		<module>product/com.tibco.xpd.deploy.feature</module>
+		<module>product/com.tibco.xpd.product.feature</module>
+		<module>product/com.tibco.xpd.scf.feature</module>
+	</modules>
+</project>
