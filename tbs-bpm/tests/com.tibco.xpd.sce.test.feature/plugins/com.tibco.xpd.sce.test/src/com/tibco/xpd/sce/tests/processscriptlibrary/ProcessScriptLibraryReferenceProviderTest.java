@@ -42,6 +42,7 @@ public class ProcessScriptLibraryReferenceProviderTest extends TestCase
 
 	private ProcessScriptLibraryReferenceProvider	fixture;
 
+	@Override
 	public void setUp()
 	{
 		fixture = new ProcessScriptLibraryReferenceProvider();
@@ -52,6 +53,7 @@ public class ProcessScriptLibraryReferenceProviderTest extends TestCase
 	 *
 	 * @throws Exception
 	 */
+	@Override
 	public void tearDown() throws Exception
 	{
 		if (projectImporter != null)
@@ -116,6 +118,20 @@ public class ProcessScriptLibraryReferenceProviderTest extends TestCase
 		// Assert
 		assertPSLReferences(result, "/PSL1/Process Script Library/Util1.psl", "/PSL2/Process Script Library/Util2.psl",
 				"/PSL3/Process Script Library/Util3.psl");
+
+		/*
+		 * Sid ACE-8668 Fix for bpmScripts ref not found if script is \r-only line terminated.
+		 */
+		IFile xpdlFile8668 = project.getFile("Process Packages/ACE-8668-PSLRefsInCarriageReturnOnlyScripts.xpdl"); //$NON-NLS-1$
+		WorkingCopy testWC8668 = WorkingCopyUtil.getWorkingCopy(xpdlFile8668);
+		Package pkg8668 = (Package) testWC8668.getRootElement();
+
+		Process baseProjectProcess8668 = pkg8668.getProcesses().get(0);
+
+		// Act
+		result = fixture.getScriptLibraryReferences(baseProjectProcess8668);
+		// Assert
+		assertPSLReferences(result, "/PSL1/Process Script Library/Util1.psl", "/PSL3/Process Script Library/Util3.psl");
 
 	}
 
@@ -700,13 +716,13 @@ public class ProcessScriptLibraryReferenceProviderTest extends TestCase
 	/**
 	 * Assert that actualProcesses and expected PSL process are same.
 	 */
-	private void assertPSLReferences(Set<Process> anActualProcesses, String... aExpectedPSLs)
+	private void assertPSLReferences(Set<Process> anActualPSLs, String... aExpectedPSLs)
 	{
 		List<String> expectedPSLList = new LinkedList<>(Arrays.asList(aExpectedPSLs));
-		assertEquals("Size of expected and actual processes does not match", aExpectedPSLs.length, //$NON-NLS-1$
-				anActualProcesses.size());
+		assertEquals("Size of expected and actual PSLs does not match", aExpectedPSLs.length, //$NON-NLS-1$
+				anActualPSLs.size());
 		Set<String> actualProcessPaths = new HashSet<>();
-		for (Process process : anActualProcesses)
+		for (Process process : anActualPSLs)
 		{
 			IFile pslFile = WorkingCopyUtil.getFile(process);
 			actualProcessPaths.add(pslFile.getFullPath().toString());
