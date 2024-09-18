@@ -23,7 +23,7 @@
 				<repository>
 					<id>bpm-studio-base-platform-p2repo</id>
 					<name>bpm-studio-base-platform-p2repo</name>
-					<url>${bpm.studio.base.platform.p2repo}</url>
+					<url>${bpm.studio.p2repo.base.platform}</url>
 					<layout>p2</layout>
 				</repository>
 			</repositories>
@@ -31,11 +31,19 @@
 	</profiles>
 	
 	<modules>
+		<!-- Special 'installer' feature (not part of product, just contains scripts that help setup Studio nightly build content  -->
 		<module>com.tibco.xpd.installer.feature</module>
+		
+		<!--  Product features -->
 		<module>product/com.tibco.xpd.core.feature</module>
 		<module>product/com.tibco.xpd.core.help.feature</module>
 		<module>product/com.tibco.xpd.deploy.feature</module>
 		<module>product/com.tibco.xpd.product.feature</module>
 		<module>product/com.tibco.xpd.scf.feature</module>
+		
+		<!-- Test features -->
+		<module>tests/com.tibco.xpd.core.test.feature</module>
+		<module>tests/com.tibco.xpd.core.qa.test.feature</module>
+		
 	</modules>
 </project>

@@ -22,7 +22,14 @@
 		<bpm.studio.p2repos.location>http://studiobuild2/userContent/bpm-studio-p2repos/${unqualifiedVersion}/${trunk}</bpm.studio.p2repos.location>
 
 		<!-- The location of the p2repo for the base Eclipse and TPCLs platform. -->
-		<bpm.studio.base.platform.p2repo>${bpm.studio.p2repos.location}/base-platform</bpm.studio.base.platform.p2repo>
+		<bpm.studio.p2repo.base.platform>${bpm.studio.p2repos.location}/base-platform</bpm.studio.p2repo.base.platform>
+		
+		<!-- The location of the p2repo for the Studio Core PRODUCT Features. -->
+		<bpm.studio.p2repo.scf>${bpm.studio.p2repos.location}/studio-core-features</bpm.studio.p2repo.scf>
+		
+		<!-- The location of the p2repo for the Studio Core TEST Features. -->
+		<bpm.studio.p2repo.scf.tests>${bpm.studio.p2repos.location}/studio-core-features-test</bpm.studio.p2repo.scf.tests>
+		
 	</properties>
 
 	<build>
