@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- @Generated on 2024-09-18 17:19:50 with https://emea-swi-svn.emea.tibco.com/svn/technical/xpd/infra/studio-builds/convert-to-maven-build/build.xml -->
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.tibco.xpd.bpm.studio</groupId>
+    <artifactId>com.tibco.xpd.bpm</artifactId>
+    <version>5.6.0-SNAPSHOT</version>
+    <relativePath>../../</relativePath>
+  </parent>
+  <groupId>com.tibco.xpd.bpm.studio</groupId>
+  <artifactId>com.tibco.xpd.wm.feature.ru</artifactId>
+  <version>11.6.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>features/com.tibco.xpd.wm.feature</module>
+    <module>plugins/com.tibco.amxbpm.documentactivity.configuration.builder</module>
+    <module>plugins/com.tibco.n2.ut.configuration.builder</module>
+    <module>plugins/com.tibco.n2.ut.resources</module>
+    <module>plugins/com.tibco.xpd.n2.ant.tasks</module>
+    <module>plugins/com.tibco.xpd.n2.brm</module>
+    <module>plugins/com.tibco.xpd.n2.wp</module>
+    <module>plugins/com.tibco.xpd.om.transform.de</module>
+    <module>plugins/com.tibco.xpd.rql.model</module>
+    <module>plugins/com.tibco.xpd.rql.parser</module>
+    <module>plugins/com.tibco.xpd.rql.script</module>
+    <module>plugins/com.tibco.xpd.rql.validation</module>
+    <module>plugins/com.tibco.xpd.wm.branding</module>
+    <module>plugins/com.tibco.xpd.wm.pageflow</module>
+    <module>plugins/com.tibco.xpd.wm.resources.ui</module>
+    <module>plugins/com.tibco.xpd.wm.tasklibrary.editor</module>
+    <module>plugins/com.tibco.xpd.wm.validator</module>
+    <module>plugins/com.tibco.xpd.worklistfacade.model</module>
+    <module>plugins/com.tibco.xpd.worklistfacade.resource</module>
+  </modules>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>2.7.5</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
