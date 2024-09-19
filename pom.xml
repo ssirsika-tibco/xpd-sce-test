@@ -18,7 +18,13 @@
 		<!-- The Branch name -->
 		<bpm.studio.branch>trunk</bpm.studio.branch>
 
-		<!-- The base root of the Studio target-platforms where the P2 repo's reside. -->
+		<!-- 
+		The base root of the Studio target-platforms where the P2 repo's reside. 
+		
+		Defaults to the expected location on build architecture (so that centralised build infra can pick them up when building RU's).
+		
+		Can be overwritten for local / nightly build infra to a local-system file system location.
+		-->
 		<bpm.studio.p2repos.location>http://studiobuild2/userContent/bpm-studio-p2repos/${unqualifiedVersion}/${trunk}</bpm.studio.p2repos.location>
 
 		<!-- The location of the p2repo for the base Eclipse and TPCLs platform. -->
