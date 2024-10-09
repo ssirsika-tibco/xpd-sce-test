@@ -31,6 +31,7 @@ import com.tibco.xpd.sce.tests.validation.AceSearchableInNonCaseClassTest;
 import com.tibco.xpd.sce.tests.validation.AceSearchableMaxAllowedCountTest;
 import com.tibco.xpd.sce.tests.validation.AceSummaryArrayResolutionTest;
 import com.tibco.xpd.sce.tests.validation.AceTemporalDefaultValueRuleTest;
+import com.tibco.xpd.sce.tests.validation.DQLValidationsTest;
 import com.tibco.xpd.sce.tests.validation.PSLArrayGenericTypeParamAndReturnTest;
 import com.tibco.xpd.sce.tests.validation.PSLBPMScriptsVariableAssignmentValidationTest;
 import com.tibco.xpd.sce.tests.validation.PSLFileNameValidatorTest;
@@ -118,7 +119,8 @@ public class AllUnitTestsValidation {
 		suite.addTestSuite(PSLArrayGenericTypeParamAndReturnTest.class);
 
 		suite.addTestSuite(AceCompositeCaseIdTest.class);
+		suite.addTestSuite(DQLValidationsTest.class);
 
-		return suite;
+        return suite;
     }
 }

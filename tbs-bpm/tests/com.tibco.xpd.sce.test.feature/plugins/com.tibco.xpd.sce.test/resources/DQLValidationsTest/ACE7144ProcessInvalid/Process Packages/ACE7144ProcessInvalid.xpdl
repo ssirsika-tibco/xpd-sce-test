@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_7TKlsFDKEe-RuvrN0hdmJg" xpdExt:DisplayName="ACE7144ProcessInvalid" Name="ACE7144ProcessInvalid">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2024-07-31</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_Z1Fc8XGmEe-Haajej1owAw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_Z0MsIHGmEe-Haajej1owAw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_Z1Fc8nGmEe-Haajej1owAw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_7TKlsVDKEe-RuvrN0hdmJg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_7TKls1DKEe-RuvrN0hdmJg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_7TKlslDKEe-RuvrN0hdmJg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_7TKls1DKEe-RuvrN0hdmJg" xpdExt:DisplayName="ACE7144Process-Invalid" Name="ACE7144ProcessInvalid">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_7TKlu1DKEe-RuvrN0hdmJg" xpdExt:DisplayName="Customer Case" Name="CustomerCase" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="ordermodel.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_MN3MMKBlEeOhd5eYvI6Dcg"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_7TKlvFDKEe-RuvrN0hdmJg" xpdExt:DisplayName="Text Field" Name="TextField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_7TKlvVDKEe-RuvrN0hdmJg" xpdExt:DisplayName="custref" Name="custref">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="ordermodel.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_MN3MMKBlEeOhd5eYvI6Dcg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_7TKlvlDKEe-RuvrN0hdmJg" xpdExt:DisplayName="addrRef" Name="addrRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="ordermodel.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="__yHBYK3yEeOBrdy6IKoaqg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_7TKlv1DKEe-RuvrN0hdmJg" xpdExt:DisplayName="Address" Name="Address" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="ordermodel.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="__yHBYK3yEeOBrdy6IKoaqg"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_7TKlwFDKEe-RuvrN0hdmJg" xpdExt:DisplayName="addressRefs" Name="addressRefs" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="ordermodel.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="__yHBYK3yEeOBrdy6IKoaqg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_7TKlwVDKEe-RuvrN0hdmJg" xpdExt:DisplayName="EmployeeRefs" Name="EmployeeRefs" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="ordermodel.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_xVXDQKBlEeOhd5eYvI6Dcg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_6qPcdnGjEe-Haajej1owAw" xpdExt:DisplayName="Fixed Point Number" Name="FixedPointNumber" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_6qPcd3GjEe-Haajej1owAw" xpdExt:DisplayName="DateTimeField" Name="DateTimeField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_6qPceHGjEe-Haajej1owAw" xpdExt:DisplayName="Copy_Of_Text Field" Name="Copy_Of_TextField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_6qPceXGjEe-Haajej1owAw" xpdExt:DisplayName="TimeField" Name="TimeField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_6qPcenGjEe-Haajej1owAw" xpdExt:DisplayName="Floating Point Number" Name="FloatingPointNumber">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_6qPce3GjEe-Haajej1owAw" xpdExt:DisplayName="DateField" Name="DateField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_pOY3UXGoEe-Haajej1owAw" xpdExt:DisplayName="TextArray" Name="TextArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_dL5gYXGpEe-Haajej1owAw" xpdExt:DisplayName="FloatArray" Name="FloatArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_em_lYXGpEe-Haajej1owAw" xpdExt:DisplayName="FixedArray" Name="FixedArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_cXP64XGqEe-Haajej1owAw" xpdExt:DisplayName="DateArray" Name="DateArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_jLy4YXHMEe-XduR5TdM8hQ" xpdExt:DisplayName="TimeArray" Name="TimeArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_jTAToXHMEe-XduR5TdM8hQ" xpdExt:DisplayName="DateTimeArray" Name="DateTimeArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_GzO_AHHaEe-XduR5TdM8hQ" xpdExt:DisplayName="Integer Field" Name="IntegerField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>0</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_WsRiAXHfEe-XduR5TdM8hQ" xpdExt:DisplayName="IntegerArray" Name="IntegerArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>0</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_7TKltVDKEe-RuvrN0hdmJg" Name="Invalid" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// String must be single-quoted&#xD;
+bpm.caseData.findByCriteria('town = &quot;abc&quot;',&quot;com.example.ordermodel.new1.Address&quot;, 1, 10);&#xD;
+&#xD;
+// &quot;type of&quot; is no longer supported in 5.x&#xD;
+bpm.caseData.findByCriteria(&quot;address1 type of 'com.example.ordermodel.new1.Address'&quot;,&quot;com.example.ordermodel.new1.Customer&quot;, 1, 10);   &#xD;
+&#xD;
+// Complete gobbledygook expression&#xD;
+bpm.caseData.findByCriteria(&quot;garbage expression&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);     &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines [0] .quantity > 100&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);     &#xD;
+&#xD;
+// Invalid attribute&#xD;
+bpm.caseData.findByCriteria(&quot;wrongAttributeName > 100&quot;,&quot;com.example.ordermodel.new1.Address&quot;, 1, 10);&#xD;
+// Invalid nested attribute&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].wrongNestedAttributeName > 100&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);&#xD;
+// Invalid nested parent attribute&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].wrongNestedParent.attribute1 > 100&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);&#xD;
+// Invalid use of child attribute of simple type parent&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].partNum.invalidAttributeUnderSimpleType > 100&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);&#xD;
+&#xD;
+// Wrong value for attrib&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity > abc&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity > 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);&#xD;
+&#xD;
+// Navigate by criteria bad association name&#xD;
+bpm.caseData.navigateByCriteria(data.custref,&quot;badAssociationName&quot;,&quot;comments = 'late'&quot;,1,10); &#xD;
+&#xD;
+// Navigate by criteria bad target Order class property name in DQL&#xD;
+bpm.caseData.navigateByCriteria(data.custref,&quot;order&quot;,&quot;badOrderAttributeName = 'late'&quot;,1,10); &#xD;
+&#xD;
+// Invalid array attribute without index specification&#xD;
+data.addressRefs.pushAll(bpm.caseData.findByCriteria(&quot;orderLines.quantity > 10&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10));&#xD;
+&#xD;
+// Invalid non-array attribute with index specification&#xD;
+data.addressRefs.pushAll(bpm.caseData.findByCriteria(&quot;address[0].houseNumber > 10&quot;,&quot;com.example.ordermodel.new1.Customer&quot;, 1, 10));&#xD;
+&#xD;
+// Badly formated array attribute index specification&#xD;
+data.addressRefs.pushAll(bpm.caseData.findByCriteria(&quot;orderLines[xyz].quantity > 10&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10));&#xD;
+data.addressRefs.pushAll(bpm.caseData.findByCriteria(&quot;orderLines[xyz]abc.quantity > 10&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10));&#xD;
+data.addressRefs.pushAll(bpm.caseData.findByCriteria(&quot;orderLines[0][1].quantity > 10&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10));&#xD;
+&#xD;
+// ALL index no longer supported&#xD;
+data.addressRefs.pushAll(bpm.caseData.findByCriteria(&quot;orderLines[ALL].quantity > 10&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10));&#xD;
+// $tag index no longer supported&#xD;
+data.addressRefs.pushAll(bpm.caseData.findByCriteria(&quot;orderLines[$tag].quantity > 10&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10));&#xD;
+&#xD;
+// DQLQuery parameters are no longer supported&#xD;
+data.addressRefs.pushAll(bpm.caseData.findByCriteria(&quot;orderLines[0].quantity > :maxQuantityParam&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10));&#xD;
+&#xD;
+// Invalid attribute name specified (top level attribute and nested attribute)&#xD;
+data.addressRefs.pushAll(bpm.caseData.findByCriteria(&quot;anUnknownAttribute > 1&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10));&#xD;
+data.addressRefs.pushAll(bpm.caseData.findByCriteria(&quot;orderLines[0].anUnknownNestedAttribute > 1&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10));&#xD;
+&#xD;
+// Reference to non-searchable attribute&#xD;
+data.addressRefs.pushAll(bpm.caseData.findByCriteria(&quot;attribute1 > 1&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10));&#xD;
+data.addressRefs.pushAll(bpm.caseData.findByCriteria(&quot;orderLines[0].partNum > 1&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10));&#xD;
+&#xD;
+// Type of no longer supported&#xD;
+data.addressRefs.pushAll(bpm.caseData.findByCriteria(&quot;orderTakers type of com.example.ordermodel.new1.Employee&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10));&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="75.0" LaneId="_7TKlslDKEe-RuvrN0hdmJg" Width="123.0">
+              <xpdl2:Coordinates XCoordinate="318.0" YCoordinate="150.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_7TKltlDKEe-RuvrN0hdmJg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_7TKlslDKEe-RuvrN0hdmJg" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="54.0" YCoordinate="150.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_7TKlt1DKEe-RuvrN0hdmJg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_7TKlslDKEe-RuvrN0hdmJg" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="771.0" YCoordinate="151.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_01BVgXGjEe-Haajej1owAw" Name="InvalidFieldRefs" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Invalid Field Refs">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// Invalid DQL queries with data field used on RHS of condition&#xD;
+// NOTE: Boolean and URI cannot be made searchable, so no tests here for those types.&#xD;
+&#xD;
+// No such child property within field reference&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.Address.invalidProperty}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+// No such top level data field&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.InvalidField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+&#xD;
+//&#xD;
+// Text  compared with wrong type attributes (Various)&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.Address.houseNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.Address.roomnumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.Address.date}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.Address.time}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.Address.datetime}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.CustomerCase.additional.float1}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+// Text with with wrong type DataFields (various)&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.Address}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.DateField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.TimeField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.DateTimeField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.FixedPointNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.FloatingPointNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+// Text with wrong multiplicity&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.TextArray}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].summary = ${data.Address.additional}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+&#xD;
+// &#xD;
+// Fixed Point Number compared with wrong type attributes (Various)&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.Address.addrId}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.Address.roomnumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.Address.date}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.Address.time}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.Address.datetime}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.CustomerCase.additional.float1}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+// Fixed Point Number with with wrong type DataFields (various)&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.Address}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.DateField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.TimeField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.DateTimeField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.TextField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.FloatingPointNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+// Fixed Point Number with wrong multiplicity&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.FixedArray}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].quantity = ${data.Address.fixeds}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+&#xD;
+//&#xD;
+// Floating Point Number  compared with wrong type attributes (Various)&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.Address.houseNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.Address.addrId}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.Address.date}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.Address.time}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.Address.datetime}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.CustomerCase.additional.fixed}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+// Floating Point Number with with wrong type DataFields (various)&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.Address}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.DateField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.TimeField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.DateTimeField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.FixedPointNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.TextField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+// Floating Point Number with wrong multiplicity&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.FloatArray}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].cost = ${data.Address.floats}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+&#xD;
+//&#xD;
+// Date  compared with wrong type attributes (Various)&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.Address.houseNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.Address.roomnumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.Address.addrId}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.Address.time}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.Address.datetime}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.CustomerCase.additional.float1}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+// Date with with wrong type DataFields (various)&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.Address}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.TextField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.TimeField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.DateTimeField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.FixedPointNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.FloatingPointNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+// Date with wrong multiplicity&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.DateArray}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].date = ${data.Address.dates}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+&#xD;
+//&#xD;
+// Time  compared with wrong type attributes (Various)&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.Address.houseNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.Address.roomnumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.Address.date}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.Address.addrId}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.Address.datetime}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.CustomerCase.additional.float1}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+// Time with with wrong type DataFields (various)&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.Address}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.DateField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.TextField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.DateTimeField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.FixedPointNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.FloatingPointNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+// Time with wrong multiplicity&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.TimeArray}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].time = ${data.Address.times}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+&#xD;
+//&#xD;
+// DateTime  compared with wrong type attributes (Various)&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.Address.houseNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.Address.roomnumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.Address.date}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.Address.time}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.Address.addrId}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.CustomerCase.additional.float1}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+// DateTime with with wrong type DataFields (various)&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.Address}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.DateField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.TimeField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.TextField}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.FixedPointNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.FloatingPointNumber}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+// DateTime with wrong multiplicity&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.DateTimeArray}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[0].datetime = ${data.Address.datetimes}&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+&#xD;
+//&#xD;
+// Bad index specifiers as data fields&#xD;
+//&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${badfieldspec}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.UnknownField}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.Address.unknownAttribute}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+&#xD;
+// Number field but NOT 0 decimal fixed point number&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.FixedPointNumber}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.FloatingPointNumber}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.Address.roomnumber}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.Address.propertyValue}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+&#xD;
+// Non number field types &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.TextField}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.DateField}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.TimeField}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);   &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.DateTimeField}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.Address.addrId}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.Address.date}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.Address.time}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.Address.datetime}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+&#xD;
+// Array Integer field&#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.IntegerArray}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);   &#xD;
+bpm.caseData.findByCriteria(&quot;orderLines[${data.Address.integers}].summary = 'abc'&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+&#xD;
+//&#xD;
+// Arrays used in 'size() expression (final leaf node must be an array without index specified)&#xD;
+bpm.caseData.findByCriteria(&quot;size(orderLines[0]) = 0&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+bpm.caseData.findByCriteria(&quot;size(orderLines[0].orderadditional[1]) = 0&quot;,&quot;com.example.ordermodel.new1.Order&quot;, 1, 10);  &#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_7TKlslDKEe-RuvrN0hdmJg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="534.0" YCoordinate="151.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_7TKluFDKEe-RuvrN0hdmJg" xpdExt:DisplayName="" Name="" From="_7TKltlDKEe-RuvrN0hdmJg" To="_7TKltVDKEe-RuvrN0hdmJg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_01BVgnGjEe-Haajej1owAw" xpdExt:DisplayName="" Name="" From="_7TKltVDKEe-RuvrN0hdmJg" To="_01BVgXGjEe-Haajej1owAw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_3Hfh4HG4Ee-tn-FKeUDwMA" xpdExt:DisplayName="" Name="" From="_01BVgXGjEe-Haajej1owAw" To="_7TKlt1DKEe-RuvrN0hdmJg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_Z0MsIHGmEe-Haajej1owAw" xpdExt:DisplayName="SubProc" Name="SubProc">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_amgS0XGmEe-Haajej1owAw" Name="Parameter" ReadOnly="false" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="ordermodel.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_MN3MMKBlEeOhd5eYvI6Dcg"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_Z1Fc83GmEe-Haajej1owAw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_Z1Fc8nGmEe-Haajej1owAw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Z1Fc9HGmEe-Haajej1owAw" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_Z1Fc8nGmEe-Haajej1owAw" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_Z1Fc9XGmEe-Haajej1owAw" xpdExt:DisplayName="" Name="" From="_Z1Fc83GmEe-Haajej1owAw" To="_Z1Fc9HGmEe-Haajej1owAw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

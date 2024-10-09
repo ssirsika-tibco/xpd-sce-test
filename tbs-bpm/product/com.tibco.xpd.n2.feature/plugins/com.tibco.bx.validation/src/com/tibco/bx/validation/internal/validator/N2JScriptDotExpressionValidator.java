@@ -19,6 +19,10 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Relationship;
 import org.eclipse.uml2.uml.Type;
 
+import com.tibco.bds.designtime.api.BDSAPI;
+import com.tibco.bds.designtime.api.exception.DQLValidationException;
+import com.tibco.bds.designtime.api.validation.ValidationResult;
+import com.tibco.bx.validation.BxValidationPlugin;
 import com.tibco.bx.validation.internal.Messages;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
@@ -119,12 +123,74 @@ public class N2JScriptDotExpressionValidator extends AbstractDotExpressionValida
                 if (JsConsts.DQL_STRING.equals(methodParams[i].getType())) {
 
                     /*
-                     * validate the DQL String. this calls BDS API to validate
-                     */
-                    // handleDQLStringCase(currentGenericContext,
-                    // matchMethod,
-                    // token,
-                    // actualParamNames[i]);
+					 * validate the DQL String. this calls BDS API to validate
+					 * 
+					 * Sid ACE-7314 Re-introduce DQL validation
+					 * 
+					 * Case methods are now static with case-type name defined in another parameter, so get the
+					 * case-class type from other param
+					 */
+                	Class caseClass = null;
+                	
+					for (int caseTypeParamIdx = 0; caseTypeParamIdx < methodParams.length; caseTypeParamIdx++)
+					{
+						if (JsConsts.CASE_TYPE_NAME.equals(methodParams[caseTypeParamIdx].getType()))
+						{
+							int hashIdx = actualParamNames[caseTypeParamIdx].indexOf('#');
+							if (hashIdx >= 0)
+							{
+								String caseTypeLiteralValue = actualParamNames[caseTypeParamIdx].substring(hashIdx + 1);
+
+								Class clazz = getInScopeClassByQName(caseTypeLiteralValue);
+								if (clazz != null && BOMGlobalDataUtils.isCaseClass(clazz))
+								{
+									caseClass = clazz;
+								}
+								else
+								{
+									/*
+									 * We don't need to complain about this because there will be specific validation of the case-type
+									 * param (in handleTypeName()).
+									 */
+								}
+							}
+
+							break;
+						} 
+						else if (JsConsts.ASSOCIATION_LINK_NAME.equals(methodParams[caseTypeParamIdx].getType()))
+						{
+
+							int hashIdx = actualParamNames[caseTypeParamIdx].indexOf('#');
+							if (hashIdx >= 0)
+							{
+								String associationLiteralValue = actualParamNames[caseTypeParamIdx]
+										.substring(hashIdx + 1);
+
+								Property associationEndProperty = getAssociationPropertyByName(associationLiteralValue);
+
+								if (associationEndProperty != null)
+								{
+									Type clazz = associationEndProperty.getType();
+
+									if (clazz instanceof Class && BOMGlobalDataUtils.isCaseClass((Class) clazz))
+									{
+										caseClass = (Class) clazz;
+									}
+									else
+									{
+										/*
+										 * We don't need to complain about this because there will be specific
+										 * validation of the case-type param (in handleTypeName()).
+										 */
+									}
+								}
+							}
+							break;
+						}
+					}
+					
+					handleDQLStringCase(caseClass, matchMethod, token, actualParamNames[i]);
+					
                 } else if (JsConsts.CASE_TYPE_NAME.equals(methodParams[i].getType())) {
 					handleTypeName(token, actualParamNames[i], true);
                 } else if (JsConsts.CLASS_TYPE_NAME.equals(methodParams[i].getType())) {
@@ -173,69 +239,108 @@ public class N2JScriptDotExpressionValidator extends AbstractDotExpressionValida
     }
 
     /**
-     * Validates the DQL Query string using the given class as case class context and displays error/warning message
-     * returned from the DQL API
-     * 
-     * @param token
-     * @param contextCaseClass
-     * @param dqlQuery
-     */
+	 * Sid ACE-7314 Re-introduce DQL validation
+	 * 
+	 * Gets the right case class context to pass to BDS API to validate the dql query string
+	 * 
+	 * @param caseClass
+	 *            (if constant this will "#<constant value>")
+	 * @param matchMethod
+	 * @param token
+	 * @param dqlStringParamName
+	 *            (if constant this will "#<constant value>")
+	 */
+	private void handleDQLStringCase(Class caseClass, JsMethod matchMethod, Token token,
+			String dqlStringParamName)
+	{
+
+		String dqlStringLiteralValue = null;
+
+		int hashIdx = dqlStringParamName.indexOf('#');
+		if (hashIdx >= 0)
+		{
+			dqlStringLiteralValue = dqlStringParamName.substring(hashIdx + 1);
+		}
+
+		if (dqlStringLiteralValue != null)
+		{
+			validateDQLQueryString(token, caseClass, dqlStringLiteralValue);
+
+		}
+		else
+		{
+			/*
+			 * XPD-7133: Switch
+			 * "DQL Query parameter values must be defined as literal string constants (not string variables/expressions)"
+			 * error marker to
+			 * "Only DQL specified in a literal string can be validated at design time. Where possible use literal string queries to ensure validation can be performed."
+			 * warning marker.
+			 */
+			addWarningMessage(token, Messages.N2JScriptDotExpressionValidator_DQLQueryMustBeStringLiteral_message2);
+		}
+	}
+
+	/**
+	 * Validates the DQL Query string using the given class as case class context and displays error/warning message
+	 * returned from the DQL API
+	 * 
+	 * @param token
+	 * @param contextCaseClass
+	 * @param dqlQuery
+	 */
     private void validateDQLQueryString(Token token, Class contextCaseClass, String dqlQuery) {
 
         if (null != contextCaseClass) {
-            /**
-             * SID ACE-122 - we are removing com.tibco.bds.designtime.feature as it is mainly for unsupported things in
-             * ACE. DQL 9case data queery language will survive in some form BUT will be very different and much more
-             * simple. I've spoken to Joshy and Simon and they have agreed that this will be the case. Thereore
-             * commenting this peice out and throwing an exception so that we can come back later and replace with
-             * something else.
-             */
-            addErrorMessage(token, "SCE: DQL Query string validation requires port to new DQL language."); //$NON-NLS-1$
+        	/* Sid ACE-7314 Reintroduce DQL Query string validation. */
+			try
+			{
 
-            // try {
-            //
-            // List<ValidationResult> validateDQL =
-            // BDSAPI.validateDQL(contextCaseClass, dqlQuery);
-            //
-            // if (!validateDQL.isEmpty()) {
-            //
-            // for (ValidationResult validationResult : validateDQL) {
-            //
-            // List<ValidationResult> errors =
-            // validationResult.getErrors(validateDQL);
-            // if (!errors.isEmpty()) {
-            //
-            // for (ValidationResult err : errors) {
-            //
-            // StringBuffer errMsg = new StringBuffer(
-            // Messages.N2JScriptDotExpressionValidator_InvalidDQLQueryStringMsg);
-            // errMsg.append(err.getMessage());
-            // addErrorMessage(token, errMsg.toString());
-            // }
-            // }
-            //
-            // List<ValidationResult> warnings =
-            // validationResult.getWarnings(validateDQL);
-            // if (errors.isEmpty() && !warnings.isEmpty()) {
-            //
-            // for (ValidationResult warn : warnings) {
-            //
-            // StringBuffer warningMsg = new StringBuffer(
-            // Messages.N2JScriptDotExpressionValidator_DQLQueryWarningMsg);
-            // warningMsg.append(warn.getMessage());
-            // addWarningMessage(token, warningMsg.toString());
-            // }
-            // }
-            // }
-            // }
-            // } catch (DQLValidationException e) {
-            //
-            // BxValidationPlugin.getDefault().getLogger()
-            // .error(e.getMessage());
-            // String errMsg =
-            // Messages.N2JScriptDotExpressionValidator_ErrorValidatingDQLQueryString;
-            // addErrorMessage(token, errMsg);
-            // }
+				List<ValidationResult> validateDQL = BDSAPI.validateDQL(contextCaseClass, dqlQuery,
+						new DQLDataFieldProvider(Xpdl2ModelUtil.getProcess(getInput(getInfoObject()))));
+
+				if (!validateDQL.isEmpty())
+				{
+
+					for (ValidationResult validationResult : validateDQL)
+					{
+
+						List<ValidationResult> errors = validationResult.getErrors(validateDQL);
+						if (!errors.isEmpty())
+						{
+
+							for (ValidationResult err : errors)
+							{
+
+								StringBuffer errMsg = new StringBuffer(
+										Messages.N2JScriptDotExpressionValidator_InvalidDQLQueryStringMsg);
+								errMsg.append(err.getMessage());
+								addErrorMessage(token, errMsg.toString());
+							}
+						}
+
+						List<ValidationResult> warnings = validationResult.getWarnings(validateDQL);
+						if (errors.isEmpty() && !warnings.isEmpty())
+						{
+
+							for (ValidationResult warn : warnings)
+							{
+
+								StringBuffer warningMsg = new StringBuffer(
+										Messages.N2JScriptDotExpressionValidator_DQLQueryWarningMsg);
+								warningMsg.append(warn.getMessage());
+								addWarningMessage(token, warningMsg.toString());
+							}
+						}
+					}
+				}
+			}
+			catch (DQLValidationException e)
+			{
+
+				BxValidationPlugin.getDefault().getLogger().error(e.getMessage());
+				String errMsg = Messages.N2JScriptDotExpressionValidator_ErrorValidatingDQLQueryString;
+				addErrorMessage(token, errMsg);
+			}
         }
     }
 
@@ -1021,7 +1126,6 @@ public class N2JScriptDotExpressionValidator extends AbstractDotExpressionValida
 	 */
 	private void handleTypeName(Token token, String actualParamName, boolean isCaseType)
 	{
-
         String stringLiteralValue = null;
 
         int hashIdx = actualParamName.indexOf('#');
@@ -1031,34 +1135,11 @@ public class N2JScriptDotExpressionValidator extends AbstractDotExpressionValida
 
         if (stringLiteralValue != null) {
             // Check that it's a valid case or class type name.
-            boolean valid = false;
-            int lastDot = stringLiteralValue.lastIndexOf('.');
-            if (lastDot != -1 && (lastDot + 1) < stringLiteralValue.length()) {
-                String packageName = stringLiteralValue.substring(0, lastDot);
-                String className = stringLiteralValue.substring(lastDot + 1);
-                EObject input = getInput(getInfoObject());
-                if (input != null) {
-                    Process process = Xpdl2ModelUtil.getProcess(input);
-                    Set<Package> packages = CDSUtils.getReferencedBomPackages(process);
-                    for (Package pkg : packages) {
-                        if (packageName.equals(pkg.getName())) {
-                            Type cls = pkg.getOwnedType(className);
-                            if (cls instanceof Class) {
-                            	if (isCaseType) {
-                            		if (BOMGlobalDataUtils.isCaseClass((Class) cls)) {
-                            			valid = true;
-                                        break;		
-                            		}
-                            	} else {
-                            		valid = true;
-                                    break;	
-                            	}                                
-                            }
-                        }
-                    }
-                }
-            }
-            if (!valid) {
+			// Sid ACE-7314 refactored get class by qname for re-use.
+			Class foundClass = getInScopeClassByQName(stringLiteralValue);
+
+			if ((foundClass == null) || (isCaseType && !BOMGlobalDataUtils.isCaseClass(foundClass)))
+			{
 				addErrorMessage(token, isCaseType ? Messages.N2JScriptDotExpressionValidator_invalidCaseTypeName
 						: Messages.N2JScriptDotExpressionValidator_invalidClassTypeName);
             }
@@ -1067,6 +1148,42 @@ public class N2JScriptDotExpressionValidator extends AbstractDotExpressionValida
 					: Messages.N2JScriptDotExpressionValidator_nonLiteralClassTypeName);
         }
     }
+
+	/**
+	 * Get a class definition from it's QName ("<bom pkg name>.<class name>") IF it is in-scope of the referencing
+	 * script (i.e. BOM is in a project referenced from the current process).
+	 * 
+	 * Sid ACE-7314 refactored get class by qname from {@link #handleTypeName(Token, String, boolean)} for re-use.
+	 * 
+	 * @param classQName
+	 * 
+	 * @return Class or <code>null</code> if no Class found in referenced BOM projects.
+	 */
+	private Class getInScopeClassByQName(String classQName)
+	{
+		Class foundCLass = null;
+
+		int lastDot = classQName.lastIndexOf('.');
+		if (lastDot != -1 && (lastDot + 1) < classQName.length()) {
+		    String packageName = classQName.substring(0, lastDot);
+		    String className = classQName.substring(lastDot + 1);
+		    EObject input = getInput(getInfoObject());
+		    if (input != null) {
+		        Process process = Xpdl2ModelUtil.getProcess(input);
+		        Set<Package> packages = CDSUtils.getReferencedBomPackages(process);
+		        for (Package pkg : packages) {
+		            if (packageName.equals(pkg.getName())) {
+		                Type cls = pkg.getOwnedType(className);
+		                if (cls instanceof Class) {
+							foundCLass = (Class) cls;
+						}
+		            }
+		        }
+			}
+		}
+
+		return foundCLass;
+	}
 
     /**
      * Validates that the parameter refers to a valid association link name.
@@ -1088,38 +1205,65 @@ public class N2JScriptDotExpressionValidator extends AbstractDotExpressionValida
 
         if (stringLiteralValue != null) {
             // Check that it's a valid association link name
-            boolean valid = false;
-            EObject input = getInput(getInfoObject());
-            if (input != null) {
-                Process process = Xpdl2ModelUtil.getProcess(input);
-                Set<Package> packages = CDSUtils.getReferencedBomPackages(process);
-                loops:
-                for (Package pkg : packages) {
-                    EList<Type> types = pkg.getOwnedTypes();
-                    for (Type type : types) {
-                        if (type instanceof Class && BOMGlobalDataUtils.isCaseClass((Class) type)) {
-                            EList<Relationship> relationships = type.getRelationships();
-                            for (Relationship relationship : relationships) {
-                                if (relationship instanceof Association) {
-                                    Association association = (Association) relationship;
-                                    for (Property property : association.getMemberEnds()) {
-                                        if (stringLiteralValue.equals(property.getName())) {
-                                            valid = true;
-                                            break loops;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            if (!valid) {
+			/* Sid ACE-7314 refactored 'get association property' from validity check for re-use elsewhere */
+			Property associationProperty = getAssociationPropertyByName(stringLiteralValue);
+
+			if (associationProperty == null)
+			{
                 addErrorMessage(token, Messages.N2JScriptDotExpressionValidator_invalidAssociationLinkName);
             }
         } else {
             addErrorMessage(token, Messages.N2JScriptDotExpressionValidator_nonLiteralAssociationLinkName);
         }
     }
+
+	/**
+	 * Sid ACE-7314 refactored 'get association property' from validity check for re-use elsewhere
+	 * 
+	 * This funciton will find the FIRST association-end property with the given name from ANY referenced BOM model.
+	 * 
+	 * @param associationEndPropertyName
+	 *            The simple property name of the end of the association required.
+	 * 
+	 * @return The association-end property or <code>null</code> if not found.
+	 */
+	private Property getAssociationPropertyByName(String associationEndPropertyName)
+	{
+		Property associationProperty = null;
+
+		EObject input = getInput(getInfoObject());
+		if (input != null) {
+		    Process process = Xpdl2ModelUtil.getProcess(input);
+		    Set<Package> packages = CDSUtils.getReferencedBomPackages(process);
+
+		    for (Package pkg : packages) {
+		        EList<Type> types = pkg.getOwnedTypes();
+		        for (Type type : types) {
+		            if (type instanceof Class && BOMGlobalDataUtils.isCaseClass((Class) type)) {
+		                EList<Relationship> relationships = type.getRelationships();
+		                for (Relationship relationship : relationships) {
+		                    if (relationship instanceof Association) {
+		                        Association association = (Association) relationship;
+		                        for (Property property : association.getMemberEnds()) {
+									if (associationEndPropertyName.equals(property.getName()))
+									{
+										associationProperty = property;
+										break;
+		                            }
+		                        }
+		                    }
+		                }
+		            }
+		        }
+
+				if (associationProperty != null)
+				{
+					break;
+				}
+		    }
+		}
+
+		return associationProperty;
+	}
 
 }
