@@ -92,6 +92,8 @@ public class DQLDataFieldProvider implements DataFieldProvider
 	{
 		private ConceptPath conceptPath;
 
+		private String		referenceName;
+
 		/**
 		 * @param conceptPath
 		 */
@@ -275,5 +277,26 @@ public class DQLDataFieldProvider implements DataFieldProvider
 			return null;
 		}
 
+		/**
+		 * @return The referenceName that the consumer previous set using {@link #setReferenceName(String)}, or
+		 *         <code>null</code> if that was not done.
+		 */
+		@Override
+		public String getReferenceName()
+		{
+			return referenceName;
+		}
+
+		/**
+		 * This function takes and stores any reference name that the consumer wishes to set on the property. it can be
+		 * retrieved again later using {@link #getReferenceName()}
+		 *
+		 * @param referenceName
+		 */
+		@Override
+		public void setReferenceName(String referenceName)
+		{
+			this.referenceName = referenceName;
+		}
 	}
 }

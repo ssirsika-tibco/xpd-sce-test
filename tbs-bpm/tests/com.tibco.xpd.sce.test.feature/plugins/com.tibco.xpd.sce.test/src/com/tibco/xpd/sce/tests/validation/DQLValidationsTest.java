@@ -78,7 +78,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:100 column:123, DQL Query Error: The data type of the data field '${data.FloatingPointNumber}' does not match with the data type of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:100 column:123, DQL Query Error: The data type of the data field '${data.FloatingPointNumber}' does not match with the data type of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -86,7 +86,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:102 column:113, DQL Query Error: The multiplicity of the data field '${data.TimeArray}' does not match with the multiplicity of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:102 column:113, DQL Query Error: The multiplicity of the data field '${data.TimeArray}' does not match with the multiplicity of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -94,7 +94,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:103 column:117, DQL Query Error: The multiplicity of the data field '${data.Address.times}' does not match with the multiplicity of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:103 column:117, DQL Query Error: The multiplicity of the data field '${data.Address.times}' does not match with the multiplicity of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -102,7 +102,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:107 column:127, DQL Query Error: The data type of the data field '${data.Address.houseNumber}' does not match with the data type of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:107 column:127, DQL Query Error: The data type of the data field '${data.Address.houseNumber}' does not match with the data type of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -110,7 +110,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:108 column:126, DQL Query Error: The data type of the data field '${data.Address.roomnumber}' does not match with the data type of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:108 column:126, DQL Query Error: The data type of the data field '${data.Address.roomnumber}' does not match with the data type of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -118,7 +118,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:109 column:120, DQL Query Error: The data type of the data field '${data.Address.date}' does not match with the data type of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:109 column:120, DQL Query Error: The data type of the data field '${data.Address.date}' does not match with the data type of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -126,7 +126,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:110 column:120, DQL Query Error: The data type of the data field '${data.Address.time}' does not match with the data type of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:110 column:120, DQL Query Error: The data type of the data field '${data.Address.time}' does not match with the data type of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -134,7 +134,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:111 column:122, DQL Query Error: The data type of the data field '${data.Address.addrId}' does not match with the data type of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:111 column:122, DQL Query Error: The data type of the data field '${data.Address.addrId}' does not match with the data type of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -142,7 +142,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:112 column:138, DQL Query Error: The data type of the data field '${data.CustomerCase.additional.float1}' does not match with the data type of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:112 column:138, DQL Query Error: The data type of the data field '${data.CustomerCase.additional.float1}' does not match with the data type of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -150,7 +150,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:114 column:115, DQL Query Error: The data type of the data field '${data.Address}' does not match with the data type of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:114 column:115, DQL Query Error: The data type of the data field '${data.Address}' does not match with the data type of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -158,7 +158,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:115 column:117, DQL Query Error: The data type of the data field '${data.DateField}' does not match with the data type of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:115 column:117, DQL Query Error: The data type of the data field '${data.DateField}' does not match with the data type of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -166,7 +166,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:116 column:117, DQL Query Error: The data type of the data field '${data.TimeField}' does not match with the data type of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:116 column:117, DQL Query Error: The data type of the data field '${data.TimeField}' does not match with the data type of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -174,7 +174,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:117 column:117, DQL Query Error: The data type of the data field '${data.TextField}' does not match with the data type of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:117 column:117, DQL Query Error: The data type of the data field '${data.TextField}' does not match with the data type of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -182,7 +182,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:118 column:124, DQL Query Error: The data type of the data field '${data.FixedPointNumber}' does not match with the data type of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:118 column:124, DQL Query Error: The data type of the data field '${data.FixedPointNumber}' does not match with the data type of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -190,7 +190,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:119 column:127, DQL Query Error: The data type of the data field '${data.FloatingPointNumber}' does not match with the data type of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:119 column:127, DQL Query Error: The data type of the data field '${data.FloatingPointNumber}' does not match with the data type of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -198,7 +198,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:12 column:126, DQL Query Error: The data type of the data field '${data.Address.houseNumber}' does not match with the data type of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:12 column:126, DQL Query Error: The data type of the data field '${data.Address.houseNumber}' does not match with the data type of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -206,7 +206,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:121 column:121, DQL Query Error: The multiplicity of the data field '${data.DateTimeArray}' does not match with the multiplicity of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:121 column:121, DQL Query Error: The multiplicity of the data field '${data.DateTimeArray}' does not match with the multiplicity of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -214,7 +214,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:122 column:125, DQL Query Error: The multiplicity of the data field '${data.Address.datetimes}' does not match with the multiplicity of the attribute 'orderLines.datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:122 column:125, DQL Query Error: The multiplicity of the data field '${data.Address.datetimes}' does not match with the multiplicity of the attribute 'orderLines[0].datetime'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -253,7 +253,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:13 column:125, DQL Query Error: The data type of the data field '${data.Address.roomnumber}' does not match with the data type of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:13 column:125, DQL Query Error: The data type of the data field '${data.Address.roomnumber}' does not match with the data type of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -309,7 +309,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:14 column:119, DQL Query Error: The data type of the data field '${data.Address.date}' does not match with the data type of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:14 column:119, DQL Query Error: The data type of the data field '${data.Address.date}' does not match with the data type of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -381,7 +381,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:15 column:119, DQL Query Error: The data type of the data field '${data.Address.time}' does not match with the data type of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:15 column:119, DQL Query Error: The data type of the data field '${data.Address.time}' does not match with the data type of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -421,7 +421,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:16 column:123, DQL Query Error: The data type of the data field '${data.Address.datetime}' does not match with the data type of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:16 column:123, DQL Query Error: The data type of the data field '${data.Address.datetime}' does not match with the data type of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -429,7 +429,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:17 column:137, DQL Query Error: The data type of the data field '${data.CustomerCase.additional.float1}' does not match with the data type of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:17 column:137, DQL Query Error: The data type of the data field '${data.CustomerCase.additional.float1}' does not match with the data type of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -437,7 +437,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:19 column:114, DQL Query Error: The data type of the data field '${data.Address}' does not match with the data type of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:19 column:114, DQL Query Error: The data type of the data field '${data.Address}' does not match with the data type of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -445,7 +445,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:20 column:116, DQL Query Error: The data type of the data field '${data.DateField}' does not match with the data type of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:20 column:116, DQL Query Error: The data type of the data field '${data.DateField}' does not match with the data type of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -453,7 +453,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:21 column:116, DQL Query Error: The data type of the data field '${data.TimeField}' does not match with the data type of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:21 column:116, DQL Query Error: The data type of the data field '${data.TimeField}' does not match with the data type of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -461,7 +461,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:22 column:120, DQL Query Error: The data type of the data field '${data.DateTimeField}' does not match with the data type of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:22 column:120, DQL Query Error: The data type of the data field '${data.DateTimeField}' does not match with the data type of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -469,7 +469,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:23 column:123, DQL Query Error: The data type of the data field '${data.FixedPointNumber}' does not match with the data type of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:23 column:123, DQL Query Error: The data type of the data field '${data.FixedPointNumber}' does not match with the data type of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -477,7 +477,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:24 column:126, DQL Query Error: The data type of the data field '${data.FloatingPointNumber}' does not match with the data type of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:24 column:126, DQL Query Error: The data type of the data field '${data.FloatingPointNumber}' does not match with the data type of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -485,7 +485,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:26 column:116, DQL Query Error: The multiplicity of the data field '${data.TextArray}' does not match with the multiplicity of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:26 column:116, DQL Query Error: The multiplicity of the data field '${data.TextArray}' does not match with the multiplicity of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -493,7 +493,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:27 column:125, DQL Query Error: The multiplicity of the data field '${data.Address.additional}' does not match with the multiplicity of the attribute 'orderLines.summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:27 column:125, DQL Query Error: The multiplicity of the data field '${data.Address.additional}' does not match with the multiplicity of the attribute 'orderLines[0].summary'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -501,7 +501,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:31 column:122, DQL Query Error: The data type of the data field '${data.Address.addrId}' does not match with the data type of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:31 column:122, DQL Query Error: The data type of the data field '${data.Address.addrId}' does not match with the data type of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -509,7 +509,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:32 column:126, DQL Query Error: The data type of the data field '${data.Address.roomnumber}' does not match with the data type of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:32 column:126, DQL Query Error: The data type of the data field '${data.Address.roomnumber}' does not match with the data type of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -517,7 +517,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:33 column:120, DQL Query Error: The data type of the data field '${data.Address.date}' does not match with the data type of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:33 column:120, DQL Query Error: The data type of the data field '${data.Address.date}' does not match with the data type of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -525,7 +525,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:34 column:120, DQL Query Error: The data type of the data field '${data.Address.time}' does not match with the data type of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:34 column:120, DQL Query Error: The data type of the data field '${data.Address.time}' does not match with the data type of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -533,7 +533,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:35 column:124, DQL Query Error: The data type of the data field '${data.Address.datetime}' does not match with the data type of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:35 column:124, DQL Query Error: The data type of the data field '${data.Address.datetime}' does not match with the data type of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -541,7 +541,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:36 column:138, DQL Query Error: The data type of the data field '${data.CustomerCase.additional.float1}' does not match with the data type of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:36 column:138, DQL Query Error: The data type of the data field '${data.CustomerCase.additional.float1}' does not match with the data type of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -549,7 +549,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:38 column:115, DQL Query Error: The data type of the data field '${data.Address}' does not match with the data type of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:38 column:115, DQL Query Error: The data type of the data field '${data.Address}' does not match with the data type of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -557,7 +557,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:39 column:117, DQL Query Error: The data type of the data field '${data.DateField}' does not match with the data type of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:39 column:117, DQL Query Error: The data type of the data field '${data.DateField}' does not match with the data type of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -565,7 +565,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:40 column:117, DQL Query Error: The data type of the data field '${data.TimeField}' does not match with the data type of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:40 column:117, DQL Query Error: The data type of the data field '${data.TimeField}' does not match with the data type of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -573,7 +573,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:41 column:121, DQL Query Error: The data type of the data field '${data.DateTimeField}' does not match with the data type of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:41 column:121, DQL Query Error: The data type of the data field '${data.DateTimeField}' does not match with the data type of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -581,7 +581,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:42 column:117, DQL Query Error: The data type of the data field '${data.TextField}' does not match with the data type of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:42 column:117, DQL Query Error: The data type of the data field '${data.TextField}' does not match with the data type of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -589,7 +589,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:43 column:127, DQL Query Error: The data type of the data field '${data.FloatingPointNumber}' does not match with the data type of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:43 column:127, DQL Query Error: The data type of the data field '${data.FloatingPointNumber}' does not match with the data type of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -597,7 +597,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:45 column:118, DQL Query Error: The multiplicity of the data field '${data.FixedArray}' does not match with the multiplicity of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:45 column:118, DQL Query Error: The multiplicity of the data field '${data.FixedArray}' does not match with the multiplicity of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -605,7 +605,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:46 column:122, DQL Query Error: The multiplicity of the data field '${data.Address.fixeds}' does not match with the multiplicity of the attribute 'orderLines.quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:46 column:122, DQL Query Error: The multiplicity of the data field '${data.Address.fixeds}' does not match with the multiplicity of the attribute 'orderLines[0].quantity'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -613,7 +613,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:50 column:123, DQL Query Error: The data type of the data field '${data.Address.houseNumber}' does not match with the data type of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:50 column:123, DQL Query Error: The data type of the data field '${data.Address.houseNumber}' does not match with the data type of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -621,7 +621,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:51 column:118, DQL Query Error: The data type of the data field '${data.Address.addrId}' does not match with the data type of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:51 column:118, DQL Query Error: The data type of the data field '${data.Address.addrId}' does not match with the data type of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -629,7 +629,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:52 column:116, DQL Query Error: The data type of the data field '${data.Address.date}' does not match with the data type of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:52 column:116, DQL Query Error: The data type of the data field '${data.Address.date}' does not match with the data type of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -637,7 +637,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:53 column:116, DQL Query Error: The data type of the data field '${data.Address.time}' does not match with the data type of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:53 column:116, DQL Query Error: The data type of the data field '${data.Address.time}' does not match with the data type of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -645,7 +645,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:54 column:120, DQL Query Error: The data type of the data field '${data.Address.datetime}' does not match with the data type of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:54 column:120, DQL Query Error: The data type of the data field '${data.Address.datetime}' does not match with the data type of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -653,7 +653,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:55 column:133, DQL Query Error: The data type of the data field '${data.CustomerCase.additional.fixed}' does not match with the data type of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:55 column:133, DQL Query Error: The data type of the data field '${data.CustomerCase.additional.fixed}' does not match with the data type of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -661,7 +661,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:57 column:111, DQL Query Error: The data type of the data field '${data.Address}' does not match with the data type of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:57 column:111, DQL Query Error: The data type of the data field '${data.Address}' does not match with the data type of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -669,7 +669,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:58 column:113, DQL Query Error: The data type of the data field '${data.DateField}' does not match with the data type of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:58 column:113, DQL Query Error: The data type of the data field '${data.DateField}' does not match with the data type of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -677,7 +677,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:59 column:113, DQL Query Error: The data type of the data field '${data.TimeField}' does not match with the data type of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:59 column:113, DQL Query Error: The data type of the data field '${data.TimeField}' does not match with the data type of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -693,7 +693,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:60 column:117, DQL Query Error: The data type of the data field '${data.DateTimeField}' does not match with the data type of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:60 column:117, DQL Query Error: The data type of the data field '${data.DateTimeField}' does not match with the data type of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -701,7 +701,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:61 column:120, DQL Query Error: The data type of the data field '${data.FixedPointNumber}' does not match with the data type of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:61 column:120, DQL Query Error: The data type of the data field '${data.FixedPointNumber}' does not match with the data type of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -709,7 +709,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:62 column:113, DQL Query Error: The data type of the data field '${data.TextField}' does not match with the data type of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:62 column:113, DQL Query Error: The data type of the data field '${data.TextField}' does not match with the data type of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -717,7 +717,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:64 column:114, DQL Query Error: The multiplicity of the data field '${data.FloatArray}' does not match with the multiplicity of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:64 column:114, DQL Query Error: The multiplicity of the data field '${data.FloatArray}' does not match with the multiplicity of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -725,7 +725,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:65 column:118, DQL Query Error: The multiplicity of the data field '${data.Address.floats}' does not match with the multiplicity of the attribute 'orderLines.cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:65 column:118, DQL Query Error: The multiplicity of the data field '${data.Address.floats}' does not match with the multiplicity of the attribute 'orderLines[0].cost'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -733,7 +733,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:69 column:123, DQL Query Error: The data type of the data field '${data.Address.houseNumber}' does not match with the data type of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:69 column:123, DQL Query Error: The data type of the data field '${data.Address.houseNumber}' does not match with the data type of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -741,7 +741,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:70 column:122, DQL Query Error: The data type of the data field '${data.Address.roomnumber}' does not match with the data type of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:70 column:122, DQL Query Error: The data type of the data field '${data.Address.roomnumber}' does not match with the data type of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -749,7 +749,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:71 column:118, DQL Query Error: The data type of the data field '${data.Address.addrId}' does not match with the data type of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:71 column:118, DQL Query Error: The data type of the data field '${data.Address.addrId}' does not match with the data type of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -757,7 +757,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:72 column:116, DQL Query Error: The data type of the data field '${data.Address.time}' does not match with the data type of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:72 column:116, DQL Query Error: The data type of the data field '${data.Address.time}' does not match with the data type of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -765,7 +765,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:73 column:120, DQL Query Error: The data type of the data field '${data.Address.datetime}' does not match with the data type of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:73 column:120, DQL Query Error: The data type of the data field '${data.Address.datetime}' does not match with the data type of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -773,7 +773,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:74 column:134, DQL Query Error: The data type of the data field '${data.CustomerCase.additional.float1}' does not match with the data type of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:74 column:134, DQL Query Error: The data type of the data field '${data.CustomerCase.additional.float1}' does not match with the data type of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -781,7 +781,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:76 column:111, DQL Query Error: The data type of the data field '${data.Address}' does not match with the data type of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:76 column:111, DQL Query Error: The data type of the data field '${data.Address}' does not match with the data type of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -789,7 +789,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:77 column:113, DQL Query Error: The data type of the data field '${data.TextField}' does not match with the data type of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:77 column:113, DQL Query Error: The data type of the data field '${data.TextField}' does not match with the data type of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -797,7 +797,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:78 column:113, DQL Query Error: The data type of the data field '${data.TimeField}' does not match with the data type of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:78 column:113, DQL Query Error: The data type of the data field '${data.TimeField}' does not match with the data type of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -805,7 +805,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:79 column:117, DQL Query Error: The data type of the data field '${data.DateTimeField}' does not match with the data type of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:79 column:117, DQL Query Error: The data type of the data field '${data.DateTimeField}' does not match with the data type of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -821,7 +821,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:80 column:120, DQL Query Error: The data type of the data field '${data.FixedPointNumber}' does not match with the data type of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:80 column:120, DQL Query Error: The data type of the data field '${data.FixedPointNumber}' does not match with the data type of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -829,7 +829,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:81 column:123, DQL Query Error: The data type of the data field '${data.FloatingPointNumber}' does not match with the data type of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:81 column:123, DQL Query Error: The data type of the data field '${data.FloatingPointNumber}' does not match with the data type of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -837,7 +837,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:83 column:113, DQL Query Error: The multiplicity of the data field '${data.DateArray}' does not match with the multiplicity of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:83 column:113, DQL Query Error: The multiplicity of the data field '${data.DateArray}' does not match with the multiplicity of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -845,7 +845,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:84 column:117, DQL Query Error: The multiplicity of the data field '${data.Address.dates}' does not match with the multiplicity of the attribute 'orderLines.date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:84 column:117, DQL Query Error: The multiplicity of the data field '${data.Address.dates}' does not match with the multiplicity of the attribute 'orderLines[0].date'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -853,7 +853,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:88 column:123, DQL Query Error: The data type of the data field '${data.Address.houseNumber}' does not match with the data type of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:88 column:123, DQL Query Error: The data type of the data field '${data.Address.houseNumber}' does not match with the data type of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -861,7 +861,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:89 column:122, DQL Query Error: The data type of the data field '${data.Address.roomnumber}' does not match with the data type of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:89 column:122, DQL Query Error: The data type of the data field '${data.Address.roomnumber}' does not match with the data type of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -869,7 +869,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:90 column:116, DQL Query Error: The data type of the data field '${data.Address.date}' does not match with the data type of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:90 column:116, DQL Query Error: The data type of the data field '${data.Address.date}' does not match with the data type of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -877,7 +877,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:91 column:118, DQL Query Error: The data type of the data field '${data.Address.addrId}' does not match with the data type of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:91 column:118, DQL Query Error: The data type of the data field '${data.Address.addrId}' does not match with the data type of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -885,7 +885,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:92 column:120, DQL Query Error: The data type of the data field '${data.Address.datetime}' does not match with the data type of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:92 column:120, DQL Query Error: The data type of the data field '${data.Address.datetime}' does not match with the data type of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -893,7 +893,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:93 column:134, DQL Query Error: The data type of the data field '${data.CustomerCase.additional.float1}' does not match with the data type of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:93 column:134, DQL Query Error: The data type of the data field '${data.CustomerCase.additional.float1}' does not match with the data type of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -901,7 +901,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:95 column:111, DQL Query Error: The data type of the data field '${data.Address}' does not match with the data type of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:95 column:111, DQL Query Error: The data type of the data field '${data.Address}' does not match with the data type of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -909,7 +909,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:96 column:113, DQL Query Error: The data type of the data field '${data.DateField}' does not match with the data type of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:96 column:113, DQL Query Error: The data type of the data field '${data.DateField}' does not match with the data type of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -917,7 +917,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:97 column:113, DQL Query Error: The data type of the data field '${data.TextField}' does not match with the data type of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:97 column:113, DQL Query Error: The data type of the data field '${data.TextField}' does not match with the data type of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -925,7 +925,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:98 column:117, DQL Query Error: The data type of the data field '${data.DateTimeField}' does not match with the data type of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:98 column:117, DQL Query Error: The data type of the data field '${data.DateTimeField}' does not match with the data type of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -933,7 +933,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_01BVgXGjEe-Haajej1owAw", //$NON-NLS-1$ 
-			    		"BPM  : At Line:99 column:120, DQL Query Error: The data type of the data field '${data.FixedPointNumber}' does not match with the data type of the attribute 'orderLines.time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$ 
+						"BPM  : At Line:99 column:120, DQL Query Error: The data type of the data field '${data.FixedPointNumber}' does not match with the data type of the attribute 'orderLines[0].time'. (ACE7144ProcessInvalid:InvalidFieldRefs)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -957,7 +957,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_7TKltVDKEe-RuvrN0hdmJg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:16 column:123, DQL Query Error: Unknown data type attribute 'wrongNestedParent' from the data type 'com.example.ordermodel.new1::OrderLine'. (ACE7144ProcessInvalid:Invalid)", //$NON-NLS-1$ 
+						"BPM  : At Line:16 column:123, DQL Query Error: Unknown attribute 'wrongNestedParent' from the data type 'com.example.ordermodel.new1::OrderLine'. (ACE7144ProcessInvalid:Invalid)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -1013,7 +1013,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_7TKltVDKEe-RuvrN0hdmJg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:31 column:125, DQL Query Error: Multi valued attribute 'orderLines' should be specified with an index: orderLines.quantity (ACE7144ProcessInvalid:Invalid)", //$NON-NLS-1$ 
+						"BPM  : At Line:31 column:125, DQL Query Error: Multi valued attribute 'orderLines' should be specified with an index: orderLines.quantity (ACE7144ProcessInvalid:Invalid)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -1029,7 +1029,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_7TKltVDKEe-RuvrN0hdmJg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:37 column:130, DQL Query Error: Index must be an integer value : orderLines (ACE7144ProcessInvalid:Invalid)", //$NON-NLS-1$ 
+						"BPM  : At Line:37 column:130, DQL Query Error: Index must be an integer value : orderLines[xyz] (ACE7144ProcessInvalid:Invalid)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -1037,7 +1037,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_7TKltVDKEe-RuvrN0hdmJg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:38 column:133, DQL Query Error: Spurious text is present after the end bracket : orderLines[xyz]abc.quantity (ACE7144ProcessInvalid:Invalid)", //$NON-NLS-1$ 
+						"BPM  : At Line:38 column:133, DQL Query Error: Spurious text is present after the end bracket : orderLines[xyz]abc (ACE7144ProcessInvalid:Invalid)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -1045,7 +1045,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_7TKltVDKEe-RuvrN0hdmJg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:39 column:131, DQL Query Error: Spurious text is present after the end bracket : orderLines[0][1].quantity (ACE7144ProcessInvalid:Invalid)", //$NON-NLS-1$ 
+						"BPM  : At Line:39 column:131, DQL Query Error: Index must be an integer value : orderLines[0][1] (ACE7144ProcessInvalid:Invalid)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -1053,7 +1053,7 @@ public class DQLValidationsTest extends AbstractN2BaseValidationTest {
 			    		"/ACE7144ProcessInvalid/Process Packages/ACE7144ProcessInvalid.xpdl", //$NON-NLS-1$ 
 			    		"bx.validateScriptTask", //$NON-NLS-1$ 
 			    		"_7TKltVDKEe-RuvrN0hdmJg", //$NON-NLS-1$ 
-			    		"BPM  : At Line:42 column:130, DQL Query Error: Index value ALL is not supported : orderLines[ALL].quantity (ACE7144ProcessInvalid:Invalid)", //$NON-NLS-1$ 
+						"BPM  : At Line:42 column:130, DQL Query Error: Index value ALL is not supported : orderLines[ALL] (ACE7144ProcessInvalid:Invalid)", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			

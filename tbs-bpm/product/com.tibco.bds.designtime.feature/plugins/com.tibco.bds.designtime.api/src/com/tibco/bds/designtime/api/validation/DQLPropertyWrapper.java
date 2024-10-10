@@ -33,6 +33,8 @@ public class DQLPropertyWrapper implements ModelAttribute
 
 	private DataFieldProvider		dataFieldProvider;
 
+	private String					referenceName;
+
 	/**
 	 * Create a DQL parser {@link ModelAttribute} wrapper for BOM Property
 	 * 
@@ -218,5 +220,27 @@ public class DQLPropertyWrapper implements ModelAttribute
 	public String toString()
 	{
 		return getQualifiedName() + (isArray() ? "[]" : "") + "::" + getType().getName();
+	}
+
+	/**
+	 * @return The referenceName that the consumer previous set using {@link #setReferenceName(String)}, or
+	 *         <code>null</code> if that was not done.
+	 */
+	@Override
+	public String getReferenceName()
+	{
+		return referenceName;
+	}
+
+	/**
+	 * This function takes and stores any reference name that the consumer wishes to set on the property. it can be
+	 * retrieved again later using {@link #getReferenceName()}
+	 *
+	 * @param referenceName
+	 */
+	@Override
+	public void setReferenceName(String referenceName)
+	{
+		this.referenceName = referenceName;
 	}
 }
