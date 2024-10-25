@@ -1,0 +1,1878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_ascxcJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="Invalid Use Cases" Name="InvalidUseCases">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2024-10-24</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_ascxcZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_ascxc5IhEe-2GuL-Yhj3Jg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_ascxcpIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="331.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_ascxc5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="InvalidUseCases" Name="InvalidUseCases">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_ascxlZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="case1Object" Name="case1Object" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxlpIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="case1ObjectArray" Name="case1ObjectArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxl5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="case1Ref" Name="case1Ref" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxmJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="case1RefArray" Name="case1RefArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxmZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="case1RefAnother" Name="case1RefAnother">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxmpIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="case2Ref" Name="case2Ref">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_p0uvEJHoEe-eAeJ18rZL6w"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxm5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="case2RefArray" Name="case2RefArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_p0uvEJHoEe-eAeJ18rZL6w"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxnJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="case2Object" Name="case2Object" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxnZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="case2ObjectArray" Name="case2ObjectArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_p0uvEJHoEe-eAeJ18rZL6w"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxnpIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="text" Name="text" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxn5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="text2" Name="text2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxoJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="textArray" Name="textArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxoZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="fixedPointNumber" Name="fixedPointNumber" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxopIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="fixedPointNumber2" Name="fixedPointNumber2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxo5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="fixedPointNumberArray" Name="fixedPointNumberArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxpJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="floatingPointNumber" Name="floatingPointNumber" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxpZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="floatingPointNumber2" Name="floatingPointNumber2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxppIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="floatingPointNumberArray" Name="floatingPointNumberArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxp5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="date" Name="date" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxqJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="date2" Name="date2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxqZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="dateArray" Name="dateArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxqpIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="dateTime" Name="dateTime" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxq5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="dateTime2" Name="dateTime2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxrJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="dateTimeArray" Name="dateTimeArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxrZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="time" Name="time" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxrpIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="time2" Name="time2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxr5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="timeArray" Name="timeArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxsJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="boolean" Name="boolean" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxsZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="boolean2" Name="boolean2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxspIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="booleanArray" Name="booleanArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxs5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="performer" Name="performer" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxtJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="performer2" Name="performer2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxtZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="performerArray" Name="performerArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxtpIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="uri" Name="uri" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType xpdExt:FieldFormat="URI" Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxt5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="uri2" Name="uri2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType xpdExt:FieldFormat="URI" Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxuJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="uriArray" Name="uriArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType xpdExt:FieldFormat="URI" Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxuZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="case1ObjectAnother" Name="case1ObjectAnother" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ascxupIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="bomAllTypes" Name="bomAllTypes">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_nA_egJIcEe-2GuL-Yhj3Jg"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_ascxdJIhEe-2GuL-Yhj3Jg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxdZIhEe-2GuL-Yhj3Jg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="1207.0" YCoordinate="287.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxdpIhEe-2GuL-Yhj3Jg" Name="InvalidTextFieldUseCases" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Invalid Text Field Use Cases">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// Text fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other  fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+data.text = data.textArray;&#xD;
+data.textArray = data.text;&#xD;
+data.textArray.pushAll(data.text);&#xD;
+data.textArray[0] = data.textArray;&#xD;
+&#xD;
+data.text = data.case1Ref;&#xD;
+data.textArray.push(data.case1Ref);&#xD;
+data.textArray[0] = data.case1Ref;&#xD;
+&#xD;
+data.textArray.push(data.bomAllTypes);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.text);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.textArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.textArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.text);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.textArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.textArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.text);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.textArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.textArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.text);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.textArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.textArray);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="152.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxd5IhEe-2GuL-Yhj3Jg" Name="InvalidNumberFieldUseCases" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Number Field Use Cases">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// Fixed Point Number fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+data.fixedPointNumber = &quot;abc&quot;;&#xD;
+data.fixedPointNumberArray[0] = &quot;abc&quot;;&#xD;
+data.fixedPointNumberArray.push(&quot;abc&quot;);&#xD;
+&#xD;
+data.fixedPointNumber = data.fixedPointNumberArray;&#xD;
+data.fixedPointNumberArray = data.fixedPointNumber;&#xD;
+data.fixedPointNumberArray.pushAll(data.fixedPointNumber);&#xD;
+data.fixedPointNumberArray[0] = data.fixedPointNumberArray;&#xD;
+&#xD;
+data.fixedPointNumber = data.text;&#xD;
+data.fixedPointNumberArray.push(data.text);&#xD;
+data.fixedPointNumberArray[0] = data.text;&#xD;
+&#xD;
+data.fixedPointNumberArray.push(data.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.fixedPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.fixedPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.fixedPointNumberArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.fixedPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.fixedPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.fixedPointNumberArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.fixedPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.fixedPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.fixedPointNumberArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.fixedPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.fixedPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.fixedPointNumberArray);&#xD;
+&#xD;
+&#xD;
+data.fixedPointNumber = data.boolean;&#xD;
+data.fixedPointNumberArray.push(data.boolean);&#xD;
+data.fixedPointNumberArray[0] = data.boolean;&#xD;
+&#xD;
+data.fixedPointNumber = data.date;&#xD;
+data.fixedPointNumberArray.push(data.date);&#xD;
+data.fixedPointNumberArray[0] = data.date;&#xD;
+&#xD;
+&#xD;
+data.fixedPointNumber = data.time;&#xD;
+data.fixedPointNumberArray.push(data.time);&#xD;
+data.fixedPointNumberArray[0] = data.time;&#xD;
+&#xD;
+&#xD;
+data.fixedPointNumber = data.dateTime;&#xD;
+data.fixedPointNumberArray.push(data.dateTime);&#xD;
+data.fixedPointNumberArray[0] = data.dateTime;&#xD;
+&#xD;
+&#xD;
+data.fixedPointNumber = data.uri;&#xD;
+data.fixedPointNumberArray.push(data.uri);&#xD;
+data.fixedPointNumberArray[0] = data.uri;&#xD;
+&#xD;
+&#xD;
+data.fixedPointNumber = data.performer;&#xD;
+data.fixedPointNumberArray.push(data.performer);&#xD;
+data.fixedPointNumberArray[0] = data.performer;&#xD;
+&#xD;
+data.fixedPointNumber = data.bomObject;&#xD;
+data.fixedPointNumberArray.push(data.bomObject);&#xD;
+data.fixedPointNumberArray[0] = data.bomObject;&#xD;
+&#xD;
+data.fixedPointNumber = data.case1Ref;&#xD;
+data.fixedPointNumberArray.push(data.case1Ref);&#xD;
+data.fixedPointNumberArray[0] = data.case1Ref;&#xD;
+&#xD;
+// &#xD;
+// Fixed Point Number fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+data.floatingPointNumber = &quot;abc&quot;;&#xD;
+data.floatingPointNumberArray[0] = &quot;abc&quot;;&#xD;
+data.floatingPointNumberArray.push(&quot;abc&quot;);&#xD;
+&#xD;
+data.floatingPointNumber = data.floatingPointNumberArray;&#xD;
+data.floatingPointNumberArray = data.floatingPointNumber;&#xD;
+data.floatingPointNumberArray.pushAll(data.floatingPointNumber);&#xD;
+data.floatingPointNumberArray[0] = data.floatingPointNumberArray;&#xD;
+&#xD;
+data.floatingPointNumber = data.text;&#xD;
+data.floatingPointNumberArray.push(data.text);&#xD;
+data.floatingPointNumberArray[0] = data.text;&#xD;
+&#xD;
+data.floatingPointNumberArray.push(data.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.floatingPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.floatingPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.floatingPointNumberArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.floatingPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.floatingPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.floatingPointNumberArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.floatingPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.floatingPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.floatingPointNumberArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.floatingPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.floatingPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.floatingPointNumberArray);&#xD;
+&#xD;
+&#xD;
+data.floatingPointNumber = data.boolean;&#xD;
+data.floatingPointNumberArray.push(data.boolean);&#xD;
+data.floatingPointNumberArray[0] = data.boolean;&#xD;
+&#xD;
+data.floatingPointNumber = data.date;&#xD;
+data.floatingPointNumberArray.push(data.date);&#xD;
+data.floatingPointNumberArray[0] = data.date;&#xD;
+&#xD;
+&#xD;
+data.floatingPointNumber = data.time;&#xD;
+data.floatingPointNumberArray.push(data.time);&#xD;
+data.floatingPointNumberArray[0] = data.time;&#xD;
+&#xD;
+&#xD;
+data.floatingPointNumber = data.dateTime;&#xD;
+data.floatingPointNumberArray.push(data.dateTime);&#xD;
+data.floatingPointNumberArray[0] = data.dateTime;&#xD;
+&#xD;
+&#xD;
+data.floatingPointNumber = data.uri;&#xD;
+data.floatingPointNumberArray.push(data.uri);&#xD;
+data.floatingPointNumberArray[0] = data.uri;&#xD;
+&#xD;
+&#xD;
+data.floatingPointNumber = data.performer;&#xD;
+data.floatingPointNumberArray.push(data.performer);&#xD;
+data.floatingPointNumberArray[0] = data.performer;&#xD;
+&#xD;
+data.floatingPointNumber = data.bomObject;&#xD;
+data.floatingPointNumberArray.push(data.bomObject);&#xD;
+data.floatingPointNumberArray[0] = data.bomObject;&#xD;
+&#xD;
+data.floatingPointNumber = data.case1Ref;&#xD;
+data.floatingPointNumberArray.push(data.case1Ref);&#xD;
+data.floatingPointNumberArray[0] = data.case1Ref;&#xD;
+&#xD;
+&#xD;
+&#xD;
+	</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="284.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxeJIhEe-2GuL-Yhj3Jg" Name="InvalidDateFieldUseCases" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Date Field Use Cases ">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// DateTime fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+//&#xD;
+data.dateTime = &quot;abc&quot;;&#xD;
+data.dateTimeArray[0] = &quot;abc&quot;;&#xD;
+data.dateTimeArray.push(&quot;abc&quot;);&#xD;
+&#xD;
+data.dateTimeArray.push(data.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.dateTime);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.dateTimeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.dateTimeArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.dateTime);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.dateTimeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.dateTimeArray);&#xD;
+&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.dateTime);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.dateTimeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.dateTimeArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.dateTimeArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.dateTimeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.dateTimeArray);&#xD;
+&#xD;
+&#xD;
+data.dateTime = data.dateTimeArray;&#xD;
+data.dateTimeArray = data.dateTime;&#xD;
+data.dateTimeArray.pushAll(data.dateTime);&#xD;
+data.dateTimeArray[0] = data.dateTimeArray;&#xD;
+&#xD;
+data.dateTime = data.text;&#xD;
+data.dateTimeArray.push(data.text);&#xD;
+data.dateTimeArray.push(data.textArray[0]);&#xD;
+data.dateTimeArray[0] = data.text;&#xD;
+&#xD;
+data.dateTime = data.fixedPointNumber;&#xD;
+data.dateTimeArray.push(data.fixedPointNumber);&#xD;
+data.dateTimeArray[0] = data.fixedPointNumber;&#xD;
+&#xD;
+data.dateTime = data.boolean;&#xD;
+data.dateTimeArray.push(data.boolean);&#xD;
+data.dateTimeArray[0] = data.boolean;&#xD;
+&#xD;
+data.dateTime = data.uri;&#xD;
+data.dateTimeArray.push(data.uri);&#xD;
+data.dateTimeArray[0] = data.uri;&#xD;
+&#xD;
+&#xD;
+data.dateTime = data.performer;&#xD;
+data.dateTimeArray.push(data.performer);&#xD;
+data.dateTimeArray[0] = data.performer;&#xD;
+&#xD;
+data.dateTime = data.case1Object;&#xD;
+data.dateTimeArray.push(data.case1Object);&#xD;
+data.dateTimeArray[0] = data.case1Object;&#xD;
+ &#xD;
+data.dateTime = data.case1Ref;&#xD;
+data.dateTimeArray.push(data.case1Ref);&#xD;
+data.dateTimeArray[0] = data.case1Ref;&#xD;
+&#xD;
+// &#xD;
+// Date fields / array-elements / arrays - assign from / to &#xD;
+data.date = &quot;abc&quot;;&#xD;
+data.dateArray[0] = &quot;abc&quot;;&#xD;
+data.dateArray.push(&quot;abc&quot;);&#xD;
+&#xD;
+data.dateArray.push(data.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.date);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.dateArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.dateArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.date);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.dateArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.dateArray);&#xD;
+&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.date);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.dateArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.dateArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.dateArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.dateArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.dateArray);&#xD;
+&#xD;
+&#xD;
+data.date = data.dateArray;&#xD;
+data.dateArray = data.date;&#xD;
+data.dateArray.pushAll(data.date);&#xD;
+data.dateArray[0] = data.dateArray;&#xD;
+&#xD;
+data.date = data.text;&#xD;
+data.dateArray.push(data.text);&#xD;
+data.dateArray.push(data.textArray[0]);&#xD;
+data.dateArray[0] = data.text;&#xD;
+&#xD;
+data.date = data.fixedPointNumber;&#xD;
+data.dateArray.push(data.fixedPointNumber);&#xD;
+data.dateArray[0] = data.fixedPointNumber;&#xD;
+&#xD;
+data.date = data.boolean;&#xD;
+data.dateArray.push(data.boolean);&#xD;
+data.dateArray[0] = data.boolean;&#xD;
+&#xD;
+data.date = data.uri;&#xD;
+data.dateArray.push(data.uri);&#xD;
+data.dateArray[0] = data.uri;&#xD;
+&#xD;
+&#xD;
+data.date = data.performer;&#xD;
+data.dateArray.push(data.performer);&#xD;
+data.dateArray[0] = data.performer;&#xD;
+&#xD;
+data.date = data.case1Object;&#xD;
+data.dateArray.push(data.case1Object);&#xD;
+data.dateArray[0] = data.case1Object;&#xD;
+&#xD;
+data.date = data.case1Ref;&#xD;
+data.dateArray.push(data.case1Ref);&#xD;
+data.dateArray[0] = data.case1Ref;&#xD;
+&#xD;
+// &#xD;
+// Date fields / array-elements / arrays - assign from / to &#xD;
+data.time = &quot;abc&quot;;&#xD;
+data.timeArray[0] = &quot;abc&quot;;&#xD;
+data.timeArray.push(&quot;abc&quot;);&#xD;
+&#xD;
+data.timeArray.push(data.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.time);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.timeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.timeArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.time);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.timeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.timeArray);&#xD;
+&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.time);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.timeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.timeArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.timeArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.timeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.timeArray);&#xD;
+&#xD;
+&#xD;
+data.time = data.timeArray;&#xD;
+data.timeArray = data.time;&#xD;
+data.timeArray.pushAll(data.time);&#xD;
+data.timeArray[0] = data.timeArray;&#xD;
+&#xD;
+data.time = data.text;&#xD;
+data.timeArray.push(data.text);&#xD;
+data.timeArray.push(data.textArray[0]);&#xD;
+data.timeArray[0] = data.text;&#xD;
+&#xD;
+data.time = data.fixedPointNumber;&#xD;
+data.timeArray.push(data.fixedPointNumber);&#xD;
+data.timeArray[0] = data.fixedPointNumber;&#xD;
+&#xD;
+data.time = data.boolean;&#xD;
+data.timeArray.push(data.boolean);&#xD;
+data.timeArray[0] = data.boolean;&#xD;
+&#xD;
+data.time = data.uri;&#xD;
+data.timeArray.push(data.uri);&#xD;
+data.timeArray[0] = data.uri;&#xD;
+&#xD;
+&#xD;
+data.time = data.performer;&#xD;
+data.timeArray.push(data.performer);&#xD;
+data.timeArray[0] = data.performer;&#xD;
+&#xD;
+data.time = data.case1Object;&#xD;
+data.timeArray.push(data.case1Object);&#xD;
+data.timeArray[0] = data.case1Object;&#xD;
+&#xD;
+data.time = data.case1Ref;&#xD;
+data.timeArray.push(data.case1Ref);&#xD;
+data.timeArray[0] = data.case1Ref;&#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="431.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxeZIhEe-2GuL-Yhj3Jg" Name="InvalidBooleanFieldUseCases" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Boolean Field Use Cases">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// Boolean fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+data.boolean = &quot;abc&quot;;&#xD;
+data.booleanArray[0] = &quot;abc&quot;;&#xD;
+data.booleanArray.push(&quot;abc&quot;);&#xD;
+&#xD;
+data.boolean = data.booleanArray;&#xD;
+data.booleanArray = data.boolean;&#xD;
+data.booleanArray.pushAll(data.boolean);&#xD;
+data.booleanArray[0] = data.booleanArray;&#xD;
+&#xD;
+data.booleanArray.push(data.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.boolean);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.booleanArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.booleanArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.boolean);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.booleanArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.booleanArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.boolean);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.booleanArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.booleanArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.boolean);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.booleanArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.booleanArray);&#xD;
+&#xD;
+data.boolean = data.text;&#xD;
+data.booleanArray.push(data.text);&#xD;
+data.booleanArray.push(data.textArray[0]);&#xD;
+data.booleanArray[0] = data.text;&#xD;
+&#xD;
+data.boolean = data.fixedPointNumber;&#xD;
+data.booleanArray.push(data.fixedPointNumber);&#xD;
+data.booleanArray[0] = data.fixedPointNumber;&#xD;
+&#xD;
+data.boolean = data.date;&#xD;
+data.booleanArray.push(data.date);&#xD;
+data.booleanArray[0] = data.date;&#xD;
+&#xD;
+&#xD;
+data.boolean = data.time;&#xD;
+data.booleanArray.push(data.time);&#xD;
+data.booleanArray[0] = data.time;&#xD;
+&#xD;
+&#xD;
+data.boolean = data.dateTime;&#xD;
+data.booleanArray.push(data.dateTime);&#xD;
+data.booleanArray[0] = data.dateTime;&#xD;
+&#xD;
+&#xD;
+data.boolean = data.uri;&#xD;
+data.booleanArray.push(data.uri);&#xD;
+data.booleanArray[0] = data.uri;&#xD;
+&#xD;
+&#xD;
+data.boolean = data.performer;&#xD;
+data.booleanArray.push(data.performer);&#xD;
+data.booleanArray[0] = data.performer;&#xD;
+&#xD;
+data.boolean = data.case1Object;&#xD;
+data.booleanArray.push(data.case1Object);&#xD;
+data.booleanArray[0] = data.case1Object;&#xD;
+&#xD;
+data.boolean = data.case1Ref;&#xD;
+data.booleanArray.push(data.case1Ref);&#xD;
+data.booleanArray[0] = data.case1Ref;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="576.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxepIhEe-2GuL-Yhj3Jg" Name="InvalidPerformerFieldUseCases" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Performer Field Use Cases">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// Performer fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+data.performer = data.performerArray;&#xD;
+data.performerArray = data.performer;&#xD;
+data.performerArray.pushAll(data.performer);&#xD;
+data.performerArray[0] = data.performerArray;&#xD;
+&#xD;
+data.performer = data.case1Object;&#xD;
+data.performerArray.push(data.case1Object);&#xD;
+data.performerArray[0] = data.case1Object;&#xD;
+&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.performer);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.performerArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.performerArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.performer);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.performerArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.performerArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.performer);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.performerArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.performerArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.performer);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.performerArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.performerArray);&#xD;
+&#xD;
+data.performer = data.case1Ref;&#xD;
+data.performerArray.push(data.case1Ref);&#xD;
+data.performerArray[0] = data.case1Ref;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="710.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxe5IhEe-2GuL-Yhj3Jg" Name="InvalidURIFieldUseCases" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid URI Field Use Cases">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// URI fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+&#xD;
+data.uri = data.uriArray;&#xD;
+data.uriArray = data.uri;&#xD;
+data.uriArray.pushAll(data.uri);&#xD;
+data.uriArray[0] = data.uriArray;&#xD;
+&#xD;
+data.uri = data.case1Object;&#xD;
+data.uriArray.push(data.case1Object);&#xD;
+data.uriArray[0] = data.case1Object;&#xD;
+&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.uri);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.uriArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.uriArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.uri);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.uriArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.uriArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.uri);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.uriArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.uriArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.uri);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.uriArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.uriArray);&#xD;
+&#xD;
+data.uri = data.case1Ref;&#xD;
+data.uriArray.push(data.case1Ref);&#xD;
+data.uriArray[0] = data.case1Ref;&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="839.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxfJIhEe-2GuL-Yhj3Jg" Name="InvalidCaseRefFieldUseCases" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid CaseRef Field Use Cases">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// CaseRef fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+data.case1Ref = &quot;abc&quot;;&#xD;
+data.case1RefArray[0] = &quot;abc&quot;;&#xD;
+data.case1RefArray.push(&quot;abc&quot;);&#xD;
+&#xD;
+data.case1Ref = data.case1RefArray;&#xD;
+data.case1RefArray = data.case1Ref;&#xD;
+data.case1RefArray.pushAll(data.case1Ref);&#xD;
+data.case1RefArray[0] = data.case1RefArray;&#xD;
+&#xD;
+data.case1RefArray.push(data.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.case1Ref);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.case1RefArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.case1RefArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.case1Ref);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.case1RefArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.case1RefArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.case1Ref);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.case1RefArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.case1RefArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.case1Ref);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.case1RefArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.case1RefArray);&#xD;
+&#xD;
+data.case1Ref = data.text;&#xD;
+data.case1RefArray.push(data.text);&#xD;
+data.case1RefArray[0] = data.text;&#xD;
+&#xD;
+data.case1Ref = data.fixedPointNumber;&#xD;
+data.case1RefArray.push(data.fixedPointNumber);&#xD;
+data.case1RefArray[0] = data.fixedPointNumber;&#xD;
+&#xD;
+data.case1Ref = data.boolean;&#xD;
+data.case1RefArray.push(data.boolean);&#xD;
+data.case1RefArray[0] = data.boolean;&#xD;
+&#xD;
+data.case1Ref = data.date;&#xD;
+data.case1RefArray.push(data.date);&#xD;
+data.case1RefArray[0] = data.date;&#xD;
+&#xD;
+&#xD;
+data.case1Ref = data.time;&#xD;
+data.case1RefArray.push(data.time);&#xD;
+data.case1RefArray[0] = data.time;&#xD;
+&#xD;
+&#xD;
+data.case1Ref = data.dateTime;&#xD;
+data.case1RefArray.push(data.dateTime);&#xD;
+data.case1RefArray[0] = data.dateTime;&#xD;
+&#xD;
+&#xD;
+data.case1Ref = data.uri;&#xD;
+data.case1RefArray.push(data.uri);&#xD;
+data.case1RefArray[0] = data.uri;&#xD;
+&#xD;
+&#xD;
+data.case1Ref = data.performer;&#xD;
+data.case1RefArray.push(data.performer);&#xD;
+data.case1RefArray[0] = data.performer;&#xD;
+&#xD;
+data.case1Ref = data.case1Object;&#xD;
+data.case1RefArray.push(data.case1Object);&#xD;
+data.case1RefArray[0] = data.case1Object;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="974.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxfZIhEe-2GuL-Yhj3Jg" Name="InvalidBOMObjectFieldUseCases" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid BOM Object Field Use Cases">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// BPM Object fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+data.case1Object = &quot;abc&quot;;&#xD;
+data.case1ObjectArray[0] = &quot;abc&quot;;&#xD;
+data.case1ObjectArray.push(&quot;abc&quot;);&#xD;
+data.case1Object = data.bomAllTypes;&#xD;
+&#xD;
+data.case1Object = data.case1ObjectArray;&#xD;
+data.case1ObjectArray = data.case1Object;&#xD;
+data.case1ObjectArray.pushAll(data.case1Object);&#xD;
+data.case1ObjectArray[0] = data.case1ObjectArray;&#xD;
+&#xD;
+data.case1Object = data.text;&#xD;
+data.case1ObjectArray.push(data.text);&#xD;
+data.case1ObjectArray[0] = data.text;&#xD;
+&#xD;
+data.case1ObjectArray.push(data.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.case1Object);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.case1ObjectArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.case1ObjectArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.case1Object);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.case1ObjectArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.case1ObjectArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.case1Object);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.case1ObjectArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.case1ObjectArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.case1Object);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.case1ObjectArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.case1ObjectArray);&#xD;
+&#xD;
+data.case1Object = data.fixedPointNumber;&#xD;
+data.case1ObjectArray.push(data.fixedPointNumber);&#xD;
+data.case1ObjectArray[0] = data.fixedPointNumber;&#xD;
+&#xD;
+data.case1Object = data.boolean;&#xD;
+data.case1ObjectArray.push(data.boolean);&#xD;
+data.case1ObjectArray[0] = data.boolean;&#xD;
+&#xD;
+data.case1Object = data.date;&#xD;
+data.case1ObjectArray.push(data.date);&#xD;
+data.case1ObjectArray[0] = data.date;&#xD;
+&#xD;
+&#xD;
+data.case1Object = data.time;&#xD;
+data.case1ObjectArray.push(data.time);&#xD;
+data.case1ObjectArray[0] = data.time;&#xD;
+&#xD;
+&#xD;
+data.case1Object = data.dateTime;&#xD;
+data.case1ObjectArray.push(data.dateTime);&#xD;
+data.case1ObjectArray[0] = data.dateTime;&#xD;
+&#xD;
+&#xD;
+data.case1Object = data.uri;&#xD;
+data.case1ObjectArray.push(data.uri);&#xD;
+data.case1ObjectArray[0] = data.uri;&#xD;
+&#xD;
+&#xD;
+data.case1Object = data.performer;&#xD;
+data.case1ObjectArray.push(data.performer);&#xD;
+data.case1ObjectArray[0] = data.performer;&#xD;
+&#xD;
+data.case1Object = data.case1Ref;&#xD;
+data.case1ObjectArray.push(data.case1Ref);&#xD;
+data.case1ObjectArray[0] = data.case1Ref;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="1116.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxfpIhEe-2GuL-Yhj3Jg" Name="InvalidTextBOMAttrUseCases" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Invalid Text BOM Attr Use Cases">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// Text fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other  fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+data.bomAllTypes.text = data.bomAllTypes.textArray;&#xD;
+data.bomAllTypes.textArray = data.bomAllTypes.text;&#xD;
+data.bomAllTypes.textArray.pushAll(data.bomAllTypes.text);&#xD;
+data.bomAllTypes.textArray[0] = data.bomAllTypes.textArray;&#xD;
+&#xD;
+data.bomAllTypes.text = data.bomAllTypes.case1Ref;&#xD;
+data.bomAllTypes.textArray.push(data.bomAllTypes.case1Ref);&#xD;
+data.bomAllTypes.textArray[0] = data.bomAllTypes.case1Ref;&#xD;
+&#xD;
+data.bomAllTypes.textArray.push(data.bomAllTypes.bomAllTypes);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.text);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.textArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.textArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.text);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.textArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.textArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.text);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.textArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.textArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.text);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.textArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.textArray);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="107.0" YCoordinate="289.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxf5IhEe-2GuL-Yhj3Jg" Name="InvalidNumberBOMAttrUseCases" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Number BOM Attr Use Cases">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// Fixed Point Number fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+data.bomAllTypes.fixedPointNumber = &quot;abc&quot;;&#xD;
+data.bomAllTypes.fixedPointNumberArray[0] = &quot;abc&quot;;&#xD;
+data.bomAllTypes.fixedPointNumberArray.push(&quot;abc&quot;);&#xD;
+&#xD;
+data.bomAllTypes.fixedPointNumber = data.bomAllTypes.fixedPointNumberArray;&#xD;
+data.bomAllTypes.fixedPointNumberArray = data.bomAllTypes.fixedPointNumber;&#xD;
+data.bomAllTypes.fixedPointNumberArray.pushAll(data.bomAllTypes.fixedPointNumber);&#xD;
+data.bomAllTypes.fixedPointNumberArray[0] = data.bomAllTypes.fixedPointNumberArray;&#xD;
+&#xD;
+data.bomAllTypes.fixedPointNumber = data.bomAllTypes.text;&#xD;
+data.bomAllTypes.fixedPointNumberArray.push(data.bomAllTypes.text);&#xD;
+data.bomAllTypes.fixedPointNumberArray[0] = data.bomAllTypes.text;&#xD;
+&#xD;
+data.bomAllTypes.fixedPointNumberArray.push(data.bomAllTypes.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.fixedPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.fixedPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.fixedPointNumberArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.fixedPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.fixedPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.fixedPointNumberArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.fixedPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.fixedPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.fixedPointNumberArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.fixedPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.fixedPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.fixedPointNumberArray);&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.fixedPointNumber = data.bomAllTypes.boolean1;&#xD;
+data.bomAllTypes.fixedPointNumberArray.push(data.bomAllTypes.boolean1);&#xD;
+data.bomAllTypes.fixedPointNumberArray[0] = data.bomAllTypes.boolean1;&#xD;
+&#xD;
+data.bomAllTypes.fixedPointNumber = data.bomAllTypes.date;&#xD;
+data.bomAllTypes.fixedPointNumberArray.push(data.bomAllTypes.date);&#xD;
+data.bomAllTypes.fixedPointNumberArray[0] = data.bomAllTypes.date;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.fixedPointNumber = data.bomAllTypes.time;&#xD;
+data.bomAllTypes.fixedPointNumberArray.push(data.bomAllTypes.time);&#xD;
+data.bomAllTypes.fixedPointNumberArray[0] = data.bomAllTypes.time;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.fixedPointNumber = data.bomAllTypes.dateTime;&#xD;
+data.bomAllTypes.fixedPointNumberArray.push(data.bomAllTypes.dateTime);&#xD;
+data.bomAllTypes.fixedPointNumberArray[0] = data.bomAllTypes.dateTime;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.fixedPointNumber = data.bomAllTypes.uri;&#xD;
+data.bomAllTypes.fixedPointNumberArray.push(data.bomAllTypes.uri);&#xD;
+data.bomAllTypes.fixedPointNumberArray[0] = data.bomAllTypes.uri;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.fixedPointNumber = data.performer;&#xD;
+data.bomAllTypes.fixedPointNumberArray.push(data.performer);&#xD;
+data.bomAllTypes.fixedPointNumberArray[0] = data.performer;&#xD;
+&#xD;
+data.bomAllTypes.fixedPointNumber = data.bomAllTypes.bomObject;&#xD;
+data.bomAllTypes.fixedPointNumberArray.push(data.bomAllTypes.bomObject);&#xD;
+data.bomAllTypes.fixedPointNumberArray[0] = data.bomAllTypes.bomObject;&#xD;
+&#xD;
+data.bomAllTypes.fixedPointNumber = data.case1Ref;&#xD;
+data.bomAllTypes.fixedPointNumberArray.push(data.case1Ref);&#xD;
+data.bomAllTypes.fixedPointNumberArray[0] = data.case1Ref;&#xD;
+&#xD;
+// &#xD;
+// Fixed Point Number fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+data.bomAllTypes.floatingPointNumber = &quot;abc&quot;;&#xD;
+data.bomAllTypes.floatingPointNumberArray[0] = &quot;abc&quot;;&#xD;
+data.bomAllTypes.floatingPointNumberArray.push(&quot;abc&quot;);&#xD;
+&#xD;
+data.bomAllTypes.floatingPointNumber = data.bomAllTypes.floatingPointNumberArray;&#xD;
+data.bomAllTypes.floatingPointNumberArray = data.bomAllTypes.floatingPointNumber;&#xD;
+data.bomAllTypes.floatingPointNumberArray.pushAll(data.bomAllTypes.floatingPointNumber);&#xD;
+data.bomAllTypes.floatingPointNumberArray[0] = data.bomAllTypes.floatingPointNumberArray;&#xD;
+&#xD;
+data.bomAllTypes.floatingPointNumber = data.bomAllTypes.text;&#xD;
+data.bomAllTypes.floatingPointNumberArray.push(data.bomAllTypes.text);&#xD;
+data.bomAllTypes.floatingPointNumberArray[0] = data.bomAllTypes.text;&#xD;
+&#xD;
+data.bomAllTypes.floatingPointNumberArray.push(data.bomAllTypes.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.floatingPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.floatingPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.floatingPointNumberArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.floatingPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.floatingPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.floatingPointNumberArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.floatingPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.floatingPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.floatingPointNumberArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.floatingPointNumber);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.floatingPointNumberArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.floatingPointNumberArray);&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.floatingPointNumber = data.bomAllTypes.boolean1;&#xD;
+data.bomAllTypes.floatingPointNumberArray.push(data.bomAllTypes.boolean1);&#xD;
+data.bomAllTypes.floatingPointNumberArray[0] = data.bomAllTypes.boolean1;&#xD;
+&#xD;
+data.bomAllTypes.floatingPointNumber = data.bomAllTypes.date;&#xD;
+data.bomAllTypes.floatingPointNumberArray.push(data.bomAllTypes.date);&#xD;
+data.bomAllTypes.floatingPointNumberArray[0] = data.bomAllTypes.date;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.floatingPointNumber = data.bomAllTypes.time;&#xD;
+data.bomAllTypes.floatingPointNumberArray.push(data.bomAllTypes.time);&#xD;
+data.bomAllTypes.floatingPointNumberArray[0] = data.bomAllTypes.time;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.floatingPointNumber = data.bomAllTypes.dateTime;&#xD;
+data.bomAllTypes.floatingPointNumberArray.push(data.bomAllTypes.dateTime);&#xD;
+data.bomAllTypes.floatingPointNumberArray[0] = data.bomAllTypes.dateTime;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.floatingPointNumber = data.bomAllTypes.uri;&#xD;
+data.bomAllTypes.floatingPointNumberArray.push(data.bomAllTypes.uri);&#xD;
+data.bomAllTypes.floatingPointNumberArray[0] = data.bomAllTypes.uri;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.floatingPointNumber = data.performer;&#xD;
+data.bomAllTypes.floatingPointNumberArray.push(data.performer);&#xD;
+data.bomAllTypes.floatingPointNumberArray[0] = data.performer;&#xD;
+&#xD;
+data.bomAllTypes.floatingPointNumber = data.bomAllTypes.bomObject;&#xD;
+data.bomAllTypes.floatingPointNumberArray.push(data.bomAllTypes.bomObject);&#xD;
+data.bomAllTypes.floatingPointNumberArray[0] = data.bomAllTypes.bomObject;&#xD;
+&#xD;
+data.bomAllTypes.floatingPointNumber = data.case1Ref;&#xD;
+data.bomAllTypes.floatingPointNumberArray.push(data.case1Ref);&#xD;
+data.bomAllTypes.floatingPointNumberArray[0] = data.case1Ref;&#xD;
+&#xD;
+&#xD;
+&#xD;
+	</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="239.0" YCoordinate="289.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxgJIhEe-2GuL-Yhj3Jg" Name="InvalidDateBOMAttrUseCases" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Date BOM Attr Use Cases ">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// DateTime fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+//&#xD;
+data.bomAllTypes.dateTime = &quot;abc&quot;;&#xD;
+data.bomAllTypes.dateTimeArray[0] = &quot;abc&quot;;&#xD;
+data.bomAllTypes.dateTimeArray.push(&quot;abc&quot;);&#xD;
+&#xD;
+data.bomAllTypes.dateTimeArray.push(data.bomAllTypes.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.bomAllTypes.dateTime);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.bomAllTypes.dateTimeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.bomAllTypes.dateTimeArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.dateTime);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.dateTimeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.dateTimeArray);&#xD;
+&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.bomAllTypes.dateTime);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.bomAllTypes.dateTimeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.bomAllTypes.dateTimeArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.dateTimeArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.dateTimeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.dateTimeArray);&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.dateTime = data.bomAllTypes.dateTimeArray;&#xD;
+data.bomAllTypes.dateTimeArray = data.bomAllTypes.dateTime;&#xD;
+data.bomAllTypes.dateTimeArray.pushAll(data.bomAllTypes.dateTime);&#xD;
+data.bomAllTypes.dateTimeArray[0] = data.bomAllTypes.dateTimeArray;&#xD;
+&#xD;
+data.bomAllTypes.dateTime = data.bomAllTypes.text;&#xD;
+data.bomAllTypes.dateTimeArray.push(data.bomAllTypes.text);&#xD;
+data.bomAllTypes.dateTimeArray.push(data.bomAllTypes.textArray[0]);&#xD;
+data.bomAllTypes.dateTimeArray[0] = data.bomAllTypes.text;&#xD;
+&#xD;
+data.bomAllTypes.dateTime = data.bomAllTypes.fixedPointNumber;&#xD;
+data.bomAllTypes.dateTimeArray.push(data.bomAllTypes.fixedPointNumber);&#xD;
+data.bomAllTypes.dateTimeArray[0] = data.bomAllTypes.fixedPointNumber;&#xD;
+&#xD;
+data.bomAllTypes.dateTime = data.bomAllTypes.boolean1;&#xD;
+data.bomAllTypes.dateTimeArray.push(data.bomAllTypes.boolean1);&#xD;
+data.bomAllTypes.dateTimeArray[0] = data.bomAllTypes.boolean1;&#xD;
+&#xD;
+data.bomAllTypes.dateTime = data.bomAllTypes.uri;&#xD;
+data.bomAllTypes.dateTimeArray.push(data.bomAllTypes.uri);&#xD;
+data.bomAllTypes.dateTimeArray[0] = data.bomAllTypes.uri;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.dateTime = data.performer;&#xD;
+data.bomAllTypes.dateTimeArray.push(data.performer);&#xD;
+data.bomAllTypes.dateTimeArray[0] = data.performer;&#xD;
+&#xD;
+data.bomAllTypes.dateTime = data.bomAllTypes.bomObject;&#xD;
+data.bomAllTypes.dateTimeArray.push(data.bomAllTypes.bomObject);&#xD;
+data.bomAllTypes.dateTimeArray[0] = data.bomAllTypes.bomObject;&#xD;
+ &#xD;
+data.bomAllTypes.dateTime = data.case1Ref;&#xD;
+data.bomAllTypes.dateTimeArray.push(data.case1Ref);&#xD;
+data.bomAllTypes.dateTimeArray[0] = data.case1Ref;&#xD;
+&#xD;
+// &#xD;
+// Date fields / array-elements / arrays - assign from / to &#xD;
+data.bomAllTypes.date = &quot;abc&quot;;&#xD;
+data.bomAllTypes.dateArray[0] = &quot;abc&quot;;&#xD;
+data.bomAllTypes.dateArray.push(&quot;abc&quot;);&#xD;
+&#xD;
+data.bomAllTypes.dateArray.push(data.bomAllTypes.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.bomAllTypes.date);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.bomAllTypes.dateArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.bomAllTypes.dateArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.date);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.dateArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.dateArray);&#xD;
+&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.bomAllTypes.date);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.bomAllTypes.dateArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.bomAllTypes.dateArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.dateArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.dateArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.dateArray);&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.date = data.bomAllTypes.dateArray;&#xD;
+data.bomAllTypes.dateArray = data.bomAllTypes.date;&#xD;
+data.bomAllTypes.dateArray.pushAll(data.bomAllTypes.date);&#xD;
+data.bomAllTypes.dateArray[0] = data.bomAllTypes.dateArray;&#xD;
+&#xD;
+data.bomAllTypes.date = data.bomAllTypes.text;&#xD;
+data.bomAllTypes.dateArray.push(data.bomAllTypes.text);&#xD;
+data.bomAllTypes.dateArray.push(data.bomAllTypes.textArray[0]);&#xD;
+data.bomAllTypes.dateArray[0] = data.bomAllTypes.text;&#xD;
+&#xD;
+data.bomAllTypes.date = data.bomAllTypes.fixedPointNumber;&#xD;
+data.bomAllTypes.dateArray.push(data.bomAllTypes.fixedPointNumber);&#xD;
+data.bomAllTypes.dateArray[0] = data.bomAllTypes.fixedPointNumber;&#xD;
+&#xD;
+data.bomAllTypes.date = data.bomAllTypes.boolean1;&#xD;
+data.bomAllTypes.dateArray.push(data.bomAllTypes.boolean1);&#xD;
+data.bomAllTypes.dateArray[0] = data.bomAllTypes.boolean1;&#xD;
+&#xD;
+data.bomAllTypes.date = data.bomAllTypes.uri;&#xD;
+data.bomAllTypes.dateArray.push(data.bomAllTypes.uri);&#xD;
+data.bomAllTypes.dateArray[0] = data.bomAllTypes.uri;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.date = data.performer;&#xD;
+data.bomAllTypes.dateArray.push(data.performer);&#xD;
+data.bomAllTypes.dateArray[0] = data.performer;&#xD;
+&#xD;
+data.bomAllTypes.date = data.bomAllTypes.bomObject;&#xD;
+data.bomAllTypes.dateArray.push(data.bomAllTypes.bomObject);&#xD;
+data.bomAllTypes.dateArray[0] = data.bomAllTypes.bomObject;&#xD;
+&#xD;
+data.bomAllTypes.date = data.case1Ref;&#xD;
+data.bomAllTypes.dateArray.push(data.case1Ref);&#xD;
+data.bomAllTypes.dateArray[0] = data.case1Ref;&#xD;
+&#xD;
+// &#xD;
+// Date fields / array-elements / arrays - assign from / to &#xD;
+data.bomAllTypes.time = &quot;abc&quot;;&#xD;
+data.bomAllTypes.timeArray[0] = &quot;abc&quot;;&#xD;
+data.bomAllTypes.timeArray.push(&quot;abc&quot;);&#xD;
+&#xD;
+data.bomAllTypes.timeArray.push(data.bomAllTypes.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.bomAllTypes.time);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.bomAllTypes.timeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumber(data.bomAllTypes.timeArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.time);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.timeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.timeArray);&#xD;
+&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.bomAllTypes.time);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.bomAllTypes.timeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnNumberArray(data.bomAllTypes.timeArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.timeArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.timeArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.timeArray);&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.time = data.bomAllTypes.timeArray;&#xD;
+data.bomAllTypes.timeArray = data.bomAllTypes.time;&#xD;
+data.bomAllTypes.timeArray.pushAll(data.bomAllTypes.time);&#xD;
+data.bomAllTypes.timeArray[0] = data.bomAllTypes.timeArray;&#xD;
+&#xD;
+data.bomAllTypes.time = data.bomAllTypes.text;&#xD;
+data.bomAllTypes.timeArray.push(data.bomAllTypes.text);&#xD;
+data.bomAllTypes.timeArray.push(data.bomAllTypes.textArray[0]);&#xD;
+data.bomAllTypes.timeArray[0] = data.bomAllTypes.text;&#xD;
+&#xD;
+data.bomAllTypes.time = data.bomAllTypes.fixedPointNumber;&#xD;
+data.bomAllTypes.timeArray.push(data.bomAllTypes.fixedPointNumber);&#xD;
+data.bomAllTypes.timeArray[0] = data.bomAllTypes.fixedPointNumber;&#xD;
+&#xD;
+data.bomAllTypes.time = data.bomAllTypes.boolean1;&#xD;
+data.bomAllTypes.timeArray.push(data.bomAllTypes.boolean1);&#xD;
+data.bomAllTypes.timeArray[0] = data.bomAllTypes.boolean1;&#xD;
+&#xD;
+data.bomAllTypes.time = data.bomAllTypes.uri;&#xD;
+data.bomAllTypes.timeArray.push(data.bomAllTypes.uri);&#xD;
+data.bomAllTypes.timeArray[0] = data.bomAllTypes.uri;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.time = data.performer;&#xD;
+data.bomAllTypes.timeArray.push(data.performer);&#xD;
+data.bomAllTypes.timeArray[0] = data.performer;&#xD;
+&#xD;
+data.bomAllTypes.time = data.bomAllTypes.bomObject;&#xD;
+data.bomAllTypes.timeArray.push(data.bomAllTypes.bomObject);&#xD;
+data.bomAllTypes.timeArray[0] = data.bomAllTypes.bomObject;&#xD;
+&#xD;
+data.bomAllTypes.time = data.case1Ref;&#xD;
+data.bomAllTypes.timeArray.push(data.case1Ref);&#xD;
+data.bomAllTypes.timeArray[0] = data.case1Ref;&#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="386.0" YCoordinate="289.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxgZIhEe-2GuL-Yhj3Jg" Name="InvalidBooleanBOMAttrUseCases" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Boolean BOM Attr Use Cases">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// Boolean fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+data.bomAllTypes.boolean1 = &quot;abc&quot;;&#xD;
+data.bomAllTypes.boolean1Array[0] = &quot;abc&quot;;&#xD;
+data.bomAllTypes.boolean1Array.push(&quot;abc&quot;);&#xD;
+&#xD;
+data.bomAllTypes.boolean1 = data.bomAllTypes.boolean1Array;&#xD;
+data.bomAllTypes.boolean1Array = data.bomAllTypes.boolean1;&#xD;
+data.bomAllTypes.boolean1Array.pushAll(data.bomAllTypes.boolean1);&#xD;
+data.bomAllTypes.boolean1Array[0] = data.bomAllTypes.boolean1Array;&#xD;
+&#xD;
+data.bomAllTypes.boolean1Array.push(data.bomAllTypes.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.boolean1);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.boolean1Array[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.boolean1Array);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.boolean1);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.boolean1Array[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.boolean1Array);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.boolean1);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.boolean1Array[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.boolean1Array);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.boolean1);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.boolean1Array[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.boolean1Array);&#xD;
+&#xD;
+data.bomAllTypes.boolean1 = data.bomAllTypes.text;&#xD;
+data.bomAllTypes.boolean1Array.push(data.bomAllTypes.text);&#xD;
+data.bomAllTypes.boolean1Array.push(data.bomAllTypes.textArray[0]);&#xD;
+data.bomAllTypes.boolean1Array[0] = data.bomAllTypes.text;&#xD;
+&#xD;
+data.bomAllTypes.boolean1 = data.bomAllTypes.fixedPointNumber;&#xD;
+data.bomAllTypes.boolean1Array.push(data.bomAllTypes.fixedPointNumber);&#xD;
+data.bomAllTypes.boolean1Array[0] = data.bomAllTypes.fixedPointNumber;&#xD;
+&#xD;
+data.bomAllTypes.boolean1 = data.bomAllTypes.date;&#xD;
+data.bomAllTypes.boolean1Array.push(data.bomAllTypes.date);&#xD;
+data.bomAllTypes.boolean1Array[0] = data.bomAllTypes.date;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.boolean1 = data.bomAllTypes.time;&#xD;
+data.bomAllTypes.boolean1Array.push(data.bomAllTypes.time);&#xD;
+data.bomAllTypes.boolean1Array[0] = data.bomAllTypes.time;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.boolean1 = data.bomAllTypes.dateTime;&#xD;
+data.bomAllTypes.boolean1Array.push(data.bomAllTypes.dateTime);&#xD;
+data.bomAllTypes.boolean1Array[0] = data.bomAllTypes.dateTime;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.boolean1 = data.bomAllTypes.uri;&#xD;
+data.bomAllTypes.boolean1Array.push(data.bomAllTypes.uri);&#xD;
+data.bomAllTypes.boolean1Array[0] = data.bomAllTypes.uri;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.boolean1 = data.performer;&#xD;
+data.bomAllTypes.boolean1Array.push(data.performer);&#xD;
+data.bomAllTypes.boolean1Array[0] = data.performer;&#xD;
+&#xD;
+data.bomAllTypes.boolean1 = data.bomAllTypes.case1Object;&#xD;
+data.bomAllTypes.boolean1Array.push(data.bomAllTypes.case1Object);&#xD;
+data.bomAllTypes.boolean1Array[0] = data.bomAllTypes.case1Object;&#xD;
+&#xD;
+data.bomAllTypes.boolean1 = data.case1Ref;&#xD;
+data.bomAllTypes.boolean1Array.push(data.case1Ref);&#xD;
+data.bomAllTypes.boolean1Array[0] = data.case1Ref;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="531.0" YCoordinate="289.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxgpIhEe-2GuL-Yhj3Jg" Name="InvalidURIBOMAttrUseCases" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid URI BOM Attr Use Cases">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// URI fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+&#xD;
+data.bomAllTypes.uri = data.bomAllTypes.uriArray;&#xD;
+data.bomAllTypes.uriArray = data.bomAllTypes.uri;&#xD;
+data.bomAllTypes.uriArray.pushAll(data.bomAllTypes.uri);&#xD;
+data.bomAllTypes.uriArray[0] = data.bomAllTypes.uriArray;&#xD;
+&#xD;
+data.bomAllTypes.uri = data.bomAllTypes.bomObject;&#xD;
+data.bomAllTypes.uriArray.push(data.bomAllTypes.bomObject);&#xD;
+data.bomAllTypes.uriArray[0] = data.bomAllTypes.bomObject;&#xD;
+&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.uri);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.uriArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.uriArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.uri);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.uriArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.uriArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.uri);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.uriArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.uriArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.uri);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.uriArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.uriArray);&#xD;
+&#xD;
+data.bomAllTypes.uri = data.case1Ref;&#xD;
+data.bomAllTypes.uriArray.push(data.case1Ref);&#xD;
+data.bomAllTypes.uriArray[0] = data.case1Ref;&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="794.0" YCoordinate="289.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxg5IhEe-2GuL-Yhj3Jg" Name="InvalidCaseRefBOMAttrUseCases" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid CaseRef BOM Attr Use Cases">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// CaseRef fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+data.case1Ref = data.case2Ref;&#xD;
+data.case1Ref = data.case1Object;&#xD;
+data.case1Object = data.case1Ref;&#xD;
+&#xD;
+data.case1RefArray.pushAll(data.case2RefArray);&#xD;
+data.case1RefArray.pushAll(data.case1Object);&#xD;
+data.case1RefArray.push(data.case2RefArray);&#xD;
+data.case1RefArray.push(data.case2RefArray[0]);&#xD;
+data.case1RefArray.push(data.case1Object);&#xD;
+data.case1RefArray.push(data.case1ObjectArray);&#xD;
+data.case1RefArray.pushAll(data.textArray);&#xD;
+data.case1RefArray.push(data.textArray);&#xD;
+data.case1RefArray.push(data.textArray[0]);&#xD;
+&#xD;
+data.case1RefArray = bpm.caseData.navigateAll(data.case2RefArray, &quot;case1Ref&quot;,1,2)[0];&#xD;
+data.case1RefArray.pushAll(bpm.caseData.navigateAll(data.case2RefArray, &quot;case1Ref&quot;,1,2));&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="929.0" YCoordinate="289.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ascxhJIhEe-2GuL-Yhj3Jg" Name="InvalidBOMObjectBOMAttrUseCases" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid BOM Object BOM Attr Use Cases">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// &#xD;
+// BPM Object fields / array-elements / arrays - assign from / to &#xD;
+// - null&#xD;
+// - constants&#xD;
+// - other fields&#xD;
+// - return from JS functions&#xD;
+// - return from PSL functions&#xD;
+//&#xD;
+data.bomAllTypes.bomObject = &quot;abc&quot;;&#xD;
+data.bomAllTypes.bomObjectArray[0] = &quot;abc&quot;;&#xD;
+data.bomAllTypes.bomObjectArray.push(&quot;abc&quot;);&#xD;
+data.bomAllTypes.bomObject = data.bomAllTypes;&#xD;
+&#xD;
+data.bomAllTypes.bomObject = data.bomAllTypes.bomObjectArray;&#xD;
+data.bomAllTypes.bomObjectArray = data.bomAllTypes.bomObject;&#xD;
+data.bomAllTypes.bomObjectArray.pushAll(data.bomAllTypes.bomObject);&#xD;
+data.bomAllTypes.bomObjectArray[0] = data.bomAllTypes.bomObjectArray;&#xD;
+&#xD;
+data.bomAllTypes.bomObject = data.bomAllTypes.text;&#xD;
+data.bomAllTypes.bomObjectArray.push(data.bomAllTypes.text);&#xD;
+data.bomAllTypes.bomObjectArray[0] = data.bomAllTypes.text;&#xD;
+&#xD;
+data.bomAllTypes.bomObjectArray.push(data.bomAllTypes.text[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.bomObject);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.bomObjectArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDate(data.bomAllTypes.bomObjectArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnCase1Object(data.bomAllTypes.bomObject);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnCase1Object(data.bomAllTypes.bomObjectArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnCase1Object(data.bomAllTypes.bomObjectArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.bomObject);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.bomObjectArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnDateArray(data.bomAllTypes.bomObjectArray);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.bomObject);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObjectArray(data.bomAllTypes.bomObjectArray[0]);&#xD;
+bpmScripts.Scripts.ScriptsLibrary.returnBomObject(data.bomAllTypes.bomObjectArray);&#xD;
+&#xD;
+data.bomAllTypes.bomObject = data.bomAllTypes.fixedPointNumber;&#xD;
+data.bomAllTypes.bomObjectArray.push(data.bomAllTypes.fixedPointNumber);&#xD;
+data.bomAllTypes.bomObjectArray[0] = data.bomAllTypes.fixedPointNumber;&#xD;
+&#xD;
+data.bomAllTypes.bomObject = data.bomAllTypes.boolean1;&#xD;
+data.bomAllTypes.bomObjectArray.push(data.bomAllTypes.boolean1);&#xD;
+data.bomAllTypes.bomObjectArray[0] = data.bomAllTypes.boolean1;&#xD;
+&#xD;
+data.bomAllTypes.bomObject = data.bomAllTypes.date;&#xD;
+data.bomAllTypes.bomObjectArray.push(data.bomAllTypes.date);&#xD;
+data.bomAllTypes.bomObjectArray[0] = data.bomAllTypes.date;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.bomObject = data.bomAllTypes.time;&#xD;
+data.bomAllTypes.bomObjectArray.push(data.bomAllTypes.time);&#xD;
+data.bomAllTypes.bomObjectArray[0] = data.bomAllTypes.time;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.bomObject = data.bomAllTypes.dateTime;&#xD;
+data.bomAllTypes.bomObjectArray.push(data.bomAllTypes.dateTime);&#xD;
+data.bomAllTypes.bomObjectArray[0] = data.bomAllTypes.dateTime;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.bomObject = data.bomAllTypes.uri;&#xD;
+data.bomAllTypes.bomObjectArray.push(data.bomAllTypes.uri);&#xD;
+data.bomAllTypes.bomObjectArray[0] = data.bomAllTypes.uri;&#xD;
+&#xD;
+&#xD;
+data.bomAllTypes.bomObject = data.performer;&#xD;
+data.bomAllTypes.bomObjectArray.push(data.performer);&#xD;
+data.bomAllTypes.bomObjectArray[0] = data.performer;&#xD;
+&#xD;
+data.bomAllTypes.bomObject = data.case1Ref;&#xD;
+data.bomAllTypes.bomObjectArray.push(data.case1Ref);&#xD;
+data.bomAllTypes.bomObjectArray[0] = data.case1Ref;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ascxcpIhEe-2GuL-Yhj3Jg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="1071.0" YCoordinate="289.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_ascxhZIhEe-2GuL-Yhj3Jg" Name="" From="_ascxhJIhEe-2GuL-Yhj3Jg" To="_ascxdZIhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxhpIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxdJIhEe-2GuL-Yhj3Jg" To="_ascxdpIhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxh5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxdpIhEe-2GuL-Yhj3Jg" To="_ascxd5IhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxiJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxd5IhEe-2GuL-Yhj3Jg" To="_ascxeJIhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxiZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxeJIhEe-2GuL-Yhj3Jg" To="_ascxeZIhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxipIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxeZIhEe-2GuL-Yhj3Jg" To="_ascxepIhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxi5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxepIhEe-2GuL-Yhj3Jg" To="_ascxe5IhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxjJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxe5IhEe-2GuL-Yhj3Jg" To="_ascxfJIhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxjZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxfJIhEe-2GuL-Yhj3Jg" To="_ascxfZIhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxjpIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxfpIhEe-2GuL-Yhj3Jg" To="_ascxf5IhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxj5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxf5IhEe-2GuL-Yhj3Jg" To="_ascxgJIhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxkJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxgJIhEe-2GuL-Yhj3Jg" To="_ascxgZIhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxkZIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxgZIhEe-2GuL-Yhj3Jg" To="_ascxgpIhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxkpIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxgpIhEe-2GuL-Yhj3Jg" To="_ascxg5IhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxk5IhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxg5IhEe-2GuL-Yhj3Jg" To="_ascxhJIhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ascxlJIhEe-2GuL-Yhj3Jg" xpdExt:DisplayName="" Name="" From="_ascxfZIhEe-2GuL-Yhj3Jg" To="_ascxfpIhEe-2GuL-Yhj3Jg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="75.0" YCoordinate="37.0"/>
+              <xpdl2:Coordinates XCoordinate="1084.0" YCoordinate="-97.0"/>
+              <xpdl2:Coordinates XCoordinate="-1077.0" YCoordinate="84.0"/>
+              <xpdl2:Coordinates XCoordinate="-68.0" YCoordinate="-50.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

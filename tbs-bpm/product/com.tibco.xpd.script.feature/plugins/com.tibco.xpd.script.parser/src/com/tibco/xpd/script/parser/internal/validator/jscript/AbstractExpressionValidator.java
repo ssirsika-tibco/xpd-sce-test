@@ -3291,6 +3291,43 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
 				typeStr = JsConsts.CASE_REFERENCE + "<" + caseClassName + ">"; //$NON-NLS-1$//$NON-NLS-2$
 			}
 		}
+		/*
+		 * Sid ACE-8871 - moved from method param type name generation for consistency in type naming (and used this
+		 * funciton for method params)
+		 */
+		else if (type instanceof AbstractUMLScriptRelevantData)
+		{
+			AbstractUMLScriptRelevantData umlType = (AbstractUMLScriptRelevantData) type;
+
+			if (umlType.getJsClass() != null && umlType.getJsClass().getUmlClass() != null)
+			{
+				/*
+				 * Don't show UML fully qualified type names from base JavaScript namespace (it's implied and therefore
+				 * not necessary).
+				 */
+				String className = null;
+
+				if (umlType.getJsClass().getUmlClass().getNamespace() == null
+						|| "JavaScript".equals(umlType.getJsClass().getUmlClass().getNamespace().getName()))
+				{
+					className = umlType.getJsClass().getUmlClass().getName();
+				}
+				else
+				{
+					/*
+					 * For user-defined classes use fully qualified with BOM pkg namespace to help user see difference
+					 * betwen class1 in BOM1 and class1 in BOM2
+					 */
+					className = umlType.getJsClass().getUmlClass().getQualifiedName();
+				}
+
+				if (className != null && !className.isEmpty())
+				{
+					typeStr = className;
+				}
+			}
+
+		}
 		else if (JScriptUtils.isGenericType(typeStr)
                 || JScriptUtils.isDynamicComplexType(type,
                         getSupportedJsClasses(getInfoObject()))) {
@@ -3312,6 +3349,15 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
 		if (typeStr.endsWith(DefaultJsClass.BOM_ENUM_SUFFIX))
 		{
 			typeStr = typeStr.substring(0, typeStr.length() - DefaultJsClass.BOM_ENUM_SUFFIX.length());
+		}
+
+		/*
+		 * Sid ACE-8871 Noticed that "data.Date" attributes were going in messages as 'bom.Date', not sure why, but we
+		 * can fixs it here.
+		 */
+		if ("bom.Date".equals(typeStr)) //$NON-NLS-1$
+		{
+			typeStr = "Date";
 		}
 
 		/* Sid ACE-8226 improve reporting of arrays in problem markers. */
@@ -3408,58 +3454,10 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 if (type != null) {
 					/*
 					 * Sid ACE-8226 improve reporting of class objects case refs in problem markers.
+					 * 
+					 * Sid ACE-8871 use the already existing typename generation function for consistency
 					 */
-					String typeName = type.getType();
-
-					if (isCaseReference(type))
-					{
-						String caseClassName = getCaseTypeForCaseReference(type);
-						if (caseClassName != null)
-						{
-							typeName = JsConsts.CASE_REFERENCE + "<" + caseClassName + ">"; //$NON-NLS-1$//$NON-NLS-2$
-						}
-					}
-					else if (type instanceof AbstractUMLScriptRelevantData)
-					{
-						AbstractUMLScriptRelevantData umlType = (AbstractUMLScriptRelevantData) type;
-
-						if (umlType.getJsClass() != null && umlType.getJsClass().getUmlClass() != null)
-						{
-							/*
-							 * Don't show UML fully qualified type names from base JavaScript namespace (it's implied
-							 * and therefore not necessary).
-							 */
-							if (umlType.getJsClass().getUmlClass().getNamespace() == null
-									|| "JavaScript".equals(umlType.getJsClass().getUmlClass().getNamespace().getName()))
-							{
-								typeName = typeName = umlType.getJsClass().getUmlClass().getName();
-							}
-							else
-							{
-								/*
-								 * For user-defined classes use fully qualified with BOM pkg namespace to help user see
-								 * difference betwen class1 in BOM1 and class1 in BOM2
-								 */
-								typeName = umlType.getJsClass().getUmlClass().getQualifiedName();
-							}
-						}
-
-					}
-                    // XPD-7360: Added List type to error message.
-					else if (JScriptUtils.isContextlessType(type)
-                            && type instanceof ITypeResolution) {
-                        IScriptRelevantData genericType =
-                                ((ITypeResolution) type)
-                                        .getGenericContextType();
-						typeName += "<" + genericType.getType() + ">"; //$NON-NLS-1$ //$NON-NLS-2$
-                    }
-
-
-					/* Sid ACE-8226 improve reporting of arrays in problem markers. */
-					if (type.isArray())
-					{
-						typeName += "[]"; //$NON-NLS-1$
-					}
+					String typeName = parseTypeMessage(type);
 
                     paramNames.append(typeName);
                     if (iterator.hasNext()) {

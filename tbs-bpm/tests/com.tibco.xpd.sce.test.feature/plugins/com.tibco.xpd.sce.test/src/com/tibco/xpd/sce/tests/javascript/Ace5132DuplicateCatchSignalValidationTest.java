@@ -1,7 +1,7 @@
 /**
  * Copyright (c) TIBCO Software Inc 2004-2009. All rights reserved.
  */
-package com.tibco.xpd.sce.tests.validation;
+package com.tibco.xpd.sce.tests.javascript;
 
 import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.core.test.validations.ValidationsTestProblemMarkerInfo;

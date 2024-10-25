@@ -91,7 +91,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:10 column:25, Assignment of com.example.pslarrayvalidationdata.Class1 from Date is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:10 column:25, Assignment of com.example.pslarrayvalidationdata::Class1 from Date is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -112,14 +112,14 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:14 column:24, Method push is not applicable for the provided argument types (Float) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:14 column:24, Method push is not applicable for the provided argument types (Decimal) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:15 column:32, Method pushAll is not applicable for the provided argument types (Float[]) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:15 column:32, Method pushAll is not applicable for the provided argument types (Decimal[]) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -168,7 +168,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:21 column:29, Assignment of com.example.pslarrayvalidationdata.Class1 from DateTimeTZ is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:21 column:29, Assignment of com.example.pslarrayvalidationdata::Class1 from DateTimeTZ is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -189,14 +189,14 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:25 column:20, Method push is not applicable for the provided argument types (Float) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:25 column:20, Method push is not applicable for the provided argument types (Decimal) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:26 column:28, Method pushAll is not applicable for the provided argument types (Float[]) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:26 column:28, Method pushAll is not applicable for the provided argument types (Decimal[]) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -224,7 +224,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:3 column:20, Method push is not applicable for the provided argument types (Float) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:3 column:20, Method push is not applicable for the provided argument types (Decimal) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -245,7 +245,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:32 column:25, Assignment of com.example.pslarrayvalidationdata.Class1 from Time is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:32 column:25, Assignment of com.example.pslarrayvalidationdata::Class1 from Time is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -294,14 +294,14 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:4 column:28, Method pushAll is not applicable for the provided argument types (Float[]) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:4 column:28, Method pushAll is not applicable for the provided argument types (Decimal[]) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:40 column:25, Assignment of com.example.pslarrayvalidationdata.Class1 from Text is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:40 column:25, Assignment of com.example.pslarrayvalidationdata::Class1 from Text is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -350,7 +350,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:48 column:24, Assignment of com.example.pslarrayvalidationdata.Class1 from Decimal is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:48 column:24, Assignment of com.example.pslarrayvalidationdata::Class1 from Decimal is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -406,7 +406,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:56 column:26, Assignment of com.example.pslarrayvalidationdata.Class1 from Decimal is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:56 column:26, Assignment of com.example.pslarrayvalidationdata::Class1 from Decimal is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -448,14 +448,14 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:63 column:27, Assignment of com.example.pslarrayvalidationdata.Class2 from com.example.pslarrayvalidationdata.Class1 is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:63 column:27, Assignment of com.example.pslarrayvalidationdata::Class2 from com.example.pslarrayvalidationdata::Class1 is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:64 column:25, Assignment of String from com.example.pslarrayvalidationdata.Class1 is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:64 column:25, Assignment of String from com.example.pslarrayvalidationdata::Class1 is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -497,7 +497,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:70 column:28, Assignment of com.example.pslarrayvalidationdata.Case1 from CaseReference<com.example.pslarrayvalidationdata::Case1> is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:70 column:28, Assignment of com.example.pslarrayvalidationdata::Case1 from CaseReference<com.example.pslarrayvalidationdata::Case1> is not supported (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -511,7 +511,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_3K2GIi2DEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:73 column:20, Method push is not applicable for the provided argument types (Float) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:73 column:20, Method push is not applicable for the provided argument types (Decimal) (InvalidPSLLibrary.psl:arrayGenericTypeFunctionsInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -588,7 +588,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_b-j-QC2HEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:10 column:78, Assignment of com.example.pslarrayvalidationdata.Case1 from CaseReference[] with different multiplicity is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:10 column:78, Assignment of com.example.pslarrayvalidationdata::Case1 from CaseReference[] with different multiplicity is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -616,7 +616,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_b-j-QC2HEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:14 column:14, Assignment of String from com.example.pslarrayvalidationdata.Class1 is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:14 column:14, Assignment of String from com.example.pslarrayvalidationdata::Class1 is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -630,7 +630,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_b-j-QC2HEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:16 column:19, Assignment of Performer from com.example.pslarrayvalidationdata.Class2 is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:16 column:19, Assignment of Performer from com.example.pslarrayvalidationdata::Class2 is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -665,7 +665,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_b-j-QC2HEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:21 column:34, Assignment of DateTimeTZ from String is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:21 column:34, Assignment of DateTimeTZ from Text is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -686,7 +686,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_b-j-QC2HEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:3 column:14, Assignment of String from com.example.pslarrayvalidationdata.Class1 is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:3 column:14, Assignment of String from com.example.pslarrayvalidationdata::Class1 is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -714,14 +714,14 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_b-j-QC2HEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:7 column:67, Assignment of com.example.pslarrayvalidationdata.Class1 from com.example.pslarrayvalidationdata.Class2 is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:7 column:67, Assignment of com.example.pslarrayvalidationdata::Class1 from com.example.pslarrayvalidationdata::Class2 is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
 						"/PSLArrayValidation/Process Script Libraries/InvalidPSLLibrary.psl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_b-j-QC2HEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:8 column:67, Assignment of com.example.pslarrayvalidationdata.Class2 from com.example.pslarrayvalidationdata.Class1 is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
+						"BPM  : At Line:8 column:67, Assignment of com.example.pslarrayvalidationdata::Class2 from com.example.pslarrayvalidationdata::Class1 is not supported (InvalidPSLLibrary.psl:standardUsageRegressionCheckInvalid)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo(
@@ -734,7 +734,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_n1KKAS2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:10 column:35, Assignment of com.example.pslarrayvalidationdata.Class1 from Date is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:10 column:35, Assignment of com.example.pslarrayvalidationdata::Class1 from Date is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -800,7 +800,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_n1KKAS2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:21 column:39, Assignment of com.example.pslarrayvalidationdata.Class1 from DateTimeTZ is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:21 column:39, Assignment of com.example.pslarrayvalidationdata::Class1 from DateTimeTZ is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -866,7 +866,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_n1KKAS2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:32 column:35, Assignment of com.example.pslarrayvalidationdata.Class1 from Time is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:32 column:35, Assignment of com.example.pslarrayvalidationdata::Class1 from Time is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -914,7 +914,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_n1KKAS2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:40 column:35, Assignment of com.example.pslarrayvalidationdata.Class1 from Text is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:40 column:35, Assignment of com.example.pslarrayvalidationdata::Class1 from Text is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -932,7 +932,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_n1KKAS2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:44 column:30, Method push is not applicable for the provided argument types (bom.Date) (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:44 column:30, Method push is not applicable for the provided argument types (Date) (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -956,13 +956,13 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_n1KKAS2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:48 column:34, Assignment of com.example.pslarrayvalidationdata.Class1 from Decimal is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:48 column:34, Assignment of com.example.pslarrayvalidationdata::Class1 from Decimal is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_n1KKAS2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:49 column:32, Assignment of bom.Date from Decimal is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:49 column:32, Assignment of Date from Decimal is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -980,7 +980,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_n1KKAS2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:52 column:32, Method push is not applicable for the provided argument types (bom.Date) (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:52 column:32, Method push is not applicable for the provided argument types (Date) (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -1004,13 +1004,13 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_n1KKAS2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:56 column:36, Assignment of com.example.pslarrayvalidationdata.Class1 from Decimal is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:56 column:36, Assignment of com.example.pslarrayvalidationdata::Class1 from Decimal is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_n1KKAS2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:57 column:34, Assignment of bom.Date from Decimal is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:57 column:34, Assignment of Date from Decimal is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -1040,13 +1040,13 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_n1KKAS2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:63 column:37, Assignment of com.example.pslarrayvalidationdata.Class2 from com.example.pslarrayvalidationdata.Class1 is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:63 column:37, Assignment of com.example.pslarrayvalidationdata::Class2 from com.example.pslarrayvalidationdata::Class1 is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_n1KKAS2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:64 column:35, Assignment of Text from com.example.pslarrayvalidationdata.Class1 is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:64 column:35, Assignment of Text from com.example.pslarrayvalidationdata::Class1 is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -1082,7 +1082,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_n1KKAS2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:70 column:38, Assignment of com.example.pslarrayvalidationdata.Case1 from CaseReference<com.example.pslarrayvalidationdata::Case1> is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:70 column:38, Assignment of com.example.pslarrayvalidationdata::Case1 from CaseReference<com.example.pslarrayvalidationdata::Case1> is not supported (arrayGenericTypeFunctionsInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -1160,7 +1160,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_q4AP8S2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:10 column:83, Assignment of com.example.pslarrayvalidationdata.Case1 from CaseReference[] with different multiplicity is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:10 column:83, Assignment of com.example.pslarrayvalidationdata::Case1 from CaseReference[] with different multiplicity is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -1184,19 +1184,19 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_q4AP8S2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:14 column:24, Assignment of Text from com.example.pslarrayvalidationdata.Class1 is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:14 column:24, Assignment of Text from com.example.pslarrayvalidationdata::Class1 is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_q4AP8S2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:15 column:22, Assignment of bom.Date from Text is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:15 column:22, Assignment of Date from Text is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_q4AP8S2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:16 column:29, Assignment of Text from com.example.pslarrayvalidationdata.Class2 is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:16 column:29, Assignment of Text from com.example.pslarrayvalidationdata::Class2 is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -1214,7 +1214,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_q4AP8S2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:2 column:25, Assignment of bom.Date from Decimal is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:2 column:25, Assignment of Date from Decimal is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -1226,7 +1226,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_q4AP8S2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:21 column:44, Assignment of DateTimeTZ from String is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:21 column:44, Assignment of DateTimeTZ from Text is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -1244,7 +1244,7 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_q4AP8S2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:3 column:24, Assignment of Text from com.example.pslarrayvalidationdata.Class1 is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:3 column:24, Assignment of Text from com.example.pslarrayvalidationdata::Class1 is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
@@ -1268,13 +1268,13 @@ public class PSLArrayGenericTypeParamAndReturnTest extends AbstractN2BaseValidat
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_q4AP8S2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:7 column:72, Assignment of com.example.pslarrayvalidationdata.Class1 from com.example.pslarrayvalidationdata.Class2 is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:7 column:72, Assignment of com.example.pslarrayvalidationdata::Class1 from com.example.pslarrayvalidationdata::Class2 is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$
 						"bx.validateScriptTask", //$NON-NLS-1$
 						"_q4AP8S2NEe-cQNuWxyx8bQ", //$NON-NLS-1$
-						"BPM  : At Line:8 column:72, Assignment of com.example.pslarrayvalidationdata.Class2 from com.example.pslarrayvalidationdata.Class1 is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
+						"BPM  : At Line:8 column:72, Assignment of com.example.pslarrayvalidationdata::Class2 from com.example.pslarrayvalidationdata::Class1 is not supported (standardUsageRegressionCheckInvalid:ScriptTask)", //$NON-NLS-1$
 						""), //$NON-NLS-1$
 
 				new ValidationsTestProblemMarkerInfo("/PSLArrayValidationProcess/Process Packages/InvalidProcess.xpdl", //$NON-NLS-1$

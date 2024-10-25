@@ -169,7 +169,7 @@ public class AceBomFactoryValidationsTest extends AbstractN2BaseValidationTest {
                                 "/DataFactoryTests/Process Packages/CheckIncorrectUsage.xpdl", //$NON-NLS-1$
                                 "bx.validateScriptTask", //$NON-NLS-1$
                                 "_C75Q4ZJ9EemsHsINLISM4w", //$NON-NLS-1$
-                                "BPM  : At Line:20 column:78, Assignment of com.example.datafactorytestsdata1.data from com.example.datafactorytestsdata2.data is not supported (CheckIncorrectUsageProcess:ScriptTask)", //$NON-NLS-1$
+								"BPM  : At Line:20 column:78, Assignment of com.example.datafactorytestsdata1::data from com.example.datafactorytestsdata2::data is not supported (CheckIncorrectUsageProcess:ScriptTask)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
