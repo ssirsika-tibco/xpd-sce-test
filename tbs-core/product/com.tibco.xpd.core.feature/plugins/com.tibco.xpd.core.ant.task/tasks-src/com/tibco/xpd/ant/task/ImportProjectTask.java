@@ -6,6 +6,7 @@ package com.tibco.xpd.ant.task;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
@@ -391,22 +392,63 @@ public class ImportProjectTask extends Task {
 				 * console this ant task (which is undesirable).
 				 */
 				final PrintStream systemOut = System.out;
+				final PrintStream systemErr = System.err;
 
 				PrintStream filteredSystemOut = new PrintStream(new OutputStream()
 				{
+					/**
+					 * @see java.io.OutputStream#write(byte[], int, int)
+					 *
+					 * @param b
+					 * @param off
+					 * @param len
+					 * @throws IOException
+					 */
 					@Override
-					public void write(int b)
+					public void write(byte[] b, int off, int len) throws IOException
 					{
 						/*
 						 * DON'T OUTPUT (although if we find we need only to get rid of specific output, then we can
 						 * filter and delegate to systemOut stream if necessary.
 						 */
+						systemOut.write("** CAUGHT System.out.write()! **\n".getBytes());
+					}
+
+					@Override
+					public void write(int b) throws IOException
+					{
+					}
+				});
+				PrintStream filteredSystemErr = new PrintStream(new OutputStream()
+				{
+					/**
+					 * @see java.io.OutputStream#write(byte[], int, int)
+					 *
+					 * @param b
+					 * @param off
+					 * @param len
+					 * @throws IOException
+					 */
+					@Override
+					public void write(byte[] b, int off, int len) throws IOException
+					{
+						/*
+						 * DON'T OUTPUT (although if we find we need only to get rid of specific output, then we can
+						 * filter and delegate to systemOut stream if necessary.
+						 */
+						systemOut.write("** CAUGHT System.out.write()! **\n".getBytes());
+					}
+
+					@Override
+					public void write(int b) throws IOException
+					{
 					}
 				});
 
 				try
 				{
 					System.setOut(filteredSystemOut);
+					System.setErr(filteredSystemErr);
 					IStatus synchronizedBuildStatus = BuildSynchronizerUtil.synchronizedBuild(importedProjects, null,
 							true);
 
@@ -420,7 +462,9 @@ public class ImportProjectTask extends Task {
 				}
 				finally
 				{
+					System.setErr(systemOut);
 					System.setOut(systemOut);
+					filteredSystemErr.close();
 					filteredSystemOut.close();
 				}
 			}
