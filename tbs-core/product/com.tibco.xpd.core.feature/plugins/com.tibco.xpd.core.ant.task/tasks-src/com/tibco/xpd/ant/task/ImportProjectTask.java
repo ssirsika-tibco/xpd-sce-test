@@ -380,7 +380,7 @@ public class ImportProjectTask extends Task {
                                     synchronizedBuildStatus.getMessage();
                             Throwable exception =
                                     synchronizedBuildStatus.getException();
-                            log(message, exception, Project.MSG_ERR);
+					log("** MESSAGE FROM synchronizedBuildStatus ** " + message, exception, Project.MSG_ERR);
                         }
                         return synchronizedBuildStatus;
                     }
@@ -389,7 +389,7 @@ public class ImportProjectTask extends Task {
         try {
             th.schedule();
             th.join();
-            log("Build complete"); //$NON-NLS-1$
+            log("**CHANGED Build complete"); //$NON-NLS-1$
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
