@@ -386,39 +386,13 @@ public class ImportProjectTask extends Task {
 				log(msg);
 
 				/*
-				 * Sid ACE-8225 suppress stdout during import and the subsequent build.
+				 * Sid ACE-8225 suppress stderr during import and the subsequent build.
 				 * 
 				 * Currently we get OCL 'error' messages that don't really cause any issues but get dumped out to
 				 * console this ant task (which is undesirable).
 				 */
-				final PrintStream systemOut = System.out;
 				final PrintStream systemErr = System.err;
 
-				PrintStream filteredSystemOut = new PrintStream(new OutputStream()
-				{
-					/**
-					 * @see java.io.OutputStream#write(byte[], int, int)
-					 *
-					 * @param b
-					 * @param off
-					 * @param len
-					 * @throws IOException
-					 */
-					@Override
-					public void write(byte[] b, int off, int len) throws IOException
-					{
-						/*
-						 * DON'T OUTPUT (although if we find we need only to get rid of specific output, then we can
-						 * filter and delegate to systemOut stream if necessary.
-						 */
-						systemOut.write("** CAUGHT System.out.write()! **\n".getBytes());
-					}
-
-					@Override
-					public void write(int b) throws IOException
-					{
-					}
-				});
 				PrintStream filteredSystemErr = new PrintStream(new OutputStream()
 				{
 					/**
@@ -434,9 +408,8 @@ public class ImportProjectTask extends Task {
 					{
 						/*
 						 * DON'T OUTPUT (although if we find we need only to get rid of specific output, then we can
-						 * filter and delegate to systemOut stream if necessary.
+						 * filter and delegate to systemErr stream if necessary.
 						 */
-						systemOut.write("** CAUGHT System.out.write()! **\n".getBytes());
 					}
 
 					@Override
@@ -447,8 +420,11 @@ public class ImportProjectTask extends Task {
 
 				try
 				{
-					System.setOut(filteredSystemOut);
+					/**
+					 * Do the build after redirecting stderr
+					 */
 					System.setErr(filteredSystemErr);
+
 					IStatus synchronizedBuildStatus = BuildSynchronizerUtil.synchronizedBuild(importedProjects, null,
 							true);
 
@@ -462,10 +438,8 @@ public class ImportProjectTask extends Task {
 				}
 				finally
 				{
-					System.setErr(systemOut);
-					System.setOut(systemOut);
+					System.setErr(systemErr);
 					filteredSystemErr.close();
-					filteredSystemOut.close();
 				}
 			}
 		};
