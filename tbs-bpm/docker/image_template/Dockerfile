@@ -55,7 +55,7 @@ LABEL maintainer="TIBCO Software Inc" \
 
 # install required software and create studio user
 RUN apt-get update && \
-    apt-get install -y xvfb libstdc++5 libgtk-3-0 libxtst6 dbus python3 && \
+    apt-get install -y xvfb libstdc++5 libgtk-3-0 libxtst6 dbus python3 curl && \
     groupadd -r studio && useradd -r -m -g studio studio  && \
     mkdir -p /opt/TIBCO/studio-bpm  && \
     chown -R studio:studio /opt/TIBCO/studio-bpm && \
