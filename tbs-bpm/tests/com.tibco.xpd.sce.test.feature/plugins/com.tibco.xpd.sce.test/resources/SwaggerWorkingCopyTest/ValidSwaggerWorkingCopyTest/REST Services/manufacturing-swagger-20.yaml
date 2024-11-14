@@ -1,0 +1,80 @@
+swagger: '2.0'
+schemes:
+  - http
+host: ariel-dt-docker
+basePath: /gsbc/MOCK_GSBC_FOR_ALL_GSBCS/tci/company/services/v1
+info:
+  title: Manufacturing
+  description: Schedule and update the manfacturing of a new vehicle
+  version: '1.0'
+consumes:
+  - application/json
+produces:
+  - application/json
+definitions:
+  ServiceEntity:
+    type: object
+    description: The properties of the service entity managed by this service end-point.
+    required:
+      - customerName
+      - Model
+      - Colour
+    properties:
+      id:
+        description: The Identity of the manufactoring slot.
+        type: integer
+        format: int64
+      customerName:
+        description: The name of the customer for which the vehicle is being manufactured..
+        type: string
+      Model:
+        description: Vehilcel model to be manufactured.
+        type: string
+      Colour:
+        description: The colour of the vehicle to be manufactured.
+        type: integer
+        format: int32
+      slotDate:
+        description: The date on which the vehilcel will be manufactured.
+        type: string
+        format: date
+  ErrorResponse:
+    type: object
+    description: >-
+      An object that provides a description of the cause of the service error
+      response.
+    properties:
+      errorMsg:
+        description: >-
+          Verbose error message. This is a system controlled property and its
+          value will be ignored when received in POSTs and PUTs.
+        type: string
+      errorCode:
+        description: >-
+          Internal error code. This is a system controlled property and its
+          value will be ignored when received in POSTs and PUTs.
+        type: string
+paths:
+  /manufacturingSlot:
+    post:
+      tags:
+        - update
+      operationId: createEntity
+      summary: Create a new manufacturing slot.
+      description: Define the date at which a vehicle can be manufactured.
+      parameters:
+        - name: entity
+          in: body
+          description: The slot to be created to manufacture the customers required vehicle
+          required: true
+          schema:
+            $ref: '#/definitions/ServiceEntity'
+      responses:
+        '200':
+          description: 'Successful creation of the new manufacturing slot. '
+          schema:
+            $ref: '#/definitions/ServiceEntity'
+        '500':
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ErrorResponse'

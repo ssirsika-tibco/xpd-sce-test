@@ -6,7 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter;
-import com.tibco.xpd.rsd.Method;
+import com.tibco.xpd.resources.ui.picker.PickerItem;
 import com.tibco.xpd.rsd.ui.components.RestMethodPicker;
 import com.tibco.xpd.validation.resolutions.AbstractWorkingCopyResolution;
 import com.tibco.xpd.validation.resolutions.ResolutionException;
@@ -42,10 +42,12 @@ public class SelectRestOperationResolution extends
         if (target instanceof Activity) {
             Activity activity = (Activity) target;
             RestMethodPicker picker = new RestMethodPicker();
-            Method method = picker.pickRestMethod(null);
-            if (method != null) {
+			// Nikita-8267 The picker dialog will now return a PickerItem instead of the specific types
+			PickerItem pickerItem = picker.pickRestMethod(null);
+			if (pickerItem != null)
+			{
                 RestServiceTaskAdapter rsta = new RestServiceTaskAdapter();
-                cmd = rsta.getSetMethodCommand(editingDomain, activity, method);
+				cmd = rsta.getSetMethodCommand(editingDomain, activity, pickerItem);
             }
         }
         return cmd;

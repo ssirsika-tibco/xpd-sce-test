@@ -3,7 +3,10 @@
  */
 package com.tibco.xpd.rsd.ui.components;
 
+import org.eclipse.emf.edit.domain.EditingDomain;
+
 import com.tibco.xpd.resources.ui.picker.BasePickerItemProvider;
+import com.tibco.xpd.resources.ui.picker.PickerItem;
 import com.tibco.xpd.rsd.wc.RsdIndexProvider;
 
 /**
@@ -22,4 +25,18 @@ public class RsdPickerItemProvider extends BasePickerItemProvider {
         return RsdIndexProvider.INDEXER_ID;
     }
 
+	/**
+	 * 
+	 * @see com.tibco.xpd.resources.ui.picker.BasePickerItemProvider#resolvePickerItem(com.tibco.xpd.resources.ui.picker.PickerItem)
+	 *
+	 * @param item
+	 * @return
+	 */
+	@Override
+	public Object resolvePickerItem(PickerItem item)
+	{
+		// Nikita ACE-8267 Return the actual picker item - the RestServiceTaskAdapter will handle the difference between
+		// a RSD method and a Swagger operation
+		return item;
+	}
 }

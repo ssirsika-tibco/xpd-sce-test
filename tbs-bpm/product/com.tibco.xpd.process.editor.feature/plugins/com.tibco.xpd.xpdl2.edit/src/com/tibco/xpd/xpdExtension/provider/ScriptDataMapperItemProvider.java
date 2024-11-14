@@ -130,7 +130,7 @@ public class ScriptDataMapperItemProvider extends ItemProviderAdapter implements
 				getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
 						"_UI_ScriptDataMapper_excludeEmptyOptionalObjects_feature", "_UI_ScriptDataMapper_type"), //$NON-NLS-1$ //$NON-NLS-2$
 				XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_OBJECTS, true, false, false,
-				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -147,7 +147,7 @@ public class ScriptDataMapperItemProvider extends ItemProviderAdapter implements
 						getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
 								"_UI_ScriptDataMapper_excludeEmptyOptionalArrays_feature", "_UI_ScriptDataMapper_type"), //$NON-NLS-1$ //$NON-NLS-2$
 						XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OPTIONAL_ARRAYS, true, false,
-						false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+						false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -164,7 +164,7 @@ public class ScriptDataMapperItemProvider extends ItemProviderAdapter implements
 				getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
 						"_UI_ScriptDataMapper_excludeEmptyObjectsFromArrays_feature", "_UI_ScriptDataMapper_type"), //$NON-NLS-1$ //$NON-NLS-2$
 				XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__EXCLUDE_EMPTY_OBJECTS_FROM_ARRAYS, true, false, false,
-				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

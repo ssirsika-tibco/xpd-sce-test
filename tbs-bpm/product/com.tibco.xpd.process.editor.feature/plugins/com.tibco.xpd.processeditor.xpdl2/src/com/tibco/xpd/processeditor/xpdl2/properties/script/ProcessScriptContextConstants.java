@@ -52,6 +52,9 @@ public interface ProcessScriptContextConstants {
 
     public static final String DATA_MAPPER_REST_MAPPING_SCRIPTS =
             "DataMapperRestMappingScripts"; //$NON-NLS-1$
+    
+    public static final String DATA_MAPPER_SWAGGER_MAPPING_SCRIPTS =
+            "DataMapperSwaggerMappingScripts"; //$NON-NLS-1$
 
     public static final String CATCH_SIGNAL_EVENTMAPPING =
             "CatchSignalEventMapping"; //$NON-NLS-1$

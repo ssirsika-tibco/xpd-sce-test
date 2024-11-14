@@ -20,6 +20,7 @@ import com.tibco.bx.validation.rules.mapping.helpers.BaseScriptToConceptPathMapp
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.implementer.resources.xpdl2.mappings.swagger.SwaggerTypedTreeItem;
 import com.tibco.xpd.n2.cds.script.N2JScriptDataTypeMapper;
 import com.tibco.xpd.n2.cds.utils.JSTypesCompatabilityUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
@@ -121,6 +122,33 @@ public class N2ProcessDataMappingCompatibilityUtil {
         return match;
     }
 
+    /**
+     * Check compatibility of the script relevant data with the basic target type.
+     * 
+     * @param srcDataType source data type defined by {@link IScriptRelevantData}
+     * @param targetDataType {@link BasicType}
+     * 
+     * @return OK, WRONGTYPE or WRONGSIZE
+     */
+    public static MappingTypeCompatibility checkTypeCompatibility(
+            IScriptRelevantData srcDataType, BasicType targetDataType) {
+    	  MappingTypeCompatibility match = MappingTypeCompatibility.WRONGTYPE;
+
+          if (srcDataType != null && targetDataType != null) {
+
+              if (JScriptUtils.isDynamicComplexType(srcDataType)) {
+            	  return MappingTypeCompatibility.WRONGTYPE;
+              } else {
+            	  // second argument is passed as a null , because targetType is BasicType so need to check for XSD types. 
+            	  return handleSourceBasicType(srcDataType,
+                          null,
+                          match,
+                          targetDataType);
+              }
+          }
+          
+          return match;
+    }
     /**
      * Checks whether the Integer size of source formal parameter/data field is
      * incompatible with BOM primitive Integer type target.

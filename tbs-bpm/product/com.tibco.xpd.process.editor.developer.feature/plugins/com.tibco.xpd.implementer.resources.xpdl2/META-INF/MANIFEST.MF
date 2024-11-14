@@ -33,16 +33,21 @@ Require-Bundle: com.tibco.xpd.resources.ui,
  com.tibco.xpd.rest.schema.ui,
  com.tibco.xpd.rsd.model,
  com.tibco.xpd.rest.schema,
- com.tibco.xpd.analyst.resources.xpdl2
+ com.tibco.xpd.analyst.resources.xpdl2,
+ com.tibco.xpd.rest.swagger,
+ com.tibco.xpd.tpcl.org.apache.swagger;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Export-Package: com.tibco.xpd.implementer.resources.xpdl2,com.tibco.xpd.
- implementer.resources.xpdl2.actions,com.tibco.xpd.implementer.resources
- .xpdl2.adapters,com.tibco.xpd.implementer.resources.xpdl2.errorEvents,c
- om.tibco.xpd.implementer.resources.xpdl2.mappings,com.tibco.xpd.impleme
- nter.resources.xpdl2.precommit,com.tibco.xpd.implementer.resources.xpdl
- 2.properties,com.tibco.xpd.implementer.resources.xpdl2.properties.filte
- r,com.tibco.xpd.implementer.resources.xpdl2.properties.replyimmediate,c
- om.tibco.xpd.implementer.resources.xpdl2.utils,com.tibco.xpd.implemente
- r.resources.xpdl2.wizards.pageflowgen
+Export-Package: com.tibco.xpd.implementer.resources.xpdl2,
+ com.tibco.xpd.implementer.resources.xpdl2.actions,
+ com.tibco.xpd.implementer.resources.xpdl2.adapters,
+ com.tibco.xpd.implementer.resources.xpdl2.errorEvents,
+ com.tibco.xpd.implementer.resources.xpdl2.mappings,
+ com.tibco.xpd.implementer.resources.xpdl2.mappings.swagger,
+ com.tibco.xpd.implementer.resources.xpdl2.precommit,
+ com.tibco.xpd.implementer.resources.xpdl2.properties,
+ com.tibco.xpd.implementer.resources.xpdl2.properties.filter,
+ com.tibco.xpd.implementer.resources.xpdl2.properties.replyimmediate,
+ com.tibco.xpd.implementer.resources.xpdl2.utils,
+ com.tibco.xpd.implementer.resources.xpdl2.wizards.pageflowgen
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 

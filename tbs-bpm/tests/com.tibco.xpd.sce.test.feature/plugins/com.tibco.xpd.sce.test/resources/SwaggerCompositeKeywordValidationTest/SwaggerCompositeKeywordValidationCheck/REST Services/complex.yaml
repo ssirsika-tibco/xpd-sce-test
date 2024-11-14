@@ -1,0 +1,184 @@
+openapi: 3.0.0
+info:
+  title: Complex Data Types Example
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      summary: Get pet details
+      operationId: getPet
+      responses:
+        '200':
+          description: A pet object with complex data types
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+    post:
+      summary: Add a new pet
+      operationId: addPet
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+      responses:
+        '201':
+          description: Pet added successfully
+  /employees:
+    get:
+      summary: Get employee details
+      operationId: getEmployee
+      responses:
+        '200':
+          description: An employee object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+    post:
+      summary: Add a new employee
+      operationId: addEmployee
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        '201':
+          description: Employee added successfully
+  /vehicles:
+    get:
+      summary: Get vehical details
+      operationId: getVehicle
+      responses:
+        '200':
+          description: An vehicle object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehicle'
+    post:
+      summary: Add a vehicle
+      operationId: addVehicle
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+      responses:
+        '201':
+          description: Vehicle added successfully
+components:
+  schemas:
+    # 'oneOf' example: Pet can be either a Dog or a Cat, but not both
+    Pet:
+      type: object
+      properties:
+        petType:
+          type: string
+          example: "dog"
+        details:
+          oneOf:
+            - $ref: '#/components/schemas/Dog'
+            - $ref: '#/components/schemas/Cat'
+      required:
+        - petType
+        - details
+
+    Dog:
+      type: object
+      properties:
+        breed:
+          type: string
+          example: "Labrador"
+        barkVolume:
+          type: number
+          example: 10
+
+    Cat:
+      type: object
+      properties:
+        color:
+          type: string
+          example: "Black"
+        scratchLevel:
+          type: number
+          example: 5
+
+    # 'anyOf' example: Vehicle can have features from both a Car or a Bike, but it’s not mandatory to have both
+    Vehicle:
+      type: object
+      properties:
+        vehicleType:
+          type: string
+          example: "car"
+        features:
+            $ref: '#/components/schemas/BaseFeature'
+
+    BaseFeature:
+      type: object
+      properties:
+        info:
+          type: string
+        specific:   
+          anyOf:
+            - $ref: '#/components/schemas/CarFeatures'
+            - $ref: '#/components/schemas/BikeFeatures'
+
+    CarFeatures:
+      type: object
+      properties:
+        airConditioning:
+          type: boolean
+          example: true
+        numberOfDoors:
+          type: integer
+          example: 4
+
+    BikeFeatures:
+      type: object
+      properties:
+        hasPedals:
+          type: boolean
+          example: false
+        helmetIncluded:
+          type: boolean
+          example: true
+
+    # 'allOf' example: Employee must include both Person and EmployeeDetails
+    Employee:
+      allOf:
+        - $ref: '#/components/schemas/Person'
+        - $ref: '#/components/schemas/EmployeeDetails'
+
+    Person:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "John Doe"
+        age:
+          type: integer
+          example: 30
+
+    EmployeeDetails:
+      type: object
+      properties:
+        employeeId:
+          type: string
+          example: "E12345"
+        department:
+          type: string
+          example: "Engineering"
+
+    # 'not' example: The field must not match the Dog schema
+    NotDog:
+      type: object
+      properties:
+        petType:
+          type: string
+          example: "Not a dog"
+        details:
+          not:
+            $ref: '#/components/schemas/Dog'

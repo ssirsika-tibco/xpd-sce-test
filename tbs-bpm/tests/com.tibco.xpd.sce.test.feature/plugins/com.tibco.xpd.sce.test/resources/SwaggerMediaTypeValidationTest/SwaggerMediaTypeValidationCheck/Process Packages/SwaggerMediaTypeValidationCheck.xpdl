@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_Y-cDUIuFEe-wWfCFlICrYg" xpdExt:DisplayName="SwaggerMediaTypeValidationCheck" Name="SwaggerMediaTypeValidationCheck">
+  <xpdl2:PackageHeader xpdExt:Language="en_IN">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2024-10-16</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>ssirsika</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_8pdDYIuHEe-wWfCFlICrYg" xpdExt:DisplayName="BasicType1_Consumer" Name="BasicType1_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:RestService resourceName="Basic Type 1"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_-mbtcIuHEe-wWfCFlICrYg" xpdExt:DisplayName="Invalidmediatypeinresponse_Consumer" Name="Invalidmediatypeinresponse_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:RestService resourceName="Invalid media type in response"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_fL5EEIuFEe-wWfCFlICrYg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_Y-2TAIuFEe-wWfCFlICrYg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_fL5rIIuFEe-wWfCFlICrYg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_Y-2TAIuFEe-wWfCFlICrYg" xpdExt:DisplayName="SwaggerMediaTypeValidationCheck-Process" Name="SwaggerMediaTypeValidationCheckProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_fL5rIYuFEe-wWfCFlICrYg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_fL5rIIuFEe-wWfCFlICrYg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_fL5rIouFEe-wWfCFlICrYg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_fL5rIIuFEe-wWfCFlICrYg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_zZIHgIuHEe-wWfCFlICrYg" Name="RequestCheck" xpdExt:Visibility="Private" xpdExt:DisplayName="Request Check">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_6ua6EIuHEe-wWfCFlICrYg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_6ubhIIuHEe-wWfCFlICrYg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="invalid-media-type-request-openapi.yaml" xpdExt:MethodId="POST::/example"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_8pdDYIuHEe-wWfCFlICrYg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_fL5rIIuFEe-wWfCFlICrYg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="208.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_z9sNIIuHEe-wWfCFlICrYg" Name="ResponseCheck" xpdExt:Visibility="Private" xpdExt:DisplayName="Response Check">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_9urmEIuHEe-wWfCFlICrYg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_9urmEYuHEe-wWfCFlICrYg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="invalid-media-type-response-swagger.yaml" xpdExt:MethodId="POST::/users"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_-mbtcIuHEe-wWfCFlICrYg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_fL5rIIuFEe-wWfCFlICrYg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="434.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_fL5rI4uFEe-wWfCFlICrYg" xpdExt:DisplayName="" Name="" From="_z9sNIIuHEe-wWfCFlICrYg" To="_fL5rIouFEe-wWfCFlICrYg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_zZIHg4uHEe-wWfCFlICrYg" xpdExt:DisplayName="" Name="" From="_fL5rIYuFEe-wWfCFlICrYg" To="_zZIHgIuHEe-wWfCFlICrYg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_z9sNI4uHEe-wWfCFlICrYg" xpdExt:DisplayName="" Name="" From="_zZIHgIuHEe-wWfCFlICrYg" To="_z9sNIIuHEe-wWfCFlICrYg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

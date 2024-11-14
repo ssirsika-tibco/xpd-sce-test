@@ -8,6 +8,7 @@ import com.tibco.xpd.datamapper.scripts.DataMapperUserDefinedMappingScriptsProvi
 import com.tibco.xpd.implementer.resources.xpdl2.properties.MapperScriptProperties;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
+import com.tibco.xpd.rest.ui.RestDataMapperConstants;
 import com.tibco.xpd.script.ui.internal.AbstractScriptInfoProvider;
 
 /**
@@ -31,7 +32,7 @@ public class RestMapperScriptProperties extends MapperScriptProperties {
      * 
      * @return The script context (not section context) for this script.
      */
-    @Override
+	@Override
     public String getScriptContext() {
         return MappingDirection.IN.equals(getMappingDirection()) ? ProcessScriptContextConstants.DATA_MAPPER_PE_MAPPING_SCRIPTS
                 : ProcessScriptContextConstants.DATA_MAPPER_REST_MAPPING_SCRIPTS;
@@ -45,8 +46,15 @@ public class RestMapperScriptProperties extends MapperScriptProperties {
      */
     @Override
     protected AbstractScriptInfoProvider getScriptInfoProvider(String grammarId) {
-        return new DataMapperUserDefinedMappingScriptsProvider(
-                new RestScriptDataMapperProvider(getMappingDirection()));
+
+		/* Sid ACE-8864 Use new constructor for RestScriptDataMapperProvider */
+        MappingDirection direction = getMappingDirection();
+
+		String mapperContext = MappingDirection.IN.equals(direction) ? RestDataMapperConstants.PROCESS_TO_REST_SERVICE
+				: RestDataMapperConstants.REST_SERVICE_TO_PROCESS;
+
+		return new DataMapperUserDefinedMappingScriptsProvider(
+				new RestScriptDataMapperProvider(direction, mapperContext));
     }
 
 }

@@ -55,10 +55,13 @@ public abstract class RestPayloadContainerTreeItem extends RestMapperTreeItem {
     }
 
     /**
-     * {@inheritDoc}
-     */
+	 * {@inheritDoc}
+	 * 
+	 * Sid ACE-8742 Change RSD content providers to cache their content for performance - now we create child content
+	 */
     @Override
-    public List<?> getChildren() {
+	public List< ? > createChildren()
+	{
         if (activity != null) {
             List<Object> children = new ArrayList<>();
             PayloadReference payloadReference = getPayloadReference(activity);
@@ -98,16 +101,8 @@ public abstract class RestPayloadContainerTreeItem extends RestMapperTreeItem {
     }
 
     /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean hasChildren() {
-        if (activity != null) {
-            PayloadReference payloadReference = getPayloadReference(activity);
-            return payloadReference != null;
-        }
-        return false;
-    }
+	 * Sid ACE-8742 hasChildren() now handled in base class.
+	 */
 
     /**
      * {@inheritDoc}

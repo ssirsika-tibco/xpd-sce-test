@@ -79,7 +79,8 @@ public class NewCeProjectsTest extends TestCase {
                 "com.tibco.xpd.rest.wizard.project.new", //$NON-NLS-1$
                 "NewCeProjectsTest_REST", //$NON-NLS-1$
                 "rest", //$NON-NLS-1$
-                "rsd"); //$NON-NLS-1$
+				"rsd", //$NON-NLS-1$
+				false);
 
     }
 
@@ -92,7 +93,6 @@ public class NewCeProjectsTest extends TestCase {
                 "wlf"); //$NON-NLS-1$
 
     }
-
 
     /**
      * Launches wizard to create a project, checks CE destination set etc,
@@ -107,6 +107,24 @@ public class NewCeProjectsTest extends TestCase {
      */
     private void doTest(String wizTitle, String wizId, String projectName,
             String assetSpecialFolderKind, String assetFileExtension) {
+		doTest(wizTitle, wizId, projectName, assetSpecialFolderKind, assetFileExtension, true);
+	}
+
+	/**
+	 * Launches wizard to create a project, checks CE destination set etc, checks that correct asset is created in
+	 * project and finally deletes the project when done.
+	 * 
+	 * @param wizTitle
+	 * @param wizId
+	 * @param projectName
+	 * @param assetSpecialFolderKind
+	 * @param assetFileExtension
+	 * @param expectedAssetFile
+	 *            <code>true</code> = Expect default asset to be automatically created.
+	 */
+	private void doTest(String wizTitle, String wizId, String projectName, String assetSpecialFolderKind,
+			String assetFileExtension, boolean expectedAssetFile)
+	{
         /*
          * Mock the information defined in the plugin.xml contribution for
          * wizard: "com.tibco.xpd.newProject.BPMSOADeveloper"
@@ -129,18 +147,18 @@ public class NewCeProjectsTest extends TestCase {
                         && enabledGlobalDestinations.contains(
                                 XpdConsts.ACE_DESTINATION_NAME)); // $NON-NLS-1$
 
-        /*
-         * Ensure that the correct asset is added (Can't test UI is hidden
-         * dierct but we can check that hiding it didn't mess up the default
-         * asset being created).
-         */
-        ArrayList<IResource> assets =
-                SpecialFolderUtil.getResourcesInSpecialFolderOfKind(project,
-                        assetSpecialFolderKind,
-                        assetFileExtension);
+		if (expectedAssetFile)
+		{
+			/*
+			 * Ensure that the correct asset is added (Can't test UI is hidden dierct but we can check that hiding it
+			 * didn't mess up the default asset being created).
+			 */
+			ArrayList<IResource> assets = SpecialFolderUtil.getResourcesInSpecialFolderOfKind(project,
+					assetSpecialFolderKind, assetFileExtension);
 
-        assertTrue(assetFileExtension + " asset not created", //$NON-NLS-1$
-                assets.size() == 1);
+			assertTrue(assetFileExtension + " asset not created", //$NON-NLS-1$
+					assets.size() == 1);
+		}
 
         /*
          * Ensure that the default version is set even though the UI was hidden

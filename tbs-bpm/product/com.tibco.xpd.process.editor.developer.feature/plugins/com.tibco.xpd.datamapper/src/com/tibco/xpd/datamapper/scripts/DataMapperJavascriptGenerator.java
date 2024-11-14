@@ -136,7 +136,7 @@ public class DataMapperJavascriptGenerator {
 
             // mappings provider
             DataMapperMappingContentProvider mappingContentProvider =
-                    new DataMapperMappingContentProvider(sdmProvider);
+					new DataMapperMappingContentProvider(sdmProvider, context);
 
             prependScripts(script, sourceInfoProvider, scriptDataMapper, true);
             prependScripts(script, targetInfoProvider, scriptDataMapper, false);
@@ -748,12 +748,13 @@ public class DataMapperJavascriptGenerator {
              */
             if (complexTargetCreated) {
 
-                if (scriptDataMapper.isExcludeEmptyOptionalObjects()) {
+            	// Sid ACE-8864 Switched to Boolean object handling for property (default=FALSE)
+				if (Boolean.TRUE.equals(scriptDataMapper.getExcludeEmptyOptionalObjects())) {
                     /*
                      * Target data mappings are configured to Delete empty optional objects (but don't delete if root
                      * var (can't delete these in JavaScript)
                      */
-                    boolean isRoot = targetInfoProvider.getContentProvider().getParent(targetWrappedItem) == null;
+					boolean isRoot = targetInfoProvider.getContentProvider().getParent(targetWrappedItem) == null;
 
                     if (!isRoot && targetInfoProvider.getMinimumInstances(targetWrappedItem) < 1) {
                         String isEmptyObjectConditionStatement = getDeleteEmptyObjectScript(targetInfoProvider,
@@ -1194,7 +1195,9 @@ public class DataMapperJavascriptGenerator {
                         .getCollectionAddElementScript(targetWrappedItem,
                                 newTargetAlias.jsVarAlias,
                                 aliasOfTargetParent.jsVarAlias,
-                                scriptDataMapper.isExcludeEmptyObjectsFromArrays())); // Sid ACE-6538
+								// Sid ACE-8864 Switched to Boolean object handling for property (default=FALSE)
+								Boolean.TRUE.equals(scriptDataMapper.getExcludeEmptyObjectsFromArrays()))); // Sid
+																											// ACE-6538
 
                 script.addLine("}", false, true); //$NON-NLS-1$
 
@@ -1219,7 +1222,9 @@ public class DataMapperJavascriptGenerator {
                         .getCollectionAddElementScript(targetWrappedItem,
                                 elementToAddToArray,
                                 aliasOfTargetParent.jsVarAlias,
-                                scriptDataMapper.isExcludeEmptyObjectsFromArrays())); // Sid ACE-6583
+								// Sid ACE-8864 Switched to Boolean object handling for property (default=FALSE)
+								Boolean.TRUE.equals(scriptDataMapper.getExcludeEmptyObjectsFromArrays()))); // Sid
+																											// ACE-6583
             }
         }
 
@@ -1240,13 +1245,14 @@ public class DataMapperJavascriptGenerator {
          * data (if the target supports it)
          */
         if (targetInfoProvider.getMinimumInstances(targetWrappedItem) < 1) {
-            if (scriptDataMapper.isExcludeEmptyOptionalArrays()) {
-
+			// Sid ACE-8864 Switched to Boolean object handling for property (default=FALSE)
+			if (Boolean.TRUE.equals(scriptDataMapper.getExcludeEmptyOptionalArrays()))
+			{
                 /*
                  * Target data mappings are configured to Delete empty optional objects (but don't delete if root var
                  * (can't delete these in JavaScript)
                  */
-                boolean isRoot = targetInfoProvider.getContentProvider().getParent(targetWrappedItem) == null;
+				boolean isRoot = targetInfoProvider.getContentProvider().getParent(targetWrappedItem) == null;
 
                 if (!isRoot) {
                     String deleteEmptyArrayScript = getDeleteEmptyArrayScript(targetInfoProvider,

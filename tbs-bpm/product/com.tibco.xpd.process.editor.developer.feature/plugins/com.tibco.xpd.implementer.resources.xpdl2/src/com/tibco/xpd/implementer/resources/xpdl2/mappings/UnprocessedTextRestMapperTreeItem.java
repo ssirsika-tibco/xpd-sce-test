@@ -73,22 +73,20 @@ public class UnprocessedTextRestMapperTreeItem extends RestMapperTreeItem {
     /**
      * @see com.tibco.xpd.implementer.resources.xpdl2.mappings.RestMapperTreeItem#getChildren()
      * 
+     * Sid ACE-8742 Change RSD content providers to cache their content for performance - now we create child content
+	 * only once.
+	 * 
      * @return an empty list.
      */
     @Override
-    public List<?> getChildren() {
+	public List<Object> createChildren()
+	{
         return Collections.emptyList();
     }
 
     /**
-     * @see com.tibco.xpd.implementer.resources.xpdl2.mappings.RestMapperTreeItem#hasChildren()
-     * 
-     * @return false.
-     */
-    @Override
-    public boolean hasChildren() {
-        return false;
-    }
+	 * Sid ACE-8742 hasChildren() now handled in base class.
+	 */
 
     /**
      * @see com.tibco.xpd.implementer.resources.xpdl2.mappings.RestMapperTreeItem#getText()

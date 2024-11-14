@@ -1241,7 +1241,8 @@ public abstract class AbstractDataMapperSection extends
      */
     protected DataMapperMappingContentProvider createDataMapperMappingContentProvider() {
         IScriptDataMapperProvider provider = getScriptDataMapperProvider();
-        return new DataMapperMappingContentProvider(provider);
+        /* Sid ACE-8742 need to pass mapper context of data mapper */
+		return new DataMapperMappingContentProvider(provider, this.getDataMapperContext());
     }
 
     /**

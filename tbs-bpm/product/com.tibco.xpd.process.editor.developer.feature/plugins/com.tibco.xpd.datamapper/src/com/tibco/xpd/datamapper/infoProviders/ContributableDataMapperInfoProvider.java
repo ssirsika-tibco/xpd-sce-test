@@ -358,6 +358,38 @@ public class ContributableDataMapperInfoProvider extends
         return false;
     }
 
+	/**
+	 * Sid ACE-8885 propagate isValidForMapping() to contributors
+	 * 
+	 * @see com.tibco.xpd.datamapper.api.AbstractDataMapperInfoProvider#getObjectName(java.lang.Object)
+	 * 
+	 * @param child
+	 * @return
+	 */
+	@Override
+	public boolean isValidForMapping(Object child)
+	{
+		if (child instanceof WrappedContributedContent)
+		{
+
+			WrappedContributedContent wrappedElement = ((WrappedContributedContent) child);
+
+			AbstractDataMapperContentContributor contrib = wrappedElement.getContributor();
+
+			if (contrib != null)
+			{
+				AbstractDataMapperInfoProvider infoProvider = contrib.getInfoProvider();
+
+				if (infoProvider != null)
+				{
+					return infoProvider.isValidForMapping(wrappedElement.getContributedObject());
+				}
+			}
+		}
+
+		return super.isValidForMapping(child);
+	}
+
     /**
      * @see com.tibco.xpd.datamapper.api.AbstractDataMapperInfoProvider#isChoiceObject(java.lang.Object)
      * 

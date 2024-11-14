@@ -30,7 +30,7 @@ public class BasicTypeHandler {
      * @param directionType
      * @return
      */
-    protected static MappingTypeCompatibility handleSourceTargetBasicTypes(
+    public static MappingTypeCompatibility handleSourceTargetBasicTypes(
             Object sourceType, Object targetType, DirectionType directionType) {
 
         MappingTypeCompatibility match = MappingTypeCompatibility.WRONGTYPE;

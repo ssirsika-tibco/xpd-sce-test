@@ -18,8 +18,9 @@ public class AllUnitTests {
         TestSuite suite = new TestSuite(
                 "Test for com.tibco.xpd.n2.pe.rest.datamapper.test"); //$NON-NLS-1$
 
-        suite.addTestSuite(RestScriptGeneratorInfoProviderUriTest.class);
-        suite.addTestSuite(RestScriptGeneratorInfoProviderStatementTest.class);
+		// Sid ACE-8742 - Moved tests to SCE test feature
+		// suite.addTestSuite(RestScriptGeneratorInfoProviderUriTest.class);
+		// suite.addTestSuite(RestScriptGeneratorInfoProviderStatementTest.class);
 
         return suite;
     }

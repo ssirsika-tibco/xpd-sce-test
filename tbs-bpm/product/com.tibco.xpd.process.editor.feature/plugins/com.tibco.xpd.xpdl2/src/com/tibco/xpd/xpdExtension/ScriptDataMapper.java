@@ -25,9 +25,9 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getMapperContext <em>Mapper Context</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getMappingDirection <em>Mapping Direction</em>}</li>
- *   <li>{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyOptionalObjects <em>Exclude Empty Optional Objects</em>}</li>
- *   <li>{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyOptionalArrays <em>Exclude Empty Optional Arrays</em>}</li>
- *   <li>{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyObjectsFromArrays <em>Exclude Empty Objects From Arrays</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getExcludeEmptyOptionalObjects <em>Exclude Empty Optional Objects</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getExcludeEmptyOptionalArrays <em>Exclude Empty Optional Arrays</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getExcludeEmptyObjectsFromArrays <em>Exclude Empty Objects From Arrays</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getDataMappings <em>Data Mappings</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getUnmappedScripts <em>Unmapped Scripts</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getArrayInflationType <em>Array Inflation Type</em>}</li>
@@ -167,23 +167,23 @@ public interface ScriptDataMapper extends OtherElementsContainer, OtherAttribute
 	 * To exclude optional objects that are empty from payload after applying data mappings
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exclude Empty Optional Objects</em>' attribute.
-	 * @see #setExcludeEmptyOptionalObjects(boolean)
+	 * @see #setExcludeEmptyOptionalObjects(Boolean)
 	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getScriptDataMapper_ExcludeEmptyOptionalObjects()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.Boolean" required="true"
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.BooleanObject" required="true"
 	 *        extendedMetaData="kind='attribute' name='ExcludeEmptyOptionalObjects' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	boolean isExcludeEmptyOptionalObjects();
+	Boolean getExcludeEmptyOptionalObjects();
 
 	/**
-	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyOptionalObjects <em>Exclude Empty Optional Objects</em>}' attribute.
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getExcludeEmptyOptionalObjects <em>Exclude Empty Optional Objects</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Exclude Empty Optional Objects</em>' attribute.
-	 * @see #isExcludeEmptyOptionalObjects()
+	 * @see #getExcludeEmptyOptionalObjects()
 	 * @generated
 	 */
-	void setExcludeEmptyOptionalObjects(boolean value);
+	void setExcludeEmptyOptionalObjects(Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Exclude Empty Optional Arrays</b></em>' attribute.
@@ -193,23 +193,23 @@ public interface ScriptDataMapper extends OtherElementsContainer, OtherAttribute
 	 * To exclude optional arrays that are empty from payload after applying data mappings
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exclude Empty Optional Arrays</em>' attribute.
-	 * @see #setExcludeEmptyOptionalArrays(boolean)
+	 * @see #setExcludeEmptyOptionalArrays(Boolean)
 	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getScriptDataMapper_ExcludeEmptyOptionalArrays()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.Boolean" required="true"
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.BooleanObject" required="true"
 	 *        extendedMetaData="kind='attribute' name='ExcludeEmptyOptionalArrays' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	boolean isExcludeEmptyOptionalArrays();
+	Boolean getExcludeEmptyOptionalArrays();
 
 	/**
-	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyOptionalArrays <em>Exclude Empty Optional Arrays</em>}' attribute.
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getExcludeEmptyOptionalArrays <em>Exclude Empty Optional Arrays</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Exclude Empty Optional Arrays</em>' attribute.
-	 * @see #isExcludeEmptyOptionalArrays()
+	 * @see #getExcludeEmptyOptionalArrays()
 	 * @generated
 	 */
-	void setExcludeEmptyOptionalArrays(boolean value);
+	void setExcludeEmptyOptionalArrays(Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Exclude Empty Objects From Arrays</b></em>' attribute.
@@ -219,23 +219,23 @@ public interface ScriptDataMapper extends OtherElementsContainer, OtherAttribute
 	 * To exclude objects that are empty from arrays in the payload after applying data mappings
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exclude Empty Objects From Arrays</em>' attribute.
-	 * @see #setExcludeEmptyObjectsFromArrays(boolean)
+	 * @see #setExcludeEmptyObjectsFromArrays(Boolean)
 	 * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getScriptDataMapper_ExcludeEmptyObjectsFromArrays()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.Boolean" required="true"
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.BooleanObject" required="true"
 	 *        extendedMetaData="kind='attribute' name='ExcludeEmptyObjectsFromArrays' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	boolean isExcludeEmptyObjectsFromArrays();
+	Boolean getExcludeEmptyObjectsFromArrays();
 
 	/**
-	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyObjectsFromArrays <em>Exclude Empty Objects From Arrays</em>}' attribute.
+	 * Sets the value of the '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getExcludeEmptyObjectsFromArrays <em>Exclude Empty Objects From Arrays</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Exclude Empty Objects From Arrays</em>' attribute.
-	 * @see #isExcludeEmptyObjectsFromArrays()
+	 * @see #getExcludeEmptyObjectsFromArrays()
 	 * @generated
 	 */
-	void setExcludeEmptyObjectsFromArrays(boolean value);
+	void setExcludeEmptyObjectsFromArrays(Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Data Mappings</b></em>' containment reference list.

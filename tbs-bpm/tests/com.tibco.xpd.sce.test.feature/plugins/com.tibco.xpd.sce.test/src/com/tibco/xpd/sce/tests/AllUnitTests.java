@@ -30,6 +30,8 @@ import com.tibco.xpd.sce.tests.rasc.contributors.PeSharedResourceContributorTest
 import com.tibco.xpd.sce.tests.rasc.contributors.PfeRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WlfModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WpModelRascContributorTest;
+import com.tibco.xpd.sce.tests.swagger.tpcl.SwaggerApiParserTest;
+import com.tibco.xpd.sce.tests.swagger.tpcl.SwaggerWorkingCopyTest;
 import com.tibco.xpd.sce.tests.validation.JavascriptDateTimeUtilTest;
 
 import junit.framework.Test;
@@ -87,6 +89,11 @@ public class AllUnitTests {
 
 		// Process Script Library tests
 		suite.addTestSuite(ProcessScriptLibraryReferenceProviderTest.class);
+
+		// Swagger parsing tests
+		suite.addTestSuite(SwaggerApiParserTest.class);
+		suite.addTestSuite(SwaggerWorkingCopyTest.class);
+		
         return suite;
     }
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+         point="com.tibco.xpd.resources.workingCopyFactory">
+      <factory
+            class="com.tibco.xpd.rest.swagger.SwaggerWorkingCopyFactory"
+            filePattern=".*\.[jJ][sS][oO][nN]|.*\.[yY][aA][mM][lL]">
+      </factory>
+   </extension>
+ <extension
+       point="com.tibco.xpd.resources.workingCopyIndexer">
+    <indexer
+          indexID="com.tibco.xpd.rest.indexer.swagger"
+          indexerClass="com.tibco.xpd.rest.swagger.SwaggerIndexProvider"
+          resourceMatcher="com.tibco.xpd.rest.swagger.SwaggerIndexResourceMatcher">
+       <additionalAttributes>
+          <attribute
+                maxLength="10"
+                name="httpMethod">
+          </attribute>
+          <attribute
+                maxLength="255"
+                name="resourceName">
+          </attribute>
+          <attribute
+                maxLength="255"
+                name="serviceName">
+          </attribute>
+          <attribute
+                maxLength="255"
+                name="methodId">
+          </attribute>
+       </additionalAttributes>
+    </indexer>
+ </extension> 
+ <extension
+       point="com.tibco.xpd.resources.ui.pickerContent">
+    <pickerContentProvider
+          id="com.tibco.xpd.rest.swagger.method.picker"
+          itemProvider="com.tibco.xpd.rest.swagger.SwaggerPickerItemProvider"
+          labelProvider="com.tibco.xpd.rest.swagger.SwaggerPickerLabelProvider">
+    </pickerContentProvider>
+ </extension>
+</plugin>

@@ -23,6 +23,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
@@ -32,6 +33,7 @@ import org.eclipse.ui.forms.widgets.Hyperlink;
 
 import com.tibco.xpd.implementer.resources.xpdl2.Activator;
 import com.tibco.xpd.implementer.resources.xpdl2.Messages;
+import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter.RsoType;
 import com.tibco.xpd.implementer.resources.xpdl2.utils.ProcessDeveloperUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
@@ -39,9 +41,9 @@ import com.tibco.xpd.processeditor.xpdl2.widgetimpl.adapters.ElementsFactory;
 import com.tibco.xpd.processwidget.adapters.TaskType;
 import com.tibco.xpd.resources.indexer.IndexerItem;
 import com.tibco.xpd.resources.ui.editorHandler.IDisplayEObject;
+import com.tibco.xpd.resources.ui.picker.PickerItem;
 import com.tibco.xpd.resources.ui.util.ShowViewUtil;
 import com.tibco.xpd.rsd.Method;
-import com.tibco.xpd.rsd.Resource;
 import com.tibco.xpd.rsd.ui.components.RestMethodPicker;
 import com.tibco.xpd.rsd.ui.editor.RsdEditorOpener;
 import com.tibco.xpd.rsd.wc.RsdIndexProvider;
@@ -75,13 +77,15 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
 
     private Label service;
 
-    private Label serviceLabel;
+	private CLabel serviceLabel;
 
     private Label resource;
 
-    private Label resourceLabel;
+    private CLabel resourceLabel;
 
     private Hyperlink method;
+
+	private Label methodText;
 
     private CLabel methodLabel;
 
@@ -98,20 +102,25 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
     private Button clearEndpoint;
 
     /**
-     * @see com.tibco.xpd.ui.properties.AbstractXpdSection#doCreateControls(org.eclipse.swt.widgets.Composite,
-     *      com.tibco.xpd.ui.properties.XpdFormToolkit)
-     * 
-     * @param parent
-     * @param toolkit
-     * @return
-     */
+	 * Attribute to store the type of the RSO aasociated with an activity.
+	 */
+	private RsoType rsoType;
+
+	/**
+	 * @see com.tibco.xpd.ui.properties.AbstractXpdSection#doCreateControls(org.eclipse.swt.widgets.Composite,
+	 *      com.tibco.xpd.ui.properties.XpdFormToolkit)
+	 * 
+	 * @param parent
+	 * @param toolkit
+	 * @return
+	 */
     @Override
     protected Control doCreateControls(Composite parent, XpdFormToolkit toolkit) {
         root = toolkit.createComposite(parent);
         root.setLayout(new GridLayout(2, false));
 
-        Label operationLabel =
-                toolkit.createLabel(root,
+		CLabel operationLabel =
+				toolkit.createCLabel(root,
                         Messages.RestServiceTaskSection_OperationLabel);
         operationLabel.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, false,
                 false));
@@ -130,7 +139,7 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
                         SWT.PUSH);
 
         serviceLabel =
-                toolkit.createLabel(root,
+				toolkit.createCLabel(root,
                         Messages.RestServiceTaskSection_ServiceLabel);
         serviceLabel.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, false,
                 false));
@@ -138,22 +147,29 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
         service.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, true, false));
 
         resourceLabel =
-                toolkit.createLabel(root,
+				toolkit.createCLabel(root,
                         Messages.RestServiceTaskSection_ResourceLabel);
         resourceLabel.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, false,
                 false));
         resource = toolkit.createLabel(root, ""); //$NON-NLS-1$
         resource.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, true, false));
 
-        methodLabel =
-                toolkit.createCLabel(root,
-                        Messages.RestServiceTaskSection_MethodLabel);
-        methodLabel.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, false,
-                false));
-        method = toolkit.createHyperlink(root, "", SWT.NONE); //$NON-NLS-1$
-        method.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, true, false));
+		methodLabel = toolkit.createCLabel(root, Messages.RestServiceTaskSection_MethodLabel);
+		methodLabel.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, false, false));
 
-        endpointLabel =
+		// Nikita ACE-8267 For Swagger operation references, do not show a hyperlink because we do not have our own
+		// specific swagger editor to navigate to
+		Composite methodPanel = toolkit.createComposite(root);
+		methodPanel.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, false, false));
+		GridLayout methodGL = new GridLayout();
+		methodGL.marginTop = methodGL.marginBottom = methodGL.marginLeft = methodGL.marginRight = 0;
+		methodPanel.setLayout(methodGL);
+
+		// method or methodText will be shown optionally based on the selected method reference
+		method = toolkit.createHyperlink(methodPanel, "", SWT.NONE); //$NON-NLS-1$
+		methodText = toolkit.createLabel(methodPanel, "", SWT.NONE); //$NON-NLS-1$
+
+		endpointLabel =
                 toolkit.createCLabel(root,
                         Messages.RestServiceTaskSection_EndpointLabel);
         endpointLabel.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, false,
@@ -268,9 +284,10 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
             public void widgetSelected(SelectionEvent e) {
                 // Show RSD Method picker.
                 RestMethodPicker picker = new RestMethodPicker();
-                Method method = picker.pickRestMethod(getControl().getShell());
-                if (method != null) {
-                    setRestMethod(method);
+				// Nikita-8267 The picker dialog will now return a PickerItem instead of the specific types
+				PickerItem pickerItem = picker.pickRestMethod(getControl().getShell());
+				if (pickerItem != null) {
+					setRestMethod(pickerItem);
                 }
             }
         });
@@ -280,10 +297,11 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
     }
 
     /**
-     * @param method
-     *            The REST Service method to set.
-     */
-    protected void setRestMethod(final Method method) {
+	 * @param pickerItem
+	 *            The picker item from REST Service method selection dialog
+	 */
+	protected void setRestMethod(final PickerItem pickerItem)
+	{
         EObject input = getInput();
         CompoundCommand cmd = null;
         if (input instanceof Activity) {
@@ -292,7 +310,7 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
             cmd =
                     rsta.getSetMethodCommand(getEditingDomain(),
                             activity,
-                            method);
+							pickerItem);
 
             /*
              * XPD-7739: If the current activity label is the default label then
@@ -313,12 +331,15 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
                         internalName != null
                                 && internalName.equals(activity.getName());
 
-                RestServiceTaskSection.setRestActivityLabelAndName(activity,
-                        method,
-                        activity.getProcess(),
-                        shouldSetName,
-                        cmd,
-                        getEditingDomain());
+				/*
+				 * create a display label
+				 */
+				String activityDisplayName = String.format("%1$s - %2$s %3$s", //$NON-NLS-1$
+						pickerItem.getName(), pickerItem.get("httpMethod"), pickerItem.get("resourceName")); //$NON-NLS-1$ //$NON-NLS-2$
+
+				RestServiceTaskSection.setRestActivityLabelAndName(activity, activityDisplayName, activity.getProcess(),
+						shouldSetName, cmd, getEditingDomain());
+
             }
 
             if (cmd != null && cmd.canExecute()) {
@@ -348,17 +369,9 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
      * @param ed
      */
     public static void setRestActivityLabelAndName(Activity activity,
-            Method method, Process targetProcess, boolean shouldSetName,
-            CompoundCommand cmd, EditingDomain ed) {
-
-        /*
-         * create a display label
-         */
-        String displayName = String.format("%1$s - %2$s %3$s", //$NON-NLS-1$
-                method.getName(),
-                method.getHttpMethod().getName(),
-                ((Resource) method.eContainer()).getName());
-
+			String displayName, Process targetProcess, boolean shouldSetName,
+			CompoundCommand cmd, EditingDomain ed)
+	{
         /*
          * make the label unique
          */
@@ -463,18 +476,33 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
             RestServiceTaskAdapter rsta = new RestServiceTaskAdapter();
             RestServiceOperation rso = getRestServiceOperation(rsta);
             IndexerItem item = rsta.getMethodIndexerItem(rso);
+
+			resetMethodControls();
+
+			// ACE-8267 Optionally set either method or methodText components to be visible and enabled
             if (item != null) {
 
                 service.setText(item.get(RsdIndexProvider.SERVICE_NAME));
-                resource.setText(item.get(RsdIndexProvider.RESOURCE_NAME));
-                method.setText(item.getName() + " (" //$NON-NLS-1$
-                        + item.get(RsdIndexProvider.HTTP_METHOD) + ")"); //$NON-NLS-1$
-
+				resource.setText(item.get(RsdIndexProvider.RESOURCE_NAME));
                 setCLabelIcon(methodLabel,
                         null,
                         Messages.RestServiceTaskSection_RSOResourceMethod_Tooltip);
 
-                method.setEnabled(true);
+				if (item.getType().equals(RestMethodPicker.SWAGGER_METHOD_TYPE))
+				{
+					methodText.setText(item.getName() + " (" //$NON-NLS-1$
+							+ item.get(RsdIndexProvider.HTTP_METHOD) + ")"); //$NON-NLS-1$
+
+					showSelectedMethodControl(methodText, true);
+				}
+				else
+				{
+					method.setText(item.getName() + " (" //$NON-NLS-1$
+							+ item.get(RsdIndexProvider.HTTP_METHOD) + ")"); //$NON-NLS-1$
+
+					showSelectedMethodControl(method, true);
+				}
+
 
             } else if (rso != null) {
 
@@ -489,7 +517,8 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
                                 .get(Xpdl2UiPlugin.IMG_ERROR),
                         Messages.RestServiceTaskSection_UnresolvedRSOReference_Tooltip);
 
-                method.setEnabled(false);
+				// ACE-8267 Set method component to be visible but it is not enabled
+				showSelectedMethodControl(method, false);
 
             } else {
 
@@ -502,8 +531,10 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
                                 .get(Xpdl2UiPlugin.IMG_ERROR),
                         Messages.RestServiceTaskSection_NoRSOSelected_Tooltip);
 
-                method.setEnabled(false);
+				// ACE-8267 Set method component to be visible but it is not enabled
+				showSelectedMethodControl(method, false);
             }
+
             String endpointName = ""; //$NON-NLS-1$
             Participant participant = getRestParticipant(activity);
             if (participant != null) {
@@ -537,8 +568,92 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
              */
 
             root.layout();
+
+			// Nikita ACE-8255 We need to refresh tabs ONLY IF if the RSO type has changed from Swagger Operation to RSD
+			// Method and vice-versa
+			// To check this use 'rsoType' flag's previous value and compare
+			setRSOTypeAndRefresh(activity);
         }
     }
+
+	/**
+	 * Sets the value of the class-level flag 'rsoType'. If the value has changed refreshTabs() will be called - which
+	 * essentially refreshes all sections in the property sheet
+	 * 
+	 * @param activity
+	 * @param rsta
+	 */
+	private void setRSOTypeAndRefresh(Activity activity)
+	{
+		RestServiceTaskAdapter rsta = new RestServiceTaskAdapter();
+
+		// If there was a previously set rso type
+		if (null != rsoType)
+		{
+			// Get the current rso type for an activity
+			RsoType activityRSOType = rsta.getRsoType(activity);
+
+			// Check if it has changed
+			if (!rsoType.equals(activityRSOType))
+			{
+				/*
+				 * If yes, update the rsoType to the current type, then refresh tabs and exit
+				 */
+				rsoType = activityRSOType;
+				Display.getCurrent().asyncExec(new Runnable()
+				{
+					@Override
+					public void run()
+					{
+						refreshTabs();
+					}
+				});
+				return;
+			}
+
+		}
+		else
+		{
+			// Else simply set the rso type.
+			rsoType = rsta.getRsoType(activity);
+		}
+	}
+
+	/**
+	 * Show the selected control by setting the visibility and layout data. Also sets the enabled/disabled state based
+	 * on the value passed
+	 * 
+	 * @param aControl
+	 * @param isEnabled
+	 */
+	private void showSelectedMethodControl(Control aControl, boolean isEnabled)
+	{
+		aControl.setVisible(true);
+		aControl.setEnabled(isEnabled);
+		aControl.setLayoutData(new GridData(SWT.LEAD, SWT.CENTER, false, false));
+	}
+	
+	/**
+	 * Reset the method hyperlink(that shows RSD method) and methodText Label(that shows Swagger Operation) values and
+	 * hide them by default
+	 */
+	private void resetMethodControls()
+	{
+		// Reset method
+		method.setVisible(false);
+		method.setEnabled(false);
+		method.setText(null);
+
+		// Reset methodText
+		methodText.setVisible(false);
+		methodText.setText(""); //$NON-NLS-1$
+
+		// Hide both controls
+		GridData gd = new GridData();
+		gd.heightHint = 1;
+		method.setLayoutData(gd);
+		methodText.setLayoutData(gd);
+	}
 
     /**
      * @return The indexer item for the currently selected method.
@@ -665,5 +780,4 @@ public class RestServiceTaskSection extends AbstractTransactionalSection {
         }
         return cmd;
     }
-
 }

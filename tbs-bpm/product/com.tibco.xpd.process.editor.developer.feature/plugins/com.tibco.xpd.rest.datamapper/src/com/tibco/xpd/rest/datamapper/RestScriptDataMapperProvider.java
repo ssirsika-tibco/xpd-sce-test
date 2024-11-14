@@ -38,15 +38,17 @@ public class RestScriptDataMapperProvider extends
         AbstractScriptDataMapperEditorProvider {
     private MappingDirection direction;
 
-    public RestScriptDataMapperProvider(MappingDirection direction) {
-        super(
-                MappingDirection.IN.equals(direction) ? RestDataMapperConstants.PROCESS_TO_REST_SERVICE
-                        : RestDataMapperConstants.REST_SERVICE_TO_PROCESS,
-                MappingDirection.IN.equals(direction) ? DirectionType.IN_LITERAL
-                        : DirectionType.OUT_LITERAL);
-        this.direction = direction;
-    }
+	// public RestScriptDataMapperProvider(MappingDirection direction) {
+	// this(direction, MappingDirection.IN.equals(direction) ? RestDataMapperConstants.PROCESS_TO_REST_SERVICE
+	// : RestDataMapperConstants.REST_SERVICE_TO_PROCESS);
+	// }
 
+	public RestScriptDataMapperProvider(MappingDirection direction, String mapperContext)
+	{
+		super(mapperContext,
+				MappingDirection.IN.equals(direction) ? DirectionType.IN_LITERAL : DirectionType.OUT_LITERAL);
+		this.direction = direction;
+	}
     /**
      * @see com.tibco.xpd.datamapper.scripts.IScriptDataMapperProvider#getScriptDataMapper(com.tibco.xpd.xpdl2.Activity)
      * 

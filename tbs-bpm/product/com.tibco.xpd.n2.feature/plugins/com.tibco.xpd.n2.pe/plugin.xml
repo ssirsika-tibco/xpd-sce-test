@@ -110,6 +110,18 @@
             mapperContribution="com.tibco.xpd.n2.pe.datamapper.PEDataMapperContentContributor"
             priority="3">
       </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="ProcessToSwagger"
+            applyToMapperRHS="false"
+            mapperContribution="com.tibco.xpd.n2.pe.datamapper.PEDataMapperContentContributor"
+            priority="3">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="SwaggerToProcess"
+            applyToMapperRHS="true"
+            mapperContribution="com.tibco.xpd.n2.pe.datamapper.PEDataMapperContentContributor"
+            priority="3">
+      </mapperContentContributor>
             <mapperContentContributor
             applicableContext="ProcessToSubProcess"
             applyToMapperRHS="false"
@@ -291,6 +303,15 @@
                contributor="com.tibco.xpd.n2.pe.datamapper.ProcessDataMapperScriptGeneratorInfoProvider"
                contributorID="MapFromLocalSignalTarget.DataMapperContent">
          </scriptGeneratorInfoProviderContributor>
+
+        <scriptGeneratorInfoProviderContributor
+              contributor="com.tibco.xpd.n2.pe.rest.datamapper.SwaggerScriptGeneratorInfoProvider"
+              contributorID="ProcessToSwagger.DataMapperContent">
+        </scriptGeneratorInfoProviderContributor>
+        <scriptGeneratorInfoProviderContributor
+              contributor="com.tibco.xpd.n2.pe.rest.datamapper.SwaggerScriptGeneratorInfoProvider"
+              contributorID="SwaggerToProcess.DataMapperContent">
+        </scriptGeneratorInfoProviderContributor>
          
      </extension>
    <extension

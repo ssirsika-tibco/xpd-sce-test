@@ -1,0 +1,366 @@
+openapi: 3.0.0
+info:
+  title: Basic Type 1
+  version: 1.0.0
+paths:
+  /example:
+    post:
+      summary: Example endpoint with all simple data types in the request and response
+      operationId: uploadFile
+      parameters:
+        - name: age
+          in: query
+          description: Age with minimum and maximum range
+          required: true
+          schema:
+            type: integer
+            minimum: 18
+            maximum: 65
+            example: 30
+        - name: height
+          in: query
+          description: Height in meters with min and max
+          required: false
+          schema:
+            type: number
+            format: float
+            minimum: 1.0
+            maximum: 2.5
+            example: 1.75
+        - name: name
+          in: query
+          description: Name with length restrictions
+          required: true
+          schema:
+            type: string
+            minLength: 3
+            maxLength: 50
+            example: "John Doe"
+        - name: birthDate
+          in: query
+          description: Birthdate in date format
+          required: false
+          schema:
+            type: string
+            format: date
+            example: "1990-01-01"
+        - name: isVerified
+          in: query
+          description: Boolean query parameter to check if verified
+          required: false
+          schema:
+            type: boolean
+            example: true            
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name with length restrictions
+                  minLength: 3
+                  maxLength: 50
+                  example: "John Doe"
+                age:
+                  type: integer
+                  format: int32
+                  minimum: 18
+                  maximum: 65
+                  example: 30
+                height:
+                  type: number
+                  format: float
+                  minimum: 1.0
+                  maximum: 2.5
+                  example: 1.75
+                balance:
+                  type: number
+                  format: double
+                  minimum: 0.0
+                  maximum: 1000000.0
+                  example: 12345.67
+                isActive:
+                  type: boolean
+                  example: true
+                tags:
+                  type: array
+                  items:
+                    type: string
+                  example: ["tag1", "tag2", "tag3"]
+                scores:
+                  type: array
+                  items:
+                    type: number
+                    format: float
+                  example: [95.5, 88.2, 76.3]
+                birthDate:
+                  type: string
+                  format: date
+                  example: "1990-01-01"
+                updatedAt:
+                  type: string
+                  format: date-time
+                  example: "2024-01-01T12:00:00Z"
+                additionalInfo:
+                  type: object
+                  properties:
+                    address:
+                      type: string
+                      example: "123 Main St"
+                    phoneNumber:
+                      type: string
+                      example: "+1-555-555-5555"
+      responses:
+        '200':
+          description: Successful response with all simple data types
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Data processed successfully"
+                  userId:
+                    type: integer
+                    format: int64
+                    example: 987654321
+                  status:
+                    type: boolean
+                    example: true
+                  height:
+                    type: number
+                    format: float
+                    example: 1.75
+                  points:
+                    type: number
+                    format: double
+                    example: 123.45
+                  interests:
+                    type: array
+                    items:
+                      type: string
+                    example: ["reading", "coding", "traveling"]
+                  measurements:
+                    type: array
+                    items:
+                      type: integer
+                    example: [170, 65, 120]
+                  birthDate:
+                    type: string
+                    format: date
+                    example: "1990-01-01"
+                  updatedAt:
+                    type: string
+                    format: date-time
+                    example: "2024-01-01T12:00:00Z"
+                  additionalInfo:
+                    type: object
+                    properties:
+                      address:
+                        type: string
+                        example: "123 Main St"
+                      phoneNumber:
+                        type: string
+                        example: "+1-555-555-5555"
+  /example/{userId}:
+    post:
+      summary: Upload file IDs
+      operationId: uploadFileId
+      parameters:
+        - name: userId
+          in: path
+          description: ID of the user
+          required: true
+          schema:
+            $ref: '#/components/schemas/UserId'
+        - name: X-Request-ID
+          in: header
+          description: A unique request ID for tracing
+          required: false
+          schema:
+            $ref: '#/components/schemas/RequestId'
+        - name: age
+          in: query
+          description: Age with minimum and maximum range
+          required: true
+          schema:
+            $ref: '#/components/schemas/Age'
+        - name: height
+          in: query
+          description: Height in meters with min and max
+          required: false
+          schema:
+            $ref: '#/components/schemas/Height'
+        - name: name
+          in: query
+          description: Name with length restrictions
+          required: true
+          schema:
+            $ref: '#/components/schemas/Name'
+        - name: birthDate
+          in: query
+          description: Birthdate in date format
+          required: false
+          schema:
+            $ref: '#/components/schemas/BirthDate'
+        - name: isVerified
+          in: query
+          description: Boolean query parameter to check if verified
+          required: false
+          schema:
+            $ref: '#/components/schemas/IsVerified'            
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestBody'
+      responses:
+        '200':
+          description: Successful response with all simple data types
+          headers:
+            X-Response-ID:
+              description: A unique response ID for tracing
+              schema:
+                $ref: '#/components/schemas/ResponseId'
+            X-Rate-Limit:
+              description: The number of allowed requests in the current period
+              schema:
+                $ref: '#/components/schemas/RateLimit'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBody'
+
+components:
+  schemas:
+    UserId:
+      type: integer
+      format: int64
+      example: 987654321
+
+    RequestId:
+      type: string
+      example: "123e4567-e89b-12d3-a456-426614174000"
+
+    Age:
+      type: integer
+      minimum: 18
+      maximum: 65
+      example: 30
+
+    Height:
+      type: number
+      format: float
+      minimum: 1.0
+      maximum: 2.5
+      example: 1.75
+
+    Name:
+      type: string
+      minLength: 3
+      maxLength: 50
+      example: "John Doe"
+
+    BirthDate:
+      type: string
+      format: date
+      example: "1990-01-01"
+
+    IsVerified:
+      type: boolean
+      example: true
+
+    RequestBody:
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/Name'
+        age:
+          $ref: '#/components/schemas/Age'
+        height:
+          $ref: '#/components/schemas/Height'
+        balance:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 1000000.0
+          example: 12345.67
+        isActive:
+          type: boolean
+          example: true
+        tags:
+          type: array
+          items:
+            type: string
+          example: ["tag1", "tag2", "tag3"]
+        scores:
+          type: array
+          items:
+            type: number
+            format: float
+          example: [95.5, 88.2, 76.3]
+        birthDate:
+          $ref: '#/components/schemas/BirthDate'
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2024-01-01T12:00:00Z"
+        additionalInfo:
+           $ref: '#/components/schemas/AdditionalInfo'
+
+    ResponseBody:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Data processed successfully"
+        userId:
+          $ref: '#/components/schemas/UserId'
+        status:
+          type: boolean
+          example: true
+        height:
+          $ref: '#/components/schemas/Height'
+        points:
+          type: number
+          format: double
+          example: 123.45
+        interests:
+          type: array
+          items:
+            type: string
+          example: ["reading", "coding", "traveling"]
+        measurements:
+          type: array
+          items:
+            type: integer
+          example: [170, 65, 120]
+        birthDate:
+          $ref: '#/components/schemas/BirthDate'
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2024-01-01T12:00:00Z"
+        additionalInfo:
+          $ref: '#/components/schemas/AdditionalInfo'
+          
+    AdditionalInfo:
+      type: object
+      properties:
+        address:
+          type: string
+          example: "123 Main St"
+        phoneNumber:
+          type: string
+          example: "+1-555-555-5555"
+          
+    ResponseId:
+      type: string
+
+    RateLimit:
+      type: integer
+      description: The number of allowed requests in the current period
+      example: 100

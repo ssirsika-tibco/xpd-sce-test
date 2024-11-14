@@ -1,5 +1,6 @@
 package com.tibco.xpd.rest.ui.internal;
 
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -64,8 +65,18 @@ public class RestServicesActivator extends AbstractUIPlugin {
     }
 
     /**
-     * @return The single plugin activator instance.
-     */
+	 * @param key
+	 *            The image key.
+	 * @return The image, or null if not found.
+	 */
+	public ImageDescriptor getImageDescriptor(RestImage key)
+	{
+		return getImageRegistry().getDescriptor(key.getId());
+	}
+
+	/**
+	 * @return The single plugin activator instance.
+	 */
     public static RestServicesActivator getDefault() {
         return plugin;
     }

@@ -6,6 +6,16 @@ package com.tibco.xpd.sce.tests;
 
 import com.tibco.xpd.sce.tests.javascript.Ace5132DuplicateCatchSignalValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceAllDataTypeAssignments;
+import com.tibco.xpd.sce.tests.swagger.validation.SwaggerArrayParamValidationTest;
+import com.tibco.xpd.sce.tests.swagger.validation.SwaggerCatchEventInvalidScriptMappingTest;
+import com.tibco.xpd.sce.tests.swagger.validation.SwaggerCatchEventValidScriptMappingTest;
+import com.tibco.xpd.sce.tests.swagger.validation.SwaggerCompositeKeywordValidationTest;
+import com.tibco.xpd.sce.tests.swagger.validation.SwaggerInvalidScriptMappingTest;
+import com.tibco.xpd.sce.tests.swagger.validation.SwaggerMappingValidationTest;
+import com.tibco.xpd.sce.tests.swagger.validation.SwaggerMediaTypeValidationTest;
+import com.tibco.xpd.sce.tests.swagger.validation.SwaggerRecursiveSchemaValidationTest;
+import com.tibco.xpd.sce.tests.swagger.validation.SwaggerUnsupportedSchemaContentTest;
+import com.tibco.xpd.sce.tests.swagger.validation.SwaggerValidScriptMappingTest;
 import com.tibco.xpd.sce.tests.validation.AceAllowCrossClassTypeAndCrosssProjectReferenceTest;
 import com.tibco.xpd.sce.tests.validation.AceBomFactoryValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceBomMigrationValidationsTest;
@@ -124,6 +134,18 @@ public class AllUnitTestsValidation {
 
 		suite.addTestSuite(AceAllDataTypeAssignments.class);
 
-        return suite;
+		// Swagger validation tests
+		suite.addTestSuite(SwaggerMappingValidationTest.class);
+		suite.addTestSuite(SwaggerArrayParamValidationTest.class);
+		suite.addTestSuite(SwaggerMediaTypeValidationTest.class);
+		suite.addTestSuite(SwaggerCompositeKeywordValidationTest.class);
+		suite.addTestSuite(SwaggerRecursiveSchemaValidationTest.class);
+		suite.addTestSuite(SwaggerValidScriptMappingTest.class);
+		suite.addTestSuite(SwaggerInvalidScriptMappingTest.class);
+		suite.addTestSuite(SwaggerCatchEventInvalidScriptMappingTest.class);
+		suite.addTestSuite(SwaggerCatchEventValidScriptMappingTest.class);
+		suite.addTestSuite(SwaggerUnsupportedSchemaContentTest.class);
+
+		return suite;
     }
 }

@@ -65,10 +65,13 @@ public class RestParamTreeItem extends RestMapperTreeItem {
     }
 
     /**
-     * {@inheritDoc}
-     */
+	 * {@inheritDoc}
+	 * 
+	 * Sid ACE-8742 Change RSD content providers to cache their content for performance - now we create child content
+	 */
     @Override
-    public List<RestMapperTreeItem> getChildren() {
+	public List< ? > createChildren()
+	{
         return Collections.emptyList();
     }
 
@@ -81,12 +84,8 @@ public class RestParamTreeItem extends RestMapperTreeItem {
     }
 
     /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean hasChildren() {
-        return false;
-    }
+	 * Sid ACE-8742 hasChildren() now handled in base class.
+	 */
 
     /**
      * Returns the wrapped parameter.

@@ -166,6 +166,8 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
     private final List<ViewerFilter> filters;
 
     private boolean validateFileExtension;
+    
+	private Composite fileGroup;
 
     /**
      * Constructor. New file in special folder creation page.
@@ -361,18 +363,37 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
      * @return the created file resource, or <code>null</code> if the file was
      *         not created
      */
-    public IFile createNewFile() {
-        if (newFile != null) {
+	public IFile createNewFile()
+	{
+		return this.createNewFile(false, getFileName(), getInitialContents());
+	}
+
+	/**
+	 * Creates a new file resource in the selected container and with the selected file name and the input stream.
+	 * 
+	 * This page will cache the new file once it has been successfully created if the clearCache flag is not set and
+	 * subsequent invocations of this method will answer the same file resource without attempting to create it again.
+	 * If clearCache is true, always create a new file
+	 * 
+	 * @param clearCache
+	 * @param fileName
+	 * @param contentStream
+	 * @return
+	 */
+	public IFile createNewFile(boolean clearCache, String fileName, InputStream contentStream)
+	{
+		if (!clearCache && newFile != null)
+		{
             return newFile;
         }
 
         // create the new file and cache it if successful
 
         final IPath containerPath = containerGroup.getContainerPath();
-        IPath newFilePath = containerPath.append(getFileName());
+		IPath newFilePath = containerPath.append(fileName);
         final IFile newFileHandle =
                 ResourcesPlugin.getWorkspace().getRoot().getFile(newFilePath);
-        final InputStream initialContents = getInitialContents();
+		final InputStream initialContents = contentStream;
 
         IRunnableWithProgress op = new IRunnableWithProgress() {
             @Override
@@ -468,7 +489,7 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
             containerGroup.addFilter(filter);
         }
 
-        Composite fileGroup = new Composite(topLevel, SWT.NONE);
+        fileGroup = new Composite(topLevel, SWT.NONE);
         GridLayout layout = new GridLayout(2, false);
         layout.marginHeight = 0;
         layout.marginWidth = 0;
@@ -524,6 +545,19 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
         return null;
     }
 
+	/**
+	 * Hides the file controls container - this includes the file name label and input box
+	 */
+	protected void hideFileGroup()
+	{
+		GridData fileGrpLayout = new GridData();
+		fileGrpLayout.heightHint = 1;
+		if (fileGroup != null)
+		{
+			fileGroup.setVisible(false);
+			fileGroup.setLayoutData(fileGrpLayout);
+		}
+	}
     /**
      * Set the new file label if the default needs to be overriden.
      * 
@@ -560,10 +594,11 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
         IPath containerPath = containerGroup.getContainerPath();
 
         // Validate the file name
-        if ("".equals(newFileName)) { //$NON-NLS-1$
+		// Nikita ACE-8246 Validate the file name only if the group that it is contained in is actually visible
+        if (fileGroup.isVisible() && "".equals(newFileName)) { //$NON-NLS-1$
             status =
                     createErrorStatus(Messages.WizardNewFileInSpecialFolderCreationPage_noFileSpecified_message);
-        } else if (validateFileExtension && defaultFileExtension != null
+        } else if (fileGroup.isVisible() && validateFileExtension && defaultFileExtension != null
                 && !newFileName.endsWith("." + defaultFileExtension)) { //$NON-NLS-1$
             status =
                     createErrorStatus(String
@@ -574,7 +609,7 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
             if (containerPath == null) {
                 status =
                         createErrorStatus(Messages.WizardNewFileInSpecialFolderCreationPage_noFolderSpecified_message);
-            } else if (!containerPath.isValidSegment(newFileName)) {
+            } else if (fileGroup.isVisible() && !containerPath.isValidSegment(newFileName)) {
                 status =
                         createErrorStatus(String
                                 .format(Messages.WizardNewFileInSpecialFolderCreationPage_invalidCharacterInFileName,
@@ -617,7 +652,10 @@ public class WizardNewFileInSpecialFolderCreationPage extends AbstractXpdWizardP
             }
         }
 
-        if (status.getSeverity() == IStatus.OK) {
+		// Nikita ACE-8246 Validate the combined only if the container that contains the file name in is actually
+		// visible
+		if (status.getSeverity() == IStatus.OK && fileGroup.isVisible())
+		{
             // Combine the path and the file name and validate path
             IPath path = containerPath.append(newFileName);
 

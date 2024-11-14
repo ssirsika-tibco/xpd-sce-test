@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_N9ykII_JEe-SbJo2NtYiqQ" xpdExt:DisplayName="SwaggerInvalidScriptMapping" Name="SwaggerInvalidScriptMapping">
+  <xpdl2:PackageHeader xpdExt:Language="en_IN">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2024-10-21</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>ssirsika</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_bhy7sI_JEe-SbJo2NtYiqQ" xpdExt:DisplayName="BasicType1_Consumer" Name="BasicType1_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:RestService resourceName="Basic Type 1"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_UqAkgI_JEe-SbJo2NtYiqQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_N-K-oI_JEe-SbJo2NtYiqQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_UqBLkI_JEe-SbJo2NtYiqQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_N-K-oI_JEe-SbJo2NtYiqQ" xpdExt:DisplayName="SwaggerInvalidScriptMapping-Process" Name="SwaggerInvalidScriptMappingProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_QycAkI_KEe-SbJo2NtYiqQ" xpdExt:DisplayName="Field" Name="Field" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BOMData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_PQuwgIX2Ee-3iYJt8NI9-A"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_UqBLkY_JEe-SbJo2NtYiqQ" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_UqBLkI_JEe-SbJo2NtYiqQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_UqBLko_JEe-SbJo2NtYiqQ" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_UqBLkI_JEe-SbJo2NtYiqQ" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_W1qjwI_JEe-SbJo2NtYiqQ" Name="CreatemapidsPOSTmapids" xpdExt:Visibility="Private" xpdExt:DisplayName="Create map ids - POST /map/{ids}">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_YFtPUI_JEe-SbJo2NtYiqQ">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_HEADER_role">
+                        <xpdExt:ScriptInformation Id="_HVS1cJAyEe-SbJo2NtYiqQ" Name="Script1">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Field.strArray;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.isActive">
+                        <xpdExt:ScriptInformation Id="_dXcD4JBnEe-bZtRavP_7FA" Name="Script10">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return 9233921289;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.birthDate">
+                        <xpdExt:ScriptInformation Id="_eGYnoJAyEe-SbJo2NtYiqQ" Name="Script2">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return bpm.process.getName() + data.Field.number;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.updatedAt">
+                        <xpdExt:ScriptInformation Id="_nxZ7cJAyEe-SbJo2NtYiqQ" Name="Script3">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Field.number;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.age">
+                        <xpdExt:ScriptInformation Id="_xnt5QJAyEe-SbJo2NtYiqQ" Name="Script4">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return bpm.process.getDescription();</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.balance">
+                        <xpdExt:ScriptInformation Id="_Cfqt0JAzEe-SbJo2NtYiqQ" Name="Script5">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Field.date;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.scores">
+                        <xpdExt:ScriptInformation Id="_LVrFMJAzEe-SbJo2NtYiqQ" Name="Script6">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Field.boolean1;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD">
+                        <xpdExt:ScriptInformation Id="_Y0IOYJAzEe-SbJo2NtYiqQ" Name="Script7">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Field.str;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.additionalInfo">
+                        <xpdExt:ScriptInformation Id="_jIn9AJAzEe-SbJo2NtYiqQ" Name="Script8">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return bpm.process.getPriority();</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.tags">
+                        <xpdExt:ScriptInformation Id="_MeH9YJBnEe-bZtRavP_7FA" Name="Script9">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return 1;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_QUERY_scores">
+                        <xpdExt:ScriptInformation Id="_o5nWIJAxEe-SbJo2NtYiqQ" Name="inScript1">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return bpm.process.getStartTime();</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PATH_id">
+                        <xpdExt:ScriptInformation Id="_50SHgJAxEe-SbJo2NtYiqQ" Name="inScript2">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.Field.intArray;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                    <xpdExt:UnmappedScripts>
+                      <xpdExt:ScriptInformation Id="_UTrSsI_KEe-SbJo2NtYiqQ" Name="inScript">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">return data.Field.number;</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                    </xpdExt:UnmappedScripts>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_YFtPUY_JEe-SbJo2NtYiqQ">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Field.time">
+                        <xpdExt:ScriptInformation Id="_yYdkQJAzEe-SbJo2NtYiqQ" Name="Script1" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return REST_HEADER_200_X_Total_Count + REST_HEADER_200_X_Total_Count;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Field.boolean1">
+                        <xpdExt:ScriptInformation Id="_A2NAMJA0Ee-SbJo2NtYiqQ" Name="Script2" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return REST_PAYLOAD_200.interests;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Field.dateTime">
+                        <xpdExt:ScriptInformation Id="_b-0r8JA3Ee-jLbogRNAoeA" Name="Script3" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return REST_PAYLOAD_200.measurements;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Field.info">
+                        <xpdExt:ScriptInformation Id="_qgV0oJA3Ee-jLbogRNAoeA" Name="Script4" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return REST_PAYLOAD_200.birthDate;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Field.date">
+                        <xpdExt:ScriptInformation Id="_wjxEwJA5Ee-jLbogRNAoeA" Name="Script5" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return REST_HEADER_200_X_Total_Count;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Field.number">
+                        <xpdExt:ScriptInformation Id="_Acc0sJA6Ee-jLbogRNAoeA" Name="Script6" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return REST_PAYLOAD_204.status;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Field.info.phoneNumber">
+                        <xpdExt:ScriptInformation Id="_XbDeoJBfEe-o3O45idd9bg" Name="Script7" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return factory.com_example_bomdata.createAdditionalInfo();</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Field.intArray">
+                        <xpdExt:ScriptInformation Id="_mEG5EJBnEe-bZtRavP_7FA" Name="Script8" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return REST_PAYLOAD_200.updatedAt;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessManager.DataMapperContent" Direction="IN" Formal="Process_priority$">
+                        <xpdExt:ScriptInformation Id="_DtyTsJBoEe-bZtRavP_7FA" Name="Script9" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return REST_PAYLOAD_204.message;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="valid-script-mapping-openapi.yaml" xpdExt:MethodId="POST::/map/{id}"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_bhy7sI_JEe-SbJo2NtYiqQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UqBLkI_JEe-SbJo2NtYiqQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="169.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_S9G5gJFYEe-bkLPtonUyrg" Name="CreatemapPOSTmapid" xpdExt:Visibility="Private" xpdExt:DisplayName="Create map - POST /map/{id}">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_Wipc0JFYEe-bkLPtonUyrg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_Wipc0ZFYEe-bkLPtonUyrg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT">
+                    <xpdExt:UnmappedScripts>
+                      <xpdExt:ScriptInformation Id="_eUK4YJFYEe-bkLPtonUyrg" Name="invalidScript" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">return REST_PAYLOAD_200.invalid;</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdExt:ScriptInformation Id="_kh0tcJFYEe-bkLPtonUyrg" Name="InvalidScript1" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">REST_HEADER_200_X_Total_Count;</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdExt:ScriptInformation Id="_n59t8JFYEe-bkLPtonUyrg" Name="InvalidScript2" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">return factory.com_example_bomdata.noInfo()</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdExt:ScriptInformation Id="_uuU9sJFYEe-bkLPtonUyrg" Name="InvalidScript3" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">return pkg.com_example_bomdata.notpresent;</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                    </xpdExt:UnmappedScripts>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="valid-script-mapping-openapi.yaml" xpdExt:MethodId="POST::/map/{id}"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_bhy7sI_JEe-SbJo2NtYiqQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UqBLkI_JEe-SbJo2NtYiqQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="353.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_UqBLk4_JEe-SbJo2NtYiqQ" xpdExt:DisplayName="" Name="" From="_S9G5gJFYEe-bkLPtonUyrg" To="_UqBLko_JEe-SbJo2NtYiqQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_W1qjw4_JEe-SbJo2NtYiqQ" xpdExt:DisplayName="" Name="" From="_UqBLkY_JEe-SbJo2NtYiqQ" To="_W1qjwI_JEe-SbJo2NtYiqQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_S9HgkJFYEe-bkLPtonUyrg" xpdExt:DisplayName="" Name="" From="_W1qjwI_JEe-SbJo2NtYiqQ" To="_S9G5gJFYEe-bkLPtonUyrg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

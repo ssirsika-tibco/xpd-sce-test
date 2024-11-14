@@ -801,6 +801,12 @@
                class="com.tibco.bx.validation.rules.SequenceFlowValidationRule"
                validateOnSaveOnly="false">
          </rule>
+         <rule
+               class="com.tibco.bx.validation.rules.mapping.ProcessDataToSwaggerJsRule">
+         </rule>
+         <rule
+               class="com.tibco.bx.validation.rules.mapping.SwaggerToProcessDataJsRule">
+         </rule>
       </provider>
        <preferenceGroup
              id="com.tibco.bx.validation.processManagerProblems"
@@ -2724,6 +2730,21 @@
              message="%bx.flowNameToLong"
              severity="ERROR">
        </issue>
+       <issue
+             id="ace.swaggerArrayParamNotSupported"
+             message="%ace.swaggerArrayParamNotSupported"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.unsupportedInputPayloadContent"
+             message="%ace.unsupportedInputPayloadContent"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.unsupportedOutputPayloadContent"
+             message="%ace.unsupportedOutputPayloadContent"
+             severity="ERROR">
+       </issue>       
    </extension>
    <extension
          point="com.tibco.xpd.validation.resolution">
@@ -4906,6 +4927,13 @@ s         <scriptContribution
                   resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider">
             </defaultGrammar>
          </scriptContextGrammarBinding>
+         <scriptContextGrammarBinding
+               scriptContextReference="DataMapperSwaggerMappingScripts">
+               <defaultGrammar
+                  id="JavaScript"
+                  resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider">
+            </defaultGrammar>
+         </scriptContextGrammarBinding>
          <scriptContribution
                scriptContext="DataMapperRestMappingScripts">
             <classContributor
@@ -4927,6 +4955,33 @@ s         <scriptContribution
                   name="com.tibco.xpd.n2.cds.script.CdsRestServiceJavaScriptRelevantDataProvider">
             </scriptRelevantDataContributor>
             <validationStrategy
+                  class="com.tibco.bx.validation.validator.N2RestJScriptValidationStrategy"
+                  grammarId="JavaScript"
+                  id="com.tibco.bx.validation.validator.N2RestJScriptValidationStrategy"
+                  name="com.tibco.bx.validation.validator.N2RestJScriptValidationStrategy">
+            </validationStrategy>
+         </scriptContribution>
+         <scriptContribution
+               scriptContext="DataMapperSwaggerMappingScripts">
+            <classContributor
+                  class="com.tibco.xpd.n2.cds.reader.CdsDefaultJScriptProcessDefinitionReader"
+                  grammarId="JavaScript"
+                  id="com.tibco.xpd.n2.cds.reader.CdsDefaultJScriptProcessDefinitionReader"
+                  name="com.tibco.xpd.n2.cds.reader.CdsDefaultJScriptProcessDefinitionReader">
+            </classContributor>
+            <classContributor
+                  class="com.tibco.xpd.n2.cds.reader.CdsRestExtendedJScriptProcessDefinitionReader"
+                  grammarId="JavaScript"
+                  id="com.tibco.xpd.n2.cds.reader.CdsRestExtendedJScriptProcessDefinitionReader"
+                  name="com.tibco.xpd.n2.cds.reader.CdsRestExtendedJScriptProcessDefinitionReader">
+            </classContributor>
+            <scriptRelevantDataContributor
+                  class="com.tibco.xpd.n2.cds.script.CdsSwaggerJavaScriptRelevantDataProvider"
+                  grammarId="JavaScript"
+                  id="com.tibco.xpd.n2.cds.script.CdsSwaggerJavaScriptRelevantDataProvider"
+                  name="com.tibco.xpd.n2.cds.script.CdsSwaggerJavaScriptRelevantDataProvider">
+            </scriptRelevantDataContributor>
+             <validationStrategy
                   class="com.tibco.bx.validation.validator.N2RestJScriptValidationStrategy"
                   grammarId="JavaScript"
                   id="com.tibco.bx.validation.validator.N2RestJScriptValidationStrategy"
@@ -4985,6 +5040,14 @@ s         <scriptContribution
                   selectable="true">
             </grammar>
          </scriptContextGrammarBinding>
+         <scriptContextGrammarBinding
+               scriptContextReference="DataMapperSwaggerMappingScripts">
+            <grammar
+                  id="JavaScript"
+                  resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider"
+                  selectable="true">
+            </grammar>
+         </scriptContextGrammarBinding>
       </destination>
    </extension>
    <extension
@@ -4998,6 +5061,9 @@ s         <scriptContribution
          </rule>
          <rule
                class="com.tibco.xpd.rest.datamapper.rules.RestResponseDataMapperExpressionRule">
+         </rule>
+         <rule
+               class="com.tibco.xpd.swagger.datamapper.rules.SwaggerResponseDataMapperExpressionRule">
          </rule>
       </provider>
    </extension>

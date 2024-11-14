@@ -13,7 +13,6 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider;
 import com.tibco.xpd.datamapper.api.JavaScriptStringBuilder;
-import com.tibco.xpd.implementer.resources.xpdl2.mappings.RestMapperTreeItem;
 import com.tibco.xpd.implementer.resources.xpdl2.mappings.RestMapperTreeItemFactory;
 import com.tibco.xpd.implementer.resources.xpdl2.mappings.RestMappingPrefix;
 import com.tibco.xpd.implementer.resources.xpdl2.mappings.RestParamContainerTreeItem;
@@ -45,7 +44,7 @@ import com.tibco.xpd.xpdl2.ResultError;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
- * Data Mapper script generator info provider for REST Invocation services.
+ * Data Mapper script generator info provider for REST service invocation via RSD file.
  * 
  * @author nwilson
  * @since 1 May 2015
@@ -404,7 +403,8 @@ public class RestScriptGeneratorInfoProvider
                             ParameterStyle.HEADER,
                             MappingDirection.OUT);
 
-            for (RestMapperTreeItem item : headerItems.getChildren()) {
+			for (Object item : headerItems.getChildren())
+			{
                 if (item instanceof RestParamTreeItem) {
                     RestParamTreeItem param = (RestParamTreeItem) item;
                     jssb.append("var "); //$NON-NLS-1$
@@ -518,7 +518,8 @@ public class RestScriptGeneratorInfoProvider
                 factory.createParamContainerTreeItem(activity,
                         paramStyle,
                         MappingDirection.IN);
-        for (RestMapperTreeItem item : headerItems.getChildren()) {
+		for (Object item : headerItems.getChildren())
+		{
             if (item instanceof RestParamTreeItem) {
                 RestParamTreeItem param = (RestParamTreeItem) item;
                 jssb.append("var "); //$NON-NLS-1$
@@ -546,7 +547,8 @@ public class RestScriptGeneratorInfoProvider
         RestParamContainerTreeItem items = factory
                 .createParamContainerTreeItem(activity, paramStyle, direction);
         boolean commentAdded = false;
-        for (RestMapperTreeItem item : items.getChildren()) {
+		for (Object item : items.getChildren())
+		{
             if (item instanceof RestParamTreeItem) {
                 RestParamTreeItem paramItem = (RestParamTreeItem) item;
                 Parameter param = paramItem.getParam();
@@ -645,7 +647,8 @@ public class RestScriptGeneratorInfoProvider
                         factory.createParamContainerTreeItem(activity,
                                 ParameterStyle.HEADER,
                                 MappingDirection.IN);
-                for (RestMapperTreeItem item : headerItems.getChildren()) {
+				for (Object item : headerItems.getChildren())
+				{
                     if (item instanceof RestParamTreeItem) {
                         RestParamTreeItem param = (RestParamTreeItem) item;
                         jssb.append("REST_REQUEST.setHeader('"); //$NON-NLS-1$
@@ -858,7 +861,8 @@ public class RestScriptGeneratorInfoProvider
                             MappingDirection.IN);
 
             if (pathItems != null) {
-                for (RestMapperTreeItem item : pathItems.getChildren()) {
+				for (Object item : pathItems.getChildren())
+				{
                     if (item instanceof RestParamTreeItem) {
                         RestParamTreeItem param = (RestParamTreeItem) item;
                         String find = "{" + param.getParam().getName() + "}"; //$NON-NLS-1$//$NON-NLS-2$
@@ -901,7 +905,7 @@ public class RestScriptGeneratorInfoProvider
                         MappingDirection.IN);
 
         if (queryItems != null) {
-            List<RestMapperTreeItem> queryItemList = queryItems.getChildren();
+			List< ? > queryItemList = queryItems.getChildren();
             if (queryItemList.size() > 0) {
                 // XPD-8300 (Nick) We need to exclude optional query parameters
                 // with null values. As we don't know
@@ -919,7 +923,8 @@ public class RestScriptGeneratorInfoProvider
                 // URI.
                 jssb.append("+__encodeQueryParams([");
                 boolean first = true;
-                for (RestMapperTreeItem item : queryItemList) {
+				for (Object item : queryItemList)
+				{
                     if (item instanceof RestParamTreeItem) {
                         if (first) {
                             first = false;
@@ -1160,6 +1165,39 @@ public class RestScriptGeneratorInfoProvider
     @Override
     public String getArrayCreationScript(Object arrayObject) {
         if (!isSimpleType(arrayObject)) {
+			/**
+			 * Sid 15/10/2024 NOTE: It is very obscure here having array creation for ONLY COMPLEX arrays. So I looked
+			 * into it.
+			 * 
+			 * Basically, it really doesn't matter (and could either chose to ALWAYS return "[]" or not return it at all
+			 * BECAUSE)...
+			 * 
+			 * <pre>
+			 * - For INPUT mappings (the only time we would actually be asked to create a REST payload array property) 
+			 * 		the merge-to-array option is always 'Overwrite' (never append / merge, because on input mapping 
+			 *      the target array never exist beforehand).
+			 *      
+			 * - So script gen framework will ask this method for array-creation RHS statement, and if we return one
+			 *      then it will generate JS code for... if (REST_PAYLOAD['targetArray'] == null) { REST_PAYLOAD['targetArray'] = "[]"; }
+			 *      
+			 * - BUT, because the array mapping is always an 'Overwrite' mapping, THEN the script gen framework
+			 *      as part of array-options handling, will call getClearCollectionScript() which will return...
+			 *      		REST_PAYLOAD['targetArray'] = "[]";
+			 *      
+			 * - So the practical upshot (regardless of whether array is complex or not), IF we return "[]" here
+			 *      then the INPUT REST array property will get initialised twice. Because you'll get both...
+			 *      		if (REST_PAYLOAD['targetArray'] == null) { REST_PAYLOAD['targetArray'] = "[]"; }
+			 *      and...
+			 *      		REST_PAYLOAD['targetArray'] = "[]";
+			 *      
+			 * - Which doesn't really matter and certainly should not make any difference whether it is 
+			 *      simple or complex.
+			 * </pre>
+			 * 
+			 * I'm not actually changing this because, as per above, it really doesn't matter for REST mappings.
+			 * However, best not to change it just in case I'm missing anything in the above analysis
+			 */
+
             /*
              * Sid XPD-7660 - we are now explicitly asked for array creation
              * script.
@@ -1167,7 +1205,7 @@ public class RestScriptGeneratorInfoProvider
             return "[]"; //$NON-NLS-1$
         }
 
-        return null;
+		return null;
     }
 
     /**

@@ -10,11 +10,11 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.datamapper.api.AbstractDataMapperInfoProvider;
-import com.tibco.xpd.implementer.resources.xpdl2.mappings.UnprocessedTextRestMapperTreeItem;
 import com.tibco.xpd.implementer.resources.xpdl2.mappings.RestMapperTreeItem;
 import com.tibco.xpd.implementer.resources.xpdl2.mappings.RestMapperTreeItemFactory;
 import com.tibco.xpd.implementer.resources.xpdl2.mappings.RestParamTreeItem;
 import com.tibco.xpd.implementer.resources.xpdl2.mappings.RestPayloadContainerTreeItem;
+import com.tibco.xpd.implementer.resources.xpdl2.mappings.UnprocessedTextRestMapperTreeItem;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.RestConceptPath;
@@ -230,6 +230,10 @@ public class RestDataMapperInfoProvider extends AbstractDataMapperInfoProvider {
     public Object getObjectForPath(String objectPath, Object mapperInput) {
         Object o = null;
         if (mapperInput instanceof Activity) {
+
+			// System.out.println(String.format("%s.getObjectForPath(%s)", this.getClass().getSimpleName(),
+			// objectPath));
+
             Activity activity = (Activity) mapperInput;
             o =
                     RestMapperTreeItemFactory.getInstance()

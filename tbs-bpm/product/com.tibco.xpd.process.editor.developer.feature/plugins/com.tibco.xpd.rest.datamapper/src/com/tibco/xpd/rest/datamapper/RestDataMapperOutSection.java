@@ -6,6 +6,7 @@ package com.tibco.xpd.rest.datamapper;
 
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.rest.datamapper.internal.Messages;
+import com.tibco.xpd.script.ui.internal.BaseScriptSection;
 
 /**
  * Data Mapper section for mappings from a REST Service to process data.
@@ -42,4 +43,14 @@ public class RestDataMapperOutSection extends AbstractRestDataMapperSection {
         return Messages.RestDataMapperOutSection_RestOutputMappingTitle_message;
     }
 
+	/**
+	 * @see com.tibco.xpd.implementer.resources.xpdl2.properties.AbstractEditableMappingSection#getScriptSection()
+	 * 
+	 * @return a new RestMapperScriptProperties.
+	 */
+	@Override
+	protected BaseScriptSection getScriptSection()
+	{
+		return new RestMapperScriptProperties(getDirection());
+	}
 }

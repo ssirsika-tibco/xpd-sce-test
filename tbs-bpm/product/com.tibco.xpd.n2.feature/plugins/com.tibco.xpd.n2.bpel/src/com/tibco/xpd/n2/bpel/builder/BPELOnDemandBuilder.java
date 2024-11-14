@@ -37,6 +37,7 @@ import com.tibco.xpd.resources.builder.ondemand.BuildTargetSet;
 import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
+import com.tibco.xpd.rest.schema.ui.RestConstants;
 import com.tibco.xpd.rsd.ui.RsdUIPlugin;
 import com.tibco.xpd.validation.utils.ValidationProblemUtil;
 import com.tibco.xpd.xpdl2.Package;
@@ -341,18 +342,19 @@ public class BPELOnDemandBuilder extends AbstractOnDemandBuilder {
                     String fileExtension = dependency.getFileExtension();
 
                     /*
-                     * Sid ACE-180: We should never be asked for WebServices any
-                     * more in ACE
-                     */
-                    if (BOMResourcesPlugin.BOM_FILE_EXTENSION
-                                    .equalsIgnoreCase(fileExtension)
-                            || OMResourcesActivator.OM_FILE_EXTENSION
-                                    .equalsIgnoreCase(fileExtension)
-                            || RsdUIPlugin.RSD_EXTENSION
-                                    .equalsIgnoreCase(fileExtension)) {
+					 * Sid ACE-180: We should never be asked for WebServices any more in ACE
+					 * 
+					 * Sid ACE-8258 Include swagger/oas dependencies in rebuilds.
+					 */
+					if (BOMResourcesPlugin.BOM_FILE_EXTENSION.equalsIgnoreCase(fileExtension)
+							|| OMResourcesActivator.OM_FILE_EXTENSION.equalsIgnoreCase(fileExtension)
+							|| RsdUIPlugin.RSD_EXTENSION.equalsIgnoreCase(fileExtension)
+							|| RestConstants.JSON_FILE_EXTENSION.equalsIgnoreCase(fileExtension)
+							|| RestConstants.YAML_FILE_EXTENSION.equalsIgnoreCase(fileExtension))
+					{
 
-                        addSourceResource(dependency);
-                    }
+						addSourceResource(dependency);
+					}
                 }
             }
 

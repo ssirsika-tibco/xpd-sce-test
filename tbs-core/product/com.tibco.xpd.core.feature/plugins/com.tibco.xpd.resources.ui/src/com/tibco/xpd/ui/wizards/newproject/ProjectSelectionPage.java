@@ -20,6 +20,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.ModifyEvent;
@@ -37,6 +38,7 @@ import com.tibco.xpd.resources.projectconfig.Destinations;
 import com.tibco.xpd.resources.projectconfig.ProjectConfigFactory;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
 import com.tibco.xpd.resources.projectconfig.ProjectStatus;
+import com.tibco.xpd.resources.projectconfig.projectassets.AbstractSpecialFolderAssetWizardPage;
 import com.tibco.xpd.resources.projectconfig.projectassets.IAssetProjectPropertyChangeListener;
 import com.tibco.xpd.resources.ui.internal.Messages;
 import com.tibco.xpd.resources.ui.internal.destination.ProjectDetailsSection;
@@ -345,9 +347,14 @@ public class ProjectSelectionPage extends WizardNewProjectCreationPage {
         }
     }
 
-    @Override
-    protected boolean validatePage() {
-        boolean valid = super.validatePage();
+	/**
+	 * Sid Changed to internal validate path allows configuration of whether to include next page validity into account.
+	 * 
+	 * @return <code>true</code> if this page is valid (and optionally, whether subsequent asset config page it valid)
+	 */
+	private boolean validatePage(boolean checkAssetPageValid)
+	{
+		boolean valid = super.validatePage();
 
         /*
          * Update project id
@@ -459,10 +466,81 @@ public class ProjectSelectionPage extends WizardNewProjectCreationPage {
                     }
                 }
             }
+
+			/*
+			 * Sid ACE-8813 For most new wizards, allowing Finish from project name entry page is ok as there is always
+			 * a default for the initial project asset creation. But sometimes further user input is required on asset
+			 * page and hence we shouldn't allow wizard finish directly from the project name entry page.
+			 * 
+			 * This code leaves the choice down to the individual asset page implementation.
+			 */
+			if (checkAssetPageValid)
+			{
+				IWizardPage nextPage = getNextPage();
+
+				if (nextPage instanceof AbstractSpecialFolderAssetWizardPage)
+				{
+					AbstractSpecialFolderAssetWizardPage assetPage = (AbstractSpecialFolderAssetWizardPage) nextPage;
+
+					if (assetPage.validityRequiredForProjectCreate())
+					{
+						if (!assetPage.isPageComplete())
+						{
+							valid = false;
+						}
+					}
+				}
+			}
         }
 
         return valid;
     }
+
+	/**
+	 * 
+	 * @see org.eclipse.ui.dialogs.WizardNewProjectCreationPage#validatePage()
+	 *
+	 * @return
+	 */
+	@Override
+	protected boolean validatePage()
+	{
+		/*
+		 * This page is complete as far as the consumer is concerned if it AND any subsquent asset config page is valid.
+		 */
+		return validatePage(true);
+	}
+
+	/**
+	 * @see org.eclipse.jface.wizard.WizardPage#canFlipToNextPage()
+	 *
+	 * @return
+	 */
+	@Override
+	public boolean canFlipToNextPage()
+	{
+		/*
+		 * Sid ACE-8813 We can flip to next page if this page is ok (regardless of whether next page is ready or not yet - we have to
+		 * be able to flip to it to complete it)
+		 */
+		return validatePage(false);
+	}
+
+	/**
+	 * @see org.eclipse.jface.wizard.WizardPage#isPageComplete()
+	 *
+	 * @return
+	 */
+	@Override
+	public boolean isPageComplete()
+	{
+		/*
+		 * Sid ACE-8813 We need to recheck validity of page including subsequent asset page if necessary. This is in
+		 * order to reset the Finish button if the user steps forward in wizard and then comes back to project selection
+		 * page after invalidating the next page.
+		 */
+		return validatePage(true) && super.isPageComplete();
+	}
 
     /**
      * Update the project id. This will react to the project name changes

@@ -1,0 +1,47 @@
+openapi: 3.0.0
+info:
+  title: Recursive Reference Example
+  version: 1.0.0
+paths:
+  /flight-bookings:
+    post:
+      summary: Create a flight booking
+      operationId: createFlightBooking
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FlightBookings'
+      responses:
+        '201':
+          description: Flight booking created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlightBookings'
+components:
+  schemas:
+    # Recursive definition of FlightBookings and Flight
+    FlightBookings:
+      type: object
+      properties:
+        bookingId:
+          type: string
+          example: "FB12345"
+        flight:
+          $ref: '#/components/schemas/Flight'
+      required:
+        - bookingId
+        - flight
+
+    Flight:
+      type: object
+      properties:
+        flightNumber:
+          type: string
+          example: "FL456"
+        flightBookings:
+          $ref: '#/components/schemas/FlightBookings'
+      required:
+        - flightNumber
+        - flightBookings

@@ -24,6 +24,7 @@ import com.tibco.bx.xpdl2bpel.util.BPELUtils;
 import com.tibco.bx.xpdl2bpel.util.WSDLUtils;
 import com.tibco.bx.xpdl2bpel.util.XPDLUtils;
 import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
+import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.rest.datamapper.RestScriptDataMapperProvider;
 import com.tibco.xpd.xpdExtension.RestServiceResource;
@@ -63,7 +64,18 @@ public class ConvertRestService {
 			org.eclipse.bpel.model.Activity activity,
 			String scriptName,
 			MappingDirection direction) {
-		ScriptDataMapper sdm = new RestScriptDataMapperProvider(direction).getScriptDataMapper(xpdlActivity);
+		
+		/*
+		 * Sid ACE-8864 Use correct mapper context depending on whether this is an older RSD based service task or the
+		 * new Swagger based service task.
+		 */
+		RestServiceTaskAdapter rsta = new RestServiceTaskAdapter();
+
+		RestScriptDataMapperProvider sdmProvider = new RestScriptDataMapperProvider(direction,
+				rsta.getMapperContext(xpdlActivity, direction));
+
+		ScriptDataMapper sdm = sdmProvider.getScriptDataMapper(xpdlActivity);
+		
         String script = new DataMapperJavascriptGenerator().convertMappingsToJavascript(sdm);
         Element ele = BPELUtils.makeExtensionElement(activity, scriptName);
 		CDATASection cdata = ele.getOwnerDocument().createCDATASection(script);

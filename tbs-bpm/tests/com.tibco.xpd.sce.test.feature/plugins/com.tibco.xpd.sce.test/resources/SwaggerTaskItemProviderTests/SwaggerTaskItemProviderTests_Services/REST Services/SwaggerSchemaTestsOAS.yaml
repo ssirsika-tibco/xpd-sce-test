@@ -1,0 +1,260 @@
+openapi: 3.0.0
+info:
+  title: Complex Data Types Example
+  version: 1.0.0
+paths:
+  /mixedTypes_PayloadIsOneOf:
+    put:
+      summary: PayloadIsOneOf Payload schema is a oneOf construct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - type: string
+                - type: integer
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: string
+                  - type: integer
+        '400':
+          description: response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: string
+                  - type: integer
+
+  /mixedTypes_PayloadIsArrayOneOf:
+    put:
+      summary: PayloadIsArrayOneOf Payload schema is an array oneOf construct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                oneOf:
+                  - type: string
+                  - type: integer
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  oneOf:
+                    - type: string
+                    - type: integer
+        '400':
+          description: response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  oneOf:
+                    - type: string
+                    - type: integer
+
+  /mixedTypes_PayloadIsAnyOf:
+    put:
+      summary: PayloadIsAnyOf Payload schema is an anyOf construct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              anyOf:
+                - $ref: '#/components/schemas/NormalType'
+                - $ref: '#/components/schemas/NormalType2'
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/NormalType'
+                - $ref: '#/components/schemas/NormalType2'
+        '400':
+          description: response
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/NormalType'
+                - $ref: '#/components/schemas/NormalType2'
+
+  /mixedTypes_PayloadIsAllOf:
+    put:
+      summary: PayloadIsAllOf Payload schema is an allOf construct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/NormalType'
+                - $ref: '#/components/schemas/NormalType2'
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/NormalType'
+                - $ref: '#/components/schemas/NormalType2'
+        '400':
+          description: response
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/NormalType'
+                - $ref: '#/components/schemas/NormalType2'
+
+  /mixedTypes_PayloadIsNot:
+    put:
+      summary: PayloadIsNot Payload schema is a not construct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              not:
+                type: integer
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                not:
+                 type: integer
+        '400':
+          description: response
+          content:
+            application/json:
+              schema:
+                not:
+                  type: integer
+
+  /mixedTypes_PayloadIsAnyTypeArray:
+    put:
+      summary: PayloadIsAnyTypeArray Payload schema is a not construct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items: {}
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+        '400':
+          description: response
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+
+  /mixedTypes_PayloadIsTypeWithMixedTypeProperties:
+    put:
+      summary: PayloadIsTypeWithMixedTypeProperties Payload is a type that has all kinds of mixed type properties
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TypeWithMixedTypeProperties'
+              
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TypeWithMixedTypeProperties'
+
+        '400':
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TypeWithMixedTypeProperties'
+                
+components:
+  schemas:
+    NormalType:
+      properties:
+        p1:
+          type: string
+        p2:
+          type: integer
+          
+    NormalType2:
+      properties:
+        p12:
+          type: number
+          format: float
+        p22:
+          type: string
+          format: date-time
+    
+    TypeWithMixedTypeProperties:
+      properties:
+        oneOfProperty:
+          oneOf:
+            - type: string
+            - type: integer
+        oneOfArrayProperty:
+          type: array
+          items:
+            oneOf:
+              - type: string
+              - type: integer
+        anyOfProperty:
+          anyOf:
+            - $ref: '#/components/schemas/NormalType'
+            - $ref: '#/components/schemas/NormalType2'
+        anyOfArrayProperty:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/NormalType'
+              - $ref: '#/components/schemas/NormalType2'
+        allOfProperty:
+          allOf:
+            - $ref: '#/components/schemas/NormalType'
+            - $ref: '#/components/schemas/NormalType2'
+        allOfArrayProperty:
+          type: array
+          items:
+            allOf:
+              - $ref: '#/components/schemas/NormalType'
+              - $ref: '#/components/schemas/NormalType2'
+        notProperty:
+          not:
+            type: integer
+        notArrayProperty:
+          type: array
+          items:
+            not:
+             type: integer
+        anyTypeArrayProperty:
+          type: array
+          items : {}
+          
+            

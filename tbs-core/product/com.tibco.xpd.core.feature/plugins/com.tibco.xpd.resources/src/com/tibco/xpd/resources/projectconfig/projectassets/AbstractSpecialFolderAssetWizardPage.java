@@ -267,4 +267,20 @@ public abstract class AbstractSpecialFolderAssetWizardPage extends WizardPage
         PlatformUI.getWorkbench().getHelpSystem().displayHelp(contextId);
     }
 
+	/**
+	 * Sid ACE-8813 Allows individual resource asset pages to prevent ProjectSelectionPage from allowing finish before
+	 * this page is complete.
+	 * 
+	 * Most pages this is ok for as there is always a default for the initial project asset creation. But sometimes
+	 * further user input is required on asset page and hence we shouldnot allow wizard finish directly from the project
+	 * name entry page.
+	 * 
+	 * @return <code>true</code> if the project selection page should not be allowed to complete unless this page is
+	 *         complete.
+	 */
+	public boolean validityRequiredForProjectCreate()
+	{
+		return false;
+	}
+
 }

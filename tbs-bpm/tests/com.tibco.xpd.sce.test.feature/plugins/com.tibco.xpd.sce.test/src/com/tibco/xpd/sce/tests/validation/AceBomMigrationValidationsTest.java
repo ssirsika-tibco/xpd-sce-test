@@ -33,7 +33,6 @@ public class AceBomMigrationValidationsTest
 
     public AceBomMigrationValidationsTest() {
         super(true);
-		cleanProjectAtEnd = false;
     }
 
     /**

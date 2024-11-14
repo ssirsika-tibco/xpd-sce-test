@@ -7,8 +7,10 @@ package com.tibco.xpd.datamapper;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
@@ -91,6 +93,25 @@ public class DataMapperMappingContentProvider implements
      */
     private Mapping cachedCompleteMappings[] = null;
 
+	/**
+	 * Sid ACE-8742 Load-on-demand cache LHS content contributors until input changes again.
+	 * 
+	 * This allows content contributors to safely cache their content if they wish (we used to used contributors from
+	 * the singleton list maintained by the contribution helper, but now we create fresh instances after each time the
+	 * input changes
+	 */
+	private Map<String, AbstractDataMapperContentContributor>	srcContentContributors					= null;
+
+	/**
+	 * Sid ACE-8742 Load-on-demand cache LHS content contributors until input changes again.
+	 */
+	private Map<String, AbstractDataMapperContentContributor>	tgtContentContributors					= null;
+
+	/**
+	 * Sid ACE-8742 Keep track of the data mapper context so that we can create context-specific content providers on
+	 * demand.
+	 */
+	private String												dataMapperContext;
     /**
      * Collection of NON-mappings between source and target complex child
      * considered to be equivalent (and therefore whose children would be
@@ -103,8 +124,10 @@ public class DataMapperMappingContentProvider implements
             Collections.emptyList();
 
     public DataMapperMappingContentProvider(
-            IScriptDataMapperProvider sdmProvider) {
+			IScriptDataMapperProvider sdmProvider, String dataMapperContext)
+	{
         this.sdmProvider = sdmProvider;
+		this.dataMapperContext = dataMapperContext;
     }
 
     /**
@@ -117,13 +140,29 @@ public class DataMapperMappingContentProvider implements
      */
     @Override
     public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+
         this.input = newInput;
         equivalentLikeMappingComplexChildren = new ArrayList<>();
 
         /* Sid XPD-8251 Always clear the current mappings cache on input change */
-        this.cachedCompleteMappings = null;
-        this.cachedExplicitMappings = null;
+        /* Sid ACE-8742 Also clear LHS/RHS contributions cache */
+		resetCache();
     }
+
+	/**
+	 * Force reset any cached content for the mappings content
+	 * 
+	 * Sid ACE-8742 New method introduced so that if mapping-section itself detects drastic change (like change of
+	 * referenced object) then it ca force reset of the cached mappings/contributors.
+	 */
+	public void resetCache()
+	{
+		this.srcContentContributors = null;
+		this.tgtContentContributors = null;
+
+		this.cachedCompleteMappings = null;
+		this.cachedExplicitMappings = null;
+	}
 
     /**
      * Owner should call this when any change may have happened to the mappings
@@ -227,6 +266,8 @@ public class DataMapperMappingContentProvider implements
             return cachedCompleteMappings;
         }
 
+		long startMillis = System.currentTimeMillis();
+
         ScriptDataMapper scriptDataMapper =
                 sdmProvider.getScriptDataMapper(input);
 
@@ -271,10 +312,13 @@ public class DataMapperMappingContentProvider implements
              */
             cachedExplicitMappings = getCachedMappings(explicitMappings);
             
-
             cachedCompleteMappings = mappingListWithLikeMappings
                     .toArray(new Mapping[mappingListWithLikeMappings.size()]);
-            
+
+			// System.out.println(
+			// String.format("%s.getElements(): %dms to cache %d mappings", this.getClass().getSimpleName(),
+			// (System.currentTimeMillis() - startMillis), cachedCompleteMappings.length));
+
             return cachedCompleteMappings;
 
         }
@@ -1029,17 +1073,32 @@ public class DataMapperMappingContentProvider implements
     private AbstractDataMapperContentContributor getSourceContributor(
             DataMapping dataMapping) {
 
+		/**
+		 * Sid ACE-8742 Load-on-demand cache LHS content contributors until input changes again.
+		 * 
+		 * This allows content contributors to safely cache their content if they wish (we used to used contributors
+		 * from the singleton list maintained by the contribution helper, but now we create fresh instances after each
+		 * time the input changes
+		 */
+		if (srcContentContributors == null)
+		{
+			Collection<AbstractDataMapperContentContributor> contribs = DataMapperContentContributionHelper
+					.getApplicableContributions(dataMapperContext, false);
+
+			srcContentContributors = new HashMap<>();
+
+			for (AbstractDataMapperContentContributor contrib : contribs)
+			{
+				srcContentContributors.put(contrib.getContributorId(), contrib);
+			}
+		}
         String sourceId =
                 (String) Xpdl2ModelUtil.getOtherAttribute(dataMapping,
                         XpdExtensionPackage.eINSTANCE
                                 .getDocumentRoot_SourceContributorId());
 
         if (sourceId != null) {
-            AbstractDataMapperContentContributor contributor =
-                    DataMapperContentContributionHelper
-                            .getContributor(sourceId);
-
-            return contributor;
+			return srcContentContributors.get(sourceId);
         }
 
         return null;
@@ -1072,17 +1131,33 @@ public class DataMapperMappingContentProvider implements
      */
     private AbstractDataMapperContentContributor getTargetContributor(
             DataMapping dataMapping) {
+    	
+    	/**
+    	 * Sid ACE-8742 Load-on-demand cache LHS content contributors until input changes again.
+    	 * 
+    	 * This allows content contributors to safely cache their content if they wish (we used to used contributors from
+    	 * the singleton list maintained by the contribution helper, but now we create fresh instances after each time the
+    	 * input changes
+    	 */
+    	if (tgtContentContributors == null) {
+			Collection<AbstractDataMapperContentContributor> contribs = DataMapperContentContributionHelper
+					.getApplicableContributions(dataMapperContext, true);
+
+			tgtContentContributors = new HashMap<>();
+
+			for (AbstractDataMapperContentContributor contrib : contribs)
+			{
+				tgtContentContributors.put(contrib.getContributorId(), contrib);
+			}
+    	}
+    	
         String targetId =
                 (String) Xpdl2ModelUtil.getOtherAttribute(dataMapping,
                         XpdExtensionPackage.eINSTANCE
                                 .getDocumentRoot_TargetContributorId());
 
         if (targetId != null) {
-            AbstractDataMapperContentContributor contributor =
-                    DataMapperContentContributionHelper
-                            .getContributor(targetId);
-
-            return contributor;
+			return tgtContentContributors.get(targetId);
         }
 
         return null;
