@@ -944,12 +944,83 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 	 * =====================================================================================================
 	 * =====================================================================================================
 	 * 
+	 * INLINE COMPLEX TYPE SCEHMA
+	 * 
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 */
+	/**
+	 * Test mapping to INLINE COMPLEX TYPE PAYLOAD input payload - mapping SOURCE COMPLEX TYPE process data that is
+	 * fully set.
+	 *
+	 * @throws ScriptException
+	 */
+	public void testRequestPayloadScript_InlineComplexType_From_ComplexFields() throws ScriptException
+	{
+		String mappingScript = generateRestMappingScript(
+				"/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
+				"SwaggerScriptGenTests_ComplexTypes-From-ComplexType", "complexInlineTypeInputOutput",
+				MappingDirection.IN);
+
+		/*
+		 * Setup payload test script
+		 */
+		String expectedChildComplex = getExpectedChildComplexObject("CC", "01", "1");
+		String expectedChildComplexArray0 = getExpectedChildComplexObject("CCA0", "02", "2");
+		String expectedChildComplexArray1 = getExpectedChildComplexObject("CCA1", "03", "3");
+
+		mappingScript += getTestPayloadScript("{\n" //
+				+ " string : new String('a simple string')," //
+				+ " stringArray : [new String('text item 1'), new String('text item 2')]," //
+				+ " childComplex : " //
+				+ expectedChildComplex + "," //
+				+ " childComplexArray : [" + expectedChildComplexArray0 + "," + expectedChildComplexArray1 + "]" //
+				+ "}", //
+				"REST_PAYLOAD");
+
+		/*
+		 * Execute with a value in all items of the process data mapped to the service content.
+		 */
+		String setupChildComplex = getSetupMatchingNamesChildComplexScript(
+				"data.MatchesAllPropertyTypesAsChildren", "CC", "01", "1");
+
+		String setupChildComplexArray0 = getSetupMatchingNamesChildComplexScript(
+				"data.MatchesArrayAllPropertyTypesAsChildren[0]", "CCA0", "02", "2");
+
+		String setupChildComplexArray1 = getSetupMatchingNamesChildComplexScript(
+				"data.MatchesArrayAllPropertyTypesAsChildren[1]", "CCA1", "03", "3");
+
+		ScriptContext scriptContext = executor.executeScript(mappingScript, getRestRequestInitScript("var data = {};\n" //
+				+ "data.TextField = 'a simple string';\n" //
+				+ "data.TextArrayField = ['text item 1', 'text item 2'];\n" //
+				+ "data.MatchesAllPropertyTypesAsChildren = {};\n" //
+				+ setupChildComplex //
+				+ "data.MatchesArrayAllPropertyTypesAsChildren = [];\n" //
+				+ "data.MatchesArrayAllPropertyTypesAsChildren[0] = {};\n" //
+				+ setupChildComplexArray0 //
+				+ "data.MatchesArrayAllPropertyTypesAsChildren[1] = {};\n" //
+				+ setupChildComplexArray1 //
+		));
+
+		/* Make sure the other bits like path/query/header params have also been done. */
+		assertVariableValue(scriptContext, "REST_REQUEST.method", "PUT");
+		assertVariableValue(scriptContext, "REST_REQUEST.url",
+				"/v2/complexInlineTypeInputOutput");
+	}
+
+	/**
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 * 
 	 * SHARED UTILITY FUNCTIONS
 	 * 
 	 * =====================================================================================================
 	 * =====================================================================================================
 	 * =====================================================================================================
 	 */
+
 
 	/**
 	 * Returns a script that will define an EXPECTED TEST JSON object matching Swagger complexChild type attributes -

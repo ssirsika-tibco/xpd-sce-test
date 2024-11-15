@@ -1285,7 +1285,7 @@
         }
       }
     },
-    "/complexInlineTypeInputOutput/{stringPath}": {
+    "/complexInlineTypeInputOutput": {
       "put": {
         "tags": [
           "pet"
@@ -1299,24 +1299,6 @@
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "stringHeader",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "stringPath",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "stringQuery",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "body",
@@ -1349,7 +1331,26 @@
           "200": {
             "description": "successful complex return",
             "schema": {
-              "$ref": "#/definitions/AllPropertyTypesAsGrandChildren"
+              "properties": {
+                "string": {
+                  "type": "string"
+                },
+                "stringArray": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "childComplex": {
+                  "$ref": "#/definitions/AllPropertyTypesAsChildren"
+                },
+                "childComplexArray": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/AllPropertyTypesAsChildren"
+                  }
+                }
+              }
             },
             "headers": {
               "HeaderParam": {
@@ -1360,7 +1361,26 @@
           "201": {
             "description": "successful complex return",
             "schema": {
-              "$ref": "#/definitions/AllPropertyTypesAsChildren"
+              "properties": {
+                "string": {
+                  "type": "string"
+                },
+                "stringArray": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "childComplex": {
+                  "$ref": "#/definitions/AllPropertyTypesAsChildren"
+                },
+                "childComplexArray": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/AllPropertyTypesAsChildren"
+                  }
+                }
+              }
             },
             "headers": {
               "HeaderParam": {
