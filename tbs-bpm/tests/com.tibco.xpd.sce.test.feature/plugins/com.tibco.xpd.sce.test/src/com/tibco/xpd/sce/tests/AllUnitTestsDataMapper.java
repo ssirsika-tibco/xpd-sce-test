@@ -23,6 +23,7 @@ import com.tibco.xpd.sce.tests.swagger.datamapper.scripts.SwaggerInputNumberPayl
 import com.tibco.xpd.sce.tests.swagger.datamapper.scripts.SwaggerInputStringPayloadTest;
 import com.tibco.xpd.sce.tests.swagger.datamapper.scripts.SwaggerOutputBooleanArrayPayloadTest;
 import com.tibco.xpd.sce.tests.swagger.datamapper.scripts.SwaggerOutputBooleanPayloadTest;
+import com.tibco.xpd.sce.tests.swagger.datamapper.scripts.SwaggerOutputComplexPayloadTest;
 import com.tibco.xpd.sce.tests.swagger.datamapper.scripts.SwaggerOutputDateArrayPayloadTest;
 import com.tibco.xpd.sce.tests.swagger.datamapper.scripts.SwaggerOutputDatePayloadTest;
 import com.tibco.xpd.sce.tests.swagger.datamapper.scripts.SwaggerOutputNumberArrayPayloadTest;
@@ -99,11 +100,12 @@ public class AllUnitTestsDataMapper {
 		suite.addTestSuite(SwaggerRequestScriptAppendTest.class);
 		suite.addTestSuite(SwaggerRequestHeaderParamTypesTest.class);
 		suite.addTestSuite(SwaggerInputComplexPayloadTest.class);
-
-		suite.addTestSuite(SwaggerTaskItemProviderTests.class);
+		suite.addTestSuite(SwaggerOutputComplexPayloadTest.class);
 		/*
 		 * ... END: Swagger service mapping script generation...
 		 */
+
+		suite.addTestSuite(SwaggerTaskItemProviderTests.class);
 
         return suite;
     }

@@ -93,28 +93,32 @@ public abstract class SwaggerScriptGeneratorExecutionTest extends TestCase
 	/**
 	 * Function to allow deepEquals of complex payloads
 	 */
-	private static final String	DEEP_EQUAL_FUNCTION		= "function deepEqual(obj1, obj2) {\n"													//
-			+ "  // Handle primitive values and null\n"																								//
-			+ "  if (typeof obj1 !== 'object' || obj1 === null || typeof obj2 !== 'object' || obj2 === null) {\n"									//
-			+ "    return obj1 === obj2;\n"																											//
-			+ "  }\n"																																//
-			+ "  // Compare object types and number of keys\n"																						//
-			+ "  var keys1 = Object.keys(obj1);\n"																									//
-			+ "  var keys2 = Object.keys(obj2);\n"																									//
-			+ "  if (keys1.length !== keys2.length) {\n"																							//
-			+ "    return false;\n"																													//
-			+ "  }\n"																																//
-			+ "  // Recursively compare properties\n"																								//
-			+ "  var k1 = 0;"																														//
-			+ "  for (; k1 < keys1.length; k1++) {\n"																								//
-			+ "    var key = keys1[k1];\n"																											//
-			+ "    if (!obj2.hasOwnProperty(key) || !deepEqual(obj1[key], obj2[key])) {"
-			+ "        return false;\n"																												//
-			+ "    }\n"																																//
-			+ "  }\n"																																//
-			+ "  return true;\n"																													//
-			+ "}\n\n";																																//
-	
+	private static final String	DEEP_EQUAL_FUNCTION			= "function deepEqual(obj1, obj2, path) {\n"													//
+			+ "  // Handle primitive values and null\n"																										//
+			+ "  if (typeof obj1 !== 'object' || obj1 === null || typeof obj2 !== 'object' || obj2 === null) {\n"											//
+			+ "    if (obj1 === obj2) { return null; } else { return 'One or other of path('+path+') is not the same null-ness (or one is Class Object and other is primitive type)'; }\n"		//
+			+ "  }\n"																																		//
+			+ "  // Compare object types and number of keys\n"																								//
+			+ "  var keys1 = Object.keys(obj1);\n"																											//
+			+ "  var keys2 = Object.keys(obj2);\n"																											//
+			+ "  if (keys1.length !== keys2.length) {\n"																									//
+			+ "    return 'there are different numbers of child properties under path('+path+')\\n  Properties1='+keys1+'\\n   Properties2='+keys2;\n"		//
+			+ "  }\n"																																		//
+			+ "  // Recursively compare properties\n"																										//
+			+ "  var k1 = 0;"																																//
+			+ "  for (; k1 < keys1.length; k1++) {\n"																										//
+			+ "    var key = keys1[k1];\n"																													//
+			+ "    if (!obj2.hasOwnProperty(key)) {"
+			+ "        return 'Property '+path+'.'+key+' is missing from obj2';\n"																			//
+			+ "    }\n"																																		//
+			+ "    var nestedResult =  deepEqual(obj1[key], obj2[key], path + '.' + key);\n"																//
+			+ "    if (nestedResult != null) {"																												//
+			+ "        return nestedResult;\n"																												//
+			+ "    }\n"																																		//
+			+ "  }\n"																																		//
+			+ "  return null;\n"																															//
+			+ "}\n\n";																																		//
+
 	/**
 	 * Required for handling the 'Exclude empty optional objects/arrays' functionality of rest/swagger input mapping
 	 * scripts.
@@ -241,6 +245,8 @@ public abstract class SwaggerScriptGeneratorExecutionTest extends TestCase
 		return (Bindings) value;
 	}
 
+
+
 	/**
 	 * Create the REST_RESPONSE variable initialisation script.
 	 * 
@@ -254,27 +260,29 @@ public abstract class SwaggerScriptGeneratorExecutionTest extends TestCase
 	 * @param bomPkgNameSpace
 	 *            The BOM pkg namespace for BOM classes that need to have factory.xxxx.createXxx() methods provided for
 	 *            response scripts. <code>null</code> if no BOM class creation is required.
-	 * @param bomClassNames
-	 *            The BOM classes that need to have factory.xxxx.createXxx() methods provided for response scripts.
-	 *            <code>null</code> if no BOM class creation is required.
+	 * @param bomClasses
+	 *            The BOM classes - including the list of array properties within them to initialises - that need to
+	 *            have factory.xxxx.createXxx() methods provided for response scripts. <code>null</code> if no BOM class
+	 *            creation is required
 	 * 
 	 * @return A script snippet to setup the REST_RESPONSE variable
 	 */
-	protected String getRestResponseInitScript(int statusCode, String additionalSetupScript, String bomPkgNameSpace, String[] bomClassNames)
+	protected String getRestResponseInitScript(int statusCode, String additionalSetupScript, String bomPkgNameSpace,
+			BomClassAndArrayProperties[] bomClasses)
 	{
 		/*
 		 * Build the 'factory' class
 		 */
 		StringBuilder factoryClass = new StringBuilder();
 
-		if (bomPkgNameSpace != null && !bomPkgNameSpace.isEmpty() && bomClassNames != null && bomClassNames.length > 0)
+		if (bomPkgNameSpace != null && !bomPkgNameSpace.isEmpty() && bomClasses != null && bomClasses.length > 0)
 		{
 			factoryClass.append("var factory = {\n");
 			factoryClass.append(String.format("    \"%s\" : {", bomPkgNameSpace));
 
 			boolean first = true;
 
-			for (String className : bomClassNames)
+			for (BomClassAndArrayProperties bomClass : bomClasses)
 			{
 				if (first)
 				{
@@ -284,8 +292,18 @@ public abstract class SwaggerScriptGeneratorExecutionTest extends TestCase
 				{
 					factoryClass.append(",\n");
 				}
-				factoryClass.append(String.format("        \"create%s\" : function() {\n", className));
-				factoryClass.append("            return {};\n");
+				factoryClass.append(String.format("        \"create%s\" : function() {\n", bomClass.name));
+				factoryClass.append("            var bomClass = {};\n");
+
+				if (bomClass.arrayProperties != null)
+				{
+					for (String arrayPropertyName : bomClass.arrayProperties)
+					{
+						factoryClass.append(String.format("            bomClass.%s = [];\n", arrayPropertyName));
+					}
+				}
+
+				factoryClass.append("            return bomClass;\n");
 				factoryClass.append("        }");
 
 				first = false;
@@ -297,6 +315,20 @@ public abstract class SwaggerScriptGeneratorExecutionTest extends TestCase
 
 		return factoryClass.toString() + String.format(REST_RESPONSE_INIT_SCRIPT, statusCode)
 				+ (additionalSetupScript != null ? additionalSetupScript : "");
+	}
+
+	protected String getRestResponseInitScript(int statusCode, String additionalSetupScript, String bomPkgNameSpace,
+			String[] bomClassNames)
+	{
+		BomClassAndArrayProperties[] bomClasses = new BomClassAndArrayProperties[bomClassNames.length];
+
+		int i = 0;
+		for (String bomClassName : bomClassNames)
+		{
+			bomClasses[i++] = new BomClassAndArrayProperties(bomClassName, new String[0]);
+		}
+
+		return getRestResponseInitScript(statusCode, additionalSetupScript, bomPkgNameSpace, bomClasses);
 	}
 
 	/**
@@ -335,19 +367,40 @@ public abstract class SwaggerScriptGeneratorExecutionTest extends TestCase
 	 * @param expectedValue
 	 * @param testValue
 	 * 
-	 * @return Script fragment
+	 * @return Script fragment to append to mapping script
 	 */
-	protected String getTestPayloadScript(String expectedValue, String testValue)
+	protected String getTestObjectsEqualScript(String expectedValue, String testValue)
 	{
 		String testScript = String.format("\n\n//\n// TEST CODE - NOT PART OF GENERATED MAPPING SCRIPT...\n//\n" //
 				+ DEEP_EQUAL_FUNCTION //
 				+ "var expectedValue = %1$s;\n" //
-				+ "if (!deepEqual(expectedValue, %2$s)) {\n" //
-				+ "   throw 'Objects are not the same - expected(shown as JSON.stringified)...\\n\\n    ' + JSON.stringify(expectedValue) + '\\n\\nbut was...\\n\\n    ' + JSON.stringify(%2$s) + '\\n';\n" //
+				+ "var diffResult = deepEqual(expectedValue, %2$s, '%2$s');\n" //
+				+ "if (diffResult != null) {"
+				+ "   throw 'Objects are not the same: ' + diffResult + '\\n  - expected(shown as JSON.stringified)...\\n      ' + JSON.stringify(expectedValue) + '\\n  - but was...\\n      ' + JSON.stringify(%2$s) + '\\n';\n" //
 				+ "}\n", //
 				expectedValue, testValue);
 
 		return testScript;
+	}
+
+	/**
+	 * Get a script fragment for doing an (DEEP) equality check on two given complex variables
+	 * 
+	 * Script throws exception if the two objects are not equal.
+	 * 
+	 * Note that for Strings PLEASE PROVIDE expected properties as new String('xxxx') - our particular version of
+	 * Nashorn doesn't like comparing constant string with String objects and mapping scripts always create new String()
+	 * when assigning target data (to ensure that values are coerced correctly
+	 * 
+	 * @param expectedValue
+	 * @param testValue
+	 * 
+	 * @return Script fragment to append to mapping script
+	 */
+	protected String getTestProcessDataScript(String expectedValue)
+	{
+		return getTestObjectsEqualScript(expectedValue, "data");
+
 	}
 
 	/**
@@ -502,5 +555,28 @@ public abstract class SwaggerScriptGeneratorExecutionTest extends TestCase
 		}
 	}
 
+	/**
+	 * Data class that names a class and its array properties.
+	 * 
+	 * This can then be used by
+	 * {@link SwaggerScriptGeneratorExecutionTest#getRestResponseInitScript(int, String, String, BomClassAndArrayProperties[])}
+	 * 
+	 */
+	protected static class BomClassAndArrayProperties
+	{
+		String		name;
 
+		String[]	arrayProperties;
+
+		/**
+		 * @param name
+		 * @param arrayProperties
+		 */
+		public BomClassAndArrayProperties(String name, String[] arrayProperties)
+		{
+			super();
+			this.name = name;
+			this.arrayProperties = arrayProperties;
+		}
+	}
 }

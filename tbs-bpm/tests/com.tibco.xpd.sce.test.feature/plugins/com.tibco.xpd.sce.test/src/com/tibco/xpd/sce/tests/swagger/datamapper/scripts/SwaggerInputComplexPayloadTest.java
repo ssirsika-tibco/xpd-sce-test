@@ -65,7 +65,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		 * Setup payload test script (will contain empty arrays because we HAVEN'T setup 'exclude empty objects' on this
 		 * task.
 		 */
-		mappingScript += getTestPayloadScript("{\n" //
+		mappingScript += getTestObjectsEqualScript("{\n" //
 				+ "  childComplex : {\n" //
 				+ "    stringArray : [],\n" //
 				+ "    dateArray: [],\n" //
@@ -115,7 +115,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		 * payload.childComplex.stringArray and other arrays will be created
 		 * 
 		 */
-		mappingScript += getTestPayloadScript("{\n" //
+		mappingScript += getTestObjectsEqualScript("{\n" //
 				+ "  childComplex : {\n" //
 				+ "    stringArray : [new String('a simple string')],\n" //
 				+ "    dateArray: [],\n" //
@@ -167,7 +167,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		 * data)
 		 * 
 		 */
-		mappingScript += getTestPayloadScript("{\n" //
+		mappingScript += getTestObjectsEqualScript("{\n" //
 				+ "  childComplex : {\n" //
 				+ "  string : new String('a simple string'),"//
 				+ "  stringArray : [new String('Text Item 1'), new String('Text Item 2')],"//
@@ -237,7 +237,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		 * not providing any source content, then the whole payload should be null
 		 * 
 		 */
-		mappingScript += getTestPayloadScript("null", //
+		mappingScript += getTestObjectsEqualScript("null", //
 				"REST_PAYLOAD");
 
 		/*
@@ -277,7 +277,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		 * payload.childComplex.stringArray. So the payload should have just that content in.
 		 * 
 		 */
-		mappingScript += getTestPayloadScript("{\n" //
+		mappingScript += getTestObjectsEqualScript("{\n" //
 				+ "  childComplex : {\n" //
 				+ "    stringArray : [new String('a simple string')],\n" //
 				+ "  }\n" //
@@ -323,7 +323,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		 * so it should all be there
 		 * 
 		 */
-		mappingScript += getTestPayloadScript("{\n" //
+		mappingScript += getTestObjectsEqualScript("{\n" //
 				+ "  childComplex : {\n" //
 				+ "  string : new String('a simple string'),"//
 				+ "  stringArray : [new String('Text Item 1'), new String('Text Item 2')],"//
@@ -401,7 +401,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		 * Setup payload test script (will contain empty arrays because we HAVEN'T setup 'exclude empty objects' on this
 		 * task.
 		 */
-		mappingScript += getTestPayloadScript("{\n" //
+		mappingScript += getTestObjectsEqualScript("{\n" //
 				+ "  childComplex : {\n" //
 				+ "    stringArray : [],\n" //
 				+ "    dateArray: [],\n" //
@@ -453,7 +453,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		 * payload.childComplex.stringArray and other arrays will be created
 		 * 
 		 */
-		mappingScript += getTestPayloadScript("{\n" //
+		mappingScript += getTestObjectsEqualScript("{\n" //
 				+ "  childComplex : {\n" //
 				+ "    stringArray : [new String('a string'), new String('another string')],\n" //
 				+ "    dateArray: [],\n" //
@@ -516,7 +516,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		String expectedChildComplexArray0 = getExpectedChildComplexObject("CCA0", "02", "2");
 		String expectedChildComplexArray1 = getExpectedChildComplexObject("CCA1", "03", "3");
 
-		mappingScript += getTestPayloadScript("{\n" //
+		mappingScript += getTestObjectsEqualScript("{\n" //
 				+ " childComplex : " //
 				+ expectedChildComplex + "," //
 				+ " childComplexArray : [" + expectedChildComplexArray0 + "," + expectedChildComplexArray1 + "]" //
@@ -576,7 +576,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		 * not providing any source content, then the whole payload should be null
 		 *
 		 */
-		mappingScript += getTestPayloadScript("null", //
+		mappingScript += getTestObjectsEqualScript("null", //
 				"REST_PAYLOAD");
 
 		/*
@@ -617,7 +617,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		 * payload.childComplex.stringArray. So the payload should have just that content in.
 		 *
 		 */
-		mappingScript += getTestPayloadScript("{\n" //
+		mappingScript += getTestObjectsEqualScript("{\n" //
 				+ "  childComplex : {\n" //
 				+ "    stringArray : [new String('a string'), new String('another string')],\n" //
 				+ "  }\n" //
@@ -672,7 +672,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		String expectedChildComplexArray0 = getExpectedChildComplexObject("CCA0", "02", "2");
 		String expectedChildComplexArray1 = getExpectedChildComplexObject("CCA1", "03", "3");
 
-		mappingScript += getTestPayloadScript("{\n" //
+		mappingScript += getTestObjectsEqualScript("{\n" //
 				+ " childComplex : " //
 				+ expectedChildComplex + "," //
 				+ " childComplexArray : [" + expectedChildComplexArray0 + "," + expectedChildComplexArray1 + "]" //
@@ -746,7 +746,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		String expectedChildComplexArray0 = getExpectedChildComplexObject("CCA0", "02", "2");
 		String expectedChildComplexArray1 = getExpectedChildComplexObject("CCA1", "03", "3");
 
-		mappingScript += getTestPayloadScript("{\n" //
+		mappingScript += getTestObjectsEqualScript("{\n" //
 				+ " childComplex : " //
 				+ expectedChildComplex + "," //
 				+ " childComplexArray : [" + expectedChildComplexArray0 + "," + expectedChildComplexArray1 + "]" //
@@ -814,7 +814,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		 * Setup payload test script (will contain empty arrays because we HAVEN'T setup 'exclude empty objects' on this
 		 * task.
 		 */
-		mappingScript += getTestPayloadScript("[]", "REST_PAYLOAD");
+		mappingScript += getTestObjectsEqualScript("[]", "REST_PAYLOAD");
 
 		/*
 		 * Execute with No process data (testing is done by the script we appended to the mapping script
@@ -841,7 +841,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		/*
 		 * Setup payload test script - the empty payload array should be null'ed as we're excluding empty optional
 		 */
-		mappingScript += getTestPayloadScript("null", "REST_PAYLOAD");
+		mappingScript += getTestObjectsEqualScript("null", "REST_PAYLOAD");
 
 		/*
 		 * Execute with No process data (testing is done by the script we appended to the mapping script
@@ -881,7 +881,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		String expectedArr1ChildComplexArray0 = getExpectedChildComplexObject("ARR1_CCA0", "05", "5");
 		String expectedArr1ChildComplexArray1 = getExpectedChildComplexObject("ARR1_CCA1", "06", "6");
 
-		mappingScript += getTestPayloadScript( //
+		mappingScript += getTestObjectsEqualScript( //
 				"[" //
 						+ "{\n" //
 						+ " childComplex : " //
@@ -970,7 +970,7 @@ public class SwaggerInputComplexPayloadTest extends SwaggerScriptGeneratorExecut
 		String expectedChildComplexArray0 = getExpectedChildComplexObject("CCA0", "02", "2");
 		String expectedChildComplexArray1 = getExpectedChildComplexObject("CCA1", "03", "3");
 
-		mappingScript += getTestPayloadScript("{\n" //
+		mappingScript += getTestObjectsEqualScript("{\n" //
 				+ " string : new String('a simple string')," //
 				+ " stringArray : [new String('text item 1'), new String('text item 2')]," //
 				+ " childComplex : " //
