@@ -114,17 +114,17 @@ public class ScriptExecutor {
         }
         nashorn.eval("$status = [];", ctx);
 
-		System.out.println("PARAM-SCRIPT");
-		System.out.println("===========================================================================");
-		System.out.println(paramScript);
-		System.out.println("===========================================================================");
+		// System.out.println("PARAM-SCRIPT");
+		// System.out.println("===========================================================================");
+		// System.out.println(paramScript);
+		// System.out.println("===========================================================================");
 
         nashorn.eval(paramScript, ctx);
 
-		System.out.println("SCRIPT");
-		System.out.println("===========================================================================");
-		System.out.println(script);
-		System.out.println("===========================================================================");
+		// System.out.println("SCRIPT");
+		// System.out.println("===========================================================================");
+		// System.out.println(script);
+		// System.out.println("===========================================================================");
 
         nashorn.eval(script, ctx);
     }
