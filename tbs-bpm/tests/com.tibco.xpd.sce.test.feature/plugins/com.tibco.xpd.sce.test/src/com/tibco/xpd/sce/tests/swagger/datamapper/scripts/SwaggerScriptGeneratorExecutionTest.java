@@ -96,13 +96,13 @@ public abstract class SwaggerScriptGeneratorExecutionTest extends TestCase
 	private static final String	DEEP_EQUAL_FUNCTION			= "function deepEqual(obj1, obj2, path) {\n"													//
 			+ "  // Handle primitive values and null\n"																										//
 			+ "  if (typeof obj1 !== 'object' || obj1 === null || typeof obj2 !== 'object' || obj2 === null) {\n"											//
-			+ "    if (obj1 === obj2) { return null; } else { return 'One or other of path('+path+') is not the same null-ness (or one is Class Object and other is primitive type)'; }\n"		//
+			+ "    if (obj1 === obj2) { return null; } else { return 'One or other of path('+path+') is not the same: obj1('+obj1+'), obj2('+obj2+') (or one is Class Object and other is primitive type) (or primitive with different value)'; }\n"	//
 			+ "  }\n"																																		//
 			+ "  // Compare object types and number of keys\n"																								//
 			+ "  var keys1 = Object.keys(obj1);\n"																											//
 			+ "  var keys2 = Object.keys(obj2);\n"																											//
 			+ "  if (keys1.length !== keys2.length) {\n"																									//
-			+ "    return 'there are different numbers of child properties under path('+path+')\\n  Properties1='+keys1+'\\n   Properties2='+keys2;\n"		//
+			+ "    return 'there are different numbers of child properties under path('+path+')\\n  Properties1='+keys1.sort()+'\\n  Properties2='+keys2.sort();\n"								//
 			+ "  }\n"																																		//
 			+ "  // Recursively compare properties\n"																										//
 			+ "  var k1 = 0;"																																//

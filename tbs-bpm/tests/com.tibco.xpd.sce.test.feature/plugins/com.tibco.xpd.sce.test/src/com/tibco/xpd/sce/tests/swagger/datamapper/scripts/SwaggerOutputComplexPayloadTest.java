@@ -4,7 +4,6 @@
 
 package com.tibco.xpd.sce.tests.swagger.datamapper.scripts;
 
-import javax.script.ScriptContext;
 import javax.script.ScriptException;
 
 import com.tibco.xpd.mapper.MappingDirection;
@@ -46,9 +45,9 @@ public class SwaggerOutputComplexPayloadTest extends SwaggerScriptGeneratorExecu
 					"dateArray",																						//
 					"integerArray",																						//
 					"numberFloatArray",																					//
-					"numberDoubleArray",																							//
-					"boolArray",																									//
-					"stringArray"}),																								//
+					"numberDoubleArray",																				//
+					"boolArray",																						//
+					"stringArray"}),																					//
 			new BomClassAndArrayProperties("MatchesSwaggerAllPropertyTypesAsGrandChildren",
 					new String[]{"childComplexArray"}),																	//
 			new BomClassAndArrayProperties("Tag", new String[]{})														//
@@ -89,7 +88,7 @@ public class SwaggerOutputComplexPayloadTest extends SwaggerScriptGeneratorExecu
 	 * 
 	 * @throws ScriptException
 	 */
-	public void testRequestPayloadScript_ComplexType_Unset_To_SimpleFields() throws ScriptException
+	public void testResponsePayloadScript_ComplexType_Unset_To_SimpleFields() throws ScriptException
 	{
 		String mappingScript = generateRestMappingScript(
 				"/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
@@ -124,7 +123,7 @@ public class SwaggerOutputComplexPayloadTest extends SwaggerScriptGeneratorExecu
 		 * Execute with unset payload data
 		 */
 
-		ScriptContext scriptContext = executor.executeScript(mappingScript, getRestResponseInitScript(200,
+		executor.executeScript(mappingScript, getRestResponseInitScript(200,
 				getSetupDataScript_ComplexTypesFromSimpleTypes(""), BOM_CLASS_PKG, BOM_CLASSES));
 	}
 
@@ -134,8 +133,7 @@ public class SwaggerOutputComplexPayloadTest extends SwaggerScriptGeneratorExecu
 	 * 
 	 * @throws ScriptException
 	 */
-	public void testRequestPayloadScript_ComplexType_To_SimpleFields()
-			throws ScriptException
+	public void testResponsePayloadScript_ComplexType_To_SimpleFields() throws ScriptException
 	{
 		String mappingScript = generateRestMappingScript(
 				"/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
@@ -169,13 +167,12 @@ public class SwaggerOutputComplexPayloadTest extends SwaggerScriptGeneratorExecu
 		/*
 		 * Execute with fully loaded payload data
 		 */
-		String restResponseSetup = "REST_RESPONSE.data = " + getAllPropertyTypesAsGrandChildrenPayloadObject() + ";\n" //
+		String restResponseSetup = "REST_RESPONSE.data = " + getAllPropertyTypesAsGrandChildrenPayloadJSON() + ";\n" //
 				+ "REST_RESPONSE.headers.HeaderParam = 'aHeaderParam';\n";
 
-		ScriptContext scriptContext = executor.executeScript(mappingScript, getRestResponseInitScript(200,
+		executor.executeScript(mappingScript, getRestResponseInitScript(200,
 				getSetupDataScript_ComplexTypesFromSimpleTypes(restResponseSetup), BOM_CLASS_PKG, BOM_CLASSES));
 	}
-
 
 	/**
 	 * =====================================================================================================
@@ -195,8 +192,7 @@ public class SwaggerOutputComplexPayloadTest extends SwaggerScriptGeneratorExecu
 	 * 
 	 * @throws ScriptException
 	 */
-	public void testRequestPayloadScript_ComplexType_Unset_To_ComplexField()
-			throws ScriptException
+	public void testResponsePayloadScript_ComplexType_Unset_To_ComplexField() throws ScriptException
 	{
 		String mappingScript = generateRestMappingScript(
 				"/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
@@ -231,29 +227,26 @@ public class SwaggerOutputComplexPayloadTest extends SwaggerScriptGeneratorExecu
 				+ "}"; //
 
 		mappingScript += getTestProcessDataScript(expectedDataObject); //
-		
+
 		/*
 		 * Setup initial data object value.
 		 */
-		String setupDataScript = "data = {\n" //
-				+ "  Response200FieldWithAttribsNotMatchingSwaggerNames : " //
-				+ getInitialBomAllTypesAsGrandChildrenInitialValue() //
-				+ "};\n"; //
+		String setupDataScript = "data = {};\n"; //
 
 		/*
 		 * Execute with script with no payload data set.
 		 */
-		ScriptContext scriptContext = executor.executeScript(mappingScript, getRestResponseInitScript(200,
-				setupDataScript, BOM_CLASS_PKG, BOM_CLASSES));
+		executor.executeScript(mappingScript,
+				getRestResponseInitScript(200, setupDataScript, BOM_CLASS_PKG, BOM_CLASSES));
 	}
 
 	/**
 	 * Test mapping from COMPLEX TYPE PAYLOAD output payload that is fully set - mapping TARGET COMPLEX TYPE process
-	 * data that is UNSET
+	 * data
 	 * 
 	 * @throws ScriptException
 	 */
-	public void testRequestPayloadScript_ComplexType_To_ComplexField() throws ScriptException
+	public void testResponsePayloadScript_ComplexType_To_ComplexField() throws ScriptException
 	{
 		String mappingScript = generateRestMappingScript(
 				"/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
@@ -279,639 +272,302 @@ public class SwaggerOutputComplexPayloadTest extends SwaggerScriptGeneratorExecu
 		/*
 		 * Setup initial process data object value.
 		 */
-		String setupDataScript = "data = {\n" //
-				+ "  Response200FieldWithAttribsNotMatchingSwaggerNames : " //
-				+ getInitialBomAllTypesAsGrandChildrenInitialValue() //
-				+ "};\n"; //
+		String setupDataScript = "data = {};\n"; //
 
 		/*
 		 * Setup REST_RESPONSE.getData() to return fully populated object
 		 */
-		String restResponseSetup = "REST_RESPONSE.data = " + getAllPropertyTypesAsGrandChildrenPayloadObject() + ";\n" //
+		String restResponseSetup = "REST_RESPONSE.data = " + getAllPropertyTypesAsGrandChildrenPayloadJSON()
+				+ ";\n" //
 				+ "REST_RESPONSE.headers.HeaderParam = 'aHeaderParam';\n";
 
 		/*
 		 * Execute with script with no payload data set.
 		 */
-		ScriptContext scriptContext = executor.executeScript(mappingScript,
+		executor.executeScript(mappingScript,
 				getRestResponseInitScript(200, setupDataScript + restResponseSetup, BOM_CLASS_PKG, BOM_CLASSES));
 	}
 
-	// /**
-	// * Test mapping from COMPLEX TYPE PAYLOAD output payload - mapping SOURCE COMPLEX TYPE process data that is only
-	// * partially set.
-	// *
-	// * In this test the task DOES NOT have the 'Exclude Empty Objects/Array' options set - therefore because
-	// everything
-	// * is optional AND we're providing just one piece of source content, then the whole payload should be created with
-	// * empty arrays etc
-	// *
-	// * @throws ScriptException
-	// */
-	// public void testRequestPayloadScript_ComplexType_From_ComplexFields_PartiallySet_IncludeEmptyOptional()
-	// throws ScriptException
-	// {
-	// fail("Not implemented yet");
-	// String mappingScript = generateRestMappingScript(
-	// "/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
-	// "SwaggerScriptGenTests_ComplexTypes-From-ComplexType",
-	// "complexTypeInputOutput - mapped from Complex Type - Include Empty", MappingDirection.IN);
-	//
-	// /*
-	// * Script to setup 'expected process data object' (all arrays will always be initialised and any mapped
-	// * non-array is always set to null if not input value) task.
-	// *
-	// * The 'exclude empty optional objects/arrays' is set OFF - we will have data in the source mapping for
-	// * payload.childComplex.stringArray and other arrays will be created
-	// *
-	// */
-	// mappingScript += getTestObjectsEqualScript("{\n" //
-	// + " childComplex : {\n" //
-	// + " stringArray : [new String('a string'), new String('another string')],\n" //
-	// + " dateArray: [],\n" //
-	// + " dateTimeArray: [],\n" //
-	// + " numberDoubleArray: [],\n" //
-	// + " numberFloatArray: [],\n" //
-	// + " integerArray: [],\n" //
-	// + " boolArray: [],\n" //
-	// + " },\n" //
-	// + " childComplexArray: []\n" //
-	// + "}", //
-	// "REST_PAYLOAD");
-	//
-	// /*
-	// * Execute with a value in just one item in one of the process data arrays mapped to the service content.
-	// */
-	// ScriptContext scriptContext = executor.executeScript(mappingScript, getRestRequestInitScript("var data = {};\n"
-	// //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames = {};\n" //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute = {};\n" //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.stringArrayAttribute = ['a string',
-	// 'another string'];\n" //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.pathParamAttribute = 'aPathParam';\n" //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.queryParamAttribute = 'aQueryParam';\n" //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.headerParamAttribute = 'aHeaderParam';\n"
-	// //
-	// ));
-	//
-	// /* Make sure the other bits like path/query/header params have also been done. */
-	// assertVariableValue(scriptContext, "REST_REQUEST.method", "PUT");
-	// assertVariableValue(scriptContext, "REST_REQUEST.url",
-	// "/v2/complexInputMultipleOutput/aPathParam?stringQuery=aQueryParam");
-	// assertVariableValue(scriptContext, "REST_REQUEST.headers.stringHeader", "aHeaderParam");
-	// }
-	//
-	// /**
-	// * Test mapping from COMPLEX TYPE PAYLOAD output payload - mapping SOURCE COMPLEX TYPE process data that is fully
-	// * set.
-	// *
-	// * In this test the 'exclude empty optional objects/arrays' is set OFF - but this time we're providing values for
-	// * all source mapping data.
-	// *
-	// * So we'll be testing correct mapping of all simple type properties and arrays under Payload.childComplex object
-	// *
-	// * @throws ScriptException
-	// */
-	// public void testRequestPayloadScript_ComplexType_From_ComplexFields_FullySet_IncludeEmptyOptional()
-	// throws ScriptException
-	// {
-	// fail("Not implemented yet");
-	// String mappingScript = generateRestMappingScript(
-	// "/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
-	// "SwaggerScriptGenTests_ComplexTypes-From-ComplexType",
-	// "complexTypeInputOutput - mapped from Complex Type - Include Empty", MappingDirection.IN);
-	//
-	// /*
-	// * Script to setup 'expected process data object' (all arrays will always be initialised and any mapped
-	// * non-array is always set to null if not input value)
-	// *
-	// * The 'exclude empty optional objects/arrays' is set OFF - - but anyway we've provided data for all input
-	// * anyway, so it should all be there (except childComplexArray because we can't mapp to that from simple type
-	// * data)
-	// *
-	// */
-	// String expectedChildComplex = getAllPropertyTypesAsChildrenPayloadObject("CC", "01", "1");
-	// String expectedChildComplexArray0 = getAllPropertyTypesAsChildrenPayloadObject("CCA0", "02", "2");
-	// String expectedChildComplexArray1 = getAllPropertyTypesAsChildrenPayloadObject("CCA1", "03", "3");
-	//
-	// mappingScript += getTestObjectsEqualScript("{\n" //
-	// + " childComplex : " //
-	// + expectedChildComplex + "," //
-	// + " childComplexArray : [" + expectedChildComplexArray0 + "," + expectedChildComplexArray1 + "]" //
-	// + "}", //
-	// "REST_PAYLOAD");
-	//
-	// /*
-	// * Execute with a value in all items of the process data mapped to the service content.
-	// */
-	// String setupChildComplex = getExpectedNonMatchingNamesChildComplexObject(
-	// "CC", "01", "1", true);
-	//
-	// String setupChildComplexArray0 = getExpectedNonMatchingNamesChildComplexObject(
-	// "CCA0", "02", "2", false);
-	//
-	// String setupChildComplexArray1 = getExpectedNonMatchingNamesChildComplexObject(
-	// "CCA1", "03", "3", false);
-	//
-	// ScriptContext scriptContext = executor.executeScript(mappingScript, getRestRequestInitScript("var data = {};\n"
-	// //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames = {};\n" //
-	// + setupChildComplex //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute = [];\n" //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute[0] = {};\n" //
-	// + setupChildComplexArray0 //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute[1] = {};\n" //
-	// + setupChildComplexArray1 //
-	// ));
-	//
-	// /* Make sure the other bits like path/query/header params have also been done. */
-	// assertVariableValue(scriptContext, "REST_REQUEST.method", "PUT");
-	// assertVariableValue(scriptContext, "REST_REQUEST.url",
-	// "/v2/complexInputMultipleOutput/aPathParam?stringQuery=aQueryParam");
-	// assertVariableValue(scriptContext, "REST_REQUEST.headers.stringHeader", "aHeaderParam");
-	// }
-	//
-	// /**
-	// * Test mapping from COMPLEX TYPE PAYLOAD output payload - mapping SOURCE COMPLEX TYPE process data that is UNSET
-	// *
-	// * In this test the 'exclude empty optional objects/arrays' is set on - therefore because everything is optional
-	// AND
-	// * we're not providing any source content, then the whole payload should be null
-	// *
-	// * @throws ScriptException
-	// */
-	// public void testRequestPayloadScript_ComplexType_From_CompleFields_Unset_ExcludeEmptyOptional()
-	// throws ScriptException
-	// {
-	// fail("Not implemented yet");
-	// String mappingScript = generateRestMappingScript(
-	// "/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
-	// "SwaggerScriptGenTests_ComplexTypes-From-ComplexType",
-	// "complexTypeInputOutput - mapped from Complex Type - Exclude Empty", MappingDirection.IN);
-	//
-	// /*
-	// * Script to setup 'expected process data object' (all arrays will always be initialised and any mapped
-	// * non-array is always set to null if not input value) task.
-	// *
-	// * The 'exclude empty optional objects/arrays' is set on - therefore because everything is optional AND we're
-	// * not providing any source content, then the whole payload should be null
-	// *
-	// */
-	// mappingScript += getTestObjectsEqualScript("null", //
-	// "REST_PAYLOAD");
-	//
-	// /*
-	// * Execute with No process data
-	// */
-	// ScriptContext scriptContext = executor.executeScript(mappingScript,
-	// getRestRequestInitScript("var data = {};\n"));
-	//
-	// /* Make sure the other bits like path/query/header params have also been done. */
-	// assertVariableValue(scriptContext, "REST_REQUEST.method", "PUT");
-	// assertVariableValue(scriptContext, "REST_REQUEST.url", "/v2/complexInputMultipleOutput/null");
-	// assertVariableValue(scriptContext, "REST_REQUEST.headers.stringHeader", null);
-	// }
-	//
-	// /**
-	// * Test mapping from COMPLEX TYPE PAYLOAD output payload - mapping SOURCE COMPLEX TYPE process data that is only
-	// * partially set.
-	// *
-	// * In this test the 'exclude empty optional objects/arrays' is set on - therefore because everything is optional
-	// AND
-	// * we're providing just one piece of source content, then the whole payload should be created with only the bear
-	// * minimum of content to hold that non-null value
-	// *
-	// * @throws ScriptException
-	// */
-	// public void testRequestPayloadScript_ComplexType_From_ComplexFields_PartiallySet_ExcludeEmptyOptional()
-	// throws ScriptException
-	// {
-	// fail("Not implemented yet");
-	// String mappingScript = generateRestMappingScript(
-	// "/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
-	// "SwaggerScriptGenTests_ComplexTypes-From-ComplexType",
-	// "complexTypeInputOutput - mapped from Complex Type - Exclude Empty", MappingDirection.IN);
-	//
-	// /*
-	// * Script to setup 'expected process data object' (all arrays will always be initialised and any mapped
-	// * non-array is always set to null if not input value) task.
-	// *
-	// * The 'exclude empty optional objects/arrays' is set on - we will have data only in the source mapping for
-	// * payload.childComplex.stringArray. So the payload should have just that content in.
-	// *
-	// */
-	// mappingScript += getTestObjectsEqualScript("{\n" //
-	// + " childComplex : {\n" //
-	// + " stringArray : [new String('a string'), new String('another string')],\n" //
-	// + " }\n" //
-	// + "}", //
-	// "REST_PAYLOAD");
-	//
-	// /*
-	// * Execute with a value in just one item in one of the process data arrays mapped to the service content.
-	// */
-	// ScriptContext scriptContext = executor.executeScript(mappingScript, getRestRequestInitScript("var data = {};\n"
-	// //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames = {};\n" //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute = {};\n" //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.stringArrayAttribute = ['a string',
-	// 'another string'];\n" //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.pathParamAttribute = 'aPathParam';\n" //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.queryParamAttribute = 'aQueryParam';\n" //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.headerParamAttribute = 'aHeaderParam';\n"
-	// //
-	// ));
-	//
-	// /* Make sure the other bits like path/query/header params have also been done. */
-	// assertVariableValue(scriptContext, "REST_REQUEST.method", "PUT");
-	// assertVariableValue(scriptContext, "REST_REQUEST.url",
-	// "/v2/complexInputMultipleOutput/aPathParam?stringQuery=aQueryParam");
-	// assertVariableValue(scriptContext, "REST_REQUEST.headers.stringHeader", "aHeaderParam");
-	// }
-	//
-	// /**
-	// * Test mapping from COMPLEX TYPE PAYLOAD output payload - mapping SOURCE COMPLEX TYPE process data that is fully
-	// * set.
-	// *
-	// * In this test the 'exclude empty optional objects/arrays' is set on - but this time we're providing values for
-	// all
-	// * source mapping data.
-	// *
-	// * So we'll be testing correct mapping of all simple type properties and arrays under Payload.childComplex object
-	// *
-	// * @throws ScriptException
-	// */
-	// public void testRequestPayloadScript_ComplexType_From_ComplexFields_FullySet_ExcludeEmptyOptional()
-	// throws ScriptException
-	// {
-	// fail("Not implemented yet");
-	// String mappingScript = generateRestMappingScript(
-	// "/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
-	// "SwaggerScriptGenTests_ComplexTypes-From-ComplexType",
-	// "complexTypeInputOutput - mapped from Complex Type - Exclude Empty", MappingDirection.IN);
-	//
-	// /*
-	// * Script to setup 'expected process data object' (all arrays will always be initialised and any mapped
-	// * non-array is always set to null if not input value)
-	// *
-	// * The 'exclude empty optional objects/arrays' is set on - but anyway we've provided data for all input anyway,
-	// * so it should all be there
-	// *
-	// */
-	// String expectedChildComplex = getAllPropertyTypesAsChildrenPayloadObject("CC", "01", "1");
-	// String expectedChildComplexArray0 = getAllPropertyTypesAsChildrenPayloadObject("CCA0", "02", "2");
-	// String expectedChildComplexArray1 = getAllPropertyTypesAsChildrenPayloadObject("CCA1", "03", "3");
-	//
-	// mappingScript += getTestObjectsEqualScript("{\n" //
-	// + " childComplex : " //
-	// + expectedChildComplex + "," //
-	// + " childComplexArray : [" + expectedChildComplexArray0 + "," + expectedChildComplexArray1 + "]" //
-	// + "}", //
-	// "REST_PAYLOAD");
-	//
-	// /*
-	// * Execute with a value in all items of the process data mapped to the service content.
-	// */
-	// String setupChildComplex = getExpectedNonMatchingNamesChildComplexObject(
-	// "CC", "01", "1", true);
-	//
-	// String setupChildComplexArray0 = getExpectedNonMatchingNamesChildComplexObject(
-	// "CCA0", "02", "2", false);
-	//
-	// String setupChildComplexArray1 = getExpectedNonMatchingNamesChildComplexObject(
-	// "CCA1", "03", "3", false);
-	//
-	// ScriptContext scriptContext = executor.executeScript(mappingScript, getRestRequestInitScript("var data = {};\n"
-	// //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames = {};\n" //
-	// + setupChildComplex //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute = [];\n" //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute[0] = {};\n" //
-	// + setupChildComplexArray0 //
-	// + "data.FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute[1] = {};\n" //
-	// + setupChildComplexArray1 //
-	// ));
-	//
-	// /* Make sure the other bits like path/query/header params have also been done. */
-	// assertVariableValue(scriptContext, "REST_REQUEST.method", "PUT");
-	// assertVariableValue(scriptContext, "REST_REQUEST.url",
-	// "/v2/complexInputMultipleOutput/aPathParam?stringQuery=aQueryParam");
-	// assertVariableValue(scriptContext, "REST_REQUEST.headers.stringHeader", "aHeaderParam");
-	// }
-	//
-	// /**
-	// * =====================================================================================================
-	// * =====================================================================================================
-	// * =====================================================================================================
-	// *
-	// * COMPLEX TYPE PAYLOAD from COMPLEX TYPE process data using a SINGLE LIKE MAPPING
-	// *
-	// * =====================================================================================================
-	// * =====================================================================================================
-	// * =====================================================================================================
-	// */
-	//
-	// /**
-	// * Test mapping from COMPLEX TYPE PAYLOAD output payload - using a single LIKE MAPPING from mapping SOURCE COMPLEX
-	// * TYPE process data that is fully set.
-	// *
-	// * So we'll be testing correct mapping of all simple type properties and arrays under Payload.childComplex object
-	// *
-	// * @throws ScriptException
-	// */
-	// public void testRequestPayloadScript_ComplexType_From_ComplexFields_Using_LikeMapping() throws ScriptException
-	// {
-	// fail("Not implemented yet");
-	// String mappingScript = generateRestMappingScript(
-	// "/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
-	// "SwaggerScriptGenTests_ComplexTypes-From-ComplexType", "complexTypeInputOutput - Like mapping",
-	// MappingDirection.IN);
-	//
-	// /*
-	// * Script to setup 'expected process data object' (all arrays will always be initialised and any mapped
-	// * non-array is always set to null if not input value)
-	// *
-	// * The 'exclude empty optional objects/arrays' is set on - but anyway we've provided data for all input anyway,
-	// * so it should all be there
-	// *
-	// */
-	// String expectedChildComplex = getAllPropertyTypesAsChildrenPayloadObject("CC", "01", "1");
-	// String expectedChildComplexArray0 = getAllPropertyTypesAsChildrenPayloadObject("CCA0", "02", "2");
-	// String expectedChildComplexArray1 = getAllPropertyTypesAsChildrenPayloadObject("CCA1", "03", "3");
-	//
-	// mappingScript += getTestObjectsEqualScript("{\n" //
-	// + " childComplex : " //
-	// + expectedChildComplex + "," //
-	// + " childComplexArray : [" + expectedChildComplexArray0 + "," + expectedChildComplexArray1 + "]" //
-	// + "}", //
-	// "REST_PAYLOAD");
-	//
-	// /*
-	// * Execute with a value in all items of the process data mapped to the service content.
-	// */
-	// String setupChildComplex = getSetupMatchingNamesChildComplexScript(
-	// "data.FieldWithAttribsMatchingSwaggerNames.childComplex", "CC", "01", "1");
-	//
-	// String setupChildComplexArray0 = getSetupMatchingNamesChildComplexScript(
-	// "data.FieldWithAttribsMatchingSwaggerNames.childComplexArray[0]", "CCA0", "02", "2");
-	//
-	// String setupChildComplexArray1 = getSetupMatchingNamesChildComplexScript(
-	// "data.FieldWithAttribsMatchingSwaggerNames.childComplexArray[1]", "CCA1", "03", "3");
-	//
-	// ScriptContext scriptContext = executor.executeScript(mappingScript, getRestRequestInitScript("var data = {};\n"
-	// //
-	// + "data.FieldWithAttribsMatchingSwaggerNames = {};\n" //
-	// + setupChildComplex //
-	// + "data.FieldWithAttribsMatchingSwaggerNames.childComplexArray = [];\n" //
-	// + "data.FieldWithAttribsMatchingSwaggerNames.childComplexArray[0] = {};\n" //
-	// + setupChildComplexArray0 //
-	// + "data.FieldWithAttribsMatchingSwaggerNames.childComplexArray[1] = {};\n" //
-	// + setupChildComplexArray1 //
-	// ));
-	//
-	// /* Make sure the other bits like path/query/header params have also been done. */
-	// assertVariableValue(scriptContext, "REST_REQUEST.method", "PUT");
-	// assertVariableValue(scriptContext, "REST_REQUEST.url",
-	// "/v2/complexInputMultipleOutput/aPathParam?stringQuery=aQueryParam");
-	// assertVariableValue(scriptContext, "REST_REQUEST.headers.stringHeader", "aHeaderParam");
-	// }
-	//
-	// /**
-	// * =====================================================================================================
-	// * =====================================================================================================
-	// * =====================================================================================================
-	// *
-	// * ARRAY COMPLEX TYPE PAYLOAD from ARRAY COMPLEX TYPE process data
-	// *
-	// * =====================================================================================================
-	// * =====================================================================================================
-	// * =====================================================================================================
-	// */
-	//
-	// /**
-	// * Test mapping to ARRAY COMPLEX TYPE PAYLOAD input payload - mapping SOURCE ARRAY COMPLEX TYPE process data that
-	// is
-	// * UNSET
-	// *
-	// *
-	// *
-	// * @throws ScriptException
-	// */
-	// public void testRequestPayloadScript_ArrayComplexType_From_ArrayComplexFields_Unset_IncludeEmptyOptional()
-	// throws ScriptException
-	// {
-	// fail("Not implemented yet");
-	// String mappingScript = generateRestMappingScript(
-	// "/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
-	// "SwaggerScriptGenTests_ArrayComplexTypes-From-ComplexType",
-	// "complexArrayInputMultipleOutput - Include Empty", MappingDirection.IN);
-	//
-	// /*
-	// * Script to setup 'expected process data object' (all arrays will always be initialised and any mapped
-	// * non-array is always set to null if not input value) task.
-	// */
-	// mappingScript += getTestObjectsEqualScript("[]", "REST_PAYLOAD");
-	//
-	// /*
-	// * Execute with No process data (testing is done by the script we appended to the mapping script
-	// */
-	// executor.executeScript(mappingScript, getRestRequestInitScript("var data = {};\n"));
-	// }
-	//
-	// /**
-	// * Test mapping to ARRAY COMPLEX TYPE PAYLOAD input payload - mapping SOURCE ARRAY COMPLEX TYPE process data that
-	// is
-	// * UNSET
-	// *
-	// * In this test the task DOES have the 'Exclude Empty Objects/Array' options set.
-	// *
-	// * @throws ScriptException
-	// */
-	// public void testRequestPayloadScript_ArrayComplexType_From_ArrayComplexFields_Unset_ExcludeEmptyOptional()
-	// throws ScriptException
-	// {
-	// fail("Not implemented yet");
-	// String mappingScript = generateRestMappingScript(
-	// "/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
-	// "SwaggerScriptGenTests_ArrayComplexTypes-From-ComplexType",
-	// "complexArrayInputMultipleOutput - Exclude Empty", MappingDirection.IN);
-	//
-	// /*
-	// * Script to setup 'expected process data object' (all arrays will always be initialised and any mapped
-	// * non-array is always set to null if not input value) - the empty payload array should be null'ed as we're
-	// * excluding empty optional
-	// */
-	// mappingScript += getTestObjectsEqualScript("null", "REST_PAYLOAD");
-	//
-	// /*
-	// * Execute with No process data (testing is done by the script we appended to the mapping script
-	// */
-	// executor.executeScript(mappingScript, getRestRequestInitScript("var data = {};\n"));
-	// }
-	//
-	// /**
-	// * Test mapping to ARRAY COMPLEX TYPE PAYLOAD input payload - from mapping ARRAY SOURCE COMPLEX TYPE process data
-	// * that is fully set. We used a LIKE mapping in this test, but we already proved in other tests that LIKE mapping
-	// is
-	// * working equivalence to manual mapping, so won't make a difference here.
-	// *
-	// * So we'll be testing correct mapping of all simple type properties and arrays under Payload.childComplex object
-	// *
-	// * @throws ScriptException
-	// */
-	// public void testRequestPayloadScript_ArrayComplexType_From_ArrayComplexFields() throws ScriptException
-	// {
-	// fail("Not implemented yet");
-	// String mappingScript = generateRestMappingScript(
-	// "/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
-	// "SwaggerScriptGenTests_ArrayComplexTypes-From-ComplexType",
-	// "complexArrayInputMultipleOutput - Exclude Empty", MappingDirection.IN);
-	//
-	// /*
-	// * Script to setup 'expected process data object' (all arrays will always be initialised and any mapped
-	// * non-array is always set to null if not input value)
-	// *
-	// * The 'exclude empty optional objects/arrays' is set on - but anyway we've provided data for all input anyway,
-	// * so it should all be there
-	// *
-	// */
-	// String expectedArr0ChildComplex = getAllPropertyTypesAsChildrenPayloadObject("ARR0_CC", "01", "1");
-	// String expectedArr0ChildComplexArray0 = getAllPropertyTypesAsChildrenPayloadObject("ARR0_CCA0", "02", "2");
-	// String expectedArr0ChildComplexArray1 = getAllPropertyTypesAsChildrenPayloadObject("ARR0_CCA1", "03", "3");
-	//
-	// String expectedArr1ChildComplex = getAllPropertyTypesAsChildrenPayloadObject("ARR1_CC", "04", "4");
-	// String expectedArr1ChildComplexArray0 = getAllPropertyTypesAsChildrenPayloadObject("ARR1_CCA0", "05", "5");
-	// String expectedArr1ChildComplexArray1 = getAllPropertyTypesAsChildrenPayloadObject("ARR1_CCA1", "06", "6");
-	//
-	// mappingScript += getTestObjectsEqualScript( //
-	// "[" //
-	// + "{\n" //
-	// + " childComplex : " //
-	// + expectedArr0ChildComplex + "," //
-	// + " childComplexArray : [" + expectedArr0ChildComplexArray0 + ","
-	// + expectedArr0ChildComplexArray1 + "]" //
-	// + "}," //
-	// + "{\n" //
-	// + " childComplex : " //
-	// + expectedArr1ChildComplex + "," //
-	// + " childComplexArray : [" + expectedArr1ChildComplexArray0 + ","
-	// + expectedArr1ChildComplexArray1 + "]" //
-	// + "}" //
-	// + "]", //
-	// "REST_PAYLOAD");
-	//
-	// /*
-	// * Execute with a value in all items of the process data mapped to the service content.
-	// */
-	// String setupArr0ChildComplex = getSetupMatchingNamesChildComplexScript(
-	// "data.FieldWithAttribsMatchingSwaggerNames[0].childComplex", "ARR0_CC", "01", "1");
-	// String setupArr0ChildComplexArray0 = getSetupMatchingNamesChildComplexScript(
-	// "data.FieldWithAttribsMatchingSwaggerNames[0].childComplexArray[0]", "ARR0_CCA0", "02", "2");
-	// String setupArr0ChildComplexArray1 = getSetupMatchingNamesChildComplexScript(
-	// "data.FieldWithAttribsMatchingSwaggerNames[0].childComplexArray[1]", "ARR0_CCA1", "03", "3");
-	//
-	// String setupArr1ChildComplex = getSetupMatchingNamesChildComplexScript(
-	// "data.FieldWithAttribsMatchingSwaggerNames[1].childComplex", "ARR1_CC", "04", "4");
-	// String setupArr1ChildComplexArray0 = getSetupMatchingNamesChildComplexScript(
-	// "data.FieldWithAttribsMatchingSwaggerNames[1].childComplexArray[0]", "ARR1_CCA0", "05", "5");
-	// String setupArr1ChildComplexArray1 = getSetupMatchingNamesChildComplexScript(
-	// "data.FieldWithAttribsMatchingSwaggerNames[1].childComplexArray[1]", "ARR1_CCA1", "06", "6");
-	//
-	// /*
-	// * Execute with No process data (testing is done by the script we appended to the mapping script
-	// */
-	// executor.executeScript(mappingScript, getRestRequestInitScript("var data = {};\n" //
-	// + "data.FieldWithAttribsMatchingSwaggerNames = [];\n" //
-	// + "data.FieldWithAttribsMatchingSwaggerNames[0] = {};\n" //
-	// + setupArr0ChildComplex //
-	// + "data.FieldWithAttribsMatchingSwaggerNames[0].childComplexArray = [];\n" //
-	// + "data.FieldWithAttribsMatchingSwaggerNames[0].childComplexArray[0] = {};\n" //
-	// + setupArr0ChildComplexArray0 //
-	// + "data.FieldWithAttribsMatchingSwaggerNames[0].childComplexArray[1] = {};\n" //
-	// + setupArr0ChildComplexArray1 //
-	// + "data.FieldWithAttribsMatchingSwaggerNames[1] = {};\n" //
-	// + setupArr1ChildComplex //
-	// + "data.FieldWithAttribsMatchingSwaggerNames[1].childComplexArray = [];\n" //
-	// + "data.FieldWithAttribsMatchingSwaggerNames[1].childComplexArray[0] = {};\n" //
-	// + setupArr1ChildComplexArray0 //
-	// + "data.FieldWithAttribsMatchingSwaggerNames[1].childComplexArray[1] = {};\n" //
-	// + setupArr1ChildComplexArray1 //
-	//
-	// ));
-	//
-	// }
-	//
-	// /**
-	// * =====================================================================================================
-	// * =====================================================================================================
-	// * =====================================================================================================
-	// *
-	// * INLINE COMPLEX TYPE SCEHMA
-	// *
-	// * =====================================================================================================
-	// * =====================================================================================================
-	// * =====================================================================================================
-	// */
-	// /**
-	// * Test mapping to INLINE COMPLEX TYPE PAYLOAD input payload - mapping SOURCE COMPLEX TYPE process data that is
-	// * fully set.
-	// *
-	// * @throws ScriptException
-	// */
-	// public void testRequestPayloadScript_InlineComplexType_From_ComplexFields() throws ScriptException
-	// {
-	// fail("Not implemented yet");
-	// String mappingScript = generateRestMappingScript(
-	// "/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
-	// "SwaggerScriptGenTests_ComplexTypes-From-ComplexType", "complexInlineTypeInputOutput",
-	// MappingDirection.IN);
-	//
-	// /*
-	// * Script to setup 'expected process data object' (all arrays will always be initialised and any mapped
-	// * non-array is always set to null if not input value)
-	// */
-	// String expectedChildComplex = getAllPropertyTypesAsChildrenPayloadObject("CC", "01", "1");
-	// String expectedChildComplexArray0 = getAllPropertyTypesAsChildrenPayloadObject("CCA0", "02", "2");
-	// String expectedChildComplexArray1 = getAllPropertyTypesAsChildrenPayloadObject("CCA1", "03", "3");
-	//
-	// mappingScript += getTestObjectsEqualScript("{\n" //
-	// + " string : new String('a simple string')," //
-	// + " stringArray : [new String('text item 1'), new String('text item 2')]," //
-	// + " childComplex : " //
-	// + expectedChildComplex + "," //
-	// + " childComplexArray : [" + expectedChildComplexArray0 + "," + expectedChildComplexArray1 + "]" //
-	// + "}", //
-	// "REST_PAYLOAD");
-	//
-	// /*
-	// * Execute with a value in all items of the process data mapped to the service content.
-	// */
-	// String setupChildComplex = getSetupMatchingNamesChildComplexScript("data.MatchesAllPropertyTypesAsChildren",
-	// "CC", "01", "1");
-	//
-	// String setupChildComplexArray0 = getSetupMatchingNamesChildComplexScript(
-	// "data.MatchesArrayAllPropertyTypesAsChildren[0]", "CCA0", "02", "2");
-	//
-	// String setupChildComplexArray1 = getSetupMatchingNamesChildComplexScript(
-	// "data.MatchesArrayAllPropertyTypesAsChildren[1]", "CCA1", "03", "3");
-	//
-	// ScriptContext scriptContext = executor.executeScript(mappingScript, getRestRequestInitScript("var data = {};\n"
-	// //
-	// + "data.TextField = 'a simple string';\n" //
-	// + "data.TextArrayField = ['text item 1', 'text item 2'];\n" //
-	// + "data.MatchesAllPropertyTypesAsChildren = {};\n" //
-	// + setupChildComplex //
-	// + "data.MatchesArrayAllPropertyTypesAsChildren = [];\n" //
-	// + "data.MatchesArrayAllPropertyTypesAsChildren[0] = {};\n" //
-	// + setupChildComplexArray0 //
-	// + "data.MatchesArrayAllPropertyTypesAsChildren[1] = {};\n" //
-	// + setupChildComplexArray1 //
-	// ));
-	//
-	// /* Make sure the other bits like path/query/header params have also been done. */
-	// assertVariableValue(scriptContext, "REST_REQUEST.method", "PUT");
-	// assertVariableValue(scriptContext, "REST_REQUEST.url", "/v2/complexInlineTypeInputOutput");
-	// }
+	/**
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 *
+	 * COMPLEX TYPE PAYLOAD to COMPLEX TYPE process data using a SINGLE LIKE MAPPING
+	 *
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 */
+
+	/**
+	 * Test mapping from COMPLEX TYPE PAYLOAD output payload that is fully set - mapping TARGET COMPLEX TYPE process
+	 * 
+	 * This test also checks that multiple success mappings are supported correctly and produce the correct result
+	 * depending on the status code. The data types for each response is different so it also ensures that there are no
+	 * mix ups in mapping script generation between the two separate mapped outputs.
+	 * 
+	 * @throws ScriptException
+	 */
+	public void testResponsePayloadScript_ComplexType_To_ComplexField_UsingLikeMapping() throws ScriptException
+	{
+		String mappingScript = generateRestMappingScript(
+				"/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
+				"SwaggerScriptGenTests_ComplexTypes-From-ComplexType", "complexTypeInputOutput - Like mapping",
+				MappingDirection.OUT);
+
+		/*
+		 * Script to setup 'expected process data object' (all arrays will always be initialised and any mapped
+		 * non-array is always set to null if not input value) task.
+		 * 
+		 * We have 2 sets of output like mappings, one to Response200FieldWithAttribsNotMatchingSwaggerNames for
+		 * response 200 and one to Response201FieldWithAttribsMatchingSwaggerNames for response 201
+		 * 
+		 * In the first test run we'll test the 200 response, so we should end up with a populated
+		 * Response200FieldWithAttribsNotMatchingSwaggerNames and an initialised
+		 * Response201FieldWithAttribsMatchingSwaggerNames.
+		 */
+		String expectedDataObjectResponse200 = "{\n" //
+				+ "  Response200FieldWithAttribsMatchingSwaggerNames : {\n" //
+				+ "    childComplex: " + getExpectedMatchingNamesChildComplexObject("CC", "01", "1", true) //
+				+ " ,\n" //
+				+ "    childComplexArray : [" //
+				+ getExpectedMatchingNamesChildComplexObject("CCA1", "02", "2", false) + ", " //
+				+ getExpectedMatchingNamesChildComplexObject("CCA2", "03", "3", false) + "]\n" //
+				+ "  },\n" //
+				+ "  Response201FieldWithAttribsMatchingSwaggerNames : {\n" //
+				+ "      string : null,\n"//
+				+ "      stringArray : [],\n"//
+				+ "      date : null,\n"//
+				+ "      dateArray : [],\n"//
+				+ "      dateTime : null,\n"//
+				+ "      dateTimeArray : [],\n"//
+				+ "      numberDouble : null,\n"//
+				+ "      numberDoubleArray : [],\n"//
+				+ "      numberFloat : null,\n"//
+				+ "      numberFloatArray : [],\n"//
+				+ "      integer : null,\n"//
+				+ "      integerArray : [],\n"//
+				+ "      bool : null,\n"//
+				+ "      boolArray : [],\n"//
+				+ "      headerParamAttribute : null\n" //
+				+ "  }\n" //
+				+ "}"; //
+
+		String mappingScriptResponse200 = mappingScript + getTestProcessDataScript(expectedDataObjectResponse200); //
+
+		/*
+		 * Setup initial process data object value.
+		 */
+		String setupDataScript200 = "data = {};\n"; //
+
+		/*
+		 * Setup REST_RESPONSE.getData() to return fully populated object for response 200's
+		 * AllPropertyTypesAsGrandChildren object
+		 */
+		String restResponseSetup200 = "REST_RESPONSE.data = " + getAllPropertyTypesAsGrandChildrenPayloadJSON() + ";\n" //
+				+ "REST_RESPONSE.headers.HeaderParam = 'aHeaderParam';\n";
+
+		/*
+		 * Execute with script with no payload data set.
+		 */
+		executor.executeScript(mappingScriptResponse200,
+				getRestResponseInitScript(200, setupDataScript200 + restResponseSetup200, BOM_CLASS_PKG, BOM_CLASSES));
+
+		/*
+		 * In the second test run we'll test the 201 response, so we should end up with a populated
+		 * Response201FieldWithAttribsMatchingSwaggerNames and an initialised
+		 * Response200FieldWithAttribsNotMatchingSwaggerNames.
+		 */
+		String expectedDataObjectResponse201 = "{\n" //
+				+ "  Response201FieldWithAttribsMatchingSwaggerNames : " //
+				+ getExpectedMatchingNamesChildComplexObject("CC_201", "04", "4", true) //
+				+ "  ,\n" //
+				+ "  Response200FieldWithAttribsMatchingSwaggerNames : {\n" //
+				+ "    childComplex : {\n" + "      string : null,\n"//
+				+ "      stringArray : [],\n"//
+				+ "      date : null,\n"//
+				+ "      dateArray : [],\n"//
+				+ "      dateTime : null,\n"//
+				+ "      dateTimeArray : [],\n"//
+				+ "      numberDouble : null,\n"//
+				+ "      numberDoubleArray : [],\n"//
+				+ "      numberFloat : null,\n"//
+				+ "      numberFloatArray : [],\n"//
+				+ "      integer : null,\n"//
+				+ "      integerArray : [],\n"//
+				+ "      bool : null,\n"//
+				+ "      boolArray : [],\n"//
+				+ "      headerParamAttribute : null\n" //
+				+ "    },\n" //
+				+ "    childComplexArray : []\n" //
+				+ "  }\n" //
+				+ "}"; //
+
+		String mappingScriptResponse201 = mappingScript + getTestProcessDataScript(expectedDataObjectResponse201); //
+
+		/*
+		 * Setup initial process data object value.
+		 */
+		String setupDataScript201 = "data = {};\n"; //
+
+		/*
+		 * Setup REST_RESPONSE.getData() to return fully populated object for response 200's
+		 * AllPropertyTypesAsGrandChildren object
+		 */
+		String restResponseSetup201 = "REST_RESPONSE.data = "
+				+ getAllPropertyTypesAsChildrenPayloadJSON("CC_201", "04", "4") + ";\n" //
+				+ "REST_RESPONSE.headers.HeaderParam = 'aHeaderParam';\n";
+
+		/*
+		 * Execute with script with no payload data set.
+		 */
+		executor.executeScript(mappingScriptResponse201,
+				getRestResponseInitScript(201, setupDataScript201 + restResponseSetup201, BOM_CLASS_PKG, BOM_CLASSES));
+
+	}
+
+	/**
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 *
+	 * ARRAY COMPLEX TYPE PAYLOAD from ARRAY COMPLEX TYPE process data
+	 *
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 */
+
+	/**
+	 * Test mapping from ARRAY COMPLEX TYPE PAYLOAD output payload that is fully set - mapping TARGET ARRAY COMPLEX TYPE
+	 * process
+	 * 
+	 * @throws ScriptException
+	 */
+	public void testResponsePayloadScript_ComplexType_To_ComplexField_Array() throws ScriptException
+	{
+		String mappingScript = generateRestMappingScript(
+				"/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
+				"SwaggerScriptGenTests_ArrayComplexTypes-From-ComplexType",
+				"complexArrayInputMultipleOutput - Exclude Empty",
+				MappingDirection.OUT);
+
+		/*
+		 * Script to setup 'expected process data object' (all arrays will always be initialised and any mapped
+		 * non-array is always set to null if not input value) task.
+		 */
+		String expectedDataObjectResponse200 = "{\n" //
+				+ "  Response200FieldWithAttribsMatchingSwaggerNames : [" //
+				+ "  {\n" //
+				+ "    childComplex: " + getExpectedMatchingNamesChildComplexObject("GC1_CC", "01", "1", false) //
+				+ " ,\n" //
+				+ "    childComplexArray : [" //
+				+ getExpectedMatchingNamesChildComplexObject("GC1_CCA1", "02", "2", false) + ", " //
+				+ getExpectedMatchingNamesChildComplexObject("GC1_CCA2", "03", "3", false) + "]\n" //
+				+ "  },\n" //
+				+ "  {\n" //
+				+ "    childComplex: " + getExpectedMatchingNamesChildComplexObject("GC2_CC", "04", "4", false) //
+				+ " ,\n" //
+				+ "    childComplexArray : [" //
+				+ getExpectedMatchingNamesChildComplexObject("GC2_CCA1", "05", "5", false) + ", " //
+				+ getExpectedMatchingNamesChildComplexObject("GC2_CCA2", "06", "6", false) + "]\n" //
+				+ "  }" //
+				+ " ]\n" //
+				+ "}"; //
+
+		String mappingScriptResponse200 = mappingScript + getTestProcessDataScript(expectedDataObjectResponse200); //
+
+		/*
+		 * Setup initial process data object value.
+		 */
+		String setupDataScript200 = "data = {\n" //
+				+ "  Response200FieldWithAttribsMatchingSwaggerNames : []" //
+				+ "};\n"; //
+
+		/*
+		 * Setup REST_RESPONSE.getData() to return fully populated object for response 200's
+		 * AllPropertyTypesAsGrandChildren object
+		 */
+		String restResponseSetup200 = "REST_RESPONSE.data = " + getArrayAllPropertyTypesAsGrandChildrenPayloadJSON()
+				+ ";\n" //
+				+ "REST_RESPONSE.headers.HeaderParam = 'aHeaderParam';\n";
+
+		/*
+		 * Execute with script with no payload data set.
+		 */
+		executor.executeScript(mappingScriptResponse200,
+				getRestResponseInitScript(200, setupDataScript200 + restResponseSetup200, BOM_CLASS_PKG, BOM_CLASSES));
+
+	}
+
+	/**
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 *
+	 * INLINE COMPLEX TYPE SCEHMA
+	 *
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 * =====================================================================================================
+	 */
+	/**
+	 * Test mapping to INLINE COMPLEX TYPE PAYLOAD input payload that is fully set. - mapping TARGET COMPLEX TYPE
+	 * process data
+	 *
+	 * @throws ScriptException
+	 */
+	public void testResponsePayloadScript_InlineComplexType_To_ComplexField() throws ScriptException
+	{
+		String mappingScript = generateRestMappingScript(
+				"/SwaggerScriptGenTests_Process/Process Packages/SwaggerScriptGenTests_ComplexTypes.xpdl",
+				"SwaggerScriptGenTests_ComplexTypes-From-ComplexType",
+				"complexInlineTypeInputOutput", MappingDirection.OUT);
+
+		/*
+		 * Script to setup 'expected process data object' (all arrays will always be initialised and any mapped
+		 * non-array is always set to null if not input value) task.
+		 */
+		String expectedDataObject = "{\n" //
+				+ "  Response200TextField: 'a simple string',\n" //
+				+ "  Response200TextArrayField: ['Text item 1', 'Text Item 2'],\n" //
+				+ "  Response200MatchesAllPropertyTypesAsChildren : "
+				+ getExpectedMatchingNamesChildComplexObject("CC", "01", "1", false) //
+				+ " ,\n" //
+				+ "  Response200MatchesArrayAllPropertyTypesAsChildren : [\n" //
+				+ getExpectedMatchingNamesChildComplexObject("CCA1", "02", "2", false) //
+				+ " ,\n" //
+				+ getExpectedMatchingNamesChildComplexObject("CCA2", "03", "3", false) //
+				+ " ]\n" //
+				+ "}"; //
+
+		mappingScript += getTestProcessDataScript(expectedDataObject); //
+
+		/*
+		 * Setup initial process data object value.
+		 */
+		String setupDataScript = "data = { Response200TextArrayField: [], Response200MatchesArrayAllPropertyTypesAsChildren : [] };\n"; //
+
+		/*
+		 * Setup REST_RESPONSE.getData() to return fully populated object
+		 */
+		String restResponseSetup = "REST_RESPONSE.data = JSON.stringify({\n" //
+				+ "  string : 'a simple string'," //
+				+ "  stringArray : ['Text item 1', 'Text Item 2']," //
+				+ "  childComplex : " + getAllPropertyTypesAsChildrenPayloadObject("CC", "01", "1") + "," //
+				+ "  childComplexArray : [\n" //
+				+ getAllPropertyTypesAsChildrenPayloadObject("CCA1", "02", "2") + ",\n" //
+				+ getAllPropertyTypesAsChildrenPayloadObject("CCA2", "03", "3") + "\n]\n" //
+				+ "});\n" //
+				+ "REST_RESPONSE.headers.HeaderParam = 'aHeaderParam';\n";
+
+		/*
+		 * Execute with script with no payload data set.
+		 */
+		executor.executeScript(mappingScript,
+				getRestResponseInitScript(200, setupDataScript + restResponseSetup, BOM_CLASS_PKG, BOM_CLASSES));
+	}
 
 	/**
 	 * =====================================================================================================
@@ -950,35 +606,44 @@ public class SwaggerOutputComplexPayloadTest extends SwaggerScriptGeneratorExecu
 	}
 
 	/**
-	 * Get JS object that would be initial value of a field of type AllPropertyTypesAsGrandChildren
+	 * Returns a script fragment that defines an array of objects matching the AllPropertyTypesAsGrandChildrenChildren
+	 * class type with all values set
 	 * 
-	 * @param responsePayloadSetup
-	 * 
-	 * @return script to setup the process "data" object for the "SwaggerScriptGenTests_ComplexTypes-From-ComplexType"
-	 *         process.
+	 * @return JSON object string
 	 */
-	private String getInitialBomAllTypesAsGrandChildrenInitialValue()
+	private String getArrayAllPropertyTypesAsGrandChildrenPayloadJSON()
 	{
-		return "{\n" //
-				+ "    childComplexAttribute : {\n"//
-				+ "      stringArrayAttribute : [],\n"//
-				+ "      dateArrayAttribute : [],\n"//
-				+ "      dateTimeArrayAttribute : [],\n"//
-				+ "      numberDoubleArrayAttribute : [],\n"//
-				+ "      numberFloatArrayAttribute : [],\n"//
-				+ "      integerArrayAttribute : [],\n"//
-				+ "      boolArrayAttribute : []\n"//
-				+ "    }," //
-				+ "    childComplexArrayAttribute : [],\n"//
-				+ "  }\n"; //
+		String childComplexObject1 = getAllPropertyTypesAsChildrenPayloadObject("GC1_CC", "01", "1");
+		String childComplexArrayObject1_1 = getAllPropertyTypesAsChildrenPayloadObject("GC1_CCA1", "02", "2");
+		String childComplexArrayObject1_2 = getAllPropertyTypesAsChildrenPayloadObject("GC1_CCA2", "03", "3");
+
+		String childComplexObject2 = getAllPropertyTypesAsChildrenPayloadObject("GC2_CC", "04", "4");
+		String childComplexArrayObject2_1 = getAllPropertyTypesAsChildrenPayloadObject("GC2_CCA1", "05", "5");
+		String childComplexArrayObject2_2 = getAllPropertyTypesAsChildrenPayloadObject("GC2_CCA2", "06", "6");
+
+		return "JSON.stringify([\n" //
+				+ "{\n" //
+				+ " childComplex : " + childComplexObject1 + ",\n" //
+				+ " childComplexArray : [\n" //
+				+ childComplexArrayObject1_1 + ",\n" //
+				+ childComplexArrayObject1_2 + "]\n" //
+				+ "},\n" //
+				+ "{\n" //
+				+ " childComplex : " + childComplexObject2 + ",\n" //
+				+ " childComplexArray : [\n" //
+				+ childComplexArrayObject2_1 + ",\n" //
+				+ childComplexArrayObject2_2 + "]\n" //
+				+ "}\n" //
+				+ "]);"; //
 	}
+
 	/**
 	 * Returns a script fragment that defines an object matching the AllPropertyTypesAsGrandChildrenChildren class type
 	 * with all values set
 	 * 
 	 * @return JSON object string
 	 */
-	private String getAllPropertyTypesAsGrandChildrenPayloadObject()
+	private String getAllPropertyTypesAsGrandChildrenPayloadJSON()
 	{
 		String childComplexObject = getAllPropertyTypesAsChildrenPayloadObject("CC", "01", "1");
 		String childComplexArrayObject1 = getAllPropertyTypesAsChildrenPayloadObject("CCA1", "02", "2");
@@ -990,6 +655,22 @@ public class SwaggerOutputComplexPayloadTest extends SwaggerScriptGeneratorExecu
 				+ childComplexArrayObject1 + ",\n" //
 				+ childComplexArrayObject2 + "]\n" //
 				+ "});"; //
+	}
+
+	/**
+	 * Returns a script fragment that defines an object matching the AllPropertyTypesAsChildren class type with values
+	 * altered according to the parameter values
+	 * 
+	 * @param stringPrefix
+	 * @param dateDayNum
+	 * @param numberPrefix
+	 * 
+	 * @return object string
+	 */
+	private String getAllPropertyTypesAsChildrenPayloadJSON(String stringPrefix, String dateDayNum, String numberPrefix)
+	{
+		return "JSON.stringify(" + getAllPropertyTypesAsChildrenPayloadObject(stringPrefix, dateDayNum, numberPrefix)
+				+ ");";
 	}
 
 	/**
@@ -1037,9 +718,9 @@ public class SwaggerOutputComplexPayloadTest extends SwaggerScriptGeneratorExecu
 	 * @param dateDatNum
 	 * @param numberPrefix
 	 * @param includeHeadParam
-	 *            TODO
-	 * @return script to define an object complexAttributePath.xxxxx with default values for type
-	 *         AllPropertyTypesAsChildren - each of which has values prefixed by those given as parameters here.
+	 * 
+	 * @return script to define a fully populated object matching BOM type AllPropertyTypesAsChildren - each of which
+	 *         has values prefixed by those given as parameters here.
 	 */
 	private String getExpectedNonMatchingNamesChildComplexObject(String stringPrefix, String dateDatNum,
 			String numberPrefix, boolean includeHeadParam)
@@ -1053,16 +734,54 @@ public class SwaggerOutputComplexPayloadTest extends SwaggerScriptGeneratorExecu
 				+ "  numberFloatAttribute : " + numberPrefix + "44.6789,\n"//
 				+ "  stringAttribute : '" + stringPrefix + " string',\n"//
 				+ "  boolArrayAttribute : [true, false, true],\n"//
-				+ "  dateArrayAttribute : [new Date('1996-04-" + dateDatNum
-				+ "'), new Date('1998-03-" + dateDatNum + "')],\n"//
-				+ "  dateTimeArrayAttribute : [new Date('1996-04-" + dateDatNum
-				+ "T02:15:00.000Z'), new Date('1998-03-" + dateDatNum + "T14:30:00.000Z')],\n"//
+				+ "  dateArrayAttribute : [new Date('1996-04-" + dateDatNum + "'), new Date('1998-03-" + dateDatNum
+				+ "')],\n"//
+				+ "  dateTimeArrayAttribute : [new Date('1996-04-" + dateDatNum + "T02:15:00.000Z'), new Date('1998-03-"
+				+ dateDatNum + "T14:30:00.000Z')],\n"//
 				+ "  integerArrayAttribute : [" + numberPrefix + "88, -" + numberPrefix + "99],\n"//
-				+ "  numberDoubleArrayAttribute : [" + numberPrefix + "22.21, -" + numberPrefix
-				+ "33.56],\n"//
-				+ "  numberFloatArrayAttribute : [" + numberPrefix + "55.4321, -" + numberPrefix
-				+ "66.5678],\n"//
+				+ "  numberDoubleArrayAttribute : [" + numberPrefix + "22.21, -" + numberPrefix + "33.56],\n"//
+				+ "  numberFloatArrayAttribute : [" + numberPrefix + "55.4321, -" + numberPrefix + "66.5678],\n"//
 				+ "  stringArrayAttribute : ['" + stringPrefix + " Item 1', '" + stringPrefix + " Item 2']" //
+				+ (includeHeadParam ? ",\n  headerParamAttribute : 'aHeaderParam',\n" : "\n") //
+				+ "}"; //
+		return setupChildComplex;
+	}
+
+	/**
+	 * Returns expected process data object with all children assigned matching BOM type
+	 * MatchesSwaggerAllPropertyTypesAsChildren. Predefined values are prefixed with the various prefix parameter values
+	 * depending on data type.
+	 * 
+	 * Because this type's attribute names don't match the equivalent complex tyype in test swagger service, it cannot
+	 * be used for complex type mapping.
+	 * 
+	 * @param stringPrefix
+	 * @param dateDatNum
+	 * @param numberPrefix
+	 * @param includeHeadParam
+	 * 
+	 * @return script to define a fully populated object matching BOM type AllPropertyTypesAsChildren - each of which
+	 *         has values prefixed by those given as parameters here.
+	 */
+	private String getExpectedMatchingNamesChildComplexObject(String stringPrefix, String dateDatNum,
+			String numberPrefix, boolean includeHeadParam)
+	{
+		String setupChildComplex = "{\n" //
+				+ "  bool : false,\n"//
+				+ "  date : new Date('2024-10-" + dateDatNum + "'),\n"//
+				+ "  dateTime : new Date('2024-10-" + dateDatNum + "T12:34:56.000Z'),\n"//
+				+ "  integer : " + numberPrefix + "77,\n"//
+				+ "  numberDouble : " + numberPrefix + "11.67,\n"//
+				+ "  numberFloat : " + numberPrefix + "44.6789,\n"//
+				+ "  string : '" + stringPrefix + " string',\n"//
+				+ "  boolArray : [true, false, true],\n"//
+				+ "  dateArray : [new Date('1996-04-" + dateDatNum + "'), new Date('1998-03-" + dateDatNum + "')],\n"//
+				+ "  dateTimeArray : [new Date('1996-04-" + dateDatNum + "T02:15:00.000Z'), new Date('1998-03-"
+				+ dateDatNum + "T14:30:00.000Z')],\n"//
+				+ "  integerArray : [" + numberPrefix + "88, -" + numberPrefix + "99],\n"//
+				+ "  numberDoubleArray : [" + numberPrefix + "22.21, -" + numberPrefix + "33.56],\n"//
+				+ "  numberFloatArray : [" + numberPrefix + "55.4321, -" + numberPrefix + "66.5678],\n"//
+				+ "  stringArray : ['" + stringPrefix + " Item 1', '" + stringPrefix + " Item 2']" //
 				+ (includeHeadParam ? ",\n  headerParamAttribute : 'aHeaderParam',\n" : "\n") //
 				+ "}"; //
 		return setupChildComplex;
