@@ -65,7 +65,9 @@ public abstract class AbstractScriptDataMapperEditorProvider implements
         ScriptDataMapper scriptDataMapper =
                 getScriptDataMapper(contextInputObject);
 
-        if (scriptDataMapper == null) {
+		// ACE - 8268 Recreate the ScriptDataMapper with the correct context type
+		if (scriptDataMapper == null || !(scriptDataMapper.getMapperContext().equals(mapperContext)))
+		{
             scriptDataMapper =
                     createScriptDataMapper(contextInputObject,
                             editingDomain,

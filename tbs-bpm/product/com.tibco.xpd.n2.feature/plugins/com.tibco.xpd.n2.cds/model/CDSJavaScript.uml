@@ -4,6 +4,7 @@
   <packagedElement xmi:type="uml:DataType" xmi:id="_dEQ1oKHqEd6gj7Xw0shGxA" name="Integer"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_eTPKMKHqEd6gj7Xw0shGxA" name="Object"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_L0lAYOANEd6NV_VD55whVg" name="String"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="__6rEMZSbEeO0_N6kReVM0Q" name="DQLString"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_h2km8OWqEd6droIMdV2Wlw" name="Decimal"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_RgOFgIYSEemPmt-F0Us-xg" name="Number"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_5ufZ4LH8Eemf26GkMUv1Gw" name="CaseReference"/>
@@ -78,7 +79,7 @@
       <ownedParameter xmi:id="_iBoUIJ2REemozZwHH8sXfA" type="_5ufZ4LH8Eemf26GkMUv1Gw" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_27xoQJ2QEemozZwHH8sXfA" name="findByCriteria">
-      <ownedParameter xmi:id="_gh7mgJ2SEemozZwHH8sXfA" name="dql" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_gh7mgJ2SEemozZwHH8sXfA" name="dql" type="__6rEMZSbEeO0_N6kReVM0Q"/>
       <ownedParameter xmi:id="_hHMPsJ2SEemozZwHH8sXfA" name="caseType" type="_Q5lysL3eEemuJqb-nNsrsw"/>
       <ownedParameter xmi:id="_huoDIJ2SEemozZwHH8sXfA" name="fromIndex" type="_RgOFgIYSEemPmt-F0Us-xg"/>
       <ownedParameter xmi:id="_ibCdMJ2SEemozZwHH8sXfA" name="pageSize" type="_RgOFgIYSEemPmt-F0Us-xg"/>
@@ -124,7 +125,7 @@
     <ownedOperation xmi:id="__Dy6gJzbEemr1ID0Ylv5Mg" name="navigateByCriteria">
       <ownedParameter xmi:id="_S0i4MJ2MEemozZwHH8sXfA" name="caseRef" type="_5ufZ4LH8Eemf26GkMUv1Gw"/>
       <ownedParameter xmi:id="_cGp8wJ2MEemozZwHH8sXfA" name="linkName" type="_UYJkQL3eEemuJqb-nNsrsw"/>
-      <ownedParameter xmi:id="_ToHqMJ2MEemozZwHH8sXfA" name="dql" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_ToHqMJ2MEemozZwHH8sXfA" name="dql" type="__6rEMZSbEeO0_N6kReVM0Q"/>
       <ownedParameter xmi:id="_USn_wJ2MEemozZwHH8sXfA" name="fromIndex" type="_RgOFgIYSEemPmt-F0Us-xg"/>
       <ownedParameter xmi:id="_U54NAJ2MEemozZwHH8sXfA" name="pageSize" type="_RgOFgIYSEemPmt-F0Us-xg"/>
       <ownedParameter xmi:id="_Vs0s4J2MEemozZwHH8sXfA" type="_5ufZ4LH8Eemf26GkMUv1Gw" direction="return">
@@ -197,5 +198,23 @@
     	<ownedParameter xmi:id="_DateTimeUtil_addDuration_millisecond_" name="millisecond" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
     	<ownedParameter xmi:id="_DateTimeUtil_addDuration_dateTimeTZ_" type="_s3xegHIbEd-kC5ysQRjHHw" direction="return"/>
     </ownedOperation>    
+    <ownedOperation xmi:id="_DateTimeUtil_subtract_" name="subtract">
+    	<ownedParameter xmi:id="_DateTimeUtil_subtract_date1_" name="date1" type="_s3xegHIbEd-kC5ysQRjHHw"/>
+   		<ownedParameter xmi:id="_DateTimeUtil_subtract_date2_" name="date2" type="_s3xegHIbEd-kC5ysQRjHHw"/>
+    	<ownedParameter xmi:id="_DateTimeUtil_subtract_return_" type="_DateTimeDuration_" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_DateTimeDuration_" name="DateTimeDuration" isAbstract="true">
+    <ownedAttribute xmi:id="_Duration_negative" name="negative" type="_aPzxAKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_years" name="years" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_months" name="months" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_days" name="days" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_hours" name="hours" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_minutes" name="minutes" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_seconds" name="seconds" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedAttribute xmi:id="_Duration_milliSeconds" name="milliSeconds" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedOperation xmi:id="_Duration_toString_" name="toString">
+    	<ownedParameter xmi:id="_Duration_toString__return_" type="_L0lAYOANEd6NV_VD55whVg" direction="return"/>
+	</ownedOperation>
   </packagedElement>
 </uml:Model>

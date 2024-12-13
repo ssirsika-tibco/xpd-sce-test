@@ -4,10 +4,8 @@
 
 package com.tibco.xpd.rest.datamapper.properties;
 
-import com.tibco.xpd.datamapper.properties.AdvancedRestServiceInputMappingProperties.AbstractExcludeEmptyOptionalArraysProperty;
 import com.tibco.xpd.datamapper.scripts.AbstractScriptDataMapperEditorProvider;
-import com.tibco.xpd.mapper.MappingDirection;
-import com.tibco.xpd.rest.datamapper.RestScriptDataMapperProvider;
+import com.tibco.xpd.rest.datamapper.AdvancedRestServiceInputMappingProperties.AbstractExcludeEmptyOptionalArraysProperty;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 
 /**
@@ -31,7 +29,11 @@ public class RestInputExcludeEmptyOptionalArraysProperty extends AbstractExclude
      * @param dataMapperInfoProvider
      */
     public RestInputExcludeEmptyOptionalArraysProperty() {
-        super(new RestScriptDataMapperProvider(MappingDirection.IN));
+		/*
+		 * Sid ACE-8864 Updated underlying classes to figure out correct context for itself (otherwise the separate
+		 * contributions for RSD and Swagger fought against each other)
+		 */
+		super();
     }
 
 }

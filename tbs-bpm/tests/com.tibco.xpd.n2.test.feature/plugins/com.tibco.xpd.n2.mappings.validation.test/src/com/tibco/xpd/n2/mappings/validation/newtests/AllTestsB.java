@@ -13,10 +13,11 @@ public class AllTestsB {
                 new TestSuite(
                         "Test for com.tibco.xpd.n2.mappings.validation.newtests"); //$NON-NLS-1$
         // $JUnit-BEGIN$
-        suite.addTestSuite(N2_30_N2SubProcessMappingsValidationTest.class);
-        suite.addTestSuite(N2_35_XPD3821MissingCorrelationMappingNamespaceRuleTest.class);
-        suite.addTestSuite(N2_39_LocalCatchSignalEventMappingValidationsTest.class);
-        suite.addTestSuite(N2_40_GlobalSignalReferencingMappingValidationTest.class);
+		// Sid ACE-8742 Moved to SCE test feature
+		suite.addTestSuite(N2_30_N2SubProcessMappingsValidationTest.class);
+		suite.addTestSuite(N2_35_XPD3821MissingCorrelationMappingNamespaceRuleTest.class);
+		suite.addTestSuite(N2_39_LocalCatchSignalEventMappingValidationsTest.class);
+		suite.addTestSuite(N2_40_GlobalSignalReferencingMappingValidationTest.class);
 
         // $JUnit-END$
         return suite;

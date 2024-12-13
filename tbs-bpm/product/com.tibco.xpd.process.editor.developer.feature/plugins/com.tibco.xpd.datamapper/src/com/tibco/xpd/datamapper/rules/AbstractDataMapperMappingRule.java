@@ -37,6 +37,7 @@ import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.validation.bpmn.developer.baserules.AbstractDeveloperActivityMappingJavaScriptRule;
 import com.tibco.xpd.validation.bpmn.rules.baserules.MappingIssue;
+import com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProviderBase;
 import com.tibco.xpd.xpdExtension.DataMapperArrayInflation;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdExtension.ScriptInformation;
@@ -164,7 +165,8 @@ public abstract class AbstractDataMapperMappingRule extends
          * rule instacne will run for all validations
          */
         IScriptDataMapperProvider provider = getScriptDataMapperProvider();
-        mappingContentProvider = new DataMapperMappingContentProvider(provider);
+        /* Sid ACE-8742 need to pass mapper context of data mapper */
+		mappingContentProvider = new DataMapperMappingContentProvider(provider, this.getDataMapperContext());
 
         return mappingContentProvider;
     }
@@ -1227,4 +1229,22 @@ public abstract class AbstractDataMapperMappingRule extends
         }
         return super.isAbstractMapping(mapping);
     }
+    
+    /**
+     * @see com.tibco.xpd.validation.bpmn.rules.baserules.AbstractMappingRuleBase#allowDescendantMappings(com.tibco.xpd.mapper.Mapping,
+     *      com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProviderBase,
+     *      com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProviderBase)
+     * 
+     * @param mapping
+     * @param sourceInfoProvider
+     * @param targetInfoProvider
+     * @return
+     */
+    @Override
+    protected boolean allowDescendantMappings(Mapping mapping,
+            MappingRuleContentInfoProviderBase sourceInfoProvider,
+            MappingRuleContentInfoProviderBase targetInfoProvider) {
+        return DataMapperUtils.isLikeMapping(mapping);
+    }
+
 }

@@ -395,6 +395,9 @@
       <ErrorBrowser
             class="com.tibco.xpd.implementer.resources.xpdl2.errorEvents.BpmnRestServiceErrorsContributor">
       </ErrorBrowser>
+     <ErrorBrowser
+            class="com.tibco.xpd.implementer.resources.xpdl2.errorEvents.SwaggerServiceErrorsContributor">
+      </ErrorBrowser>
    </extension>
 
    <extension
@@ -428,13 +431,13 @@
    <extension
          point="com.tibco.xpd.resources.workingCopyDependencyProvider">
       <dependency
-            provider="com.tibco.xpd.implementer.resources.xpdl2.dependencies.XpdlToRsdWorkingCopyDependencyProvider">
-      </dependency>
-      <dependency
             provider="com.tibco.xpd.implementer.resources.xpdl2.dependencies.RsdToJsonSchemaWorkingCopyDependencyProvider">
       </dependency>
       <dependency
             provider="com.tibco.xpd.implementer.resources.xpdl2.dependencies.JsonSchemaToJsonSchemaWorkingCopyDependencyProvider">
+      </dependency>
+      <dependency
+            provider="com.tibco.xpd.implementer.resources.xpdl2.dependencies.XpdlToRestWorkingCopyDependencyProvider">
       </dependency>
    </extension>  
    <extension

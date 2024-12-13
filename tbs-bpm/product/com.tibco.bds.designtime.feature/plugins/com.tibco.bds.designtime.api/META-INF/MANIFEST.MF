@@ -2,12 +2,16 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName_label
 Bundle-SymbolicName: com.tibco.bds.designtime.api
-Bundle-Version: 11.6.0.qualifier
+Bundle-Version: 11.7.0.qualifier
 Bundle-Vendor: %pluginVendor_label
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.20.100,4.0.0)",
- com.tibco.xpd.bom.globaldata,com.tibco.xpd.bom.types,com.tibco.xpd.b
- om.modeler.custom,org.eclipse.uml2.uml
+ com.tibco.xpd.bom.globaldata,
+ com.tibco.xpd.bom.types,
+ com.tibco.xpd.bom.modeler.custom,
+ org.eclipse.uml2.uml,
+ com.tibco.bpm.cdm.libs.dql;bundle-version="1.0.0",
+ com.tibco.bpm.cdm.dm.eclipse;bundle-version="1.0.0"
 Export-Package: com.tibco.bds.designtime.api,com.tibco.bds.designtime.ap
  i.exception,com.tibco.bds.designtime.api.internal,com.tibco.bds.designt
  ime.api.validation

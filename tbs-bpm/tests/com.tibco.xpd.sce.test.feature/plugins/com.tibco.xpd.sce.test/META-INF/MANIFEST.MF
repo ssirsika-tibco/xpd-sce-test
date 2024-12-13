@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: SCE Integration Tests
 Bundle-SymbolicName: com.tibco.xpd.sce.test
-Bundle-Version: 1.6.0.qualifier
+Bundle-Version: 1.7.0.qualifier
 Bundle-Vendor: TIBCO
 Require-Bundle: org.junit,
  com.tibco.xpd.core.testutil,
@@ -46,7 +46,12 @@ Require-Bundle: org.junit,
  com.tibco.bx.validation,
  com.tibco.xpd.tpcl.org.google.gson,
  com.tibco.xpd.processscriptlibrary.resource,
- com.tibco.xpd.bom.modeler.custom
+ com.tibco.xpd.bom.modeler.custom,
+ com.tibco.xpd.tpcl.org.apache.swagger;bundle-version="[1.0.0,2.0.0)",
+ com.tibco.xpd.rest.swagger,
+ com.tibco.xpd.rest.datamapper;bundle-version="11.6.0",
+ com.tibco.xpd.implementer.resources.xpdl2;bundle-version="11.6.0",
+ com.tibco.xpd.rsd.model
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
 

@@ -5,6 +5,7 @@
 package com.tibco.xpd.implementer.resources.xpdl2.properties;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
@@ -15,9 +16,11 @@ import com.tibco.xpd.implementer.resources.xpdl2.mappings.RestPayloadContainerTr
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptContentProvider;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
+import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
 import com.tibco.xpd.rsd.Method;
 import com.tibco.xpd.rsd.ParameterStyle;
 import com.tibco.xpd.xpdl2.Activity;
+import com.tibco.xpd.xpdl2.ResultError;
 
 /**
  * REST Service mapping content provider.
@@ -27,11 +30,16 @@ import com.tibco.xpd.xpdl2.Activity;
  */
 public class RestServiceTaskItemProvider implements ITreeContentProvider {
 
-    private Object[] topLevelChildren = null;
+	private Object[]						topLevelChildren		= null;
 
-    private final ConceptContentProvider conceptContentProvider;
+	private final ConceptContentProvider	conceptContentProvider;
 
-    private final MappingDirection direction;
+	private final MappingDirection			direction;
+
+	/**
+	 * If the input is a catch error event, this was the last response code we returned (and cached) return content for?
+	 */
+	private String							previousResponseCode	= null;
 
     /**
      * 
@@ -53,8 +61,8 @@ public class RestServiceTaskItemProvider implements ITreeContentProvider {
      */
     @Override
     public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-        // System.out.println("Input changed: " + newInput);
         topLevelChildren = null;
+		previousResponseCode = null;
 
     }
 
@@ -84,12 +92,34 @@ public class RestServiceTaskItemProvider implements ITreeContentProvider {
                 // May be a Catch for a REST fault.
                 Activity thrower = rsta.getThrowerActivity(activity);
                 if (thrower != null) {
-                    if (topLevelChildren == null) {
+					/*
+					 * If the response code caught by catch error event has changed sinbce we previously cached content,
+					 * then throw cache away.
+					 */
+					String latestResponseCode = null;
+
+					ResultError resultError = EventObjectUtil.getResultError(activity);
+
+					if (resultError != null)
+					{
+						latestResponseCode = resultError.getErrorCode();
+					}
+
+					if (topLevelChildren != null && !Objects.equals(latestResponseCode, previousResponseCode))
+					{
+						topLevelChildren = null;
+					}
+
+					if (topLevelChildren == null)
+					{
                         ArrayList<RestMapperTreeItem> children =
                                 getTopServiceCatchChildren(activity, thrower);
 
                         topLevelChildren = children.toArray();
                     }
+
+					previousResponseCode = latestResponseCode;
+
                 }
                 return topLevelChildren;
             } else {

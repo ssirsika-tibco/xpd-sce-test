@@ -6,6 +6,7 @@ package com.tibco.xpd.rest.datamapper;
 
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.rest.datamapper.internal.Messages;
+import com.tibco.xpd.script.ui.internal.BaseScriptSection;
 
 /**
  * Data Mapper section for mappings from process data to a REST Service.
@@ -52,4 +53,15 @@ public class RestDataMapperInSection extends AbstractRestDataMapperSection {
         /* REST input data is brand new and created from scratch */
         return true;
     }
+
+	/**
+	 * @see com.tibco.xpd.implementer.resources.xpdl2.properties.AbstractEditableMappingSection#getScriptSection()
+	 * 
+	 * @return a new RestMapperScriptProperties.
+	 */
+	@Override
+	protected BaseScriptSection getScriptSection()
+	{
+		return new RestMapperScriptProperties(getDirection());
+	}
 }

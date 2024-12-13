@@ -1,0 +1,110 @@
+openapi: 3.0.0
+info:
+  title: External References
+  version: 1.0.0
+paths:
+  /users/{userId}:
+    post:
+      summary: External Ref POST
+      operationId: createUser
+      parameters:
+        - name: userId
+          required: true 
+          in: path
+          schema:
+            $ref: './schemas/UserIdSchema.yaml'
+        - name: age
+          in: query
+          description: Age with minimum and maximum range
+          schema:
+            type: integer
+            minimum: 18
+            maximum: 65
+            example: 30            
+        - name: queryType
+          in: query
+          description: Service type external reference
+          schema:
+            $ref: './schemas/UserQueryTypeSchema.yaml'      
+        - name: headerType
+          in: header
+          description: Header type external reference
+          schema:
+            $ref: './schemas/UserHeaderTypeSchema.yaml'      
+    
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: './schemas/UserUpdatePayload.yaml'
+    
+      responses:
+        '200':
+          description: A single user
+          headers:
+            X-Rate-Limit:
+              schema:
+                $ref: './schemas/LimitSchema.yaml'
+            X-Line-Limit:
+              schema:
+                $ref: '#/components/schemas/LineLimit'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDetails'  # Internal reference to UserDetails schema
+        '201':
+          description: Uses local type that is an indirect reference to an external type
+          headers:
+            X-Rate-Limit:
+              schema:
+                $ref: '#/components/schemas/IndirectExternalRef2'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndirectExternalRef1' 
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/Error.yaml'
+
+components:
+  schemas:
+    IndirectExternalRef1:
+      $ref: IndirectExternalRef2
+    
+    IndirectExternalRef2:
+      $ref: './schemas/IndirectRef.yaml/IndirectType'
+      
+    LineLimit:
+      type: integer
+      description: The number of allowed requests in the current period
+      example: 100
+    UserDetails:  # Defining internal schema that will be used in the response
+      type: object
+      properties:
+        userInfo:
+          type: object
+          properties:
+            name:
+              type: string
+              example: "John Doe"
+            age:
+              type: integer
+              example: 30
+        externalData:
+          $ref: './schemas/ExternalData.yaml'  # Referencing an external schema here
+  responses:
+    UnauthorizedError:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: './schemas/Error.yaml'
+  headers:
+    LineLimitHeader:
+      description: The number of allowed requests in the current period
+      schema:
+        type: integer
+        example: 60

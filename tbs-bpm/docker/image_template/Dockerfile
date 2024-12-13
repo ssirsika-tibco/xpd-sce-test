@@ -1,13 +1,14 @@
 # Copyright (c) 2004-$$COPYRIGHT_END_YEAR$$. Cloud Software Group, Inc. All Rights Reserved.
 
 # Installer stage:
-FROM centos:7.6.1810@sha256:6ae4cddb2b37f889afd576a17a5286b311dcbf10a904409670827f6f9b50065e as installer
+FROM ubuntu:24.04@sha256:99c35190e22d294cdace2783ac55effc69d32896daaa265f0bbedbcde4fbe3e5 as installer
 LABEL maintainer="TIBCO Software Inc" \
       image="bpm-studio-installation" \
       copyright="(c) Cloud Software Group, Inc 2004 - $$COPYRIGHT_END_YEAR$$. All rights reserved."
 
 # install required software
-RUN yum -y -q install unzip  && \
+RUN apt-get update && \
+    apt-get install -y unzip && \
     groupadd -r studio && useradd -r -m -g studio studio  && \
     mkdir -p /opt/TIBCO/studio-bpm /tmp/tibco/product /tmp/tibco/hf  && \
     chown -R studio:studio /opt/TIBCO/studio-bpm /tmp/tibco/
@@ -47,20 +48,21 @@ WORKDIR /opt/TIBCO/studio-bpm/studio/$$STUDIO_PRODUCT_HOME_VERSION$$/eclipse
 RUN ./TIBCOBusinessStudio -initialize -noSplash -clean
 
 # start a fresh image - in order to reduce final size. Production stage:
-FROM centos:7.6.1810@sha256:6ae4cddb2b37f889afd576a17a5286b311dcbf10a904409670827f6f9b50065e as production
+FROM ubuntu:24.04@sha256:99c35190e22d294cdace2783ac55effc69d32896daaa265f0bbedbcde4fbe3e5 as production
 LABEL maintainer="TIBCO Software Inc" \
       image="Production" \
       copyright="(c) Cloud Software Group, Inc 2004 - $$COPYRIGHT_END_YEAR$$. All rights reserved."
 
 # install required software and create studio user
-RUN yum -y -q install xorg-x11-server-Xvfb.x86_64 && \
-    yum -y -q install install /usr/lib64/libstdc++.so.5 && \
-    yum -y -q install gtk3 && \
-    yum -y -q install /usr/lib64/libXtst.so.6 && \
+RUN apt-get update && \
+    apt-get install -y xvfb libstdc++5 libgtk-3-0 libxtst6 dbus python3 curl && \
     groupadd -r studio && useradd -r -m -g studio studio  && \
     mkdir -p /opt/TIBCO/studio-bpm  && \
     chown -R studio:studio /opt/TIBCO/studio-bpm && \
     dbus-uuidgen --ensure
+
+# Clean up
+RUN rm -rf /var/lib/apt/lists/*    
 
 # WORKSPACE_DIR = the folder in which the studio workspace is to be created
 # PROJECTS_DIR  = the folder in which the project to be imported is located
@@ -87,4 +89,4 @@ WORKDIR /opt/TIBCO/studio-bpm/studio/$$STUDIO_PRODUCT_HOME_VERSION$$/eclipse
 
 
 # run the ant script
-ENTRYPOINT [ "sh", "./entrypoint.sh" ]
+ENTRYPOINT [ "bash", "./entrypoint.sh" ]

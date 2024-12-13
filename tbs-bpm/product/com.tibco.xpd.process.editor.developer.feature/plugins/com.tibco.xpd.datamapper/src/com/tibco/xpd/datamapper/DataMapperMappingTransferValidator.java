@@ -40,8 +40,11 @@ public class DataMapperMappingTransferValidator implements
     public boolean isValidTransfer(Object source, Object target) {
         boolean isValid = true;
 
+		/* Sid ACE-8885 We should also prevent actual mapping of items tagged as not valid for mapping. */
         if (sourceInfoProvider.isArtificialObject(source)
-                || targetInfoProvider.isArtificialObject(target)) {
+				|| targetInfoProvider.isArtificialObject(target) || !sourceInfoProvider.isValidForMapping(source)
+				|| !targetInfoProvider.isValidForMapping(target))
+		{
             isValid = false;
         }
 

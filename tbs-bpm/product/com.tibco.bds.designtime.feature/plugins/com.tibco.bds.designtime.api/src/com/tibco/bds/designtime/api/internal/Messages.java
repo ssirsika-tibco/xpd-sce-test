@@ -4,6 +4,7 @@ import org.eclipse.osgi.util.NLS;
 
 public class Messages extends NLS {
 	private static final String BUNDLE_NAME = "com.tibco.bds.designtime.api.internal.messages"; //$NON-NLS-1$
+	public static String SemanticSearchValidator_ALL_tag_no_longer_supported;
 	public static String SemanticSearchValidator_bad_sort_attribute;
 	public static String SemanticSearchValidator_PT_on_non_leaf;
 	public static String SemanticSearchValidator_bad_enum;
@@ -45,6 +46,7 @@ public class Messages extends NLS {
 	public static String SemanticSearchValidator_operator_not_for_type;
 	public static String SemanticSearchValidator_operator_not_for_object;
 	public static String SemanticSearchValidator_type_duration;
+	public static String SemanticSearchValidator_Typeof_no_longer_supported;
 	public static String SemanticSearchValidator_typeof_only_for_object;
 	public static String SemanticSearchValidator_value_count_number;
 	public static String SemanticSearchValidator_value_count_one_plus;

@@ -1,0 +1,1478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="__-USIJCEEe-ZdP36rg_2iA" xpdExt:DisplayName="SwaggerScriptGenTests_ComplexTypes" Name="SwaggerScriptGenTests_ComplexTypes">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2024-10-22</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_g9w5QJCGEe-ZdP36rg_2iA" xpdExt:DisplayName="SwaggerPetstore_Consumer" Name="SwaggerPetstore_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:RestService resourceName="Swagger Petstore"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_C0Hak5CFEe-ZdP36rg_2iA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="___EgEJCEEe-ZdP36rg_2iA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_C0HalJCFEe-ZdP36rg_2iA" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_GCUm7qA6Ee-hV431ldRVyQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_GCT_waA6Ee-hV431ldRVyQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_GCUm76A6Ee-hV431ldRVyQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_nqCDqqHKEe-BjvPcYYT08g" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_nqCDk6HKEe-BjvPcYYT08g">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_nqCDq6HKEe-BjvPcYYT08g" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="___EgEJCEEe-ZdP36rg_2iA" xpdExt:DisplayName="SwaggerScriptGenTests_ComplexTypes-From-SimpleTypes" Name="SwaggerScriptGenTests_ComplexTypesFromSimpleTypes">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_Z3LJsZCJEe-ZdP36rg_2iA" xpdExt:DisplayName="PathParam" Name="PathParam" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Y2JxkZCJEe-ZdP36rg_2iA" xpdExt:DisplayName="QueryParam" Name="QueryParam" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Z1Oo8ZCJEe-ZdP36rg_2iA" xpdExt:DisplayName="HeaderParam" Name="HeaderParam" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_hHRTMZCJEe-ZdP36rg_2iA" xpdExt:DisplayName="OutputHeaderParam" Name="OutputHeaderParam" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_kVC2wZCJEe-ZdP36rg_2iA" xpdExt:DisplayName="OutputHeaderParam2" Name="OutputHeaderParam2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ju3u8ZCGEe-ZdP36rg_2iA" xpdExt:DisplayName="TextField" Name="TextField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_j7yJkZCGEe-ZdP36rg_2iA" xpdExt:DisplayName="BoolField" Name="BoolField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_kBoS4ZCGEe-ZdP36rg_2iA" xpdExt:DisplayName="DateField" Name="DateField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_kFYKcZCGEe-ZdP36rg_2iA" xpdExt:DisplayName="DateTimeField" Name="DateTimeField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_kInEoJCGEe-ZdP36rg_2iA" xpdExt:DisplayName="FixedPointNumberField" Name="FixedPointNumberField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_kMSDsZCGEe-ZdP36rg_2iA" xpdExt:DisplayName="FloatingPointNumberField" Name="FloatingPointNumberField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_qx0NQZCGEe-ZdP36rg_2iA" xpdExt:DisplayName="IntegerField" Name="IntegerField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>0</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_X1G2MZCHEe-ZdP36rg_2iA" xpdExt:DisplayName="MatchingSwaggerAllPropertyTypesAsGrandChildren" Name="MatchingSwaggerAllPropertyTypesAsGrandChildren" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_6vPIsJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_TOR_kZCIEe-ZdP36rg_2iA" xpdExt:DisplayName="MatchingSwaggerAllPropertyTypesAsChildren" Name="MatchingSwaggerAllPropertyTypesAsChildren" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_FA9FkJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_zgso8ZCGEe-ZdP36rg_2iA" xpdExt:DisplayName="TextArrayField" Name="TextArrayField" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_zsjToZCGEe-ZdP36rg_2iA" xpdExt:DisplayName="BoolArrayField" Name="BoolArrayField" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_zvi9QZCGEe-ZdP36rg_2iA" xpdExt:DisplayName="DateArrayField" Name="DateArrayField" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_zyF68ZCGEe-ZdP36rg_2iA" xpdExt:DisplayName="DateTimeArrayField" Name="DateTimeArrayField" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_z0ZBAZCGEe-ZdP36rg_2iA" xpdExt:DisplayName="FixedPointNumberArrayField" Name="FixedPointNumberArrayField" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_z2vxcZCGEe-ZdP36rg_2iA" xpdExt:DisplayName="FloatingPointArrayField" Name="FloatingPointArrayField" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_8oyO0ZCGEe-ZdP36rg_2iA" xpdExt:DisplayName="IntegerArrayField" Name="IntegerArrayField" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>0</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_b9Bt0ZCHEe-ZdP36rg_2iA" xpdExt:DisplayName="MatchingSwaggerAllPropertyTypesAsGrandChildrenArray" Name="MatchingSwaggerAllPropertyTypesAsGrandChildrenArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_6vPIsJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_VBXGwZCIEe-ZdP36rg_2iA" xpdExt:DisplayName="MatchingSwaggerAllPropertyTypesAsChildrenArray" Name="MatchingSwaggerAllPropertyTypesAsChildrenArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_FA9FkJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_C0HalZCFEe-ZdP36rg_2iA" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_C0HalJCFEe-ZdP36rg_2iA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_C0HalpCFEe-ZdP36rg_2iA" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_C0HalJCFEe-ZdP36rg_2iA" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="659.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Jy8YeJCGEe-ZdP36rg_2iA" Name="complexTypeInputOutputmappedfromSimpleTypes" xpdExt:Visibility="Private" xpdExt:DisplayName="complexTypeInputOutput - mapped from Simple Types">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_LvYP8JCGEe-ZdP36rg_2iA">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="false" xpdExt:ExcludeEmptyOptionalArrays="false" xpdExt:ExcludeEmptyObjectsFromArrays="false">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.string">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.date">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">DateField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.stringArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.dateArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">DateArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.dateTimeArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">DateTimeArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.dateTime">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">DateTimeField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberDoubleArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FixedPointNumberArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberDouble">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FixedPointNumberField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberFloatArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FloatingPointArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberFloat">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FloatingPointNumberField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.integerArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">IntegerArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.integer">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">IntegerField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.bool">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">BoolField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.boolArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">BoolArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PATH_stringPath">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">PathParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_QUERY_stringQuery">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">QueryParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_HEADER_stringHeader">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">HeaderParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_LvYP8ZCGEe-ZdP36rg_2iA">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.string</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.stringArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="DateField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.date</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="DateArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.dateArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="DateTimeField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.dateTime</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="DateTimeArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.dateTimeArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FixedPointNumberField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberDouble</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FixedPointNumberArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberDoubleArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FloatingPointNumberField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberFloat</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FloatingPointArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberFloatArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="IntegerField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.integer</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="IntegerArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.integerArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BoolField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.bool</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BoolArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.boolArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutputHeaderParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_HEADER_200_HeaderParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerPetStore.json" xpdExt:MethodId="PUT::/complexInputMultipleOutput/{stringPath}"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_g9w5QJCGEe-ZdP36rg_2iA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_C0HalJCFEe-ZdP36rg_2iA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="185.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_s9JYIZFREe-KvbEW9tafvA" Name="complexTypeInputOutputmappedfromSimpleTypesExcludeEmptyOpt" xpdExt:Visibility="Private" xpdExt:DisplayName="complexTypeInputOutput - mapped from Simple Types Exclude Empty Opt">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_s9JYIpFREe-KvbEW9tafvA">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.string">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.date">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">DateField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.stringArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.dateArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">DateArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.dateTimeArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">DateTimeArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.dateTime">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">DateTimeField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberDoubleArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FixedPointNumberArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberDouble">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FixedPointNumberField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberFloatArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FloatingPointArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberFloat">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FloatingPointNumberField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.integerArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">IntegerArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.integer">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">IntegerField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.bool">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">BoolField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.boolArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">BoolArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PATH_stringPath">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">PathParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_QUERY_stringQuery">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">QueryParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_HEADER_stringHeader">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">HeaderParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_s9JYI5FREe-KvbEW9tafvA">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.string</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.stringArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="DateField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.date</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="DateArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.dateArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="DateTimeField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.dateTime</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="DateTimeArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.dateTimeArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FixedPointNumberField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberDouble</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FixedPointNumberArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberDoubleArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FloatingPointNumberField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberFloat</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FloatingPointArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberFloatArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="IntegerField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.integer</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="IntegerArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.integerArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BoolField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.bool</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BoolArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.boolArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.string">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.string</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.stringArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.stringArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.date">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.date</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.dateArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.dateArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.dateTime">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.dateTime</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.dateTimeArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.dateTimeArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.numberDouble">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.numberDouble</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.numberDoubleArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.numberDoubleArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.numberFloat">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.numberFloat</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.numberFloatArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.numberFloatArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.integer">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.integer</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.integerArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.integerArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.bool">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.bool</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="MatchingSwaggerAllPropertyTypesAsGrandChildren.childComplex.boolArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.boolArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutputHeaderParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_HEADER_200_HeaderParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="OutputHeaderParam2">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_HEADER_201_HeaderParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerPetStore.json" xpdExt:MethodId="PUT::/complexInputMultipleOutput/{stringPath}"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_g9w5QJCGEe-ZdP36rg_2iA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_C0HalJCFEe-ZdP36rg_2iA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="319.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_Jy8Ye5CGEe-ZdP36rg_2iA" xpdExt:DisplayName="" Name="" From="_C0HalZCFEe-ZdP36rg_2iA" To="_Jy8YeJCGEe-ZdP36rg_2iA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_s9JYOZFREe-KvbEW9tafvA" xpdExt:DisplayName="" Name="" From="_Jy8YeJCGEe-ZdP36rg_2iA" To="_s9JYIZFREe-KvbEW9tafvA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_wWE80KA5Ee-hV431ldRVyQ" xpdExt:DisplayName="" Name="" From="_s9JYIZFREe-KvbEW9tafvA" To="_C0HalpCFEe-ZdP36rg_2iA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_GCT_waA6Ee-hV431ldRVyQ" xpdExt:DisplayName="SwaggerScriptGenTests_ComplexTypes-From-ComplexType" Name="SwaggerScriptGenTests_ComplexTypesFromComplexType">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_YNGDQKA8Ee-hV431ldRVyQ" xpdExt:DisplayName="FieldWithAttribsNotMatchingSwaggerNames" Name="FieldWithAttribsNotMatchingSwaggerNames">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_FBysAKA8Ee-hV431ldRVyQ"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_R00dIaA9Ee-hV431ldRVyQ" xpdExt:DisplayName="Response200FieldWithAttribsNotMatchingSwaggerNames" Name="Response200FieldWithAttribsNotMatchingSwaggerNames">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_FBysAKA8Ee-hV431ldRVyQ"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Yo1uoaA9Ee-hV431ldRVyQ" xpdExt:DisplayName="Response201FieldWithAttribsNotMatchingSwaggerNames" Name="Response201FieldWithAttribsNotMatchingSwaggerNames">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_FBysAKA8Ee-hV431ldRVyQ"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_qlrYQKGpEe-hB63LthJdTA" xpdExt:DisplayName="FieldWithAttribsMatchingSwaggerNames" Name="FieldWithAttribsMatchingSwaggerNames">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_6vPIsJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_vnmaAaGpEe-hB63LthJdTA" xpdExt:DisplayName="Response200FieldWithAttribsMatchingSwaggerNames" Name="Response200FieldWithAttribsMatchingSwaggerNames">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_6vPIsJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_zI59kaGpEe-hB63LthJdTA" xpdExt:DisplayName="Response201FieldWithAttribsMatchingSwaggerNames" Name="Response201FieldWithAttribsMatchingSwaggerNames">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_FA9FkJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_F9gdYKNdEe-JSbM5jvItvw" xpdExt:DisplayName="MatchesAllPropertyTypesAsChildren" Name="MatchesAllPropertyTypesAsChildren">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_FA9FkJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_KoF9MKNdEe-JSbM5jvItvw" xpdExt:DisplayName="MatchesArrayAllPropertyTypesAsChildren" Name="MatchesArrayAllPropertyTypesAsChildren" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_FA9FkJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_T3XwMKNdEe-JSbM5jvItvw" xpdExt:DisplayName="TextField" Name="TextField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_WRC9UKNdEe-JSbM5jvItvw" xpdExt:DisplayName="TextArrayField" Name="TextArrayField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_1cXJ1KNdEe-JSbM5jvItvw" xpdExt:DisplayName="Response200MatchesAllPropertyTypesAsChildren" Name="Response200MatchesAllPropertyTypesAsChildren">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_FA9FkJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_1cXJ1aNdEe-JSbM5jvItvw" xpdExt:DisplayName="Response200MatchesArrayAllPropertyTypesAsChildren" Name="Response200MatchesArrayAllPropertyTypesAsChildren" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_FA9FkJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_1cXJ1qNdEe-JSbM5jvItvw" xpdExt:DisplayName="Response200TextField" Name="Response200TextField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_1cXJ16NdEe-JSbM5jvItvw" xpdExt:DisplayName="Response200TextArrayField" Name="Response200TextArrayField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Vmeg5KNeEe-JSbM5jvItvw" xpdExt:DisplayName="Response201MatchesArrayAllPropertyTypesAsChildren" Name="Response201MatchesArrayAllPropertyTypesAsChildren" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_FA9FkJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Vmeg5aNeEe-JSbM5jvItvw" xpdExt:DisplayName="Response201TextArrayField" Name="Response201TextArrayField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Vmeg5qNeEe-JSbM5jvItvw" xpdExt:DisplayName="Response201MatchesAllPropertyTypesAsChildren" Name="Response201MatchesAllPropertyTypesAsChildren">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_FA9FkJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Vmeg56NeEe-JSbM5jvItvw" xpdExt:DisplayName="Response201TextField" Name="Response201TextField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_GCT_wqA6Ee-hV431ldRVyQ" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_GCUm76A6Ee-hV431ldRVyQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_GCT_w6A6Ee-hV431ldRVyQ" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="51.0" LaneId="_GCUm76A6Ee-hV431ldRVyQ" Width="61.0">
+              <xpdl2:Coordinates XCoordinate="758.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_GCT_xKA6Ee-hV431ldRVyQ" Name="complexTypeInputOutputmappedfromComplexTypeIncludeEmpty" xpdExt:Visibility="Private" xpdExt:DisplayName="complexTypeInputOutput - mapped from Complex Type - Include Empty">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_GCT_xaA6Ee-hV431ldRVyQ">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="false" xpdExt:ExcludeEmptyOptionalArrays="false" xpdExt:ExcludeEmptyObjectsFromArrays="false">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.stringArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.stringArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.string">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.stringAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.date">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.dateArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.dateTime">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateTimeAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.dateTimeArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateTimeArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberDouble">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberDoubleAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberDoubleArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberDoubleArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberFloat">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberFloatAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberFloatArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberFloatArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.integerArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.integerArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.integer">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.integerAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.bool">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.boolAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.boolArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.boolArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.string">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.stringAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.stringArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.stringArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.date">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.dateArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.dateTime">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateTimeAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.dateTimeArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateTimeArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.numberDouble">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberDoubleAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.numberDoubleArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberDoubleArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.numberFloat">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberFloatAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.numberFloatArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberFloatArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.integer">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.integerAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.integerArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.integerArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.bool">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.boolAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.boolArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.boolArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PATH_stringPath">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.pathParamAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_QUERY_stringQuery">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.queryParamAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_HEADER_stringHeader">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.headerParamAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_GCT_xqA6Ee-hV431ldRVyQ">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.boolAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.bool</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.date</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateTimeAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.dateTime</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.integerAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.integer</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberDoubleAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberDouble</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberFloatAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberFloat</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.stringAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.string</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.boolArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.boolArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.dateArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateTimeArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.dateTimeArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.integerArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.integerArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberDoubleArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberDoubleArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberFloatArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberFloatArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.stringArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.stringArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.headerParamAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_HEADER_200_HeaderParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.boolAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.bool</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.date</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateTimeAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.dateTime</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.integerAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.integer</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberDoubleAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.numberDouble</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberFloatAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.numberFloat</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.stringAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.string</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.boolArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.boolArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.dateArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateTimeArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.dateTimeArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.integerArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.integerArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberDoubleArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.numberDoubleArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberFloatArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.numberFloatArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.stringArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.stringArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerPetStore.json" xpdExt:MethodId="PUT::/complexInputMultipleOutput/{stringPath}"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_g9w5QJCGEe-ZdP36rg_2iA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_GCUm76A6Ee-hV431ldRVyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="185.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hfFhIKA-Ee-hV431ldRVyQ" Name="complexTypeInputOutputmappedfromComplexTypeExcludeEmpty" xpdExt:Visibility="Private" xpdExt:DisplayName="complexTypeInputOutput - mapped from Complex Type - Exclude Empty">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_hfFhIaA-Ee-hV431ldRVyQ">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.stringArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.stringArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.string">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.stringAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.date">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.dateArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.dateTime">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateTimeAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.dateTimeArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateTimeArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberDouble">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberDoubleAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberDoubleArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberDoubleArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberFloat">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberFloatAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.numberFloatArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberFloatArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.integerArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.integerArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.integer">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.integerAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.bool">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.boolAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplex.boolArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.boolArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.string">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.stringAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.stringArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.stringArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.date">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.dateArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.dateTime">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateTimeAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.dateTimeArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateTimeArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.numberDouble">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberDoubleAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.numberDoubleArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberDoubleArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.numberFloat">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberFloatAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.numberFloatArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberFloatArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.integer">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.integerAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.integerArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.integerArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.bool">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.boolAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.childComplexArray.boolArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.boolArrayAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PATH_stringPath">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.pathParamAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_QUERY_stringQuery">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.queryParamAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_HEADER_stringHeader">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.headerParamAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_hfFhIqA-Ee-hV431ldRVyQ">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.headerParamAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_HEADER_200_HeaderParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.stringAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.string</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.stringArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.stringArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.date</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.dateArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateTimeAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.dateTime</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateTimeArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.dateTimeArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.integerAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.integer</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.integerArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.integerArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberDoubleAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberDouble</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberDoubleArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberDoubleArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberFloatAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberFloat</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberFloatArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.numberFloatArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.boolAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.bool</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.boolArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex.boolArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.stringAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.string</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.stringArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.stringArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.date</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.dateArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateTimeAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.dateTime</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.dateTimeArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.dateTimeArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberDoubleAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.numberDouble</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberDoubleArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.numberDoubleArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberFloatAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.numberFloat</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.numberFloatArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.numberFloatArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.integerAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.integer</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.integerArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.integerArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.boolAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.bool</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsNotMatchingSwaggerNames.childComplexArrayAttribute.boolArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray.boolArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.stringAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.string</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.stringArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.stringArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.date</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.dateArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateTimeAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.dateTime</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.dateTimeArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.dateTimeArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberDoubleAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.numberDouble</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberDoubleArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.numberDoubleArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberFloatAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.numberFloat</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.numberFloatArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.numberFloatArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.integerAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.integer</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.integerArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.integerArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.boolAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.bool</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.boolArrayAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201.boolArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldWithAttribsNotMatchingSwaggerNames.childComplexAttribute.headerParamAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_HEADER_201_HeaderParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerPetStore.json" xpdExt:MethodId="PUT::/complexInputMultipleOutput/{stringPath}"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_g9w5QJCGEe-ZdP36rg_2iA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_GCUm76A6Ee-hV431ldRVyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="331.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_e_4Z0KGpEe-hB63LthJdTA" Name="complexTypeInputOutputLikemapping" xpdExt:Visibility="Private" xpdExt:DisplayName="complexTypeInputOutput - Like mapping">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_fhl_wKGpEe-hB63LthJdTA">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PATH_stringPath">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsMatchingSwaggerNames.childComplex.pathParamAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_QUERY_stringQuery">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsMatchingSwaggerNames.childComplex.queryParamAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_HEADER_stringHeader">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsMatchingSwaggerNames.childComplex.headerParamAttribute</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="REST_PAYLOAD">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsMatchingSwaggerNames</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_fhl_waGpEe-hB63LthJdTA">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200FieldWithAttribsMatchingSwaggerNames.childComplex.headerParamAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_HEADER_200_HeaderParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="Response200FieldWithAttribsMatchingSwaggerNames">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response201FieldWithAttribsMatchingSwaggerNames.headerParamAttribute">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_HEADER_201_HeaderParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="Response201FieldWithAttribsMatchingSwaggerNames">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerPetStore.json" xpdExt:MethodId="PUT::/complexInputMultipleOutput/{stringPath}"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_g9w5QJCGEe-ZdP36rg_2iA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_GCUm76A6Ee-hV431ldRVyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="482.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_PFmDQKNdEe-JSbM5jvItvw" Name="complexInlineTypeInputOutput" xpdExt:Visibility="Private" xpdExt:DisplayName="complexInlineTypeInputOutput">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_QTNs8KNdEe-JSbM5jvItvw">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.string">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.stringArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextArrayField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="REST_PAYLOAD.childComplex">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">MatchesAllPropertyTypesAsChildren</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="REST_PAYLOAD.childComplexArray">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">MatchesArrayAllPropertyTypesAsChildren</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_QTNs8aNdEe-JSbM5jvItvw">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200TextField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.string</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Response200TextArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.stringArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="Response200MatchesAllPropertyTypesAsChildren">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplex</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="Response200MatchesArrayAllPropertyTypesAsChildren">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200.childComplexArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerPetStore.json" xpdExt:MethodId="PUT::/complexInlineTypeInputOutput"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_g9w5QJCGEe-ZdP36rg_2iA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_GCUm76A6Ee-hV431ldRVyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="625.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_GCUm0KA6Ee-hV431ldRVyQ" xpdExt:DisplayName="" Name="" From="_GCT_wqA6Ee-hV431ldRVyQ" To="_GCT_xKA6Ee-hV431ldRVyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_GCUm0aA6Ee-hV431ldRVyQ" xpdExt:DisplayName="" Name="" From="_PFmDQKNdEe-JSbM5jvItvw" To="_GCT_w6A6Ee-hV431ldRVyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hfHWUKA-Ee-hV431ldRVyQ" xpdExt:DisplayName="" Name="" From="_GCT_xKA6Ee-hV431ldRVyQ" To="_hfFhIKA-Ee-hV431ldRVyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_e_4Z06GpEe-hB63LthJdTA" xpdExt:DisplayName="" Name="" From="_hfFhIKA-Ee-hV431ldRVyQ" To="_e_4Z0KGpEe-hB63LthJdTA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_PFmDQ6NdEe-JSbM5jvItvw" xpdExt:DisplayName="" Name="" From="_e_4Z0KGpEe-hB63LthJdTA" To="_PFmDQKNdEe-JSbM5jvItvw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_nqCDk6HKEe-BjvPcYYT08g" xpdExt:DisplayName="SwaggerScriptGenTests_ArrayComplexTypes-From-ComplexType" Name="SwaggerScriptGenTests_ArrayComplexTypesFromComplexType">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_nqCDpqHKEe-BjvPcYYT08g" xpdExt:DisplayName="FieldWithAttribsMatchingSwaggerNames" Name="FieldWithAttribsMatchingSwaggerNames" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_6vPIsJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nqCDp6HKEe-BjvPcYYT08g" xpdExt:DisplayName="Response200FieldWithAttribsMatchingSwaggerNames" Name="Response200FieldWithAttribsMatchingSwaggerNames" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_6vPIsJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nqCDqKHKEe-BjvPcYYT08g" xpdExt:DisplayName="Response201FieldWithAttribsMatchingSwaggerNames" Name="Response201FieldWithAttribsMatchingSwaggerNames" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="SwaggerScriptGenTests_Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_FA9FkJCFEe-ZdP36rg_2iA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3hiuwaHKEe-BjvPcYYT08g" xpdExt:DisplayName="pathParamField" Name="pathParamField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_nqCDlKHKEe-BjvPcYYT08g" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_nqCDq6HKEe-BjvPcYYT08g" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nqCDlaHKEe-BjvPcYYT08g" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="51.0" LaneId="_nqCDq6HKEe-BjvPcYYT08g" Width="61.0">
+              <xpdl2:Coordinates XCoordinate="758.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_wiB-8KHKEe-BjvPcYYT08g" Name="complexArrayInputMultipleOutputIncludeEmpty" xpdExt:Visibility="Private" xpdExt:DisplayName="complexArrayInputMultipleOutput - Include Empty">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_yBAeYKHKEe-BjvPcYYT08g">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="false" xpdExt:ExcludeEmptyOptionalArrays="false" xpdExt:ExcludeEmptyObjectsFromArrays="false">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PATH_stringPath">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">pathParamField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" xpdExt:likeMapping="true" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsMatchingSwaggerNames</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_yBAeYaHKEe-BjvPcYYT08g">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="Response200FieldWithAttribsMatchingSwaggerNames">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="Response201FieldWithAttribsMatchingSwaggerNames">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_201</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerPetStore.json" xpdExt:MethodId="PUT::/complexArrayInputMultipleOutput/{stringPath}"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_g9w5QJCGEe-ZdP36rg_2iA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_nqCDq6HKEe-BjvPcYYT08g" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="225.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_YY2jBaHLEe-BjvPcYYT08g" Name="complexArrayInputMultipleOutputExcludeEmpty" xpdExt:Visibility="Private" xpdExt:DisplayName="complexArrayInputMultipleOutput - Exclude Empty">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_YY2jBqHLEe-BjvPcYYT08g">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" Direction="IN" Formal="REST_PATH_stringPath">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">pathParamField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSwagger.DataMapperContent" xpdExt:likeMapping="true" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">FieldWithAttribsMatchingSwaggerNames</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_YY2jB6HLEe-BjvPcYYT08g">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="SwaggerToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="Response200FieldWithAttribsMatchingSwaggerNames">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD_200</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerPetStore.json" xpdExt:MethodId="PUT::/complexArrayInputMultipleOutput/{stringPath}"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_g9w5QJCGEe-ZdP36rg_2iA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_nqCDq6HKEe-BjvPcYYT08g" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="419.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_nqCDn6HKEe-BjvPcYYT08g" Name="" From="_YY2jBaHLEe-BjvPcYYT08g" To="_nqCDlaHKEe-BjvPcYYT08g">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_wiB-86HKEe-BjvPcYYT08g" xpdExt:DisplayName="" Name="" From="_nqCDlKHKEe-BjvPcYYT08g" To="_wiB-8KHKEe-BjvPcYYT08g">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_YZBiIKHLEe-BjvPcYYT08g" xpdExt:DisplayName="" Name="" From="_wiB-8KHKEe-BjvPcYYT08g" To="_YY2jBaHLEe-BjvPcYYT08g">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

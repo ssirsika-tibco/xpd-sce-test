@@ -293,6 +293,23 @@ public abstract class MappingRuleContentInfoProviderBase {
      */
     public abstract boolean isChoiceObject(Object objectFromMappingOrContent);
 
+	/**
+	 * Check whether the given object can participate in mapping or not.
+	 * <p>
+	 * If the object can not participate in the mapping then method should return
+	 * <code>false</code> otherwise it should return <code>true</code>
+	 * 
+	 * This default implementation will always return <code>true</code> but
+	 * implementation can be overridden to provide specific value.
+	 * 
+	 * @param objectInTree object from content provider tree data.
+	 * 
+	 * @return <code>true</code> if the given object can participate in the mapping
+	 */
+	public boolean isValidForMapping(Object objectInTree) {
+		return true;
+	}
+
     /**
      * Check whether the given mapping object is equivalent to the given content
      * provider tree data item.

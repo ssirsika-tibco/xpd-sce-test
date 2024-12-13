@@ -12340,33 +12340,33 @@ public interface XpdExtensionPackage extends EPackage
 	EAttribute getScriptDataMapper_MappingDirection();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyOptionalObjects <em>Exclude Empty Optional Objects</em>}'.
+	 * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getExcludeEmptyOptionalObjects <em>Exclude Empty Optional Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Exclude Empty Optional Objects</em>'.
-	 * @see com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyOptionalObjects()
+	 * @see com.tibco.xpd.xpdExtension.ScriptDataMapper#getExcludeEmptyOptionalObjects()
 	 * @see #getScriptDataMapper()
 	 * @generated
 	 */
 	EAttribute getScriptDataMapper_ExcludeEmptyOptionalObjects();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyOptionalArrays <em>Exclude Empty Optional Arrays</em>}'.
+	 * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getExcludeEmptyOptionalArrays <em>Exclude Empty Optional Arrays</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Exclude Empty Optional Arrays</em>'.
-	 * @see com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyOptionalArrays()
+	 * @see com.tibco.xpd.xpdExtension.ScriptDataMapper#getExcludeEmptyOptionalArrays()
 	 * @see #getScriptDataMapper()
 	 * @generated
 	 */
 	EAttribute getScriptDataMapper_ExcludeEmptyOptionalArrays();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyObjectsFromArrays <em>Exclude Empty Objects From Arrays</em>}'.
+	 * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.ScriptDataMapper#getExcludeEmptyObjectsFromArrays <em>Exclude Empty Objects From Arrays</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Exclude Empty Objects From Arrays</em>'.
-	 * @see com.tibco.xpd.xpdExtension.ScriptDataMapper#isExcludeEmptyObjectsFromArrays()
+	 * @see com.tibco.xpd.xpdExtension.ScriptDataMapper#getExcludeEmptyObjectsFromArrays()
 	 * @see #getScriptDataMapper()
 	 * @generated
 	 */

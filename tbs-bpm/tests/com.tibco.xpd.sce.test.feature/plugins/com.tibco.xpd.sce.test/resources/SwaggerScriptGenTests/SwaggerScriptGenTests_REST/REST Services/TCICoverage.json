@@ -1,0 +1,426 @@
+{
+  "swagger": "2.0",
+  "schemes": [ "http" ],
+  "host" : "localhost",
+  "basePath": "/gsbc/MOCK_GSBC_FOR_ALL_GSBCS/tci/company/services/v1",
+  "info": {
+    "title": "TCI Coverage",
+    "description": "Complex Types covered. All datatypes covered. Path and query parameters all types covered.",
+    "version": "1.0"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "definitions": {
+    "ServiceEntity": {
+      "type": "object",
+      "description": "The properties of the service entity managed by this service end-point.",
+      "required": [
+        "id",
+        "name",
+        "description",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "description": "The entity's unique identifier.",
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "description": "The entity's name.",
+          "type": "string"
+        },
+        "description": {
+          "description": "The entity's short description.",
+          "type": "string"
+        },
+        "version": {
+          "description": "The entities current version number. An indication of the number of updates performed on this entity.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "threshold": {
+          "description": "Threshold Value",
+          "type": "number",
+          "format": "float"
+        },
+        "amount": {
+          "description": "Amount Value",
+          "type": "number",
+          "format": "double"
+        },
+        "dateCreated": {
+          "description": "The date on which the entity was first created.",
+          "type": "string",
+          "format": "date"
+        },
+        "dateLastModified": {
+          "description": "The date on which the entity was last updated.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "complexTypeChildReference": {
+          "$ref": "#/definitions/ComplexTypeChildServiceEntity"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "description": "An object that provides a description of the cause of the service error respoonse.",
+      "properties": {
+        "errorMsg": {
+          "description": "Verbose error message. This is a system controlled property and its value will be ignored when received in POSTs and PUTs.",
+          "type": "string"
+        },
+        "errorCode": {
+          "description": "Internal error code. This is a system controlled property and its value will be ignored when received in POSTs and PUTs.",
+          "type": "string"
+        },
+        "stackTrace": {
+          "description": "Added if available and requested by X-Provide-Stacktrace HTTP header. This is a system controlled property and its value will be ignored when received in POSTs and PUTs.",
+          "type": "string"
+        }
+      }
+    },
+    "ComplexTypeChildServiceEntity": {
+      "type": "object",
+      "description": "ComplexType.",
+      "required": [
+        "ctid",
+        "ctname",
+        "ctdescription",
+        "ctversion"
+      ],
+      "properties": {
+        "ctid": {
+          "description": "The entity's unique identifier.",
+          "type": "integer",
+          "format": "int64"
+        },
+        "ctname": {
+          "description": "The entity's name.",
+          "type": "string"
+        },
+        "ctdescription": {
+          "description": "The entity's short description.",
+          "type": "string"
+        },
+        "ctversion": {
+          "description": "The entities current version number. An indication of the number of updates performed on this entity.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "ctthreshold": {
+          "description": "Threshold Value",
+          "type": "number",
+          "format": "float"
+        },
+        "ctamount": {
+          "description": "Amount Value",
+          "type": "number",
+          "format": "double"
+        },
+        "ctdateCreated": {
+          "description": "The date on which the entity was first created.",
+          "type": "string",
+          "format": "date"
+        },
+        "ctdateLastModified": {
+          "description": "The date on which the entity was last updated.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "complexTypeGrandChildReference": {
+          "$ref": "#/definitions/ComplexTypeGrandchildServiceEntity"
+        }
+      }
+    },
+    "ComplexTypeGrandchildServiceEntity": {
+      "type": "object",
+      "description": "ComplexType.",
+      "required": [
+        "gctid",
+        "gctname",
+        "gctdescription",
+        "gctversion"
+      ],
+      "properties": {
+        "gctid": {
+          "description": "The entity's unique identifier.",
+          "type": "integer",
+          "format": "int64"
+        },
+        "gctname": {
+          "description": "The entity's name.",
+          "type": "string"
+        },
+        "gctdescription": {
+          "description": "The entity's short description.",
+          "type": "string"
+        },
+        "gctversion": {
+          "description": "The entities current version number. An indication of the number of updates performed on this entity.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "gctthreshold": {
+          "description": "Threshold Value",
+          "type": "number",
+          "format": "float"
+        },
+        "gctamount": {
+          "description": "Amount Value",
+          "type": "number",
+          "format": "double"
+        },
+        "gctdateCreated": {
+          "description": "The date on which the entity was first created.",
+          "type": "string",
+          "format": "date"
+        },
+        "gctdateLastModified": {
+          "description": "The date on which the entity was last updated.",
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "paths": {
+    "/entities": {
+      "post": {
+        "tags": [
+          "update"
+        ],
+        "operationId": "createEntity",
+        "summary": "Create a new service entity.",
+        "description": "Allows the creation of a new service entity; with the properties provided in the request body. ",
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "body",
+            "description": "The properties of the new service entity. All mandatory, writable properties must be specified.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ServiceEntity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful creation of the new service entity. Includes the created entity record in the response body.",
+            "schema": {
+              "$ref": "#/definitions/ServiceEntity"
+            }
+          },
+          "422": {
+            "description": "Cannot process the request to create the service entity.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "read"
+        ],
+        "operationId": "getServiceWithQueryParameterOfAllTypes",
+        "summary": "Get a service with query covering all types.",
+        "description": "Get a service with query covering all types.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "entInt32Q",
+            "in": "query",
+            "description": "Field with int32 format",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "entInt64Q",
+            "in": "query",
+            "description": "Field with int64 format",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "entFloatQ",
+            "in": "query",
+            "description": "Field with float format",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          },
+          {
+            "name": "entDoubleQ",
+            "in": "query",
+            "description": "Field with double format",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "entStringQ",
+            "in": "query",
+            "description": "Field with string type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entDateQ",
+            "in": "query",
+            "description": "Field with date format",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "entDateTimeQ",
+            "in": "query",
+            "description": "Field with date time format",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The record for the identified service entity.",
+            "schema": {
+              "$ref": "#/definitions/ServiceEntity"
+            }
+          },
+          "404": {
+            "description": "Resource(s) not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "422": {
+            "description": "Cannot process the request to fetch the service entity.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/entities/{entInt32}/{entInt64}/{entFloat}/{entDouble}/{entString}/{entDate}{entDateTime}": {
+      "get": {
+        "tags": [
+          "read"
+        ],
+        "operationId": "getEntityPathAllTypes",
+        "summary": "Get a service with path covering all types.",
+        "description": "Get a service with path covering all types.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "entInt32",
+            "in": "path",
+            "description": "Field with int32 format",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "entInt64",
+            "in": "path",
+            "description": "Field with int64 format",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "entFloat",
+            "in": "path",
+            "description": "Field with float format",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          },
+          {
+            "name": "entDouble",
+            "in": "path",
+            "description": "Field with double format",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "entString",
+            "in": "path",
+            "description": "Field with string type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entDate",
+            "in": "path",
+            "description": "Field with date format",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "entDateTime",
+            "in": "path",
+            "description": "Field with date time format",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The record for the identified service entity.",
+            "schema": {
+              "$ref": "#/definitions/ServiceEntity"
+            }
+          },
+          "404": {
+            "description": "Resource(s) not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "422": {
+            "description": "Cannot process the request to fetch the service entity.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  }
+}

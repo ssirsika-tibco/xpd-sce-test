@@ -4,8 +4,11 @@
 
 package com.tibco.xpd.implementer.resources.xpdl2.mappings;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
@@ -13,6 +16,11 @@ import org.eclipse.uml2.uml.Classifier;
 
 import com.tibco.xpd.implementer.resources.xpdl2.Activator;
 import com.tibco.xpd.implementer.resources.xpdl2.internal.Messages;
+import com.tibco.xpd.implementer.resources.xpdl2.mappings.swagger.SwaggerContainerTreeItem;
+import com.tibco.xpd.implementer.resources.xpdl2.mappings.swagger.SwaggerInputParamContainerTreeItem;
+import com.tibco.xpd.implementer.resources.xpdl2.mappings.swagger.SwaggerParamContainerTreeItem;
+import com.tibco.xpd.implementer.resources.xpdl2.mappings.swagger.SwaggerPayloadContainerTreeItem;
+import com.tibco.xpd.implementer.resources.xpdl2.mappings.swagger.SwaggerResponseContainerTreeItem;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
@@ -34,12 +42,18 @@ import com.tibco.xpd.xpdl2.Event;
 import com.tibco.xpd.xpdl2.IntermediateEvent;
 import com.tibco.xpd.xpdl2.ResultError;
 
+import io.swagger.v3.oas.models.Operation;
+import io.swagger.v3.oas.models.media.Content;
+import io.swagger.v3.oas.models.responses.ApiResponse;
+import io.swagger.v3.oas.models.responses.ApiResponses;
+
 /**
  * Factory used to create (or resolve) REST service mapping tree items.
  * 
  * @author jarciuch
  * @since 8 Apr 2015
  */
+@SuppressWarnings("nls")
 public class RestMapperTreeItemFactory {
 
     private static final RestMapperTreeItemFactory INSTANCE =
@@ -208,6 +222,160 @@ public class RestMapperTreeItemFactory {
                 .format("Unsupported mapping direction: '%1$s'.", direction); //$NON-NLS-1$
         return null;
     }
+
+	/**
+	 * Creates Swagger parameter container tree item
+	 * 
+	 * @param activity
+	 * @param paramStyle
+	 * @param direction
+	 * @return
+	 */
+	/*
+	 * TODO SID: IS there now anything really shared between RSD and Swagger handling in this class?
+	 * 
+	 * If not then may as well separate them(?)
+	 */
+	public SwaggerParamContainerTreeItem createSwaggerParamContainerTreeItem(Activity activity,
+			ParameterStyle paramStyle, MappingDirection direction)
+	{
+		if (direction == MappingDirection.IN)
+		{
+			Operation rsoOperation = restServiceTaskAdapter.getRSOOperation(activity);
+			
+			List<io.swagger.v3.oas.models.parameters.Parameter> parameters = rsoOperation != null ? rsoOperation.getParameters() : null;
+
+			SwaggerParamContainerTreeItem paramContainer = new SwaggerInputParamContainerTreeItem(null, activity,
+					paramStyle, parameters);
+
+			return paramContainer;
+			
+		}
+
+		assert false : String.format("Unsupported mapping direction: '%1$s'.", direction); //$NON-NLS-1$
+		return null;
+	}
+
+	/**
+	 * Creates Swagger Payload container tree item
+	 * 
+	 * @param activity
+	 * @param direction
+	 * @return
+	 */
+	public SwaggerPayloadContainerTreeItem createSwaggerPayloadContainerTreeItem(Activity activity,
+			MappingDirection direction)
+	{
+		if (direction == MappingDirection.IN)
+		{
+			Content content = null;
+			boolean isRequired = false;
+
+			Operation rsoOperation = restServiceTaskAdapter.getRSOOperation(activity);
+			if (rsoOperation != null && rsoOperation.getRequestBody() != null)
+			{
+				content = rsoOperation.getRequestBody().getContent();
+				isRequired = Boolean.TRUE.equals(rsoOperation.getRequestBody().getRequired());
+			}
+
+			return new SwaggerPayloadContainerTreeItem(null, activity, Messages.RestMapperTreeItemFactory_Payload_label,
+					direction,
+					RestMappingPrefix.PAYLOAD.getPrefix(), content, isRequired);
+
+		}
+
+		assert false : String.format("Unsupported mapping direction: '%1$s'.", direction); //$NON-NLS-1$
+		return null;
+	}
+
+	/**
+	 * Creates Tree Items for all Swagger success request tree items
+	 * 
+	 * @param activity
+	 * 
+	 * @return tree items for the service request for given activity
+	 */
+	public Collection<SwaggerContainerTreeItem> createSwaggerRequestItems(Activity activity)
+	{
+		ArrayList<SwaggerContainerTreeItem> children = new ArrayList<SwaggerContainerTreeItem>();
+
+		// Add Path, Query and Header params containers.
+		children.add(createSwaggerParamContainerTreeItem(activity, ParameterStyle.PATH, MappingDirection.IN));
+		children.add(createSwaggerParamContainerTreeItem(activity, ParameterStyle.QUERY, MappingDirection.IN));
+		children.add(createSwaggerParamContainerTreeItem(activity, ParameterStyle.HEADER, MappingDirection.IN));
+
+		// Payload container.
+		children.add(createSwaggerPayloadContainerTreeItem(activity, MappingDirection.IN));
+
+		return children;
+	}
+
+	/**
+	 * Creates Tree Items for all Swagger success response tree items (for each possible status Code 2xx)
+	 * 
+	 * @param activity
+	 *
+	 * @return tree items for the service reponse for given activity
+	 */
+	public Collection<SwaggerResponseContainerTreeItem> createSwaggerResponseItems(Activity activity)
+	{
+		List<SwaggerResponseContainerTreeItem> children = new ArrayList<SwaggerResponseContainerTreeItem>();
+
+		if (activity != null)
+		{
+			Operation rsoOperation = restServiceTaskAdapter.getRSOOperation(activity);
+			if (rsoOperation != null && rsoOperation.getResponses() != null)
+			{
+				ApiResponses responses = rsoOperation.getResponses();
+				if (responses != null)
+				{
+					responses.forEach((statusCode, apiResponse) -> {
+						if (isSuccessCode(statusCode) || ("default".equals(statusCode)))
+						{
+							children.add(createSwaggerResponseContainerTreeItem(activity, statusCode,
+									apiResponse));
+						}
+					});
+				}
+			}
+		}
+
+		return children;
+	}
+
+	/**
+	 * Returns true if the status code is a success code (all 2xx codes); false otherwise
+	 * 
+	 * @param statusCode
+	 * @return
+	 */
+	private static boolean isSuccessCode(String statusCode)
+	{
+		try
+		{
+			int code = Integer.parseInt(statusCode);
+			return code >= 200 && code < 300;
+		}
+		catch (NumberFormatException e)
+		{
+			return false;
+		}
+	}
+
+	/**
+	 * Creates Swagger Response container tree item - containing Header and Payload Tree items
+	 * 
+	 * @param activity
+	 * @param statusCode
+	 * @param apiResponse
+	 * 
+	 * @return {@link SwaggerResponseContainerTreeItem}
+	 */
+	public SwaggerResponseContainerTreeItem createSwaggerResponseContainerTreeItem(Activity activity, String statusCode,
+			ApiResponse apiResponse)
+	{
+		return new SwaggerResponseContainerTreeItem(activity, statusCode, apiResponse);
+	}
 
     /**
      * Resolves parameter for the provided formalName (a.k.a. path) and mapping
@@ -544,6 +712,27 @@ public class RestMapperTreeItemFactory {
         return null;
     }
 
+	/**
+	 * ACE-8866: Creates Swagger Catch Response container tree item
+	 * 
+	 * @param activity The catch event activity.
+	 * @param thrower  The activity throwing the error.
+	 * @param code     The fault status code.
+	 * 
+	 * @return {@link SwaggerResponseContainerTreeItem}
+	 */
+	public SwaggerResponseContainerTreeItem createSwaggerCatchPesponseContainerTreeItem(Activity activity,
+			Activity thrower, String code) {
+		if (code != null) {
+			Map<String, ApiResponse> rsoOperationFaults = restServiceTaskAdapter.getRSOOperationFaults(thrower);
+			ApiResponse apiResponse = rsoOperationFaults.get(code);
+			if (apiResponse != null) {
+				return new SwaggerResponseContainerTreeItem(activity, code, apiResponse);
+			}
+		}
+		return null;
+	}
+	
     /**
      * @param catchActivity
      *            The catch event.

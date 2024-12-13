@@ -52,13 +52,16 @@ public abstract class RestParamContainerTreeItem extends RestMapperTreeItem {
     }
 
     /**
-     * {@inheritDoc}
-     */
+	 * {@inheritDoc}
+	 * 
+	 * Sid ACE-8742 Change RSD content providers to cache their content for performance - now we create child content
+	 * only once.
+	 */
     @Override
-    public List<RestMapperTreeItem> getChildren() {
+	public List< ? > createChildren()
+	{
         if (activity != null) {
-            List<RestMapperTreeItem> children =
-                    new ArrayList<RestMapperTreeItem>();
+			List<Object> children = new ArrayList<Object>();
             for (Parameter param : getParams(activity)) {
                 if (paramStyle == param.getStyle()) {
                     children.add(new RestParamTreeItem(this, param, activity,
@@ -79,19 +82,8 @@ public abstract class RestParamContainerTreeItem extends RestMapperTreeItem {
     }
 
     /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean hasChildren() {
-        if (activity != null) {
-            for (Parameter param : getParams(activity)) {
-                if (paramStyle == param.getStyle()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+	 * Sid ACE-8742 hasChildren() now handled in base class.
+	 */
 
     /**
      * {@inheritDoc}

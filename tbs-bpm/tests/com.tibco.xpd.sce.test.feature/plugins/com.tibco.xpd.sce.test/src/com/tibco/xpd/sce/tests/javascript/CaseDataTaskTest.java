@@ -6,6 +6,7 @@ package com.tibco.xpd.sce.tests.javascript;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 
@@ -72,13 +73,26 @@ public class CaseDataTaskTest extends AbstractN2BaseValidationTest {
 
         problemMarkers = getProblemMarkers(okFile2);
         the1stProblem = null;
-        if (!problemMarkers.isEmpty()) {
-            ValidationsTestProblemMarkerInfo markerInfo = problemMarkers.get(0);
-            the1stProblem = markerInfo.getProblemId() + "::" //$NON-NLS-1$
-                    + markerInfo.getResourceURI() + "." //$NON-NLS-1$
-                    + markerInfo.getLocationURI() + ":\n  \"" //$NON-NLS-1$
-                    + markerInfo.getProblemText() + "\"\n"; //$NON-NLS-1$
-        }
+		if (!problemMarkers.isEmpty())
+		{
+			/*
+			 * Sid ACE-7314 Reintroduced DQL validation which introduces warnings like the following, so need to take
+			 * that into account now and only complain for unexpected ERROR markers.
+			 * 
+			 * Only DQL specified in a literal string can be validated at design time. Where possible use literal string
+			 * queries to ensure validation can be performed.
+			 */
+			for (ValidationsTestProblemMarkerInfo problemMarker : problemMarkers)
+			{
+				if (problemMarker.getSourceMarker().getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR)
+				{
+					the1stProblem = problemMarker.getProblemText();
+					break;
+				}
+			}
+
+		}
+
         assertTrue("CaseDataTaskTest.xpdl: should have no problem markers but has at least one:\n" + the1stProblem, //$NON-NLS-1$
                 the1stProblem == null);
 

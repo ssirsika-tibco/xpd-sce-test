@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_RjX8IJztEe-xFPeXmUd19A" xpdExt:DisplayName="SwaggerTaskItemProviderTests_UnsupportedItems" Name="SwaggerTaskItemProviderTests_UnsupportedItems">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2024-11-07</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>Sid.Allway</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_fLHkMJztEe-xFPeXmUd19A" xpdExt:DisplayName="Swaggerschematests_Consumer" Name="Swaggerschematests_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:RestService resourceName="Swagger schema tests"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_uzg-IJ0pEe-y-dV17EXJNg" xpdExt:DisplayName="ComplexDataTypesExample_Consumer" Name="ComplexDataTypesExample_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:RestService resourceName="Complex Data Types Example"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_UW8P8JztEe-xFPeXmUd19A" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_RkYBsJztEe-xFPeXmUd19A">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_UW8P8ZztEe-xFPeXmUd19A" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="458.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_RkYBsJztEe-xFPeXmUd19A" xpdExt:DisplayName="SwaggerTaskItemProviderTests_UnsupportedItems" Name="SwaggerTaskItemProviderTests_UnsupportedItems">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_rHHY4J2tEe-y-dV17EXJNg" xpdExt:DisplayName="Field" Name="Field" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_UW8P8pztEe-xFPeXmUd19A" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="51.0" YCoordinate="76.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_UW8P85ztEe-xFPeXmUd19A" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="1087.0" YCoordinate="306.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Zry0wJztEe-xFPeXmUd19A" Name="PayloadOverloadsArrayIndirectionToComplexTypepayload" xpdExt:Visibility="Private" xpdExt:DisplayName="PayloadOverloadsArrayIndirectionToComplexType - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_dK2VkJztEe-xFPeXmUd19A">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_dK2VkZztEe-xFPeXmUd19A">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTests.yaml" xpdExt:MethodId="PUT::/payloadIsArrayOfArrays_PayloadOverloadsArrayIndirectionToComplexType"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_fLHkMJztEe-xFPeXmUd19A</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="168.0" YCoordinate="76.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_niYxIJztEe-xFPeXmUd19A" Name="PayloadOverloadsArrayIndirectionToPrimitiveTypepayload" xpdExt:Visibility="Private" xpdExt:DisplayName="PayloadOverloadsArrayIndirectionToPrimitiveType - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_n6vmwJztEe-xFPeXmUd19A">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_n6vmwZztEe-xFPeXmUd19A">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTests.yaml" xpdExt:MethodId="PUT::/payloadIsArrayOfArrays_PayloadOverloadsArrayIndirectionToPrimitiveType"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_fLHkMJztEe-xFPeXmUd19A</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="321.0" YCoordinate="76.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_rY6Ww5ztEe-xFPeXmUd19A" Name="PayloadIsInlineArrayOfPrimitiveTypeArrayspayload" xpdExt:Visibility="Private" xpdExt:DisplayName="PayloadIsInlineArrayOfPrimitiveTypeArrays - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_rY6WxJztEe-xFPeXmUd19A">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_rY6WxZztEe-xFPeXmUd19A">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTests.yaml" xpdExt:MethodId="PUT::/payloadIsArrayOfArrays_PayloadIsInlineArrayOfPrimitiveTypeArrays"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_fLHkMJztEe-xFPeXmUd19A</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="449.0" YCoordinate="76.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_r4oYo5ztEe-xFPeXmUd19A" Name="PayloadIsInlineArrayOfComplexTypeArrayspayload" xpdExt:Visibility="Private" xpdExt:DisplayName="PayloadIsInlineArrayOfComplexTypeArrays - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_r4oYpJztEe-xFPeXmUd19A">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_r4oYpZztEe-xFPeXmUd19A">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTests.yaml" xpdExt:MethodId="PUT::/payloadIsArrayOfArrays_PayloadIsInlineArrayOfComplexTypeArrays"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_fLHkMJztEe-xFPeXmUd19A</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="577.0" YCoordinate="76.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_sYu1AJztEe-xFPeXmUd19A" Name="PayloadIsTypeThatHasMutlipleArrayIndirectionspayload" xpdExt:Visibility="Private" xpdExt:DisplayName="PayloadIsTypeThatHasMutlipleArrayIndirections - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_sYu1AZztEe-xFPeXmUd19A">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_sYu1ApztEe-xFPeXmUd19A">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTests.yaml" xpdExt:MethodId="PUT::/payloadIsArrayOfArrays_PayloadIsTypeThatHasMutlipleArrayIndirections"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_fLHkMJztEe-xFPeXmUd19A</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="705.0" YCoordinate="76.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_tX82UJztEe-xFPeXmUd19A" Name="PayloadIsTypeWithArrayOfArraysPropertypayload" xpdExt:Visibility="Private" xpdExt:DisplayName="PayloadIsTypeWithArrayOfArraysProperty - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_tX82UZztEe-xFPeXmUd19A">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_tX82UpztEe-xFPeXmUd19A">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTests.yaml" xpdExt:MethodId="PUT::/payloadIsArrayOfArrays_PayloadIsTypeWithArrayOfArraysProperty"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_fLHkMJztEe-xFPeXmUd19A</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="833.0" YCoordinate="76.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Wj5SEJ0hEe-y-dV17EXJNg" Name="ExternalRefpayload" xpdExt:Visibility="Private" xpdExt:DisplayName="ExternalRef - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_ckW_sJ0hEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_ckW_sZ0hEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTests.yaml" xpdExt:MethodId="PUT::/payloadIs_ExternalRef"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_fLHkMJztEe-xFPeXmUd19A</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="168.0" YCoordinate="192.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_lm2T4J0hEe-y-dV17EXJNg" Name="ArrayExternalRefpayload" xpdExt:Visibility="Private" xpdExt:DisplayName="ArrayExternalRef - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_lm2T4Z0hEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_lm2T4p0hEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTests.yaml" xpdExt:MethodId="PUT::/payloadIs_ArrayExternalRef"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_fLHkMJztEe-xFPeXmUd19A</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="298.0" YCoordinate="192.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_l9nOEJ0hEe-y-dV17EXJNg" Name="IndirectionToExternalRefpayload" xpdExt:Visibility="Private" xpdExt:DisplayName="IndirectionToExternalRef - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_l9nOEZ0hEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_l9nOEp0hEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTests.yaml" xpdExt:MethodId="PUT::/payloadIs_IndirectionToExternalRef"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_fLHkMJztEe-xFPeXmUd19A</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="414.0" YCoordinate="192.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_mV2u9J0hEe-y-dV17EXJNg" Name="ArrayIndirectionToExternalRefpayload" xpdExt:Visibility="Private" xpdExt:DisplayName="ArrayIndirectionToExternalRef - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_mV2u9Z0hEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_mV2u9p0hEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTests.yaml" xpdExt:MethodId="PUT::/payloadIs_ArrayIndirectionToExternalRef"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_fLHkMJztEe-xFPeXmUd19A</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="542.0" YCoordinate="192.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_vxNHsJ0kEe-y-dV17EXJNg" Name="TypeWithExternalRefPropertiespayload" xpdExt:Visibility="Private" xpdExt:DisplayName="TypeWithExternalRefProperties - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_wLJ4wJ0kEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_wLJ4wZ0kEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTests.yaml" xpdExt:MethodId="PUT::/payloadIs_TypeWithExternalRefProperties"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_fLHkMJztEe-xFPeXmUd19A</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="688.0" YCoordinate="192.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_fLOaoJ0pEe-y-dV17EXJNg" Name="PayloadIsOneOfpayload" xpdExt:Visibility="Private" xpdExt:DisplayName="PayloadIsOneOf - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_i4f9oJ0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_i4f9oZ0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTestsOAS.yaml" xpdExt:MethodId="PUT::/mixedTypes_PayloadIsOneOf"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_uzg-IJ0pEe-y-dV17EXJNg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="168.0" YCoordinate="306.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_pXwgE50pEe-y-dV17EXJNg" Name="PayloadIsArrayOneOfpayload" xpdExt:Visibility="Private" xpdExt:DisplayName="PayloadIsArrayOneOf - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_pXxHIJ0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_pXxHIZ0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTestsOAS.yaml" xpdExt:MethodId="PUT::/mixedTypes_PayloadIsArrayOneOf"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_uzg-IJ0pEe-y-dV17EXJNg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="286.0" YCoordinate="306.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_qLHPoJ0pEe-y-dV17EXJNg" Name="PayloadIsAnyOfpayload" xpdExt:Visibility="Private" xpdExt:DisplayName="PayloadIsAnyOf - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_qLHPoZ0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_qLHPop0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTestsOAS.yaml" xpdExt:MethodId="PUT::/mixedTypes_PayloadIsAnyOf"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_uzg-IJ0pEe-y-dV17EXJNg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="414.0" YCoordinate="306.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_q1m-I50pEe-y-dV17EXJNg" Name="PayloadIsAllOfpayload" xpdExt:Visibility="Private" xpdExt:DisplayName="PayloadIsAllOf - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_q1m-JJ0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_q1m-JZ0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTestsOAS.yaml" xpdExt:MethodId="PUT::/mixedTypes_PayloadIsAllOf"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_uzg-IJ0pEe-y-dV17EXJNg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="542.0" YCoordinate="306.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_rXp7Q50pEe-y-dV17EXJNg" Name="PayloadIsNotpayload" xpdExt:Visibility="Private" xpdExt:DisplayName="PayloadIsNot - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_rXp7RJ0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_rXp7RZ0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTestsOAS.yaml" xpdExt:MethodId="PUT::/mixedTypes_PayloadIsNot"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_uzg-IJ0pEe-y-dV17EXJNg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="670.0" YCoordinate="306.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_r533g50pEe-y-dV17EXJNg" Name="PayloadIsAnyTypeArraypayload" xpdExt:Visibility="Private" xpdExt:DisplayName="PayloadIsAnyTypeArray - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_r533hJ0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_r533hZ0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTestsOAS.yaml" xpdExt:MethodId="PUT::/mixedTypes_PayloadIsAnyTypeArray"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_uzg-IJ0pEe-y-dV17EXJNg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="798.0" YCoordinate="306.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_seg1o50pEe-y-dV17EXJNg" Name="PayloadIsTypeWithMixedTypePropertiespayload" xpdExt:Visibility="Private" xpdExt:DisplayName="PayloadIsTypeWithMixedTypeProperties - payload">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_seg1pJ0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToSwagger" MappingDirection="IN" xpdExt:ExcludeEmptyOptionalObjects="true" xpdExt:ExcludeEmptyOptionalArrays="true" xpdExt:ExcludeEmptyObjectsFromArrays="true"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_seg1pZ0pEe-y-dV17EXJNg">
+                  <xpdExt:ScriptDataMapper MapperContext="SwaggerToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SwaggerSchemaTestsOAS.yaml" xpdExt:MethodId="PUT::/mixedTypes_PayloadIsTypeWithMixedTypeProperties"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_uzg-IJ0pEe-y-dV17EXJNg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UW8P8ZztEe-xFPeXmUd19A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="928.0" YCoordinate="306.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_Zry0w5ztEe-xFPeXmUd19A" xpdExt:DisplayName="" Name="" From="_UW8P8pztEe-xFPeXmUd19A" To="_Zry0wJztEe-xFPeXmUd19A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_niYxI5ztEe-xFPeXmUd19A" xpdExt:DisplayName="" Name="" From="_Zry0wJztEe-xFPeXmUd19A" To="_niYxIJztEe-xFPeXmUd19A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_rZBrgJztEe-xFPeXmUd19A" xpdExt:DisplayName="" Name="" From="_niYxIJztEe-xFPeXmUd19A" To="_rY6Ww5ztEe-xFPeXmUd19A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_r4qN0JztEe-xFPeXmUd19A" xpdExt:DisplayName="" Name="" From="_rY6Ww5ztEe-xFPeXmUd19A" To="_r4oYo5ztEe-xFPeXmUd19A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_sYwDIJztEe-xFPeXmUd19A" xpdExt:DisplayName="" Name="" From="_r4oYo5ztEe-xFPeXmUd19A" To="_sYu1AJztEe-xFPeXmUd19A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_tX-EcJztEe-xFPeXmUd19A" xpdExt:DisplayName="" Name="" From="_sYu1AJztEe-xFPeXmUd19A" To="_tX82UJztEe-xFPeXmUd19A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Wj55IJ0hEe-y-dV17EXJNg" xpdExt:DisplayName="" Name="" From="_tX82UJztEe-xFPeXmUd19A" To="_Wj5SEJ0hEe-y-dV17EXJNg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="102.0" YCoordinate="41.0"/>
+              <xpdl2:Coordinates XCoordinate="767.0" YCoordinate="-76.0"/>
+              <xpdl2:Coordinates XCoordinate="-749.0" YCoordinate="93.0"/>
+              <xpdl2:Coordinates XCoordinate="-84.0" YCoordinate="-24.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_lm7zcJ0hEe-y-dV17EXJNg" xpdExt:DisplayName="" Name="" From="_Wj5SEJ0hEe-y-dV17EXJNg" To="_lm2T4J0hEe-y-dV17EXJNg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_l9ocMJ0hEe-y-dV17EXJNg" xpdExt:DisplayName="" Name="" From="_lm2T4J0hEe-y-dV17EXJNg" To="_l9nOEJ0hEe-y-dV17EXJNg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_mV39EJ0hEe-y-dV17EXJNg" xpdExt:DisplayName="" Name="" From="_l9nOEJ0hEe-y-dV17EXJNg" To="_mV2u9J0hEe-y-dV17EXJNg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_vxNHs50kEe-y-dV17EXJNg" xpdExt:DisplayName="" Name="" From="_mV2u9J0hEe-y-dV17EXJNg" To="_vxNHsJ0kEe-y-dV17EXJNg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_fLOao50pEe-y-dV17EXJNg" xpdExt:DisplayName="" Name="" From="_vxNHsJ0kEe-y-dV17EXJNg" To="_fLOaoJ0pEe-y-dV17EXJNg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="105.0" YCoordinate="17.0"/>
+              <xpdl2:Coordinates XCoordinate="625.0" YCoordinate="-98.0"/>
+              <xpdl2:Coordinates XCoordinate="-602.0" YCoordinate="83.0"/>
+              <xpdl2:Coordinates XCoordinate="-82.0" YCoordinate="-32.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_pXyVQJ0pEe-y-dV17EXJNg" xpdExt:DisplayName="" Name="" From="_fLOaoJ0pEe-y-dV17EXJNg" To="_pXwgE50pEe-y-dV17EXJNg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_qLIdwJ0pEe-y-dV17EXJNg" xpdExt:DisplayName="" Name="" From="_pXwgE50pEe-y-dV17EXJNg" To="_qLHPoJ0pEe-y-dV17EXJNg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_q1oMQJ0pEe-y-dV17EXJNg" xpdExt:DisplayName="" Name="" From="_qLHPoJ0pEe-y-dV17EXJNg" To="_q1m-I50pEe-y-dV17EXJNg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_rXrJYJ0pEe-y-dV17EXJNg" xpdExt:DisplayName="" Name="" From="_q1m-I50pEe-y-dV17EXJNg" To="_rXp7Q50pEe-y-dV17EXJNg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_r55FoJ0pEe-y-dV17EXJNg" xpdExt:DisplayName="" Name="" From="_rXp7Q50pEe-y-dV17EXJNg" To="_r533g50pEe-y-dV17EXJNg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_seiDwJ0pEe-y-dV17EXJNg" xpdExt:DisplayName="" Name="" From="_r533g50pEe-y-dV17EXJNg" To="_seg1o50pEe-y-dV17EXJNg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_AEJeY52sEe-y-dV17EXJNg" xpdExt:DisplayName="" Name="" From="_seg1o50pEe-y-dV17EXJNg" To="_UW8P85ztEe-xFPeXmUd19A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

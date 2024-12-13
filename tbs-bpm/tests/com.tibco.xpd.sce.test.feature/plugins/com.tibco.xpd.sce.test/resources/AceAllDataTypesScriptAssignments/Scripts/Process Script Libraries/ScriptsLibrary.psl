@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_3y0FcJHmEe-eAeJ18rZL6w">
+  <xpdl2:PackageHeader>
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>Thu Oct 24 11:03:44 BST 2024</xpdl2:Created>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader>
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_3y0FcZHmEe-eAeJ18rZL6w">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_3y0FcpHmEe-eAeJ18rZL6w" Name="returnCase1RefArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here... &#xD;
+return parameter;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_3y0Fc5HmEe-eAeJ18rZL6w" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_23BSIZITEe-2GuL-Yhj3Jg" Name="parameter" IsArray="true" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue></xpdl2:InitialValue>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZYQVkpHoEe-eAeJ18rZL6w" Name="returnCase1Ref" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return null;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_ZYQVk5HoEe-eAeJ18rZL6w" Name="$RETURN" IsArray="false">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_1qP9AJITEe-2GuL-Yhj3Jg" Name="parameter" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:RecordType>
+                  <xpdl2:Member>
+                    <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+                  </xpdl2:Member>
+                </xpdl2:RecordType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue></xpdl2:InitialValue>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_v19qMJITEe-2GuL-Yhj3Jg" Name="returnText" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return &quot;abc&quot;;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_v19qMZITEe-2GuL-Yhj3Jg" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_0GVTMZITEe-2GuL-Yhj3Jg" Name="parameter" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue></xpdl2:InitialValue>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_6zThgJITEe-2GuL-Yhj3Jg" Name="returnTextArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_6zThgZITEe-2GuL-Yhj3Jg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_6zThgpITEe-2GuL-Yhj3Jg" Name="parameter" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_iPk3kJIUEe-2GuL-Yhj3Jg" Name="returnNumber" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return 0;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_iPk3kZIUEe-2GuL-Yhj3Jg" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="FLOAT">
+                  <xpdl2:Precision>10</xpdl2:Precision>
+                  <xpdl2:Scale>2</xpdl2:Scale>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_iPk3kpIUEe-2GuL-Yhj3Jg" Name="parameter">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="FLOAT">
+                  <xpdl2:Precision>10</xpdl2:Precision>
+                  <xpdl2:Scale>2</xpdl2:Scale>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ofogYJIUEe-2GuL-Yhj3Jg" Name="returnNumberArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_ofogYZIUEe-2GuL-Yhj3Jg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="FLOAT">
+                  <xpdl2:Precision>10</xpdl2:Precision>
+                  <xpdl2:Scale>2</xpdl2:Scale>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_ofogYpIUEe-2GuL-Yhj3Jg" Name="parameter" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="FLOAT">
+                  <xpdl2:Precision>10</xpdl2:Precision>
+                  <xpdl2:Scale>2</xpdl2:Scale>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_wNEGJpIUEe-2GuL-Yhj3Jg" Name="returnDate" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_wNEGJ5IUEe-2GuL-Yhj3Jg" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATE"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_wNEGKJIUEe-2GuL-Yhj3Jg" Name="parameter" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATE"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue></xpdl2:InitialValue>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_wNEGKZIUEe-2GuL-Yhj3Jg" Name="returnDateArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_wNEGKpIUEe-2GuL-Yhj3Jg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATE"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_wNEGK5IUEe-2GuL-Yhj3Jg" Name="parameter" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATE"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_2iQGlpIUEe-2GuL-Yhj3Jg" Name="returnDateTime" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_2iQGl5IUEe-2GuL-Yhj3Jg" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATETIME"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_2iQGmJIUEe-2GuL-Yhj3Jg" Name="parameter" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATETIME"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue></xpdl2:InitialValue>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_2iQGmZIUEe-2GuL-Yhj3Jg" Name="returnDateTimeArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_2iQGmpIUEe-2GuL-Yhj3Jg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATETIME"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_2iQGm5IUEe-2GuL-Yhj3Jg" Name="parameter" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATETIME"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_7zLNppIUEe-2GuL-Yhj3Jg" Name="returnBoolean" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return false;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_7zLNp5IUEe-2GuL-Yhj3Jg" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="BOOLEAN"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_7zLNqJIUEe-2GuL-Yhj3Jg" Name="parameter" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="BOOLEAN"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue></xpdl2:InitialValue>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_7zLNqZIUEe-2GuL-Yhj3Jg" Name="returnBooleanArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_7zLNqpIUEe-2GuL-Yhj3Jg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="BOOLEAN"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_7zLNq5IUEe-2GuL-Yhj3Jg" Name="parameter" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="BOOLEAN"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_RXS2ZpIVEe-2GuL-Yhj3Jg" Name="returnTimeArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_RXS2Z5IVEe-2GuL-Yhj3Jg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="TIME"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_RXS2aJIVEe-2GuL-Yhj3Jg" Name="parameter" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="TIME"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_RXS2aZIVEe-2GuL-Yhj3Jg" Name="returnTime" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_RXS2apIVEe-2GuL-Yhj3Jg" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="TIME"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_RXS2a5IVEe-2GuL-Yhj3Jg" Name="parameter" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="TIME"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue></xpdl2:InitialValue>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_WzL3VpIVEe-2GuL-Yhj3Jg" Name="returnURIArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_WzL3V5IVEe-2GuL-Yhj3Jg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType xpdExt:FieldFormat="URI" Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_WzL3WJIVEe-2GuL-Yhj3Jg" Name="parameter" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType xpdExt:FieldFormat="URI" Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_WzL3WZIVEe-2GuL-Yhj3Jg" Name="returnURI" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_WzL3WpIVEe-2GuL-Yhj3Jg" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType xpdExt:FieldFormat="URI" Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_WzL3W5IVEe-2GuL-Yhj3Jg" Name="parameter" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType xpdExt:FieldFormat="URI" Type="STRING"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue></xpdl2:InitialValue>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_chrEJpIVEe-2GuL-Yhj3Jg" Name="returnPerformerArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_chrEJ5IVEe-2GuL-Yhj3Jg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="PERFORMER"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_chrEKJIVEe-2GuL-Yhj3Jg" Name="parameter" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="PERFORMER"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_chrEKZIVEe-2GuL-Yhj3Jg" Name="returnPerformer" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_chrEKpIVEe-2GuL-Yhj3Jg" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="PERFORMER"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_chrEK5IVEe-2GuL-Yhj3Jg" Name="parameter" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="PERFORMER"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue></xpdl2:InitialValue>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_liouVpIVEe-2GuL-Yhj3Jg" Name="returnCase1ObjectArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_liouV5IVEe-2GuL-Yhj3Jg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_liouWJIVEe-2GuL-Yhj3Jg" Name="parameter" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_liouWZIVEe-2GuL-Yhj3Jg" Name="returnCase1Object" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_liouWpIVEe-2GuL-Yhj3Jg" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_liouW5IVEe-2GuL-Yhj3Jg" Name="parameter" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_mYXIIJHjEe--Y4xIsz48AA"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue></xpdl2:InitialValue>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_I-zgcJIgEe-2GuL-Yhj3Jg" Name="returnBomObject" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_I-zgcZIgEe-2GuL-Yhj3Jg" Name="$RETURN">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_ta2uIJIdEe-2GuL-Yhj3Jg"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_I-zgcpIgEe-2GuL-Yhj3Jg" Name="parameter">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_ta2uIJIdEe-2GuL-Yhj3Jg"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_PPT1M5IgEe-2GuL-Yhj3Jg" Name="returnBomObjectArray" xpdExt:UseIn="All">
+          <xpdl2:Description>Add your function summary here...</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Add the script function content here...&#xD;
+return parameter;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_PPT1NJIgEe-2GuL-Yhj3Jg" Name="$RETURN" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_ta2uIJIdEe-2GuL-Yhj3Jg"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your return parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_PPT1NZIgEe-2GuL-Yhj3Jg" Name="parameter" IsArray="true">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="CaseData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_ta2uIJIdEe-2GuL-Yhj3Jg"/>
+              </xpdl2:DataType>
+              <xpdl2:Description>Add your parameter summary here...</xpdl2:Description>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

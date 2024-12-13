@@ -1164,24 +1164,37 @@ public class UMLDiagramEditor extends DiagramDocumentEditor implements
 
             // Loop through all the notification this event contains and
             // locate the one we are interested in.
-            List<Notification> notifications = event.getNotifications();
+			List<Notification> notifications = new ArrayList(event.getNotifications());
 
-            if (getDiagram() != null) {
+			Display display = Display.getDefault();
+			if (display != null)
+			{
+				display.asyncExec(new Runnable()
+				{
+					@Override
+					public void run()
+					{
+						if (getDiagram() != null)
+						{
 
-                // Check for set/unset of stereotype
-                refreshStereotypes(notifications);
+							// Check for set/unset of stereotype
+							refreshStereotypes(notifications);
 
-                // Check if we need to refresh supertype labels
-                refreshSupertypes(notifications);
+							// Check if we need to refresh supertype labels
+							refreshSupertypes(notifications);
 
-                if (BomUIUtil.isUserDiagram(getDiagram())) {
-                    /*
-                     * Update the user diagrams. If the parent of a class has
-                     * changed then the qualification of the class in the user
-                     * diagram will need updating
-                     */
-                    refreshUserDiagram(notifications);
-                }
+							if (BomUIUtil.isUserDiagram(getDiagram()))
+							{
+								/*
+								 * Update the user diagrams. If the parent of a class has changed then the qualification
+								 * of the class in the user diagram will need updating
+								 */
+								refreshUserDiagram(notifications);
+							}
+
+						}
+					}
+				});
             }
 
         }

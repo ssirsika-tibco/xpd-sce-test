@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -27,8 +28,10 @@ import com.tibco.xpd.processwidget.adapters.DropTypeInfo;
 import com.tibco.xpd.processwidget.adapters.EventFlowType;
 import com.tibco.xpd.processwidget.adapters.EventTriggerType;
 import com.tibco.xpd.processwidget.adapters.TaskType;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.rest.datamapper.RestScriptDataMapperProvider;
 import com.tibco.xpd.rsd.Method;
+import com.tibco.xpd.rsd.Resource;
 import com.tibco.xpd.rsd.Service;
 import com.tibco.xpd.ui.util.NameUtil;
 import com.tibco.xpd.xpdExtension.RestServiceOperation;
@@ -230,8 +233,14 @@ public class RestMethodDropContribution implements IDropObjectContribution {
                         laneId,
                         location,
                         TaskType.SERVICE_LITERAL);
+		/*
+		 * create a display label
+		 */
+		String acitivityDisplayName = String.format("%1$s - %2$s %3$s", //$NON-NLS-1$
+				method.getName(), method.getHttpMethod().getName(), ((Resource) method.eContainer()).getName());
+
         RestServiceTaskSection.setRestActivityLabelAndName(serviceTask,
-                method,
+				acitivityDisplayName,
                 process,
                 true,
                 null,
@@ -243,7 +252,7 @@ public class RestMethodDropContribution implements IDropObjectContribution {
                         location,
                         TaskType.SEND_LITERAL);
         RestServiceTaskSection.setRestActivityLabelAndName(sendTask,
-                method,
+				acitivityDisplayName,
                 process,
                 true,
                 null,
@@ -256,7 +265,7 @@ public class RestMethodDropContribution implements IDropObjectContribution {
                         EventFlowType.FLOW_INTERMEDIATE_LITERAL,
                         EventTriggerType.EVENT_MESSAGE_THROW_LITERAL);
         RestServiceTaskSection.setRestActivityLabelAndName(throwMessageEvent,
-                method,
+				acitivityDisplayName,
                 process,
                 true,
                 null,
@@ -270,7 +279,7 @@ public class RestMethodDropContribution implements IDropObjectContribution {
                         EventTriggerType.EVENT_MESSAGE_THROW_LITERAL);
         RestServiceTaskSection
                 .setRestActivityLabelAndName(throwMessageEndEvent,
-                        method,
+						acitivityDisplayName,
                         process,
                         true,
                         null,
@@ -301,11 +310,12 @@ public class RestMethodDropContribution implements IDropObjectContribution {
 
         RestServiceTaskAdapter rsta = new RestServiceTaskAdapter();
 
+		IFile file = WorkingCopyUtil.getFile(method);
         Service svc = rsta.getService(method);
         Participant participant =
-                rsta.getParticipant(process.getPackage(), svc);
+				rsta.getParticipant(process.getPackage(), file);
         if (participant == null) {
-            participant = rsta.createParticipant(svc);
+			participant = rsta.createParticipant(svc.getName());
             serviceTaskObjects.add(participant);
             sendTaskObjects.add(participant);
             throwMessageEventObjects.add(participant);
@@ -354,15 +364,18 @@ public class RestMethodDropContribution implements IDropObjectContribution {
      * @param activity
      */
     private void addRestDataMapper(Activity activity) {
-        RestScriptDataMapperProvider inProvider =
-                new RestScriptDataMapperProvider(MappingDirection.IN);
+		/* Sid ACE-8864 getIn/OutMapperContext() moved to RestServiceTaskAdapter */
+		RestServiceTaskAdapter rsta = new RestServiceTaskAdapter();
+
+		RestScriptDataMapperProvider inProvider = new RestScriptDataMapperProvider(MappingDirection.IN,
+				rsta.getInMapperContext(activity));
 
         if (inProvider != null) {
             inProvider.getOrCreateScriptDataMapper(activity, null, null);
         }
 
         RestScriptDataMapperProvider outProvider =
-                new RestScriptDataMapperProvider(MappingDirection.OUT);
+				new RestScriptDataMapperProvider(MappingDirection.OUT, rsta.getOutMapperContext(activity));
 
         if (outProvider != null) {
             outProvider.getOrCreateScriptDataMapper(activity, null, null);
@@ -394,8 +407,9 @@ public class RestMethodDropContribution implements IDropObjectContribution {
 
         serviceTaskCmd.append(new SetCommand(ted, activity,
                 Xpdl2Package.eINSTANCE.getActivity_Implementation(),
-                serviceTask));
-        rsta.addParticipantCommand(ted, serviceTaskCmd, activity, method);
+				serviceTask));
+		rsta.addParticipantCommand(ted, serviceTaskCmd, activity, WorkingCopyUtil.getFile(method),
+				rsta.getService(method).getName());
 
         CompoundCommand sendTaskCmd =
                 new CompoundCommand(
@@ -405,7 +419,8 @@ public class RestMethodDropContribution implements IDropObjectContribution {
         sendTask.setTaskSend(taskSend);
         sendTaskCmd.append(new SetCommand(ted, activity, Xpdl2Package.eINSTANCE
                 .getActivity_Implementation(), sendTask));
-        rsta.addParticipantCommand(ted, sendTaskCmd, activity, method);
+		rsta.addParticipantCommand(ted, sendTaskCmd, activity, WorkingCopyUtil.getFile(method),
+				rsta.getService(method).getName());
 
         /*
          * XPD-7739: If the current activity label is the default label then set
@@ -425,14 +440,20 @@ public class RestMethodDropContribution implements IDropObjectContribution {
                     internalName != null
                             && internalName.equals(activity.getName());
 
+			/*
+			 * create a display label
+			 */
+			String acitivityDisplayName = String.format("%1$s - %2$s %3$s", //$NON-NLS-1$
+					method.getName(), method.getHttpMethod().getName(), ((Resource) method.eContainer()).getName());
+
             RestServiceTaskSection.setRestActivityLabelAndName(activity,
-                    method,
+					acitivityDisplayName,
                     activity.getProcess(),
                     shouldSetName,
                     serviceTaskCmd,
                     ted);
             RestServiceTaskSection.setRestActivityLabelAndName(activity,
-                    method,
+					acitivityDisplayName,
                     activity.getProcess(),
                     shouldSetName,
                     sendTaskCmd,
@@ -576,8 +597,9 @@ public class RestMethodDropContribution implements IDropObjectContribution {
                     .getActivity_Event(), event));
         }
 
-        RestServiceTaskAdapter rsta = new RestServiceTaskAdapter();
-        rsta.addParticipantCommand(ted, cmd, activity, method);
+		RestServiceTaskAdapter rsta = new RestServiceTaskAdapter();
+		rsta.addParticipantCommand(ted, cmd, activity, WorkingCopyUtil.getFile(method),
+				rsta.getService(method).getName());
 
         /*
          * XPD-7739: If the current activity label is the default label then set
@@ -597,8 +619,14 @@ public class RestMethodDropContribution implements IDropObjectContribution {
                     internalName != null
                             && internalName.equals(activity.getName());
 
+			/*
+			 * create a display label
+			 */
+			String activityDisplayName = String.format("%1$s - %2$s %3$s", //$NON-NLS-1$
+					method.getName(), method.getHttpMethod().getName(), ((Resource) method.eContainer()).getName());
+
             RestServiceTaskSection.setRestActivityLabelAndName(activity,
-                    method,
+					activityDisplayName,
                     activity.getProcess(),
                     shouldSetName,
                     cmd,

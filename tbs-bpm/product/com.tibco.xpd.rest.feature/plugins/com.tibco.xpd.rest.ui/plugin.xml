@@ -21,6 +21,12 @@
          <filePatterns
                match=".*\.[jJ][sS][dD]">
          </filePatterns>
+         <filePatterns
+               match=".*\.[jJ][sS][oO][nN]">
+         </filePatterns>
+         <filePatterns
+               match=".*\.[yY][aA][mM][lL]">
+         </filePatterns>
       </binding>
    </extension>
    <extension
@@ -112,6 +118,41 @@
                </and>
             </or></enablement>
       </commonWizard>
+      <commonWizard
+            type="import"
+            wizardId="com.tibco.xpd.rest.ui.wizard.swagger.import">
+         <enablement>
+            <and>
+               <not>
+                  <test
+                        forcePluginActivation="true"
+                        property="com.tibco.xpd.projectNatureTester.containingProjectHasNature"
+                        value="com.tibco.xpd.resources.lockedForProductionNature">
+                  </test>
+               </not>
+               <or>
+                  <and>
+                     <instanceof
+                           value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                     </instanceof>
+                     <test
+                           property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                           value="rest">
+                     </test>
+                  </and>
+                  <and>
+                     <instanceof
+                           value="org.eclipse.core.resources.IResource">
+                     </instanceof>
+                     <test
+                           property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                           value="rest">
+                     </test>
+                  </and>
+               </or>
+            </and>
+         </enablement>
+      </commonWizard>
    </extension>
    <extension
          point="com.tibco.xpd.resources.projectAsset">
@@ -167,6 +208,16 @@
            name="%rest_ui_new_category"
            parentCategory="com.tibco.xpd.newWizard.modeling.category">
        </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <wizard
+            category="com.tibco.xpd.resources.ui.importWizard.bpm.category"
+            class="com.tibco.xpd.rest.ui.internal.wizard.ImportSwaggerWizard"
+            icon="icons/SwaggerFileIcon.png"
+            id="com.tibco.xpd.rest.ui.wizard.swagger.import"
+            name="%com.tibco.xpd.rest.ui.wizard.swagger.import">
+      </wizard>
    </extension>
    <extension
          point="com.tibco.xpd.resources.projectAssetBinding">

@@ -4,7 +4,7 @@
 
 package com.tibco.xpd.sce.tests;
 
-import com.tibco.xpd.sce.tests.validation.Ace5132DuplicateCatchSignalValidationTest;
+import com.tibco.xpd.sce.tests.javascript.Ace5132DuplicateCatchSignalValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceAllowCrossClassTypeAndCrosssProjectReferenceTest;
 import com.tibco.xpd.sce.tests.validation.AceBomFactoryValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceBomMigrationValidationsTest;
@@ -12,10 +12,8 @@ import com.tibco.xpd.sce.tests.validation.AceBomTextPatternRemovalTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseAttributesValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseCompositionValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseServiceValidationRulesTest;
-import com.tibco.xpd.sce.tests.validation.AceCompositeCaseIdTest;
 import com.tibco.xpd.sce.tests.validation.AceDateTimeResolutionTest;
 import com.tibco.xpd.sce.tests.validation.AceDecPlacesValidationTest;
-import com.tibco.xpd.sce.tests.validation.AceDuplicatePackageIDTest;
 import com.tibco.xpd.sce.tests.validation.AceDuplicatePackageNameTest;
 import com.tibco.xpd.sce.tests.validation.AceEventHandlerValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceIncomingRequestActivityTest;
@@ -31,19 +29,6 @@ import com.tibco.xpd.sce.tests.validation.AceSearchableInNonCaseClassTest;
 import com.tibco.xpd.sce.tests.validation.AceSearchableMaxAllowedCountTest;
 import com.tibco.xpd.sce.tests.validation.AceSummaryArrayResolutionTest;
 import com.tibco.xpd.sce.tests.validation.AceTemporalDefaultValueRuleTest;
-import com.tibco.xpd.sce.tests.validation.PSLArrayGenericTypeParamAndReturnTest;
-import com.tibco.xpd.sce.tests.validation.PSLBPMScriptsVariableAssignmentValidationTest;
-import com.tibco.xpd.sce.tests.validation.PSLFileNameValidatorTest;
-import com.tibco.xpd.sce.tests.validation.PSLFunctionNameValidator;
-import com.tibco.xpd.sce.tests.validation.PSLFunctionParameterValidation;
-import com.tibco.xpd.sce.tests.validation.PSLFunctionTypeCheckingValidationTest;
-import com.tibco.xpd.sce.tests.validation.PSLProjectNameValidatorTest;
-import com.tibco.xpd.sce.tests.validation.PSLProjectReferenceValidationTest;
-import com.tibco.xpd.sce.tests.validation.PSLReturnTypeValidationTest;
-import com.tibco.xpd.sce.tests.validation.PSLTargetEnvValidatorTest;
-import com.tibco.xpd.sce.tests.validation.PSLValidBPMScriptsVariableAssignmentValidationTest;
-import com.tibco.xpd.sce.tests.validation.PSLValidProjectReferenceValidationTest;
-import com.tibco.xpd.sce.tests.validation.PSLValidReturnTypeValidationTest;
 import com.tibco.xpd.sce.tests.validation.RepeatingScriptFunctionParameterTest;
 import com.tibco.xpd.sce.tests.validation.SearchSummaryValidationTest;
 import com.tibco.xpd.sce.tests.validation.ServiceProcessTimerEventValidationTest;
@@ -97,27 +82,6 @@ public class AllUnitTestsValidation {
 		suite.addTestSuite(AceLoggerValidTest.class);
         suite.addTestSuite(RepeatingScriptFunctionParameterTest.class);
 		suite.addTestSuite(AceEventHandlerValidationTest.class);
-
-		suite.addTestSuite(PSLFunctionNameValidator.class);
-		suite.addTestSuite(AceDuplicatePackageIDTest.class);
-
-		suite.addTestSuite(PSLFileNameValidatorTest.class);
-		suite.addTestSuite(PSLProjectNameValidatorTest.class);
-		suite.addTestSuite(PSLTargetEnvValidatorTest.class);
-		suite.addTestSuite(PSLFunctionParameterValidation.class);
-
-		suite.addTestSuite(PSLReturnTypeValidationTest.class);
-		suite.addTestSuite(PSLProjectReferenceValidationTest.class);
-		suite.addTestSuite(PSLValidProjectReferenceValidationTest.class);
-		suite.addTestSuite(PSLBPMScriptsVariableAssignmentValidationTest.class);
-		suite.addTestSuite(PSLValidBPMScriptsVariableAssignmentValidationTest.class);
-
-		suite.addTestSuite(PSLValidReturnTypeValidationTest.class);
-
-		suite.addTestSuite(PSLFunctionTypeCheckingValidationTest.class);
-		suite.addTestSuite(PSLArrayGenericTypeParamAndReturnTest.class);
-
-		suite.addTestSuite(AceCompositeCaseIdTest.class);
 
 		return suite;
     }

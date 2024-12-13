@@ -1,0 +1,251 @@
+openapi: 3.0.0
+info:
+  title: Basic Type 1
+  version: 1.0.0
+paths:
+  /serviceWithoutServerSpec/{id}:
+    post:
+      summary: Service with no base URL / host defined
+      operationId: serviceWithoutServerSpec
+      parameters:
+        - name: id
+          in: path
+          description: ID in the path
+          required: true
+          schema:
+            type: integer
+        - name: tags
+          in: query
+          description: Array of string tags in the query
+          required: false
+          schema:
+            type: string
+        - name: scores
+          in: query
+          description: Array of number (float) scores in the query
+          required: false
+          schema:
+            type: number
+            format: float
+            example: [95.5, 88.2, 76.3]
+        - name: role
+          in: header
+          description: Array of roles in the header
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestBodySchema'
+      responses:
+        '200':
+          description: Successful response with all simple data types
+          headers:
+            X-Total-Count:
+              description: Total number of records found
+              schema:
+                type: integer
+                example: 50
+            X-Processing-Time:
+              description: Time taken to process the request in milliseconds
+              schema:
+                type: number
+                format: float
+                example: 120.5
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodySchema'
+        '204':
+          description: Successful 204 response with no content
+          headers:
+            X-Action-Status:
+              description: Status of the action performed
+              schema:
+                type: string
+                example: "success"
+            X-Processed-Date:
+              description: The date when the action was processed
+              schema:
+                type: string
+                format: date-time
+                example: "2024-01-01T12:00:00Z"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/204ResponseBodySchema'
+        '400':
+          description: Bad request due to invalid or missing input parameters
+          headers:
+            X-Error-Code:
+              description: Error code associated with the issue
+              schema:
+                type: integer
+                example: 1001
+            X-Request-ID:
+              description: Unique identifier for the request
+              schema:
+                type: string
+                example: "req-001"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found response when IDs are not found
+          headers:
+            X-Error-Code:
+              description: Error code for missing resources
+              schema:
+                type: integer
+                example: 404
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          headers:
+            X-Error-Code:
+              description: Error code for server issues
+              schema:
+                type: integer
+                example: 500
+            X-Timestamp:
+              description: The time when the error occurred
+              schema:
+                type: string
+                format: date-time
+                example: "2024-01-01T12:00:00Z"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        default:
+          description: Successful operation
+
+components:
+  schemas:
+    RequestBodySchema:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name with length restrictions
+          minLength: 3
+          maxLength: 50
+          example: "John Doe"
+        age:
+          type: integer
+          format: int32
+          minimum: 18
+          maximum: 65
+          example: 30
+        height:
+          type: number
+          format: float
+          minimum: 1.0
+          maximum: 2.5
+          example: 1.75
+        balance:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 1000000.0
+          example: 12345.67
+        isActive:
+          type: boolean
+          example: true
+        tags:
+          type: array
+          items:
+            type: string
+          example: ["tag1", "tag2", "tag3"]
+        scores:
+          type: array
+          items:
+            type: number
+            format: float
+          example: [95.5, 88.2, 76.3]
+        birthDate:
+          type: string
+          format: date
+          example: "1990-01-01"
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2024-01-01T12:00:00Z"
+        additionalInfo:
+          $ref: '#/components/schemas/AdditionalInfo'
+
+    ResponseBodySchema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Data processed successfully"
+        userId:
+          type: integer
+          format: int64
+          example: 987654321
+        status:
+          type: boolean
+          example: true
+        height:
+          type: number
+          format: float
+          example: 1.75
+        points:
+          type: number
+          format: double
+          example: 123.45
+        interests:
+          type: array
+          items:
+            type: string
+          example: ["reading", "coding", "traveling"]
+        measurements:
+          type: array
+          items:
+            type: integer
+          example: [170, 65, 120]
+        birthDate:
+          type: string
+          format: date
+          example: "1990-01-01"
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2024-01-01T12:00:00Z"
+        additionalInfo:
+          $ref: '#/components/schemas/AdditionalInfo'
+    
+    204ResponseBodySchema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "No content, but operation successful"
+        status:
+          type: boolean
+          example: true
+
+    AdditionalInfo:
+      type: object
+      properties:
+        address:
+          type: string
+          example: "123 Main St"
+        phoneNumber:
+          type: string
+          example: "+1-555-555-5555"
+
+    ErrorResponse:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          format: int32
+          example:

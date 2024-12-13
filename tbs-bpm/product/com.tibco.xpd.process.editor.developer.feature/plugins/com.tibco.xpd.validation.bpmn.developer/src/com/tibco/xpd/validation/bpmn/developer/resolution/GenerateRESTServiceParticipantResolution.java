@@ -13,8 +13,6 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter;
 import com.tibco.xpd.resources.indexer.IndexerItem;
-import com.tibco.xpd.rsd.Method;
-import com.tibco.xpd.rsd.Service;
 import com.tibco.xpd.validation.bpmn.developer.internal.Messages;
 import com.tibco.xpd.validation.resolutions.AbstractWorkingCopyResolution;
 import com.tibco.xpd.validation.resolutions.IResolution;
@@ -74,34 +72,18 @@ public class GenerateRESTServiceParticipantResolution extends
 
             if (item != null) {
 
-                /*
-                 * Get the method from the indexer item.
-                 */
-                Method method = rsta.getRSOMethod(item);
+				Package pkg = Xpdl2ModelUtil.getPackage(activity);
 
-                if (method != null) {
+				Participant participant = rsta.createParticipant(item.get("serviceName")); //$NON-NLS-1$
 
-                    Package pkg = Xpdl2ModelUtil.getPackage(activity);
+				compoundCmd.append(rsta.getAddRESTServiceParticipantCommand(editingDomain, pkg, participant));
 
-                    Service svc = rsta.getService(method);
+				Performers performers = rsta.createPerformers(participant.getId());
 
-                    Participant participant = rsta.createParticipant(svc);
+				compoundCmd.append(new SetCommand(editingDomain, activity,
+						Xpdl2Package.eINSTANCE.getActivity_Performers(), performers));
 
-                    compoundCmd.append(rsta
-                            .getAddRESTServiceParticipantCommand(editingDomain,
-                                    pkg,
-                                    svc,
-                                    participant));
-
-                    Performers performers =
-                            rsta.createPerformers(participant.getId());
-
-                    compoundCmd.append(new SetCommand(editingDomain, activity,
-                            Xpdl2Package.eINSTANCE.getActivity_Performers(),
-                            performers));
-
-                    return compoundCmd;
-                }
+				return compoundCmd;
             }
         }
 

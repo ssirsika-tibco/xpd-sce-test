@@ -332,7 +332,18 @@ public class ProcessScriptLibraryReferenceProvider
 				escapeNext = false;
 			}
 
-			if (insideSingleLineComment && ch == '\n')
+			/*
+			 * Sid ACE-8668 Allow for (the very ODD!!) circumstance where expressions have single '\r' carriage-return
+			 * linebreaks with no new-lines).
+			 * 
+			 * The script source viewer maintains whatever line termination it finds first in the expression, so even
+			 * editing the script dowsn't do any good
+			 * 
+			 * So we'll just treat '\r' as a line terminator in its own right (if it is \r\n then it'll be treated as 2
+			 * line terminations, but that doesn't matter when we're looking for comments
+			 * 
+			 */
+			if (insideSingleLineComment && (ch == '\n' || ch == '\r'))
 			{
 				insideSingleLineComment = false;
 			}

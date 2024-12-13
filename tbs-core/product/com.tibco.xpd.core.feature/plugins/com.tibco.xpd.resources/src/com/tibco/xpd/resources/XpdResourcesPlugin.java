@@ -452,7 +452,11 @@ public class XpdResourcesPlugin extends AbstractUIPlugin {
                 // nature cannot be obtained for a project if the project does
                 // not exist (if for example method is invoked on project delete
                 // resource change).
-                if (project.exists()
+				/*
+				 * Sid ACE-8885 refined to use 'isAccessible()' as I found that in some circumstances the 'exists()'
+				 * will return true if the project is in the process of being deleted.
+				 */
+				if (project.isAccessible()
                         && project.isNatureEnabled(XpdConsts.PROJECT_NATURE_ID)) {
                     IResource res = project.findMember(PROJECTCONFIGFILE);
 

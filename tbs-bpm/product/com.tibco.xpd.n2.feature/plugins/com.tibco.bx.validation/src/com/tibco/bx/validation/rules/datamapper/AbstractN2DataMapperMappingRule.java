@@ -366,23 +366,6 @@ public abstract class AbstractN2DataMapperMappingRule
     }
 
     /**
-     * @see com.tibco.xpd.validation.bpmn.rules.baserules.AbstractMappingRuleBase#allowDescendantMappings(com.tibco.xpd.mapper.Mapping,
-     *      com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProviderBase,
-     *      com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProviderBase)
-     * 
-     * @param mapping
-     * @param sourceInfoProvider
-     * @param targetInfoProvider
-     * @return
-     */
-    @Override
-    protected boolean allowDescendantMappings(Mapping mapping,
-            MappingRuleContentInfoProviderBase sourceInfoProvider,
-            MappingRuleContentInfoProviderBase targetInfoProvider) {
-        return DataMapperUtils.isLikeMapping(mapping);
-    }
-
-    /**
      * @see com.tibco.xpd.datamapper.rules.AbstractDataMapperMappingRule#performAdditionalMappingsValidation(java.lang.Object,
      *      java.util.Collection)
      *

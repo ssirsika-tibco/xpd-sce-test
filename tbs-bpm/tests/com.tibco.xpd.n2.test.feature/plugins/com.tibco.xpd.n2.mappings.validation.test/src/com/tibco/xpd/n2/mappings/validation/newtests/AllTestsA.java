@@ -15,8 +15,11 @@ public class AllTestsA {
         // $JUnit-BEGIN$
         suite.addTestSuite(N2_07_MappingsAllPrimitiveTypeCombinationsTest.class);
         suite.addTestSuite(N2_14_XPD2045MapFromMISubprocSingleinstToChildSeqTest.class);
-        suite.addTestSuite(N2_15_CatchThrowErrorScriptMappingValidationErrorsTest.class);
-        suite.addTestSuite(N2_16_XPD3911EnsureConsistentUseOfCorrelationFieldsTest.class);
+
+		// Sid ACE-8742 Moved to SCE test feature
+		suite.addTestSuite(N2_15_CatchThrowErrorScriptMappingValidationErrorsTest.class);
+		suite.addTestSuite(N2_16_XPD3911EnsureConsistentUseOfCorrelationFieldsTest.class);
+
         // $JUnit-END$
         return suite;
     }

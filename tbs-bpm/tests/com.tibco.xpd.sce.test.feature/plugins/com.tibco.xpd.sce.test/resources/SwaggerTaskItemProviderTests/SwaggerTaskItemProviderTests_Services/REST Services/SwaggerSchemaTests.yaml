@@ -1,0 +1,1181 @@
+  swagger: '2.0'
+  info:
+    title: Swagger schema tests
+    description: |
+        All kinds of swagger schema constructs so that we can test various combinations
+    version: "1.0.0"
+  schemes:
+    [http, https]
+  basePath: /schematests
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  paths:
+    /serviceWithQueryParamsOfAllTypes:
+      put:
+        summary: serviceWithQueryParamsOfAllTypes Designed to test that tree items for all possible parameter data types are correct
+
+        parameters:
+          - in: query
+            name: textParam
+            type: string
+          - in: query
+            name: textArrayParam
+            type: array
+            items:
+              type: string
+          - in: query
+            name: integerParam
+            type: integer
+          - in: query
+            name: integerArrayParam
+            type: array
+            items:
+              type: integer
+          - in: query
+            name: doubleParam
+            type: number
+            format: double
+          - in: query
+            name: doubleArrayParam
+            type: array
+            items:
+              type: number
+              format: double
+          - in: query
+            name: floatParam
+            type: number
+            format: float
+          - in: query
+            name: floatArrayParam
+            type: array
+            items:
+              type: number
+              format: float
+          - in: query
+            name: dateParam
+            type: string
+            format: date
+          - in: query
+            name: dateArrayParam
+            type: array
+            items:
+              type: string
+              format: date
+          - in: query
+            name: dateTimeParam
+            type: string
+            format: date-time
+          - in: query
+            name: dateTimeArrayParam
+            type: array
+            items:
+              type: string
+              format: date-time
+          - in: query
+            name: booleanParam
+            type: boolean
+          - in: query
+            name: booleanArrayParam
+            type: array
+            items:
+              type: boolean
+
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: integer
+    /serviceToTestTreeContainers/{pathParam}:
+      put:
+        summary: serviceToTestTreeContainers Just designed to test that treecontainer items and basic content are created correctly.
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: string
+          - in: header
+            name: headerParam
+            required: false
+            type: string
+          - in: path
+            name: pathParam
+            required: true
+            type: string
+          - in: query
+            name: queryParam
+            required: false
+            type: string
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: integer
+            headers:
+              headerParam200:
+                type: string
+          '201':
+            description: success 
+            schema:
+              type: string
+            headers:
+              headerParam201:
+                type: integer
+          '400': 
+            description: error
+            schema:
+              type: string
+            headers:
+              headerParam400:
+                type: number
+                format: double
+          '500': 
+            description: error
+            schema:
+              type: string
+
+    /payloadIsDollarRefTo_IndirectionToSingleSimpleType:
+      put:
+        summary: IndirectionToSingleSimpleType Payload is $ref to type that is an indirection to a primitive string type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/IndirectionToSingleSimpleType'
+        responses:
+          '200':
+            description: success 
+            schema:
+              $ref: '#/definitions/IndirectionToSingleSimpleType'
+          '400': 
+            description: error
+            schema:
+              $ref: '#/definitions/IndirectionToSingleSimpleType'
+
+    /payloadIsDollarRefTo_IndirectionToArraySimpleType:
+      put:
+        summary: IndirectionToArraySimpleType Payload is $ref to type that is an indirection to an array primitive string type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/IndirectionToArraySimpleType'
+        responses:
+          '200':
+            description: success 
+            schema:
+              $ref: '#/definitions/IndirectionToArraySimpleType'
+          '400': 
+            description: error
+            schema:
+              $ref: '#/definitions/IndirectionToArraySimpleType'
+
+    /payloadIsDollarRefTo_IndirectionToSingleNumberType:
+      put:
+        summary: IndirectionToSingleNumberType Payload is $ref to type that is an indirection to a primitive Number type - just to check that indirect simple type isn't always created as string type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/IndirectionToSingleNumberType'
+        responses:
+          '200':
+            description: success 
+            schema:
+              $ref: '#/definitions/IndirectionToSingleNumberType'
+          '400': 
+            description: error
+            schema:
+              $ref: '#/definitions/IndirectionToSingleNumberType'
+
+    /payloadIsDollarRefTo_IndirectionToArrayNumberType:
+      put:
+        summary: IndirectionToArrayNumberType Payload is $ref to type that is an indirection to an array primitive string type  - just to check that indirect simple type isn't always created as string array type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/IndirectionToArrayNumberType'
+        responses:
+          '200':
+            description: success 
+            schema:
+              $ref: '#/definitions/IndirectionToArrayNumberType'
+          '400': 
+            description: error
+            schema:
+              $ref: '#/definitions/IndirectionToArrayNumberType'
+
+    /payloadIsDollarRefTo_IndirectionToSingleComplexTypeRef:
+      put:
+        summary: IndirectionToSingleComplexTypeRef Payload is $ref to type that is an indirection to a primitive string type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/IndirectionToSingleComplexTypeRef'
+        responses:
+          '200':
+            description: success 
+            schema:
+              $ref: '#/definitions/IndirectionToSingleComplexTypeRef'
+          '400': 
+            description: error
+            schema:
+              $ref: '#/definitions/IndirectionToSingleComplexTypeRef'
+
+    /payloadIsDollarRefTo_IndirectionToArrayComplexTypeRef:
+      put:
+        summary: IndirectionToArrayComplexTypeRef Payload is $ref to type that is an indirection to an array complex type that is an indirection to a type (ComplexType) that is itself another indirection to another complex type (ComplexType2)
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/IndirectionToArrayComplexTypeRef'
+        responses:
+          '200':
+            description: success 
+            schema:
+              $ref: '#/definitions/IndirectionToArrayComplexTypeRef'
+          '400': 
+            description: error
+            schema:
+              $ref: '#/definitions/IndirectionToArrayComplexTypeRef'
+
+    /payloadIsDollarRefTo_MiddleIndirectionIntroducesArrayType1:
+      put:
+        summary: MiddleIndirectionIntroducesArrayType1 Payload is $ref to type that is an indirection to an array complex type (MiddleIndirectionIntroducesArrayType1) that is an indirection to a type (MiddleIndirectionIntroducesArrayType2) that introduces the fact that the final indirection to (MiddleIndirectionIntroducesArrayType3) should be an array - i.e. there are 3 levels of indirection and the middle level introduces array to the type.
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/MiddleIndirectionIntroducesArrayType1'
+        responses:
+          '200':
+            description: success 
+            schema:
+              $ref: '#/definitions/MiddleIndirectionIntroducesArrayType1'
+          '400': 
+            description: error
+            schema:
+              $ref: '#/definitions/MiddleIndirectionIntroducesArrayType1'
+
+    /payloadIsDirectRefTo_ComplexType:
+      put:
+        summary: ComplexType Payload is $ref to a simple complex type definiion (that is not an indirection to anotehr type)
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/ComplexType2'
+        responses:
+          '200':
+            description: success 
+            schema:
+              $ref: '#/definitions/ComplexType2'
+          '400': 
+            description: error
+            schema:
+              $ref: '#/definitions/ComplexType2'
+
+    /payloadIsDirectRefTo_ComplexTypeArray:
+      put:
+        summary: ComplexTypeArray Payload is an array $ref to a simple complex type definiion (that is not an indirection to anotehr type)
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/ComplexType2'
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/ComplexType2'
+          '400': 
+            description: error
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/ComplexType2'
+
+    /payloadIsDirectRefTo_String:
+      put:
+        summary: String Payload is a direct reference to String type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: string
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: string
+          '400': 
+            description: error
+            schema:
+              type: string
+
+    /payloadIsDirectRefTo_StringArray:
+      put:
+        summary: StringArray Payload is a direct reference to String Array type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                type: string
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: array
+              items:
+                type: string
+          '400': 
+            description: error
+            schema:
+              type: array
+              items:
+                type: string
+
+    /payloadIsDirectRefTo_Date:
+      put:
+        summary: Date Payload is a direct reference to Date type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: string
+              format: date
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: string
+              format: date
+          '400': 
+            description: error
+            schema:
+              type: string
+              format: date
+
+    /payloadIsDirectRefTo_DateArray:
+      put:
+        summary: DateArray Payload is a direct reference to Date Array type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                type: string
+                format: date
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: array
+              items:
+                type: string
+                format: date
+          '400': 
+            description: error
+            schema:
+              type: array
+              items:
+                type: string
+                format: date
+
+    /payloadIsDirectRefTo_DateTime:
+      put:
+        summary: DateTime Payload is a direct reference to DateTime type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: string
+              format: date-time
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: string
+              format: date-time
+          '400': 
+            description: error
+            schema:
+              type: string
+              format: date-time
+
+    /payloadIsDirectRefTo_DateTimeArray:
+      put:
+        summary: DateTimeArray Payload is a direct reference to DateTime Array type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                type: string
+                format: date-time
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: array
+              items:
+                type: string
+                format: date-time
+          '400': 
+            description: error
+            schema:
+              type: array
+              items:
+                type: string
+                format: date-time
+                
+    /payloadIsDirectRefTo_NumberDouble:
+      put:
+        summary: NumberDouble Payload is a direct reference to Number Double type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: number
+              format: double
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: number
+              format: double
+          '400': 
+            description: error
+            schema:
+              type: number
+              format: double
+
+    /payloadIsDirectRefTo_NumberDoubleArray:
+      put:
+        summary: NumberDoubleArray Payload is a direct reference to Number Double Array type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                type: number
+                format: double
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: array
+              items:
+                type: number
+                format: double
+          '400': 
+            description: error
+            schema:
+              type: array
+              items:
+                type: number
+                format: double
+
+    /payloadIsDirectRefTo_NumberFloat:
+      put:
+        summary: NumberFloat Payload is a direct reference to Number Float type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: number
+              format: float
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: number
+              format: float
+          '400': 
+            description: error
+            schema:
+              type: number
+              format: float
+
+    /payloadIsDirectRefTo_NumberFloatArray:
+      put:
+        summary: NumberFloatArray Payload is a direct reference to Number Float Array type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                type: number
+                format: float
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: array
+              items:
+                type: number
+                format: float
+          '400': 
+            description: error
+            schema:
+              type: array
+              items:
+                type: number
+                format: float
+
+    /payloadIsDirectRefTo_Integer:
+      put:
+        summary: Integer Payload is a direct reference to Integer type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: integer
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: integer
+          '400': 
+            description: error
+            schema:
+              type: integer
+
+    /payloadIsDirectRefTo_IntegerArray:
+      put:
+        summary: IntegerArray Payload is a direct reference to Integer Array type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                type: integer
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: array
+              items:
+                type: integer
+          '400': 
+            description: error
+            schema:
+              type: array
+              items:
+                type: integer
+
+    /payloadIsDirectRefTo_Boolean:
+      put:
+        summary: Boolean Payload is a direct reference to Boolean type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: boolean
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: boolean
+          '400': 
+            description: error
+            schema:
+              type: boolean
+
+    /payloadIsDirectRefTo_BooleanArray:
+      put:
+        summary: BooleanArray Payload is a direct reference to Boolean Array type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                type: boolean
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: array
+              items:
+                type: boolean
+          '400': 
+            description: error
+            schema:
+              type: array
+              items:
+                type: boolean
+
+    /payloadIs_InlineComplexType:
+      put:
+        summary: InlineComplexType Payload is a complex type defined inline ratehr than $ref
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: object
+              properties:
+                topLevelString:
+                  type: string
+                topLevelStringArray:
+                  type: array
+                  items:
+                    type: string
+                childInlineComplex:
+                  type: object
+                  properties:
+                    childInteger: 
+                     type: integer
+                    childComplexType2Ref:
+                      $ref: '#/definitions/ComplexType2'
+                    
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: boolean
+          '400': 
+            description: error
+            schema:
+              type: boolean
+
+    /payloadIs_InlineArrayComplexType:
+      put:
+        summary: InlineArrayComplexType Payload is an array complex type defined inline ratehr than $ref
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  topLevelString:
+                    type: string
+                  topLevelStringArray:
+                    type: array
+                    items:
+                      type: string
+                  childInlineComplex:
+                    type: object
+                    properties:
+                      childInteger: 
+                       type: integer
+                      childComplexType2Ref:
+                        $ref: '#/definitions/ComplexType2'
+                    
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: boolean
+          '400': 
+            description: error
+            schema:
+              type: boolean
+
+    /payloadIs_AllSupportedComplexTypeContent:
+      put:
+        summary: AllSupportedComplexTypeContent Payload is $ref to type includes just about everything that we supprot in terms of complex type and properties within it string type
+
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/AllPropertyTypesAsGrandChildren'
+        responses:
+          '200':
+            description: success 
+            schema:
+              $ref: '#/definitions/AllPropertyTypesAsGrandChildren'
+          '400': 
+            description: error
+            schema:
+              $ref: '#/definitions/AllPropertyTypesAsGrandChildren'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /payloadIsArrayOfArrays_PayloadOverloadsArrayIndirectionToComplexType:
+      put:
+        summary: PayloadOverloadsArrayIndirectionToComplexType Payload is an array $ref to a type that is just an array $ref to another Complex type
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/IndirectionToArrayComplexTypeRef'
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/IndirectionToArrayComplexTypeRef'
+          '400': 
+            description: error
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/IndirectionToArrayComplexTypeRef'
+
+    /payloadIsArrayOfArrays_PayloadOverloadsArrayIndirectionToPrimitiveType:
+      put:
+        summary: PayloadOverloadsArrayIndirectionToPrimitiveType Payload is an array $ref to a type that is just an array $ref to another primitive type
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/IndirectionToArrayNumberType'
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/IndirectionToArrayNumberType'
+          '400': 
+            description: error
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/IndirectionToArrayNumberType'
+
+    /payloadIsArrayOfArrays_PayloadIsInlineArrayOfPrimitiveTypeArrays:
+      put:
+        summary: PayloadIsInlineArrayOfPrimitiveTypeArrays Payload is an inline schema of array of string arrays
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                type: array
+                items:
+                  type: string
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: array
+              items:
+                type: array
+                items:
+                  type: string
+          '400': 
+            description: error
+            schema:
+              type: array
+              items:
+                type: array
+                items:
+                  type: string
+
+    /payloadIsArrayOfArrays_PayloadIsInlineArrayOfComplexTypeArrays:
+      put:
+        summary: PayloadIsInlineArrayOfComplexTypeArrays Payload is an inline schema of array of inline complex type arrays
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    p1: 
+                      type: string
+                    p2:
+                      type: integer
+        responses:
+          '200':
+            description: success 
+            schema:
+              type: array
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    p1: 
+                      type: string
+                    p2:
+                      type: integer
+          '400': 
+            description: error
+            schema:
+              type: array
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    p1: 
+                      type: string
+                    p2:
+                      type: integer
+
+    /payloadIsArrayOfArrays_PayloadIsTypeThatHasMutlipleArrayIndirections:
+      put:
+        summary: PayloadIsTypeThatHasMutlipleArrayIndirections Payload a $ref to a type that has several layers of indirection two of which are declared as arrays (thus defining an array of arrays))
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/CreatesArrayOfArraysJustInIndirections'
+        responses:
+          '200':
+            description: success 
+            schema:
+              $ref: '#/definitions/CreatesArrayOfArraysJustInIndirections'
+          '400': 
+            description: error
+            schema:
+              $ref: '#/definitions/CreatesArrayOfArraysJustInIndirections'
+
+    /payloadIsArrayOfArrays_PayloadIsTypeWithArrayOfArraysProperty:
+      put:
+        summary: PayloadIsTypeWithArrayOfArraysProperty Payload a $ref to a type contains an array of arrays property
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/TypeWithArrayOfArraysProperty'
+        responses:
+          '200':
+            description: success 
+            schema:
+              $ref: '#/definitions/TypeWithArrayOfArraysProperty'
+          '400': 
+            description: error
+            schema:
+              $ref: '#/definitions/TypeWithArrayOfArraysProperty'
+
+    /payloadIs_ExternalRef:
+      put:
+        summary: ExternalRef Payload is a direct reference to external type
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: './external-schema.json/ExternalType'
+        responses:
+          '200':
+            description: external type
+            schema:
+              $ref: './external-schema.json/ExternalType'
+          '400':
+            description: external  type
+            schema:
+              $ref: './external-schema.json/ExternalType'
+  
+    /payloadIs_ArrayExternalRef:
+      put:
+        summary: ArrayExternalRef Payload is a direct array reference to external type
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: array
+              items:
+                 $ref: './external-schema.json/ExternalType'
+        responses:
+          '200':
+            description: external type
+            schema:
+              type: array
+              items:
+                 $ref: './external-schema.json/ExternalType'
+          '400':
+            description: external type
+            schema:
+              type: array
+              items:
+                 $ref: './external-schema.json/ExternalType'
+  
+    /payloadIs_IndirectionToExternalRef:
+      put:
+        summary: IndirectionToExternalRef Payload is a type which is indirect reference to external type
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/IndirectionToExternalRef'
+        responses:
+          '200':
+            description: external type
+            schema:
+              $ref: '#/definitions/IndirectionToExternalRef'
+          '400':
+            description: external  type
+            schema:
+              $ref: '#/definitions/IndirectionToExternalRef'
+              
+    /payloadIs_ArrayIndirectionToExternalRef:
+      put:
+        summary: ArrayIndirectionToExternalRef Payload is a type which is indirect array reference to external type
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/ArrayIndirectionToExternalRef'
+        responses:
+          '200':
+            description: external type
+            schema:
+              $ref: '#/definitions/ArrayIndirectionToExternalRef'
+          '400':
+            description: external  type
+            schema:
+              $ref: '#/definitions/ArrayIndirectionToExternalRef'
+  
+    /payloadIs_TypeWithExternalRefProperties:
+      put:
+        summary: TypeWithExternalRefProperties Payload is a type contains properties that are external references
+        parameters:
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/TypeWithExternalTypeProperties'
+        responses:
+          '200':
+            description: external type
+            schema:
+              $ref: '#/definitions/TypeWithExternalTypeProperties'
+          '400':
+            description: external  type
+            schema:
+              $ref: '#/definitions/TypeWithExternalTypeProperties'
+              
+
+  ######################################
+  #Definitions
+  #######################################
+  definitions:
+    TypeWithExternalTypeProperties:
+      properties:
+        externalRefProperty:
+          $ref: './external-schema.json/ExternalType'
+        externalRefArrayProperty:
+          type: array
+          items:
+            $ref: './external-schema.json/ExternalType'
+            
+    IndirectionToExternalRef:
+      $ref: './external-schema.json/ExternalType'
+      
+    ArrayIndirectionToExternalRef:
+      type: array
+      items:
+        $ref: './external-schema.json/ExternalType'
+
+    ComplexType:
+      $ref: '#/definitions/ComplexType2'
+      
+    ComplexType2:
+      properties:
+        p1:
+          type: string
+        p2:
+          type: integer
+          
+    IndirectionToSingleSimpleType:
+      type: string
+
+    IndirectionToArraySimpleType:
+      type: array
+      items:
+        type: string
+      
+    IndirectionToSingleNumberType:
+      type: number
+      format: double
+
+    IndirectionToArrayNumberType:
+      type: array
+      items:
+        type: number
+        format: double
+      
+    IndirectionToSingleComplexTypeRef:
+      $ref: "#/definitions/ComplexType"
+
+    IndirectionToArrayComplexTypeRef:
+      type: array
+      items:
+        $ref: "#/definitions/ComplexType"
+      
+    CreatesArrayOfArraysJustInIndirections:
+      type: array
+      items:
+        $ref: '#/definitions/MiddleIndirectionIntroducesArrayType1'
+
+    MiddleIndirectionIntroducesArrayType1:
+      $ref: '#/definitions/MiddleIndirectionIntroducesArrayType2'
+      
+    MiddleIndirectionIntroducesArrayType2:
+      type: array
+      items:
+         $ref: '#/definitions/MiddleIndirectionIntroducesArrayType3'
+      
+    MiddleIndirectionIntroducesArrayType3:
+      $ref: '#/definitions/ComplexType2'
+      
+    AllPropertyTypesAsChildren:
+      type: object
+      properties:
+        stringProperty:
+          type: string
+        stringArrayProperty:
+          type: array
+          items:
+            type: string
+        dateProperty:
+          type: string
+          format: date
+        dateArrayProperty:
+          type: array
+          items:
+            type: string
+            format: date
+        dateTimeProperty:
+          type: string
+          format: date-time
+        dateTimeArrayProperty:
+          type: array
+          items:
+            type: string
+            format: date-time
+        numberDoubleProperty:
+          type: number
+          format: double
+        numberDoubleArrayProperty:
+          type: array
+          items:
+            type: number
+            format: double
+        numberFloatProperty:
+          type: number
+          format: float
+        numberFloatArrayProperty:
+          type: array
+          items:
+            type: number
+            format: float
+        integerProperty:
+          type: integer
+        integerArrayProperty:
+          type: array
+          items:
+            type: integer
+        booleanProperty:
+          type: boolean
+        booleanArrayProperty:
+          type: array
+          items:
+            type: boolean
+        indirectComplexTypeProperty:
+          $ref: "#/definitions/IndirectionToSingleComplexTypeRef"
+        indirectArrayComplexTypeProperty:
+          $ref: "#/definitions/IndirectionToArrayComplexTypeRef"
+            
+    AllPropertyTypesAsGrandChildren:
+      type: object
+      properties:
+        childComplex:
+          $ref: '#/definitions/AllPropertyTypesAsChildren'
+        childComplexArray:
+          type: array
+          items:
+            $ref: '#/definitions/AllPropertyTypesAsChildren'
+        inlineComplexType:
+          type: object
+          properties:
+            ictText:
+              type: string
+            ictObject:
+              properties:
+                ictObjectChildText:
+                  type: integer
+                  
+    TypeWithArrayOfArraysProperty:
+      type: object
+      properties:
+        arrayOfArraysProperty:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+        stringArrayProperty:
+          type: array
+          items:
+            type: string

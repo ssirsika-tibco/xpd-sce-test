@@ -164,11 +164,14 @@ public class RestInvocationPreCommitListener extends
     private void removeScriptDataMapper(CompoundCommand cmd,
             ResourceSetChangeEvent event, Activity activity) {
 
+		/* Sid ACE-8864 getIn/OutMapperContext() moved to RestServiceTaskAdapter */
+		RestServiceTaskAdapter rsta = new RestServiceTaskAdapter();
+
         /*
          * get the in mapping script provider
          */
         RestScriptDataMapperProvider inProvider =
-                new RestScriptDataMapperProvider(MappingDirection.IN);
+				new RestScriptDataMapperProvider(MappingDirection.IN, rsta.getInMapperContext(activity));
         ScriptDataMapper inScriptDataMapper =
                 inProvider.getScriptDataMapper(activity);
 
@@ -187,7 +190,7 @@ public class RestInvocationPreCommitListener extends
          * get the out mapping script provider
          */
         RestScriptDataMapperProvider outProvider =
-                new RestScriptDataMapperProvider(MappingDirection.OUT);
+				new RestScriptDataMapperProvider(MappingDirection.OUT, rsta.getOutMapperContext(activity));
 
         ScriptDataMapper outScriptDataMapper =
                 outProvider.getScriptDataMapper(activity);
@@ -242,14 +245,19 @@ public class RestInvocationPreCommitListener extends
      */
     private void checkAndAddRestScriptDataMapper(Activity activity,
             CompoundCommand cmd, ResourceSetChangeEvent event) {
+
+		/* Sid ACE-8864 getIn/OutMapperContext() moved to RestServiceTaskAdapter */
+		RestServiceTaskAdapter rsta = new RestServiceTaskAdapter();
+
         RestScriptDataMapperProvider inProvider =
-                new RestScriptDataMapperProvider(MappingDirection.IN);
+				new RestScriptDataMapperProvider(MappingDirection.IN, rsta.getInMapperContext(activity));
         RestScriptDataMapperProvider outProvider =
-                new RestScriptDataMapperProvider(MappingDirection.OUT);
+				new RestScriptDataMapperProvider(MappingDirection.OUT, rsta.getOutMapperContext(activity));
         TransactionalEditingDomain ed = event.getEditingDomain();
         ensureScriptDataMapperExists(inProvider, activity, ed, cmd);
         ensureScriptDataMapperExists(outProvider, activity, ed, cmd);
     }
+
 
     /**
      * Ensures that a ScriptDataMapper element exists for the given activity and

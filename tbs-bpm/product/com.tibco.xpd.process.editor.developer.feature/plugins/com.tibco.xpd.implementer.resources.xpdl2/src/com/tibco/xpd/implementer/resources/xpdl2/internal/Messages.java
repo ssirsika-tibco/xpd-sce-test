@@ -216,7 +216,21 @@ public class Messages extends NLS {
 
     public static String StartEventPageflowFragment_NotFound;
 
-    public static String XPathContentProvider_NamespaceMapOutOfSynch_message;
+	public static String SwaggerPayloadContainerTreeItem_MediaTypeUnsupported;
+
+	public static String SwaggerPayloadTreeItem_CompositionKeywordNotSupported;
+
+	public static String SwaggerPayloadTreeItem_RecursiveSchemaNotSupportedValidationMsg;
+
+    public static String SwaggerTypedTreeItem_ArraysOfArrayTypeNotSupported_label;
+
+	public static String SwaggerTypedTreeItem_CannotDeterminePropertyType_label;
+
+	public static String SwaggerTypedTreeItem_ExtRefNotSupported_label;
+
+	public static String SwaggerTypedTreeItem_IndirectExtRefNotSupported_label;
+
+	public static String XPathContentProvider_NamespaceMapOutOfSynch_message;
 
     public static String XPathContentProvider_WSDLNotAccessible_message;
 
@@ -229,6 +243,8 @@ public class Messages extends NLS {
     public static String GeneratedProcess_SubprocActivity_label_prefix;
 
     public static String CatchSignalMapperDesignerSection_MapFromSignal_title;
+
+	public static String RestMapperTreeItemFactory_ResponseCode_label;
 
     static {
         // initialize resource bundle

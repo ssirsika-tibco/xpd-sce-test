@@ -12,6 +12,7 @@ import org.eclipse.jface.viewers.Viewer;
 
 import com.tibco.xpd.datamapper.api.AbstractDataMapperContentContributor;
 import com.tibco.xpd.datamapper.scripts.IScriptDataMapperProvider;
+import com.tibco.xpd.resources.util.XpdUtil;
 import com.tibco.xpd.xpdExtension.ScriptInformation;
 
 /**
@@ -78,12 +79,18 @@ class ContributableDataMapperContentProvider implements ITreeContentProvider {
      */
     @Override
     public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+		Object currentInput = input;
+
         input = newInput;
 
-        contributionsList = new ArrayList<>();
+		/* Sid ACE-8742 Should not need to rebuild the mapper contributions list if the input isn't changing */
+		if (contributionsList == null || contributionsList.isEmpty() || !XpdUtil.safeEquals(newInput, currentInput))
+		{
+			contributionsList = new ArrayList<>();
 
-        contributionsList.addAll(DataMapperContentContributionHelper
-                .getApplicableContributions(mappingContext, isRightHandSide));
+			contributionsList.addAll(
+					DataMapperContentContributionHelper.getApplicableContributions(mappingContext, isRightHandSide));
+		}
     }
 
     /**

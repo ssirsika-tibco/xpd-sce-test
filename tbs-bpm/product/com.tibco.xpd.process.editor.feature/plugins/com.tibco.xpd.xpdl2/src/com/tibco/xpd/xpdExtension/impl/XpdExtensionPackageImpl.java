@@ -8808,13 +8808,13 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
 		initEAttribute(getScriptDataMapper_MappingDirection(), theXpdl2Package.getDirectionType(), "mappingDirection", //$NON-NLS-1$
 				null, 1, 1, ScriptDataMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getScriptDataMapper_ExcludeEmptyOptionalObjects(), theXMLTypePackage.getBoolean(),
+		initEAttribute(getScriptDataMapper_ExcludeEmptyOptionalObjects(), theXMLTypePackage.getBooleanObject(),
 				"excludeEmptyOptionalObjects", null, 1, 1, ScriptDataMapper.class, !IS_TRANSIENT, !IS_VOLATILE, //$NON-NLS-1$
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getScriptDataMapper_ExcludeEmptyOptionalArrays(), theXMLTypePackage.getBoolean(),
+		initEAttribute(getScriptDataMapper_ExcludeEmptyOptionalArrays(), theXMLTypePackage.getBooleanObject(),
 				"excludeEmptyOptionalArrays", null, 1, 1, ScriptDataMapper.class, !IS_TRANSIENT, !IS_VOLATILE, //$NON-NLS-1$
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getScriptDataMapper_ExcludeEmptyObjectsFromArrays(), theXMLTypePackage.getBoolean(),
+		initEAttribute(getScriptDataMapper_ExcludeEmptyObjectsFromArrays(), theXMLTypePackage.getBooleanObject(),
 				"excludeEmptyObjectsFromArrays", null, 1, 1, ScriptDataMapper.class, !IS_TRANSIENT, !IS_VOLATILE, //$NON-NLS-1$
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScriptDataMapper_DataMappings(), theXpdl2Package.getDataMapping(), null, "dataMappings", null, //$NON-NLS-1$

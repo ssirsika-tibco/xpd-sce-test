@@ -1972,4 +1972,40 @@ public class PrimitivesUtil {
             }
         }
     }
+
+	/**
+	 * Returns <code>true</code> if the Decimal property has a sub-type of fixedPoint.
+	 * 
+	 * @param type
+	 *            the base primitive type of the property.
+	 * @param property
+	 *            the property.
+	 * @return <code>true</code> if the Decimal property has a sub-type of fixedPoint.
+	 */
+	public static boolean isFixedPointDecimal(Property property)
+	{
+		if (property.getType() instanceof PrimitiveType)
+		{
+			Object decimalSubType = PrimitivesUtil.getFacetPropertyValue((PrimitiveType) property.getType(),
+					PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE, property, /* falbackToBaseType */ true);
+			return (decimalSubType instanceof EnumerationLiteral) && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
+					.equals(((EnumerationLiteral) decimalSubType).getName());
+		}
+		return false;
+	}
+
+	/**
+	 * Returns true if BOM attribute is array.
+	 * 
+	 * @param bomAttribute
+	 *            the bom attribute.
+	 * @return true if BOM attribute is array.
+	 */
+	public static boolean isArray(Property bomAttribute)
+	{
+		int upper = bomAttribute.getUpper();
+		// -1 means +infinity (unbounded).
+		return upper == -1 || upper > 1;
+	}
+
 }

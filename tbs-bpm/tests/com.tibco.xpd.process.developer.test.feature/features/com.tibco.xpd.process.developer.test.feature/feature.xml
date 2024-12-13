@@ -2,7 +2,7 @@
 <feature
       id="com.tibco.xpd.process.developer.test.feature"
       label="Process Developer Test Feature"
-      version="11.6.0.qualifier"
+      version="11.7.0.qualifier"
       provider-name="TIBCO Software Inc.">
 
    <description url="http://www.example.com/description">
@@ -18,32 +18,33 @@
    </license>
 
    <requires>
-      <import feature="com.tibco.xpd.core.test.feature" version="11.6.0" match="compatible"/>
-      <import feature="com.tibco.xpd.process.developer.feature" version="11.6.0" match="compatible"/>
+      <import feature="com.tibco.xpd.core.test.feature" version="11.7.0" match="compatible"/>
+      <import feature="com.tibco.xpd.process.developer.feature" version="11.7.0" match="compatible"/>
+      <import feature="com.tibco.xpd.rest.feature" version="11.7.0"/>
    </requires>
 
    <plugin
          id="com.tibco.xpd.implementer.script.test"
          download-size="0"
          install-size="0"
-         version="11.6.0.qualifier"/>
+         version="11.7.0.qualifier"/>
 
    <plugin
          id="com.tibco.xpd.processinterface.test"
          download-size="0"
          install-size="0"
-         version="11.6.0.qualifier"/>
+         version="11.7.0.qualifier"/>
 
    <plugin
          id="com.tibco.xpd.proc.dev.mappings.test"
          download-size="0"
          install-size="0"
-         version="11.6.0.qualifier"/>
+         version="11.7.0.qualifier"/>
 
    <plugin
          id="com.tibco.xpd.datamapper.test"
          download-size="0"
          install-size="0"
-         version="11.6.0.qualifier"/>
+         version="11.7.0.qualifier"/>
 
 </feature>

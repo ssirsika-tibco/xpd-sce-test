@@ -36,11 +36,15 @@ public class RestDataReferenceContextProvider implements
     @Override
     public DataReferenceContext getDataReferenceContext(String context,
             ContextSide side) {
-        if (RestDataMapperConstants.PROCESS_TO_REST_SERVICE.equals(context)) {
+		if (RestDataMapperConstants.PROCESS_TO_REST_SERVICE.equals(context)
+				|| RestDataMapperConstants.PROCESS_TO_SWAGGER.equals(context))
+		{
             return CONTEXT_INPUT_TO_SERVICE;
 
-        } else if (RestDataMapperConstants.REST_SERVICE_TO_PROCESS
-                .equals(context)) {
+		}
+		else if (RestDataMapperConstants.REST_SERVICE_TO_PROCESS.equals(context)
+				|| RestDataMapperConstants.SWAGGER_TO_PROCESS.equals(context))
+		{
 
             /*
              * For REST Service output mapping, process data references are only

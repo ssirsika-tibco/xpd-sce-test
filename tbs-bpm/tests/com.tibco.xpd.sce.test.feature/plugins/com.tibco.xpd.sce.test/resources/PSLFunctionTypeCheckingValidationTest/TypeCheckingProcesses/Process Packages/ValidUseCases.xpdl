@@ -534,6 +534,11 @@ data.srcClass1Bom = bpm.scriptUtil.copy(bpmScripts.Utilities.UtilitiesLibrary.re
 data.srcCase1Bom = factory.com_example_data.createCase1();&#xD;
 data.srcClass1Bom = factory.com_example_data.createClass1();&#xD;
 &#xD;
+// ACE-8871 Assign from array element of same caseref should be allowed.&#xD;
+data.secondCase1Ref = data.srcArrayCase1Ref[data.srcArrayNumber]; &#xD;
+data.secondCase1Ref = bpmScripts.Utilities.UtilitiesLibrary.returnCase1RefArray(data.srcArrayCase1Ref)[data.srcArrayNumber];&#xD;
+&#xD;
+&#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>

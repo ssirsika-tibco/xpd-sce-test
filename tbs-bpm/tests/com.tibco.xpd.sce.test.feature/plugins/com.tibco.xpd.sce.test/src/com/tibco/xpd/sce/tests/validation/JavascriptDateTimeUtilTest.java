@@ -3,6 +3,9 @@
  */
 package com.tibco.xpd.sce.tests.validation;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
+
 import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.core.test.validations.ValidationsTestProblemMarkerInfo;
@@ -40,7 +43,24 @@ public class JavascriptDateTimeUtilTest extends AbstractN2BaseValidationTest
 	 */
 	public void testJavascriptDateTimeUtilMethods() throws Exception
 	{
+		TestUtil.buildAndWait();
+
 		doTestValidations();
+
+		/*
+		 * Sid ACE-8609 DateTimeUtil_Subtract_Test project uses all of the feature of bpm.dateTimeUtil.subtract(date1,
+		 * date2) and the resultant Duration return object content.
+		 * 
+		 * If all is present and correct, then the project should have no problem markers.
+		 */
+		IProject dateTimeUtilSubtractTestProject = ResourcesPlugin.getWorkspace().getRoot()
+				.getProject("DateTimeUtil_Subtract_Test");
+		assertFalse("DateTimeUtil_Subtract_Test" //$NON-NLS-1$
+				+ " project should not have any ERROR level problem markers, but has:\n"
+				+ TestUtil.getErrorProblemMarkerList(dateTimeUtilSubtractTestProject, true),
+				TestUtil.hasErrorProblemMarker(
+						dateTimeUtilSubtractTestProject, // $NON-NLS-1$
+						true, "JavascriptDateTimeUtilTest")); //$NON-NLS-1$
 
 		return;
 	}
@@ -57,9 +77,14 @@ public class JavascriptDateTimeUtilTest extends AbstractN2BaseValidationTest
 		 * whole project from AMX BPM.
 		 */
 		projectImporter = TestUtil.importProjectsFromZip(getTestPlugInId(),
-				new String[]{"resources/JavascriptDateTimeUtilTest/"}, new String[]{getTestName()});
+				new String[]{"resources/JavascriptDateTimeUtilTest/JavascriptDateTimeUtilTest/",
+						"resources/JavascriptDateTimeUtilTest/DateTimeUtil_Subtract_Test/"},
+				new String[]{"JavascriptDateTimeUtilTest", "DateTimeUtil_Subtract_Test"});
 
 		assertTrue("Failed to load projects from \"resources/JavascriptDateTimeUtilTest/", projectImporter != null);
+
+		TestUtil.buildAndWait();
+
 	}
 
 	/**

@@ -11,7 +11,8 @@ package com.tibco.xpd.rest.ui.internal;
  * @since 12 Jan 2015
  */
 public enum RestImage {
-    REST_SPECIAL_FOLDER("icons/REST_SpecialFolder.png"); //$NON-NLS-1$
+	REST_SPECIAL_FOLDER("icons/REST_SpecialFolder.png"), //$NON-NLS-1$
+	IMPORT_SWAGGER_WIZARD("icons/SwaggerWizardIcon.png"); //$NON-NLS-1$
 
     private String id;
 

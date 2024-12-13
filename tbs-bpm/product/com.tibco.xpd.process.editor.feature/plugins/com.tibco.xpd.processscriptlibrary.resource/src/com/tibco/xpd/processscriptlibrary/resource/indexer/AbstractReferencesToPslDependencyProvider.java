@@ -60,7 +60,18 @@ public abstract class AbstractReferencesToPslDependencyProvider implements IWork
 	@Override
 	public Collection<IResource> getDependencies(WorkingCopy wc)
 	{
-		IFile thisFile = WorkingCopyUtil.getFile(wc.getRootElement());
+		/*
+		 * Sid ACE-8885 prevent NPE's if there are residual references to EObjects temporarily after deletion of
+		 * file/project
+		 */
+		EObject rootElement = wc.getRootElement();
+
+		if (rootElement == null)
+		{
+			return Collections.emptyList();
+		}
+
+		IFile thisFile = WorkingCopyUtil.getFile(rootElement);
 
 		if (thisFile == null || !thisFile.getFileExtension().equals(getFileExtension()))
 		{

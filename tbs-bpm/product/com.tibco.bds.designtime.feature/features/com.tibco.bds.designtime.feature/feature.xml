@@ -2,7 +2,7 @@
 <feature
       id="com.tibco.bds.designtime.feature"
       label="%featureName_notrans"
-      version="11.6.0.qualifier"
+      version="11.7.0.qualifier"
       provider-name="%providerName_notrans">
 
    <description url="http://www.tibco.com/devnet/business_studio/default.jsp">
@@ -18,34 +18,39 @@
    </license>
 
    <requires>
-      <import feature="com.tibco.xpd.bom.feature" version="11.6.0" match="compatible"/>
-      <import feature="com.tibco.xpd.process.editor.feature" version="11.6.0" match="compatible"/>
-      <import feature="com.tibco.xpd.script.feature" version="11.6.0" match="compatible"/>
+      <import feature="com.tibco.xpd.tpcl.oaw.lib.feature" version="4.3.3" match="compatible"/>
+      <import feature="com.tibco.xpd.bom.feature" version="11.7.0" match="compatible"/>
+      <import feature="com.tibco.xpd.process.editor.feature" version="11.7.0" match="compatible"/>
+      <import feature="com.tibco.xpd.script.feature" version="11.7.0" match="compatible"/>
       <import feature="org.eclipse.emf" version="2.25.0" match="compatible"/>
       <import feature="org.eclipse.emf.query" version="1.12.0" match="compatible"/>
       <import feature="org.eclipse.pde" version="3.14.700" match="compatible"/>
       <import feature="org.eclipse.platform" version="4.19.0" match="compatible"/>
+      <import feature="org.openarchitectureware.core.feature" version="4.3.1" match="compatible"/>
+      <import feature="org.eclipse.xsd.ecore.converter" version="2.11.0" match="compatible"/>
+      <import feature="com.tibco.bpm.cdm.libs.feature.eclipse" version="1.0.0"/>
+      <import feature="com.tibco.bpm.cdm.dm.feature.eclipse" version="1.0.0"/>
    </requires>
 
    <plugin
          id="com.tibco.bds.designtime.generator"
          download-size="0"
          install-size="0"
-         version="11.6.0.qualifier"
+         version="11.7.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.tibco.bds.designtime.validator"
          download-size="0"
          install-size="0"
-         version="11.6.0.qualifier"
+         version="11.7.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.tibco.bds.designtime.api"
          download-size="0"
          install-size="0"
-         version="11.6.0.qualifier"
+         version="11.7.0.qualifier"
          unpack="false"/>
 
 </feature>

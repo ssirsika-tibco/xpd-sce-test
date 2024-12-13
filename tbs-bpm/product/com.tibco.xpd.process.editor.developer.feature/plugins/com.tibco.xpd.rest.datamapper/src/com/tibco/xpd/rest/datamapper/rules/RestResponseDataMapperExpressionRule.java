@@ -6,6 +6,8 @@ package com.tibco.xpd.rest.datamapper.rules;
 
 import com.tibco.xpd.datamapper.rules.AbstractDataMapperExpressionRule;
 import com.tibco.xpd.datamapper.rules.DataMapperScriptTool;
+import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter;
+import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter.RsoType;
 import com.tibco.xpd.js.validation.tools.ScriptTool;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
@@ -26,6 +28,7 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 public class RestResponseDataMapperExpressionRule extends
         AbstractDataMapperExpressionRule {
 
+	private RestServiceTaskAdapter restServiceTaskAdapter = new RestServiceTaskAdapter();
     /**
      * @see com.tibco.xpd.js.validation.rules.AbstractExpressionRule#getScriptContext()
      * 
@@ -59,6 +62,13 @@ public class RestResponseDataMapperExpressionRule extends
                     (Activity) Xpdl2ModelUtil.getAncestor(sdm, Activity.class);
 
             if (RestServiceTaskUtil.isRESTServiceActivity(activity)) {
+            	//ACE-8641: Perform an extra check to ensure activity has an associated RSD service only
+				RsoType rsoType = restServiceTaskAdapter.getRsoType(activity);
+
+				if (!RsoType.RSD.equals(rsoType)) {
+					return null;
+				}
+						
                 tool = new DataMapperScriptTool(si, getScriptContext());
 
             } else if (sdm.eContainer() instanceof ResultError) {

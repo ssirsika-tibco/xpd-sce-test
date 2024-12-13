@@ -1,0 +1,220 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Plain text service",
+        "description": "A service definitionthat uses text/plain media type",
+        "version": "1.0.7"
+    },
+    "schemes": [
+        "http"
+    ],
+    "host": "eu1prdbpmadt02.tibco.com:8070",
+    "basePath": "/tests",
+    "paths": {
+    "/plaitTextInputOutput": {
+      "put": {
+        "summary": "Input / Output plain text",
+        "description": "",
+        "operationId": "returnInputPayloadAsObject",
+        "consumes": [
+          "text/plain"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+             "schema": {
+              "type" : "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  
+  "definitions": {
+    "AllPropertyTypesAsChildren": {
+      "type": "object",
+      "properties": {
+        "string": {
+          "type": "string"
+        },
+        "stringArray": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "dateArray": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "dateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateTimeArray": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "numberDouble": {
+          "type": "number",
+          "format": "double"
+        },
+        "numberDoubleArray": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "numberFloat": {
+          "type": "number",
+          "format": "float"
+        },
+        "numberFloatArray": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "integer": {
+          "type": "integer"
+        },
+        "integerArray": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "bool": {
+          "type": "boolean"
+        },
+        "boolArray": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "AllPropertyTypesAsGrandChildren": {
+      "type": "object",
+      "properties": {
+        "childComplex": {
+          "$ref": "#/definitions/AllPropertyTypesAsChildren"
+        },
+        "childComplexArray": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AllPropertyTypesAsChildren"
+          }
+        }
+      }
+    },
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "GrandChildClass": {
+      "type": "object",
+      "properties": {
+        "GrandChildText1": {
+          "type": "string"
+        }
+      }
+    },
+    "ChildClass": {
+      "type": "object",
+      "properties": {
+        "BomChildText": {
+          "type": "string"
+        },
+         "ChildInteger": {
+          "type": "integer"
+        },
+         "ChildNumber": {
+          "type": "number",
+          "format" : "float"
+        },
+        "ChildTextList": {
+          "type" : "array",
+          "items" : {
+           "type": "string"
+          }
+        },
+        "grandChildList1": {
+          "type" : "array",
+          "items" : {
+            "$ref": "#/definitions/GrandChildClass"
+          }
+        },
+        "grandChildClass1": {
+          "$ref": "#/definitions/GrandChildClass"
+        }
+      }
+    },
+    "ComplexData": {
+      "type": "object",
+      "properties": {
+        "BomText": {
+          "type": "string"
+        },
+        "Integer": {
+          "type": "integer"
+        },
+        "Number": {
+          "type": "integer"
+        },
+        "childClass1": {
+          "$ref": "#/definitions/ChildClass"
+        },
+        "childClassList1": {
+          "type" : "array",
+          "items" : {
+           "$ref": "#/definitions/ChildClass"
+          }
+        },
+        "TextList": {
+          "type" : "array",
+          "items" : {
+           "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}

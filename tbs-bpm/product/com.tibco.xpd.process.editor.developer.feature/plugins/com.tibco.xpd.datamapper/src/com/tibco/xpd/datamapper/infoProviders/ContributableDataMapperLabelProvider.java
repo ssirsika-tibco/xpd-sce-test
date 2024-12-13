@@ -188,49 +188,55 @@ class ContributableDataMapperLabelProvider extends LabelProvider implements
      */
     @Override
     public Color getForeground(Object element) {
-        if (isRightHandSide) {
-            if (element instanceof WrappedContributedContent) {
+		/*
+		 * ACE-8787 : Before current change, this method was only applicable to 'right
+		 * hand side' to show different foreground color on read-only items. But after
+		 * the current change, foreground color can be applied to invalid mapping items
+		 * (e.g Mapping of external reference in case of Swagger operation) on LHS as
+		 * well as RHS.
+		 */
+		if (element instanceof WrappedContributedContent) {
 
-                WrappedContributedContent wrappedElement =
-                        (WrappedContributedContent) element;
+			WrappedContributedContent wrappedElement = (WrappedContributedContent) element;
 
-                if (wrappedElement.getContributor().getInfoProvider() != null) {
-                    Object contributedObject =
-                            wrappedElement.getContributedObject();
+			if (wrappedElement.getContributor().getInfoProvider() != null) {
+				Object contributedObject = wrappedElement.getContributedObject();
 
-                    /* Is contributed object itself read only? */
-                    boolean isReadOnly =
-                            wrappedElement.getContributor().getInfoProvider()
-                                    .isReadOnlyTarget(contributedObject);
+				if (isRightHandSide) {
+					/* Is contributed object itself read only? */
+					boolean isReadOnly = wrappedElement.getContributor().getInfoProvider()
+							.isReadOnlyTarget(contributedObject);
 
-                    if (!isReadOnly) {
-                        /* Else is it contained within a read only ancestor. */
-                        Object parent =
-                                wrappedElement.getContributor()
-                                        .getInfoProvider().getContentProvider()
-                                        .getParent(contributedObject);
+					if (!isReadOnly) {
+						/* Else is it contained within a read only ancestor. */
+						Object parent = wrappedElement.getContributor().getInfoProvider().getContentProvider()
+								.getParent(contributedObject);
 
-                        while (parent != null) {
-                            if (wrappedElement.getContributor()
-                                    .getInfoProvider().isReadOnlyTarget(parent)) {
-                                isReadOnly = true;
-                                break;
-                            }
+						while (parent != null) {
+							if (wrappedElement.getContributor().getInfoProvider().isReadOnlyTarget(parent)) {
+								isReadOnly = true;
+								break;
+							}
 
-                            parent =
-                                    wrappedElement.getContributor()
-                                            .getInfoProvider()
-                                            .getContentProvider()
-                                            .getParent(parent);
-                        }
-                    }
+							parent = wrappedElement.getContributor().getInfoProvider().getContentProvider()
+									.getParent(parent);
+						}
+					}
 
-                    if (isReadOnly) {
-                        return ColorConstants.gray;
-                    }
-                }
-            }
-        }
+					if (isReadOnly) {
+						return ColorConstants.gray;
+					}
+				}
+				
+				/* ACE-8787 : If tree item is not valid for mapping then show it in the gray
+				 background color. */
+				boolean validForMapping = wrappedElement.getContributor().getInfoProvider()
+						.isValidForMapping(contributedObject);
+				if (!validForMapping) {
+					return ColorConstants.gray;
+				}
+			}
+		}
         return null;
     }
 

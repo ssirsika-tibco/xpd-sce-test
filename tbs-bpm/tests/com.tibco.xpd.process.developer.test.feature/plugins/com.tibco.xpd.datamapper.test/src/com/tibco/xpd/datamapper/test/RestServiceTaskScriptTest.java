@@ -48,6 +48,7 @@ import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.resources.projectconfig.projectassets.util.ProjectAssetMigrationManager;
 import com.tibco.xpd.resources.util.XpdConsts;
 import com.tibco.xpd.rest.datamapper.RestScriptDataMapperProvider;
+import com.tibco.xpd.rest.ui.RestDataMapperConstants;
 import com.tibco.xpd.rsd.HttpMethod;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdl2.Activity;
@@ -126,7 +127,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestRequest request = new RestRequest();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.IN);
+				new RestScriptDataMapperProvider(MappingDirection.IN, RestDataMapperConstants.PROCESS_TO_REST_SERVICE);
         Activity activity = pi.getActivity(process, "RestServiceTaskSimpleGet"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -169,7 +170,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestRequest request = new RestRequest();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.IN);
+				new RestScriptDataMapperProvider(MappingDirection.IN, RestDataMapperConstants.PROCESS_TO_REST_SERVICE);
         Activity activity = pi.getActivity(process, "RestServiceTaskLikePost"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -224,7 +225,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestRequest request = new RestRequest();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.IN);
+				new RestScriptDataMapperProvider(MappingDirection.IN, RestDataMapperConstants.PROCESS_TO_REST_SERVICE);
         Activity activity =
                 pi.getActivity(process, "RestServiceTaskSimplePost"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
@@ -288,7 +289,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestRequest request = new RestRequest();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.IN);
+				new RestScriptDataMapperProvider(MappingDirection.IN, RestDataMapperConstants.PROCESS_TO_REST_SERVICE);
         Activity activity =
                 pi.getActivity(process, "RestServiceTaskSimplePost"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
@@ -369,7 +370,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestRequest request = new RestRequest();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.IN);
+				new RestScriptDataMapperProvider(MappingDirection.IN, RestDataMapperConstants.PROCESS_TO_REST_SERVICE);
         Activity activity = pi.getActivity(process, "RestServiceTaskLikePost"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -418,7 +419,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestResponse response = new RestResponse();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.OUT);
+				new RestScriptDataMapperProvider(MappingDirection.OUT, RestDataMapperConstants.REST_SERVICE_TO_PROCESS);
         Activity activity = pi.getActivity(process, "RestServiceTaskSimpleGet"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -480,7 +481,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestResponse response = new RestResponse();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.OUT);
+				new RestScriptDataMapperProvider(MappingDirection.OUT, RestDataMapperConstants.REST_SERVICE_TO_PROCESS);
         Activity activity = pi.getActivity(process, "RestServiceTaskLikeGet"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -519,7 +520,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestRequest request = new RestRequest();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.IN);
+				new RestScriptDataMapperProvider(MappingDirection.IN, RestDataMapperConstants.PROCESS_TO_REST_SERVICE);
         Activity activity = pi.getActivity(process, "RestServiceTaskArrayPost"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -557,7 +558,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestResponse response = new RestResponse();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.OUT);
+				new RestScriptDataMapperProvider(MappingDirection.OUT, RestDataMapperConstants.REST_SERVICE_TO_PROCESS);
         Activity activity = pi.getActivity(process, "RestServiceTaskArrayGet"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -600,7 +601,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestResponse response = new RestResponse();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.OUT);
+				new RestScriptDataMapperProvider(MappingDirection.OUT, RestDataMapperConstants.REST_SERVICE_TO_PROCESS);
         Activity activity = pi.getActivity(process, "RestServiceNestedArray"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -651,7 +652,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestRequest request = new RestRequest();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.IN);
+				new RestScriptDataMapperProvider(MappingDirection.IN, RestDataMapperConstants.PROCESS_TO_REST_SERVICE);
         Activity activity =
                 pi.getActivity(process, "RestServiceTaskSimpleArrayIn"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
@@ -691,7 +692,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestResponse response = new RestResponse();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.OUT);
+				new RestScriptDataMapperProvider(MappingDirection.OUT, RestDataMapperConstants.REST_SERVICE_TO_PROCESS);
         Activity activity =
                 pi.getActivity(process, "RestServiceTaskSimpleArrayOut"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
@@ -726,7 +727,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestRequest request = new RestRequest();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.IN);
+				new RestScriptDataMapperProvider(MappingDirection.IN, RestDataMapperConstants.PROCESS_TO_REST_SERVICE);
         Activity activity = pi.getActivity(process, "JSONStringMapping"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -750,7 +751,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         String actual = null;
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.OUT);
+				new RestScriptDataMapperProvider(MappingDirection.OUT, RestDataMapperConstants.REST_SERVICE_TO_PROCESS);
         Activity activity = pi.getActivity(process, "JSONStringMapping"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -775,7 +776,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         String actual = null;
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.OUT);
+				new RestScriptDataMapperProvider(MappingDirection.OUT, RestDataMapperConstants.REST_SERVICE_TO_PROCESS);
         Activity activity = pi.getActivity(process, "JSONStringErrorEvent"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -798,7 +799,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         DataMapperJavascriptGenerator generator =
                 new DataMapperJavascriptGenerator();
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.IN);
+				new RestScriptDataMapperProvider(MappingDirection.IN, RestDataMapperConstants.PROCESS_TO_REST_SERVICE);
         Activity activity = pi.getActivity(process, "CharacterTest"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -845,7 +846,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         DataMapperJavascriptGenerator generator =
                 new DataMapperJavascriptGenerator();
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.OUT);
+				new RestScriptDataMapperProvider(MappingDirection.OUT, RestDataMapperConstants.REST_SERVICE_TO_PROCESS);
         Activity activity = pi.getActivity(process, "CharacterTest"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -873,7 +874,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         RestRequest request = new RestRequest();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.IN);
+				new RestScriptDataMapperProvider(MappingDirection.IN, RestDataMapperConstants.PROCESS_TO_REST_SERVICE);
         Activity activity = pi.getActivity(process, "TopLevelArray"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -914,7 +915,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         BdsFactory factory = new BdsFactory();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.OUT);
+				new RestScriptDataMapperProvider(MappingDirection.OUT, RestDataMapperConstants.REST_SERVICE_TO_PROCESS);
         Activity activity = pi.getActivity(process, "TopLevelArray"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);
@@ -951,7 +952,7 @@ public class RestServiceTaskScriptTest extends TestCase {
         BdsFactory factory = new BdsFactory();
 
         RestScriptDataMapperProvider sdmp =
-                new RestScriptDataMapperProvider(MappingDirection.OUT);
+				new RestScriptDataMapperProvider(MappingDirection.OUT, RestDataMapperConstants.REST_SERVICE_TO_PROCESS);
         Activity activity = pi.getActivity(process, "TopLevelArrayErrorEvent"); //$NON-NLS-1$
         ScriptDataMapper sdm = sdmp.getScriptDataMapper(activity);
         String script = generator.convertMappingsToJavascript(sdm);

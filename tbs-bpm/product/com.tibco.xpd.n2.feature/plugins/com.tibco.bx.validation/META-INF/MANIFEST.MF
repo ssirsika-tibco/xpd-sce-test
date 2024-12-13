@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: N2PE Validation Plug-in
 Bundle-SymbolicName: com.tibco.bx.validation;singleton:=true
-Bundle-Version: 11.6.0.qualifier
+Bundle-Version: 11.7.0.qualifier
 Bundle-Vendor: TIBCO Software Inc.
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-Localization: plugin
@@ -44,7 +44,10 @@ Require-Bundle: com.tibco.xpd.validation,
  com.tibco.xpd.om.core,
  com.tibco.xpd.bom.modeler.custom,
  org.eclipse.ui.workbench,
- com.tibco.xpd.processscriptlibrary.resource
+ com.tibco.xpd.processscriptlibrary.resource,
+ com.tibco.bds.designtime.api,
+ com.tibco.bpm.cdm.libs.dql;bundle-version="1.0.0",
+ com.tibco.bpm.cdm.dm.eclipse;bundle-version="1.0.0"
 Export-Package: com.tibco.bx.validation.resolutions,com.tibco.bx.validat
  ion.rules.activity,com.tibco.bx.validation.rules.mapping,com.tibco.bx.v
  alidation.rules.process,com.tibco.bx.validation.rules.scripts,com.tibco

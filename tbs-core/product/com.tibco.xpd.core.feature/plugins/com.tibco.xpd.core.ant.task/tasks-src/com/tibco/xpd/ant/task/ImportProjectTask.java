@@ -6,6 +6,9 @@ package com.tibco.xpd.ant.task;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -108,29 +111,40 @@ public class ImportProjectTask extends Task {
         }
 
         preImportProjectCheck(srv, projects);
-        final List<IProject> importedProjects =
-                srv.doProjectsImport(projects, skipPostImportTask);
 
-        if (!importedProjects.isEmpty()) {
+		try
+		{
+			final List<IProject> importedProjects = srv.doProjectsImport(projects, skipPostImportTask);
 
-            String msg =
-                    getDisplayFormatedProjectList("Successfully imported the following projects:", importedProjects); //$NON-NLS-1$
-            log(msg);
+			if (!importedProjects.isEmpty())
+			{
 
-            /*
-             * Make sure any builds are complete.
-             */
-            if (!skipPostImportTask)
-                doBuild(importedProjects);
+				String msg = getDisplayFormatedProjectList("Successfully imported the following projects:", //$NON-NLS-1$
+						importedProjects);
+				log(msg);
 
-        } else {
-            String msg = getSourceNotFoundDescription();
-            log(msg, Project.MSG_WARN);
+				/*
+				 * Make sure any builds are complete.
+				 */
+				if (!skipPostImportTask)
+				{
+					doBuild(importedProjects);
+				}
 
-            // Throw a BuildException to let ant know to stop processing (I think!)
-            throw new BuildException(msg);
-        }
+			}
+			else
+			{
+				String msg = getSourceNotFoundDescription();
+				log(msg, Project.MSG_WARN);
 
+				// Throw a BuildException to let ant know to stop processing (I think!)
+				throw new BuildException(msg);
+			}
+		}
+		finally
+		{
+
+		}
         super.execute();
     }
 
@@ -358,42 +372,89 @@ public class ImportProjectTask extends Task {
     /**
      * @param importedProjects
      */
-    private void doBuild(final List<IProject> importedProjects) {
+	private void doBuild(final List<IProject> importedProjects)
+	{
 
-        Job th = new Job("Build imported projects") { //$NON-NLS-1$
+		Job th = new Job("Build imported projects") //$NON-NLS-1$
+		{
 
-                    @Override
-                    protected IStatus run(IProgressMonitor monitor) {
+			@Override
+			protected IStatus run(IProgressMonitor monitor)
+			{
 
-                        String msg =
-                                getDisplayFormatedProjectList("Building the following projects:", importedProjects); //$NON-NLS-1$
-                        log(msg);
+				String msg = getDisplayFormatedProjectList("Building the following projects:", importedProjects); //$NON-NLS-1$
+				log(msg);
 
-                        IStatus synchronizedBuildStatus =
-                                BuildSynchronizerUtil
-                                        .synchronizedBuild(importedProjects,
-                                                null,
-                                                true);
+				/*
+				 * Sid ACE-8225 suppress stderr during import and the subsequent build.
+				 * 
+				 * Currently we get OCL 'error' messages that don't really cause any issues but get dumped out to
+				 * console this ant task (which is undesirable).
+				 */
+				final PrintStream systemErr = System.err;
 
-                        if (synchronizedBuildStatus.getSeverity() > IStatus.WARNING) {
-                            String message =
-                                    synchronizedBuildStatus.getMessage();
-                            Throwable exception =
-                                    synchronizedBuildStatus.getException();
-                            log(message, exception, Project.MSG_ERR);
-                        }
-                        return synchronizedBuildStatus;
-                    }
-                };
+				PrintStream filteredSystemErr = new PrintStream(new OutputStream()
+				{
+					/**
+					 * @see java.io.OutputStream#write(byte[], int, int)
+					 *
+					 * @param b
+					 * @param off
+					 * @param len
+					 * @throws IOException
+					 */
+					@Override
+					public void write(byte[] b, int off, int len) throws IOException
+					{
+						/*
+						 * DON'T OUTPUT (although if we find we need only to get rid of specific output, then we can
+						 * filter and delegate to systemErr stream if necessary.
+						 */
+					}
 
-        try {
-            th.schedule();
-            th.join();
-            log("Build complete"); //$NON-NLS-1$
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+					@Override
+					public void write(int b) throws IOException
+					{
+					}
+				});
+
+				try
+				{
+					/**
+					 * Do the build after redirecting stderr
+					 */
+					System.setErr(filteredSystemErr);
+
+					IStatus synchronizedBuildStatus = BuildSynchronizerUtil.synchronizedBuild(importedProjects, null,
+							true);
+
+					if (synchronizedBuildStatus.getSeverity() > IStatus.WARNING)
+					{
+						String message = synchronizedBuildStatus.getMessage();
+						Throwable exception = synchronizedBuildStatus.getException();
+					}
+					return synchronizedBuildStatus;
+
+				}
+				finally
+				{
+					System.setErr(systemErr);
+					filteredSystemErr.close();
+				}
+			}
+		};
+
+		try
+		{
+			th.schedule();
+			th.join();
+			log("Build complete"); //$NON-NLS-1$
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+	}
 
     /**
      * @param importService

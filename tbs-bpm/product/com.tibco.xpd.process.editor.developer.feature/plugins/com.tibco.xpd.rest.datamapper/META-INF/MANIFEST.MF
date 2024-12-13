@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: REST Data Mapper
 Bundle-SymbolicName: com.tibco.xpd.rest.datamapper;singleton:=true
-Bundle-Version: 11.6.0.qualifier
+Bundle-Version: 11.7.0.qualifier
 Bundle-Vendor: TIBCO
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
@@ -14,6 +14,10 @@ Require-Bundle: com.tibco.xpd.datamapper,
  com.tibco.xpd.rsd.model,
  com.tibco.xpd.js.validation,
  com.tibco.xpd.process.js.model,
- com.tibco.xpd.process.datamapper
+ com.tibco.xpd.process.datamapper,
+ com.tibco.xpd.tpcl.org.apache.swagger,
+ com.tibco.xpd.rest.ui;visibility:=reexport
 Export-Package: com.tibco.xpd.rest.datamapper,
- com.tibco.xpd.rest.datamapper.rules
+ com.tibco.xpd.rest.datamapper.rules,
+ com.tibco.xpd.swagger.datamapper,
+ com.tibco.xpd.swagger.datamapper.rules

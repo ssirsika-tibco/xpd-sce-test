@@ -1,0 +1,33 @@
+openapi: 3.0.0
+info:
+  title: Basic Type 1
+  version: 1.0.0
+paths:
+  /example:
+    post:
+      summary: Invalid request body
+      operationId: invalidRequestBody
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name with length restrictions
+                  minLength: 3
+                  maxLength: 50
+                  example: "John Doe"
+      responses:
+        '200':
+          description: Successful response with all simple data types
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Data processed successfully" 

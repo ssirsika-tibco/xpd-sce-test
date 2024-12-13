@@ -17,7 +17,10 @@ public class AllLegacyDataMapperTests {
         suite.addTestSuite(N2_49_DataMapperValidationMarkerTest.class);
         suite.addTestSuite(N2_49bXPD_7735MappingParentAndChild1Test.class);
         suite.addTestSuite(N2_49c_XPD_7735_MappingParentAndChildTest2Test.class);
-       
+
+		suite.addTestSuite(RestScriptGeneratorInfoProviderStatementTest.class);
+		suite.addTestSuite(RestScriptGeneratorInfoProviderUriTest.class);
+
         // $JUnit-END$
         return suite;
     }

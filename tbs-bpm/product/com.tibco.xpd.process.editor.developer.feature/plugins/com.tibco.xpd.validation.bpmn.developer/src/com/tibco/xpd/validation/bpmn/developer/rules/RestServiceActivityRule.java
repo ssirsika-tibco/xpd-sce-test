@@ -31,6 +31,8 @@ import com.tibco.xpd.xpdl2.Performer;
 import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
+import io.swagger.v3.oas.models.Operation;
+
 /**
  * Validation rules for REST Service invocation activities.
  * 
@@ -79,10 +81,15 @@ public class RestServiceActivityRule extends ProcessActivitiesValidationRule {
                 } else {
                     Method method = null;
                     IndexerItem ii = rsta.getMethodIndexerItem(rso);
-                    if (ii != null) {
-                        method = rsta.getRSOMethod(ii);
+
+					// Nikita ACE-8267 Get the Swagger Operation first,
+					// if null try fetching the RSD Method
+                    Operation operation = rsta.getRSOOperation(activity);
+                    if (operation == null) {
+                    	method = rsta.getRSOMethod(activity);
                     }
-                    if (method == null) {
+					// If both method and operation are null that means the reference is invalid
+					if (method == null && operation == null) {
                         // Invalid method reference.
                         List<String> messages = new ArrayList<>();
                         messages.add(activity.getName());
@@ -93,7 +100,7 @@ public class RestServiceActivityRule extends ProcessActivitiesValidationRule {
                         IProject activityProject =
                                 WorkingCopyUtil.getProjectFor(activity);
                         IProject methodProject =
-                                WorkingCopyUtil.getProjectFor(method);
+								rsta.getFile(ii).getProject();
                         if (!activityProject.equals(methodProject)) {
                             Set<IProject> projects = new HashSet<>();
                             ProjectUtil
