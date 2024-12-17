@@ -16,21 +16,6 @@
 	<version>5.7.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<profiles>
-		<profile>
-			<id>tibco</id>
-			<repositories>
-				<repository>
-					<id>bpm-studio-base-platform-p2repo</id>
-					<name>bpm-studio-base-platform-p2repo</name>
-					<url>${bpm.studio.p2repo.base.platform}</url>
-					<layout>p2</layout>
-				</repository>
-
-			</repositories>
-		</profile>
-	</profiles>
-	
 	<modules>
 		<!--  
 		Product features (in order of dependency) 

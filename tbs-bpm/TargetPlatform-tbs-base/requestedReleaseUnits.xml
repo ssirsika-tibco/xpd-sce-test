@@ -127,6 +127,8 @@
 		<!-- For the javax.xml.ws and javax.jws removed from Java-8 -->
 		<import feature="org.eclipse.jst.ws.jaxws.feature" version="1.2.700" match="compatible" />	
 
+		<!-- Sid ACE-8509 New TCPL for Apache Swagger / OpenAPI libraries -->
+		<import feature="com.tibco.xpd.tpcl.org.apache.swagger.feature" version="1.0.0" match="compatible" />	
 		<!-- -->
 		
 		<!-- Extra Features - OAW (Open Architecture Ware) dependencies -->
@@ -162,6 +164,7 @@
 		<!-- BPM Data manager features. -->
 		<import feature="com.tibco.bpm.cdm.dm.feature.eclipse" version="1.0.0" match="compatible"/>
 		<import feature="com.tibco.bpm.artefact.collection.feature.eclipse" version="1.3.0" match="compatible"/>
+		<import feature="com.tibco.bpm.cdm.libs.feature.eclipse" version="1.0.0" match="compatible"/>
 
 		<!-- Pulling in HttpClient 3.1.200 (rather than the 3.10.0 used in actual product install set) because we
 		     have to pull in 1.5.400 of commons.logging.over.slf4j because that has the export org.apache.commons.logging package @ v1.2.0

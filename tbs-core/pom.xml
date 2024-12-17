@@ -16,20 +16,6 @@
 	<version>5.7.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<profiles>
-		<profile>
-			<id>tibco</id>
-			<repositories>
-				<repository>
-					<id>bpm-studio-base-platform-p2repo</id>
-					<name>bpm-studio-base-platform-p2repo</name>
-					<url>${bpm.studio.p2repo.base.platform}</url>
-					<layout>p2</layout>
-				</repository>
-			</repositories>
-		</profile>
-	</profiles>
-	
 	<modules>
 		<!-- Special 'installer' feature (not part of product, just contains scripts that help setup Studio nightly build content  -->
 		<module>com.tibco.xpd.installer.feature</module>
