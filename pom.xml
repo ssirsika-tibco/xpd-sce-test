@@ -12,16 +12,24 @@
 	
 	<properties>
 		<!-- BPM Studio specific build properties -->
-
+		<bpm.studio.version.unqualified>trunk</bpm.studio.version.unqualified>
+		<bpm.studio.branch>trunk</bpm.studio.branch>
+	
 		<!-- 
 		The base root of the Studio target-platforms where the P2 repo's reside. 
 		Defaults to the expected location on build architecture (so that centralised build infra can pick them up when building RU's).
 		Can be overwritten for local / nightly build infra to a local-system file system location.
 		-->
-		<bpm.studio.p2repos.location>http://studiobuild2.emea.tibco.com/userContent/bpm-studio-p2repos/5.7.0/trunk</bpm.studio.p2repos.location>
+		<bpm.studio.p2repos.location>http://studiobuild2.emea.tibco.com/userContent/bpm-studio-p2repos/${bpm.studio.version.unqualified}/${bpm.studio.branch}</bpm.studio.p2repos.location>
 
-		<!-- The location of the p2repo for the base Eclipse and TPCLs platform. -->
-		<bpm.studio.p2repo.base.platform>${bpm.studio.p2repos.location}/base-platform</bpm.studio.p2repo.base.platform>
+		<!-- p2repo for the base Eclipse and TPCLs platform. -->
+		<bpm.studio.p2repos.base.platform>${bpm.studio.p2repos.location}/base-platform</bpm.studio.p2repos.base.platform>
+		<!-- p2repo Studio Core Features (TBD will be required for release-infra builds, for local/nightly builds can be overridden as base-platform as core/bpm features will be pulled from local maven repo). -->
+		<bpm.studio.p2repos.core.features>${bpm.studio.p2repos.location}/studio-core-features</bpm.studio.p2repos.core.features>
+		<!-- p2repo fStudio BPM Features (TBD will be required for release-infra builds, for local/nightly builds can be overridden as base-platform as core/bpm features will be pulled from local maven repo). -->
+		<bpm.studio.p2repos.bpm.features>${bpm.studio.p2repos.location}/studio-bpm-features</bpm.studio.p2repos.bpm.features>
+		
+		<!-- ================ -->
 		
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -110,10 +118,25 @@
 		<profile>
 			<id>tibco</id>
 			<repositories>
+				<!-- p2repo for the base Eclipse and TPCLs platform. -->
 				<repository>
 					<id>bpm-studio-base-platform-p2repo</id>
 					<name>bpm-studio-base-platform-p2repo</name>
-					<url>${bpm.studio.p2repo.base.platform}</url>
+					<url>${bpm.studio.p2repos.base.platform}</url>
+					<layout>p2</layout>
+				</repository>
+				<!-- p2repo for Studio Core Features. -->
+				<repository>
+					<id>bpm-studio-core-features-p2repo</id>
+					<name>bpm-studio-core-features-p2repo</name>
+					<url>${bpm.studio.p2repos.core.features}</url>
+					<layout>p2</layout>
+				</repository>
+				<!-- p2repo Studio BPM Features. -->
+				<repository>
+					<id>bpm-studio-bpm-features-p2repo</id>
+					<name>bpm-studio-bpm-features-p2repo</name>
+					<url>${bpm.studio.p2repos.bpm.features}</url>
 					<layout>p2</layout>
 				</repository>
 			</repositories>
