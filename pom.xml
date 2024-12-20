@@ -11,9 +11,11 @@
 	<packaging>pom</packaging>
 	
 	<properties>
-		<!-- BPM Studio specific build properties -->
-		<bpm.studio.version.unqualified>trunk</bpm.studio.version.unqualified>
-		<bpm.studio.branch>trunk</bpm.studio.branch>
+		<!-- 
+		BPM Studio specific build properties 
+		-->
+		<bpm.studio.version.unqualified>5.7.0</bpm.studio.version.unqualified> <!--  Unfortunately the inbuilt ${unqualifiedVersion} property is not available in the <properties> section -->
+		<bpm.studio.branch>trunk</bpm.studio.branch> <!-- The branch tag -->
 	
 		<!-- 
 		The base root of the Studio target-platforms where the P2 repo's reside. 
