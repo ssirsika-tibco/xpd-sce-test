@@ -119,7 +119,7 @@
     		<fileset dir="${installation.root}/components/eclipse"/>
     	</zip>
 
-		<delete dir="${env.WORKSPACE}/lastBuild" includes="${lastBuildStudio}"></delete>
+		<delete dir="${env.WORKSPACE}/lastBuild" includes="*.zip"></delete>
 		<mkdir dir="${env.WORKSPACE}/lastBuild"/>
 		<echo>Copying file from: ${zipFileLocation}/${zip.filename} to:${env.WORKSPACE}/lastBuild/${lastBuildStudio}</echo>
     	<copy file="${zipFileLocation}/${zip.filename}" tofile="${env.WORKSPACE}/lastBuild/${lastBuildStudio}" verbose="true"/>
