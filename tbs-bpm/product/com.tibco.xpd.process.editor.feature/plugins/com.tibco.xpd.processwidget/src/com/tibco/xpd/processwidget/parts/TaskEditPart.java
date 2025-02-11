@@ -1936,4 +1936,25 @@ public class TaskEditPart extends BaseFlowNodeEditPart implements
         super.removeChildVisual(childEditPart);
 
     }
+
+	/**
+	 * @see com.tibco.xpd.processwidget.parts.BaseGraphicalEditPart#deactivate()
+	 *
+	 */
+	@Override
+	public void deactivate()
+	{
+		/* Sid ACE-9085: Fix SWT resource leakage in process diagram TextFigureLayout */
+
+		// ProcessWidgetPlugin.getDefault().getLogger().info("TaskEditPart.dispose() called"); //$NON-NLS-1$
+
+		if (getFigure() instanceof TaskFigure)
+		{
+			((TaskFigure) getFigure()).dispose();
+
+			// ProcessWidgetPlugin.getDefault().getLogger().info(" TaskEditPart TaskFigure disposed"); //$NON-NLS-1$
+		}
+
+		super.deactivate();
+	}
 }

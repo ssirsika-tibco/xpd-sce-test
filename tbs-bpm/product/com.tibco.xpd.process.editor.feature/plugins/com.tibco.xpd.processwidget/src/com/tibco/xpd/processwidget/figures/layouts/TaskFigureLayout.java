@@ -133,6 +133,11 @@ public class TaskFigureLayout extends AbstractLayout {
 
     @Override
     public void layout(IFigure container) {
+		// ProcessWidgetPlugin.getDefault().getLogger().info("TextFigureLayout.layout() called"); //$NON-NLS-1$
+
+		/* Sid ACE-9085: Fix SWT resource leakage in process diagram TextFigureLayout */
+		disposeTextLayouts();
+
         taskTextLines = new ArrayList<TaskTextBlock>();
 
         layoutMarkers();
@@ -348,7 +353,11 @@ public class TaskFigureLayout extends AbstractLayout {
      * </p>
      */
     private void layoutTaskBPMN20Text() {
-        taskTextLines.clear();
+		// ProcessWidgetPlugin.getDefault().getLogger().info("TextFigureLayout.layoutTaskBPMN20Text() called");
+		// //$NON-NLS-1$
+
+		/* Sid ACE-9085: Fix SWT resource leakage in process diagram TextFigureLayout */
+		disposeTextLayouts();
 
         /*
          * Store text location relative to top-left of task (rather than
@@ -488,6 +497,9 @@ public class TaskFigureLayout extends AbstractLayout {
                 if (firstLineText.length() <= 1) {
                     restOfText = wholeTaskText;
 
+					/* Sid ACE-9085: Fix SWT resource leakage in process diagram TextFigureLayout */
+					textBlock1.dispose();
+
                     taskTextLines.remove(textBlock1);
 
                 } else {
@@ -595,7 +607,8 @@ public class TaskFigureLayout extends AbstractLayout {
          * Reset the text layout. The height will set itself according to
          * wrapping to the available width
          */
-        taskTextLines.clear();
+		/* Sid ACE-9085: Fix SWT resource leakage in process diagram TextFigureLayout */
+		disposeTextLayouts();
 
         String text = taskFigure.getText();
 
@@ -692,6 +705,36 @@ public class TaskFigureLayout extends AbstractLayout {
 
     }
 
+	/**
+	 * Dispose of any resources used by this layout. This function must be called when the {@link TaskFigureLayout} is
+	 * discarded.
+	 * 
+	 * Sid ACE-9085: Fix SWT resource leakage in process diagram TextFigureLayout
+	 */
+	public void dispose()
+	{
+		disposeTextLayouts();
+	}
+
+	/**
+	 * Dispose resources associated with Text Layouts.
+	 * 
+	 * Sid ACE-9085: Fix SWT resource leakage in process diagram TextFigureLayout
+	 * 
+	 */
+	private void disposeTextLayouts()
+	{
+		if (taskTextLines != null)
+		{
+			for (TaskTextBlock taskTextBlock : taskTextLines)
+			{
+				taskTextBlock.dispose();
+			}
+
+			taskTextLines.clear();
+		}
+	}
+
     /**
      * Class representing a single block of text. Used so that
      * {@link TaskFigureLayout} can communicate the blocks of text and their
@@ -725,9 +768,28 @@ public class TaskFigureLayout extends AbstractLayout {
         }
 
         /**
-         * @return Get the bounds of the text (as opposed to getAllowedBounds()
-         *         which will return the allowed width + actual height).
-         */
+		 * Dispose the resources associated with this {@link TaskTextBlock}. This function must be called when the
+		 * {@link TaskFigureLayout} is discarded.
+		 * 
+		 * Sid ACE-9085: Fix SWT resource leakage in process diagram TextFigureLayout
+		 */
+		public void dispose()
+		{
+			// ProcessWidgetPlugin.getDefault().getLogger().info("TextFiguereLayout.TaskTestBlock.dispose() called");
+
+			if (textLayout != null && !textLayout.isDisposed())
+			{
+				textLayout.dispose();
+
+				// ProcessWidgetPlugin.getDefault().getLogger()
+				// .info(" TextFiguereLayout.TaskTestBlock - TextLayout disposed"); //$NON-NLS-1$
+			}
+		}
+
+		/**
+		 * @return Get the bounds of the text (as opposed to getAllowedBounds() which will return the allowed width +
+		 *         actual height).
+		 */
         public Rectangle getActualTextBounds() {
             String lineText = textLayout.getText();
 

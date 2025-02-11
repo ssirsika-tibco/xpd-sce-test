@@ -980,4 +980,20 @@ public class TaskFigure extends BaseLogExceptionFadeableFigure implements
     public int getBorderWidth() {
         return borderWidth;
     }
+
+	/**
+	 * Dispose of any resources used by this TaskFigure. This function must be called when the {@link TaskFigure} is
+	 * discarded.
+	 * 
+	 * Sid ACE-9085: Fix SWT resource leakage in process diagram TextFigureLayout
+	 */
+	public void dispose()
+	{
+		// ProcessWidgetPlugin.getDefault().getLogger().info("TextFigure.dispose() called"); //$NON-NLS-1$
+		if (taskFigureLayout != null)
+		{
+			taskFigureLayout.dispose();
+			// ProcessWidgetPlugin.getDefault().getLogger().info(" TextFigure textFigureLayout disposed"); //$NON-NLS-1$
+		}
+	}
 }
