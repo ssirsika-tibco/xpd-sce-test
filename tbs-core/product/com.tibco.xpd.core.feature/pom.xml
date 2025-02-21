@@ -7,16 +7,38 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.tibco.xpd.bpm.studio</groupId>
-    <artifactId>com.tibco.xpd.bpm.studio.core.features</artifactId>
-    <version>5.7.0-SNAPSHOT</version>
-    <relativePath>../../</relativePath>
-  </parent>
   <groupId>com.tibco.xpd.bpm.studio</groupId>
   <artifactId>com.tibco.xpd.core.feature.ru</artifactId>
   <version>11.7.0-SNAPSHOT</version>
   <packaging>pom</packaging>
+  <properties>
+		<!-- 
+		BPM Studio specific build properties 
+		-->
+		<bpm.studio.version.unqualified>5.7.0</bpm.studio.version.unqualified> <!--  Unfortunately the inbuilt ${unqualifiedVersion} property is not available in the <properties> section -->
+		<bpm.studio.branch>trunk</bpm.studio.branch> <!-- The branch tag -->
+	
+		<!-- 
+		The base root of the Studio target-platforms where the P2 repo's reside. 
+		Defaults to the expected location on build architecture (so that centralised build infra can pick them up when building RU's).
+		Can be overwritten for local / nightly build infra to a local-system file system location.
+		-->
+		<bpm.studio.p2repos.location>http://studiobuild2.emea.tibco.com/userContent/bpm-studio-p2repos/${bpm.studio.version.unqualified}/${bpm.studio.branch}</bpm.studio.p2repos.location>
+
+		<!-- p2repo for the base Eclipse and TPCLs platform. -->
+		<bpm.studio.p2repos.base.platform>${bpm.studio.p2repos.location}/base-platform</bpm.studio.p2repos.base.platform>
+		<!-- p2repo Studio Core Features (TBD will be required for release-infra builds, for local/nightly builds can be overridden as base-platform as core/bpm features will be pulled from local maven repo). -->
+		<bpm.studio.p2repos.core.features>${bpm.studio.p2repos.location}/studio-core-features</bpm.studio.p2repos.core.features>
+		<!-- p2repo for Studio BPM Features (TBD will be required for release-infra builds, for local/nightly builds can be overridden as base-platform as core/bpm features will be pulled from local maven repo). -->
+		<bpm.studio.p2repos.bpm.features>${bpm.studio.p2repos.location}/studio-bpm-features</bpm.studio.p2repos.bpm.features>
+		
+		<!-- ================ -->
+		
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<tycho-version>2.7.5</tycho-version>
+
+  </properties>
   <modules>
     <module>features/com.tibco.xpd.core.feature</module>
     
@@ -35,14 +57,113 @@
     <module>plugins/com.tibco.xpd.validation</module>
     
   </modules>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-maven-plugin</artifactId>
-        <version>2.7.5</version>
-        <extensions>true</extensions>
-      </plugin>
-    </plugins>
-  </build>
+  <!-- 
+Build configuration added to all RU features
+-->
+	<build>
+		<finalName>${project.artifactId}_${unqualifiedVersion}.${buildQualifier}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<!-- compilerArgument>-warn:none</compilerArgument> <compilerArgument>-err:none</compilerArgument -->
+					<compilerArgument>-warn:+discouraged,forbidden</compilerArgument>
+					<useProjectSettings>true</useProjectSettings>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<id>package-feature</id>
+						<configuration>
+							<finalName>${project.artifactId}_${unqualifiedVersion}.${buildQualifier}</finalName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<dependency-resolution>
+						<optionalDependencies>ignore</optionalDependencies>
+					</dependency-resolution>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-versions-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>versions</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>update-eclipse-metadata</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>3.2.0</version>
+				<executions>
+					<execution>
+						<id>parse-version</id>
+						<goals>
+							<goal>parse-version</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.8.1</version>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>tibco</id>
+			<repositories>
+				<!-- p2repo for the base Eclipse and TPCLs platform. -->
+				<repository>
+					<id>bpm-studio-base-platform-p2repo</id>
+					<name>bpm-studio-base-platform-p2repo</name>
+					<url>${bpm.studio.p2repos.base.platform}</url>
+					<layout>p2</layout>
+				</repository>
+				<!-- p2repo for Studio Core Features. -->
+				<repository>
+					<id>bpm-studio-core-features-p2repo</id>
+					<name>bpm-studio-core-features-p2repo</name>
+					<url>${bpm.studio.p2repos.core.features}</url>
+					<layout>p2</layout>
+				</repository>
+				<!-- p2repo Studio BPM Features. -->
+				<repository>
+					<id>bpm-studio-bpm-features-p2repo</id>
+					<name>bpm-studio-bpm-features-p2repo</name>
+					<url>${bpm.studio.p2repos.bpm.features}</url>
+					<layout>p2</layout>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
+	
 </project>
