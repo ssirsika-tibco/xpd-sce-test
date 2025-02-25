@@ -81,6 +81,10 @@ Build configuration added to all RU features
 	<profiles>
 		<profile>
 			<id>tibco</id>
+			<!--
+				For release-infra build pom needs to specify a P2 repos with ALL possible Eclipse SDK, TPCL Studio Core and Studio BPM
+				  features in order to satisfy dependencies.
+			-->
 			<repositories>
 				<!-- p2repo for the base Eclipse and TPCLs platform. -->
 				<repository>
@@ -101,6 +105,23 @@ Build configuration added to all RU features
 					<id>bpm-studio-bpm-features-p2repo</id>
 					<name>bpm-studio-bpm-features-p2repo</name>
 					<url>${bpm.studio.p2repos.bpm.features}</url>
+					<layout>p2</layout>
+				</repository>
+			</repositories>
+		</profile>
+		<profile>
+			<id>local-build</id>
+			<!--
+				For local build we're actually BUILDING the P2 repos, so we cannot reference them.  So instead, we switch
+				  all P2 repos to point at the base-platform repo only, which can satisfy Eclipse SDK and TPCL dependencies
+				  and intra-Studio dependencies are resolved against local maven repo.
+			-->
+			<repositories>
+				<!-- p2repo for the base Eclipse and TPCLs platform. -->
+				<repository>
+					<id>bpm-studio-base-platform-p2repo</id>
+					<name>bpm-studio-base-platform-p2repo</name>
+					<url>${bpm.studio.p2repos.base.platform}</url>
 					<layout>p2</layout>
 				</repository>
 			</repositories>
